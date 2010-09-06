@@ -1,0 +1,316 @@
+ru:
+#  value, attribute, model
+  activerecord:
+    models:
+      user: Е-мейл
+    attributes:
+      user:
+        email: Е-мейл
+        password: Пароль
+    errors:
+      user:
+        header:
+          one: Операция не была выполнена из-за следующей проблемы
+          other: Операция не была выполнена из-за следующих %{count} проблем
+      messages:
+        inclusion: не содержится в списке
+        exclusion: не может использоваться
+        invalid: неверно
+        confirmation: не соответствует подтверждению
+        accepted: must be accepted
+        empty: не может быть пустым
+        blank: не может быть пустым
+        too_long: слишком длинное (максимум %{count} символов)
+        too_short: слишком короткое (минимум %{count} символов)
+        wrong_length: неправильная длина (должна быть %{count} символов)
+        not_a_number: не является числом
+        greater_than: должно быть больше чем %{count}
+        greater_than_or_equal_to: должно быть больше или равно %{count}
+        equal_to: должно быть равно %{count}
+        less_than: должно быть меньше чем %{count}
+        less_than_or_equal_to: должно быть меньше или равно %{count}
+        odd: должно быть нечетно
+        even: дожно быть четно
+        taken: уже зарегистрирован
+      models:
+        user:
+          blank: пустое поле
+          attributes:
+            email:
+              blank: -- пропущено значение
+              invalid: неверно
+            password:
+              blank: -- не может быть пустым
+              too_short: слишком короткое (минимум %{count} символов)
+              confirmation: не соответствует подтверждению
+
+  views:
+    submit: Отправить
+    load: Загрузить
+    cancel: Отменить
+    signout: Выйти
+    back: Назад
+    update: Обновить
+    please_wait: Ждите...
+
+  layout:
+    search: Поиск
+    search_screen_reader: Искать
+
+  errors:
+    messages:
+      not_found: не найдено
+      already_confirmed: уже подтвержден
+      not_locked: не был заблокирован
+
+  devise:
+    views:
+      sign_in: Войти
+      sign_in_more: Войти&nbsp;&nbsp;&nbsp;&#9658;
+      email: Е-мейл
+      password: Пароль
+      remember_me: Запомнить
+      sign_up: Зарегистрироваться
+      sign_up_more: Согласен &nbsp;&nbsp;&nbsp;&#9658;
+      forgot_password: Забыли пароль?
+      no_confirmation_instructions: Инструкция по подтверждению аккаунта
+      no_unlock_instructions: Инструкция по разблокировке аккаунта
+      new_password: Новый пароль (не менее 6 символов)
+      confirm_new_password: Подтверждение пароля
+      current_password: Нынешний пароль (это нужно для подтверждения изменений)
+      send_reset_password: Выслать инструкцию по обновлению пароля
+      resend_confirmation_instructions: Снова выслать инструкцию по подтверждению
+      resend_unlock_instructions: Снова выслать инструкцию по разблокировке
+      change_my_password: Изменить мой пароль
+      sign_up_now: Зарегистрироваться сейчас!!!
+      new_user: Новый пользователь?
+      cannot_sign_in: Проблемы? Для получения помощи нажмите здесь!
+    mails:
+      welcome: Здравствуйте
+      confirm_through_link: Нажмите на нижеследующий линк для подтверждения аккаунта
+      confirm_my_account: Подтвердить мой аккаунт
+      hello: Здравствуйте
+      reset_password_line1: Кто-то запросил ссылку для изменения Вашего пароля. Этот линк находится ниже
+      reset_password_line2: Если это были не Вы, то, пожалуйста, проигнорируйте этот мейл
+      reset_password_line3: Ваш пароль не будет изменен пока Вы не нажмете на нижеследующий линк и не создадите новый пароль
+      change_my_password: Изменить мой пароль
+      unlock_line1: Ваш аккаунт был заблокирован из-за большого количества неудачных попыток войти в систему
+      unlock_line2: Для разблокировки аккаунта, пожалуйста, нажмите на нижеследующий линк
+      unlock_my_account: Разблокировать мой аккаунт
+    failure:
+      unauthenticated: Перед тем, как продолжить, следует войти в систему или зарегистрироваться
+      unconfirmed: Вы должны подтвердить свой аккаунт.
+      locked: Ваш аккаунт заблокирован
+      invalid: Неправильный е-мейл адрес или пароль
+      invalid_token: Неправильный токен
+      timeout: Время существования сессии истекло. Просьба снова войти в систему
+      inactive: Ваш аккаунт еще не был активизирован
+    sessions:
+      signed_in: Вы успешно вошли в систему
+      signed_out: Вы успешно вышли из системы
+    passwords:
+      send_instructions: В течение нескольких минут Вы получите е-мейл, содержащий инструкции по обновлению Вашего пароля.
+      updated: Ваш пароль успешно заменен. Вы вошли в систему.
+    confirmations:
+      send_instructions: В течение нескольких минут Вы получите е-мейл, содержащий инструкции по подтверждению Вашего аккаунта.
+      confirmed: Ваш аккаунт успешно подтвержден. Вы вошли в систему
+    registrations:
+      signed_up: Вы зарегистрированы. На Ваш мейл послан линк для активизации аккаунта.
+      updated: Вы успешно изменили свой аккаунт.
+      destroyed: До свидания! Ваш аккаунт был успешно удален. Надеемся увидеть Вас снова в скором времени.
+    unlocks:
+      send_instructions: В течении нескольких минут Вы получите е-мейл, содержащий инструкции по разблокировке Вашего аккаунта.
+      unlocked: Ваш аккаунт успешно разблокирован. Вы вошли в систему
+    mailer:
+      confirmation_instructions: Инструкция по подтверждению аккаунта
+      reset_password_instructions: Инструкция по обновлению пароля
+      unlock_instructions: Инструкция по разблокировке
+      confirmation_instructions:
+        user_subject: Инструкция по подтверждению аккаунта
+      reset_password_instructions:
+        user_subject: Инструкция по обновлению пароля
+      unlock_instructions:
+        user_subject: Инструкция по разблокировке
+
+  answer:
+    model:
+      select_at_least_one: Вы должны выбрать не менее одной возможности
+      write_an_answer: Вы должны написать ответ
+      select_one_option: Вы должны выбрать одну из возможностей
+      answer_too_short: Ответ слишком короткий. Минимальная длина ответа - 10 символов
+
+  questionnaire_answer:
+    controller:
+      no_success: Заполнение вопросника завершилось с ошибкой
+      was_success: Заполнение вопросника успешно завершено
+      no_questionnaire: Такого вопросника не существует.
+      already_answered: Вы уже ответили на этот вопросник
+    views:
+      all_fields_are_required: Следует заполнить все поля!
+      please_select_one_of_the_options: Выберите одну из возможностей
+
+  home:
+    views:
+      edit_profile: Изменить профиль
+      check_for_new_questionnaire: Проверить наличие новых вопросников
+      view_reports: Показать отчеты
+      date: Дата
+      title: Заголовок
+      status: Состояние
+      answered: отвечен
+      not_answered: не отвечен
+      last_10_questionnaires: Последние 10 вопросников
+      dashboard: Моя страница
+      admin: Администрация
+    faq:
+      faq: Часто задаваемые вопросы
+      confirmation:
+        Вы уже зарегистрировались, но система не дает войти?
+        Пожалуйста проверьте Ваш емайл, там должно быть письмо с инструкцией для подтверждения регистрации.
+        Если такого письма нет, то воспользуйтесь линком, чтобы послать это письмо еще раз.
+      forgot_password:
+        Вы уже зарегистрировались, но система не дает войти?
+        Вы проверили наличие письма с инструкцией для подтверждения регистрации как описано выше?
+        Может быть Вы неправильно вводите свой пароль?
+        Воспользуйтесь следующим линком для смены пароля.
+      unlock:
+        Система заблокировала Ваш счет? Пожалуйста проверьте Ваш емайл, там должно быть письмо
+        с инструкцией для разблокировки.
+        Если такого письма нет, то воспользуйтесь линком, чтобы послать это письмо еще раз.
+      email:
+        Если вы попробовали всё вышеописаное, а проблема всё ещё не решена, пожалуйста напишите на
+
+  profile:
+    views:
+      edit: редактировать
+      dear: Здравствуйте
+      please_update_profile: просьба обновить профиль
+      change_password: изменить пароль
+      profile: Профиль
+      required: обязательные поля
+
+  user:
+    model:
+      gender: Пол
+      male: Мужской
+      female: Женский
+      birthday: Год рождения
+      receive_notifications: Хотите ли Вы получать уведомления на свой е-мейл?
+      yes_answer: Да
+      no_answer: Нет
+      preferred_language: Язык сообщений
+      first_name: Имя
+      last_name: Фамилия
+
+  admin:
+    user_list:
+      create_new_user: Создать члена группы
+      create_user_list: Создать члена группы
+      update_user_list: Обновить члена группы
+      last_name: Фамилия
+      first_name: Имя
+      email: Е-мейл
+      has_user: Зарегистрирован?
+      edit: Редактировать
+      delete: Удалить
+      are_you_sure: Вы уверены?
+      select_group: Выберите группу
+      please_select_one_of_the_options: Выберите одну из возможностей
+    questionnaires:
+      create_new_questionnaire: Создать новый вопросник
+      created_at: Дата создания
+      created_by: Автор
+      title: Заголовок
+      status: Состояние
+      edit: Редактировать
+      approve: Утвердить
+      set_draft: Сохранить как черновик
+      delete: Удалить
+      are_you_sure: Вы уверены?
+      questionnaire_editor: Редактор вопросников
+      questionnaire_title: Заголовок вопросника
+      questionnaire_description: Описание вопросника
+      questionnaire_related_links: Дополнительные ссылки вопросника
+      questionnaire_excerpt: Отрывок из первоисточника
+      remove: удалить
+      title: Заголовок
+      description: Описание
+      add_answer: Добавить ответ
+      add_other: Добавить "другое"
+      other: "другое"
+      add: Добавить
+      label_from: Метка от
+      label_to: Метка до
+      scale_from: От числа
+      scale_to: До числа
+      is_multiline: многострочное поле?
+      update_questionnaire: Обновить вопросник
+      create_questionnaire: Создать вопросник
+      fields_marked_in_red_are_required: Обязательные поля выделены красным цветом
+    reports:
+      user_activities: Отчет о деятельности пользователя
+      date_range: Просьба выбрать даты
+      from: От
+      to: До
+      users_who_signed_in: Пользователи, вошедшие в систему
+      users_who_not_signed_in: Пользователи, не вошедшие в систему
+      users_who_answered_questionnaires: Пользователи, ответившие на вопросники
+      show_only_confirmed_users: Показать только подтвержденных пользователей
+      display_also_profile: Также показать и профиль
+      generate_report: Создать отчет
+      export_to_excel: Скачать в формате Excel
+      report: Отчет
+      reports: Отчеты
+      user: Пользователь
+      total: Итого
+      upload: Загрузить
+      file: Файл
+      group_name: Имя группы
+      include_email: Включить мейл в отчет
+      all_groups: Все
+      plus: активен
+      minus: неактивен
+      x: неизвестен
+      status: Состояние
+      attendance_report: Отчет посещаемости
+      date: Выберите месяц
+      basic_report: Базисный отчет посещаемости
+      generating: Ждите...
+      for_month: за
+      print: Распечатать
+      manage_questionnaires: Создание/редакция вопросников
+      questionnaires_list: Список вопросников
+      user_management: Управление пользователями
+      group_management: Управление группами
+      manage_user_roles: Управление пользователями
+      remove_user: Удалить пользователя
+      load_group_list: Загрузить список группы
+      manage_user_lists: Управление списком группы
+
+  notification:
+    views:
+      hi: Здравствуйте
+      you_got_new_questionnaire: Вы получили новый вопросник
+      click_above_link_to_answer: Чтобы ответить, пройдите по ссылке
+    mailer:
+      new_questionnaire_for_you: Вас ожидает новый вопросник...
+
+  date:
+    formats:
+      short: %d %B %Y
+
+    day_names: [воскресенье, понедельник, вторник, среда, четверг, пятница, суббота]
+    standalone_day_names: [Воскресенье, Понедельник, Вторник, Среда, Четверг, Пятница, Суббота]
+    abbr_day_names: [Вс, Пн, Вт, Ср, Чт, Пт, Сб]
+
+    month_names: [~, января, февраля, марта, апреля, мая, июня, июля, августа, сентября, октября, ноября, декабря]
+    # see russian gem for info on "standalone" day names
+    standalone_month_names: [~, Январь, Февраль, Март, Апрель, Май, Июнь, Июль, Август, Сентябрь, Октябрь, Ноябрь, Декабрь]
+    abbr_month_names: [~, янв., февр., марта, апр., мая, июня, июля, авг., сент., окт., нояб., дек.]
+    standalone_abbr_month_names: [~, янв., февр., март, апр., май, июнь, июль, авг., сент., окт., нояб., дек.]
+
+    order: [ :day, :month, :year ]
+
+  time:
+    formats:
+      attendance_report: %d %B %Y

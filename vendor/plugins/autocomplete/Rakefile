@@ -1,0 +1,14 @@
+require 'rubygems'
+require 'rake'
+
+begin
+  require 'jeweler'
+  Jeweler::Tasks.new do |gem|
+    gem.name = "autocomplete"
+    gem.summary = %Q{Use jQuery's autocomplete plugin with Rails 3.}
+    gem.description = %Q{Use jQuery's autocomplete plugin with Rails 3.}
+  end
+  Jeweler::GemcutterTasks.new
+rescue LoadError
+  puts "Jeweler (or a dependency) not available. Install it with: gem install jeweler"
+end

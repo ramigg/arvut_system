@@ -1,0 +1,709 @@
+html, body{
+    font: normal normal 14px "Lucida Grande", Arial, sans-serif;
+    color:#222;
+    height: 100%;
+}
+*{
+    line-height:1em;
+}
+.he {
+    direction: rtl;
+}
+a, a:link, a:visited, a:active,
+.ui-widget-content a, .ui-widget-content a:link, .ui-widget-content a:visited, .ui-widget-content a:active {
+    color:#5c9ccc;
+    text-decoration: none;
+}
+a:hover{
+    text-decoration: underline;
+}
+.clear {
+    clear: both;
+}
+.small-text, .sublabel{
+    font-size:0.8em;
+}
+p{
+    width:590px;
+    padding:0 0 0 10px;
+    margin:0 0 20px 0;
+}
+.he p{
+    padding: 0 10px 0 0;
+}
+
+#page{
+    margin:0 auto;
+    width:975px;
+}
+.narrow_column{
+    width:600px;
+}
+.text-input{
+    margin:0.2em 0 0.8em 0;
+    border:1px solid #bbb;
+    padding:5px;
+    width:97%;
+
+}
+.required{
+    color:red;
+}
+.sub-hr{
+    background:#5c9ccc;
+}
+.fleft{
+    float:left;
+}
+.fright{
+    float:right;
+}
+.he .fleft{
+    float:right;
+}
+.he .fright{
+    float:left;
+}
+.centered-layout{
+    margin:0 auto;
+}
+.centered-text{
+    text-align:center;
+}
+.bclear{
+    clear:both;
+}
+.d-inline{
+    display:inline;
+}
+.narrow-win{
+    width:50%;
+}
+.submission{
+    margin-top:1em;
+}
+/* update profile */
+.profile_update{
+    border-spacing: 0.5em;
+}
+.profile_update td{
+    height:1.5em;
+    padding:0.6em;
+    vertical-align:middle;
+}
+.profile_update .data{
+    border-left: 1px solid #96c8ee;
+}
+.profile_update label{
+    display:inline;
+}
+.profile_update ul{
+    list-style:none;
+}
+/* toolbar */
+#toolbar {
+    margin-bottom: 30px;
+}
+#toolbar ul li{
+    display:inline;
+    line-height:1.2em;
+}
+#toolbar h2{
+    font-size:1.2em;
+    font-weight:bold;
+    margin:0;
+}
+#toolbar .h2-p{
+    line-height: 1.3em;
+    margin:0;
+    padding: 0;
+}
+/* Header */
+#header {
+    margin:0;
+    padding: 0;
+    position: relative;
+}
+#langs{
+    float:right;
+    line-height:14px;
+}
+#langs a, #langs a:link, #langs a:visited, #langs a:active {
+    color: black;
+}
+#headerimg{
+    width:100%;
+    height: 50px;
+    margin: 7px 0 0;
+}
+#header #searchform {
+    clear:right;
+    float:right;
+    margin:10px 0 0;
+    padding:0;
+    text-align:center;
+}
+.he #header #searchform {
+    clear:left;
+    float:left;
+}
+.screen-reader-text {
+    top:-1000em;
+    position:absolute;
+}
+#header #searchform #s {
+    padding:2px;
+    width:300px;
+}
+#header #searchsubmit {
+    height:23px;
+    padding:1px 5px;
+    margin: 0 0 0 20px;
+}
+.he #header #searchsubmit {
+    margin: 0 20px 0 0;
+}
+#header hr{border: 1px solid #444444;}
+
+#rss2{
+    float:right;
+    margin-left: 5px;
+}
+#pages ul#menu{
+    padding: 0;
+    margin: 0;
+    list-style: none outside none;
+}
+#pages ul#menu a, #pages ul#menu a:link, #pages ul#menu a:visited, #pages ul#menu a:active {
+    color: black;
+}
+#pages li {
+    display:inline;
+    list-style:none outside none;
+    padding-right:5px;
+}
+#pages ul#menu li.ideas a {
+    color:orange;
+    font-weight:bold;
+    text-transform:uppercase;
+}
+
+.he #langs{
+    float:left;
+}
+.he #headerimg{
+    width:100%;
+    height: 50px;
+    margin: 7px 0 0;
+}
+.he #rss2{
+    float:left;
+    margin-right: 5px;
+}
+.he #pages ul#menu{
+    padding: 0;
+    margin: 0;
+    list-style: none outside none;
+}
+.he #pages li {
+    display:inline;
+    list-style:none outside none;
+    padding-left:5px;
+}
+.he #pages li.ideas a {
+    color:orange;
+    font-weight:bold;
+    text-transform:uppercase;
+}
+
+/* Footer */
+#page {
+    min-height: 100%;
+    height: auto !important;
+    height: 100%;
+    margin: 0 auto -4em;
+}
+#footer, .push{
+    height: 4em;
+}
+#footer {
+    clear:both;
+    color:#999999;
+    font-size:9px;
+    margin:0 auto;
+    padding:0;
+    width:976px;
+}
+#footer p {
+    margin:0;
+    padding:0;
+    text-align:center;
+    width:100%;
+}
+#footer a {
+    color:#999999;
+    font-size:9px;
+}
+#footer a:hover {
+    text-decoration: underline;
+}
+
+/* Forms */
+form{
+    margin:10px 0;
+}
+form ol{
+    list-style-type: decimal;
+    list-style-position:inside;
+}
+form ul li, form ol li{
+    margin:0 0 10px 0;
+    padding:13px 0 0 0;
+    font-weight:bold;
+    width:600px;
+    border-top:1px solid #ddd ;
+    clear:both;
+}
+form ul li span, form ol li span{
+    position:relative;
+    font-weight:normal;
+    float:right;
+    font-size:0.8em;
+    line-height:1em;
+}
+.he form ul li span, form ol li span{
+    float:left;
+}
+form ul li ul, form ol li ul{
+    margin: 10px 0 0 10px;
+}
+.he form ul li ul, .he form ol li ul{
+    margin: 10px 10px 0 0;
+}
+form ul li ul li, form ol li ul li{
+    padding:0;
+    margin:0 0 3px;
+    border:none;
+    font-weight:normal;
+    clear:both;
+}
+form input{
+    float: left;
+}
+.he form input{
+    float: right;
+}
+form label{
+    display: block;
+    margin: 0 0 0 1.8em;
+}
+.he form label{
+    margin: 0 1.8em 0 0;
+}
+form hr{
+    height:1px;
+    border:none;
+    background:#5c9ccc;
+    margin:15px 0;
+    clear: both;
+}
+.text-input{
+    border:1px solid #bbb;
+    padding:5px;
+    font-size: 16px;
+}
+.short-input{
+    width: 425px;
+}
+textarea{
+    margin: 0 0 0 0.9em;
+    width: 614px;
+    height:8em;
+}
+.answer-other textarea{
+    margin: 0 0 0 1.95em;
+    width: 590px;
+    height:4em;
+}
+/* ------- Errors & Messages -------- */
+p.ui-state-error, p.ui-state-highlight{
+    width:100%;
+}
+.he p.ui-state-error, p.ui-state-highlight{
+    padding:10px 0;
+}
+.ui-state-error, .ui-state-highlight{
+    text-align:center;
+    padding:5px;
+    border-top: none !important;
+}
+div.ui-state-error, div.ui-state-highlight{
+    border-top:none;
+}
+ul.ui-state-error, ul.ui-state-highlight{
+    width:300px;
+    margin:0 auto;
+    font-size:0.8em;
+    list-style:disc;
+    list-style-position:inside;
+}
+span.ui-state-error, span.ui-state-highlight{
+    border:none;
+    background:none;
+    padding:0;
+}
+#errorExplanation{
+    width:500px;
+    margin:0 0 10px;
+    padding:10px;
+    border:1px solid #FFBEBE !important;
+}
+#errorExplanation ul{
+    display: none;
+}
+#errorExplanation h3{
+    font-size: 1em;
+    margin:0;
+    font-weight:normal;
+}
+ol #errorExplanation{
+    margin: 0;
+    text-align: right;
+    position: absolute;
+    top: -0.8em;
+    width: 100px;
+    border: none !important;
+    background: none;
+    font-size: 0.8em;
+}
+.he ol #errorExplanation{
+    text-align: left;
+    right:0;
+}
+ol #errorExplanation ul{
+    display: inline;
+    margin:0;
+    right: 490px;
+}
+.he ol #errorExplanation ul{
+    left:490px;
+}
+ol li.form-entry{
+    position: relative;
+}
+ol li.form-entry h3{
+    display: inline;
+}
+
+#user_new div{
+    clear: both;
+}
+/* ------- Errors & Messages in Sign-in & Sign-up forms -------- */
+.he #user_edit .ui-state-error, .he #user_edit .ui-state-highlight,
+.he #user_new .ui-state-error, .he #user_new .ui-state-highlight{
+    text-align: right;
+}
+#tabs .ui-state-error, #tabs .ui-state-highlight,
+#user_new .ui-state-error, #user_new .ui-state-highlight,
+#user_edit .ui-state-error, #user_edit .ui-state-highlight{
+    text-align:left;
+    padding:5px;
+    width: auto;
+}
+#tabs .ui-state-error,
+#user_new .ui-state-error,
+#user_edit .ui-state-error{
+    margin-bottom: 10px;
+    border:1px solid #FFBEBE !important;
+    list-style: none;
+}
+#tabs .ui-state-error li, #tabs .ui-state-highlight li,
+#user_new .ui-state-error li, #user_new .ui-state-highlight li,
+#user_edit .ui-state-error li, #user_edit .ui-state-highlight li{
+    border-top: none;
+    width: auto;
+    font: normal normal 15px/18px Arial, sans-serif !important;
+    margin: 0;
+    padding: 0;
+}
+.he #tabs .ui-state-error li, .he #tabs .ui-state-highlight li,
+.he #user_new .ui-state-error li, .he #user_new .ui-state-highlight li,
+.he #user_edit .ui-state-error li, .he #user_edit .ui-state-highlight li{
+    text-align: right;
+}
+#tabs .ui-state-highlight,
+#user_new .ui-state-highlight,
+#user_edit .ui-state-highlight{
+    margin-bottom: 10px;
+    border:1px solid #71D08C !important;
+    list-style: none;
+}
+#tabs .ui-state-error ul,
+#user_new .ui-state-error ul,
+#user_edit .ui-state-error ul{
+    margin:0;
+    padding:0;
+    font-size:0.8em;
+    list-style:disc;
+    list-style-position:inside;
+}
+#tabs .ui-state-error ul li,
+#user_new .ui-state-error ul li,
+#user_edit .ui-state-error ul li{
+    border: none;
+    margin:0;
+    padding:5px 10px 0;
+}
+#tabs #signin .ui-state-error ul li{
+    padding:0 10px;
+}
+#tabs span.ui-state-error, #tabs span.ui-state-highlight,
+#user_new span.ui-state-error, #user_new span.ui-state-highlight,
+#user_edit span.ui-state-error, #user_edit span.ui-state-highlight{
+    border:none;
+    background:none;
+    padding:0;
+}
+#tabs {
+    margin-top: 30px;
+    margin-bottom: 30px;
+    height:320px;
+    width:500px;
+    float:left;
+}
+.he #tabs {
+    float:right;
+}
+#tabs .required{
+    color: #222222;
+}
+#tabs form label{
+    margin: 0;
+}
+.he #tabs ul.ui-tabs-nav li{
+    float: right;
+}
+/* Headers */
+h1{
+    font-size:1.6em;
+    margin:0 0 0.5em 0;
+}
+h2{
+    font-size:1.4em;
+    margin:0 0 0.3em 0;
+}
+h3{
+    font-size:1.2em;
+    margin:0 0 0.3em 0;
+}
+h4{
+    font-size:1.2em;
+    font-weight:normal;
+    margin:0 0 0.3em 0;
+}
+/*---------Dashboard table --------*/
+table.list_of_questionnaires{
+    margin:0 0 20px 0;
+}
+table.list_of_questionnaires td, table.list_of_questionnaires th{
+    padding:5px;
+    border-bottom:1px solid #ddd;
+    text-align: left;
+}
+.he table.list_of_questionnaires td, .he table.list_of_questionnaires th{
+    text-align: right;
+}
+table.list_of_questionnaires th{
+    text-align:left;
+    color:#2e6e9e;
+    border-color:#c5dbec;
+    background:#dfeffc;
+}
+table.list_of_questionnaires td.date{
+    font-size:0.8em;
+}
+table.list_of_questionnaires .ui-state-highlight, table.list_of_questionnaires .ui-state-error{
+    white-space:nowrap;
+    font-size:0.8em;
+    width:16px;
+    margin:0;
+    padding:5px;
+    background:none;
+    border:none;
+    border-bottom:1px solid #ddd;
+}
+table.list_of_questionnaires .ui-icon{
+    position:relative;
+    top:4px;
+}
+
+
+input.ui-button{
+    margin:0 20px 0 0;
+}
+.he input.ui-button{
+    margin:0 0 0 20px;
+}
+
+#content .ui-widget{
+    font-family: Arial, sans-serif;
+}
+table.scale-answer{
+    font-weight: normal;
+    margin-top: 5px;
+}
+table.scale-answer tr{
+    text-align: center;
+}
+td.scalerow .leftlabel, td.scalerow .rightlabel{
+    padding: 0 8px;
+}
+td.scalerow{
+    vertical-align:middle;
+}
+.answer-help{
+    margin: -7px 0 15px;
+}
+/*-- Login --*/
+.login-wrap{
+    width:805px;
+    margin:0 auto;
+}
+.signup-wrap{
+    width:500px;
+    margin:0 auto;
+}
+.signup-wrap #tabs{
+    height: auto;
+    padding-bottom: 25px;
+}
+.new-user{
+    height:320px;
+    width:255px;
+    float:left;
+    margin: 30px 0 0 30px;
+}
+.he .new-user{
+    float:right;
+    margin: 30px 30px 0 0;
+}
+.new-user .submission{
+    text-align:center;
+    margin-top:1.5em;
+}
+.new-user .submission a{
+    padding:2.4em 1em;
+    margin:1.3em auto;
+}
+.new-user li{
+    height:31px;
+    line-height:31px;
+    padding-left:30px;
+    font-size:20px;
+    font-weight:bold;
+    width: 100%;
+    text-align: center;
+}
+#tabs #user_submit{
+    margin-top: 10px;
+}
+/*-- Special link-buttons --*/
+a.ui-button{
+    padding:0.4em 1em;
+    margin:0 20px 0 0;
+    color:#2E6E9E;
+    line-height: 20px;
+}
+
+.he .ui-helper-hidden-accessible {
+    top:-100000000px;
+    left:0;
+}
+/*-- Reports --*/
+/*-- Users basic report --*/
+#users #report {
+    margin-top: 20px;
+}
+#users #report thead{
+    font-weight: bold;
+}
+#users #report td{
+    border:1px solid black;
+    padding: 5px;
+}
+
+#error_explanation h2
+{
+    display: none;
+}
+
+/* Icons for related links */
+.icon_text, .icon_pdf, .icon_audio, .icon_video, .icon_ppt{
+    padding-left: 20px;
+}
+.icon_text{
+    background: url("../images/icons/text.gif") no-repeat 0 0;
+}
+.icon_audio{
+    background: url("../images/icons/audio.gif") no-repeat 0 0;
+}
+.icon_video{
+    background: url("../images/icons/video.gif") no-repeat 0 0;
+}
+.icon_pdf{
+    background: url("../images/icons/pdf.gif") no-repeat 0 0;
+}
+.icon_ppt{
+    background: url("../images/icons/ppt.gif") no-repeat 0 0;
+}
+
+.he .icon_text, .he .icon_pdf, .he .icon_audio, .he .icon_video{
+    padding-right: 20px;
+    padding-left: 0;
+    background-position: 100% 0;
+}
+
+/* Help text */
+.faq{
+    margin:20px 100px;
+    padding-left:10px;
+}
+.faq h2{
+    margin-bottom: 20px;
+    text-align: center;
+}
+.faq ol{
+    list-style-type:lower-alpha;
+}
+.he .faq ol{
+    list-style-type:hebrew;
+}
+.faq li{
+    margin-bottom:15px;
+}
+.faq li a{
+    display:block;
+    margin-top:10px;
+}
+
+/* Message after SignUp */
+.awaiting-confirmation{
+    margin:20px 100px;
+    padding-left:10px;
+    color:#167D34;
+    border:1px solid #71D08C !important;
+    background-color: #E6FFED;
+    padding: 20px;
+}
+
+.excerpt{
+    margin-top: 8px;
+    width: 520px;
+}
+.excerpt p{
+    padding: 0;
+    width: 520px;
+    margin-top: 8px;
+    margin-bottom: 8px;
+    line-height:1.2em;
+}

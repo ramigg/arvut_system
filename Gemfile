@@ -1,0 +1,45 @@
+source 'http://rubygems.org'
+
+gem 'rails', '3.0.0'
+gem 'railties', '3.0.0'
+
+# Bundle edge Rails instead:
+#gem 'rails', :git => 'git://github.com/rails/rails.git', :branch => 'master'
+#gem 'railties' , :git => 'git://github.com/rails/rails.git', :branch => 'master'
+#gem 'mongrel'
+gem 'thin'
+#gem 'sqlite3-ruby', :require => 'sqlite3'
+gem 'pg'
+gem 'postgres-pr', :require => 'pg'
+gem 'responders'
+#gem 'i18n'
+
+gem 'gemcutter'
+gem 'state_machine'
+gem 'ruby-graphviz', :require => 'graphviz' # for visualizing state machines
+
+# MongoID
+# gem 'mongoid', '2.0.0.beta6'
+# gem 'bson_ext', '1.0.1'
+# gem 'mongo_ext'
+
+# Devise
+gem 'devise'
+#gem 'devise', :git => 'http://github.com/plataformatec/devise.git', :branch => 'master'
+
+
+# Bundle gems for certain environments:
+# gem 'rspec', :group => :test
+# group :test do
+#   gem 'webrat'
+# end
+
+group :development do
+	gem 'ruby-debug', '0.10.3'
+  gem 'ruby-debug-base', '0.10.3'
+  gem 'ruby-debug-ide', '0.4.7'
+end
+
+# CKEditor + Paperclip
+gem 'ckeditor', '3.4.0.pre'
+gem 'paperclip'

@@ -1,0 +1,295 @@
+he:
+  activerecord:
+    attributes:
+      user:
+        email: "כתובת האימייל"
+        password: סיסמא
+    errors:
+      messages:
+        accepted: "חייב אישור"
+        blank: "לא יכול להיות ריק"
+        confirmation: "לא מתאימה לאימות סיסמא"
+        empty: "לא יכול להיות ריק"
+        equal_to: "חייב להיות שווה ל- %{count}"
+        even: "חייב להיות זוגי"
+        exclusion: "שדה שמור"
+        greater_than: "חייב להיות גדול מ- %{count}"
+        greater_than_or_equal_to: "חייב להיות שווה או גדול מ %{count}"
+        inclusion: "לא כלול ברשימה"
+        invalid: "שדה שגוי"
+        less_than: "חייב להיות פחות מ- %{count}"
+        less_than_or_equal_to: "חייב להיות קטן או שווה ל %{count}"
+        not_a_number: "ערך לא מספרי"
+        odd: "חייב להיות אי זוגי"
+        too_long: "is too long (maximum is %{count} characters)"
+        too_short: "אורך קצר מידי (המינימום הוא %{count} תווים)"
+        wrong_length: "אורך שגוי (חייב להיות %{count} תווים)"
+        taken: שהזנת כבר תפוסה
+      models:
+        user:
+          attributes:
+            email:
+              blank: "-- חסר ערך"
+              invalid: "-- ערך שגוי"
+            password:
+              blank: "-- לא יכול להיות ריק"
+              confirmation: "לא מתאימה לאימות סיסמא"
+              too_short: "קצר מידי (המינימום זה %{count} תווים)"
+          blank: "שדה ריק"
+      user:
+        header:
+          one: "התהליך נכשל עקב השגיאות הבאות"
+          other: "התהליך נכשל עקב %{count} השגיאות הבאות"
+    models:
+      user: אימייל
+  admin:
+    user_list:
+      create_new_user: צור חבר קבוצה
+      create_user_list: צור חבר קבוצה
+      update_user_list: עדכן חבר קבוצה
+      last_name: שם משפחה
+      first_name: שם פרטי
+      email: אימייל
+      has_user: רשום במערכת?
+      edit: עדכן
+      delete: מחק
+      are_you_sure: האם אתה בטוח?
+      please_select_one_of_the_options: "אנא בחר באחת מהאפשרויות"
+      select_group: בחר קבוצה
+    questionnaires:
+      create_new_questionnaire: צור שאלון חדש
+      created_at: נוצר ב-
+      created_by: נוצר ע"י
+      title: כותרת
+      status: סטאטוס
+      edit: ערוך
+      approve: אישור שאלון
+      set_draft: שמור כטיוטה
+      delete: מחק
+      are_you_sure: האם אתה בטוח?
+      questionnaire_editor: עורך השאלונים
+      questionnaire_title: כותרת השאלון
+      questionnaire_description: תאור השאלון
+      questionnaire_related_links: קישורי השאלון
+      questionnaire_excerpt: קטע המובא ממקור
+      remove: מחק
+      title: כותרת
+      description: תאור
+      add_answer: הוסף תשובה
+      add_other: הוסף תשובה אחרת
+      other: תשובה אחרת
+      add: הוסף
+      label_from: כותרת מ-
+      label_to: כותרת עד
+      scale_from: מיספור מ-
+      scale_to: מיספור עד
+      is_multiline: ריבוי שורות?
+      update_questionnaire: עדכן שאלון
+      create_questionnaire: צור שאלון
+      fields_marked_in_red_are_required: השדות המסומנים באדום הם שדות חובה
+    reports:
+      for_month: עבור
+      date_range: "בחר תווך תאריכים"
+      display_also_profile: "הצג גם פרטי פרופיל"
+      export_to_excel: "יצוא לקובץ אקסל"
+      from: מ-
+      generate_report: "ייצר דוח"
+      report: דוח
+      reports: דוחות
+      show_only_confirmed_users: "הצג רק משתמשים שעברו אישור משתמש"
+      to: עד-
+      total: סה"כ
+      user: משתמש
+      user_activities: "דוח פעילות משתמש"
+      users_who_answered_questionnaires: "משתמשים שענו על שאלונים"
+      users_who_not_signed_in: "משתמשים שלא נכנסו למערכת"
+      users_who_signed_in: "משתמשים שנכנסו למערכת"
+      upload: שלך
+      file: קובץ
+      group_name: שם הקבוצה
+      include_email: להוסיף אימייל לדו"ח
+      all_groups: כולם
+      plus: פעיל
+      minus: לא פעיל
+      x: לא רשום
+      status: מצב
+      attendance_report: דו"ח נוכחות חודשי
+      basic_report: דו"ח פעילות כללי
+      date: בחר חודש
+      generating: טוען נתונים...
+      print: הדפס
+      manage_questionnaires: ניהול שאלונים
+      questionnaires_list: רשימת שאלונים
+      user_management: ניהול משתמשים
+      group_management: ניהול קבוצות
+      manage_user_roles: ניהול הרשאות
+      remove_user: מחק משתמש
+      load_group_list: טעינת רשימת קבוצה
+      manage_user_lists: ניהול רשימת קבוצה
+
+  answer:
+    model:
+      answer_too_short: "התשובה שלך קצרה מידי, המינימום הוא 10 תווים"
+      select_at_least_one: "עליך לבחור לפחות באפשרות אחת"
+      select_one_option: "עליך לבחור באחת מהאפשרויות"
+      write_an_answer: "עליך לכתוב תשובה"
+  devise:
+    confirmations:
+      confirmed: "החשבון שלך אושר בהצלחה, כעת הינך מחובר למערכת"
+      send_instructions: "נרשמת בהצלחה. בכדי להכנס למערכת עליך ללחוץ על הלינק לאישור באימייל שתקבל בדקות הקרובות!"
+    failure:
+      inactive: "החשבון שלך עדיין לא עבר אקטיבציה"
+      invalid: "אימייל או סיסמא שגויים"
+      invalid_token: "קוד אימות שגוי"
+      locked: "החשבון שלך נעול"
+      timeout: "היית במצב לא פעיל זמן ממושך ולכן עליך להכנס שוב"
+      unauthenticated: "עליך להכנס עם או להרשם לפני שתוכל להמשיך"
+      unconfirmed: "עליך לאשר את החשבון שלך (הוראות באימייל שקיבלת) לפני שתוכל להמשיך"
+    mailer:
+      confirmation_instructions: "הוראות לאישור חשבון"
+      reset_password_instructions: "הוראות לאיפוס סיסמא"
+      unlock_instructions: "הוראות לשיחרור נעילת חשבון"
+      confirmation_instructions:
+        user_subject: "הוראות לאישור חשבון"
+      reset_password_instructions:
+        user_subject: "הוראות לאיפוס סיסמא"
+      unlock_instructions:
+        user_subject: "הוראות לשיחרור נעילת חשבון"
+    mails:
+      change_my_password: "שנה את הסיסמא שלי"
+      confirm_my_account: "אשר את החשבון שלי"
+      confirm_through_link: "אשר את החשבון בלחיצה על הלינק הבא"
+      hello: שלום
+      reset_password_line1: "מישהו (קרוב לודאי אתה) ביקש לשנות את הסיסמא. לביצוע השינוי עליך ללחוץ על הלינק הבא"
+      reset_password_line2: "אם לא ביקשת לבצע את הפעולה הזו אנא התעלם מההודעה"
+      reset_password_line3: "הסיסמא שלך לא תשתנה עד שתלחץ על הלינק למעלה ותיצור סיסמא חדשה"
+      unlock_line1: "חשבון שלך ננעל בעקבות נסיונות כושלים רבים להכנס למערכת"
+      unlock_line2: "לחץ על הלינר הבא לשיחרור החשבון שלך מנעילה"
+      unlock_my_account: "שחרר את החשבון שלי מנעילה"
+      welcome: שלום
+    passwords:
+      send_instructions: "בעוד מספר דקות תקבל אימייל עם הוראות לאיפוס הסיסמא"
+      updated: "הסיסמא שונתה בהצלחה, הנך מחובר למערכת"
+    registrations:
+      destroyed: "החשבון שלך בוטל!"
+      signed_up: "נרשמת בהצלחה. בכדי להכנס למערכת עליך ללחוץ על הלינק לאישור באימייל שתקבל בדקות הקרובות!"
+      updated: "עדכון החשבון עבר בהצלחה"
+    sessions:
+      signed_in: "נכנסת למערכת בהצלחה!"
+      signed_out: "יצאת מהמערכת בהצלחה!"
+    unlocks:
+      send_instructions: "בעוד מספר דקות תקבל לחשבון האימייל הוראות לשיחרור נעילת חשבון"
+      unlocked: "החשבון שלך שוחרר מנעילה בהצלחה, כעת הנך מחובר למערכת"
+    views:
+      confirm_new_password: "הזן שנית את הסיסמא החדשה"
+      current_password: "הסיסמא הנוכחית (יש בה צורך לאישור הפעולה)"
+      email: אימייל
+      forgot_password: "שכחת את הסיסמא, לחץ כאן"
+      new_password: "הסיסמא החדשה (לפחות 6 תווים)"
+      no_confirmation_instructions: "לחץ לקבלת הוראות לאישור חשבון באימייל"
+      no_unlock_instructions: "לחץ לקבלת הוראות לשיחרור נעילת חשבון"
+      password: סיסמא
+      remember_me: "זכור אותי במחשב זה"
+      resend_confirmation_instructions: "שלח מחדש הוראות אישור החשבון"
+      resend_unlock_instructions: "שלח הוראות לשחרור נעילת חשבון"
+      send_reset_password: "שלח לי הוראות לאיפוס סיסמא"
+      sign_in: כניסה
+      sign_in_more: "כניסה למערכת&nbsp;&nbsp;&nbsp;&#9668;"
+      sign_up: הרשמה
+      sign_up_more: "הרשמה&nbsp;&nbsp;&nbsp;&#9668;"
+      change_my_password: לשנות סיסמא
+      sign_up_now: הרשם עכשיו!!!
+      new_user: משתמש חדש?
+      cannot_sign_in: לא מצליח להכנס? לחץ כאן לעזרה!
+  errors:
+    messages:
+      already_confirmed: "כבר עבר אישור"
+      not_found: "לא נמצאה"
+      not_locked: "לא נעולה"
+  home:
+    views:
+      answered: עניתי
+      check_for_new_questionnaire: "בדוק האם קיים שאלון חדש"
+      dashboard: הדף שלי
+      date: תאריך
+      edit_profile: "ערוך פרופיל"
+      last_10_questionnaires: "עשרת השאלונים האחרונים במערכת"
+      not_answered: "לא עניתי"
+      status: סטאטוס
+      title: כותרת
+      view_reports: "הצג דוחות"
+      admin: ניהול
+    faq:
+      faq: שאלות נפוצות
+      confirmation:
+        נרשמת לאתר ובכל זאת אינך מצליח להכנס? לאחר ההרשמה המערכת שולחת הודעה לאישור חשבון לכתובת האימייל (שאיתו נרשמת). בגוף ההודעה ישנו לינק שבלחיצה עליו החשבון שלך במערכת הופך לפעיל.
+        אם אינך מצליח למצוא את ההודעה הנ"ל
+      forgot_password:
+        נרשמת לאתר, קיבלת הודעה באימייל ואישרת את החשבון. בכל זאת אינך מצליח להכנס? יתכן ששכחת את הסיסמא שאיתה נרשמת.
+
+      unlock:
+        ניסית להכנס למערכת עם סיסמא שגוייה מס' פעמים רב. יתכן והמערכת נעלה את החשבון שלך כתוצאה מהנסיונות הרבים
+      email:
+        "אם אתה נתקל בקשיים להכנס למערכת והסעיפים הקודמים לא עזרו, שלח לנו אימייל ל-"
+
+  layout:
+    search: חיפוש
+    search_screen_reader: חפש
+  notification:
+    views:
+      click_above_link_to_answer: "לחץ על הלינק בכדי לענות על השאלון"
+      hi: שלום
+      you_got_new_questionnaire: "קיבלת שאלון חדש"
+    mailer:
+      new_questionnaire_for_you: יש לך שאלון חדש במערכת
+  profile:
+    views:
+      change_password: "שנה סיסמא"
+      dear: שלום
+      edit: ערוך
+      please_update_profile: "אנא עדכן את הפרופיל שלך"
+      profile: פרופיל
+      required: "שדה חובה"
+  questionnaire_answer:
+    controller:
+      already_answered: "כבר ענית על השאלון שביקשת"
+      no_questionnaire: "השאלון שביקשת אינו קיים"
+      no_success: "מענה על השאלון נכשל"
+      was_success: "מענה על השאלון הסתיים בהצלחה"
+    views:
+      all_fields_are_required: "כל השדות הם שדות חובה!"
+      please_select_one_of_the_options: "אנא בחר באחת מהאפשרויות"
+  user:
+    model:
+      birthday: "שנת לידה"
+      female: נקבה
+      first_name: "שם פרטי"
+      gender: מין
+      last_name: "שם משפחה"
+      male: זכר
+      no_answer: לא
+      preferred_language: שפת תצוגה
+      receive_notifications: "האם ברצונך לקבל עדכונים לתיבת האימייל"
+      yes_answer: כן
+  views:
+    back: חזרה
+    cancel: ביטול
+    signout: יציאה
+    submit: שלח
+    load: טען
+    update: עדכן
+    please_wait: נא להמתין...
+
+  date:
+    formats:
+      short: %d %B %Y
+
+    day_names: [ראשון, שני, שלישי, רביעי, חמישי, שישי, שבת]
+    abbr_day_names: [א, ב, ג, ד, ה, ו, ש]
+    month_names: [~, ינואר, פברואר, מרץ, אפריל, מאי, יוני, יולי, אוגוסט, ספטמבר, אוקטובר, נובמבר, דצמבר]
+    abbr_month_names: [~, יאנ, פב, מרץ, אפר, מאי, יונ, יול, אוג, ספט, אוק, נוב, דצ]
+    order: [ :day, :month, :year ]
+
+  time:
+    formats:
+      attendance_report: %d ל%B %Y

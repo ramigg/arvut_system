@@ -1,0 +1,204 @@
+#questions {
+    margin-top: 20px;
+}
+#questions ul li, #questions ol li{
+    width: 800px;
+}
+#questions ol ol {
+    margin-left: 2em;
+    list-style-type:lower-alpha;
+}
+.he #questions ol ol {
+    list-style-type:hebrew;
+    margin:0 2em 0 0;
+}
+.ru #questions ol ol {
+    list-style-type:lower-cyrillic-ru-short;
+}
+#questions input{
+    float: none;
+    display: inline;
+}
+#questions ol li.radio,
+#questions ol li.checkbox,
+#questions ol li.scale,
+#questions ol li.list,
+#questions ol li.free_text{
+    border-top: 1px solid #ddd;
+}
+form ol li{
+    border-top: 0 none;
+}
+#questions input.text, #questions textarea.text{
+    margin:2px 0 0 0.9em;
+    width:600px;
+    border: 1px solid #bbb;
+    font-size: 14px !important;
+    padding: 4px;
+    color: #3f3f3f;
+    font-weight: normal;
+}
+#questions .checkbox{
+    margin:2px 0 0 0.9em;
+}
+.main span.text-long{
+    width:660px;
+}
+#questions input.text-long, #questions textarea.text-long{
+    width: 637px;
+}
+#questions input.mt-5px, #questions textarea.mt-5px{
+    margin-top: 5px !important;
+}
+#questions textarea.text{
+    height: 3em;
+}
+#questions label.text{
+    float:left;
+    color: silver;
+    font-size: 12px;
+    font-weight: normal;
+    margin: 0 0 0 1em;
+}
+#questions p{
+    margin: 20px 0;
+    padding: 0 0 0 1em;
+}
+.he #questions p{
+    padding: 0 1.6em 0 0;
+}
+#questions p.add-question{
+    border-top: 3px solid #ddd;
+    border-bottom: 3px solid #aaa;
+    padding: 5px;
+    width: 800px;
+    clear:both;
+    margin-top:50px;
+}
+#questions div.add_other input{
+    width:478px;
+}
+#questions div.add_other{
+    clear:both;
+    margin-left:28px;
+}
+.he #questions div.add_other{
+    margin-right:28px;
+}
+#questions span.add_other{
+    margin-left:27px;
+}
+.he #questions span.add_other{
+    margin-right:27px;
+}
+#questionnaire input, #user_list input, #user_list select{
+    float: none;
+    display: inline;
+}
+#questionnaire input.text, #questionnaire textarea.text,
+#user_list input.text, #user_list textarea.text{
+    width:650px;
+}
+#questionnaire input.text, #questionnaire textarea.text,
+#user_list input.text, #user_list textarea.text, #user_list select
+{
+    margin:2px 0 0 0.9em;
+    border: 1px solid #bbb;
+    font-size: 14px !important;
+    padding: 4px;
+    color: #3f3f3f;
+    font-weight: normal;
+}
+#user_list select{
+    margin-bottom:20px;
+}
+#questionnaire input.text-long, #questionnaire textarea.text-long,
+#user_list input.text-long, #user_list textarea.text-long{
+    width: 730px;
+    margin:0;
+}
+#questionnaire textarea.text,
+#user_list textarea.text{
+    height: 3em;
+}
+#questionnaire label.text,
+#user_list label.text{
+    float:left;
+    color: silver;
+    font-size: 12px;
+    font-weight: normal;
+    margin: 0 0 0 1em;
+    clear: both;
+}
+.he #questionnaire label.text,
+.he #user_list label.text{
+    float: right;
+}
+#questionnaire p.main,
+#user_list p.main{
+    margin: 20px 0 20px -12px;
+    padding:0;
+    clear:both;
+}
+#questionnaire .main input.text-long, #questionnaire .main textarea.text-long,
+#user_list .main input.text-long, #user_list .main textarea.text-long{
+    width: 650px;
+}
+table#questionnaire td, table#questionnaire th, table#user_lists td, table#user_lists th{
+    border: 1px solid black;
+    padding:5px;
+    vertical-align:middle;
+}
+
+#admin-menu li ul{
+    margin: 10px 0 30px;
+}
+#admin-menu li ul li{
+    margin: 5px 10px;
+}
+#user_list #errorExplanation ul{
+    display: block;
+    list-style-type: disc;
+    list-style-position: inside;
+}
+#user_list #errorExplanation ul li{
+    border:none;
+    margin:0;
+    padding:0;
+    width:auto;
+    font-weight: normal;
+
+}
+#user_list .ui-state-error, #user_list .ui-state-highlight {
+    text-align: left;
+}
+#user_list .field_with_errors input, #user_list .field_with_errors textarea{
+    width:660px;
+}
+#questionnaire .field_with_errors input, #questionnaire .field_with_errors textarea{
+    width:660px;
+}
+#user_list .field_with_errors input, #user_list .field_with_errors textarea, #user_list .field_with_errors select{
+    border:1px solid red;
+}
+#questionnaire .field_with_errors input, #questionnaire .field_with_errors textarea, #questionnaire .field_with_errors select{
+    border:1px solid red;
+}
+#user_list .field_with_errors{
+    margin-left: -12px;
+}
+#load_user{
+    margin-left: 20px;
+    margin-right: 20px;
+}
+
+/* ckeditor */
+span.cke_skin_kama{
+    border: 0 none !important;
+    padding:5px 0 !important;
+    float:none;
+}
+
+span.cke_skin_kama span{
+    float:none;
+}

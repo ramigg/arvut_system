@@ -1,0 +1,21 @@
+#header, #toolbar, .push, #footer, .ui-state-highlight, .ui-state-error{
+    display:none;
+}
+#content h2, #content hr, #content form, #content #print_link{
+    display:none;
+}
+#content{
+    font-size:12px;
+}
+.he #content{
+    direction: rtl;
+}
+#users #report{
+    border-top: 1px solid black;
+    border-left: 1px solid black;
+}
+#users #report td{
+    border-right: 1px solid black;
+    border-bottom: 1px solid black;
+    padding:5px;
+}
