@@ -4,9 +4,7 @@ module ReportsGenerator
   # user - user
   # attendance - array reflects attendance
   # total_attended - number of attended days
-  class Person <
-    Struct.new("User", :user, :attendance, :total_attended, :status)
-  end
+  class Person < Struct.new("User", :user, :attendance, :total_attended, :status); end
 
   class BasicReport
     #    include ActiveModel::Validations
@@ -185,4 +183,11 @@ module ReportsGenerator
 
   end
 
+  # Example
+  class ReportWorker < Struct.new(:user)
+    def perform
+      puts user
+    end
+  end
+  
 end

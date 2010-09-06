@@ -6,7 +6,7 @@ gem 'railties', '3.0.0'
 # Bundle edge Rails instead:
 #gem 'rails', :git => 'git://github.com/rails/rails.git', :branch => 'master'
 #gem 'railties' , :git => 'git://github.com/rails/rails.git', :branch => 'master'
-#gem 'mongrel'
+gem 'mongrel'
 gem 'thin'
 #gem 'sqlite3-ruby', :require => 'sqlite3'
 gem 'pg'
@@ -43,3 +43,6 @@ end
 # CKEditor + Paperclip
 gem 'ckeditor', '3.4.0.pre'
 gem 'paperclip'
+
+gem 'delayed_job', '2.1.0.pre2'
+

@@ -1,5 +1,3 @@
-require 'reports_generator'
-
 class Admin::AttendanceReportsController < ApplicationController
   before_filter :check_if_reports
 
