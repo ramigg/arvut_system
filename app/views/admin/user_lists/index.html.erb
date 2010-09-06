@@ -1,0 +1,41 @@
+<p>
+  <%= link_to t('admin.user_list.create_new_user'), new_user_list_url %>
+</p>
+<p>
+  <%= form_for @groups, :url => filtered_user_lists_url, :html => {:method => :post, :id => 'user_list'} do |builder|%>
+    <%= builder.label :id, t('admin.user_list.select_group'), :class => 'text' %><br/>
+    <%= builder.select :id, @groups.map{|e| [e.name, e.id]},
+      :prompt => t('admin.user_list.please_select_one_of_the_options')%>
+    <%= builder.submit 'Filter by group', :disable_with => t('views.please_wait') %>
+  <% end %>
+</p>
+<table id="user_lists">
+  <thead>
+    <tr>
+      <th><%= t('admin.user_list.group') %></th>
+      <th><%= t('admin.user_list.last_name') %></th>
+      <th><%= t('admin.user_list.first_name') %></th>
+      <th><%= t('admin.user_list.email') %></th>
+      <th><%= t('admin.user_list.has_user') %></th>
+      <th><%= t('admin.user_list.edit') %></th>
+      <th><%= t('admin.user_list.delete') %></th>
+    </tr>
+  </thead>
+  <tbody>
+    <%-  @user_lists.each do |ul| %>
+      <tr>
+        <td><%= ul.users_group.name %></td>
+        <td><%= ul.last_name %></td>
+        <td><%= ul.first_name %></td>
+        <td><%= ul.email %></td>
+        <td><%= ul.user ? '+' : '-' %></td>
+        <td><%= link_to t('admin.user_list.edit'), edit_user_list_url(ul) %></td>
+        <td><%= link_to t('admin.user_list.delete'), ul,:confirm => t('admin.user_list.are_you_sure'), :method => :delete %></td>
+      </tr>
+    <%- end -%>
+  </tbody>
+</table>
+<br />
+<p>
+  <%= link_to t('admin.user_list.create_new_user'), new_user_list_url %>
+</p>

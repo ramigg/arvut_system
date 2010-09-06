@@ -1,0 +1,20 @@
+<h2>Remove user</h2>
+
+<div id="to-admin">
+  <%= form_tag(remove_user_action_path, :method => :delete) do %>
+    <ul>
+      <li>
+        Email of an existing user:
+        <ul>
+          <li>
+            <%= text_field_tag :email, @email, :class => ['text-input', 'short-input'],
+              :autocomplete => autocomplete_user_email_admin_tasks_path
+            %>
+          </li>
+        </ul>
+      </li>
+    </ul>
+    <hr/>
+    <%= submit_tag t('views.submit') %>
+  <%- end %>
+</div>

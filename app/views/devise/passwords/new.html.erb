@@ -1,0 +1,16 @@
+<h2><%= t('devise.views.forgot_password') %></h2>
+
+<%= form_for(resource, :as => resource_name, :url => password_path(resource_name)) do |f| %>
+  <ul>
+    <%= devise_error_messages! %>
+
+    <li>
+      <%= t('devise.views.email') %>
+      <ul><li><%= f.text_field :email, :class => 'text-input short-input' %></li></ul>
+    </li>
+  </ul>
+  <div class="clear"></div>
+  <hr/>
+  <%= f.submit t('devise.views.send_reset_password'), :class=>:submission -%>
+  <%= link_to t('views.cancel'), dashboard_url, :class => 'ui-button ui-widget ui-state-default ui-corner-all' %>
+<% end %>

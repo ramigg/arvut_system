@@ -1,0 +1,51 @@
+<h2><%= t('admin.reports.user_activities') %></h2>
+<%= form_for(@report,:as => :report, :url => basic_reports_url ,:html =>{:method => :post}, :remote => true) do |form|%>
+  <ul>
+    <li><%= form.label :when_start, t('admin.reports.date_range')%></li>
+    <li>
+      <%= t('admin.reports.from')%>
+      <ul><li><%= form.text_field :when_start, :class => 'datepicker text-input short-input' %></li></ul>
+    </li>
+    <li>
+      <%= t('admin.reports.to')%>
+      <ul><li><%= form.text_field :when_end, :class => 'datepicker text-input short-input' %></li></ul>
+    </li>
+    <li>
+      <ul><li>
+          <%= form.check_box :login, {}, true, false %>
+          <%= form.label :login, t('admin.reports.users_who_signed_in')%>
+        </li></ul>
+    </li>
+    <li>
+      <ul><li>
+          <%= form.check_box :not_logged_in, {}, true, false %>
+          <%= form.label :not_logged_in, t('admin.reports.users_who_not_signed_in')%>
+        </li></ul>
+    </li>
+    <li>
+      <ul><li>
+          <%= form.check_box :answered, {}, true, false %>
+          <%= form.label :answered, t('admin.reports.users_who_answered_questionnaires')%>
+        </li></ul>
+    </li>
+    <li>
+      <ul><li>
+          <%= form.check_box :only_confirmed, {}, true, false %>
+          <%= form.label :only_confirmed, t('admin.reports.show_only_confirmed_users')%>
+        </li></ul>
+    </li>
+    <li>
+      <ul><li>
+          <%= form.check_box :display_profile, {}, true, false %>
+          <%= form.label :display_profile, t('admin.reports.display_also_profile')%>
+        </li></ul>
+    </li>
+  </ul>
+  <hr class="sub-hr"/>
+  <%= form.submit t('admin.reports.generate_report'), :disable_with => t('admin.reports.generating') %>
+  <%= link_to t('admin.reports.export_to_excel'),'', :onclick => 'excel(); return false;', :class => 'ui-button ui-widget ui-state-default ui-corner-all' %>
+<%- end %>
+
+<hr class="sub-hr"/>
+<div id="users"><%= render 'basic_report_for_users' %></div>
+<hr class="sub-hr"/>

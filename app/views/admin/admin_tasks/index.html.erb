@@ -1,0 +1,33 @@
+<% if user_has_access_to_admin?(current_user) %>
+  <ul id="admin-menu">
+    <li>
+      <% if current_user.is_admin? || current_user.is_moderator? %>
+        <%= t('admin.reports.manage_questionnaires') %>:
+        <ul>
+          <li><%= link_to t('admin.reports.questionnaires_list'), questionnaires_url %></li>
+        </ul>
+      <% end %>
+      <% if current_user.is_admin? || current_user.is_reports? %>
+        <%= t('admin.reports.reports') %>:
+        <ul>
+          <li><%= link_to t('admin.reports.attendance_report'), attendance_reports_url %></li>
+          <li><%= link_to t('admin.reports.basic_report'), basic_reports_url %></li>
+        </ul>
+      <% end %>
+      <% if current_user.is_admin? %>
+        <%= t('admin.reports.user_management') %>:
+        <ul>
+          <li><%= link_to t('admin.reports.manage_user_roles'), roles_url %></li>
+          <li><%= link_to t('admin.reports.remove_user'), remove_user_url %></li>
+        </ul>
+      <% end %>
+      <% if current_user.is_groupmanager? %>
+        <%= t('admin.reports.group_management') %>:
+        <ul>
+          <li><%= link_to t('admin.reports.manage_user_lists'), user_lists_url %></li>
+          <li><%= link_to t('admin.reports.load_group_list'), new_users_group_url %></li>
+        </ul>
+      <% end %>
+    </li>
+  </ul>
+<% end %>

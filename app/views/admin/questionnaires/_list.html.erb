@@ -1,0 +1,11 @@
+<li class="list fields">
+  <%= render :partial => "question_layout", :locals => { :f => f, :label => 'List' } %>
+
+  <ol>
+    <%= f.fields_for :entries do |e_form| %>
+      <%= render :partial => 'entry', :locals => { :f => e_form } %>
+    <% end %>
+    <p><%= link_to_add_fields t('admin.questionnaires.add_answer'), f, :entries %></p>
+  </ol>
+
+</li>

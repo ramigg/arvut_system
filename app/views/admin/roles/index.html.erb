@@ -1,0 +1,31 @@
+<h2>Change roles to user</h2>
+
+<div id="to-admin">
+  <%= form_tag(roles_path, :method => :post) do %>
+    <ul>
+      <li>
+        Email, First or Last Name of an existing user:
+        <ul>
+          <li>
+            <%= text_field_tag :email, @email, :class => ['text-input', 'short-input'],
+              :autocomplete => autocomplete_user_email_roles_path %>
+            <%= submit_tag t('views.load'), :name => 'load_user', :id => 'load_user' %>
+          </li>
+        </ul>
+      </li>
+      <li>
+        Roles:
+        <ul>
+          <% @all_roles.each_with_index do |r, idx| %>
+            <% checked = @user ? @user.roles.include?(r) : false %>
+            <li>
+              <%= check_box_tag "role[#{idx}]", r.id, checked %> <label for="role[<%=idx%>]"><%= r.role %></label>
+            </li>
+          <%- end -%>
+        </ul>
+      </li>
+    </ul>
+    <hr/>
+    <%= submit_tag t('views.submit') %>
+  <%- end %>
+</div>

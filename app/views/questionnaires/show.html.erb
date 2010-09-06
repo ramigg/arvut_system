@@ -1,0 +1,9 @@
+<h1><%=  @questionnaire.title %></h1>
+<h3><%=  @questionnaire.description %></h3>
+
+<ol>
+  <% @questionnaire.questions.each{|q| %>
+	<%class_name = q.class.to_s.downcase %>
+    <li><%= render :partial => class_name, :layout => 'question_layout', :locals => {:question => q}%></li>
+  <% } %>
+</ol>

@@ -1,0 +1,2 @@
+class Radio < Question
+end

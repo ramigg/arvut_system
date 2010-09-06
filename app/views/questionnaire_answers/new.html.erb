@@ -1,0 +1,28 @@
+<% content_for :toolbar do %>
+  <h2 class="fleft"><%= t('profile.views.dear') %> <%= current_user.first_name %> <%= current_user.last_name %></h2>
+<%- end -%>
+<h1><%=  @questionnaire_answer.questionnaire.title %></h1>
+<%- unless @questionnaire_answer.questionnaire.description.empty? -%>
+  <h3><%= raw @questionnaire_answer.questionnaire.description %></h3>
+<%- end -%>
+<%- unless @questionnaire_answer.questionnaire.related_links.empty? -%>
+  <p><%=  raw @questionnaire_answer.questionnaire.related_links %></p>
+<%- end -%>
+<%- unless @questionnaire_answer.questionnaire.excerpt.empty? -%>
+  <div class="excerpt"><%=  raw @questionnaire_answer.questionnaire.excerpt %></div>
+<%- end -%>
+<%= form_for(@questionnaire_answer) do |qa_f|%>
+  <%= qa_f.error_messages :header_message => t('questionnaire_answer.views.all_fields_are_required'),
+    :message => false, :header_tag => :h3 %>
+  <div style="margin: 0; padding: 0; display: inline;">
+    <%= qa_f.hidden_field :author_id %>
+    <%= qa_f.hidden_field :questionnaire_id%>
+  </div>
+  <ol>
+    <%= qa_f.fields_for :answers, @questionnaire_answer.answers do |a_f| %>
+      <%- klass_name = a_f.object.user_type %>
+      <li class="form-entry"><%= render :partial => klass_name.underscore, :layout => 'answer_layout', :locals => {:answer => a_f.object, :builder => a_f, :klass => klass_name, :object_name => a_f.object_name}%></li>
+    <% end %>
+  </ol>
+  <%= qa_f.submit t('views.submit') %>
+<%- end %>

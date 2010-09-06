@@ -1,0 +1,35 @@
+<p>
+  <%= link_to t('admin.questionnaires.create_new_questionnaire'), new_questionnaire_url %>
+</p>
+<table id="questionnaire">
+  <thead>
+    <tr>
+      <th><%= t('admin.questionnaires.created_at') %></th>
+      <th><%= t('admin.questionnaires.created_by') %></th>
+      <th><%= t('admin.questionnaires.title') %></th>
+      <th><%= t('admin.questionnaires.status') %></th>
+      <th><%= t('admin.questionnaires.edit') %></th>
+      <th><%= t('admin.questionnaires.approve') %></th>
+      <th><%= t('admin.questionnaires.set_draft') %></th>
+      <th><%= t('admin.questionnaires.delete') %></th>
+    </tr>
+  </thead>
+  <tbody>
+    <%-  @questionnaires.each do |q| %>
+      <tr>
+        <td><%= q.created_at.in_time_zone('Jerusalem').strftime('%d/%m/%Y %H:%M') %></td>
+        <td><%= q.author.first_name if q.author%> <%= q.author.last_name if q.author%></td>
+        <td><%= link_to q.title, new_questionnaire_answer_url(:questionnaire_id => q.id) %></td>
+        <td><%= q.status %></td>
+        <td><%= link_to t('admin.questionnaires.edit'), edit_questionnaire_url(q) %></td>
+        <td><%= link_to t('admin.questionnaires.approve'), approve_questionnaire_url(q), :method => :put %></td>
+        <td><%= link_to t('admin.questionnaires.set_draft'), draft_questionnaire_url(q), :method => :put %></td>
+        <td><%= link_to t('admin.questionnaires.delete'), q,:confirm => t('admin.questionnaires.are_you_sure'), :method => :delete %></td>
+      </tr>
+    <%- end -%>
+  </tbody>
+</table>
+<br />
+<p>
+  <%= link_to t('admin.questionnaires.create_new_questionnaire'), new_questionnaire_url %>
+</p>

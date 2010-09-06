@@ -1,0 +1,27 @@
+<% if user_signed_in? %>
+  <% content_for :toolbar do %>
+    <h2 class="fleft"><%= t('profile.views.dear') %> <%= current_user.first_name %> <%= current_user.last_name %></h2>
+  <% end %>
+
+  <h3><%= t('home.views.last_10_questionnaires')%></h3>
+  <table class="list_of_questionnaires">
+    <tr>
+      <th><%= t('home.views.date')%></th>
+      <th><%= t('home.views.title')%></th>
+      <th></th>
+      <th><%= t('home.views.status')%></th>
+    </tr>
+    <%- @last_10_questionnaires.each {|q| -%>
+      <tr>
+        <td class="date"><%= q[:date].strftime('%d/%m/%Y') %></td>
+        <td>
+          <%= link_to(q[:title], new_questionnaire_answer_url(:questionnaire_id => q[:id])) %>
+        </td>
+        <td>&nbsp;</td>
+        <td class="<%= q[:answered] ? 'ui-state-highlight' : 'ui-state-error'%>">
+          <%= q[:answered] ? t('home.views.answered') : t('home.views.not_answered') %>
+        </td>
+      </tr>
+    <%- } -%>
+  </table>
+<% end %>

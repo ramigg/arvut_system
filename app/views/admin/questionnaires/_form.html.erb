@@ -1,0 +1,48 @@
+<h2><%= t('admin.questionnaires.questionnaire_editor') %></h2>
+<%= builder.error_messages :header_message => t('admin.questionnaires.fields_marked_in_red_are_required'), :message => false, :header_tag => :h3 %>
+<%= builder.hidden_field :language_id %>
+<%= builder.hidden_field :author_id %>
+<p class="main">
+  <%= builder.label :title, t('admin.questionnaires.questionnaire_title'), :class => 'text' %><br/>
+  <%= builder.text_field :title, :class => 'text text-long' %>
+</p>
+
+<p class="main">
+  <%= builder.label :description, t('admin.questionnaires.questionnaire_description'), :class => 'text' %><br/>
+  <%= builder.cktext_area :description, :toolbar => ckeditor_toolbar, :width => '740px', :height => '8em' %>
+</p>
+
+<p class="main">
+  <%= builder.label :related_links, t('admin.questionnaires.questionnaire_related_links'), :class => 'text' %><br/>
+  <%= builder.cktext_area :related_links, :toolbar => ckeditor_toolbar, :width => '740px', :height => '8em' %>
+</p>
+
+<p class="main">
+  <%= builder.label :excerpt, t('admin.questionnaires.questionnaire_excerpt'), :class => 'text' %><br/>
+  <%= builder.cktext_area :excerpt, :toolbar => ckeditor_toolbar, :width => '740px', :height => '8em' %>
+</p>
+
+<div id="questions">
+  <ol>
+    <%= builder.fields_for :questions do |q_form| %>
+      <%
+      partial = q_form.object.class.to_s.underscore
+      if partial == 'question'
+        partial = q_form.object.question_type.underscore
+      end
+    %>
+      <%= render :partial => partial, :locals => { :f => q_form } %>
+    <% end %>
+    <p class="add-question">
+      <span><%= t('admin.questionnaires.add') %>:&nbsp;&nbsp;</span>
+      <%= link_to_add_fields "Radio", builder, :questions, 'radio' %>&nbsp;|&nbsp;
+      <%= link_to_add_fields "Checkbox", builder, :questions, 'checkbox' %>&nbsp;|&nbsp;
+      <%= link_to_add_fields "Scale", builder, :questions, 'scale' %>&nbsp;|&nbsp;
+      <%= link_to_add_fields "List", builder, :questions, 'list' %>&nbsp;|&nbsp;
+      <%= link_to_add_fields "Free Text", builder, :questions, 'free_text' %>
+    </p>
+  </ol>
+</div>
+
+<%= builder.submit submit_text, :disable_with => t('views.please_wait') %>
+<%= link_to t('views.cancel'), questionnaires_url, :class => 'ui-button ui-widget ui-state-default ui-corner-all' %>

@@ -1,0 +1,18 @@
+<% unless @users.nil? || @users.empty? %>
+  <h3><%= t('admin.reports.report') %></h3>
+  <%= t('admin.reports.total') %>: <%= @users.count %>
+  <table id="report">
+    <thead>
+      <% @table_headers.each{|pf| %>
+      <td><%= pf %></td>
+    <% } %>
+  </thead>
+  <% @users.each do|user| %>
+    <tr>
+      <% @only.each do|pf| %>
+        <td><%= pf == :language_id ? @languages[user[pf]] : user[pf] %></td>
+      <% end %>
+    </tr>
+  <% end %>
+  </table>
+<% end %>

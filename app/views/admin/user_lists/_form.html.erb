@@ -1,0 +1,23 @@
+<%= builder.error_messages :header_message => false, :message => false, :header_tag => :h3 %>
+<p class="main">
+  <%= builder.label :first_name, t('admin.user_list.first_name'), :class => 'text' %><br/>
+  <%= builder.text_field :first_name, :class => 'text text-long' %>
+</p>
+
+<p class="main">
+  <%= builder.label :last_name, t('admin.user_list.last_name'), :class => 'text' %><br/>
+  <%= builder.text_field :last_name, :class => 'text text-long' %>
+</p>
+
+<p class="main">
+  <%= builder.label :email, t('admin.user_list.email'), :class => 'text' %><br/>
+  <%= builder.text_field :email, :class => 'text text-long' %>
+</p>
+
+<p class="main">
+  <%= builder.label :users_group_id, t('admin.user_list.select_group'), :class => 'text' %><br/>
+  <%= builder.select :users_group_id, UsersGroup.all.map{|e| [e.name, e.id]}, :prompt => t('admin.user_list.please_select_one_of_the_options')%>
+</p>
+
+<%= builder.submit submit_text, :disable_with => t('views.please_wait') %>
+<%= link_to t('views.cancel'), user_lists_url, :class => 'ui-button ui-widget ui-state-default ui-corner-all' %>

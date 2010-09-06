@@ -1,0 +1,24 @@
+<li class="scale fields">
+  <%= render :partial => "question_layout", :locals => { :f => f, :label => 'Scale' } %>
+
+  <p>
+    <%= f.label :label_from, t('admin.questionnaires.label_from'), :class => 'text' %><br/>
+    <%= f.text_field :label_from, :class => 'text text-long' %>
+  </p>
+
+  <p>
+    <%= f.label :label_to, t('admin.questionnaires.label_to'), :class => 'text' %><br/>
+    <%= f.text_field :label_to, :class => 'text text-long' %>
+  </p>
+
+  <p>
+    <%= f.label :scale_from, t('admin.questionnaires.scale_from'), :class => 'text' %><br/>
+    <%= f.text_field :scale_from, :class => 'text text-long' %>
+  </p>
+
+  <p>
+    <%= f.label :scale_to, t('admin.questionnaires.scale_to'), :class => 'text' %><br/>
+    <%= f.text_field :scale_to, :class => 'text text-long' %>
+  </p>
+
+</li>

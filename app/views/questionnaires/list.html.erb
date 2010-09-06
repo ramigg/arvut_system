@@ -1,0 +1,12 @@
+<h1>Questionnaires</h1>
+
+
+<ol>
+  <%
+  @questionnaire_list.each{|q| %>
+    <%=link_to(q) do %>
+      <li><strong><%= q.title %></strong></li>
+    <%- end
+  }
+%>
+</ol>

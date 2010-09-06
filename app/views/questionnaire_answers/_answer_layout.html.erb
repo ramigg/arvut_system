@@ -1,0 +1,14 @@
+<%= answer.question.title %>
+<ul>
+  <%- unless answer.question.description.empty? %>
+    <li>
+      <p class="answer-help"><%= raw answer.question.description %></p>
+    </li>
+  <%- end -%>
+  <%= builder.error_messages :header_message => false, :message => false, :header_tag => :h3 %>
+  <%= builder.hidden_field :my_type, :value => klass %>
+  <%= builder.hidden_field :question_id %>
+  <li>
+    <%= yield %>
+  </li>
+</ul>

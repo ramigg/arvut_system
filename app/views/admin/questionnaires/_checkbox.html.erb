@@ -1,0 +1,17 @@
+<li class="checkbox fields">
+  <%= render :partial => "question_layout", :locals => { :f => f, :label => 'Checkbox' } %>
+
+  <ol>
+    <%= f.fields_for :entries do |e_form| %>
+      <%= render :partial => 'entry', :locals => { :f => e_form } %>
+    <% end %>
+    <p><%= link_to_add_fields t('admin.questionnaires.add_answer'), f, :entries %></p>
+  </ol>
+  <div class="add_other">
+    <%= f.fields_for :other do |o_form| %>
+      <%= render(:partial => 'other', :locals => { :f => o_form }) if o_form.object %>
+    <% end %>
+    <p class="add_other"><%= link_to_add_fields t('admin.questionnaires.add_other'), f, :other %></p>
+    <div class="bclear"></div>
+  </div>
+</li>

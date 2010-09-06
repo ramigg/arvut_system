@@ -1,0 +1,2 @@
+class FreeTextAnswer < Answer
+end

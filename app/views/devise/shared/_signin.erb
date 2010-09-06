@@ -1,0 +1,48 @@
+<div id="signin">
+  <%= form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f| %>
+    <%= devise_error_messages! %>
+    <%- unless flash[:alert].empty? && session[:alert].empty? -%>
+      <div id="error_explanation">
+        <ul>
+          <%- unless flash[:alert].empty? -%>
+            <li><%= flash[:alert] %></li>
+          <%- end -%>
+          <%- unless session[:alert].empty? -%>
+            <li><%= session[:alert] %></li>
+          <%- end -%>
+        </ul>
+      </div>
+    <%- end -%>
+    <%- unless flash[:notice].empty? && session[:notice].empty? -%>
+      <div id="notice_explanation" class="ui-state-highlight">
+        <ul>
+          <%- unless flash[:notice].empty? -%>
+            <li><%= flash[:notice] %></li>
+          <%- end -%>
+          <%- unless session[:notice].empty? -%>
+            <li><%= session[:notice] %></li>
+          <%- end -%>
+        </ul>
+      </div>
+    <%- end -%>
+    <div><%= f.label t 'devise.views.email' %>
+      <%= f.text_field :email, :class => [:'text-input', :required], :dir => :ltr %></div>
+
+    <div>
+      <%= f.label t 'devise.views.password' -%>
+
+      <%= f.password_field :password, :class => [:'text-input', :required], :dir => :ltr %>
+    </div>
+
+    <% if devise_mapping.rememberable? -%>
+      <div><%= f.check_box :remember_me, :class => :small %> <%= f.label t('devise.views.remember_me'), {}, {:class => :'d-inline'} %></div>
+    <% end -%>
+
+    <div class="submission">
+      <%= link_to t('devise.views.cannot_sign_in'), login_help_path %>
+      <%= f.submit raw(t('devise.views.sign_in_more')), :class => :fright %>
+    </div>
+
+    <div class="bclear"></div>
+  <% end %>
+</div>

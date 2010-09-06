@@ -1,0 +1,9 @@
+<div class="new-user narrow-win centered-layout ui-tabs ui-widget ui-widget-content ui-corner-all">
+  <ul class="ui-tabs-nav ui-helper-reset ui-helper-clearfix ui-widget-header ui-corner-all">
+    <li><%= t 'devise.views.new_user' %></li>
+  </ul>
+  <div class="submission">
+    <%= link_to t('devise.views.sign_up_now'), new_user_registration_path,
+      :class => [:'ui-button', :'ui-widget', :'ui-state-default', :'ui-corner-all'] -%>
+  </div>
+</div>

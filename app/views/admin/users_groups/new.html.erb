@@ -1,0 +1,21 @@
+<%- unless flash[:alert].empty? && session[:alert].empty? -%>
+  <div id="error_explanation">
+    <ul>
+      <%- unless flash[:alert].empty? -%>
+        <li><%= flash[:alert] %></li>
+      <%- end -%>
+      <%- unless session[:alert].empty? -%>
+        <li><%= session[:alert] %></li>
+      <%- end -%>
+    </ul>
+  </div>
+<%- end -%>
+<%= form_for(@users_group, :html => {:multipart => true}) do |f| %>
+  <ul>
+    <li><%= t('admin.reports.group_name') %> <ul><li><%= f.text_field 'name' %></li></ul></li>
+    <li><%= t('admin.reports.file') %> <ul><li><%= file_field_tag 'file' %></li></ul></li>
+  </ul>
+  <hr class="sub-hr"/>
+  <%= f.submit t('admin.reports.upload'), :disable_with => 'Uploading...' %>
+  <%= link_to t('views.cancel'), dashboard_url, :class => 'ui-button ui-widget ui-state-default ui-corner-all' %>
+<% end %>

@@ -1,0 +1,10 @@
+<%
+  question = answer.question
+%>
+<% if question.is_multiline %>
+  <%= builder.text_area :text_value %>
+
+<% else %>
+  <%= builder.text_field :text_value %>
+
+<% end %>

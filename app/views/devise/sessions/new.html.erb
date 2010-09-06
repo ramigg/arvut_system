@@ -1,0 +1,18 @@
+<%- content_for :toolbar do -%>
+  <h2><%= t 'devise.views.sign_in' %></h2>
+<%- end -%>
+
+<div class="login-wrap">
+  <div id="tabs" class="narrow-win centered-layout">
+    <%= render :partial => "devise/shared/tabs", :locals => {:tab => :signin} %>
+    <%= render :partial => "devise/shared/signin" %>
+    <div class="bclear"></div>
+  </div>
+  <%= render :partial => "devise/shared/new_user" %>
+  <div class="bclear"></div>
+</div>
+
+<%
+session[:notice] = session[:alert] = ''
+flash[:notice] = flash[:alert] = ''
+-%>

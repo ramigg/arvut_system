@@ -1,0 +1,9 @@
+<h1>Questionnaires</h1>
+
+<ol>
+  <%
+  @questionnaire_list.each{|q|
+    %><li><strong><%= link_to q.title, answer_path(q.id) %></strong></li><%
+  }
+%>
+</ol>

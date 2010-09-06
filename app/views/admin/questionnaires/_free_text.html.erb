@@ -1,0 +1,8 @@
+<li class="free_text fields">
+  <%= render :partial => "question_layout", :locals => { :f => f, :label => 'FreeText' } %>
+
+  <p>
+    <%= f.label :is_multiline, t('admin.questionnaires.is_multiline'), :class => 'text' %><br/>
+    <%= f.check_box :is_multiline, :class => 'checkbox' %>
+  </p>
+</li>

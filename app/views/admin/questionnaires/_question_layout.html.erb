@@ -1,0 +1,13 @@
+<%= label %> <%= link_to_remove_fields t('admin.questionnaires.remove'), f %>
+<%= f.hidden_field :my_type, :value => label %>
+<%= f.hidden_field :author_id %>
+
+<p>
+  <%= f.label :title, t('admin.questionnaires.title'), :class => 'text' %><br/>
+  <%= f.text_field :title, :class => 'text text-long mt-5px' %>
+</p>
+
+<p>
+  <%= f.label :description, t('admin.questionnaires.description'), :class => 'text' %><br/>
+  <%= f.cktext_area :description, :toolbar => ckeditor_toolbar, :width => '740px', :height => '8em' %>
+</p>

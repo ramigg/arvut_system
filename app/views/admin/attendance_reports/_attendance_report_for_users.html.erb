@@ -1,0 +1,41 @@
+<% unless @users.nil? || @users.empty? %>
+  <h3><%= t('admin.reports.report') %> <%= t('admin.reports.for_month') %>
+    <%= I18n.l @report.date.beginning_of_month, :format => :attendance_report %> - <%= I18n.l @report.date.end_of_month, :format => :attendance_report %></h3>
+  <%= link_to_function t('admin.reports.print'), 'window.print();', :class => 'ui-button ui-widget ui-state-default ui-corner-all', :id => 'print_link' %>
+  <%= t('admin.reports.total') %>: <%= @users.count %>
+  <table id="report" cellpadding="0" cellspacing="0">
+    <thead>
+      <tr>
+        <% @table_headers.each{|pf| %>
+          <td><%= pf %></td>
+        <% } %>
+        <td><%= t('admin.reports.status') %></td>
+        <td><%= t('admin.reports.total') %></td>
+        <% (1..@users[0].attendance.count).each { |day|%>
+          <td><%= day %></td>
+        <% } %>
+      </tr>
+    </thead>
+    <% @users.each do|user| %>
+      <tr>
+        <% @only.each do|pf| %>
+          <td><%= pf == :language_id ? @languages[user.user[pf]] : user.user[pf] %></td>
+        <% end %>
+        <td><%=
+          case user.status
+          when '+'
+            t('admin.reports.plus')
+          when '-'
+            t('admin.reports.minus')
+          when 'x'
+            t('admin.reports.x')
+          end
+        %></td>
+        <td><%= user.total_attended.to_s %></td>
+        <% user.attendance.each { |day|%>
+          <td><%= day %></td>
+        <% } %>
+      </tr>
+    <% end %>
+  </table>
+<% end %>

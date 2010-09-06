@@ -1,0 +1,21 @@
+<div class="faq">
+  <h2><%= t('home.faq.faq') %></h2>
+  <ol>
+    <li>
+      <%= t('home.faq.confirmation') %>
+      <%= link_to t('devise.views.no_confirmation_instructions'), new_confirmation_path(@resource_name) %>
+    </li>
+    <li>
+      <%= t('home.faq.forgot_password') %>
+      <%= link_to t('devise.views.forgot_password'), new_password_path(@resource_name) %>
+    </li>
+    <li>
+      <%= t('home.faq.unlock') %>
+      <%= link_to t('devise.views.no_unlock_instructions'), new_unlock_path(@resource_name) %>
+    </li>
+    <li>
+      <%= t('home.faq.email') %>
+      <b><a target="_blank" href="mailto:support@kbb1.com">internet@kbb1.com</a></b>
+    </li>
+  </ol>
+</div>

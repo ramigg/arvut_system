@@ -1,0 +1,58 @@
+<%-
+user = (current_user.first_name || current_user.last_name ) ? "#{current_user.first_name} #{current_user.last_name}" : current_user.email
+-%>
+
+<% content_for :toolbar do %>
+<h2 class="fleft"><%= t('profile.views.dear') %> <%= user %>,</h2>
+<p class="h2-p">&nbsp;<%= t('profile.views.please_update_profile') %></p>
+<%- end -%>
+
+<%= form_tag({:action => :update}, {:method => :put}) { %>
+  <ul>
+    <%
+    User::PROFILE_FIELDS.each{|field|
+      v = @user[field[:id]]
+      if v.nil?
+        value = ''
+      else
+        value = @user[field[:id]]
+      end
+    %>
+
+      <li>
+        <%= t(field[:label]) %> <span class='required'><%= field[:required] ? t('profile.views.required') : ' ' %></span>
+
+        <ul>
+          <% case field[:type] %>
+          <% when 'select' %>
+            <li><%= select_tag(field[:id], options_for_select(field[:options], value.to_i),{:include_blank => true}) %></li>
+          <% when 'radio' %>
+            <% field[:options].each {|key, option| %>
+              <li class="choice-item"><%= radio_button_tag(field[:id], option, value == option) %>
+                <label for='<%=field[:id]%>_<%= option %>'><%= t(key) %></label>
+              </li>
+            <% } %>
+          <% when 'text' %>
+            <li><%= text_field_tag(field[:id], value, :class=>"text-input short-input") %></li>
+          <% when 'range' %>
+            <%
+            if value == ''
+              value = field[:default]
+            end
+          %>
+            <li><%= select_tag(field[:id], options_for_select(field[:range], value.to_i)) %></li>
+          <% end %>
+        </ul>
+      </li>
+
+    <% } %>
+  </ul>
+
+  <hr class="sub-hr"/>
+  <%= link_to t('profile.views.change_password'), edit_user_registration_path %>
+  <hr class="sub-hr"/>
+  <%= submit_tag t('views.submit'), :class=>:submission %>
+  <%#= link_to t('views.cancel'), dashboard_url, :class => 'ui-button ui-widget ui-state-default ui-corner-all' %>
+<% } %>
+
+

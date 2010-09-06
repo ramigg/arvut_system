@@ -1,0 +1,29 @@
+<%=
+inline_css do
+  ".ui-datepicker-calendar {display:none}"
+end
+%>
+<h2><%= t('admin.reports.attendance_report') %></h2>
+<%= form_for(@report,:as => :report, :url => attendance_reports_url ,:html =>{:method => :post}, :remote => true) do |form|%>
+  <ul>
+    <li>
+      <%= t('admin.reports.date')%>
+      <ul><li><%= form.text_field :date, :class => 'xdatepicker text-input short-input' %></li></ul>
+    </li>
+    <li>
+      <%= t('admin.reports.group_name')%>
+      <ul><li><%= form.select :users_group_id, UsersGroup.all.map{|g| [g.name, g.id]}, :prompt => t('admin.reports.all_groups') %></li></ul>
+    </li>
+    <li>
+      <%= t('admin.reports.include_email')%>
+      <ul><li><%= form.check_box :include_email %></li></ul>
+    </li>
+  </ul>
+  <hr class="sub-hr"/>
+  <%= form.submit t('admin.reports.generate_report'), :disable_with => t('admin.reports.generating') %>
+  <%= link_to t('admin.reports.export_to_excel'),'', :onclick => 'excel(); return false;', :class => 'ui-button ui-widget ui-state-default ui-corner-all' %>
+<%- end %>
+
+<hr class="sub-hr"/>
+<div id="users"><%= render 'attendance_report_for_users' %></div>
+<hr class="sub-hr"/>

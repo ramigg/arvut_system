@@ -1,0 +1,7 @@
+<div dir="<%= I18n.locale.to_s == 'he' ? 'rtl' : 'ltr' %>">
+  <h3><%= t('devise.mails.welcome') %>, <%= "#{@resource.first_name} #{@resource.last_name}"%></h3>
+
+  <p><%= t 'devise.mails.confirm_through_link' %>:</p>
+
+  <p><%= link_to t('devise.mails.confirm_my_account'), user_confirmation_url(:user => @resource, :locale => locale, :confirmation_token => @resource.confirmation_token) %></p>
+</div>

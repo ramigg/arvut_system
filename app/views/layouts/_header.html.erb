@@ -1,0 +1,91 @@
+<div id="header">
+  <div id="langs">
+    <% if user_signed_in?
+      suffix = ''
+    else
+      suffix = '/users/login'
+    end %>
+    <%=
+    res = Language.all.inject([]) {|sum, l|
+      sum << link_to(l.language, root_path(l.locale) + suffix)
+    }.join('&nbsp;|&nbsp;')
+
+    raw(res)
+  %>
+    &nbsp;
+    <%= link_to image_tag('feed.jpg'), 'http://feeds.feedburner.com/NewInternetProject-' + I18n.default_locale.to_s, :title => 'Home', :alt => nil -%>
+  </div>
+  <form method="get" id="searchform" action="/internet/<%=I18n.default_locale%>/">
+    <div><label class="screen-reader-text" for="s"><%=t 'layout.search_screen_reader' %>:</label>
+      <input type="text" value="" name="s" id="s" />
+      <input type="submit" id="searchsubmit" value="<%=t 'layout.search' %>" />
+      <input type="hidden" value="<%=I18n.default_locale%>" name="lang" />
+      <input type="hidden" name="lang" value="<%=I18n.default_locale%>" />
+    </div>
+  </form>
+  <div id="headerimg">
+    <%= link_to image_tag('logo.png'), "/internet/#{I18n.default_locale}/", :title => 'Home', :alt => nil -%>
+  </div>
+  <hr/>
+  <div id="pages">
+    <ul id="menu">
+      <%case I18n.default_locale
+      when 'en', :en %>
+        <li class="page_item"><a href="/internet/en/" title="Homepage">Homepage</a></li>
+        <li> | </li>
+        <li class="page_item"><a href="/internet/en/?page_id=2" title="About the Project">About the Project</a></li>
+        <li> | </li>
+        <li class="page_item"><a href="/internet/en/?page_id=107" title="Project documents">Project documents</a></li>
+        <li> | </li>
+        <li class="page_item"><a href="/internet/en/?page_id=226" title="Dr. Laitman Talks">Dr. Laitman Talks</a></li>
+        <li> | </li>
+        <li class="page_item"><a href="/internet/en/?page_id=9407" title="Registration's Instructions">Registration's Instructions</a></li>
+        <li> | </li>
+        <li class="page_item"><a href="/internet/en/?cat=11466" title="Contact Us">Contact Us</a></li>
+        <li> | </li>
+        <li class="page_item ideas"><a href="/internet/en/?cat=5" title="Ideas">Ideas</a></li>
+      <% when 'es', :es %>
+        <li class="page_item"><a href="/internet/es/" title="Página de inicio">Página de inicio</a></li>
+        <li> | </li>
+        <li class="page_item"><a href="/internet/es/?page_id=7607" title="Sobre el proyecto">Sobre el proyecto</a></li>
+        <li> | </li>
+        <li class="page_item"><a href="/internet/es/?page_id=7495" title="Documentos del Proyecto">Documentos del Proyecto</a></li>
+        <li> | </li>
+        <li class="page_item"><a href="/internet/es/?page_id=7587" title="Habla el Dr. Laitman">Habla el Dr. Laitman</a></li>
+        <li> | </li>
+        <li class="page_item"><a href="/internet/es/?cat=11491" title="Contáctenos">Contáctenos</a></li>
+        <li> | </li>
+        <li class="page_item ideas"><a href="/internet/es/?cat=40" title="Ideas">Noción</a></li>
+      <% when 'ru', :ru %>
+        <li class="page_item"><a href="/internet/ru/" title="Главная">Главная</a></li>
+        <li> | </li>
+        <li class="page_item"><a href="/internet/ru/?page_id=55" title="О проекте">О проекте</a></li>
+        <li> | </li>
+        <li class="page_item"><a href="/internet/ru/?page_id=125" title="Документы проекта">Документы проекта</a></li>
+        <li> | </li>
+        <li class="page_item"><a href="/internet/ru/?page_id=278" title="Беседы с проф. М. Лайтманом">Беседы с проф. М. Лайтманом</a></li>
+        <li> | </li>
+        <li class="page_item"><a href="/internet/ru/?page_id=9127" title="Инструкция по регистрации">Инструкция по регистрации</a></li>
+        <li> | </li>
+        <li class="page_item"><a href="/internet/ru/?page_id=11477" title="Контакты">Контакты</a></li>
+        <li> | </li>
+        <li class="page_item ideas"><a href="/internet/ru/?cat=13" title="Идеи">Идеи</a></li>
+      <% when 'he', :he %>
+        <li class="page_item"><a href="/internet/he/" title="דף הבית">דף הבית</a></li>
+        <li> | </li>
+        <li class="page_item"><a href="/internet/he/?page_id=98" title="אודות">אודות</a></li>
+        <li> | </li>
+        <li class="page_item"><a href="/internet/he/?page_id=218" title="מסמכי הפרוייקט">מסמכי הפרוייקט</a></li>
+        <li> | </li>
+        <li class="page_item"><a href="/internet/he/?page_id=260" title="שיחות עם הרב לייטמן">שיחות עם הרב לייטמן</a></li>
+        <li> | </li>
+        <li class="page_item"><a href="/internet/he/?page_id=9442" title="הוראות הרשמה">הוראות הרשמה</a></li>
+        <li> | </li>
+        <li class="page_item"><a href="/internet/he/?page_id=11488" title="צור קשר">צור קשר</a></li>
+        <li> | </li>
+        <li class="page_item ideas"><a href="/internet/he/?cat=18" title="רעיונות">רעיונות</a></li>
+<% end %>
+    </ul>
+  </div>
+  <hr/>
+</div>

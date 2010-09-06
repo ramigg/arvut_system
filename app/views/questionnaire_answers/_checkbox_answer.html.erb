@@ -1,0 +1,20 @@
+<%
+  question = answer.question
+  values = answer.values
+%>
+<ul class="choices">
+  <% question.entries.each_with_index do |e, idx| %>
+    <li class="choice-item">
+      <%= check_box_tag "#{object_name}[value_ids][]", e.id.to_s, values.include?(e) %>
+	  <%#= builder.check_box :value_ids,{} ,checked_value = e.id.to_s%>
+	  <%= builder.label :value, e.label %>
+    </li>
+  <% end %>
+  <%- if question.other %>
+    <li class="choice-item answer-other">
+      <%= builder.check_box :question_pair_id, {}, question.other.id %>
+      <%= builder.label :question_pair_id, question.other.label %>
+      <%= builder.text_area :text_value  %>
+    </li>
+  <%- end %>
+</ul>

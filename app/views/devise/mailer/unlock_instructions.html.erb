@@ -1,0 +1,9 @@
+<div dir="<%= I18n.locale.to_s == 'he' ? 'rtl' : 'ltr' %>">
+  <h3><%= t('devise.mails.hello') %>, <%= "#{@resource.first_name} #{@resource.last_name}"%>!</h3>
+
+  <p><%= t 'devise.mails.unlock_line1' %>.</p>
+
+  <p><%= t 'devise.mails.unlock_line2' %>:</p>
+
+  <p><%= link_to t('devise.mails.unlock_my_account'), user_unlock_url(:user => @resource, :locale => locale, :unlock_token => @resource.unlock_token) %></p>
+</div>

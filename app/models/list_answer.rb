@@ -1,0 +1,2 @@
+class ListAnswer < Answer
+end

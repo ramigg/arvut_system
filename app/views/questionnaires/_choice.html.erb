@@ -1,0 +1,12 @@
+<% 
+type = 'radio'
+type = 'checkbox' if question.is_multichoice
+%>
+<ul class="choices">
+<% question.entries.each do |f| %>
+	<li class="choice-item">
+		<input type="<%=type%>" name="entry.<%= question.id %>.group" value="<%= f.label %>" />
+		<label><%= f.label %></label>
+	</li>
+<% end %>
+</ul>

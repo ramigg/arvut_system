@@ -1,0 +1,21 @@
+<%
+opt_count = question.scale_to - question.scale_from + 1
+%>
+<table border="0" cellspacing="0" cellpadding="5">
+	<tr>
+		<td class="scalenumbers"></td>
+		<% opt_count.times do |c| %>
+		<td class="scalenumbers"><%= c+1 %></td>
+		<% end %>
+		<td class="scalenumbers"></td>
+	</tr>
+	<tr>
+		<td class="scalerow leftlabel"><%= question.label_from %></td>
+		<% opt_count.times do |c| %>
+		<td class="scalerow">
+			<input type="radio" name="entry.<%= question.id %>.group" value="" id="some_name">
+		</td class="scalerow rightlabel">
+		<% end %>
+		<td class="scalerow rightlabel"><%= question.label_to %></td>
+	</tr>
+</table>

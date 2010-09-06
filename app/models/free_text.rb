@@ -1,0 +1,2 @@
+class FreeText < Question
+end

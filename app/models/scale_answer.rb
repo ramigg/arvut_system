@@ -1,0 +1,3 @@
+class ScaleAnswer < Answer
+end
+  
