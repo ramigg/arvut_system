@@ -1,0 +1,8 @@
+<div dir="<%= @locale.to_s == 'he' ? 'rtl' : 'ltr' %>">
+  <h3><%= t('notification.views.hi', :locale => @locale) %>, <%= "#{@user.first_name} #{@user.last_name}"%>!</h3>
+
+  <p><%= t('notification.views.you_got_new_questionnaire', :locale => @locale)%>:<br/>
+    <%= link_to @questionnaire.title, new_questionnaire_answer_url(:locale => @locale, :questionnaire_id => @questionnaire.id) %>
+  </p>
+  <p><%= t('notification.views.click_above_link_to_answer', :locale => @locale)%></p>
+</div>

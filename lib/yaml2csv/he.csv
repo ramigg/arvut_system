@@ -1,0 +1,130 @@
+he/layout,search_screen_reader,Search for
+he/layout,search,Search
+he/activerecord/models,user,אימייל
+he/activerecord/attributes/user,password,סיסמא
+he/activerecord/attributes/user,email,כתובת אימייל
+he/activerecord/errors/models/user,blank,blank field
+he/activerecord/errors/models/user/attributes/password,confirmation,doesn't match confirmation
+he/activerecord/errors/models/user/attributes/password,blank,-- cannot be blank
+he/activerecord/errors/models/user/attributes/password,too_short,is too short (minimum is %{count} characters)
+he/activerecord/errors/models/user/attributes/email,blank,-- missing value
+he/activerecord/errors/models/user/attributes/email,invalid,is invalid
+he/activerecord/errors/messages,greater_than_or_equal_to,must be greater than or equal to {{count}}
+he/activerecord/errors/messages,less_than_or_equal_to,must be less than or equal to {{count}}
+he/activerecord/errors/messages,confirmation,doesn't match confirmation
+he/activerecord/errors/messages,blank,can't be blank
+he/activerecord/errors/messages,invalid,is invalid
+he/activerecord/errors/messages,exclusion,is reserved
+he/activerecord/errors/messages,odd,must be odd
+he/activerecord/errors/messages,even,must be even
+he/activerecord/errors/messages,wrong_length,is the wrong length (should be {{count}} characters)
+he/activerecord/errors/messages,too_short,is too short (minimum is {{count}} characters)
+he/activerecord/errors/messages,empty,can't be empty
+he/activerecord/errors/messages,less_than,must be less than {{count}}
+he/activerecord/errors/messages,equal_to,must be equal to {{count}}
+he/activerecord/errors/messages,greater_than,must be greater than {{count}}
+he/activerecord/errors/messages,too_long,is too long (maximum is {{count}} characters)
+he/activerecord/errors/messages,accepted,must be accepted
+he/activerecord/errors/messages,not_a_number,is not a number
+he/activerecord/errors/messages,inclusion,is not included in the list
+he/activerecord/errors/user/header,one,The operation failed due to the following error
+he/activerecord/errors/user/header,other,The operation failed due to the following %{count} errors
+he/notification/views,hi,Hi
+he/notification/views,click_above_link_to_answer,Click the above link to answer it
+he/notification/views,you_got_new_questionnaire,You've got a new questionnaire
+he/profile/views,change_password,Change password
+he/profile/views,edit,Edit
+he/profile/views,dear,Dear
+he/profile/views,please_update_profile,Please update your profile (Required fields are marked
+he/questionnaire_answer/views,please_select_one_of_the_options,Please select one of the options
+he/questionnaire_answer/views,all_fields_are_required,All fields are required!
+he/questionnaire_answer/controller,was_success,Questionnaire was successfuly answered.
+he/questionnaire_answer/controller,no_questionnaire_please_answer_a_new_one,There is no such Questionnaire. Please answer a new one
+he/questionnaire_answer/controller,already_answered_please_answer_a_new_one,You have already answered the Questionnaire you have asked for. Please answer a new one
+he/questionnaire_answer/controller,no_success,Questionnaire was not successfuly answered.
+he/questionnaire_answer/controller,already_answered,You have already answered this Questionnaire
+he/questionnaire_answer/controller,no_questionnaire,There is no such Questionnaire
+he/admin/reports,report,Report
+he/admin/reports,export_to_excel,Export to Excel
+he/admin/reports,show_only_confirmed_users,Show only confirmed users
+he/admin/reports,from,From
+he/admin/reports,to,To
+he/admin/reports,date_range,Please select a date range
+he/admin/reports,user_activities,User Activities' Report
+he/admin/reports,display_also_profile,Display also profile
+he/admin/reports,users_who_signed_in,Users who signed in
+he/admin/reports,users_who_answered_questionnaires,Users who answered questionnaires
+he/admin/reports,users_who_not_signed_in,Users who didnt sign in
+he/admin/reports,user,User
+he/admin/reports,generate_report,Generate report
+he/errors/messages,not_locked,was not locked
+he/errors/messages,not_found,not found
+he/errors/messages,already_confirmed,was already confirmed
+he/views,back,Back
+he/views,cancel,Cancel
+he/views,submit,Submit
+he/views,update,Update
+he/views,signout,Sign out
+he/devise/failure,unauthenticated,You need to sign in or sign up before continuing.
+he/devise/failure,timeout,"Your session expired, please sign in again to continue."
+he/devise/failure,invalid,Invalid email or password.
+he/devise/failure,inactive,Your account was not activated yet.
+he/devise/failure,unconfirmed,You have to confirm your account before continuing.
+he/devise/failure,invalid_token,Invalid authentication token.
+he/devise/failure,locked,Your account is locked.
+he/devise/passwords,send_instructions,You will receive an email with instructions about how to reset your password in a few minutes.
+he/devise/passwords,updated,Your password was changed successfully. You are now signed in.
+he/devise/views,sign_up,Sign up
+he/devise/views,sign_in,Sign in
+he/devise/views,forgot_password,Forgot your password?
+he/devise/views,remember_me,Remember me
+he/devise/views,resend_confirmation_instructions,Resend confirmation instructions
+he/devise/views,send_reset_password,Send me reset password instructions
+he/devise/views,sign_in_more,Sign in&nbsp;&nbsp;&nbsp;&#9658;
+he/devise/views,current_password,Current password (we need it to confirm your changes)
+he/devise/views,confirm_new_password,Password confirmation
+he/devise/views,sign_up_more,Sign up&nbsp;&nbsp;&nbsp;&#9658;
+he/devise/views,new_password,New password (at least 6 characters)
+he/devise/views,no_unlock_instructions,Didnt receive unlock instructions?
+he/devise/views,resend_unlock_instructions,Resend unlock instructions
+he/devise/views,no_confirmation_instructions,Didnt receive confirmation instructions?
+he/devise/views,password,Password
+he/devise/views,email,Email
+he/devise/mailer,unlock_instructions,Unlock Instructions
+he/devise/mailer,reset_password_instructions,Reset password instructions
+he/devise/mailer,confirmation_instructions,Confirmation instructions
+he/devise/unlocks,unlocked,Your account was successfully unlocked. You are now signed in.
+he/devise/unlocks,send_instructions,You will receive an email with instructions about how to unlock your account in a few minutes.
+he/devise/registrations,destroyed,Bye! Your account was successfully cancelled. We hope to see you again soon.
+he/devise/registrations,updated,You updated your account successfully.
+he/devise/registrations,signed_up,"You have signed up successfully. If enabled, a confirmation was sent your e-mail."
+he/devise/mails,reset_password_line1,"Someone has requested a link to change your password, and you can do this through the link below"
+he/devise/mails,unlock_my_account,Unlock my account
+he/devise/mails,reset_password_line2,"If you didn't request this, please ignore this email"
+he/devise/mails,unlock_line1,Your account has been locked due to an excessive amount of unsuccessful sign in attempts
+he/devise/mails,change_my_password,Change my password
+he/devise/mails,reset_password_line3,Your password won't change until you access the link above and create a new one
+he/devise/mails,welcome,Welcome
+he/devise/mails,unlock_line2,Click the link below to unlock your account
+he/devise/mails,confirm_my_account,Confirm my account
+he/devise/mails,hello,Hello
+he/devise/mails,confirm_through_link,You can confirm your account through the link below
+he/devise/sessions,signed_out,Signed out successfully.
+he/devise/sessions,signed_in,Signed in successfully.
+he/devise/confirmations,confirmed,Your account was successfully confirmed. You are now signed in.
+he/devise/confirmations,send_instructions,You will receive an email with instructions about how to confirm your account in a few minutes.
+he/user/model,receive_notifications,Do you want to receive notifications to your email?
+he/user/model,preferred_language,Preferred language
+he/user/model,yes_answer,true
+he/user/model,female,Female
+he/user/model,gender,Gender
+he/user/model,male,Male
+he/user/model,birthday,Year of Birthday
+he/user/model,no_answer,false
+he/home/views,check_for_new_questionnaire,Check for new questionnaire
+he/home/views,edit_profile,Edit profile
+he/home/views,view_reports,View Reports
+he/answer/model,answer_too_short,Your answer is too short. The minimum length of an answer is 10 characters.
+he/answer/model,write_an_answer,You have to write an answer.
+he/answer/model,select_at_least_one,You have to select at least one option.
+he/answer/model,select_one_option,You have to select one of the options.

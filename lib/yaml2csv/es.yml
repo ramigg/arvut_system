@@ -1,0 +1,190 @@
+---
+en:
+  activerecord:
+    attributes:
+      user:
+        email: "Dirección electrónica"
+        password: Contraseña
+    errors:
+      messages:
+        accepted: "debe ser aceptado"
+        blank: "no puede estar en blanco"
+        confirmation: "la confirmación no coincide"
+        empty: "no puede estar en blanco"
+        equal_to: "debe ser igual a %{count}"
+        even: "debe ser par"
+        exclusion: "está reservado"
+        greater_than: "debe ser mayor de %{count}"
+        greater_than_or_equal_to: "debe ser mayor o igual a %{count}"
+        inclusion: "no está incluido en la lista"
+        invalid: "no es válido"
+        less_than: "debe ser menor de %{count}"
+        less_than_or_equal_to: "debe ser menor o igual a %{count}"
+        not_a_number: "no es un número"
+        odd: "debe ser impar"
+        taken: "ya está ocupada"
+        too_long: "es demasiado larga (el máximo es de %{count} caracteres)"
+        too_short: "es demasiado corta (el mínimo es de %{count} caracteres)"
+        wrong_length: "tiene una longitud errónea (debería ser de %{count} caracteres)"
+      models:
+        user:
+          attributes:
+            email:
+              blank: "-- valor en blanco"
+              invalid: "no es válido"
+            password:
+              blank: "-- no puede estar en blanco"
+              confirmation: "la confirmación no coincide"
+              too_short: "demasiado corta (el mínimo es de %{count} caracteres)"
+          blank: "Campo en blanco"
+      user:
+        header:
+          one: "La operación falló debido al siguiente error"
+          other: "La operación falló debido a los siguientes %{count} errores"
+    models:
+      user: correo-e
+  admin:
+    reports:
+      date_range: "Por favor, selecciona un rango de fechas"
+      display_also_profile: "Mostrar también el perfil"
+      export_to_excel: "Exportar a Excel"
+      from: De
+      generate_report: "Generar informe"
+      report: Informe
+      show_only_confirmed_users: "Mostrar sólo a los usuarios confirmados"
+      to: A
+      user: Usuario
+      user_activities: "Informe de actividades del usuario"
+      users_who_answered_questionnaires: "Usuarios que han respondido cuestionarios"
+      users_who_not_signed_in: "Usuarios no conectados"
+      users_who_signed_in: "Usuarios conectados"
+  answer:
+    model:
+      answer_too_short: "Tu respuesta es demasiado corta. La longitud mínima de la respuesta es de 10 caracteres."
+      select_at_least_one: "Tienes que seleccionar al menos una opción."
+      select_one_option: "Tienes que seleccionar una de las opciones."
+      write_an_answer: "Tienes que escribir una respuesta"
+  devise:
+    confirmations:
+      confirmed: "Tu cuenta ha sido confirmada con éxito. Ahora estás conectado."
+      send_instructions: "En unos minutos recibirás un correo electrónico con instrucciones sobre cómo confirmar tu cuenta."
+    failure:
+      inactive: "Tu cuenta no ha sido activada aún."
+      invalid: "Dirección electrónica o contraseña inválido."
+      invalid_token: "Documento de autenticación inválido."
+      locked: "Tu cuenta está bloqueada. "
+      timeout: "Tu sesión ha expirado, por favor conéctate de nuevo para continuar."
+      unauthenticated: "Tienes que conectarte o actualizar tu conexión para continuar."
+      unconfirmed: "Tienes que confirmar tu cuenta antes de continuar."
+    mailer:
+      confirmation_instructions:
+        user_subject: "Instrucciones para la confirmación"
+      reset_password_instructions:
+        user_subject: "Instrucciones para restaurar la contraseña"
+      unlock_instructions:
+        user_subject: "Instrucciones de desbloqueo"
+    mails:
+      change_my_password: "Cambiar mi contraseña"
+      confirm_my_account: "Confirmar mi cuenta"
+      confirm_through_link: "Puedes confirmar tu cuenta en el enlace siguiente"
+      hello: Hola
+      reset_password_line1: "Alguien ha solicitado un enlace para cambiar tu contraseña. Puedes hacerlo a través del enlace siguiente"
+      reset_password_line2: "Si no lo solicitaste, por favor, ignora este email"
+      reset_password_line3: "Tu contraseña no cambiará hasta que accedas al enlace siguiente y crees una nueva"
+      unlock_line1: "Tu cuenta ha sido desbloqueada con éxito. Ahora estás conectado."
+      unlock_line2: "Haz clic sobre el enlace siguiente para desbloquear tu cuenta"
+      unlock_my_account: "Desbloquear mi cuenta"
+      welcome: Bienvenido
+    passwords:
+      send_instructions: "En unos minutos, recibirás un email con instrucciones sobre cómo cambiar tu contraseña."
+      updated: "Tu contraseña fue cambiada con éxito. Ahora estás conectado."
+    registrations:
+      destroyed: "¡Adios! Tu cuenta ha sido cancelada con éxito. Esperamos volver a verte pronto."
+      signed_up: "Te has registrado con éxito. ¡Por favor, revisa tu email en busca de un mensaje de confirmación para activar tu cuenta!"
+      updated: "Has actualizado tu cuenta con éxito."
+    sessions:
+      signed_in: Conectado.
+      signed_out: Desconectado.
+    unlocks:
+      send_instructions: "En unos minutos, recibirás un email con instrucciones sobre cómo desbloquear tu cuenta."
+      unlocked: "Tu cuenta ha sido desbloqueada con éxito. Ahora estás conectado."
+    views:
+      change_my_password: "Cambiar mi contraseña"
+      confirm_new_password: "Confirmación de la contraseña"
+      current_password: "Contraseña actual (la necesitamos para confirmar tus cambios)"
+      email: Email
+      forgot_password: "¿Has olvidado tu contraseña?"
+      new_password: "Nueva contraseña (al menos 6 caracteres)"
+      no_confirmation_instructions: "¿Recibiste instrucciones de confirmación?"
+      no_unlock_instructions: "¿Recibiste instrucciones para el desbloqueo?"
+      password: Contraseña
+      remember_me: Recordármela
+      resend_confirmation_instructions: "Volver a enviar las instrucciones de confirmación"
+      resend_unlock_instructions: "Volver a enviar las instrucciones para el desbloqueo"
+      send_reset_password: "Enviarme las instrucciones para restaurar mi contraseña"
+      sign_in: Registrarse
+      sign_in_more: "Conectar&nbsp;&nbsp;&nbsp;&#9658;"
+      sign_up: Regístrate
+      sign_up_more: "Inscríbete&nbsp;&nbsp;&nbsp;&#9658;"
+  errors:
+    messages:
+      already_confirmed: "ya fue confirmado"
+      not_found: "no encontrado"
+      not_locked: "no estaba bloqueado"
+  home:
+    views:
+      answered: respondido
+      check_for_new_questionnaire: "Revisar si hay un nuevo cuestionario"
+      dashboard: "Mi página"
+      date: Fecha
+      edit_profile: "Editar perfil"
+      last_10_questionnaires: "Los últimos 10 cuestionarios"
+      not_answered: "no respondido"
+      status: Posición
+      title: Título
+      view_reports: "Ver informes"
+  layout:
+    search: Buscar
+    search_screen_reader: Buscar
+  notification:
+    mailer:
+      new_questionnaire_for_you: "Hay un nuevo cuestionario para ti…"
+    views:
+      click_above_link_to_answer: "Haz clic sobre el enlace para contestarlo"
+      hi: Hola
+      you_got_new_questionnaire: "Tienes un nuevo cuestionario"
+  profile:
+    views:
+      change_password: "cambiar contraseña"
+      dear: Hola
+      edit: editar
+      please_update_profile: "por favor actualiza tu perfil"
+      profile: perfil
+      required: "campo requerido"
+  questionnaire_answer:
+    controller:
+      already_answered: "Ya has contestado este cuestionario"
+      no_questionnaire: "No existe ese cuestionario"
+      no_success: "El cuestionario no ha sido respondido con éxito."
+      was_success: "El cuestionario ha sido respondido con éxito."
+    views:
+      all_fields_are_required: "¡Todos los campos son obligatorios!"
+      please_select_one_of_the_options: "Por favor selecciona una de las acciones"
+  user:
+    model:
+      birthday: "Año de nacimiento"
+      female: Mujer
+      first_name: Nombre
+      gender: Género
+      last_name: Apellido
+      male: Hombre
+      no_answer: " No"
+      preferred_language: "Idioma de preferencia"
+      receive_notifications: "¿Quieres recibir notificaciones en tu dirección electrónica?"
+      yes_answer: Sí
+  views:
+    back: Volver
+    cancel: Cancelar
+    signout: Desconectar
+    submit: Enviar
+    update: Actualizar

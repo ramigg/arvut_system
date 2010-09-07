@@ -1,0 +1,295 @@
+en:
+#  value, attribute, model
+  activerecord:
+    models:
+      user: email
+    attributes:
+      user:
+        email: E-mail address
+        password: Password
+    errors:
+      user:
+        header:
+          one: The operation failed due to the following error
+          other: The operation failed due to the following %{count} errors
+      messages:
+        inclusion: is not included in the list
+        exclusion: is reserved
+        invalid: is invalid
+        confirmation: doesn't match confirmation
+        accepted: must be accepted
+        empty: can't be empty
+        blank: can't be blank
+        too_long: is too long (maximum is %{count} characters)
+        too_short: is too short (minimum is %{count} characters)
+        wrong_length: is the wrong length (should be %{count} characters)
+        not_a_number: is not a number
+        greater_than: must be greater than %{count}
+        greater_than_or_equal_to: must be greater than or equal to %{count}
+        equal_to: must be equal to %{count}
+        less_than: must be less than %{count}
+        less_than_or_equal_to: must be less than or equal to %{count}
+        odd: must be odd
+        even: must be even
+        taken: is already taken
+      models:
+        user:
+          blank: blank field
+          attributes:
+            email:
+              blank: -- missing value
+              invalid: is invalid
+            password:
+              blank: -- cannot be blank
+              too_short: is too short (minimum is %{count} characters)
+              confirmation: doesn't match confirmation
+
+  views:
+    submit: Submit
+    load: Load
+    cancel: Cancel
+    signout: Sign out
+    back: Back
+    update: Update
+    plase_wait: Please wait...
+
+  layout:
+    search: Search
+    search_screen_reader: Search for
+
+  errors:
+    messages:
+      not_found: not found
+      already_confirmed: was already confirmed
+      not_locked: was not locked
+
+  devise:
+    views:
+      sign_in: Sign in
+      sign_in_more: Sign in&nbsp;&nbsp;&nbsp;&#9658;
+      email: Email
+      password: Password
+      remember_me: Remember me
+      sign_up: Sign up
+      sign_up_more: Sign up&nbsp;&nbsp;&nbsp;&#9658;
+      forgot_password: 'Forgot your password?'
+      no_confirmation_instructions: 'Did not receive confirmation instructions?'
+      no_unlock_instructions: 'Did not receive unlock instructions?'
+      new_password: New password (at least 6 characters)
+      confirm_new_password: Password confirmation
+      current_password: Current password (we need it to confirm your changes)
+      send_reset_password: Send me reset password instructions
+      resend_confirmation_instructions: Resend confirmation instructions
+      resend_unlock_instructions: Resend unlock instructions
+      change_my_password: Change my password
+      sign_up_now: Sign up NOW!!!
+      new_user: New User?
+      cannot_sign_in: Cannot sign in? Click here for help!
+    mails:
+      welcome: Welcome
+      confirm_through_link: You can confirm your account through the link below
+      confirm_my_account: Confirm my account
+      hello: Hello
+      reset_password_line1: Someone has requested a link to change your password, and you can do this through the link below
+      reset_password_line2: If you didn't request this, please ignore this email
+      reset_password_line3: Your password won't change until you access the link above and create a new one
+      change_my_password: Change my password
+      unlock_line1: Your account has been locked due to an excessive amount of unsuccessful sign in attempts
+      unlock_line2: Click the link below to unlock your account
+      unlock_my_account: Unlock my account
+    failure:
+      unauthenticated: You need to sign in or sign up before continuing.
+      unconfirmed: You have to confirm your account before continuing.
+      locked: Your account is locked.
+      invalid: Invalid email or password.
+      invalid_token: Invalid authentication token.
+      timeout: Your session expired, please sign in again to continue.
+      inactive: Your account was not activated yet.
+    sessions:
+      signed_in: Signed in successfully.
+      signed_out: Signed out successfully.
+    passwords:
+      send_instructions: You will receive an email with instructions about how to reset your password in a few minutes.
+      updated: Your password was changed successfully. You are now signed in.
+    confirmations:
+      send_instructions: You will receive an email with instructions about how to confirm your account in a few minutes.
+      confirmed: Your account was successfully confirmed. You are now signed in.
+    registrations:
+      signed_up: You have signed up successfully. Please check your email for a confirmation message to activate your account!
+      updated: You updated your account successfully.
+      destroyed: Bye! Your account was successfully cancelled. We hope to see you again soon.
+    unlocks:
+      send_instructions: You will receive an email with instructions about how to unlock your account in a few minutes.
+      unlocked: Your account was successfully unlocked. You are now signed in.
+    mailer:
+      confirmation_instructions: Confirmation instructions
+      reset_password_instructions: Reset password instructions
+      unlock_instructions: Unlock Instructions
+      confirmation_instructions:
+        user_subject: Confirmation instructions
+      reset_password_instructions:
+        user_subject: Reset password instructions
+      unlock_instructions:
+        user_subject: Unlock Instructions
+  answer:
+    model:
+      select_at_least_one: You have to select at least one option.
+      write_an_answer: You have to write an answer.
+      select_one_option: You have to select one of the options.
+      answer_too_short: Your answer is too short. The minimum length of an answer is 10 characters.
+
+  questionnaire_answer:
+    controller:
+      no_success: Questionnaire was not successfuly answered.
+      was_success: Questionnaire was successfuly answered.
+      no_questionnaire: There is no such Questionnaire
+      already_answered: You have already answered this Questionnaire
+    views:
+      all_fields_are_required: All fields are required!
+      please_select_one_of_the_options: Please select one of the options
+
+  home:
+    views:
+      edit_profile: Edit profile
+      check_for_new_questionnaire: Check for new questionnaire
+      view_reports: View Reports
+      date: Date
+      title: Title
+      status: Status
+      answered: answered
+      not_answered: not answered
+      last_10_questionnaires: The last 10 questionnaires
+      dashboard: My page
+      admin: Admin
+    faq:
+      faq: Frequently Asked Questions
+      confirmation:
+        You have already registered, but the system still doesn't permit you to enter?
+        Please check your mailbox for the confirmation email.
+        If there isn't one, please use the following link to send you another one.
+      forgot_password:
+        You have already registered, but the system still doesn't permit you to enter?
+        Did you check the confirmation instructions above?
+        Maybe you forgot your password? Try the following link to reset it.
+      unlock:
+        You've been locked by the system. Please check your mailbox for the unlock email.
+        If there isn't one, please use the following link to send it again.
+      email:
+        If you've tried everything above and still have a problem, then please send an email to
+  profile:
+    views:
+      edit: edit
+      dear: Hello
+      please_update_profile: please update your profile
+      change_password: change password
+      profile: profile
+      required: required field
+
+  user:
+    model:
+      gender: Gender
+      male: Male
+      female: Female
+      birthday: Year of Birthday
+      receive_notifications: 'Do you want to receive notifications to your email?'
+      yes_answer: ' Yes'
+      no_answer: ' No'
+      preferred_language: Message Language
+      first_name: First name
+      last_name: Last name
+
+  admin:
+    user_list:
+      create_new_user: Create New User
+      create_user_list: Create User List
+      update_user_list: Update User List
+      last_name: Last Name
+      first_name: First Name
+      email: Email
+      has_user: Has user?
+      edit: Edit
+      delete: Delete
+      are_you_sure: Are you sure?
+      please_select_one_of_the_options: Please select one of the options
+      select_group: Select Group
+    questionnaires:
+      create_new_questionnaire: Create new questionnaire
+      created_at: Created at
+      created_by: Created by
+      title: Title
+      status: Status
+      edit: Edit
+      approve: Approve
+      set_draft: Draft
+      delete: Delete
+      are_you_sure: Are you sure?
+      questionnaire_editor: Questionnaire Editor
+      questionnaire_title: Questionnaire Title
+      questionnaire_description: Questionnaire Description
+      questionnaire_related_links: Questionnaire Related Links
+      questionnaire_excerpt: Questionnaire Excerpt from Source
+      remove: remove
+      title: Title
+      description: Description
+      add_answer: Add Answer
+      add_other: Add Other
+      other: Other
+      add: Add
+      label_from: Label from
+      label_to: Label to
+      scale_from: Scale from
+      scale_to: Scale to
+      is_multiline: is multiline?
+      update_questionnaire: Update Questionnaire
+      create_questionnaire: Create Questionnaire
+      fields_marked_in_red_are_required: Fields marked in red are required
+    reports:
+      user_activities: User Activities' Report
+      date_range: Please select a date range
+      from: From
+      to: To
+      users_who_signed_in: Users who signed in
+      users_who_not_signed_in: Users who didnt sign in
+      users_who_answered_questionnaires: Users who answered questionnaires
+      show_only_confirmed_users: Show only confirmed users
+      display_also_profile: Display also profile
+      generate_report: Generate report
+      basic_report: User Activities report
+      attendance_report: Attendance report
+      export_to_excel: Export to Excel
+      date: Select a month
+      report: Report
+      reports: Reports
+      user: User
+      total: Total
+      upload: Upload
+      file: File
+      group_name: Group Name
+      all_groups: Everyone
+      plus: active
+      minus: not active
+      x: not registered
+      status: Status
+      generating: Generating...
+      for_month: for
+      print: Print
+      manage_questionnaires: Manage questionnaires
+      questionnaires_list: Questionnaires list
+      user_management: User management
+      group_management: Group management
+      manage_user_roles: Manage user roles
+      remove_user: Remove user
+      load_group_list: Load Group List
+      manage_user_lists: Manage User Lists
+
+  notification:
+    views:
+      hi: Hi
+      you_got_new_questionnaire: You've got a new questionnaire
+      click_above_link_to_answer: Click the above link to answer it
+    mailer:
+      new_questionnaire_for_you: There is a new questionnaire for you...
+
+  time:
+    formats:
+      attendance_report: %d %B %Y
