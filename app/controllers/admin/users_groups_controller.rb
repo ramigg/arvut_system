@@ -33,8 +33,8 @@ class Admin::UsersGroupsController < ApplicationController
       items = line.mb_chars.chomp.split(/,/)
       email = items[2].to_s
       user_list_item = UserList.new(
-        :last_name => items[0].to_s,
-        :first_name => items[1].to_s,
+        :first_name => items[0].to_s,
+        :last_name => items[1].to_s,
         :email => email
       )
       user_list_item.user = User.where(:email => email).first

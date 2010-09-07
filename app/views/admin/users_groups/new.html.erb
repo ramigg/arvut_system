@@ -13,7 +13,7 @@
 <%= form_for(@users_group, :html => {:multipart => true}) do |f| %>
   <ul>
     <li><%= t('admin.reports.group_name') %> <ul><li><%= f.text_field 'name' %></li></ul></li>
-    <li><%= t('admin.reports.file') %> <ul><li><%= file_field_tag 'file' %></li></ul></li>
+    <li><%= t('admin.reports.file') %> (Format: Name,Family,Email) <ul><li><%= file_field_tag 'file' %></li></ul></li>
   </ul>
   <hr class="sub-hr"/>
   <%= f.submit t('admin.reports.upload'), :disable_with => 'Uploading...' %>
