@@ -8,16 +8,19 @@ class Mailer < ActionMailer::Base
   #
   #   en.actionmailer.mailer.send_notification.subject
   #
-  def send_notification(user, questionnaire)
-    I18n.default_locale = I18n.locale = questionnaire.language.locale
+  def send_questionnaire_notification(user, questionnaire)
+    @locale = questionnaire.language.locale
     headers = {
       :from => 'Bnei Baruch <internet@kbb1.com>',
-      :subject => I18n.t('notification.mailer.new_questionnaire_for_you'),
+      :subject => I18n.t('notification.mailer.new_questionnaire_for_you', :locale => @locale),
       :to => user.email,
       :date => Time.now.to_formatted_s(:rfc822)
     }
     @user = user
     @questionnaire = questionnaire
-    mail(headers)
+    mail(headers) do |format|
+      format.text
+      format.html
+    end
   end
 end

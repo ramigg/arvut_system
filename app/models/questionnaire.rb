@@ -1,7 +1,9 @@
 class Questionnaire < ActiveRecord::Base
   belongs_to :author, :class_name => "User"
   has_many :questionnaire_answers
-  has_and_belongs_to_many :questions
+  has_many :questionnaires_questions
+  has_many :questions, :through => :questionnaires_questions, :order => "position"
+#  has_and_belongs_to_many :questions
   accepts_nested_attributes_for :questions, :allow_destroy => true, :reject_if => proc { |a| a['title'].blank? }
   belongs_to :language
   has_many :answered_users, :source => :author, :through => :questionnaire_answers, :uniq => true
@@ -20,7 +22,7 @@ class Questionnaire < ActiveRecord::Base
   }
 
   # removed by request of Dion
-  # after_create :send_notifications
+  # after_save :send_notifications
 
   #  Returns true if the user answered a specific questionnaire or false if didn't
   def answered_questionnaire?(user)
@@ -29,11 +31,15 @@ class Questionnaire < ActiveRecord::Base
 
   private
   def send_notifications
+    return if self.status != 'PUBLISHED' || self.was_sent
+
     locale = language.locale || Language.default_locale
     User.wanted_noitification(locale).each{|user|
-      message = Mailer.send_notification(user, self)
+      message = Mailer.send_questionnaire_notification(user, self)
       message.deliver
     }
+    self.update_attribute('was_sent', true)
   end
+
 
 end

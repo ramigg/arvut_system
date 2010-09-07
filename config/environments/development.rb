@@ -23,7 +23,12 @@ Simulator::Application.configure do
     smtp_settings = File.open( email ) { |yf| YAML::load( yf ) }
     config.action_mailer.smtp_settings = smtp_settings
   else
-    config.action_mailer.delivery_method = :sendmail
+    #    config.action_mailer.delivery_method = :sendmail
+    config.action_mailer.delivery_method = :remail
+    config.action_mailer.remail_settings = {
+      :app_id  => "remail-bb",
+      :api_key => "a3bd9c1d-1ea5-4e27-92ae-def9754d943a"
+    }
   end
 
   config.action_mailer.raise_delivery_errors = true

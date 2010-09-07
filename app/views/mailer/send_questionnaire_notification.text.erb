@@ -1,0 +1,5 @@
+<%= t('notification.views.hi', :locale => @locale) %>, <%= "#{@user.first_name} #{@user.last_name}"%>!
+
+<%= t('notification.views.you_got_new_questionnaire', :locale => @locale)%>:
+<%= link_to @questionnaire.title, new_questionnaire_answer_url(:locale => @locale, :questionnaire_id => @questionnaire.id) %>
+<%= t('notification.views.click_above_link_to_answer', :locale => @locale)%>
