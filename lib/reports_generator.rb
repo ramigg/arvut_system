@@ -184,6 +184,7 @@ module ReportsGenerator
   end
 
   # Example
+  # Delayed::Job.enqueue ReportWorker.new(user)
   class ReportWorker < Struct.new(:user)
     def perform
       puts user
