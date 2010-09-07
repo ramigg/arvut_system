@@ -2,7 +2,9 @@ class Question < ActiveRecord::Base
   belongs_to :author, :class_name => "User"
   belongs_to :approver, :class_name => "User"
   has_many :answers
-  has_and_belongs_to_many :questionnaires
+  has_many :questionnaires_questions
+  has_many :questionnaires, :through => :questionnaires_questions
+#  has_and_belongs_to_many :questionnaires
 
 
   has_many :entries, :class_name => "QuestionPair", :foreign_key => :entry_id, :dependent => :destroy
