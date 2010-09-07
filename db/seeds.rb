@@ -5,3 +5,12 @@
 #
 #   cities = City.create([{ :name => 'Chicago' }, { :name => 'Copenhagen' }])
 #   Mayor.create(:name => 'Daley', :city => cities.first)
+['Groupmanager', 'Moderator', 'Reports', 'Anonymous', 'Regular', 'Admin', 'Super'].each do |role|  
+  Role.find_or_create_by_role role
+end
+
+[{:locale => 'en',:language => 'English'},
+  {:locale => 'he',:language => 'עברית'},
+  {:locale => 'ru',:language => 'Русский'},
+  {:locale => 'es',:language => 'Español'}
+].each{|e| Language.find_or_create_by_locale_and_language(e)}

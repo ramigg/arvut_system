@@ -1,6 +1,9 @@
 .bundle
 Gemfile.lock
+test-start.sh
+test-stop.sh
 db/*.sqlite3
 log/*.log
 tmp/**/*
 config/database.yml
+public/ckeditor_assets/**/*

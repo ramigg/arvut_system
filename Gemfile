@@ -2,17 +2,22 @@ source 'http://rubygems.org'
 
 gem 'rails', '3.0.0'
 gem 'railties', '3.0.0'
+gem  'remail'
+ gem 'cells', '3.4.0.beta1'#, :git => 'http://github.com/apotonick/cells.git'
+# gem 'cells', :git => 'http://github.com/fsmanuel/cells.git', :branch => "master"
+# gem 'cells3'#, :git => 'http://github.com/mlomnicki/cells3.git'
 
 # Bundle edge Rails instead:
 #gem 'rails', :git => 'git://github.com/rails/rails.git', :branch => 'master'
 #gem 'railties' , :git => 'git://github.com/rails/rails.git', :branch => 'master'
-#gem 'mongrel'
+gem 'mongrel'
 gem 'thin'
 #gem 'sqlite3-ruby', :require => 'sqlite3'
 gem 'pg'
 gem 'postgres-pr', :require => 'pg'
 gem 'responders'
 #gem 'i18n'
+gem 'acts_as_list'
 
 gem 'gemcutter'
 gem 'state_machine'
@@ -38,6 +43,18 @@ group :development do
 	gem 'ruby-debug', '0.10.3'
   gem 'ruby-debug-base', '0.10.3'
   gem 'ruby-debug-ide', '0.4.7'
+end
+
+group :test do
+  gem 'capybara'
+  gem 'database_cleaner'
+  gem 'cucumber-rails'
+  gem 'cucumber'
+  gem 'rspec', '~>2.0.0.beta.19'
+  gem 'rspec-rails', '~>2.0.0.beta.19'
+# gem 'spork'
+  gem 'launchy'
+  gem 'factory_girl_rails'
 end
 
 # CKEditor + Paperclip
