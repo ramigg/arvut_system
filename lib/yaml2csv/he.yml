@@ -1,0 +1,188 @@
+he:
+#  value, attribute, model
+  activerecord:
+    models:
+      user: אימייל
+    attributes:
+      user:
+        email: כתובת אימייל
+        password: סיסמא
+    errors:
+      user:
+        header:
+          one: The operation failed due to the following error
+          other: The operation failed due to the following %{count} errors
+      messages:
+        inclusion: is not included in the list
+        exclusion: is reserved
+        invalid: is invalid
+        confirmation: doesn't match confirmation
+        accepted: must be accepted
+        empty: can't be empty
+        blank: can't be blank
+        too_long: is too long (maximum is {{count}} characters)
+        too_short: is too short (minimum is {{count}} characters)
+        wrong_length: is the wrong length (should be {{count}} characters)
+        not_a_number: is not a number
+        greater_than: must be greater than {{count}}
+        greater_than_or_equal_to: must be greater than or equal to {{count}}
+        equal_to: must be equal to {{count}}
+        less_than: must be less than {{count}}
+        less_than_or_equal_to: must be less than or equal to {{count}}
+        odd: must be odd
+        even: must be even
+      models:
+        user:
+          blank: blank field
+          attributes:
+            email:
+              blank: -- missing value
+              invalid: is invalid
+            password:
+              blank: -- cannot be blank
+              too_short: is too short (minimum is %{count} characters)
+              confirmation: doesn't match confirmation
+
+  views:
+    submit: Submit
+    cancel: Cancel
+    signout: Sign out
+    back: Back
+    update: Update
+
+  layout:
+    search: Search
+    search_screen_reader: Search for
+
+  errors:
+    messages:
+      not_found: not found
+      already_confirmed: was already confirmed
+      not_locked: was not locked
+
+  devise:
+    views:
+      sign_in: Sign in
+      sign_in_more: Sign in&nbsp;&nbsp;&nbsp;&#9658;
+      email: Email
+      password: Password
+      remember_me: Remember me
+      sign_up: Sign up
+      sign_up_more: Sign up&nbsp;&nbsp;&nbsp;&#9658;
+      forgot_password: Forgot your password?
+      no_confirmation_instructions: Didnt receive confirmation instructions?
+      no_unlock_instructions: Didnt receive unlock instructions?
+      new_password: New password (at least 6 characters)
+      confirm_new_password: Password confirmation
+      current_password: Current password (we need it to confirm your changes)
+      send_reset_password: Send me reset password instructions
+      resend_confirmation_instructions: Resend confirmation instructions
+      resend_unlock_instructions: Resend unlock instructions
+    mails:
+      welcome: Welcome
+      confirm_through_link: You can confirm your account through the link below
+      confirm_my_account: Confirm my account
+      hello: Hello
+      reset_password_line1: Someone has requested a link to change your password, and you can do this through the link below
+      reset_password_line2: If you didn't request this, please ignore this email
+      reset_password_line3: Your password won't change until you access the link above and create a new one
+      change_my_password: Change my password
+      unlock_line1: Your account has been locked due to an excessive amount of unsuccessful sign in attempts
+      unlock_line2: Click the link below to unlock your account
+      unlock_my_account: Unlock my account
+    failure:
+      unauthenticated: You need to sign in or sign up before continuing.
+      unconfirmed: You have to confirm your account before continuing.
+      locked: Your account is locked.
+      invalid: Invalid email or password.
+      invalid_token: Invalid authentication token.
+      timeout: Your session expired, please sign in again to continue.
+      inactive: Your account was not activated yet.
+    sessions:
+      signed_in: Signed in successfully.
+      signed_out: Signed out successfully.
+    passwords:
+      send_instructions: You will receive an email with instructions about how to reset your password in a few minutes.
+      updated: Your password was changed successfully. You are now signed in.
+    confirmations:
+      send_instructions: You will receive an email with instructions about how to confirm your account in a few minutes.
+      confirmed: Your account was successfully confirmed. You are now signed in.
+    registrations:
+      signed_up: You have signed up successfully. If enabled, a confirmation was sent your e-mail.
+      updated: You updated your account successfully.
+      destroyed: Bye! Your account was successfully cancelled. We hope to see you again soon.
+    unlocks:
+      send_instructions: You will receive an email with instructions about how to unlock your account in a few minutes.
+      unlocked: Your account was successfully unlocked. You are now signed in.
+    mailer:
+      confirmation_instructions: Confirmation instructions
+      reset_password_instructions: Reset password instructions
+      unlock_instructions: Unlock Instructions
+
+  answer:
+    model:
+      select_at_least_one: You have to select at least one option.
+      write_an_answer: You have to write an answer.
+      select_one_option: You have to select one of the options.
+      answer_too_short: Your answer is too short. The minimum length of an answer is 10 characters.
+
+  questionnaire_answer:
+    controller:
+      no_success: Questionnaire was not successfuly answered.
+      was_success: Questionnaire was successfuly answered.
+      no_questionnaire: There is no such Questionnaire
+      no_questionnaire_please_answer_a_new_one: There is no such Questionnaire. Please answer a new one
+      already_answered_please_answer_a_new_one: You have already answered the Questionnaire you have asked for. Please answer a new one
+      already_answered: You have already answered this Questionnaire
+    views:
+      all_fields_are_required: All fields are required!
+      please_select_one_of_the_options: Please select one of the options
+
+  home:
+    views:
+      edit_profile: Edit profile
+      check_for_new_questionnaire: Check for new questionnaire
+      view_reports: View Reports
+
+  profile:
+    views:
+      edit: Edit
+      dear: Dear
+      please_update_profile: Please update your profile (Required fields are marked
+      change_password: Change password
+
+  user:
+    model:
+      gender: Gender
+      male: Male
+      female: Female
+      birthday: Year of Birthday
+      receive_notifications: Do you want to receive notifications to your email?
+      yes_answer: Yes
+      no_answer: No
+      preferred_language: Preferred language
+
+  admin:
+    reports:
+      user_activities: User Activities' Report
+      date_range: Please select a date range
+      from: From
+      to: To
+      users_who_signed_in: Users who signed in
+      users_who_not_signed_in: Users who didnt sign in
+      users_who_answered_questionnaires: Users who answered questionnaires
+      show_only_confirmed_users: Show only confirmed users
+      display_also_profile: Display also profile
+      generate_report: Generate report
+      export_to_excel: Export to Excel
+      report: Report
+      user: User
+
+  notification:
+    views:
+      hi: Hi
+      you_got_new_questionnaire: You've got a new questionnaire
+      click_above_link_to_answer: Click the above link to answer it
+
+
+

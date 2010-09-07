@@ -1,0 +1,219 @@
+en/layout,search_screen_reader,Search for
+en/layout,search,Search
+en/activerecord/models,user,email
+en/activerecord/attributes/user,password,Password
+en/activerecord/attributes/user,email,E-mail address
+en/activerecord/errors/models/user,blank,blank field
+en/activerecord/errors/models/user/attributes/password,confirmation,doesn't match confirmation
+en/activerecord/errors/models/user/attributes/password,blank,-- cannot be blank
+en/activerecord/errors/models/user/attributes/password,too_short,is too short (minimum is %{count} characters)
+en/activerecord/errors/models/user/attributes/email,blank,-- missing value
+en/activerecord/errors/models/user/attributes/email,invalid,is invalid
+en/activerecord/errors/messages,greater_than_or_equal_to,must be greater than or equal to %{count}
+en/activerecord/errors/messages,less_than_or_equal_to,must be less than or equal to %{count}
+en/activerecord/errors/messages,confirmation,doesn't match confirmation
+en/activerecord/errors/messages,blank,can't be blank
+en/activerecord/errors/messages,invalid,is invalid
+en/activerecord/errors/messages,exclusion,is reserved
+en/activerecord/errors/messages,odd,must be odd
+en/activerecord/errors/messages,even,must be even
+en/activerecord/errors/messages,wrong_length,is the wrong length (should be %{count} characters)
+en/activerecord/errors/messages,too_short,is too short (minimum is %{count} characters)
+en/activerecord/errors/messages,empty,can't be empty
+en/activerecord/errors/messages,less_than,must be less than %{count}
+en/activerecord/errors/messages,equal_to,must be equal to %{count}
+en/activerecord/errors/messages,greater_than,must be greater than %{count}
+en/activerecord/errors/messages,taken,is already taken
+en/activerecord/errors/messages,too_long,is too long (maximum is %{count} characters)
+en/activerecord/errors/messages,accepted,must be accepted
+en/activerecord/errors/messages,not_a_number,is not a number
+en/activerecord/errors/messages,inclusion,is not included in the list
+en/activerecord/errors/user/header,one,The operation failed due to the following error
+en/activerecord/errors/user/header,other,The operation failed due to the following %{count} errors
+en/notification/views,hi,Hi
+en/notification/views,click_above_link_to_answer,Click the above link to answer it
+en/notification/views,you_got_new_questionnaire,You've got a new questionnaire
+en/notification/mailer,new_questionnaire_for_you,There is a new questionnaire for you...
+en/profile/views,required,required field
+en/profile/views,change_password,change password
+en/profile/views,edit,edit
+en/profile/views,profile,profile
+en/profile/views,dear,Hello
+en/profile/views,please_update_profile,please update your profile
+en/questionnaire_answer/views,please_select_one_of_the_options,Please select one of the options
+en/questionnaire_answer/views,all_fields_are_required,All fields are required!
+en/questionnaire_answer/controller,was_success,Questionnaire was successfuly answered.
+en/questionnaire_answer/controller,no_success,Questionnaire was not successfuly answered.
+en/questionnaire_answer/controller,already_answered,You have already answered this Questionnaire
+en/questionnaire_answer/controller,no_questionnaire,There is no such Questionnaire
+en/time/formats,attendance_report,%d %B %Y
+en/admin/questionnaires,questionnaire_editor,Questionnaire Editor
+en/admin/questionnaires,add,Add
+en/admin/questionnaires,edit,Edit
+en/admin/questionnaires,created_at,Created at
+en/admin/questionnaires,create_new_questionnaire,Create new questionnaire
+en/admin/questionnaires,questionnaire_related_links,Questionnaire Related Links
+en/admin/questionnaires,questionnaire_description,Questionnaire Description
+en/admin/questionnaires,are_you_sure,Are you sure?
+en/admin/questionnaires,delete,Delete
+en/admin/questionnaires,title,Title
+en/admin/questionnaires,create_questionnaire,Create Questionnaire
+en/admin/questionnaires,update_questionnaire,Update Questionnaire
+en/admin/questionnaires,created_by,Created by
+en/admin/questionnaires,is_multiline,is multiline?
+en/admin/questionnaires,label_to,Label to
+en/admin/questionnaires,remove,remove
+en/admin/questionnaires,fields_marked_in_red_are_required,Fields marked in red are required
+en/admin/questionnaires,scale_to,Scale to
+en/admin/questionnaires,other,Other
+en/admin/questionnaires,questionnaire_excerpt,Questionnaire Excerpt from Source
+en/admin/questionnaires,add_answer,Add Answer
+en/admin/questionnaires,description,Description
+en/admin/questionnaires,questionnaire_title,Questionnaire Title
+en/admin/questionnaires,set_draft,Draft
+en/admin/questionnaires,approve,Approve
+en/admin/questionnaires,scale_from,Scale from
+en/admin/questionnaires,add_other,Add Other
+en/admin/questionnaires,status,Status
+en/admin/questionnaires,label_from,Label from
+en/admin/user_list,edit,Edit
+en/admin/user_list,are_you_sure,Are you sure?
+en/admin/user_list,delete,Delete
+en/admin/user_list,create_new_user,Create New User
+en/admin/user_list,has_user,Has user?
+en/admin/user_list,select_group,Select Group
+en/admin/user_list,please_select_one_of_the_options,Please select one of the options
+en/admin/user_list,last_name,Last Name
+en/admin/user_list,update_user_list,Update User List
+en/admin/user_list,create_user_list,Create User List
+en/admin/user_list,email,Email
+en/admin/user_list,first_name,First Name
+en/admin/reports,group_name,Group Name
+en/admin/reports,report,Report
+en/admin/reports,load_group_list,Load Group List
+en/admin/reports,for_month,for
+en/admin/reports,export_to_excel,Export to Excel
+en/admin/reports,attendance_report,Attendance report
+en/admin/reports,questionnaires_list,Questionnaires list
+en/admin/reports,x,not registered
+en/admin/reports,user_management,User management
+en/admin/reports,manage_questionnaires,Manage questionnaires
+en/admin/reports,upload,Upload
+en/admin/reports,show_only_confirmed_users,Show only confirmed users
+en/admin/reports,from,From
+en/admin/reports,print,Print
+en/admin/reports,total,Total
+en/admin/reports,manage_user_roles,Manage user roles
+en/admin/reports,group_management,Group management
+en/admin/reports,minus,not active
+en/admin/reports,date,Select a month
+en/admin/reports,to,To
+en/admin/reports,date_range,Please select a date range
+en/admin/reports,user_activities,User Activities' Report
+en/admin/reports,plus,active
+en/admin/reports,generating,Generating...
+en/admin/reports,all_groups,Everyone
+en/admin/reports,display_also_profile,Display also profile
+en/admin/reports,users_who_signed_in,Users who signed in
+en/admin/reports,remove_user,Remove user
+en/admin/reports,file,File
+en/admin/reports,users_who_answered_questionnaires,Users who answered questionnaires
+en/admin/reports,users_who_not_signed_in,Users who didnt sign in
+en/admin/reports,manage_user_lists,Manage User Lists
+en/admin/reports,status,Status
+en/admin/reports,user,User
+en/admin/reports,reports,Reports
+en/admin/reports,basic_report,User Activities report
+en/admin/reports,generate_report,Generate report
+en/errors/messages,not_locked,was not locked
+en/errors/messages,not_found,not found
+en/errors/messages,already_confirmed,was already confirmed
+en/views,back,Back
+en/views,cancel,Cancel
+en/views,submit,Submit
+en/views,plase_wait,Please wait...
+en/views,update,Update
+en/views,signout,Sign out
+en/views,load,Load
+en/devise/failure,unauthenticated,You need to sign in or sign up before continuing.
+en/devise/failure,timeout,"Your session expired, please sign in again to continue."
+en/devise/failure,invalid,Invalid email or password.
+en/devise/failure,inactive,Your account was not activated yet.
+en/devise/failure,unconfirmed,You have to confirm your account before continuing.
+en/devise/failure,invalid_token,Invalid authentication token.
+en/devise/failure,locked,Your account is locked.
+en/devise/passwords,send_instructions,You will receive an email with instructions about how to reset your password in a few minutes.
+en/devise/passwords,updated,Your password was changed successfully. You are now signed in.
+en/devise/views,sign_up_now,Sign up NOW!!!
+en/devise/views,sign_up,Sign up
+en/devise/views,sign_in,Sign in
+en/devise/views,new_user,New User?
+en/devise/views,forgot_password,Forgot your password?
+en/devise/views,remember_me,Remember me
+en/devise/views,cannot_sign_in,Cannot sign in? Click here for help!
+en/devise/views,change_my_password,Change my password
+en/devise/views,resend_confirmation_instructions,Resend confirmation instructions
+en/devise/views,send_reset_password,Send me reset password instructions
+en/devise/views,sign_in_more,Sign in&nbsp;&nbsp;&nbsp;&#9658;
+en/devise/views,current_password,Current password (we need it to confirm your changes)
+en/devise/views,confirm_new_password,Password confirmation
+en/devise/views,sign_up_more,Sign up&nbsp;&nbsp;&nbsp;&#9658;
+en/devise/views,new_password,New password (at least 6 characters)
+en/devise/views,no_unlock_instructions,Did not receive unlock instructions?
+en/devise/views,resend_unlock_instructions,Resend unlock instructions
+en/devise/views,no_confirmation_instructions,Did not receive confirmation instructions?
+en/devise/views,password,Password
+en/devise/views,email,Email
+en/devise/mailer/unlock_instructions,user_subject,Unlock Instructions
+en/devise/mailer/reset_password_instructions,user_subject,Reset password instructions
+en/devise/mailer/confirmation_instructions,user_subject,Confirmation instructions
+en/devise/unlocks,unlocked,Your account was successfully unlocked. You are now signed in.
+en/devise/unlocks,send_instructions,You will receive an email with instructions about how to unlock your account in a few minutes.
+en/devise/registrations,destroyed,Bye! Your account was successfully cancelled. We hope to see you again soon.
+en/devise/registrations,updated,You updated your account successfully.
+en/devise/registrations,signed_up,You have signed up successfully. Please check your email for a confirmation message to activate your account!
+en/devise/mails,reset_password_line1,"Someone has requested a link to change your password, and you can do this through the link below"
+en/devise/mails,unlock_my_account,Unlock my account
+en/devise/mails,reset_password_line2,"If you didn't request this, please ignore this email"
+en/devise/mails,unlock_line1,Your account has been locked due to an excessive amount of unsuccessful sign in attempts
+en/devise/mails,change_my_password,Change my password
+en/devise/mails,reset_password_line3,Your password won't change until you access the link above and create a new one
+en/devise/mails,welcome,Welcome
+en/devise/mails,unlock_line2,Click the link below to unlock your account
+en/devise/mails,confirm_my_account,Confirm my account
+en/devise/mails,hello,Hello
+en/devise/mails,confirm_through_link,You can confirm your account through the link below
+en/devise/sessions,signed_out,Signed out successfully.
+en/devise/sessions,signed_in,Signed in successfully.
+en/devise/confirmations,confirmed,Your account was successfully confirmed. You are now signed in.
+en/devise/confirmations,send_instructions,You will receive an email with instructions about how to confirm your account in a few minutes.
+en/user/model,receive_notifications,Do you want to receive notifications to your email?
+en/user/model,preferred_language,Message Language
+en/user/model,yes_answer, Yes
+en/user/model,female,Female
+en/user/model,gender,Gender
+en/user/model,male,Male
+en/user/model,last_name,Last name
+en/user/model,birthday,Year of Birthday
+en/user/model,no_answer, No
+en/user/model,first_name,First name
+en/home/faq,faq,Frequently Asked Questions
+en/home/faq,forgot_password,"You have already registered, but the system still doesn't permit you to enter? Did you check the confirmation instructions above? Maybe you forgot your password? Try the following link to reset it."
+en/home/faq,confirmation,"You have already registered, but the system still doesn't permit you to enter? Please check your mailbox for the confirmation email. If there isn't one, please use the following link to send you another one."
+en/home/faq,unlock,"You've been locked by the system. Please check your mailbox for the unlock email. If there isn't one, please use the following link to send it again."
+en/home/faq,email,"If you've tried everything above and still have a problem, then please send an email to"
+en/home/views,not_answered,not answered
+en/home/views,answered,answered
+en/home/views,check_for_new_questionnaire,Check for new questionnaire
+en/home/views,dashboard,My page
+en/home/views,title,Title
+en/home/views,edit_profile,Edit profile
+en/home/views,admin,Admin
+en/home/views,date,Date
+en/home/views,last_10_questionnaires,The last 10 questionnaires
+en/home/views,status,Status
+en/home/views,view_reports,View Reports
+en/answer/model,answer_too_short,Your answer is too short. The minimum length of an answer is 10 characters.
+en/answer/model,write_an_answer,You have to write an answer.
+en/answer/model,select_at_least_one,You have to select at least one option.
+en/answer/model,select_one_option,You have to select one of the options.

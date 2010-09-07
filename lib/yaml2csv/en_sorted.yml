@@ -1,0 +1,272 @@
+---
+en:
+  activerecord:
+    attributes:
+      user:
+        email: "E-mail address"
+        password: Password
+    errors:
+      messages:
+        accepted: "must be accepted"
+        blank: "can't be blank"
+        confirmation: "doesn't match confirmation"
+        empty: "can't be empty"
+        equal_to: "must be equal to %{count}"
+        even: "must be even"
+        exclusion: "is reserved"
+        greater_than: "must be greater than %{count}"
+        greater_than_or_equal_to: "must be greater than or equal to %{count}"
+        inclusion: "is not included in the list"
+        invalid: "is invalid"
+        less_than: "must be less than %{count}"
+        less_than_or_equal_to: "must be less than or equal to %{count}"
+        not_a_number: "is not a number"
+        odd: "must be odd"
+        taken: "is already taken"
+        too_long: "is too long (maximum is %{count} characters)"
+        too_short: "is too short (minimum is %{count} characters)"
+        wrong_length: "is the wrong length (should be %{count} characters)"
+      models:
+        user:
+          attributes:
+            email:
+              blank: "-- missing value"
+              invalid: "is invalid"
+            password:
+              blank: "-- cannot be blank"
+              confirmation: "doesn't match confirmation"
+              too_short: "is too short (minimum is %{count} characters)"
+          blank: "blank field"
+      user:
+        header:
+          one: "The operation failed due to the following error"
+          other: "The operation failed due to the following %{count} errors"
+    models:
+      user: email
+  admin:
+    questionnaires:
+      add: Add
+      add_answer: "Add Answer"
+      add_other: "Add Other"
+      approve: Approve
+      are_you_sure: "Are you sure?"
+      create_new_questionnaire: "Create new questionnaire"
+      create_questionnaire: "Create Questionnaire"
+      created_at: "Created at"
+      created_by: "Created by"
+      delete: Delete
+      description: Description
+      edit: Edit
+      fields_marked_in_red_are_required: "Fields marked in red are required"
+      is_multiline: "is multiline?"
+      label_from: "Label from"
+      label_to: "Label to"
+      other: Other
+      questionnaire_description: "Questionnaire Description"
+      questionnaire_editor: "Questionnaire Editor"
+      questionnaire_excerpt: "Questionnaire Excerpt from Source"
+      questionnaire_related_links: "Questionnaire Related Links"
+      questionnaire_title: "Questionnaire Title"
+      remove: remove
+      scale_from: "Scale from"
+      scale_to: "Scale to"
+      set_draft: Draft
+      status: Status
+      title: Title
+      update_questionnaire: "Update Questionnaire"
+    reports:
+      all_groups: Everyone
+      attendance_report: "Attendance report"
+      basic_report: "User Activities report"
+      date: "Select a month"
+      date_range: "Please select a date range"
+      display_also_profile: "Display also profile"
+      export_to_excel: "Export to Excel"
+      file: File
+      for_month: for
+      from: From
+      generate_report: "Generate report"
+      generating: Generating...
+      group_management: "Group management"
+      group_name: "Group Name"
+      load_group_list: "Load Group List"
+      manage_questionnaires: "Manage questionnaires"
+      manage_user_lists: "Manage User Lists"
+      manage_user_roles: "Manage user roles"
+      minus: "not active"
+      plus: active
+      print: Print
+      questionnaires_list: "Questionnaires list"
+      remove_user: "Remove user"
+      report: Report
+      reports: Reports
+      show_only_confirmed_users: "Show only confirmed users"
+      status: Status
+      to: To
+      total: Total
+      upload: Upload
+      user: User
+      user_activities: "User Activities' Report"
+      user_management: "User management"
+      users_who_answered_questionnaires: "Users who answered questionnaires"
+      users_who_not_signed_in: "Users who didnt sign in"
+      users_who_signed_in: "Users who signed in"
+      x: "not registered"
+    user_list:
+      are_you_sure: "Are you sure?"
+      create_new_user: "Create New User"
+      create_user_list: "Create User List"
+      delete: Delete
+      edit: Edit
+      email: Email
+      first_name: "First Name"
+      has_user: "Has user?"
+      last_name: "Last Name"
+      please_select_one_of_the_options: "Please select one of the options"
+      select_group: "Select Group"
+      update_user_list: "Update User List"
+  answer:
+    model:
+      answer_too_short: "Your answer is too short. The minimum length of an answer is 10 characters."
+      select_at_least_one: "You have to select at least one option."
+      select_one_option: "You have to select one of the options."
+      write_an_answer: "You have to write an answer."
+  devise:
+    confirmations:
+      confirmed: "Your account was successfully confirmed. You are now signed in."
+      send_instructions: "You will receive an email with instructions about how to confirm your account in a few minutes."
+    failure:
+      inactive: "Your account was not activated yet."
+      invalid: "Invalid email or password."
+      invalid_token: "Invalid authentication token."
+      locked: "Your account is locked."
+      timeout: "Your session expired, please sign in again to continue."
+      unauthenticated: "You need to sign in or sign up before continuing."
+      unconfirmed: "You have to confirm your account before continuing."
+    mailer:
+      confirmation_instructions:
+        user_subject: "Confirmation instructions"
+      reset_password_instructions:
+        user_subject: "Reset password instructions"
+      unlock_instructions:
+        user_subject: "Unlock Instructions"
+    mails:
+      change_my_password: "Change my password"
+      confirm_my_account: "Confirm my account"
+      confirm_through_link: "You can confirm your account through the link below"
+      hello: Hello
+      reset_password_line1: "Someone has requested a link to change your password, and you can do this through the link below"
+      reset_password_line2: "If you didn't request this, please ignore this email"
+      reset_password_line3: "Your password won't change until you access the link above and create a new one"
+      unlock_line1: "Your account has been locked due to an excessive amount of unsuccessful sign in attempts"
+      unlock_line2: "Click the link below to unlock your account"
+      unlock_my_account: "Unlock my account"
+      welcome: Welcome
+    passwords:
+      send_instructions: "You will receive an email with instructions about how to reset your password in a few minutes."
+      updated: "Your password was changed successfully. You are now signed in."
+    registrations:
+      destroyed: "Bye! Your account was successfully cancelled. We hope to see you again soon."
+      signed_up: "You have signed up successfully. Please check your email for a confirmation message to activate your account!"
+      updated: "You updated your account successfully."
+    sessions:
+      signed_in: "Signed in successfully."
+      signed_out: "Signed out successfully."
+    unlocks:
+      send_instructions: "You will receive an email with instructions about how to unlock your account in a few minutes."
+      unlocked: "Your account was successfully unlocked. You are now signed in."
+    views:
+      cannot_sign_in: "Cannot sign in? Click here for help!"
+      change_my_password: "Change my password"
+      confirm_new_password: "Password confirmation"
+      current_password: "Current password (we need it to confirm your changes)"
+      email: Email
+      forgot_password: "Forgot your password?"
+      new_password: "New password (at least 6 characters)"
+      new_user: "New User?"
+      no_confirmation_instructions: "Did not receive confirmation instructions?"
+      no_unlock_instructions: "Did not receive unlock instructions?"
+      password: Password
+      remember_me: "Remember me"
+      resend_confirmation_instructions: "Resend confirmation instructions"
+      resend_unlock_instructions: "Resend unlock instructions"
+      send_reset_password: "Send me reset password instructions"
+      sign_in: "Sign in"
+      sign_in_more: "Sign in&nbsp;&nbsp;&nbsp;&#9658;"
+      sign_up: "Sign up"
+      sign_up_more: "Sign up&nbsp;&nbsp;&nbsp;&#9658;"
+      sign_up_now: "Sign up NOW!!!"
+  errors:
+    messages:
+      already_confirmed: "was already confirmed"
+      not_found: "not found"
+      not_locked: "was not locked"
+  home:
+    faq:
+      confirmation: "You have already registered, but the system still doesn't permit you to enter? Please check your mailbox for the confirmation email. If there isn't one, please use the following link to send you another one."
+      email: "If you've tried everything above and still have a problem, then please send an email to"
+      faq: "Frequently Asked Questions"
+      forgot_password: "You have already registered, but the system still doesn't permit you to enter? Did you check the confirmation instructions above? Maybe you forgot your password? Try the following link to reset it."
+      unlock: "You've been locked by the system. Please check your mailbox for the unlock email. If there isn't one, please use the following link to send it again."
+    views:
+      admin: Admin
+      answered: answered
+      check_for_new_questionnaire: "Check for new questionnaire"
+      dashboard: "My page"
+      date: Date
+      edit_profile: "Edit profile"
+      last_10_questionnaires: "The last 10 questionnaires"
+      not_answered: "not answered"
+      status: Status
+      title: Title
+      view_reports: "View Reports"
+  layout:
+    search: Search
+    search_screen_reader: "Search for"
+  notification:
+    mailer:
+      new_questionnaire_for_you: "There is a new questionnaire for you..."
+    views:
+      click_above_link_to_answer: "Click the above link to answer it"
+      hi: Hi
+      you_got_new_questionnaire: "You've got a new questionnaire"
+  profile:
+    views:
+      change_password: "change password"
+      dear: Hello
+      edit: edit
+      please_update_profile: "please update your profile"
+      profile: profile
+      required: "required field"
+  questionnaire_answer:
+    controller:
+      already_answered: "You have already answered this Questionnaire"
+      no_questionnaire: "There is no such Questionnaire"
+      no_success: "Questionnaire was not successfuly answered."
+      was_success: "Questionnaire was successfuly answered."
+    views:
+      all_fields_are_required: "All fields are required!"
+      please_select_one_of_the_options: "Please select one of the options"
+  time:
+    formats:
+      attendance_report: "%d %B %Y"
+  user:
+    model:
+      birthday: "Year of Birthday"
+      female: Female
+      first_name: "First name"
+      gender: Gender
+      last_name: "Last name"
+      male: Male
+      no_answer: " No"
+      preferred_language: "Message Language"
+      receive_notifications: "Do you want to receive notifications to your email?"
+      yes_answer: " Yes"
+  views:
+    back: Back
+    cancel: Cancel
+    load: Load
+    plase_wait: "Please wait..."
+    signout: "Sign out"
+    submit: Submit
+    update: Update

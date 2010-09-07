@@ -1,0 +1,116 @@
+---
+en:
+  admin:
+    reports:
+      date_range: "Просьба выбрать даты"
+      display_also_profile: "Также показать и профиль"
+      export_to_excel: "Скачать в формате Excel"
+      from: От
+      generate_report: "Создать отчет"
+      report: ""
+      show_only_confirmed_users: "Показать только подтвержденных пользователей"
+      to: К
+      user: Пользователь
+      user_activities: "Отчет о деятельности пользователя"
+      users_who_answered_questionnaires: "Пользователи, ответившие на вопросники"
+      users_who_not_signed_in: "Пользователи, не вошедшие в систему"
+      users_who_signed_in: "Пользователи, вошедшие в систему"
+  answer:
+    model:
+      answer_too_short: "Ответ слишком короткий. Минимальная длина ответа - 10 символов"
+      select_at_least_one: "Вы должны выбрать не менее одной возможности"
+      select_one_option: "Вы должны выбрать одну из возможностей"
+      write_an_answer: "Вы должны написать ответ"
+  devise:
+    confirmations:
+      confirmed: "Ваш аккаунт успешно подтвержден. Вы вошли в систему"
+      send_instructions: "В течении нескольких минут Вы получите е-мейл, содержащий инструкции по подтверждению Вашего аккаунта."
+    failure:
+      inactive: "Ваш аккаунт еще не был активизирован"
+      invalid: "Неправильный е-мейл адресс или пароль"
+      invalid_token: ""
+      locked: "Ваш аккаунт заблокирован"
+      timeout: "Время существования сессии истекло. Просьба снова войти в систему"
+      unauthenticated: "Перед тем, как продолжить, следует войти в систему или зарегистрироваться"
+      unconfirmed: "Вы должны подтвердить свой аккаунт."
+    mailer:
+      confirmation_instructions: "Инструкция по подтверждению аккаунта"
+      reset_password_instructions: "Инструкция по обновлению пароля"
+      unlock_instructions: "Инструкция по разблокировке"
+    passwords:
+      send_instructions: "В течении нескольких минут Вы получите е-мейл, содержащий инструкции по обновлению Вашего пароля."
+      updated: "Ваш пароль успешно заменен. Вы вошли в систему."
+    registrations:
+      destroyed: "Досвидания! Ваш аккаунт был успешно отменен. Надеемся увидеть Вас снова в скором времени."
+      signed_up: ""
+      updated: "Вы успешно изменили свой аккаунт."
+    sessions:
+      signed_in: "Вы успешно вошли в систему"
+      signed_out: "Вы успешно вышли из системы"
+    unlocks:
+      send_instructions: "В течении нескольких минут Вы получите е-мейл, содержащий инструкции по разблокировке Вашего аккаунта."
+      unlocked: "Ваш аккаунт успешно разблокирован. Вы вошли в систему"
+    views:
+      confirm_new_password: "Подтверждение пароля"
+      current_password: "Нынешний пароль (это нужно для подтверждения изменений)"
+      email: Е-мейл
+      forgot_password: "Забыли пароль?"
+      new_password: "Новый пароль (не менее 6 символов)"
+      no_confirmation_instructions: "Вы не получили инструкцию по подтверждению аккаунта?"
+      no_unlock_instructions: "Вы не получили инструкцию по разблокировке аккаунта?"
+      password: Пароль
+      remember_me: Запомнить
+      resend_confirmation_instructions: "Снова выслать инструкцию по подтверждению"
+      resend_unlock_instructions: "Снова выслать инструкцию по разблокировке"
+      send_reset_password: "Выслать инструкцию по обновлению пароля"
+      sign_in: Выйти
+      sign_up: Войти
+  errors:
+    messages:
+      already_confirmed: "уже подтвержден"
+      not_found: "не найдено"
+      not_locked: "не был заблокирован"
+  home:
+    views:
+      check_for_new_questionnaire: "Проверить наличие новых вопросников"
+      edit_profile: "Изменить профиль"
+      view_reports: "Показать отчеты"
+  layout:
+    search: Поиск
+    search_screen_reader: Искать
+  notification:
+    views:
+      click_above_link_to_answer: "Чтобы ответить, пройдите по ссылке"
+      hi: Привет
+      you_got_new_questionnaire: "Вы получили новый вопросник"
+  profile:
+    views:
+      change_password: "Изменить пароль"
+      dear: Дорогой/ая
+      please_update_profile: "Просьба обновить профиль (обязательные поля отмеченны:)"
+  questionnaire_answer:
+    controller:
+      already_answered: "Вы уже ответили на этот вопросник"
+      already_answered_please_answer_a_new_one: "Вы уже ответили на запрошенный Вами вопросник. Просьба ответить на новый "
+      no_questionnaire: "Такого вопросника не существует."
+      no_questionnaire_please_answer_a_new_one: "Такого вопросника не существует. Просьба ответить на новый вопросник"
+      no_success: "Заполнение вопросника завершилось с ошибкой"
+      was_success: "Заполнение вопросника успешно завершено"
+    views:
+      all_fields_are_required: "Следует заполнить все поля!"
+      please_select_one_of_the_options: "Выберите одну из возможностей"
+  user:
+    model:
+      birthday: "Год рождения"
+      female: Женский
+      gender: Пол
+      male: Мужской
+      no_answer: Нет
+      preferred_language: Язык
+      receive_notifications: "Хотите ли Вы получать уведомления на свой е-мейл?"
+      yes_answer: Да
+  views:
+    back: Назад
+    signout: Выйти
+    submit: ""
+    update: Обновить
