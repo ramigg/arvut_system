@@ -1,0 +1,7 @@
+  <%= t('devise.mails.hello') %>, <%= "#{@resource.first_name} #{@resource.last_name}"%>!
+
+  <%= t 'devise.mails.unlock_line1' %>.
+
+  <%= t 'devise.mails.unlock_line2' %>:
+
+  <%= link_to t('devise.mails.unlock_my_account'), user_unlock_url(:user => @resource, :locale => locale, :unlock_token => @resource.unlock_token) %>

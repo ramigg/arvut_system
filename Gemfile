@@ -39,6 +39,10 @@ gem 'devise'
 #   gem 'webrat'
 # end
 
+group :production do
+  gem 'exceptional'
+end
+
 group :development do
 	gem 'ruby-debug', '0.10.3'
   gem 'ruby-debug-base', '0.10.3'

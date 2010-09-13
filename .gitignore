@@ -3,9 +3,11 @@ Gemfile.lock
 test-start.sh
 test-stop.sh
 db/*.sqlite3
-log/*.log
+db/schema.rb
+log/*
 tmp/**/*
 nbproject/*
 nbproject/**/*
 config/database.yml
+config/exceptional.yml
 public/ckeditor_assets/**/*
