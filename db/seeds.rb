@@ -12,5 +12,8 @@ end
 [{:locale => 'en',:language => 'English'},
   {:locale => 'he',:language => 'עברית'},
   {:locale => 'ru',:language => 'Русский'},
-  {:locale => 'es',:language => 'Español'}
+  {:locale => 'es',:language => 'Español'},
+  {:locale => 'fr',:language => 'Français'},
+  {:locale => 'it',:language => 'Italiano'},
+  {:locale => 'de',:language => 'Deutsch'},
 ].each{|e| Language.find_or_create_by_locale_and_language(e)}

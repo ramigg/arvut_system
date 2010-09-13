@@ -1,0 +1,273 @@
+---
+de:
+  activerecord:
+    attributes:
+      user:
+        email: Emailadresse
+        password: Passwort
+    errors:
+      messages:
+        accepted: "muss akzeptiert werden"
+        blank: "darf nicht leer sein"
+        confirmation: "Bestätigung stimmt nicht überein"
+        empty: "darf nicht leer sein"
+        equal_to: "muss gleich ... sein"
+        even: "muss gleich sein"
+        exclusion: "ist reserviert"
+        greater_than: "muss größer als ... sein"
+        greater_than_or_equal_to: "muss größer oder gleich ... sein "
+        inclusion: "ist nicht Teil der Liste"
+        invalid: ungültig
+        less_than: "muss weniger als ... sein"
+        less_than_or_equal_to: "muss kleiner oder gleich ... sein"
+        not_a_number: "ist keine Zahl"
+        odd: "muss ungerade sein"
+        taken: "wurde bereits benutzt"
+        too_long: "ist zu lang (das Maximum sind ... Zeichen)"
+        too_short: "ist zu kurz (muss mindestens ... Zeichen sein)"
+        wrong_length: "Länge ungültig (sollte ... Zeichen sein)"
+      models:
+        user:
+          attributes:
+            email:
+              blank: "Wert fehlt"
+              invalid: ungültig
+            password:
+              blank: "darf nicht leer sein"
+              confirmation: "Bestätigung stimmt nicht überein"
+              too_short: "ist zu kurz"
+          blank: "Leeres Feld"
+      user:
+        header:
+          one: "Die Ausführung schlug fehl wegen folgendem Fehler"
+          other: "Die Ausführung schlug fehl wegen folgender Fehler"
+    models:
+      user: Email
+  admin:
+    questionnaires:
+      add: hinzufügen
+      add_answer: "Antwort hinzufügen"
+      add_other: "Andere hinzufügen"
+      approve: Bestätigen
+      are_you_sure: "Bist Du sicher?"
+      create_new_questionnaire: "Einen neuen Fragebogen erstellen"
+      create_questionnaire: "Fragebogen erstellen"
+      created_at: "erstellt am"
+      created_by: "Erstellt von"
+      delete: Löschen
+      description: Beschreibung
+      edit: bearbeiten
+      fields_marked_in_red_are_required: "Felder in rot sind Pflichtfelder"
+      is_multiline: Mehrzeilig?
+      label_from: "?"
+      label_to: ""
+      other: anderes
+      questionnaire_description: Fragebogenbeschreibung
+      questionnaire_editor: "Fragebogen Editor"
+      questionnaire_excerpt: "Fragebogenauszug aus Quelltext"
+      questionnaire_related_links: "Verwandte Links zum Fragebogen"
+      questionnaire_title: "Titel des Fragebogens"
+      remove: Entfernen
+      scale_from: Bewerten
+      scale_to: bewerten
+      set_draft: Entwurf
+      status: Status
+      title: Titel
+      update_questionnaire: "Fragebogen aktualisieren"
+    reports:
+      all_groups: Alle
+      attendance_report: "Teilnahme Bericht"
+      basic_report: User-Aktivitätsbericht
+      date: "Wähle ein Monat"
+      date_range: "Bitte wähle eine Zeitdauer"
+      display_also_profile: "Zeige auch Profil"
+      export_to_excel: "In Excel exportieren"
+      file: Datei
+      for_month: für
+      from: von
+      generate_report: "Erstelle Bericht"
+      generating: Generiere..
+      group_management: Gruppen-Management
+      group_name: Gruppenname
+      include_email: "Schließe Email in Bericht ein"
+      load_group_list: "Lade Gruppenliste"
+      manage_questionnaires: "Manage Fragebögen"
+      manage_user_lists: "Manage User-Liste"
+      manage_user_roles: "Manage User-Rollen"
+      minus: "nicht aktiv"
+      plus: aktiv
+      print: Drucken
+      questionnaires_list: Fragebogen-Liste
+      remove_user: "Entferne User"
+      report: Bericht
+      reports: Berichte
+      show_only_confirmed_users: "Zeige nur bestätigte User"
+      status: Status
+      to: "zu oder an"
+      total: Summe
+      upload: Upload
+      user: User
+      user_activities: User-Aktivitätsbericht
+      user_management: User-Management
+      users_who_answered_questionnaires: "User, die Fragebögen beantwortet haben"
+      users_who_not_signed_in: "User, die sich nicht angemeldet haben"
+      users_who_signed_in: "Angemeldete User"
+      x: "nicht registriert"
+    user_list:
+      are_you_sure: "Bist Du sicher?"
+      create_new_user: "Neuen User anlegen"
+      create_user_list: "Erstelle User-Liste"
+      delete: Löschen
+      edit: Bearbeiten
+      email: Email
+      first_name: Vorname
+      has_user: "?"
+      last_name: Familienname
+      please_select_one_of_the_options: "Wähle eine der Optionen"
+      select_group: "Wähle Gruppe"
+      update_user_list: "Aktualisiere User-Liste"
+  answer:
+    model:
+      answer_too_short: "Deine Antwort ist zu kurz. Mehr als 10 Zeichen sind notwendig."
+      select_at_least_one: "Du musst mindestens eine Option wählen."
+      select_one_option: "Du musst eine der Optionen wählen."
+      write_an_answer: "Du musst eine Antwort schreiben."
+  devise:
+    confirmations:
+      confirmed: "Dein Account wurde bestätigt. Du bist nun angemeldet."
+      send_instructions: "Du erhältst umgehend ein Email, wie Du Deinen Account bestätigen kannst."
+    failure:
+      inactive: "Dein Account wurde noch nicht bestätigt."
+      invalid: "Email oder Passwort ungültig."
+      invalid_token: "Ungültige Authentifizierung"
+      locked: "Dein Account ist gesperrt."
+      timeout: "Deine Sitzung ist abgelaufen, bitte melde Dich neu an, um fortzufahren."
+      unauthenticated: "Du musst dich erst anmelden, bevor es weitergeht."
+      unconfirmed: "Du musst Deine Anmeldung bestätigen, um fortzufahren."
+    mailer:
+      confirmation_instructions:
+        user_subject: "Anleitung zum Bestätigen"
+      reset_password_instructions:
+        user_subject: "Passwort Anleitung zurücksetzen"
+      unlock_instructions:
+        user_subject: "Anleitung zum Entsperren"
+    mails:
+      change_my_password: "Passwort ändern"
+      confirm_my_account: "Meinen Account bestätigen"
+      confirm_through_link: "Du kannst Deinen Account mit dem Link unten bestätigen"
+      hello: Hallo
+      reset_password_line1: "Du hast einen Link angefordert, um Dein Passwort zu ändern. Verwende den Link unten!"
+      reset_password_line2: "Wenn Du Dies nicht angefordert hast, ignoriere bitte dieses Mail."
+      reset_password_line3: "Dein Passwort wird nicht geändert, bis Du den Link oben klickst und ein neues erstellst."
+      unlock_line1: "Dein Account wurde aufgrund zu vieler vergeblicher Anmeldungsversuche gesperrt."
+      unlock_line2: "Klick den Link unten, um Deinen Account zu entsperren."
+      unlock_my_account: "Meinen Account entsperren."
+      welcome: Willkommen
+    passwords:
+      send_instructions: "Du erhältst umgehend ein Email, wie Du Dein Passwort zurücksetzen kannst."
+      updated: "Dein Passwort wurde nicht erfolgreich geändert."
+    registrations:
+      destroyed: "Bye! Dein Account wurde erfolgreich gelöscht. Wir hoffen, Dich bald wieder zu sehen!"
+      signed_up: "Du hast Dich erfolgreich eingeloggt. Eine Bestätigungsemail wurde an Dich gesandt, um Deinen Akkount zu aktivieren."
+      updated: "Du hast Deinen Account erfolgreich aktualisiert."
+    sessions:
+      signed_in: "Du hast dich erfolgreich angemeldet."
+      signed_out: "Du hast dich erfolgreich abgemeldet."
+    unlocks:
+      send_instructions: "Du erhältst umgehend ein Email, wie Du Deinen Account entsperren kannst."
+      unlocked: "Dein Account wurde erfolgreich entsperrt. Du bist nun eingeloggt."
+    views:
+      cannot_sign_in: "Anmeldung nicht möglich? Klick hier für Hilfe!"
+      change_my_password: "Mein Passwort ändern"
+      confirm_new_password: "Passwort Bestätigung"
+      current_password: "Derzeitiges Passwort (Wir brauchen es, um Deine Änderungen vorzunehmen)"
+      email: Email
+      forgot_password: "Passwort vergessen?"
+      new_password: "Neues Passwort (mindestens 6 Zeichen)"
+      new_user: "Neuer User?"
+      no_confirmation_instructions: "Anleitung zum Bestätigung nicht erhalten?"
+      no_unlock_instructions: "Anleitung zum Entsperren nicht erhalten?"
+      password: Passwort
+      remember_me: "Passwort auf diesem Computer speichern"
+      resend_confirmation_instructions: "Bestätigungsanleitung erneut senden"
+      resend_unlock_instructions: "Anleitung zum Entsperren nochmal senden"
+      send_reset_password: "Anleitung zum Zurücksetzen des Passwortes an mich senden"
+      sign_in: Einloggen
+      sign_in_more: Einloggen
+      sign_up: Anmelden
+      sign_up_more: "?"
+      sign_up_now: "Melde Dich JETZT an!"
+  errors:
+    messages:
+      already_confirmed: "ist bereits bestätigt"
+      not_found: "nicht gefunden"
+      not_locked: "war nicht geschlossen"
+  home:
+    faq:
+      confirmation: "Du hast Dich bereits registriert, doch Du kommst nicht ins System? Bitte checke Deine Mailbox nach dem Bestätigungs-Email. Wenn dort keines ist, klicke den folgenden Link, um ein neues zu erhalten."
+      email: "Wenn Du alles versucht hast und noch immer ein Problem besteht, sende bitte ein Email an: "
+      faq: "Häufig gestellte Fragen"
+      forgot_password: "Du hast Dich bereits registriert, doch Du kommst nicht ins System? Hast Du die Anleitung zum Bestätigen gelesen? Vielleicht hast Du Dein Passwort vergessen? Versuche den folgenden Link, um es zurückzusetzen."
+      unlock: "Du wurdest vom System gesperrt. Bitte checke Deine Mailbox nach dem Entsperrung-Email. Wenn dort keines ist, klicke den folgenden Link, um ein neues zu erhalten."
+    views:
+      admin: Admin
+      answered: beantwortet
+      check_for_new_questionnaire: "Checke neue Fragebögen"
+      dashboard: "Meine Seite"
+      date: Datum
+      edit_profile: "Profil bearbeiten"
+      last_10_questionnaires: "Die letzten 10 Fragebögen"
+      not_answered: "nicht beantwortet"
+      status: Status
+      title: Titel
+      view_reports: "Berichte einsehen"
+  layout:
+    search: Suche
+    search_screen_reader: "Suche nach"
+  notification:
+    mailer:
+      new_questionnaire_for_you: "Es gibt einen neuen Fragebogen für Dich.."
+    views:
+      click_above_link_to_answer: "Klick den Link darüber für die Antwort"
+      hi: Hi
+      you_got_new_questionnaire: "Du hast einen neuen Fragebogen bekommen"
+  profile:
+    views:
+      change_password: "Passwort ändern"
+      dear: Hallo
+      edit: bearbeiten
+      please_update_profile: "Bitte aktualisiere Dein Profil"
+      profile: Profil
+      required: Pflichtfeld
+  questionnaire_answer:
+    controller:
+      already_answered: "Du hast diesen Fragebogen bereits beantwortet"
+      no_questionnaire: "Diesen Fragebogen gibt es nicht"
+      no_success: "Fragebogen wurde nicht erfolgreich beantwortet"
+      was_success: "Du hast den Fragebogen erfolgreich beantwortet"
+    views:
+      all_fields_are_required: "Alle Felder sind Pflichtfelder"
+      please_select_one_of_the_options: "Bitte wähle eine der folgenden Optionen"
+  time:
+    formats:
+      attendance_report: ""
+  user:
+    model:
+      birthday: Geburtsjahr
+      female: Weiblich
+      first_name: Vorname
+      gender: Geschlecht
+      last_name: Familienname
+      male: Männlich
+      no_answer: Nein
+      preferred_language: Sprache
+      receive_notifications: "Möchtest Du Benachrichtigungen über Email erhalten?"
+      yes_answer: Ja
+  views:
+    back: Zurück
+    cancel: Stornieren
+    load: Laden
+    please_wait: "Bitte warten.."
+    signout: Abmelden
+    submit: bestätigen
+    update: aktualisieren
