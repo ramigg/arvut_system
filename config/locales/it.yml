@@ -221,9 +221,9 @@ it:
       title: Titolo
       view_reports: "vedi i reports"
       blog: Blog
-      active: Active
-      registered: Registered
-      title_registered_vs_active: Registered vs. Active
+      active: Attivo
+      registered: Registrato
+      title_registered_vs_active: Registrato in paragone a Attivo
       feed: http://laitman.it/feed
   layout:
     search: ricerca
