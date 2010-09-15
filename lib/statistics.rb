@@ -18,7 +18,7 @@ module Statistics
     end
 
     def initialize(request)
-      @is_firefox ||= /Firefox\/([\d.]+)$/.match(request.env['HTTP_USER_AGENT'])
+      @is_firefox ||= /Firefox\/([\d.]+)/.match(request.env['HTTP_USER_AGENT'])
       @is_he ||= /he;/.match(request.env['HTTP_USER_AGENT'])
       @version ||= $1
       @perform_revert ||= @is_firefox && !@is_he && I18n.locale == :he # ignore version for now

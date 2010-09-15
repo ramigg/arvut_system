@@ -299,7 +299,7 @@ en:
   time:
     formats:
       attendance_report: %d %B %Y
-      short: %m-%d-%y
+      short: %m-%d-%Y
   date:
     formats:
       graph: %b %d

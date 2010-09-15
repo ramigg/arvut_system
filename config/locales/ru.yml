@@ -320,4 +320,4 @@ ru:
   time:
     formats:
       attendance_report: %d %B %Y
-      short: %d-%m-%y
+      short: %d-%m-%Y
