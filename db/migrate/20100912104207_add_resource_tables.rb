@@ -2,7 +2,7 @@ class AddResourceTables < ActiveRecord::Migration
   def self.up
     create_table :pages do |t|
       t.string  :title
-      t.text  :description
+      t.text    :description
       t.text    :message_body
       t.string  :status
       t.boolean :is_sticky
@@ -26,7 +26,7 @@ class AddResourceTables < ActiveRecord::Migration
       t.boolean :preview_show
       t.integer :position
 
-      t.references  :resource, :polymorphic => true
+      t.references :resource, :polymorphic => true
       t.references :page
 
       t.timestamps

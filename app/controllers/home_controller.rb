@@ -19,8 +19,7 @@ class HomeController < ApplicationController
     # Last 10 questionnaires
     @last_10_questionnaires = current_user.last_10_questionnaires
 
-    require 'feed_tools'
-    @feed = FeedTools::Feed.open(I18n.t('home.views.feed'))
+    @feed = FeedReader::Basic.new(I18n.t('home.views.feed')).feed
 
     # Statistics
     @start = 4.week.ago.strftime('%Y-%m-%d')
