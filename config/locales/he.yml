@@ -298,4 +298,5 @@ he:
 
   time:
     formats:
+      short: %d-%m-%y
       attendance_report: %d ל%B %Y

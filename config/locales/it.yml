@@ -256,6 +256,7 @@ it:
     formats:
       attendance_report: ""
       graph: %d %b
+      short: %d-%m-%y
   user:
     model:
       birthday: "Anno di nascita"
