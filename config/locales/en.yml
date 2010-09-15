@@ -184,7 +184,7 @@ en:
   profile:
     views:
       edit: edit
-      dear: Hello
+      dear: Hello,
       please_update_profile: please update your profile
       change_password: change password
       profile: profile

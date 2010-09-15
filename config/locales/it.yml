@@ -238,7 +238,7 @@ it:
   profile:
     views:
       change_password: "cambia password"
-      dear: hello
+      dear: Hello,
       edit: compila
       please_update_profile: "prego aggiorna il tuo profilo"
       profile: profilo

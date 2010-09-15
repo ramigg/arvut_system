@@ -250,7 +250,7 @@ he:
   profile:
     views:
       change_password: "שנה סיסמא"
-      dear: שלום
+      dear: שלום,
       edit: ערוך
       please_update_profile: "אנא עדכן את הפרופיל שלך"
       profile: פרופיל
