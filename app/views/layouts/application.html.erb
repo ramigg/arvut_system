@@ -15,6 +15,7 @@
       <%= javascript_include_tag 'autocomplete-rails.js' %>
     <% end %>
     <%= stylesheet_link_tag 'print', :media => 'print' %>
+    <%= Statistics::Basic.script %>
   </head>
   <body class="<%= I18n.default_locale %>">
     <%-

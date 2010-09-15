@@ -2,7 +2,7 @@ class Admin::RolesController < ApplicationController
 
   before_filter :check_if_restricted
 
-  autocomplete :user, :email, :add_also => [:first_name, :last_name], :full => true
+  autocomplete :user, :email, :add_also => [:first_name, :last_name, :confirmation_token], :full => true
 
   def index
     @email = params[:email]

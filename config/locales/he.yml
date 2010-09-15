@@ -219,6 +219,11 @@ he:
       title: כותרת
       view_reports: "הצג דוחות"
       admin: ניהול
+      blog: בלוג
+      active: 'פעילים '
+      registered: 'רשומים '
+      title_registered_vs_active: רשומים לעומת פעילים
+      feed: http://www.laitman.co.il/feed
     faq:
       faq: שאלות נפוצות
       confirmation:
@@ -283,6 +288,7 @@ he:
   date:
     formats:
       short: %d %B %Y
+      graph: %d %B
 
     day_names: [ראשון, שני, שלישי, רביעי, חמישי, שישי, שבת]
     abbr_day_names: [א, ב, ג, ד, ה, ו, ש]

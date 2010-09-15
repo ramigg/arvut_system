@@ -32,6 +32,22 @@ p{
     padding: 0 10px 0 0;
 }
 
+.ta-center{
+    text-align:center;
+}
+.ta-left{
+    text-align:left;
+}
+.ta-right{
+    text-align:right;
+}
+.he .ta-left{
+    text-align:right;
+}
+.he .ta-right{
+    text-align:left;
+}
+
 #page{
     margin:0 auto;
     width:975px;
@@ -502,27 +518,24 @@ h4{
     margin:0 0 0.3em 0;
 }
 /*---------Dashboard table --------*/
-table.list_of_questionnaires{
-    margin:0 0 20px 0;
+table.homepage-table{
+    margin:20px;
+    width:420px;
 }
-table.list_of_questionnaires td, table.list_of_questionnaires th{
+table.homepage-table td, table.homepage-table th{
     padding:5px;
     border-bottom:1px solid #ddd;
-    text-align: left;
 }
-.he table.list_of_questionnaires td, .he table.list_of_questionnaires th{
-    text-align: right;
-}
-table.list_of_questionnaires th{
-    text-align:left;
+table.homepage-table th{
     color:#2e6e9e;
     border-color:#c5dbec;
-    background:#dfeffc;
+    background-color:#dfeffc;
 }
-table.list_of_questionnaires td.date{
+table.homepage-table td.date{
     font-size:0.8em;
+    width:12ex;
 }
-table.list_of_questionnaires .ui-state-highlight, table.list_of_questionnaires .ui-state-error{
+table.homepage-table .ui-state-highlight, table.homepage-table .ui-state-error{
     white-space:nowrap;
     font-size:0.8em;
     width:16px;
@@ -532,12 +545,24 @@ table.list_of_questionnaires .ui-state-highlight, table.list_of_questionnaires .
     border:none;
     border-bottom:1px solid #ddd;
 }
-table.list_of_questionnaires .ui-icon{
+table.homepage-table .ui-icon{
     position:relative;
     top:4px;
 }
 
-
+#stats, .list_of_questionnaires, .blog-table {
+    float:left;
+}
+.he #stats, .he .list_of_questionnaires, .he .blog-table {
+    float:right;
+}
+#stats{
+    margin:20px;
+    width: 420px;
+    height: 300px;
+    background-color: #dfeffc;
+    padding: 1px 0 0 1px;
+}
 input.ui-button{
     margin:0 20px 0 0;
 }
@@ -707,3 +732,4 @@ a.ui-button{
     margin-bottom: 8px;
     line-height:1.2em;
 }
+

@@ -67,3 +67,5 @@ gem 'paperclip'
 
 gem 'delayed_job', '2.1.0.pre2'
 
+gem 'google_visualization'
+gem 'feedtools'

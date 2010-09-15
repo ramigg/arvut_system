@@ -52,7 +52,7 @@ module Autocomplete
   def json_for_autocomplete(items, method, labels)
     items.collect {|i|
       value = labels.collect {|l|
-        i[l]
+        i[l] || "no-#{l}"
       }.join(', ')
       {"id" => i.id, "label" => value, "value" => i[method]}
     }

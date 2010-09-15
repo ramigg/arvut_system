@@ -17,7 +17,7 @@ class CheckNotLoggedIn
   end
 end
 
-Simulator::Application.routes.draw do |map|
+Simulator::Application.routes.draw do
   get "groups/index"
   get "groups/create"
 
@@ -56,6 +56,7 @@ Simulator::Application.routes.draw do |map|
     
     resources :questionnaire_answers
     resources :profiles
+    resources :statistics
 
     scope :module => "admin" do
       resources :reports

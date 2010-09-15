@@ -161,6 +161,11 @@ en:
       last_10_questionnaires: The last 10 questionnaires
       dashboard: My page
       admin: Admin
+      blog: Blog
+      active: Active
+      registered: Registered
+      title_registered_vs_active: Registered vs. Active
+      feed: http://www.laitman.com/
     faq:
       faq: Frequently Asked Questions
       confirmation:
@@ -294,3 +299,7 @@ en:
   time:
     formats:
       attendance_report: %d %B %Y
+  date:
+    formats:
+      graph: %b %d
+

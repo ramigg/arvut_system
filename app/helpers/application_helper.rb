@@ -29,4 +29,28 @@ module ApplicationHelper
   def ckeditor_toolbar(klass = 'Min')
     is_rtl? ? "#{klass}_he" : klass
   end
+
+  def statistics(url, div_id, chart, start = nil, finish = nil)
+    url = "#{url}?target=stats&chart=#{chart}&flash=#{'%i'% Time.now}"
+    url += "&start=#{start}" unless start.nil?
+    url += "&finish=#{finish}" unless finish.nil?
+
+    result = <<-JS
+<script type="text/javascript">
+  $(document).ready(function(){
+    $.ajax({
+      dataType: 'script',
+      type: 'GET',
+      url: '#{url}',
+      success: function(data){
+        eval(data);
+      }
+    });
+  });
+</script>
+<div id="#{div_id}"></div>
+    JS
+
+    result.html_safe
+  end
 end

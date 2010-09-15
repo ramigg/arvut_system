@@ -220,6 +220,11 @@ it:
       status: Status
       title: Titolo
       view_reports: "vedi i reports"
+      blog: Blog
+      active: Active
+      registered: Registered
+      title_registered_vs_active: Registered vs. Active
+      feed: http://laitman.it/feed
   layout:
     search: ricerca
     search_screen_reader: "ricerca per"
@@ -250,6 +255,7 @@ it:
   time:
     formats:
       attendance_report: ""
+      graph: %d %b
   user:
     model:
       birthday: "Anno di nascita"
