@@ -298,9 +298,12 @@ en:
 
   time:
     formats:
-      attendance_report: %d %B %Y
+      attendance_report: %B %d, %Y
       short: %m-%d-%Y
+      graph: %b %d
   date:
     formats:
+      attendance_report: %B %d, %Y
+      short: %m-%d-%Y
       graph: %b %d
 

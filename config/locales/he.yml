@@ -289,7 +289,6 @@ he:
     formats:
       short: %d %B %Y
       graph: %d %B
-
     day_names: [ראשון, שני, שלישי, רביעי, חמישי, שישי, שבת]
     abbr_day_names: [א, ב, ג, ד, ה, ו, ש]
     month_names: [~, ינואר, פברואר, מרץ, אפריל, מאי, יוני, יולי, אוגוסט, ספטמבר, אוקטובר, נובמבר, דצמבר]
@@ -298,5 +297,6 @@ he:
 
   time:
     formats:
+      graph: %d %B
       short: %d-%m-%Y
       attendance_report: %d ל%B %Y

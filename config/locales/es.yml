@@ -253,11 +253,6 @@ es:
     views:
       all_fields_are_required: "¡Todos los campos son obligatorios!"
       please_select_one_of_the_options: "Por favor selecciona una de las acciones"
-  time:
-    formats:
-      attendance_report: "%d %B %Y"
-      graph: %d %b
-      short: %d-%m-%Y
   user:
     model:
       birthday: "Año de nacimiento"
@@ -278,3 +273,18 @@ es:
     signout: Desconectar
     submit: Enviar
     update: Actualizar
+
+  date:
+    formats:
+      short: %d %B %Y
+      graph: %d %B
+    day_names: [Domingo, Lunes, Martes, Miércoles, Jueves, Viernes, Sábado]
+    month_names: [~, Enero, Febrero, Marzo, Abril, Mayo, Junio, Julio, Agosto, Septiembre, Octubre, Noviembre, Diciembre]
+    abbr_month_names: [~, Ene, Feb, Mar, Abr, May, Jun, Jul, Ago, Sep, Oct, Nov, Dic]
+    order: [ :day, :month, :year ]
+
+  time:
+    formats:
+      graph: %d %B
+      short: %d-%m-%Y
+      attendance_report: %d ל%B %Y
