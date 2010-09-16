@@ -223,7 +223,7 @@ it:
       blog: Blog
       active: Attivo
       registered: Registrato
-      title_registered_vs_active: Registrato in paragone a Attivo
+      title_registered_vs_active: Registrato vs. Attivo
       feed: http://laitman.it/feed
   layout:
     search: ricerca

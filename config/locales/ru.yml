@@ -164,8 +164,8 @@ ru:
       admin: Администрация
       blog: Блог
       active: "Активные "
-      registered: "Зарегистрированные "
-      title_registered_vs_active: Зарегистрированные по сравнению с активными
+      registered: "Все "
+      title_registered_vs_active: Все vs. Активные
       feed: http://www.laitman.ru/feed
     faq:
       faq: Часто задаваемые вопросы

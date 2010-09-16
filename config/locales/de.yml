@@ -222,9 +222,9 @@ de:
       title: Titel
       view_reports: "Berichte einsehen"
       blog: Blog
-      active: Active
-      registered: Registered
-      title_registered_vs_active: Registered vs. Active
+      active: Aktive
+      registered: Registrierte
+      title_registered_vs_active: Registrierte vs. Aktive
       feed: http://blog.laitman.de/feed
   layout:
     search: Suche
