@@ -10,7 +10,7 @@ module StatisticsData
         :content_type => 'RegVsActive',
         :content_uid => "#{start}-#{finish}",
         :language_id => lang_id,
-        :updated_at.gt => 1.day.ago).first
+        :updated_at.gt => 2.hours.ago).first
       return YAML.load(cache.content) if cache
 
       data = start.nil? ? all_period : filter_period(start, finish)
