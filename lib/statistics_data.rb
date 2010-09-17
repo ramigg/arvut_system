@@ -5,9 +5,37 @@ module StatisticsData
     end
     
     def get_period(start = nil, finish = nil)
-      return all_period if start.nil?
+      lang_id = Language.get_id_by_locale(I18n.locale)
+      cache = Cache.where(
+        :content_type => 'RegVsActive',
+        :content_uid => "#{start}-#{finish}",
+        :language_id => lang_id,
+        :updated_at.gt => 1.day.ago).first
+      return YAML.load(cache.content) if cache
 
-      return filter_period(start, finish)
+      data = start.nil? ? all_period : filter_period(start, finish)
+
+      cache =
+        Cache.where(:content_type => 'RegVsActive', :content_uid => "#{start}-#{finish}", :language_id => lang_id).first || 
+        Cache.new(:content_type => 'RegVsActive',:content_uid => "#{start}-#{finish}",:language_id => lang_id)
+      cache.content = YAML.dump(data)
+      cache.save
+
+      data
+    end
+
+    def self.store_in_cache
+      Language.all.each{|lang|
+        locale = lang.locale.to_sym
+        lang_id = Language.get_id_by_locale(locale)
+        url = I18n.t('home.views.feed', :locale => locale)
+        @feed = FeedReader::Basic.new(url, lang_id, true).feed
+        cache = Cache.new(:content_type => 'FeedReader', :content_uid => "#{url}", :language_id => lang_id,
+          :content => YAML.dump(@feed)
+        )
+        cache.save!
+        puts "FeedReader: #{locale} - #{url} - stored"
+      }
     end
 
     private

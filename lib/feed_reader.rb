@@ -20,9 +20,9 @@ module FeedReader
         lang_id = Language.get_id_by_locale(locale)
         url = I18n.t('home.views.feed', :locale => locale)
         @feed = FeedReader::Basic.new(url, lang_id, true).feed
-        cache = Cache.new(:content_type => 'FeedReader', :content_uid => "#{url}", :language_id => lang_id,
-          :content => YAML.dump(@feed)
-        )
+        cache = Cache.where(:content_type => 'FeedReader', :content_uid => "#{url}", :language_id => lang_id).first ||
+          Cache.new(:content_type => 'FeedReader', :content_uid => "#{url}", :language_id => lang_id)
+        cache.content = YAML.dump(@feed)
         cache.save!
         puts "FeedReader: #{locale} - #{url} - stored"
       }
