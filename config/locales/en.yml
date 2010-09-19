@@ -161,7 +161,7 @@ en:
       last_10_questionnaires: The last 10 questionnaires
       dashboard: My page
       admin: Admin
-      blog: Blog
+      blog: <span>New!</span> Blog of Dr. Laitman
       active: Active
       registered: Registered
       title_registered_vs_active: Registered vs. Active

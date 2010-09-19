@@ -221,7 +221,7 @@ de:
       status: Status
       title: Titel
       view_reports: "Berichte einsehen"
-      blog: Blog
+      blog: <span>Neu!</span> Blog von Dr. Laitman
       active: Aktive
       registered: Registrierte
       title_registered_vs_active: Registrierte vs. Aktive

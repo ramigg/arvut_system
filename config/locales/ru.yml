@@ -162,7 +162,7 @@ ru:
       last_10_questionnaires: Последние 10 вопросников
       dashboard: Моя страница
       admin: Администрация
-      blog: Блог
+      blog: <span>Новое!</span> Блог М. Лайтмана
       active: "Активные "
       registered: "Все "
       title_registered_vs_active: Все vs. Активные
