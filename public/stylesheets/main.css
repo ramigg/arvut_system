@@ -80,6 +80,12 @@ p{
 .he .fright{
     float:left;
 }
+.green-mark{
+    background-color: #DFFFF2;
+}
+.red-mark span{
+    color:#FF2D2D;
+}
 .centered-layout{
     margin:0 auto;
 }
