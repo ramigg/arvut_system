@@ -239,7 +239,7 @@ de:
   profile:
     views:
       change_password: "Passwort ändern"
-      dear: Hallo
+      dear: Hallo,
       edit: bearbeiten
       please_update_profile: "Bitte aktualisiere Dein Profil"
       profile: Profil
