@@ -8,8 +8,7 @@ module FeedReader
     def initialize(url, lang_id = nil, force = false)
       lang_id ||= Language.get_id_by_locale(I18n.locale)
       unless force
-        cache = Cache.where(:content_type => 'FeedReader', :content_uid => "#{url}", :language_id => lang_id).first
-        @feed = YAML.load(cache.content) if cache
+        @feed = Cache.fetch(:content_type => 'FeedReader', :content_uid => "#{url}", :language_id => lang_id)
       end
       @feed ||= FeedTools::Feed.open(url)
     end
@@ -20,10 +19,7 @@ module FeedReader
         lang_id = Language.get_id_by_locale(locale)
         url = I18n.t('home.views.feed', :locale => locale)
         @feed = FeedReader::Basic.new(url, lang_id, true).feed
-        cache = Cache.where(:content_type => 'FeedReader', :content_uid => "#{url}", :language_id => lang_id).first ||
-          Cache.new(:content_type => 'FeedReader', :content_uid => "#{url}", :language_id => lang_id)
-        cache.content = YAML.dump(@feed)
-        cache.save!
+        Cache.store(@feed, :content_type => 'FeedReader', :content_uid => "#{url}", :language_id => lang_id)
         puts "FeedReader: #{locale} - #{url} - stored"
       }
     end
