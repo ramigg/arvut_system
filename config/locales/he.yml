@@ -219,7 +219,7 @@ he:
       title: כותרת
       view_reports: "הצג דוחות"
       admin: ניהול
-      blog: בלוג
+      blog: <span>חדש!</span> הבלוג של הרב ליטמן
       active: 'פעילים '
       registered: 'רשומים '
       title_registered_vs_active: רשומים לעומת פעילים

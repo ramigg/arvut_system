@@ -31,9 +31,9 @@ module ApplicationHelper
   end
 
   def statistics(url, div_id, chart, start = nil, finish = nil)
-    url = "#{url}?target=stats&chart=#{chart}&flash=#{'%i'% Time.now}"
-    url += "&start=#{start}" unless start.nil?
-    url += "&finish=#{finish}" unless finish.nil?
+    url = "#{url}?target=stats&amp;chart=#{chart}&amp;flash=#{'%i'% Time.now}"
+    url += "&amp;start=#{start}" unless start.nil?
+    url += "&amp;finish=#{finish}" unless finish.nil?
 
     result = <<-JS
 <script type="text/javascript">
@@ -53,4 +53,44 @@ module ApplicationHelper
 
     result.html_safe
   end
+
+  def display_messages
+    message = ''
+    unless flash[:notice].empty?
+      message += "<div class='success'>#{flash[:notice]}</div>"
+    end
+    unless session[:notice].empty?
+      message += "<div class='success'>#{session[:notice]}</div>"
+    end
+    unless flash[:alert].empty?
+      message += "<div class='error'>#{flash[:alert]}</div>"
+    end
+    unless session[:alert].empty?
+      message += "<div class='error'>#{session[:alert]}</div>"
+    end
+    session[:notice] = session[:alert] = ''
+    flash[:notice] = flash[:alert] = ''
+
+    message.html_safe
+  end
+
+  def showgrid(display = true)
+    content_for(:add_classes_to_container) {
+      display ? 'showgrid' : ''
+    }
+  end
+
+#  def page_link_to_add_item(name, f, association)
+#    fields = f.fields_for(:resources, )
+#    link_to_function(name)
+#  end
 end
+#<li class="text_block">
+#      <fieldset>
+#        <legend>Text Block</legend>
+#    f.fields_for(:resource)
+#      f.fields_for(:xx_resource)
+#        <%= f.cktext_area :message_body, :toolbar => ckeditor_toolbar, :class => 'span-17 last', :width => '650px', :height => '6em' %>
+#        <%= deletebutton %>
+#      </fieldset>
+#    </li>

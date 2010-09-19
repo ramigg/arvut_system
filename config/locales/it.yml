@@ -220,7 +220,7 @@ it:
       status: Status
       title: Titolo
       view_reports: "vedi i reports"
-      blog: Blog
+      blog: <span>Nuovo!</span> Il Blog del Dr. Laitman
       active: Attivo
       registered: Registrato
       title_registered_vs_active: Registrato vs. Attivo
