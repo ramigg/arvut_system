@@ -1,0 +1,32 @@
+<%- showgrid false -%>
+<h1>New Article</h1>
+<div class="tabs">
+  <div class="span-5"><h2 class="tab currenttab"><a href="javascript:;">Metadata</a></h2></div>
+  <div class="span-5 append-13 last"><h2 class="tab"><a href="javascript:;">Content</a></h2></div>
+  <div class="clear"></div>
+</div>
+
+<div class="contenttabs">
+  <%= form_for [:admin, @page], :html => {:id => 'page'} do |f| %>
+    <%= render 'hidden', :f => f %>
+    <div class="tab currenttab">
+      <%= render 'assignment_metadata', :f => f %>
+
+      <div class="span-6 last">
+        <%= render 'page_save', :f => f %>
+        <%= render 'featured_settings', :f => f %>
+        <%= render 'featured_settings', :f => f %>
+      </div>
+      <div class="clear"></div>
+    </div>
+
+    <div class="tab">
+      <%= render 'assignment_content', :f => f %>
+      <div class="span-6 last">
+        <%= render 'page_save', :f => f %>
+        <%= render 'sorting', :f => f %>
+      </div>
+      <div class="clear"></div>
+    </div>
+  <%- end -%>
+</div>

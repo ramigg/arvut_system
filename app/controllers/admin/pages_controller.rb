@@ -85,6 +85,8 @@ class Admin::PagesController < ApplicationController
       'assignment'
     when 'message'
       'message'
+    when 'article'
+      'article'
     else
       session[:alert] = "Unknown type of page: #{page_type}"
       nil

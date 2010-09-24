@@ -5,7 +5,11 @@
 </div>
 <div class="span-2 large last"><a href="<%= destroy_user_session_path %>">logout</a></div>
 <hr/>
-<h2>Create new: <a href="<%= new_admin_page_url(:page_type => 'assignment') %>">Assignment</a> | <a href="<%= new_admin_page_url(:page_type => 'xxx') %>">Event</a> | <a href="<%= new_admin_page_url(:page_type => 'message') %>">Message</a></h2>
+<h2>Create new:
+  <a href="<%= new_admin_page_url(:page_type => 'assignment') %>">Assignment</a> |
+  <a href="<%= new_admin_page_url(:page_type => 'xxx') %>">Event</a> |
+  <a href="<%= new_admin_page_url(:page_type => 'article') %>">Article</a> |
+  <a href="<%= new_admin_page_url(:page_type => 'message') %>">Message</a></h2>
 <hr/>
 <form action="" method="post" class="inline">
   <div class="span-8 append-16 last">
