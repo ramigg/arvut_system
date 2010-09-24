@@ -1,10 +1,12 @@
 <fieldset>
   <legend>Featured Settings</legend>
-  <%#= f.check_box 'Sticky Item' %>
+  <%= f.check_box :is_sticky %>
+  <%= f.label :is_sticky, 'Sticky Item' %>
+
   <p class="not-implemented-yet">Not implemented yet.</p>
-  <input type="checkbox"> Sticky Item<br/>
-  <input type="checkbox"> Top Header<br/>
-  <input type="checkbox"> Big Banner<br/>
-  <input type="checkbox"> Top Side Banner<br/>
-  <input type="checkbox"> Bottom Side Banner
+  <input type="checkbox"> Sticky Item</input><br/>
+  <input type="checkbox"> Top Header</input><br/>
+  <input type="checkbox"> Big Banner</input><br/>
+  <input type="checkbox"> Top Side Banner</input><br/>
+  <input type="checkbox"> Bottom Side Banner</input>
 </fieldset>
