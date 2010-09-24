@@ -1,6 +1,11 @@
 class Language < ActiveRecord::Base
   has_many :questionnaires
   has_many :users
+  
+  has_many :audio_resources
+  has_many :article_resources
+  has_many :video_resources
+  has_many :pages
 
   scope :by_locale, lambda {|locale| where(:locale => locale) } rescue nil
 

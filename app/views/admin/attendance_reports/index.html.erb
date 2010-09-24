@@ -4,7 +4,7 @@ inline_css do
 end
 %>
 <h2><%= t('admin.reports.attendance_report') %></h2>
-<%= form_for(@report,:as => :report, :url => attendance_reports_url ,:html =>{:method => :post}, :remote => true) do |form|%>
+<%= form_for(@report,:as => :report, :url => admin_attendance_reports_url ,:html =>{:method => :post}, :remote => true) do |form|%>
   <ul>
     <li>
       <%= t('admin.reports.date')%>

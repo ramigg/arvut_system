@@ -1,0 +1,26 @@
+<%
+def deletebutton
+  '<input type="button" value="Remove" class="deletebutton"/>'.html_safe
+end
+%>
+<div class="span-18">
+  <h3>Add new:
+    <%= link_to_page_asset "Article", f, :article_resource %>&nbsp;|&nbsp;
+    <%= link_to_page_asset "Audio", f, :audio_resource %>&nbsp;|&nbsp;
+    <%= link_to_page_asset "Video", f, :video_resource %>&nbsp;|&nbsp;
+    <%= link_to_page_asset "Question", f, :questions %>
+  </h3>
+  <hr/>
+  <ul id="container_body">
+    <%= f.fields_for :assets do |f_res|%>
+      <%
+      asset = f_res.object.resource.class.to_s.singularize
+      fields = asset.underscore
+      name = fields.split('_')[0].titleize
+    %>
+      <%= render("#{fields}_fields", :f_res => f_res, :name => "#{name}", :resource => f_res.object.resource) %>
+    <% end %>
+  </ul>
+  <ul id="destroyed_container">
+  </ul>
+</div>

@@ -1,14 +1,14 @@
 <h2>Change roles to user</h2>
 
 <div id="to-admin">
-  <%= form_tag(roles_path, :method => :post) do %>
+  <%= form_tag(admin_roles_path, :method => :post) do %>
     <ul>
       <li>
         Email, First or Last Name of an existing user:
         <ul>
           <li>
             <%= text_field_tag :email, @email, :class => ['text-input', 'short-input'],
-              :autocomplete => autocomplete_user_email_roles_path %>
+              :autocomplete => autocomplete_user_email_admin_roles_path %>
             <%= submit_tag t('views.load'), :name => 'load_user', :id => 'load_user' %>
           </li>
         </ul>

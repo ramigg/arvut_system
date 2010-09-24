@@ -1,0 +1,117 @@
+<%#- showgrid true -%>
+<h1>Page Administration</h1>
+<div class="span-22 large">
+  <a href="">Content</a> | <a href="">Permissions</a> | <a href="#">Statistics</a> | <a href="#">Help</a>
+</div>
+<div class="span-2 large last"><a href="<%= destroy_user_session_path %>">logout</a></div>
+<hr/>
+<h2>Create new: <a href="<%= new_admin_page_url(:page_type => 'assignment') %>">Assignment</a> | <a href="<%= new_admin_page_url(:page_type => 'xxx') %>">Event</a> | <a href="<%= new_admin_page_url(:page_type => 'message') %>">Message</a></h2>
+<hr/>
+<form action="" method="post" class="inline">
+  <div class="span-8 append-16 last">
+    <input type="text" class="text span-6" id="q" name="q" value=""/>
+    <input type="submit" value="Search" class="button"/>
+  </div>
+</form>
+<form action="" method="post" class="inline">
+  <div class="span-24 last">
+    <label for="a">Status</label>
+    <select id="a" name="a" >
+      <option value="0">All Posts</option>
+      <option value="1">Drafts</option>
+      <option value="2">Published</option>
+      <option value="3">Future Posts</option>
+    </select>
+    &nbsp;&nbsp;
+    <label for="a">Type</label>
+    <select id="a" name="a" >
+      <option value="0">All Posts</option>
+      <option value="1">Assignments</option>
+      <option value="2">Events</option>
+      <option value="3">Messages</option>
+    </select>
+    &nbsp;&nbsp;
+    <label for="a">Permissions</label>
+    <select id="a" name="a" >
+      <option value="0">for All Users</option>
+      <optgroup label="by Gender">
+        <option value="2">for Men Only</option>
+        <option value="3">for Women Only</option>
+      </optgroup>
+      <optgroup label="by Language">
+        <option value="4">for Hebrew Speakers</option>
+        <option value="5">for Russian Speakers</option>
+        <option value="6">for French Speakers</option>
+        <option value="7">for English Speakers</option>
+      </optgroup>
+      <optgroup label="by Membership Period">
+        <option value="8">for New Users</option>
+        <option value="9">for Old Users</option>
+      </optgroup>
+      <optgroup label="by Group Name">
+        <option value="10">for BB - Petach Tikva</option>
+        <option value="11">for BB - Young Group</option>
+        <option value="12">for Holon Group</option>
+      </optgroup>
+    </select>
+    &nbsp;&nbsp;
+    <label for="a">Author</label>
+    <select id="a" name="a" >
+      <option value="0">by All Users</option>
+      <option value="1">by You Only</option>
+      <optgroup label="--------">
+        <option value="2">by User1</option>
+        <option value="3">by User2</option>
+        <option value="4">by User3</option>
+        <option value="5">by User4</option>
+        <option value="6">by User5</option>
+      </optgroup>
+    </select>
+    <input type="submit" value="Filter" class="button"/>
+  </div>
+</form>
+<div class="span-24 last">
+  <form action="" method="post" class="inline">
+    <select id="a" name="a" >
+      <option value="0">Bulk Action</option>
+      <option value="1">Delete</option>
+      <option value="2">Set as Draft</option>
+      <option value="3">Publish</option>
+    </select>
+    <input type="submit" value="submit" class="button"/>
+  </form>
+  &nbsp;&nbsp;
+  <%= form_tag admin_pages_url, :method => :get do |f| %>
+    <label for="show_on_page">Show</label>
+    <%= select_tag 'per_page',
+      options_for_select(Page.show_on_page, Page.per_page),
+      { :onchange => "this.form.submit();"} %>
+    <label for="show_on_page">items</label>
+  <% end %>
+</div>
+
+<hr/>
+
+<div class="span-24 last">
+  <table summary="This is the summary text for this table."  border="0" cellspacing="0" cellpadding="0">
+    <caption><%= pagination_info @pages %></caption>
+    <thead>
+      <tr>
+        <th class="span-1"><input type="checkbox" name="selectall" value="select" /></th>
+        <th class="span-2"><a href="#">Status</a></th>
+        <th class="span-10"><a href="#">Title &#9662;</a></th>
+        <th class="span-3"><a href="#">Type &#9652;</a></th>
+        <th class="span-5"><a href="#">Date</a></th>
+        <th class="span-3 last" colspan="2">Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <%- @pages.each_with_index {|page, index| -%>
+        <%= render :partial => 'page-list', :locals => {:page => page, :even => index % 2 == 1 } %>
+      <%- } -%>
+    </tbody>
+  </table>
+</div>
+<div class="prepend-8 append-8 span-8 large">
+  <div class="span-8"><%= will_paginate @pages %></div>
+</div>

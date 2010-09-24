@@ -1,0 +1,10 @@
+<legend><%= name %> - <%= f_asset.object.position %> </legend>
+<%= f_asset.hidden_field :resource_type, :value => resource_type %>
+<%= f_asset.hidden_field :position, :class => 'position' %>
+<%= f_asset.hidden_field :_destroy, :class => 'destroy' %>
+<%= f_asset.hidden_field :_new, :value => f_asset.object.new_record?, :class => 'new' %>
+<%= f_asset.label :is_bonus, 'Is bonus?' %>
+<%= f_asset.check_box :is_bonus %>
+<%= f_asset.label :preview_show, 'Display in preview' %>
+<%= f_asset.check_box :preview_show %>
+<br/>

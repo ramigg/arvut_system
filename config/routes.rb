@@ -18,6 +18,7 @@ class CheckNotLoggedIn
 end
 
 Simulator::Application.routes.draw do
+
   get "groups/index"
   get "groups/create"
 
@@ -58,7 +59,8 @@ Simulator::Application.routes.draw do
     resources :profiles
     resources :statistics
 
-    scope :module => "admin" do
+    namespace 'admin' do
+      resources :pages
       resources :reports
       resources :user_lists do
         post 'filtered(.:format)', :to => :index, :as=> 'filtered', :on => :collection

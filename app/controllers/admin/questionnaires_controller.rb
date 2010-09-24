@@ -37,7 +37,7 @@ class Admin::QuestionnairesController < ApplicationController
     if @questionnaire.save
       flash[:notice] = 'Successfully created questionnaire'
     end
-    respond_with(@questionnaire, :location => questionnaires_url)
+    respond_with(:admin, @questionnaire, :location => admin_questionnaires_url)
   end
 
   # get
@@ -51,28 +51,29 @@ class Admin::QuestionnairesController < ApplicationController
     if @questionnaire.update_attributes(params[:questionnaire])
       flash[:notice] = "Successfully updated questionnaire."
     end
-    respond_with(@questionnaire, :location => questionnaires_url)
+    respond_with(:admin, @questionnaire, :location => admin_questionnaires_url)
+
   end
 
   #  put
   def approve
     change_status('PUBLISHED')
     flash[:notice] = 'Successfully destroyed questionnaire'
-    respond_with(@questionnaire, :location => questionnaires_url)
+    respond_with(@questionnaire, :location => admin_questionnaires_url)
   end
 
   #  put
   def draft
     change_status('DRAFT')
     flash[:notice] = 'Successfully destroyed questionnaire'
-    respond_with(@questionnaire, :location => questionnaires_url)
+    respond_with(@questionnaire, :location => admin_questionnaires_url)
   end
 
   # delete
   def destroy
     change_status('DELETED')
     flash[:notice] = 'Successfully destroyed questionnaire'
-    respond_with(@questionnaire, :location => questionnaires_url)
+    respond_with(@questionnaire, :location => admin_questionnaires_url)
   end
 
   private

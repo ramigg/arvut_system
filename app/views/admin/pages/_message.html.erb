@@ -1,0 +1,33 @@
+<%- showgrid false -%>
+<h1>New Message</h1>
+<div class="tabs">
+  <div class="span-10 last"><h2 class="tab currenttab"><a href="javascript:;">Metadata &amp; Content</a></h2></div>
+  <div class="clear"></div>
+</div>
+
+<div class="contenttabs">
+  <%= form_for [:admin, @page], :html => {:id => 'page'} do |f| %>
+    <%= render 'hidden', :f => f %>
+    <div class="tab currenttab">
+      <div class="span-18">
+        <fieldset>
+          <legend>Content</legend>
+          <%= f.label :title, 'Title' %>
+          <%= f.text_field :title, :class => 'title span-17 last' %>
+          <%= f.label :description, 'Description', :class => 'text' %>
+          <%= f.cktext_area :description, :toolbar => ckeditor_toolbar, :class => 'span-17 last', :width => '650px', :height => '6em' %>
+          <br/>
+          <%= f.label :message_body, 'Message', :class => 'text' %>
+          <%= f.cktext_area :message_body, :toolbar => ckeditor_toolbar, :class => 'span-17 last', :width => '650px', :height => '6em' %>
+        </fieldset>
+        <%= render 'permissions', :f => f %>
+        <%= render 'tags', :f => f %>
+      </div>
+      <div class="span-6 last">
+        <%= render 'page_save', :f => f %>
+        <%= render 'featured_settings', :f => f %>
+      </div>
+      <div class="clear"></div>
+    </div>
+  <%- end -%>
+</div>

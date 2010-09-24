@@ -25,16 +25,16 @@ class Admin::UserListsController < ApplicationController
   def new
     @user_list = UserList.new
 
-    respond_with(@user_list)
+    respond_with(:new_admin, @user_list)
   end
 
   # post
   def create
     @user_list = UserList.new(params[:user_list])
     if @user_list.save
-      flash[:notice] = 'Successfully created user list'
+      flash[:notice] = 'Successfully created user in list'
     end
-    respond_with(@user_list, :location => user_lists_url)
+    respond_with(:admin, @user_list, :location => admin_user_lists_url)
   end
 
   # get
@@ -49,7 +49,7 @@ class Admin::UserListsController < ApplicationController
     if @user_list.update_attributes(params[:user_list])
       flash[:notice] = "Successfully updated user list."
     end
-    respond_with(@user_list, :location => user_lists_url)
+    respond_with(:admin, @user_list, :location => admin_user_lists_url)
   end
 
   # delete
@@ -57,7 +57,7 @@ class Admin::UserListsController < ApplicationController
     @user_list = UserList.find(params[:id])
     @user_list.destroy
     flash[:notice] = 'Successfully destroyed user list'
-    respond_with(@user_list)
+    respond_with(:admin, @user_list)
   end
 
 end

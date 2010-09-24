@@ -80,17 +80,53 @@ module ApplicationHelper
     }
   end
 
-#  def page_link_to_add_item(name, f, association)
-#    fields = f.fields_for(:resources, )
-#    link_to_function(name)
-#  end
+  def link_to_page_asset(name, f, association)
+    #    This may be used in case different models are used.
+    #    We use only one model - Asset
+    #    new_object = f.object.class.reflect_on_association(:assets).klass.new
+
+    fields = f.fields_for(:assets, Asset.new, :child_index => 'new_asset') do |f_res|
+      render("#{association.to_s.singularize}_fields", :f_res => f_res, :name => name)
+    end
+
+    link_to_function(name, "add_page_asset('#{name}', \"#{escape_javascript(fields)}\")")
+  end
+
+  def pagination_info(collection, options = {})
+    entry_name = options[:entry_name] || (collection.empty?? 'entry' :
+        collection.first.class.name.underscore.gsub('_', ' '))
+
+    plural_name = if options[:plural_name]
+      options[:plural_name]
+    elsif entry_name == 'entry'
+      plural_name = 'entries'
+    elsif entry_name.respond_to? :pluralize
+      plural_name = entry_name.pluralize
+    else
+      entry_name + 's'
+    end
+
+    unless options[:html] == false
+      b  = '<b>'
+      eb = '</b>'
+      sp = '&nbsp;'
+    else
+      b  = eb = ''
+      sp = ' '
+    end
+
+    if collection.total_pages < 2
+      case collection.size
+      when 0; "No #{plural_name} found"
+      when 1; "Displaying #{b}1#{eb} #{entry_name}"
+      else;   "Displaying #{b}all #{collection.size}#{eb} #{plural_name}"
+      end
+    else
+      %{Displaying #{plural_name} #{b}%d#{sp}-#{sp}%d#{eb} of #{b}%d#{eb} in total} % [
+        collection.offset + 1,
+        collection.offset + collection.length,
+        collection.total_entries
+      ]
+    end.html_safe
+  end
 end
-#<li class="text_block">
-#      <fieldset>
-#        <legend>Text Block</legend>
-#    f.fields_for(:resource)
-#      f.fields_for(:xx_resource)
-#        <%= f.cktext_area :message_body, :toolbar => ckeditor_toolbar, :class => 'span-17 last', :width => '650px', :height => '6em' %>
-#        <%= deletebutton %>
-#      </fieldset>
-#    </li>

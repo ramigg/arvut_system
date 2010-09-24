@@ -1,5 +1,5 @@
 <h2><%= t('admin.reports.user_activities') %></h2>
-<%= form_for(@report,:as => :report, :url => basic_reports_url ,:html =>{:method => :post}, :remote => true) do |form|%>
+<%= form_for(@report,:as => :report, :url => admin_basic_reports_url ,:html =>{:method => :post}, :remote => true) do |form|%>
   <ul>
     <li><%= form.label :when_start, t('admin.reports.date_range')%></li>
     <li>

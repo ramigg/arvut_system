@@ -1,8 +1,8 @@
 <p>
-  <%= link_to t('admin.user_list.create_new_user'), new_user_list_url %>
+  <%= link_to t('admin.user_list.create_new_user'), new_admin_user_list_url %>
 </p>
 <p>
-  <%= form_for @groups, :url => filtered_user_lists_url, :html => {:method => :post, :id => 'user_list'} do |builder|%>
+  <%= form_for @groups, :url => filtered_admin_user_lists_url, :html => {:method => :post, :id => 'user_list'} do |builder|%>
     <%= builder.label :id, t('admin.user_list.select_group'), :class => 'text' %><br/>
     <%= builder.select :id, @groups.map{|e| [e.name, e.id]},
       :prompt => t('admin.user_list.please_select_one_of_the_options')%>
@@ -29,13 +29,14 @@
         <td><%= ul.first_name %></td>
         <td><%= ul.email %></td>
         <td><%= ul.user ? '+' : '-' %></td>
-        <td><%= link_to t('admin.user_list.edit'), edit_user_list_url(ul) %></td>
-        <td><%= link_to t('admin.user_list.delete'), ul,:confirm => t('admin.user_list.are_you_sure'), :method => :delete %></td>
+        <td><%= link_to t('admin.user_list.edit'), edit_admin_user_list_url(ul) %></td>
+        <td><%= link_to t('admin.user_list.delete'), admin_user_list_url(ul),
+            :confirm => t('admin.user_list.are_you_sure'), :method => :delete %></td>
       </tr>
     <%- end -%>
   </tbody>
 </table>
 <br />
 <p>
-  <%= link_to t('admin.user_list.create_new_user'), new_user_list_url %>
+  <%= link_to t('admin.user_list.create_new_user'), new_admin_user_list_url %>
 </p>

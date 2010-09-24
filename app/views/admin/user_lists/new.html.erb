@@ -1,3 +1,3 @@
-<%= form_for @user_list,:url => user_lists_url, :html => {:id => 'user_list'} do |builder|%>
+<%= form_for @user_list, :url => admin_user_lists_url, :html => {:id => 'user_list'} do |builder|%>
   <%= render :partial => 'form', :locals => {:builder => builder, :submit_text => t('admin.user_list.create_user_list')} %>
 <% end %>

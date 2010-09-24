@@ -8,8 +8,10 @@ class AddResourceTables < ActiveRecord::Migration
       t.boolean :is_sticky
       t.boolean :is_public
       t.string  :page_type
+      t.date    :publish_at
 
       t.references :event, :language
+      t.references :author
 
       t.timestamps
     end
@@ -19,9 +21,10 @@ class AddResourceTables < ActiveRecord::Migration
       t.index :status
       t.index :is_sticky
       t.index :is_public
+      t.index :author_id
     end
 
-    create_table :resources do |t|
+    create_table :assets do |t|
       t.boolean :is_bonus
       t.boolean :preview_show
       t.integer :position
@@ -32,7 +35,7 @@ class AddResourceTables < ActiveRecord::Migration
       t.timestamps
       
     end
-    change_table :resources do |t|
+    change_table :assets do |t|
       t.index :resource_type
       t.index :resource_id
       t.index :page_id
@@ -75,19 +78,18 @@ class AddResourceTables < ActiveRecord::Migration
       t.index :language_id
     end
 
-  end
+    create_table :page_userflags do |t|
+      t.boolean :is_read
+      t.boolean :is_bookmark
+      t.references :user, :page
+    end
 
-  create_table :page_userflags do |t|
-    t.boolean :is_read
-    t.boolean :is_bookmark
-    t.references :user, :page
-  end
-
-  change_table :page_userflags do |t|
-    t.index :user_id
-    t.index :page_id
-    t.index :is_read
-    t.index :is_bookmark
+    change_table :page_userflags do |t|
+      t.index :user_id
+      t.index :page_id
+      t.index :is_read
+      t.index :is_bookmark
+    end
   end
 
   def self.down

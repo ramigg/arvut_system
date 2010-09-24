@@ -12,6 +12,8 @@ class User < ActiveRecord::Base
   belongs_to :language
   belongs_to :user_list
 
+  has_many :pages
+
   # Include default devise modules. Others available are:
   # :token_authenticatable, :confirmable, :lockable and :timeoutable
   devise :database_authenticatable, :registerable,

@@ -1,5 +1,5 @@
 <p>
-  <%= link_to t('admin.questionnaires.create_new_questionnaire'), new_questionnaire_url %>
+  <%= link_to t('admin.questionnaires.create_new_questionnaire'), new_admin_questionnaire_url %>
 </p>
 <table id="questionnaire">
   <thead>
@@ -21,15 +21,15 @@
         <td><%= q.author.first_name if q.author%> <%= q.author.last_name if q.author%></td>
         <td><%= link_to q.title, new_questionnaire_answer_url(:questionnaire_id => q.id) %></td>
         <td><%= q.status %></td>
-        <td><%= link_to t('admin.questionnaires.edit'), edit_questionnaire_url(q) %></td>
-        <td><%= link_to t('admin.questionnaires.approve'), approve_questionnaire_url(q), :method => :put %></td>
-        <td><%= link_to t('admin.questionnaires.set_draft'), draft_questionnaire_url(q), :method => :put %></td>
-        <td><%= link_to t('admin.questionnaires.delete'), q,:confirm => t('admin.questionnaires.are_you_sure'), :method => :delete %></td>
+        <td><%= link_to t('admin.questionnaires.edit'), edit_admin_questionnaire_url(q) %></td>
+        <td><%= link_to t('admin.questionnaires.approve'), approve_admin_questionnaire_url(q), :method => :put %></td>
+        <td><%= link_to t('admin.questionnaires.set_draft'), draft_admin_questionnaire_url(q), :method => :put %></td>
+        <td><%= link_to t('admin.questionnaires.delete'), admin_questionnaire_url(q), :confirm => t('admin.questionnaires.are_you_sure'), :method => :delete %></td>
       </tr>
     <%- end -%>
   </tbody>
 </table>
 <br />
 <p>
-  <%= link_to t('admin.questionnaires.create_new_questionnaire'), new_questionnaire_url %>
+  <%= link_to t('admin.questionnaires.create_new_questionnaire'), new_admin_questionnaire_url %>
 </p>

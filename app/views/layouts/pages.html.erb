@@ -1,0 +1,31 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title> Pages Administration </title>
+    <meta name="description" content="" />
+    <meta name="keywords" content="" />
+
+    <%= stylesheet_link_tag 'pages', 'jquery-ui-1.8.4.custom' %>
+    <!--[if lt IE 8]>
+    <%= stylesheet_link_tag 'ie-pages' %>
+    <![endif]-->
+
+    <%= javascript_include_tag 'jquery-1.4.2.min', 'rails',
+      'jquery-ui-1.8.4.custom.min', "jquery.ui.datepicker-#{I18n.default_locale}.js",
+      'pages' %>
+    <%= csrf_meta_tag %>
+
+    <%= javascript_include_tag :ckeditor %>
+    <% if I18n.locale == :he %>
+      <%= stylesheet_link_tag 'page-plugins/rtl/screen' %>
+    <% end %>
+  </head>
+  <body>
+    <div class="container <%= yield :add_classes_to_container %>">
+      <%= display_messages %>
+      <%= yield %>
+    </div>
+  </body>
+</html>

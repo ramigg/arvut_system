@@ -1,3 +1,3 @@
-<%= form_for @questionnaire, :html => {:id => 'questionnaire'} do |f|%>
+<%= form_for @questionnaire, :url => admin_questionnaires_url, :html => {:id => 'questionnaire'} do |f|%>
   <%= render :partial => 'form', :locals => { :builder => f, :submit_text => t('admin.questionnaires.create_questionnaire') } %>
 <% end %>

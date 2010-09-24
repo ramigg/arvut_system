@@ -1,0 +1,4 @@
+<%= f.error_messages :class => 'error', :header_message => nil, :message => nil, :header_tag => :p %>
+<%= f.hidden_field :language_id, :value => @page.language.id %>
+<%= f.hidden_field :author_id, :value => @page.author.id %>
+<%= f.hidden_field :page_type, :value => @page.page_type %>
