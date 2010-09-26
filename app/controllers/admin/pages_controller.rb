@@ -1,7 +1,7 @@
 class Admin::PagesController < ApplicationController
 
   before_filter :check_if_restricted
-  layout 'pages'
+  layout 'admin_pages'
 
   # Display all my tasks
   def index
