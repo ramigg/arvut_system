@@ -16,8 +16,8 @@ $(document).ready(function(){
 function attach_autocomplete()
 {
     $('input[autocomplete]').live('focus', function(){
+        if ($(this).attr('autocomplete') == 'off') return;
         source_url = $(this).attr('autocomplete');
-        if (source_url == 'off') return;
         $(this).autocomplete({
             minLength: 3,
             select: function(event, ui) {
