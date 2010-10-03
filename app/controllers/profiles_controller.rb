@@ -1,41 +1,24 @@
 class ProfilesController < ApplicationController
-  respond_to :html
+  respond_to :html, :js
+
+  layout 'pages'
+
+  autocomplete :location, :city, :ref => [{:region => :name}, {:country => :name}], :limit => 20
 
   def edit
-    @user = current_user
+    @profile = current_user
+    #    respond_with @profile
   end
 
   def update
-    # 1. Validation of required fields
-    user = current_user
-    User::PROFILE_FIELDS.each{|field|
-      id = field[:id]
-      user[id] = params[id]
-    }
-    user.save
-    if current_user.is_profile_ok?
-      # Everything is OK - Redirect to home
-
-      user.register_activity('submit profile')
-      
-      session[:notice] = 'Profile was successfully updated.'
-
-      # State machine event
-      current_user.finished_editing_profile
-      eval current_user.redirect, binding()
-      return
-
-      redirect_to :root
+    @profile = current_user
+    if @profile.update_attributes(params[:user])
+      flash[:notice] = 'Profile was uccessfully updated'
+      @profile.register_activity('submit profile')
+      redirect_to post_edit_profiles_path(@profile)
     else
-      # Validation failed
-      session[:alert] = 'Not all requied values are filled in.'
-      redirect_to :action => :edit
+      respond_with(@profile)
     end
-  end
-
-  def method_missing(*args)
-    session[:alert] = 'You have entered an invalid URL.'
-    redirect_to :root
   end
 
 end

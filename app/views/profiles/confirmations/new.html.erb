@@ -1,0 +1,17 @@
+<h2><%= t('devise.views.resend_confirmation_instructions') %></h2>
+
+<%= form_for(resource, :as => resource_name, :url => confirmation_path(resource_name)) do |f| %>
+  <ul>
+    <%= devise_error_messages! %>
+
+    <li>
+      <%= t('devise.views.email') %>
+      <ul><li><%= f.text_field :email, :class => 'text-input short-input' %></li></ul>
+    </li>
+
+  </ul>
+  <div class="clear"></div>
+  <hr/>
+  <%= f.submit t('devise.views.resend_confirmation_instructions') %>
+  <%= link_to t('views.cancel'), dashboard_url, :class => 'ui-button ui-widget ui-state-default ui-corner-all' %>
+<% end %>

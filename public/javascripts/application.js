@@ -64,11 +64,28 @@ function add_fields(link, association, content, hide_onclick) {
     }
 };
 
-// "Other" field for checkbox or radiobutton
-// In the case there is something in textarea -> appropriate checkbox/radiobutton must be selected
+// Profile: enable city only if country is selected
+var country_id = '';
 $(function (){
-//    $("#report_new")
-//    .bind("ajax:success", function(data, status){
-//        $("#users").html(status);
-//    });
+    $('#user_country_id').change(function(){
+        enable_city(this);
+    });
+    if ($('#user_country_id').val() != ''){ // It may be already selected
+        enable_city($('#user_country_id'), false);
+    }
 });
+function enable_city(obj, clean){
+    if (clean == 'undef') {
+        clean = true;
+    }
+    if ($(obj).val() != '') {
+        $('#user_location').removeAttr('disabled');
+        country_id = $(obj).val();
+    } else {
+        $('#user_location').attr('disabled', 'disabled');
+    }
+    if (clean) {
+        $('#user_location').val('');
+        $('#user_location_id').val('');
+    }
+}

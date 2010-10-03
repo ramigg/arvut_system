@@ -1,0 +1,11 @@
+<ul class="side_menu">
+  <li class="side_menu_item side_menu_item_current">
+    <%= link_to t('home.views.edit_profile'), post_edit_profiles_path(@profile), :remote => true, :method => :post %>
+  </li>
+  <li class="side_menu_item">
+    <%= link_to t('profile.views.change_password'), edit_user_registration_path(:format => :js), :remote => true %>
+  </li>
+<%#*<li class="side_menu_item">%>
+<%#= link_to t('views.cancel'), dashboard_url, :class => 'ui-button ui-widget ui-state-default ui-corner-all' %>
+<%#*</li>%>
+</ul>

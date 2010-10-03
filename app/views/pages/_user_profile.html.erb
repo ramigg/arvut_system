@@ -1,0 +1,13 @@
+<%
+src = if @profile.avatar.instance.avatar_file_size > 0
+  @profile.avatar.url(:thumb)
+else
+  "/images/user-#{@profile.gender}.png"
+end
+%>
+<div class="menu_column_user underline">
+  <%= image_tag src, :class => 'user_picture float_left' %>
+  <b><%= @profile.first_name %> <%= @profile.last_name %></b><br />
+  <%= link_to t('home.views.edit_profile'), edit_profile_url(@profile) %><br />
+  <%= link_to t('views.signout'), destroy_user_session_path, :title => t('views.signout') %>
+</div>
