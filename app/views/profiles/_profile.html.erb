@@ -1,8 +1,7 @@
-<%- @user = @profile -%>
 <%= image_tag @profile.avatar.url(:original), :class => 'float_right' if @profile.avatar.instance.avatar_file_size > 0 %>
-<%= form_for @profile, :url => profile_path(@profile), :html => { :multipart => true } do |f| %>
+<%= form_for @profile, :url => profile_path(@profile, :format => :js), :html => { :multipart => true }, :remote => true do |f| %>
   <ul>
-    <li>
+    <li id="error_messages">
       <%= f.error_messages :class => 'error', :header_message => nil, :message => nil, :header_tag => :p %>
     </li>
     <li>

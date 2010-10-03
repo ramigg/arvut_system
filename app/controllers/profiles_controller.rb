@@ -15,10 +15,11 @@ class ProfilesController < ApplicationController
     if @profile.update_attributes(params[:user])
       flash[:notice] = 'Profile was uccessfully updated'
       @profile.register_activity('submit profile')
-      redirect_to post_edit_profiles_path(@profile)
+      @klass = 'notice'
     else
-      respond_with(@profile)
+      @klass = 'error'
     end
+    respond_with(@profile)
   end
 
 end

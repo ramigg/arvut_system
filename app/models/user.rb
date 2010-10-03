@@ -1,3 +1,11 @@
+class UserLocationValidator < ActiveModel::EachValidator
+  def validate_each(object, attribute, value)
+    unless value.country == object.country
+      object.errors[attribute] << (options[:message] || " #{value.city} is not in #{object.country.name}")
+    end
+  end
+end
+
 class User < ActiveRecord::Base
   # The user may be author of question/questionnaire
   has_many :questions, :foreign_key => :author_id, :dependent => :nullify
@@ -14,6 +22,7 @@ class User < ActiveRecord::Base
 
   belongs_to :country
   belongs_to :location
+  validates :location, :presence => true, :user_location => true
 
   has_many :pages
 
