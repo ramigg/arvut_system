@@ -11,3 +11,4 @@ nbproject/**/*
 config/database.yml
 config/exceptional.yml
 public/ckeditor_assets/**/*
+public/system/**/*
