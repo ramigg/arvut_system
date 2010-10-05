@@ -1,6 +1,11 @@
 class Page < ActiveRecord::Base
+  Language.all.each do |l|
+    acts_as_taggable_on "#{l.locale}_tags"
+  end
+
   has_many :assets, :dependent => :destroy, :order => :position
   accepts_nested_attributes_for :assets, :allow_destroy => true
+  accepts_nested_attributes_for :taggings, :allow_destroy => true
 
   [:article_resources, :video_resources, :audio_resources].each{|resource|
     has_many resource, :through => :assets
@@ -25,9 +30,9 @@ class Page < ActiveRecord::Base
   # Returns pages for the given user
   def self.get_my_pages(user, pageno)
     Page.paginate :page => pageno, :order => :id, :conditions => ['author_id = ?', user]
-#    records = find_by_sql where(:author_id => user).skip(offset * limit).take(limit).order(:id).to_sql
-#    count = where(:author_id => user).count
-#
-#    [records, count]
+    #    records = find_by_sql where(:author_id => user).skip(offset * limit).take(limit).order(:id).to_sql
+    #    count = where(:author_id => user).count
+    #
+    #    [records, count]
   end
 end

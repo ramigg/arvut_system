@@ -7,14 +7,14 @@
     <meta name="description" content="" />
     <meta name="keywords" content="" />
 
-    <%= stylesheet_link_tag 'pages', 'jquery-ui-1.8.4.custom' %>
+    <%= stylesheet_link_tag 'pages', 'jquery-ui-1.8.4.custom', 'tag-it' %>
     <!--[if lt IE 8]>
     <%= stylesheet_link_tag 'ie-pages' %>
     <![endif]-->
 
     <%= javascript_include_tag 'jquery-1.4.2.min', 'rails',
       'jquery-ui-1.8.4.custom.min', "jquery.ui.datepicker-#{I18n.default_locale}.js",
-      'pages' %>
+      'pages', 'tag-it' %>
     <%= csrf_meta_tag %>
 
     <%= javascript_include_tag :ckeditor %>

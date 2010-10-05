@@ -29,7 +29,7 @@ $(document).ready(function() {
             remove_asset($(this));
         });
     }
-    $('#container_body li').each(function(index, element){
+    $('#container_body li.asset').each(function(index, element){
         i = index + 1;
         name = $(element).find('legend').html();
         $('.sortlist').append('<li class="block' + i + '">' + name + '<a href="javascript:;"><span class="deleteicon"></span></a></li>');
@@ -79,3 +79,27 @@ function remove_asset($obj)
         $('.sortlist').eq(index).find('.position').val(position);
     });
 }
+
+
+// Used in Question editor
+function add_fields(link, association, content, hide_onclick) {
+    var new_id = new Date().getTime();
+    var regexp = new RegExp("new_" + association, "g");
+    $(link).parent().before(content.replace(regexp, new_id));
+    if(hide_onclick){
+        $(link).hide();
+    }
+};
+
+// Used in Questionnaire editor
+function remove_fields(link, is_new_record) {
+    $(link).closest("div.add_other").children("p.add_other").children("a").show();
+    if(is_new_record){
+        $(link).closest(".fields").remove();
+    }
+    else{
+        $(link).prev("input[type=hidden]").val("1");
+        $(link).closest(".fields").hide();
+    }
+};
+

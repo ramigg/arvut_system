@@ -60,7 +60,9 @@ Simulator::Application.routes.draw do
     resources :statistics
 
     namespace 'admin' do
-      resources :pages
+      resources :pages do
+        get 'tag_list', :on => :collection, :format => :js
+      end
       resources :reports
       resources :user_lists do
         post 'filtered(.:format)', :to => :index, :as=> 'filtered', :on => :collection

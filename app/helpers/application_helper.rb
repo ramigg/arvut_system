@@ -11,7 +11,7 @@ module ApplicationHelper
     subklass ||= association.to_s.singularize
     new_object = f.object.class.reflect_on_association(association).klass.new
     fields = f.fields_for(association, new_object, :child_index => "new_#{association}") do |builder|
-      render(subklass, :f => builder)
+      render('admin/pages/questions/' + subklass, :f => builder)
     end
     style = (f.object.respond_to?("other") && f.object.other) && hide_onclick ? 'display:none;' : ''
     link_to_function(name, "add_fields(this, \"#{association}\", \"#{escape_javascript(fields)}\", #{hide_onclick})", :style => style)
@@ -80,13 +80,13 @@ module ApplicationHelper
     }
   end
 
-  def link_to_page_asset(name, f, association)
+  def link_to_page_asset(name, f, association, subclass = nil)
     #    This may be used in case different models are used.
     #    We use only one model - Asset
     #    new_object = f.object.class.reflect_on_association(:assets).klass.new
 
     fields = f.fields_for(:assets, Asset.new, :child_index => 'new_asset') do |f_res|
-      render("#{association.to_s.singularize}_fields", :f_res => f_res, :name => name)
+      render("#{association.to_s.singularize}_fields", :f_res => f_res, :name => name, :subclass => subclass)
     end
 
     link_to_function(name, "add_page_asset('#{name}', \"#{escape_javascript(fields)}\")")
@@ -128,5 +128,22 @@ module ApplicationHelper
         collection.total_entries
       ]
     end.html_safe
+  end
+  
+# *objectTags* - Array of tags already available for the page
+# *allTagsUrl* - URL to the all available tags that can be added to the page
+  def page_tags(objectTags, allTagsUrl)
+    s = %{
+        <div id="tags"></div>
+        <script type="text/javascript">
+          $(document).ready(function(){
+            $("#tags").tagit({
+              objectTags: #{objectTags.to_json},
+              allTags : "#{allTagsUrl}",
+              locale : "#{I18n.locale}"
+            });
+          });
+        </script>
+    }.html_safe
   end
 end

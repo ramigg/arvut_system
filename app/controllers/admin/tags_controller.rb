@@ -1,7 +1,8 @@
-class Admin::PagesController < ApplicationController
+class Admin::TagsController < ApplicationController
 
   before_filter :check_if_restricted
-  layout 'pages'
+
+  respond_to :js
 
   # Display all my tasks
   def index
@@ -58,12 +59,8 @@ class Admin::PagesController < ApplicationController
     respond_with(:admin, @page, :location => admin_pages_url)
   end
 
-  def tag_list
-    tag_context = :"#{I18n.locale}_tags"
-    respond_with do |format|
-      format.js{render :text => Page.tag_counts_on(tag_context).all.map{|e| e.name}.to_json}
-    end
-    return
+  def add_tags
+    
   end
 
   def destroy
