@@ -1,10 +1,17 @@
 class Question < ActiveRecord::Base
+
+  set_inheritance_column :question_type
+
   belongs_to :author, :class_name => "User"
   belongs_to :approver, :class_name => "User"
   has_many :answers
   has_many :questionnaires_questions
   has_many :questionnaires, :through => :questionnaires_questions
-#  has_and_belongs_to_many :questionnaires
+
+  has_many :assets, :as => :resource
+  has_many :pages, :through => :assets
+
+  #  has_and_belongs_to_many :questionnaires
 
 
   has_many :entries, :class_name => "QuestionPair", :foreign_key => :entry_id, :dependent => :destroy

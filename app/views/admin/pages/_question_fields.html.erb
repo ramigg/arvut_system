@@ -1,0 +1,22 @@
+<%
+# From helper => new, from render => existing
+resource ||= subclass.to_s.camelize.constantize.new
+resource_name = resource.class.to_s.underscore
+%>
+<li class="asset <%= resource_name %>">
+  <fieldset>
+    <%= render 'asset_fields', :name => resource_name.camelize, :f_asset => f_res, :resource_type => 'question'%>
+    <%= f_res.fields_for :resource, resource do |f_question| %>
+      <%= f_question.hidden_field :author_id %>
+      <%= f_question.hidden_field :language_id, :value => @page.language.id %>
+
+      <%= f_question.label :title, t('admin.questionnaires.title')%>
+      <%= f_question.text_field :title, :class => 'title span-17 last' %>
+
+
+      <%= render "admin/pages/questions/#{resource_name}", :f => f_question %>
+
+
+    <% end %>
+  </fieldset>
+</li>

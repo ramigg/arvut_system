@@ -8,14 +8,22 @@ end
     <%= link_to_page_asset "Article", f, :article_resource %>&nbsp;|&nbsp;
     <%= link_to_page_asset "Audio", f, :audio_resource %>&nbsp;|&nbsp;
     <%= link_to_page_asset "Video", f, :video_resource %>&nbsp;|&nbsp;
-    <%= link_to_page_asset "Question", f, :questions %>
+    Question: <%= link_to_page_asset "Radio", f, :questions, :radio %>&nbsp;|&nbsp;
+              <%= link_to_page_asset "Checkbox", f, :questions, :checkbox %>&nbsp;|&nbsp;
+              <%= link_to_page_asset "List", f, :questions, :list %>&nbsp;|&nbsp;
+              <%= link_to_page_asset "Scale", f, :questions, :scale %>&nbsp;|&nbsp;
+              <%= link_to_page_asset "FreeText", f, :questions, :free_text %>
   </h3>
   <hr/>
   <ul id="container_body">
     <%= f.fields_for :assets do |f_res|%>
       <%
-      asset = f_res.object.resource.class.to_s.singularize
-      fields = asset.underscore
+      if f_res.object.resource.is_a?(Question)
+        fields = 'question'
+      else
+        asset = f_res.object.resource.class.to_s.singularize
+        fields = asset.underscore
+      end
       name = fields.split('_')[0].titleize
     %>
       <%= render("#{fields}_fields", :f_res => f_res, :name => "#{name}", :resource => f_res.object.resource) %>

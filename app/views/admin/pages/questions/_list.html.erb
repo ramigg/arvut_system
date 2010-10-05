@@ -1,0 +1,7 @@
+<%= f.hidden_field :my_type, :value => 'List' %>
+<ol>
+  <%= f.fields_for :entries do |e_form| %>
+    <%= render 'admin/pages/questions/entry', :f => e_form %>
+  <% end %>
+  <p><%= link_to_add_fields t('admin.questionnaires.add_answer'), f, :entries %></p>
+</ol>
