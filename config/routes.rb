@@ -49,16 +49,25 @@ Simulator::Application.routes.draw do
 
     devise_for :users,
       :path_names => {:sign_in => 'login', :sign_out => 'logout', :sign_up => 'register'},
-      :controllers => {:registrations => "users/registrations", :confirmations => "users/confirmations"}
+      :controllers => {:registrations => "profiles/registrations", :confirmations => "profiles/confirmations"}
     match "users/confirmation/awaiting/:id/:confirmation_hash",
       :to => redirect("/simulator/%{locale}/users/confirmations/awaiting/%{id}/%{confirmation_hash}"), :as => "awaiting_confirmation"
 
     match 'login_help', :to => 'home#login_help', :as => 'login_help'
     
     resources :questionnaire_answers
-    resources :profiles
+    resources :profiles do
+      post ':id/edit', :to => :edit, :on => :collection, :format => :js, :as => :post_edit
+
+      get :autocomplete_location_city, :on => :collection
+    end
     resources :statistics
 
+    resources :pages do
+      get ':klass/:item/(:modifier)', :to => :index, :on => :collection, :format => :html
+      post ':klass/:item/(:modifier)', :to => :index, :on => :collection, :format => :js
+    end
+    
     namespace 'admin' do
       resources :pages do
         get 'tag_list', :on => :collection, :format => :js

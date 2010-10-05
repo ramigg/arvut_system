@@ -7,6 +7,8 @@ ru:
       user:
         email: Е-мейл
         password: Пароль
+        first_name: Имя
+        last_name: Фамилия
     errors:
       user:
         header:
@@ -18,8 +20,8 @@ ru:
         invalid: неверно
         confirmation: не соответствует подтверждению
         accepted: must be accepted
-        empty: не может быть пустым
-        blank: не может быть пустым
+        empty: -- поле не может быть пустым
+        blank: -- поле не может быть пустым
         too_long: слишком длинное (максимум %{count} символов)
         too_short: слишком короткое (минимум %{count} символов)
         wrong_length: неправильная длина (должна быть %{count} символов)
@@ -34,14 +36,14 @@ ru:
         taken: уже зарегистрирован
       models:
         user:
-          blank: пустое поле
+          blank: -- поле не может быть пустым
           attributes:
             email:
               blank: -- пропущено значение
-              invalid: неверно
+              invalid: -- неверное значение
             password:
               blank: -- не может быть пустым
-              too_short: слишком короткое (минимум %{count} символов)
+              too_short: слишком короткий (минимум %{count} символов)
               confirmation: не соответствует подтверждению
 
   views:

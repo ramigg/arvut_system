@@ -1,0 +1,9 @@
+<%= form_for @profile, :url => '#' do |f| %>
+  <li id="error_messages">
+    <% if @klass == 'error' %>
+      <%= f.error_messages :class => 'error', :header_message => nil, :message => nil, :header_tag => :p %>
+    <% else %>
+      <div class='success'><%= flash[:notice] %></div>
+    <% end %>
+  </li>
+<%- end -%>

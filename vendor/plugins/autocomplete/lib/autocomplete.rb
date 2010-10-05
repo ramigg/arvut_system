@@ -28,6 +28,9 @@ module Autocomplete
     def autocomplete(object, method, options = {})
       limit_clause = options[:limit] || 10
       labels = [method] + (options[:add_also] || [])
+      ref_labels = options[:ref] || []
+      select_fields = [labels] + ref_labels.map{|rl| "#{rl.keys[0]}_id"}
+      select_fields = "DISTINCT id, #{select_fields.join(', ')}"
       order_clause = options[:order] || labels.map{|l| l.to_s }.join(', ')
 
       define_method("autocomplete_#{object}_#{method}") do
@@ -36,25 +39,36 @@ module Autocomplete
           where_clause = labels.map{|l|
             "#{l} ILIKE '#{options[:full] ? '%' : ''}#{params[:term]}%'"
           }.join(' OR ')
-          
-          items = object.to_s.camelize.constantize.where(where_clause).
+
+          if params[:additional]
+            where_clause = "(#{where_clause}) AND (#{params[:additional]} = #{params[params[:additional]]})"
+          end
+          items = object.to_s.camelize.constantize.select(select_fields).
+            where(where_clause).
             limit(limit_clause).order(order_clause)
         else
           items = {}
         end
 
-        render :json => json_for_autocomplete(items, method, labels)
+        render :json => json_for_autocomplete(items, method, labels, ref_labels)
       end
     end
   end
 
   private
-  def json_for_autocomplete(items, method, labels)
-    items.collect {|i|
-      value = labels.collect {|l|
-        i[l] || "no-#{l}"
+  def json_for_autocomplete(items, method, labels, ref_labels = nil)
+    items.collect {|item|
+      p1 = labels.collect {|label|
+        item[label] || "no-#{label}"
       }.join(', ')
-      {"id" => i.id, "label" => value, "value" => i[method]}
+      p2 = ref_labels.collect {|ref|
+        key = ref.keys[0]
+        val = ref[key]
+        c = item.send key
+        c.send val if c
+      }.join(', ')
+      value = [p1, p2].join(', ')
+      {"id" => item.id, "label" => value, "value" => item[method]}
     }
   end
 end

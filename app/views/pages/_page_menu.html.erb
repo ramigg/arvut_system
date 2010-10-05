@@ -1,0 +1,7 @@
+<ul class="side_menu underline">
+  <%- @menu.each{|menu| -%>
+    <li class="side_menu_item <%= 'side_menu_item_current' if menu[:path] == 'stream/all' %> <%= menu[:count] > 0 ? 'bold' : '' %>">
+      <%= link_to "<span class='menu_icon #{menu[:icon]}'></span>#{menu[:title]}(#{menu[:count]})".html_safe, "#{pages_path()}/#{menu[:path]}", :remote => true, :method => :post %>
+    </li>
+  <%- } -%>
+</ul>

@@ -1,3 +1,11 @@
+class UserLocationValidator < ActiveModel::EachValidator
+  def validate_each(object, attribute, value)
+    unless value.country == object.country
+      object.errors[attribute] << (options[:message] || " #{value.city} is not in #{object.country.name}")
+    end
+  end
+end
+
 class User < ActiveRecord::Base
   # The user may be author of question/questionnaire
   has_many :questions, :foreign_key => :author_id, :dependent => :nullify
@@ -11,6 +19,10 @@ class User < ActiveRecord::Base
   has_and_belongs_to_many :roles
   belongs_to :language
   belongs_to :user_list
+
+  belongs_to :country
+  belongs_to :location
+  validates :location, :presence => true, :user_location => true
 
   has_many :pages
 
@@ -27,6 +39,24 @@ class User < ActiveRecord::Base
 
   before_create :update_user_list
   after_destroy :roles_cleanup
+
+  has_attached_file :avatar,
+    :styles => {:original => ['170x170>', :png], :thumb => ['56x56#', :png]},
+    :convert_options => { :all => "-strip" }
+  validates_attachment_size :avatar, :in => 1..2.megabytes
+
+  REQUIRED_FIELDS = [
+    :first_name,
+    :last_name,
+    :gender,
+    :birthday,
+    :notifybyemail,
+    :language_id,
+  ]
+
+  REQUIRED_FIELDS.each { |req|
+    validates req, :presence => true
+  }
   
   state_machine :state, :initial => :idle do
 
@@ -122,64 +152,13 @@ class User < ActiveRecord::Base
     (Questionnaire.by_language_published(I18n.default_locale).all - answered_questionnaires) rescue []
   end
 
-
-  PROFILE_FIELDS = [
-    {
-      :id => 'first_name',
-      :label => 'user.model.first_name',
-      :required => true,
-      :type => 'text'
-    },
-    {
-      :id => 'last_name',
-      :label => 'user.model.last_name',
-      :required => true,
-      :type => 'text'
-    },
-    {
-      :id => 'gender',
-      :label => 'user.model.gender',
-      :required => true,
-      :type => 'radio',
-      :options => {'user.model.male' => 'male', 'user.model.female' => 'female'}
-    },
-    {
-      :id => 'birthday',
-      :label => 'user.model.birthday',
-      :required => true,
-      :type => 'range',
-      :range => [''] + (1900..Time.now.year).to_a.reverse,
-      #:default => 1980
-    },
-    # The following two options were removed by request of Dion
-    #{
-    #:id => 'notifybyemail',
-    #:label => 'user.model.receive_notifications',
-    #:required => true,
-    #:type => 'radio',
-    #:options => {'user.model.yes_answer' => 'yes', 'user.model.no_answer' => 'no'}
-    #},
-    #{
-    #:id => 'language_id',
-    #:label => 'user.model.preferred_language',
-    #:required => true,
-    #:type => 'select',
-    #:options => Language.options_for_select
-    #}
-  ]
-
   # checks whether the profile should be updated
   def update_profile?
-    not is_profile_ok?
-  end
-
-  #  Checks whether all required fields in profile are filled in
-  def is_profile_ok?
-    PROFILE_FIELDS.each{|field|
-      value = self[field[:id]]
-      return false if (value.nil? || value.empty?) && field[:required]
+    REQUIRED_FIELDS.each{|field|
+      value = self.send field
+      return true if value.nil? || value.empty?
     }
-    true
+    false
   end
 
   #  Allowed activities: ['login', 'logout', 'submit profile', 'submit questionnaire_answer']
