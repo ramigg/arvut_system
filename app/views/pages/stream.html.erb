@@ -3,7 +3,7 @@
     <div class="menu_column_user underline">
       <div><%= render 'user_profile' %></div>
       <div><%= render 'page_menu' %></div>
-      <div><%= render 'tags' %></div>
+      <div><%= render :partial => 'tag', :collection => @tags, :layout => 'menu_tags_layout' %></div>
     </div>
   </div>
   <div class="main_column float_left">

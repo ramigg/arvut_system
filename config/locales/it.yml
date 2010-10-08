@@ -287,3 +287,4 @@ it:
       graph: %d %B
       short: %d-%m-%Y
       attendance_report: %d ל%B %Y
+      timestamp: %m-%d-%Y %H:%M

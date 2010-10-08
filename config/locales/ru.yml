@@ -323,3 +323,4 @@ ru:
     formats:
       attendance_report: %d %B %Y
       short: %d-%m-%Y
+      timestamp: %m-%d-%Y %H:%M

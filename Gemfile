@@ -30,8 +30,8 @@ gem 'ruby-graphviz', :require => 'graphviz' # for visualizing state machines
 # gem 'mongo_ext'
 
 # Devise
-gem 'devise'
-#gem 'devise', :git => 'http://github.com/plataformatec/devise.git', :branch => 'master'
+#gem 'devise', :git => 'http://github.com/Bnei-Baruch/devise.git', :branch => 'master'
+gem 'devise', :git => 'http://github.com/plataformatec/devise.git', :branch => 'master'
 
 
 # Bundle gems for certain environments:
@@ -64,7 +64,7 @@ end
 
 # CKEditor + Paperclip
 gem 'ckeditor', '3.4.0.pre'
-gem 'paperclip', :git => 'http://github.com/benben/paperclip.git'
+gem 'paperclip' # For windows only , :git => 'http://github.com/benben/paperclip.git'
 
 gem 'delayed_job', '2.1.0.pre2'
 

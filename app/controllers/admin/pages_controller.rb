@@ -8,12 +8,11 @@ class Admin::PagesController < ApplicationController
     # Update number of items to show on page (if supplied)
     Page.per_page = params[:per_page].to_i if params[:per_page]
 
-    @pages = Page.get_my_pages current_user, params[:page]
+    @pages = Page.get_my_pages current_user, params[:page], I18n.locale
   end
 
   def new
-    locale = I18n.default_locale || 'en'
-    lang_id = Language.get_id_by_locale(locale)
+    lang_id = Language.get_id_by_locale(I18n.locale)
     
     @page = Page.new(:language_id => lang_id, :author_id => current_user.id,
       :status => 'DRAFT', :page_type => params[:page_type])
@@ -59,9 +58,8 @@ class Admin::PagesController < ApplicationController
   end
 
   def tag_list
-    tag_context = :"#{I18n.locale}_tags"
     respond_with do |format|
-      format.js{render :text => Page.tag_counts_on(tag_context).all.map{|e| e.name}.to_json}
+      format.js{render :text => Page.all_tags(I18n.locale).to_json}
     end
     return
   end
@@ -81,10 +79,15 @@ class Admin::PagesController < ApplicationController
 
   def set_page_status object, options
 
-    object.status = 'DRAFT' # Default value
-
-    object.status = 'PUBLISH_AT' if options[:PUBLISH_AT]
-    object.status = 'PUBLISHED' if options[:PUBLISH]
+    if options[:PUBLISH_AT]
+      object.status = 'PUBLISHED'
+    elsif options[:PUBLISH]
+      object.status = 'PUBLISHED'
+      options[:page][:publish_at] = Time.zone.now
+    else
+      object.status = 'DRAFT' # Default value
+      options[:page][:publish_at] = nil
+    end
   end
   
   def set_page_mode(page_type)

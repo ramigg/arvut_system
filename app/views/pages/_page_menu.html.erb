@@ -1,7 +1,13 @@
 <ul class="side_menu underline">
-  <%- @menu.each{|menu| -%>
-    <li class="side_menu_item <%= 'side_menu_item_current' if menu[:path] == 'stream/all' %> <%= menu[:count] > 0 ? 'bold' : '' %>">
-      <%= link_to "<span class='menu_icon #{menu[:icon]}'></span>#{menu[:title]}(#{menu[:count]})".html_safe, "#{pages_path()}/#{menu[:path]}", :remote => true, :method => :post %>
+  <%- ['All', 'Assignments', 'Articles', 'Messages', 'Events'].each do |name| -%>
+    <%-
+    name_downcase = name.downcase
+    icon = name_downcase.singularize
+    -%>
+    <% count, style = pages_menu_count_and_style(name_downcase) %>
+    <li class="side_menu_item <%= 'side_menu_item_current' if @stream_filter == name_downcase %> <%= style %>">
+      <%= link_to "<span class='menu_icon #{icon}_icon'></span> #{name}#{count}".html_safe,
+        stream_path(:stream_filter => name_downcase), :remote => true %>
     </li>
-  <%- } -%>
+  <%- end -%>
 </ul>

@@ -1,5 +1,6 @@
 class UserLocationValidator < ActiveModel::EachValidator
   def validate_each(object, attribute, value)
+    return true unless value
     unless value.country == object.country
       object.errors[attribute] << (options[:message] || " #{value.city} is not in #{object.country.name}")
     end
@@ -30,7 +31,7 @@ class User < ActiveRecord::Base
   # :token_authenticatable, :confirmable, :lockable and :timeoutable
   devise :database_authenticatable, :registerable,
     :recoverable, :rememberable, :trackable,
-    :validatable, :confirmable, :lockable
+    :validatable, :confirmable, :lockable, :encryptable, :encryptor => :sha1
 
   scope :wanted_noitification, Proc.new { |locale|
     lang = Language.get_id_by_locale(locale)
@@ -42,9 +43,24 @@ class User < ActiveRecord::Base
 
   has_attached_file :avatar,
     :styles => {:original => ['170x170>', :png], :thumb => ['56x56#', :png]},
-    :convert_options => { :all => "-strip" }
-  validates_attachment_size :avatar, :in => 1..2.megabytes
+    :convert_options => { :all => "-strip" },
+    :default_url => '/images/user-female.png'
+  validates_attachment_size :avatar, :less_than => 4.megabytes
 
+  def delete_avatar=(value)
+    @delete_avatar = !value.to_i.zero?
+  end
+
+  def delete_avatar
+    !!@delete_avatar
+  end
+  alias_method :delete_avatar?, :delete_avatar
+
+  before_validation :clear_avatar
+  def clear_avatar
+    self.avatar = nil if delete_avatar? && !avatar.dirty?
+  end
+  
   REQUIRED_FIELDS = [
     :first_name,
     :last_name,

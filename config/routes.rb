@@ -39,12 +39,12 @@ Simulator::Application.routes.draw do
     match '*path' => "redirector#to_locale"
   end
 
-  scope '/(:locale)', :constraints => {:locale => /#{pattern}/}, :defaults => {:format => 'html'} do
+  scope '/(:locale)', :constraints => {:locale => /#{pattern}/} do
     match 'ckeditor/images', :to => 'ckeditor#images'
     match 'ckeditor/files',  :to => 'ckeditor#files'
     match 'ckeditor/create/:kind', :to => 'ckeditor#create'
 
-    root :to => 'home#index'
+    root :to => 'redirector#to_home'
     match 'dashboard', :to => 'home#dashboard', :as => 'dashboard'
 
     devise_for :users,
@@ -63,10 +63,8 @@ Simulator::Application.routes.draw do
     end
     resources :statistics
 
-    resources :pages do
-      get ':klass/:item/(:modifier)', :to => :index, :on => :collection, :format => :html
-      post ':klass/:item/(:modifier)', :to => :index, :on => :collection, :format => :js
-    end
+    match 'stream/all', :to => 'pages#stream',:stream_filter => 'all', :as => 'home'
+    match 'stream/:stream_filter(/:modifier)' => 'pages#stream', :as => :stream
     
     namespace 'admin' do
       resources :pages do
@@ -99,7 +97,7 @@ Simulator::Application.routes.draw do
     end
     
     # When no route found - redirect to English Home-page
-    match '*path', :to => 'redirector#to_dashboard'
+    match '*path', :to => 'redirector#to_home'
   end
 
 end

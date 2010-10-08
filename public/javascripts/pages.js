@@ -7,9 +7,16 @@ $(document).ready(function() {
         $('.contenttabs .tab').eq(i).addClass('currenttab');
     });
 
-    $('.datepicker').datepicker({
-        dateFormat: 'yy-mm-dd'
-    });
+//    $('.datepicker').datepicker({
+//        dateFormat: 'yy-mm-dd'
+//    });
+
+    $('.datepicker').AnyTime_picker(
+    {
+        format: "%Y-%m-%d %H:%i",
+        firstDOW: 1
+    } );
+
 
     if ($('.sortlist').length > 0) {
         $('.sortlist').sortable({

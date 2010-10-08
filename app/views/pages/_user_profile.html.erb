@@ -1,5 +1,5 @@
 <%
-src = if @profile.avatar.instance.avatar_file_size > 0
+src = if @profile.avatar.instance.avatar_file_size
   @profile.avatar.url(:thumb)
 else
   "/images/user-#{@profile.gender}.png"

@@ -3,7 +3,8 @@
   <td><%= page.status %> </td>
   <td><%= page.title.mb_chars[0..53] %><%= raw '<b>...</b>' if page.title.mb_chars.length > 53 %></td>
   <td><%= page.page_type %> </td>
-  <td><%= page.updated_at %> </td>
+  <td><%= l page.updated_at, :format => :timestamp %> </td>
+  <td><%= page.publish_at ? l(page.publish_at, :format => :timestamp) : '' %> </td>
   <td><%= link_to 'Edit', edit_admin_page_path(page) %> </td>
   <td><%= link_to 'Delete', admin_page_path(page), :confirm => t('admin.questionnaires.are_you_sure'), :method => :delete %> </td>
 </tr>

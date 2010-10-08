@@ -301,6 +301,7 @@ en:
       attendance_report: %B %d, %Y
       short: %m-%d-%Y
       graph: %b %d
+      timestamp: %m-%d-%Y %H:%M
   date:
     formats:
       attendance_report: %B %d, %Y

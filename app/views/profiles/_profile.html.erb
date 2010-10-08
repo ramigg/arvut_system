@@ -1,5 +1,4 @@
-<%= image_tag @profile.avatar.url(:original), :class => 'float_right' if @profile.avatar.instance.avatar_file_size > 0 %>
-<%= form_for @profile, :url => profile_path(@profile, :format => :js), :html => { :multipart => true }, :remote => true do |f| %>
+<%= form_for @profile, :url => profile_path(@profile), :html => { :multipart => true }, :remote => false do |f| %>
   <ul>
     <li id="error_messages">
       <%= f.error_messages :class => 'error', :header_message => nil, :message => nil, :header_tag => :p %>
@@ -50,6 +49,11 @@
       <%= f.label :avatar, 'user.model.avatar' %>
       <%= f.file_field :avatar %>
     </li>
+    <%- unless @profile.new_record? || !@profile.avatar %>
+      <%= f.label :avatar, 'user.model.remove_avatar' %>
+      <%= image_tag @profile.avatar.url(:original), :class => 'float_right', :alt => 'Avatar', :title => 'Current avatar' %>
+      <%= f.check_box :delete_avatar %>
+    <%- end%>
     <li>
       <%= f.label :country_id, t('user.model.country') %>
       <%= id = @profile.country ? @profile.country.id : 0
@@ -59,7 +63,7 @@
     </li>
     <li>
       <%= f.label :location_id, t('user.model.city') %>
-      <%= loc = @profile.location ? @profile.location.city : 0
+      <%= loc = @profile.location ? @profile.location.city : ' '
       text_field_tag :user_location, loc, :disabled => true,
         :autocomplete => autocomplete_location_city_profiles_path
     %>
@@ -72,12 +76,12 @@
 <%- end -%>
 <%= javascript_tag "
 $(function (){
-  $('#user_country_id').change(function(){
-    enable_city(this);
-  });
-  if ($('#user_country_id').val() != ''){ // It may be already selected
-    enable_city($('#user_country_id'), false);
-  }
+$('#user_country_id').change(function(){
+enable_city(this);
+});
+if ($('#user_country_id').val() != ''){ // It may be already selected
+enable_city($('#user_country_id'), false);
+}
 });
 "
 %>

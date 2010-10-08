@@ -19,7 +19,7 @@ class ProfilesController < ApplicationController
     else
       @klass = 'error'
     end
-    respond_with(@profile)
+    respond_with(@profile, :location => edit_profile_path(@profile))
   end
 
 end

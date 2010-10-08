@@ -4,28 +4,18 @@
     <p class="float_right"><a href="/stream/<%= @stream_subclass %>/new">New <%= @stream_header %></a> | <a href="/stream/<%= @stream_subclass %>/all">All <%= @stream_header %></a></p>
     <div class="clear"></div>
   </div>
-  <%- @pages.each{|item| -%>
-    <div class="clear underline inbox_item <%= 'sticky_item' if item.is_sticky %>">
+  <%- @pages.each{|page| -%>
+    <div class="clear underline inbox_item <%= 'sticky_item' if page.is_sticky %>">
       <div class="float_left main_subcolumn_1">
-        <h3 class="inbox_item_title read"><span class="inbox_item_icon assignment_done_icon"></span><a href="#"><%= item.title %></a></h3>
+        <h3 class="inbox_item_title read"><span class="inbox_item_icon assignment_done_icon"></span><a href="#"><%= page.title %></a></h3>
         <div class="inbox_item_body">
-          <%= item[:description].html_safe %>
+          <%= page[:description].html_safe %>
         </div>
         <div class="inbox_item_footer">Posted 3 days ago</div>
       </div>
       <div class="float_right main_subcolumn_2">
-        <div class="inbox_item_points">points:<span class="blue_gradient  rounded_5">5</span></div>
         <ul class="inbox_item_tags">
-          <li class="tag"><a href="">Lorem</a></li>
-          <li class="tag"><a href="">exercitation</a></li>
-          <li class="tag"><a href="">adipisicing elit</a></li>
-          <li class="tag"><a href="">Lorem ipsum</a></li>
-          <li class="tag"><a href="">Ut enim ad</a></li>
-          <li class="tag"><a href="">dolore</a></li>
-          <li class="tag"><a href="">elit</a></li>
-          <li class="tag"><a href="">eiusmod</a></li>
-          <li class="tag"><a href="">magna aliqua</a></li>
-          <li class="tag"><a href="">dolore magna</a></li>
+          <%= render :partial => 'tag', :collection => page.tags(I18n.locale) %>
         </ul>
       </div>
       <div class="clear"></div>

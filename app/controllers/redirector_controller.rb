@@ -9,8 +9,8 @@ class RedirectorController < ActionController::Metal
     redirect env['PATH_INFO']
   end
 
-  def to_dashboard
-    redirect '/dashboard'
+  def to_home
+    redirect '/stream/all'
   end
 
   def to_login
