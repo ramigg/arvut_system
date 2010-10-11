@@ -26,7 +26,7 @@
     <%= form_for @page do |f|%>
       <%= f.error_messages :header_message => t('questionnaire_answer.views.all_fields_are_required'),
         :message => false, :header_tag => :h3 %>
-      <%= f.fields_for "questionnaire_answers[0]", @questionnaire_answer do |f_qa|%>
+      <%= f.fields_for :questionnaire_answers, @questionnaire_answer do |f_qa|%>
         <div style="margin: 0; padding: 0; display: inline;">
           <%= f_qa.hidden_field :author_id %>
         </div>
