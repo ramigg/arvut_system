@@ -1,9 +1,9 @@
 <%- klass_name = question.class.to_s.underscore %>
 <%
-answer = question.find_answer(@questionnaire_answer.answers)
+answer = question.find_answer(@qa.answers)
 %>
   <%= answer.question.title %>
-<%= builder.fields_for "answers[#{index}]", answer, :as => :answers do |f| %>
+<%= builder.fields_for :answers, answer, :as => :answers do |f| %>
 
 
   <%= f.error_messages :header_message => false, :message => false, :header_tag => :h3 %>

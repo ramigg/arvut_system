@@ -5,9 +5,23 @@ class PagesController < ApplicationController
   def show
     @page = Page.find(params[:id])
 
-    @questionnaire_answer = QuestionnaireAnswer.new
-    @questionnaire_answer.author = current_user
-    @questionnaire_answer.answers = QuestionnaireAnswer.prepare_answers(@page)
+    @qa = QuestionnaireAnswer.new
+    @qa.author = current_user
+    @qa.answers = QuestionnaireAnswer.prepare_answers(@page)
+
+    @questionnaire_answers = []
+    @questionnaire_answers << @qa
   end
+
+  # put
+  def update
+    @page = Page.find(params[:id])
+    if @page.update_attributes(params[:page])
+      flash[:notice] = "Successfully updated page."
+    end
+    respond_with(:admin, @page, :location => home_url)
+
+  end
+
 
 end
