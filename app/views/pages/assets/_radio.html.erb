@@ -1,0 +1,15 @@
+<ul class="choices">
+  <% question.entries.each_with_index do |e, idx| %>
+    <li class="choice-item">
+      <%= builder.radio_button :question_pair_id, e.id %>
+      <%= builder.label :question_pair_id, e.label %>
+    </li>
+  <% end %>
+  <%- if question.other %>
+    <li class="choice-item answer-other">
+      <%= builder.radio_button :question_pair_id, question.other.id %>
+      <%= builder.label :question_pair_id, question.other.label %>
+      <%= builder.text_area :text_value  %>
+    </li>
+  <%- end %>
+</ul>

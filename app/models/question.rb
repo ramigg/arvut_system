@@ -28,6 +28,10 @@ class Question < ActiveRecord::Base
   after_find :set_my_type
 
 
+  def find_answer(answers)
+    result = answers.select{|a| a.question == self}
+    result != nil ? result.first : nil
+  end
 
   def my_type=(value = '')
     self.question_type = value

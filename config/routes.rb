@@ -63,8 +63,9 @@ Simulator::Application.routes.draw do
     end
     resources :statistics
 
-    match 'stream/all', :to => 'pages#stream',:stream_filter => 'all', :as => 'home'
-    match 'stream/:stream_filter(/:modifier)' => 'pages#stream', :as => :stream
+    match 'stream/all', :to => 'stream#index',:stream_filter => 'all', :as => 'home'
+    match 'stream/:stream_filter(/:modifier)' => 'stream#index', :as => :stream
+    match 'page/:id' => 'pages#show', :as => :page
     
     namespace 'admin' do
       resources :pages do

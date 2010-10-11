@@ -4,6 +4,7 @@ class QuestionnaireAnswer < ActiveRecord::Base
   belongs_to :author, :class_name => "User"
   accepts_nested_attributes_for :answers
   belongs_to :questionnaire
+  belongs_to :page
   
 
   # Map class of question to class of answer

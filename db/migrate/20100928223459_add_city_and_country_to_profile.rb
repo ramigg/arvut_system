@@ -8,6 +8,6 @@ class AddCityAndCountryToProfile < ActiveRecord::Migration
   end
 
   def self.down
-    remove_column :users, :country, :region, :location
+    remove_column :users, :country_id, :region_id, :location_id
   end
 end

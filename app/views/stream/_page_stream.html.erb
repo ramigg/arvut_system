@@ -7,7 +7,7 @@
   <%- @pages.each{|page| -%>
     <div class="clear underline inbox_item <%= 'sticky_item' if page.is_sticky %>">
       <div class="float_left main_subcolumn_1">
-        <h3 class="inbox_item_title read"><span class="inbox_item_icon assignment_done_icon"></span><a href="#"><%= page.title %></a></h3>
+        <h3 class="inbox_item_title read"><span class="inbox_item_icon assignment_done_icon"></span><%=link_to page.title, page_url(page) %></h3>
         <div class="inbox_item_body">
           <%= page[:description].html_safe %>
         </div>

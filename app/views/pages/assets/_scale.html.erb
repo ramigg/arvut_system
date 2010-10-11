@@ -1,0 +1,21 @@
+<%
+opt_count = question.scale_to - question.scale_from + 1
+%>
+<table class="scale-answer" border="0" cellspacing="0" cellpadding="5">
+  <tr>
+    <td class="scalenumbers"></td>
+    <% opt_count.times do |c| %>
+      <td class="scalenumbers"><%= c+1 %></td>
+    <% end %>
+    <td class="scalenumbers"></td>
+  </tr>
+  <tr>
+    <td class="scalerow leftlabel"><%= question.label_from %></td>
+    <% opt_count.times do |c| %>
+      <td class="scalerow">
+        <%= builder.radio_button :int_value, (question.scale_from + c).to_s %>
+      </td>
+    <% end %>
+    <td class="scalerow rightlabel"><%= question.label_to %></td>
+  </tr>
+</table>

@@ -8,10 +8,13 @@ class Page < ActiveRecord::Base
   end
 
   has_many :assets, :dependent => :destroy, :order => :position
+  has_many :questionnaire_answers
+
+  accepts_nested_attributes_for :questionnaire_answers, :allow_destroy => true
   accepts_nested_attributes_for :assets, :allow_destroy => true
   accepts_nested_attributes_for :taggings, :allow_destroy => true
 
-  [:article_resources, :video_resources, :audio_resources].each{|resource|
+  [:article_resources, :video_resources, :audio_resources, :questions].each{|resource|
     has_many resource, :through => :assets
   }
   
@@ -36,12 +39,17 @@ class Page < ActiveRecord::Base
   WillPaginate::ViewHelpers.pagination_options[:next_label] = '&rarr;'
 
   #  *Scopes*
+
+  scope :published, where(:publish_at.lt => Time.now, :status => 'PUBLISHED')
+  scope :by_conf_date, lambda {|user_reg_date| where(:publish_at.gt => user_reg_date)}
+
   scope :by_page_type, lambda {|page_type, language_id, user_reg_date|
-    (page_type == 'all' ?
+    (page_type == 'all' || page_type == 'tag' ?
         where(:language_id => language_id) :
         where(:language_id => language_id, :page_type => page_type.singularize)).
-      where(:publish_at.lt => Time.now, :status => 'PUBLISHED').where(:publish_at.gt => user_reg_date)
+      published.by_conf_date(user_reg_date)
   }
+
   #  scope :all_pages, lambda {|language_id| where(:language_id => language_id)}
   scope :ordered,  order('is_sticky', 'publish_at DESC')
   
@@ -58,6 +66,9 @@ class Page < ActiveRecord::Base
     send "#{locale}_tag_list"
   end
 
+  def has_questions?
+    questions
+  end
   def self.all_tags(locale)
     tag_counts_on(:"#{locale}_tags").all.map{|e| e.name}
   end
