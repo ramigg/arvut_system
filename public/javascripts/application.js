@@ -89,3 +89,18 @@ function enable_city(obj, clean){
         $('#user_location_id').val('');
     }
 }
+
+//
+function change_language(){
+    var idx = $('#languages').get(0).selectedIndex;
+    var href = $('#languages').get(0).options[idx].value;
+
+    location = href;
+}
+
+$(function () {
+    $('a[data-remote=true]').click(function () {
+        $('li.current').removeClass('current');
+        $(this).parent().parent().addClass('current');
+    });
+});

@@ -5,9 +5,11 @@ else
   "/images/user-#{@profile.gender}.png"
 end
 %>
-<div class="menu_column_user underline">
-  <%= image_tag src, :class => 'user_picture float_left' %>
-  <b><%= @profile.first_name %> <%= @profile.last_name %></b><br />
-  <%= link_to t('home.views.edit_profile'), edit_profile_url(@profile) %><br />
-  <%= link_to t('views.signout'), destroy_user_session_path, :title => t('views.signout') %>
+
+<div class="widget-profile">
+  <%= image_tag src, :class => 'avatar' %>
+  <div>
+    <%= link_to t('home.views.edit_profile'), edit_profile_url(@profile) %> | <%= link_to t('views.signout'), destroy_user_session_path, :title => t('views.signout') %>
+  </div>
+  <h5><%= @profile.first_name %> <%= @profile.last_name %></h5>
 </div>

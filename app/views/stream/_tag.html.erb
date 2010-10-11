@@ -1,3 +1,1 @@
-<li class="tag">
-  <%= link_to tag, stream_path(:stream_filter => 'tag', :modifier => tag), :remote => true %>
-</li>
+<%= link_to tag, stream_path(:stream_filter => 'tag', :modifier => tag), :class => 'tag', :remote => true %>

@@ -1,24 +1,18 @@
-<div id="stream">
-  <div class="inbox_title">
-    <h2 class="float_left"><%= @stream_header %></h2>
-    <p class="float_right"><a href="/stream/<%= @stream_subclass %>/new">New <%= @stream_header %></a> | <a href="/stream/<%= @stream_subclass %>/all">All <%= @stream_header %></a></p>
-    <div class="clear"></div>
-  </div>
+<div class="content-submenu">
+  <%= link_to 'New Items', stream_path(:stream_filter => @stream_subclass, :modifier => 'new'), :remote => true %>
+  |
+  <%= link_to 'All Items', stream_path(:stream_filter => @stream_subclass, :modifier => 'all'), :remote => true %>
+</div>
+<div class="content-stream">
   <%- @pages.each{|page| -%>
-    <div class="clear underline inbox_item <%= 'sticky_item' if page.is_sticky %>">
-      <div class="float_left main_subcolumn_1">
-        <h3 class="inbox_item_title read"><span class="inbox_item_icon assignment_done_icon"></span><%=link_to page.title, page_url(page) %></h3>
-        <div class="inbox_item_body">
-          <%= page[:description].html_safe %>
-        </div>
-        <div class="inbox_item_footer">Posted 3 days ago</div>
-      </div>
-      <div class="float_right main_subcolumn_2">
-        <ul class="inbox_item_tags">
-          <%= render :partial => 'tag', :collection => page.tags(I18n.locale) %>
-        </ul>
-      </div>
-      <div class="clear"></div>
+    <div class="item <%= 'sticky_item' if page.is_sticky %>">
+      <h2 class="assignment-icon-new icon"><span></span><%= link_to page.title, page_url(page) %></h2>
+      <%= page[:description].html_safe %>
+      <p class="item-metadata">Posted 2 minutes ago</p>
+      <p class="tags">
+        <%= render :partial => 'tag', :collection => page.tags(I18n.locale) %>
+      </p>
+      <hr />
     </div>
   <%- } -%>
 </div>

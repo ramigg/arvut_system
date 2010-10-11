@@ -1,3 +1,22 @@
-<div id="header" class="blue_gradient rounded_5 clear">
-  <h1 class="float_left">Hamakom</h1>
+<div class="header">
+  <div class="logo">
+    <a href=""><img src="/images/logo.png" alt="hamakom" /></a>
+    <h1>Hamakom</h1>
+  </div>
+  <form class="float_right" action="#" method="get" accept-charset="utf-8">
+    <p>
+      <% if user_signed_in?
+        suffix = ''
+      else
+        suffix = '/users/login'
+      end
+      locale = I18n.locale.to_s
+    %>
+      <select name="languages" id="languages" onchange="change_language()">
+        <% Language.all.each { |l| %>
+          <option <%= 'selected="selected"'.html_safe if l.locale == locale %> value="<%= root_path(l.locale) + suffix %>"><%= l.language %></option>
+        <% } %>
+      </select>
+    </p>
+  </form>
 </div>
