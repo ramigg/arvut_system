@@ -4,28 +4,14 @@
   <head>
     <title>Hamakom</title>
     <meta content="text/html;charset=utf-8" http-equiv="content-type" />
-    <%= stylesheet_link_tag 'reset', 'pages', 'jquery-ui-1.8.4.custom' %>
-    <%= javascript_include_tag :defaults, 'jquery-ui-1.8.4.custom.min', "jquery.ui.datepicker-#{I18n.default_locale}.js" %>
-    <link href='http://fonts.googleapis.com/css?family=Droid+Serif&amp;subset=latin' rel='stylesheet' type='text/css'></link>
+    <%= stylesheet_link_tag 'reset', 'jquery-ui-1.8.4.custom' %>
+    <link rel="stylesheet/less" type="text/css" href="/stylesheets/pages.less" />
+
+    <%= javascript_include_tag :defaults, 'jquery-ui-1.8.4.custom.min',
+      "jquery.ui.datepicker-#{I18n.default_locale}.js", 'less-1.0.35.min.js' %>
     <%= javascript_include_tag 'autocomplete-rails.js' %>
     <%= csrf_meta_tag %>
-    <%= javascript_tag do %>
-      $(function () {
-        $('a[data-remote=true]').click(function () {
-          $('li.side_menu_item_current').removeClass('side_menu_item_current');
-          $(this).parent().addClass('side_menu_item_current');
-        });
-      });
-    <% end %>
     <style type="text/css">
-      .bold {font-weight: bold;}
-      /* For holidays:
-      body{background: url(../images/wrap_bg.jpg) no-repeat top center;}
-      #wrapper{margin:200px auto 20px;}
-      */ /* For regular days: */
-      #wrapper{margin:20px auto 20px;}
-      .inbox_item_title{min-height: 20px;height:auto;}
-
       .error, .notice, .success {padding:.8em;margin-bottom:1em;border:2px solid #ddd;}
       .error {background:#FBE3E4;color:#8a1f11;border-color:#FBC2C4;}
       .notice {background:#FFF6BF;color:#514721;border-color:#FFD324;}
@@ -33,20 +19,21 @@
       .error a, .error h3 {color:#8a1f11;}
       .notice a {color:#514721;}
       .success a {color:#264409;}
-
-      .wide_main_column{
-        margin:0 0 0 10px;
-        width:780px;
-      }
-
     </style>
   </head>
   <body class="<%= I18n.default_locale %>">
-    <div id="bg_image">
-      <div id="wrapper" class="rounded_10">
-        <%= render 'stream/header' %>
-        <%= yield %>
-        <div class="one_column footer clear">footer</div>
+    <div class="skin_bg">
+      <div class="skin_container">
+        <p></p>
+      </div>
+    </div>
+
+    <div class="wrapper">
+      <%= render 'stream/header' %>
+      <%= yield %>
+      <div class="footer">
+        New internet project - We build it together<br/>
+        Entries (RSS) and Comments (RSS).
       </div>
     </div>
     <%= render 'shared/ga' %>

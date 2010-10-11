@@ -1,13 +1,37 @@
-<div class="one_column content clear">
-  <div class="menu_column float_left">
-    <div class="menu_column_user underline">
-      <div><%= render 'user_profile' %></div>
-      <div><%= render 'page_menu' %></div>
-      <div><%= render :partial => 'tag', :collection => @tags, :layout => 'menu_tags_layout' %></div>
-    </div>
-  </div>
-  <div class="main_column float_left">
-    <%= render 'page_stream' %>
-  </div>
-  <div class="widgets_column float_right">right</div>
+<div class="column-menu">
+  <div class="content-submenu"></div>
+  <div><%= render 'page_menu' %></div>
+  <hr />
+  <h4>Tags:</h4>
+
+  <ul class="side_menu side_tags">
+    <%= render :partial => 'menu_tags', :collection => @tags %>
+  </ul>
+  <hr />
+<%#*<h4>Search:</h4>%>
+<%#*<form action="">%>
+<%#*<p>%>
+<%#*<input type="text" /><input type="submit" value="search" />%>
+<%#*</p>%>
+<%#*</form>%>
 </div>
+
+<div class="column-content">
+  <%= render 'page_stream' %>
+</div>
+
+<div class="column-widgets">
+  <div class="content-submenu"></div>
+  <div><%= render 'user_profile' %></div>
+  <div class="widget-blog">
+    <h4>Michael Laitman's posts</h4>
+    <hr />
+    <ul>
+      <li><a href="">Circulation And Spiritual Work</a></li>
+      <li><a href="">Daily Kabbalah Lesson – 10.11.10</a></li>
+      <li><a href="">Why Do I Labor And What Do I Find?</a></li>
+    </ul>
+    <a href="" class="more_link">See all &raquo;</a>
+  </div>
+</div><!-- widget column end -->
+<div class="clear"></div>
