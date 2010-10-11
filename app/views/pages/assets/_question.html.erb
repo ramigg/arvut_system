@@ -2,12 +2,14 @@
 <%
 answer = question.find_answer(@questionnaire_answer.answers)
 %>
-  <%= answer.question.title %>
-<%= builder.fields_for "answers[#{index}]", answer, :as => :answers do |f| %>
-
-
-  <%= f.error_messages :header_message => false, :message => false, :header_tag => :h3 %>
-  <%= f.hidden_field :my_type, :value => klass_name %>
-  <%= f.hidden_field :question_id %>
-  <%= render :partial => "pages/assets/#{klass_name}", :locals => {:builder => f, :klass => klass_name, :question => question, :answer => answer} %>
-<% end %>
+<dl class="form_element">
+  <dt><%= answer.question.title %></dt>
+  <dd>
+    <%= builder.fields_for "answers[#{index}]", answer, :as => :answers do |f| %>
+      <%= f.error_messages :header_message => false, :message => false, :header_tag => :h3 %>
+      <%= f.hidden_field :my_type, :value => klass_name %>
+      <%= f.hidden_field :question_id %>
+      <%= render :partial => "pages/assets/#{klass_name}", :locals => {:builder => f, :klass => klass_name, :question => question, :answer => answer} %>
+    <% end %>
+  </dd>
+</dl>
