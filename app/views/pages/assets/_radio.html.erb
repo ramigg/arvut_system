@@ -1,13 +1,13 @@
 <% question.entries.each_with_index do |e, idx| %>
-  <dd>
+  <div>
     <%= builder.radio_button :question_pair_id, e.id %>
     <%= builder.label :question_pair_id, e.label %>
-  </dd>
+  </div>
 <% end %>
 <%- if question.other %>
-  <dd>
+  <div>
     <%= builder.radio_button :question_pair_id, question.other.id %>
     <%= builder.label :question_pair_id, question.other.label %>
     <%= builder.text_area :text_value  %>
-  </dd>
+  </div>
 <%- end %>

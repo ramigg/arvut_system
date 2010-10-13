@@ -23,27 +23,30 @@
 @column-content-margin: 1%;
 @column-widget-width: 24%;
 
+@page-width: 540px;
+
 //typography
-@font-family:'Lucida Grande', 'Lucida Sans Unicode', Arial, Verdana, sans-serif;
+@font-family: "Lucida Grande","Lucida Sans Unicode",Arial,Verdana,sans-serif;
 @font-basic-size: 13px;
 @font-small: @font-basic-size - 2px;
-@font-line-height: 1.3;
+@font-line-height: 18px;
 
 //colors
-@color-main-text: #222;
+@color-main-text: #666;
 @color-white: #fff;
 @color-main-light: #00acc2;
-@color-main-dark: #006ab6;
-@color-second-light: #8cc63f;
-@color-second-dark: #39b54a;
+@color-main-dark: #2971a7;
+@color-second-light: #8c8c8c;
+@color-second-dark: #2971a7;
 @color-dimmed-text: #666;
 @color-button: @color-white;
 @color-stream-background: #dcf2ff;
+@color-profile-background: #f1f1f1;
 @color-tag-text: @color-main-text;
 @color-tag-hover-text: @color-white;
 @color-tag-background: #ebf8ff;
 @color-tag-hover-background: @color-main-dark;
-@color-separator: @color-white;
+@color-separator: #bcccd3;
 @color-orange: #f7931e;
 @color-grey: #aaa;
 //CLASSES
@@ -91,10 +94,14 @@ h4{
 	.bold;
 }
 h5{
+	font-size: @font-basic-size;
 	.bold
 }
 h1 a, h2 a, h3 a, h4 a, h5{
 	.undecorated;
+}
+p{
+	font-size: @font-basic-size;
 }
 .small-text{
 	.font-small;
@@ -102,11 +109,10 @@ h1 a, h2 a, h3 a, h4 a, h5{
 // css3 stuff
 @radius: 5px;
 .rounded-corners{
-	border:0px none;
 	-webkit-border-radius: @radius;
 	-moz-border-radius: @radius;
 	border-radius: @radius;
-	behavior: url(css/PIE.htc);
+	behavior: url(PIE.htc);
 }
 @start-color: @color-main-light;
 @end-color: @color-main-dark;
@@ -114,8 +120,8 @@ h1 a, h2 a, h3 a, h4 a, h5{
 	background: -webkit-gradient(linear, 0 0, 0 bottom, from(@start-color), to(@end-color));
 	background: -moz-linear-gradient(@start-color, @end-color);
 	background: linear-gradient(@start-color, @end-color);
-	-pie-background: linear-gradient(@start-color, @end-color);
-	behavior: url(/PIE.htc);
+	-pie-background: linear-gradient(bottom, @start-color, @end-color);
+	behavior: url(PIE.htc);
 }
 @blur-size: 10px;
 @x-offset: 0px;
@@ -125,7 +131,7 @@ h1 a, h2 a, h3 a, h4 a, h5{
 	-webkit-box-shadow: @shadow-color @x-offset @y-offset @blur-size;
 	-moz-box-shadow: @shadow-color @x-offset @y-offset @blur-size;
 	box-shadow: @shadow-color @x-offset @y-offset @blur-size;
-	behavior: url(/PIE.htc);
+	behavior: url(PIE.htc);
 }
 //forms
 .button{
@@ -238,15 +244,7 @@ body {
  	font-size: @font-basic-size;
 	line-height: @font-line-height;
 	color: @color-main-text;
-}
-#wrapper {
-	margin:100px auto 20px;
-	width:@wrapper-width;
-	padding:@wrapper-padding;
-	background:#fff;
-	@radius:10px;
-	.rounded-corners;
-	.drop-shadow;
+	overflow: scroll;
 }
 
 //layout
@@ -257,5 +255,11 @@ body {
 	float:right;
 }
 .clear{
+	clear:both;
+}
+.clear-div{
+	line-height:1px;
+	font-size:1px;
+	height:1px;
 	clear:both;
 }

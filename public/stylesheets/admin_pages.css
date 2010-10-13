@@ -331,8 +331,15 @@ hr.space {background:#fff;color:#fff;}
 	margin:0;
         display:none;
 }
+fieldset {
+    margin:10px 0;
+}
+fieldset fieldset{
+    background: #eee;
+}
 fieldset legend{
     padding:0 5px;
+    color: blue;
 }
 /* errors */
 .error ul{

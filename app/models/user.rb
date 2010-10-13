@@ -42,10 +42,10 @@ class User < ActiveRecord::Base
   after_destroy :roles_cleanup
 
   has_attached_file :avatar,
-    :styles => {:original => ['170x170>', :png], :thumb => ['56x56#', :png]},
+    :styles => {:original => ['170x170>', :png], :thumb => ['40x40#', :png]},
     :convert_options => { :all => "-strip" },
-    :default_url => '/images/user-female.png'
-  validates_attachment_size :avatar, :less_than => 4.megabytes
+    :default_url => '/images/user.png'
+#  validates_attachment_size :avatar, :less_than => 4.megabytes
 
   def delete_avatar=(value)
     @delete_avatar = !value.to_i.zero?

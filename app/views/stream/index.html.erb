@@ -1,13 +1,13 @@
 <div class="column-menu">
   <div class="content-submenu"></div>
   <div><%= render 'page_menu' %></div>
-  <hr />
-  <h4>Tags:</h4>
+<%#*<hr />%>
+<%#*<h4>Tags:</h4>%>
 
-  <ul class="side_menu side_tags">
-    <%= render :partial => 'menu_tags', :collection => @tags %>
-  </ul>
-  <hr />
+<%#*<ul class="side_menu side_tags">%>
+<%#= render :partial => 'menu_tags', :collection => @tags %>
+<%#*</ul>%>
+<%#*<hr />%>
 <%#*<h4>Search:</h4>%>
 <%#*<form action="">%>
 <%#*<p>%>
@@ -23,15 +23,6 @@
 <div class="column-widgets">
   <div class="content-submenu"></div>
   <div><%= render 'user_profile' %></div>
-  <div class="widget-blog">
-    <h4>Michael Laitman's posts</h4>
-    <hr />
-    <ul>
-      <li><a href="">Circulation And Spiritual Work</a></li>
-      <li><a href="">Daily Kabbalah Lesson – 10.11.10</a></li>
-      <li><a href="">Why Do I Labor And What Do I Find?</a></li>
-    </ul>
-    <a href="" class="more_link">See all &raquo;</a>
-  </div>
+  <div><%= render 'blog' %></div>
 </div><!-- widget column end -->
 <div class="clear"></div>

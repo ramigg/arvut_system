@@ -19,4 +19,13 @@
       </select>
     </p>
   </form>
+  <div class="header-menu">
+    <%= link_to "Home", stream_path(:stream_filter => 'all') %> |
+    <%- if user_signed_in? -%>
+      <%= link_to t('home.views.edit_profile'), edit_profile_url(@profile) %> |
+      <%= link_to t('views.signout'), destroy_user_session_path, :title => t('views.signout') %>
+    <%- else -%>
+      <%= link_to t('views.login'), new_user_session_path, :title => t('views.login') %>
+    <%- end -%>
+  </div>
 </div>

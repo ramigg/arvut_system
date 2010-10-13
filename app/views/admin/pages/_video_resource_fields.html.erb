@@ -11,14 +11,20 @@
       <%= f_video.text_field :name, :class => 'title span-17 last' %>
       <%= f_video.label :description, 'Description', :class => 'text' %>
       <%= f_video.cktext_area :description, :toolbar => ckeditor_toolbar, :class => 'span-17 last', :width => '650px', :height => '6em' %>
-      <%= f_video.label :image, 'Image' %>
-      <%= f_video.text_field :image, :class => 'title span-17 last' %>
-      <%= f_video.label :embed, 'Embed string' %>
-      <%= f_video.text_area :embed, :class => 'title span-17 last', :style => 'height:4em;' %>
-      <%= f_video.label :url, 'URL' %>
-      <%= f_video.url_field :url, :class => 'title span-17 last' %>
-      <%= f_video.label :is_autoplay, 'Autoplay?' %>
-      <%= f_video.check_box :is_autoplay %>
+      <fieldset>
+        <legend>Video player</legend>
+        <%= f_video.label :image, 'Image' %>
+        <%= f_video.text_field :image, :class => 'title span-16 last' %>
+        <%= f_video.label :url, 'URL' %>
+        <%= f_video.url_field :url, :class => 'title span-16 last' %>
+        <%= f_video.label :is_autoplay, 'Autoplay?' %>
+          <%= f_video.check_box :is_autoplay %>
+        </fieldset>
+      <fieldset>
+        <legend>Youtube</legend>
+        <%= f_video.label :embed, 'Embed string' %>
+        <%= f_video.text_area :embed, :class => 'title span-16 last', :style => 'height:4em;' %>
+      </fieldset>
     <% end %>
   </fieldset>
 </li>

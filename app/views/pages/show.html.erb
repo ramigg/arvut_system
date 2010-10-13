@@ -1,24 +1,4 @@
-<div class="column-menu">
-  <div class="content-submenu"></div>
-  <div><%= render 'stream/page_menu' %></div>
-  <hr />
-  <h4>Tags:</h4>
-
-  <ul class="side_menu side_tags">
-    <%= render :partial => 'stream/menu_tags', :collection => @tags %>
-  </ul>
-  <hr />
-<%#*<h4>Search:</h4>%>
-<%#*<form action="">%>
-<%#*<p>%>
-<%#*<input type="text" /><input type="submit" value="search" />%>
-<%#*</p>%>
-<%#*</form>%>
-</div>
-
 <div class="column-content">
-  <div class="content-submenu"></div>
-
   <div class="edit-stream">
     <h1><%= @page.title %></h1>
     <div class="description"><%= @page.description.html_safe %></div>
@@ -26,7 +6,7 @@
     <%= form_for @page do |f|%>
       <%= f.error_messages :header_message => t('questionnaire_answer.views.all_fields_are_required'),
         :message => false, :header_tag => :h3 %>
-      <%= f.fields_for :questionnaire_answers, @questionnaire_answer do |f_qa|%>
+      <%= f.fields_for :questionnaire_answers, @questionnaire_answers do |f_qa|%>
         <div style="margin: 0; padding: 0; display: inline;">
           <%= f_qa.hidden_field :author_id %>
         </div>
@@ -38,23 +18,8 @@
       <% end %>
 
       <hr/>
-      <%= f.submit t('views.submit'), :class => 'button-middle-main' %>
+      <div><%= f.submit t('views.submit'), :class => 'button-middle-main' %></div>
     <%- end %>
   </div>
+  <div class="clear"></div>
 </div>
-
-<div class="column-widgets">
-  <div class="content-submenu"></div>
-  <div><%= render 'stream/user_profile' %></div>
-  <div class="widget-blog">
-    <h4>Michael Laitman's posts</h4>
-    <hr />
-    <ul>
-      <li><a href="">Circulation And Spiritual Work</a></li>
-      <li><a href="">Daily Kabbalah Lesson – 10.11.10</a></li>
-      <li><a href="">Why Do I Labor And What Do I Find?</a></li>
-    </ul>
-    <a href="" class="more_link">See all &raquo;</a>
-  </div>
-</div><!-- widget column end -->
-<div class="clear"></div>

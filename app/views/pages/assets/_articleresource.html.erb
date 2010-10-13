@@ -1,6 +1,7 @@
-<%#
-# To change this template, choose Tools | Templates
-# and open the template in the editor.
+<%
+article = question
 %>
-
-<%= "_articleresource.html" %>
+<div class="article">
+  <h4><%= article.name %></h4>
+  <%= raw article.body %>
+</div>

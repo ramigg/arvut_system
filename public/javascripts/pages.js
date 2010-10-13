@@ -55,7 +55,7 @@ function add_page_asset(name, content)
     $('#container_body').append(content);
     $('#container_body').find('li:last')
     .addClass('block'+ block_counter)
-    .find('legend').text(name + " - " + block_counter)
+    .find('legend:first').text(name + " - " + block_counter)
     .end().find('.position').val(block_counter)
     ;
 

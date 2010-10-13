@@ -2,17 +2,22 @@
 def deletebutton
   '<input type="button" value="Remove" class="deletebutton"/>'.html_safe
 end
+
+noquestions ||= false
 %>
 <div class="span-18">
   <h3>Add new:
     <%= link_to_page_asset "Article", f, :article_resource %>&nbsp;|&nbsp;
     <%= link_to_page_asset "Audio", f, :audio_resource %>&nbsp;|&nbsp;
-    <%= link_to_page_asset "Video", f, :video_resource %>&nbsp;|&nbsp;
-    Question: <%= link_to_page_asset "Radio", f, :questions, :radio %>&nbsp;|&nbsp;
-              <%= link_to_page_asset "Checkbox", f, :questions, :checkbox %>&nbsp;|&nbsp;
-              <%= link_to_page_asset "List", f, :questions, :list %>&nbsp;|&nbsp;
-              <%= link_to_page_asset "Scale", f, :questions, :scale %>&nbsp;|&nbsp;
-              <%= link_to_page_asset "FreeText", f, :questions, :free_text %>
+    <%= link_to_page_asset "Video", f, :video_resource %>
+    <%- unless noquestions -%>
+      &nbsp;|&nbsp;
+      Question: <%= link_to_page_asset "Radio", f, :questions, :radio %>&nbsp;|&nbsp;
+      <%= link_to_page_asset "Checkbox", f, :questions, :checkbox %>&nbsp;|&nbsp;
+      <%= link_to_page_asset "List", f, :questions, :list %>&nbsp;|&nbsp;
+      <%= link_to_page_asset "Scale", f, :questions, :scale %>&nbsp;|&nbsp;
+      <%= link_to_page_asset "FreeText", f, :questions, :free_text %>
+    <%- end -%>
   </h3>
   <hr/>
   <ul id="container_body">

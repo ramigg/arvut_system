@@ -1,13 +1,13 @@
 <% question.entries.each_with_index do |e, idx| %>
-  <dd>
+  <div>
     <%= check_box_tag "question_pair_id[value_ids][]", e.id.to_s, answer.values.include?(e) %>
     <%= builder.label :value, e.label %>
-  </dd>
+  </div>
 <% end %>
 <%- if question.other %>
-  <dd>
+  <div>
     <%= builder.check_box :question_pair_id, {}, question.other.id %>
     <%= builder.label :question_pair_id, question.other.label %>
     <%= builder.text_area :text_value  %>
-  </dd>
+  </div>
 <%- end %>

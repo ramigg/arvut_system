@@ -1,7 +1,7 @@
 class ProfilesController < ApplicationController
   respond_to :html, :js
 
-  layout 'pages'
+  layout 'stream'
 
   autocomplete :location, :city, :ref => [{:region => :name}, {:country => :name}], :limit => 20
 

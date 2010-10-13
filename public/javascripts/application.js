@@ -102,5 +102,29 @@ $(function () {
     $('a[data-remote=true]').click(function () {
         $('li.current').removeClass('current');
         $(this).parent().parent().addClass('current');
-    });
+    })
+    if (typeof $.colorbox == 'function') {
+        $('a.in-iframe').colorbox({
+            iframe: true,
+            innerHeight: '80%',
+            innerWidth: '600px',
+            overlayClose: false,
+            arrowKey: false,
+            close: '',
+            onOpen:function(){
+                alert('document will be marked as read');
+            },
+            onClosed:function(){
+                alert('refresh the stream and menu');
+            }
+        });
+        $('a.in-wide-iframe').colorbox({
+            iframe: true,
+            innerHeight: '90%',
+            innerWidth: '1010px',
+            overlayClose: false,
+            arrowKey: false,
+            close: '',
+        });
+    }
 });

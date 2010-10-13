@@ -1,6 +1,36 @@
-<%#
-# To change this template, choose Tools | Templates
-# and open the template in the editor.
+<%
+video = question
+id = video.object_id
 %>
-
-<%= "_videoresource" %>
+<div class="video">
+  <h4><%= video.name %></h4>
+  <%= raw video.description %>
+  <%- unless video.embed.empty? -%>
+    <%= raw video.embed %>
+  <%- else -%>
+    <a id="video_<%= id %>" class="video_object"
+       style="display: block;width: 500px;height: 375px;"
+       href="#"
+       >
+    </a>
+    <script type="text/javascript">
+      $(document).ready(function() {
+        $f("video_<%= id %>",{src: '/flowplayer/flowplayer-3.2.5.swf', wmode: 'transparent'},{
+          key:'#\@932a7f91ab5747d7f90',
+          playlist:[
+            {url: '<%= video.image %>', autoPlay: true},
+            {url: '<%= video.url %>', autoPlay: <%= video.is_autoplay? %>}
+          ],
+          // show stop button so we can see stop events too
+          plugins: {
+            controls: {
+              url: 'flowplayer.controls-3.2.3.swf',
+              stop: true
+            }
+          }
+        });
+      });
+    </script>
+    <div class="clear"></div>
+  <%- end -%>
+</div>

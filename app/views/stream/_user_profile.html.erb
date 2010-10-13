@@ -1,15 +1,8 @@
-<%
-src = if @profile.avatar.instance.avatar_file_size
-  @profile.avatar.url(:thumb)
-else
-  "/images/user-#{@profile.gender}.png"
-end
-%>
-
 <div class="widget-profile">
-  <%= image_tag src, :class => 'avatar' %>
+  <%= image_tag @profile.avatar.url(:thumb), :class => 'avatar' %>
+  <h5><%= @profile.first_name %> <%= @profile.last_name %></h5>
   <div>
     <%= link_to t('home.views.edit_profile'), edit_profile_url(@profile) %> | <%= link_to t('views.signout'), destroy_user_session_path, :title => t('views.signout') %>
   </div>
-  <h5><%= @profile.first_name %> <%= @profile.last_name %></h5>
+  <div class="clear-div"></div>
 </div>
