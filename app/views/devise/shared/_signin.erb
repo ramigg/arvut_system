@@ -1,4 +1,4 @@
-<div id="signin">
+<div class="widget-login">
   <%= form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f| %>
     <%= devise_error_messages! %>
     <%- unless flash[:alert].empty? && session[:alert].empty? -%>
@@ -25,6 +25,7 @@
         </ul>
       </div>
     <%- end -%>
+    <h2><%= t 'devise.views.sign_in' %></h2>
     <div><%= f.label t 'devise.views.email' %>
       <%= f.text_field :email, :class => [:'text-input', :required], :dir => :ltr %></div>
 
@@ -35,14 +36,14 @@
     </div>
 
     <% if devise_mapping.rememberable? -%>
-      <div><%= f.check_box :remember_me, :class => :small %> <%= f.label t('devise.views.remember_me'), {}, {:class => :'d-inline'} %></div>
+      <div><%= f.check_box :remember_me %> <%= f.label t('devise.views.remember_me') %></div>
     <% end -%>
 
     <div class="submission">
+      <%= f.submit t('devise.views.sign_in_more').html_safe, :class => :'button-middle-second' %><br/>
       <%= link_to t('devise.views.cannot_sign_in'), login_help_path %>
-      <%= f.submit raw(t('devise.views.sign_in_more')), :class => :fright %>
     </div>
 
-    <div class="bclear"></div>
   <% end %>
+  <div class="clear-div"></div>
 </div>

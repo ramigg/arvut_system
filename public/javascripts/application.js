@@ -1,24 +1,25 @@
-// Basic report generator
 $(function (){
-    $('.datepicker').datepicker();
-    $('.datepicker').datepicker('option', {
-        dateFormat: 'dd.mm.yy'
-    });
-});
-// Attendance report generator
-$(function() {
-    $('.xdatepicker').datepicker( {
-        changeMonth: true,
-        changeYear: true,
-        showButtonPanel: true,
-        dateFormat: 'dd.mm.yy',
-        onClose: function(dateText, inst) {
-            var month = $("#ui-datepicker-div .ui-datepicker-month :selected").val();
-            month = parseInt(month) + 1;
-            var year = $("#ui-datepicker-div .ui-datepicker-year :selected").val();
-            $(this).val("1." + month + "." + year);
-        }
-    });
+    // Basic report generator
+    if (typeof $.datepicker == 'function') {
+        $('.datepicker').datepicker();
+        $('.datepicker').datepicker('option', {
+            dateFormat: 'dd.mm.yy'
+        });
+
+        // Attendance report generator
+        $('.xdatepicker').datepicker( {
+            changeMonth: true,
+            changeYear: true,
+            showButtonPanel: true,
+            dateFormat: 'dd.mm.yy',
+            onClose: function(dateText, inst) {
+                var month = $("#ui-datepicker-div .ui-datepicker-month :selected").val();
+                month = parseInt(month) + 1;
+                var year = $("#ui-datepicker-div .ui-datepicker-year :selected").val();
+                $(this).val("1." + month + "." + year);
+            }
+        });
+    }
 });
 // AJAX Report generators
 $(function (){
@@ -35,12 +36,6 @@ function excel(){
     $report.attr('action', action + '.xls').removeAttr('data-remote');
     $report.submit().attr('action', action).attr('data-remote', 'true');
 }
-
-$(function (){
-    $("input:submit").button();
-    $('#tabs').tabs();
-    $('#error_explanation, .errorExplanation').addClass('ui-state-error');
-});
 
 // Used in Questionnaire editor
 function remove_fields(link, is_new_record) {
@@ -101,7 +96,7 @@ function change_language(){
 $(function () {
     var toggleLoading = function(){
         $(this).toggleClass('spinner')
-        };
+    };
 
     $('a[data-remote=true]')
     .live('ajax:loading', toggleLoading)
@@ -145,6 +140,8 @@ $(function () {
             }
         });
     };
-    $('textarea').autoResize({extraSpace: 40});
+    $('textarea').autoResize({
+        extraSpace: 40
+    });
 });
 

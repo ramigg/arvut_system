@@ -1,16 +1,17 @@
-<%- content_for :toolbar do -%>
-  <h2><%= t 'devise.views.sign_in' %></h2>
-<%- end -%>
-
-<div class="login-wrap">
-  <div id="tabs" class="narrow-win centered-layout">
-    <%= render :partial => "devise/shared/tabs", :locals => {:tab => :signin} %>
-    <%= render :partial => "devise/shared/signin" %>
-    <div class="bclear"></div>
-  </div>
-  <%= render :partial => "devise/shared/new_user" %>
-  <div class="bclear"></div>
+<div class="column-content">
+  <div class="content-submenu"></div>
+  <h2>First time here?</h2>
+  <p>Lorem ipsum integre gubergren percipitur ius ne. At ponderum tractatos persecuti vix, an facete laoreet his. Pro possim regione legimus an. Probo nostrum iracundia vel eu.</p>
+  <p>Per ex novum sonet insolens. Pri alia maiorum fierent et. Eam ea nostro instructior reprehendunt. Iudico regione patrioque cu vis, eam no erat prima illum, usu ad voluptatum cotidieque.</p>
+  <object width="382" height="240"><param name="movie" value="http://www.youtube.com/v/xBjujkdwYSw?fs=1&amp;hl=en_US&amp;rel=0"></param><param name="allowFullScreen" value="true"></param><param name="allowscriptaccess" value="always"></param><embed src="http://www.youtube.com/v/xBjujkdwYSw?fs=1&amp;hl=en_US&amp;rel=0" type="application/x-shockwave-flash" allowscriptaccess="always" allowfullscreen="true" width="382" height="240"></embed></object>
+  <div class="clear"></div>
 </div>
+<div class="column-widgets">
+  <%= render :partial => "devise/shared/signin" %>
+  <%= render :partial => "devise/shared/new_user" %>
+  <div class="clear"></div>
+</div>
+<div class="clear"></div>
 
 <%
 session[:notice] = session[:alert] = ''
