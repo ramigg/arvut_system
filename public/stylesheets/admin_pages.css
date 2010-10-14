@@ -339,7 +339,7 @@ fieldset fieldset{
 }
 fieldset legend{
     padding:0 5px;
-    color: blue;
+    color: darkMagenta;
 }
 /* errors */
 .error ul{

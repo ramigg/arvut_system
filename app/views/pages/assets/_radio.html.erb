@@ -5,9 +5,9 @@
   </div>
 <% end %>
 <%- if question.other %>
-  <div>
+  <div class="other">
     <%= builder.radio_button :question_pair_id, question.other.id %>
-    <%= builder.label :question_pair_id, question.other.label %>
-    <%= builder.text_area :text_value  %>
+    <%= builder.label :question_pair_id, question.other.label %><br/>
+    <%= builder.text_area :text_value, :rows => 4  %>
   </div>
 <%- end %>
