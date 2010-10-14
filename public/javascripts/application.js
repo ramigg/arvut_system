@@ -99,10 +99,18 @@ function change_language(){
 }
 
 $(function () {
-    $('a[data-remote=true]').click(function () {
+    var toggleLoading = function(){ $(this).toggleClass('spinner')};
+
+    $('a[data-remote=true]')
+    .live('ajax:loading', toggleLoading)
+    .live('ajax:complete', toggleLoading);
+
+    $('.side_menu a[data-remote=true]')
+    .bind('click', function () {
         $('li.current').removeClass('current');
         $(this).parent().parent().addClass('current');
-    })
+    });
+    
     if (typeof $.colorbox == 'function') {
         $('a.in-iframe').colorbox({
             iframe: true,

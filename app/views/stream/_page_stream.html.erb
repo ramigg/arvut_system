@@ -1,22 +1,8 @@
 <div class="content-submenu">
-  <%#= link_to 'New Items', stream_path(:stream_filter => @stream_subclass, :modifier => 'new'), :remote => true %>
-  <%#*|%>
-  <%#= link_to 'All Items', stream_path(:stream_filter => @stream_subclass, :modifier => 'all'), :remote => true %>
+<%#= link_to 'New Items', stream_path(:stream_filter => @stream_subclass, :modifier => 'new'), :remote => true %>
+<%#*|%>
+<%#= link_to 'All Items', stream_path(:stream_filter => @stream_subclass, :modifier => 'all'), :remote => true %>
 </div>
 <div class="content-stream">
-  <% last_page = @pages.last %>
-  <%- @pages.each {|page| -%>
-    <div class="item <%= 'sticky_item' if page.is_sticky %>">
-      <h2 class="assignment-icon-new icon"><span></span><%= link_to page.title, page_url(page), :class => 'in-iframe', :title => page.title %></h2>
-      <%= page[:description].html_safe %>
-      <%= link_to 'Read all &raquo;'.html_safe, page_url(page), :class => 'in-iframe more_link', :title => page.title %>
-      <p class="item-metadata">Posted <%= time_ago_in_words(page.publish_at) %> ago</p>
-      <p class="tags">
-        <%= render :partial => 'tag', :collection => page.tags(I18n.locale) %>
-      </p>
-      <%- if page != last_page -%>
-        <hr />
-      <%- end -%>
-    </div>
-  <%- } -%>
+  <%= render 'page_substream' %>
 </div>

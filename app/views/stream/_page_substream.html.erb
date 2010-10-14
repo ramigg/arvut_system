@@ -1,0 +1,17 @@
+<%- @pages.each {|page| -%>
+  <div class="item <%= 'sticky_item' if page.is_sticky %>">
+    <h2 class="assignment-icon-new icon"><span></span><%= link_to page.title, page_url(page), :class => 'in-iframe', :title => page.title %></h2>
+    <%= page[:description].html_safe %>
+    <%= link_to 'Read all &raquo;'.html_safe, page_url(page), :class => 'in-iframe more_link', :title => page.title %>
+    <p class="item-metadata">Posted <%= time_ago_in_words(page.publish_at) %> ago</p>
+    <p class="tags">
+      <%= render :partial => 'tag', :collection => page.tags(I18n.locale) %>
+    </p>
+    <%- if @has_more_items -%>
+      <hr />
+    <%- end -%>
+  </div>
+<%- } -%>
+<%= link_to 'More items',
+  stream_path(:stream_filter => @stream_filter, :modifier => @modifier, :skip_pages => @skip_pages),
+  :class => :more_items, :remote => true if @has_more_items%>
