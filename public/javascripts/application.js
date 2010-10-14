@@ -115,15 +115,17 @@ $(function () {
         $('a.in-iframe').colorbox({
             iframe: true,
             innerHeight: '80%',
-            innerWidth: '600px',
+            innerWidth: '720px',
             overlayClose: false,
             arrowKey: false,
             close: '',
-            onOpen:function(){
-                alert('document will be marked as read');
+            onComplete:function(){
+                $("body").css("overflow", "hidden");
+//                alert('document will be marked as read');
             },
-            onClosed:function(){
-                alert('refresh the stream and menu');
+            onCleanup:function(){
+                $("body").css("overflow", "auto");
+//                alert('refresh the stream and menu');
             }
         });
         $('a.in-wide-iframe').colorbox({
@@ -133,6 +135,12 @@ $(function () {
             overlayClose: false,
             arrowKey: false,
             close: '',
+            onComplete:function(){
+                $("body").css("overflow", "hidden");
+            },
+            onCleanup:function(){
+                $("body").css("overflow", "auto");
+            }
         });
     }
 });
