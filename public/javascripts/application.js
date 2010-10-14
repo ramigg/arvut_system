@@ -99,7 +99,9 @@ function change_language(){
 }
 
 $(function () {
-    var toggleLoading = function(){ $(this).toggleClass('spinner')};
+    var toggleLoading = function(){
+        $(this).toggleClass('spinner')
+        };
 
     $('a[data-remote=true]')
     .live('ajax:loading', toggleLoading)
@@ -121,11 +123,11 @@ $(function () {
             close: '',
             onComplete:function(){
                 $("body").css("overflow", "hidden");
-//                alert('document will be marked as read');
+            //                alert('document will be marked as read');
             },
             onCleanup:function(){
                 $("body").css("overflow", "auto");
-//                alert('refresh the stream and menu');
+            //                alert('refresh the stream and menu');
             }
         });
         $('a.in-wide-iframe').colorbox({
@@ -142,5 +144,7 @@ $(function () {
                 $("body").css("overflow", "auto");
             }
         });
-    }
+    };
+    $('textarea').autoResize({extraSpace: 40});
 });
+
