@@ -1,4 +1,4 @@
 <fieldset>
-  <legend>Tags</legend>
+  <legend><%= t("admin.pages.tags") %></legend>
   <%=page_tags(@page.send("#{I18n.locale}_tag_list"), tag_list_admin_pages_url)%>
 </fieldset>

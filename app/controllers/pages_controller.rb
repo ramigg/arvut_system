@@ -19,7 +19,7 @@ class PagesController < ApplicationController
   def update
     @page = Page.find(params[:id])
     if @page.update_attributes(params[:page])
-      flash[:notice] = "Successfully updated page."
+      flash[:notice] = I18n.t 'pages.update'
     end
     respond_with(:admin, @page, :location => home_url)
   end

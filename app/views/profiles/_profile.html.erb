@@ -32,13 +32,13 @@
         {:include_blank => 'select'} %>
     </li>
     <li>
-      <%= f.label :avatar, 'user.model.avatar' %>
+      <%= f.label :avatar, t('user.model.avatar') %>
       <%- unless @profile.new_record? || !@profile.avatar %>
         <%= image_tag @profile.avatar.url(:original), :alt => 'Avatar', :title => 'Current avatar' %>
         <div class="avatar-div">
           <%= f.file_field :avatar %><br/>
           <%= f.check_box :delete_avatar %>
-          <%= f.label :delete_avatar, 'user.model.remove_avatar' %>
+          <%= f.label :delete_avatar, t('user.model.remove_avatar') %>
         </div>
       <%- else -%>
         <%= f.file_field :avatar %>

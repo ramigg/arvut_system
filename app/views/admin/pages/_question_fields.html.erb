@@ -10,12 +10,10 @@ resource_name = resource.class.to_s.underscore
       <%= f_question.hidden_field :author_id %>
       <%= f_question.hidden_field :language_id, :value => @page.language.id %>
 
-      <%= f_question.label :title, t('admin.questionnaires.title')%>
+      <%= f_question.label :title, t('admin.pages.title')%>
       <%= f_question.text_field :title, :class => 'title span-17 last' %>
 
-
       <%= render "admin/pages/questions/#{resource_name}", :f => f_question %>
-
 
     <% end %>
   </fieldset>

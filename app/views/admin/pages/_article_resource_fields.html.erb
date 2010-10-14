@@ -7,9 +7,9 @@
     %>
     <%= f_res.fields_for :resource, resource do |f_article| %>
       <%= f_article.hidden_field :language_id, :value => @page.language.id %>
-      <%= f_article.label :name, 'Name' %>
+      <%= f_article.label :name, t('admin.pages.name') %>
       <%= f_article.text_field :name, :class => 'title span-17 last' %>
-      <%= f_article.label :body, 'Content', :class => 'text' %>
+      <%= f_article.label :body, t('admin.pages.content'), :class => 'text' %>
       <%= f_article.cktext_area :body, :toolbar => ckeditor_toolbar,
         :class => 'span-17 last', :width => '650px', :height => '6em' %>
     <% end %>

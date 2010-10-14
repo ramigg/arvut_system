@@ -1,7 +1,7 @@
 <%- showgrid false -%>
-<h1>New Message</h1>
+<h1><%= t("admin.pages.new_message") %></h1>
 <div class="tabs">
-  <div class="span-10 last"><h2 class="tab currenttab"><a href="javascript:;">Metadata &amp; Content</a></h2></div>
+  <div class="span-10 last"><h2 class="tab currenttab"><a href="javascript:;"><%= t("admin.pages.metadata_and_content") %></a></h2></div>
   <div class="clear"></div>
 </div>
 
@@ -11,13 +11,13 @@
     <div class="tab currenttab">
       <div class="span-18">
         <fieldset>
-          <legend>Content</legend>
-          <%= f.label :title, 'Title' %>
+	  <legend><%= t("admin.pages.content") %></legend>
+          <%= f.label :title, t("admin.pages.title") %>
           <%= f.text_field :title, :class => 'title span-17 last' %>
-          <%= f.label :description, 'Description', :class => 'text' %>
+          <%= f.label :description, t("admin.pages.description"), :class => 'text' %>
           <%= f.cktext_area :description, :toolbar => ckeditor_toolbar, :class => 'span-17 last', :width => '650px', :height => '6em' %>
           <br/>
-          <%= f.label :message_body, 'Message', :class => 'text' %>
+          <%= f.label :message_body, t("admin.pages.message_body"), :class => 'text' %>
           <%= f.cktext_area :message_body, :toolbar => ckeditor_toolbar, :class => 'span-17 last', :width => '650px', :height => '6em' %>
         </fieldset>
         <%= render 'permissions', :f => f %>

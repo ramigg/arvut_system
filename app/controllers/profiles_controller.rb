@@ -13,7 +13,7 @@ class ProfilesController < ApplicationController
   def update
     @profile = current_user
     if @profile.update_attributes(params[:user])
-      flash[:notice] = 'Profile was uccessfully updated'
+      flash[:notice] = I18n.t 'profile.view.updated'
       @profile.register_activity('submit profile')
       @klass = 'notice'
     else

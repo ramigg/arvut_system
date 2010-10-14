@@ -5,10 +5,10 @@
     <% @feed.items[0..10].each { |item| %>
       <li>
         <%= link_to item.title, item.link, :class => 'in-wide-iframe' %>
-        <span>Posted <%= time_ago_in_words(item.time) %> ago</span>
+	<span><%= t("stream.posted_ago", :when => time_ago_in_words(item.time)) %></span>
 
       </li>
     <% } %>
   </ul>
-  <%= link_to 'Read all &raquo;'.html_safe, t('home.views.blog'), :class => 'more_link in-wide-iframe' %>
+  <%= link_to t("stream.read_all"), t('home.views.blog'), :class => 'more_link in-wide-iframe' %>
 </div>

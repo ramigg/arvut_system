@@ -7,22 +7,22 @@
   %>
     <%= f_res.fields_for :resource, resource do |f_video| %>
       <%= f_video.hidden_field :language_id, :value => @page.language.id %>
-      <%= f_video.label :name, 'Name' %>
+      <%= f_video.label :name, t("admin.pages.name") %>
       <%= f_video.text_field :name, :class => 'title span-17 last' %>
-      <%= f_video.label :description, 'Description', :class => 'text' %>
+      <%= f_video.label :description, t("admin.pages.description"), :class => 'text' %>
       <%= f_video.cktext_area :description, :toolbar => ckeditor_toolbar, :class => 'span-17 last', :width => '650px', :height => '6em' %>
       <fieldset>
-        <legend>Video player</legend>
-        <%= f_video.label :image, 'Image' %>
-        <%= f_video.text_field :image, :class => 'title span-16 last' %>
-        <%= f_video.label :url, 'URL' %>
-        <%= f_video.url_field :url, :class => 'title span-16 last' %>
-        <%= f_video.label :is_autoplay, 'Autoplay?' %>
+        <legend><%= t("admin.pages.video_player") %></legend>
+          <%= f_video.label :image, t("admin.pages.image") %>
+          <%= f_video.text_field :image, :class => 'title span-16 last' %>
+          <%= f_video.label :url, t("admin.pages.url") %>
+          <%= f_video.url_field :url, :class => 'title span-16 last' %>
+          <%= f_video.label :is_autoplay, t("admin.pages.is_autoplay")+'?' %>
           <%= f_video.check_box :is_autoplay %>
         </fieldset>
       <fieldset>
-        <legend>Youtube</legend>
-        <%= f_video.label :embed, 'Embed string' %>
+        <legend><%= t("admin.pages.youtube") %></legend>
+        <%= f_video.label :embed, t("admin.pages.embed_string") %>
         <%= f_video.text_area :embed, :class => 'title span-16 last', :style => 'height:4em;' %>
       </fieldset>
     <% end %>

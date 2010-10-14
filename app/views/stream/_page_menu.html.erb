@@ -4,6 +4,7 @@
     icon = name_downcase.singularize
     count, style = pages_menu_count_and_style(name_downcase)
     current = name_downcase == params[:stream_filter] ? 'current' : ''
+    name = t("stream.#{name_downcase}")
     -%>
     <li class="<%= style %> <%= current %>"><h5 class="<%= icon %>-icon icon">
         <%= link_to "#{name}#{count}".html_safe,

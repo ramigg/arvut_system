@@ -1,12 +1,12 @@
 <fieldset>
-  <legend>Featured Settings</legend>
+  <legend><%= t("admin.pages.featured_settings") %></legend>
   <%= f.check_box :is_sticky %>
-  <%= f.label :is_sticky, 'Sticky Item' %>
+  <%= f.label :is_sticky, t("admin.pages.is_sticky")+'?' %>
 
   <p class="not-implemented-yet">Not implemented yet.</p>
-  <input type="checkbox"> Sticky Item</input><br/>
-  <input type="checkbox"> Top Header</input><br/>
-  <input type="checkbox"> Big Banner</input><br/>
-  <input type="checkbox"> Top Side Banner</input><br/>
-  <input type="checkbox"> Bottom Side Banner</input>
+  <input type="checkbox"> <%= t("admin.pages.is_sticky") %></input><br/>
+  <input type="checkbox"> <%= t("admin.pages.top_header") %></input><br/>
+  <input type="checkbox"> <%= t("admin.pages.big_banner") %></input><br/>
+  <input type="checkbox"> <%= t("admin.pages.top_side_banner") %></input><br/>
+  <input type="checkbox"> <%= t("admin.pages.bottom_side_banner") %></input><br/>
 </fieldset>

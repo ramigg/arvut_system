@@ -7,17 +7,17 @@
   %>
     <%= f_res.fields_for :resource, resource do |f_audio| %>
       <%= f_audio.hidden_field :language_id, :value => @page.language.id %>
-      <%= f_audio.label :name, 'Name' %>
+      <%= f_audio.label :name, t("admin.pages.name") %>
       <%= f_audio.text_field :name, :class => 'title span-17 last' %>
-      <%= f_audio.label :description, 'Description', :class => 'text' %>
+      <%= f_audio.label :description, t("admin.pages.description"), :class => 'text' %>
       <%= f_audio.cktext_area :description, :toolbar => ckeditor_toolbar, :class => 'span-17 last', :width => '650px', :height => '6em' %>
-      <%= f_audio.label :embed, 'Embed string' %>
+      <%= f_audio.label :embed, t("admin.pages.embed_string") %>
       <%= f_audio.text_area :embed, :class => 'title span-17 last', :style => 'height:4em;' %>
-      <%= f_audio.label :url, 'URL' %>
+      <%= f_audio.label :url, t("admin.pages.url") %>
       <%= f_audio.url_field :url, :class => 'title span-17 last' %>
-      <%= f_audio.label :is_autoplay, 'Autoplay?' %>
+      <%= f_audio.label :is_autoplay, t("admin.pages.is_autoplay")+'?' %>
       <%= f_audio.check_box :is_autoplay %>
-      <%= f_audio.label :is_visible, 'Visible?' %>
+      <%= f_audio.label :is_visible, t("admin.pages.is_visible")+'?' %>
       <%= f_audio.check_box :is_visible %>
     <% end %>
   </fieldset>

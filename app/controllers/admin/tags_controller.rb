@@ -51,7 +51,7 @@ class Admin::TagsController < ApplicationController
     set_page_status @page, params
 
     if @page.update_attributes(params[:page])
-      flash[:notice] = 'Page was uccessfully updated'
+      flash[:notice] = I18n.t 'admin.pages.update'
     else
       @view_mode = set_page_mode @page.page_type
     end
@@ -67,9 +67,9 @@ class Admin::TagsController < ApplicationController
     @page = Page.find(params[:id])
     @page.status = 'DELETED'
     if @page.save
-      flash[:notice] = 'Page was successfully destroyed'
+      flash[:notice] = I18n.t 'admin.pages.destroy'
     else
-      flash[:alert] = 'Page was NOT destroyed'
+      flash[:notice] = I18n.t 'admin.pages.destroy_failure'
     end
     respond_with(@page, :location => admin_pages_url)
   end
@@ -93,7 +93,7 @@ class Admin::TagsController < ApplicationController
     when 'article'
       'article'
     else
-      session[:alert] = "Unknown type of page: #{page_type}"
+      session[:alert] = I18n.t 'admin.pages.unknown_page', :page_type => page_type
       nil
     end
   end

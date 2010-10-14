@@ -20,7 +20,7 @@
     </p>
   </form>
   <div class="header-menu">
-    <%= link_to "Home", stream_path(:stream_filter => 'all') %> |
+    <%= link_to t("stream.home"), stream_path(:stream_filter => 'all') %> |
     <%- if user_signed_in? -%>
       <%= link_to t('home.views.edit_profile'), edit_profile_url(@profile) %> |
       <%= link_to t('views.signout'), destroy_user_session_path, :title => t('views.signout') %>

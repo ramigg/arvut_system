@@ -1,41 +1,41 @@
-<%- showgrid true -%>
-<h1>Page Administration</h1>
+<%- showgrid false -%>
+<h1><%= t("admin.pages.page_administration") %></h1>
 <div class="span-22 large">
-  <a href="">Content</a> | <a href="">Permissions</a> | <a href="#">Statistics</a> | <a href="#">Help</a>
+	<a href=""><%= t("admin.pages.content") %></a> | <a href=""><%= t("admin.pages.permissions") %></a> | <a href="#"><%= t("admin.pages.statistics") %></a> | <a href="#"><%= t("admin.pages.help") %></a>
 </div>
-<div class="span-2 large last"><a href="<%= destroy_user_session_path %>">logout</a></div>
+<div class="span-2 large last"><a href="<%= destroy_user_session_path %>"><%= t("admin.pages.logout") %></a></div>
 <hr/>
-<h2>Create new:
-  <a href="<%= new_admin_page_url(:page_type => 'assignment') %>">Assignment</a> |
-  <a href="<%= new_admin_page_url(:page_type => 'xxx') %>">Event</a> |
-  <a href="<%= new_admin_page_url(:page_type => 'article') %>">Article</a> |
-  <a href="<%= new_admin_page_url(:page_type => 'message') %>">Message</a></h2>
+<h2><%= t("admin.pages.create_new") %>:
+  <a href="<%= new_admin_page_url(:page_type => 'assignment') %>"><%= t("admin.pages.assignment") %></a> |
+  <a href="<%= new_admin_page_url(:page_type => 'xxx') %>"><%= t("admin.pages.event") %></a> |
+  <a href="<%= new_admin_page_url(:page_type => 'article') %>"><%= t("admin.pages.article") %></a> |
+  <a href="<%= new_admin_page_url(:page_type => 'message') %>"><%= t("admin.pages.message") %></a></h2>
 <hr/>
 <form action="" method="post" class="inline">
   <div class="span-8 append-16 last">
     <input type="text" class="text span-6" id="q" name="q" value=""/>
-    <input type="submit" value="Search" class="button"/>
+    <input type="submit" value="<%= t("admin.pages.search") %>" class="button"/>
   </div>
 </form>
 <form action="" method="post" class="inline">
   <div class="span-24 last">
-    <label for="a">Status</label>
+	  <label for="a"><%= t("admin.pages.status") %></label>
     <select id="a" name="a" >
-      <option value="0">All Posts</option>
-      <option value="1">Drafts</option>
-      <option value="2">Published</option>
-      <option value="3">Future Posts</option>
+      <option value="0"><%= t("admin.pages.all_posts") %></option>
+      <option value="1"><%= t("admin.pages.drafts") %></option>
+      <option value="2"><%= t("admin.pages.published") %></option>
+      <option value="3"><%= t("admin.pages.future_posts") %></option>
     </select>
     &nbsp;&nbsp;
-    <label for="a">Type</label>
+    <label for="a"><%= t("admin.pages.type") %></label>
     <select id="a" name="a" >
-      <option value="0">All Posts</option>
-      <option value="1">Assignments</option>
-      <option value="2">Events</option>
-      <option value="3">Messages</option>
+      <option value="0"><%= t("admin.pages.all_posts") %></option>
+      <option value="1"><%= t("admin.pages.assignments") %></option>
+      <option value="2"><%= t("admin.pages.events") %></option>
+      <option value="3"><%= t("admin.pages.messages") %></option>
     </select>
     &nbsp;&nbsp;
-    <label for="a">Permissions</label>
+    <label for="a"><%= t("admin.pages.permissions") %></label>
     <select id="a" name="a" >
       <option value="0">for All Users</option>
       <optgroup label="by Gender">
@@ -71,26 +71,26 @@
         <option value="6">by User5</option>
       </optgroup>
     </select>
-    <input type="submit" value="Filter" class="button"/>
+    <input type="submit" value="<%= t("admin.pages.filter") %>" class="button"/>
   </div>
 </form>
 <div class="span-24 last">
   <form action="" method="post" class="inline">
     <select id="a" name="a" >
-      <option value="0">Bulk Action</option>
-      <option value="1">Delete</option>
-      <option value="2">Set as Draft</option>
-      <option value="3">Publish</option>
+      <option value="0"><%= t("admin.pages.bulk_action") %></option>
+      <option value="1"><%= t("admin.pages.delete") %></option>
+      <option value="2"><%= t("admin.pages.set_as_draft") %></option>
+      <option value="3"><%= t("admin.pages.publish") %></option>
     </select>
     <input type="submit" value="submit" class="button"/>
   </form>
   &nbsp;&nbsp;
   <%= form_tag admin_pages_url, :method => :get do |f| %>
-    <label for="show_on_page">Show</label>
+    <label for="show_on_page"><%= t("admin.pages.show_on_page") %></label>
     <%= select_tag 'per_page',
       options_for_select(Page.show_on_page, Page.per_page),
       { :onchange => "this.form.submit();"} %>
-    <label for="show_on_page">items</label>
+    <label for="show_on_page"><%= t("admin.pages.items") %></label>
   <% end %>
 </div>
 
@@ -102,12 +102,12 @@
     <thead>
       <tr>
         <th class="span-1"><input type="checkbox" name="selectall" value="select" /></th>
-        <th class="span-2"><a href="#">Status</a></th>
-        <th class="span-10"><a href="#">Title </a></th>
-        <th class="span-2"><a href="#">Type &#9652;</a></th>
-        <th class="span-3"><a href="#">Updated at &#9662;</a></th>
-        <th class="span-3"><a href="#">Publish Date</a></th>
-        <th class="span-3 last" colspan="2">Actions</th>
+        <th class="span-2"><a href="#"><%= t("admin.pages.status") %></a></th>
+        <th class="span-10"><a href="#"><%= t("admin.pages.title") %></a></th>
+        <th class="span-2"><a href="#"><%= t("admin.pages.type") %></a></th>
+        <th class="span-3"><a href="#"><%= t("admin.pages.updated_at") %></a></th>
+        <th class="span-3"><a href="#"><%= t("admin.pages.publish_date") %></a></th>
+        <th class="span-3 last" colspan="2"><%= t("admin.pages.actions") %></th>
       </tr>
     </thead>
     <tbody>

@@ -1,22 +1,22 @@
 <%
 def deletebutton
-  '<input type="button" value="Remove" class="deletebutton"/>'.html_safe
+  "<input type='button' value='#{t("admin.pages.remove")}' class='deletebutton'/>".html_safe
 end
 
 noquestions ||= false
 %>
 <div class="span-18">
-  <h3>Add new:
-    <%= link_to_page_asset "Article", f, :article_resource %>&nbsp;|&nbsp;
-    <%= link_to_page_asset "Audio", f, :audio_resource %>&nbsp;|&nbsp;
-    <%= link_to_page_asset "Video", f, :video_resource %>
+  <h3><%= t('admin.pages.add_new') %>:
+    <%= link_to_page_asset t("admin.pages.article"), f, :article_resource %>&nbsp;|&nbsp;
+    <%= link_to_page_asset t("admin.pages.audio"), f, :audio_resource %>&nbsp;|&nbsp;
+    <%= link_to_page_asset t("admin.pages.video"), f, :video_resource %>
     <%- unless noquestions -%>
       &nbsp;|&nbsp;
-      Question: <%= link_to_page_asset "Radio", f, :questions, :radio %>&nbsp;|&nbsp;
-      <%= link_to_page_asset "Checkbox", f, :questions, :checkbox %>&nbsp;|&nbsp;
-      <%= link_to_page_asset "List", f, :questions, :list %>&nbsp;|&nbsp;
-      <%= link_to_page_asset "Scale", f, :questions, :scale %>&nbsp;|&nbsp;
-      <%= link_to_page_asset "FreeText", f, :questions, :free_text %>
+      <%= t("admin.pages.question") %>: <%= link_to_page_asset t("admin.pages.radio"), f, :questions, :radio %>&nbsp;|&nbsp;
+      <%= link_to_page_asset t("admin.pages.checkbox"), f, :questions, :checkbox %>&nbsp;|&nbsp;
+      <%= link_to_page_asset t("admin.pages.list"), f, :questions, :list %>&nbsp;|&nbsp;
+      <%= link_to_page_asset t("admin.pages.scale"), f, :questions, :scale %>&nbsp;|&nbsp;
+      <%= link_to_page_asset t("admin.pages.freetext"), f, :questions, :free_text %>
     <%- end -%>
   </h3>
   <hr/>
