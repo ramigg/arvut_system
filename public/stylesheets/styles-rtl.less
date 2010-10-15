@@ -1,6 +1,6 @@
 // basic styles
-@import "basic-styles";
-@import "colorbox";
+@import "basic-styles-rtl";
+@import "colorbox-rtl";
 
 // Main stream
 .layout-stream{
@@ -12,14 +12,14 @@
 		hr{
 			height:2px;
 			background:@color-grey;
-			margin:10px 10px 10px 0;
+			margin:10px 0 10px 10px;
 		}
 	}
 	.side_menu{
 		margin: 10px 0 0;
 		li{
 			position:relative;
-			margin:0 0 0 -10px;
+			margin:0 -10px 0 0;
 			height:22px;
 			line-height:22px;
 			overflow:hidden;
@@ -28,8 +28,8 @@
 				display:block;
 				position:absolute;
 				top:0;
-				left:0;
-				padding:0 10px 0 35px;
+				right:0;
+				padding:0 35px 0 10px;
 				width:100%-25; // no - comments 
 					
 			}
@@ -49,10 +49,10 @@
 			font-weight:normal;
 		}
 		.icon{
-			padding:0 0 0 25px;
+			padding:0 25px 0 0;
 		}
 		.icon span{
-			left:10px;
+			right:10px;
 			top:2px;
 		}
 	}
@@ -84,11 +84,11 @@
 			hr{
 				height:1px;
 				background:@color-separator;
-				margin:0 0 10px 30px;
+				margin:0 30px 10px 0;
 			}
 			p{
 				margin-bottom:@margin-bottom-basic;
-				padding:0 0 0 30px;
+				padding:0 30px 0 0;
 			}
 			.item-metadata{
 				color:@color-dimmed-text;
@@ -96,15 +96,15 @@
 			}
 			.more_link{
 				display:block;
-				text-align:right;
+				text-align:left;
 				.font-small;
-				margin:10px 20px 0 0;
+				margin:10px 0 0 20px;
 			}
 		}
 		.more_items{
 			height: 22px;
 			line-height: 22px;
-			padding: 0 20px 0 0;
+			padding: 0 0 0 20px;
 		}
 		.sticky{
 		}
@@ -114,13 +114,13 @@
 		padding: 15px;
 		img{
 			display:block;
-			.float_left;
+			.float_right;
 			margin: 0 0 10px;
 		}
 		.avatar-div{
-			.float_left;
-			margin: 0 0 0 200px;
-			input{
+			.float_right;
+			margin: 0 200px 0 0;
+			#user_delete_avatar{
 				width: 20px;
 				clear:both;
 			}
@@ -128,7 +128,7 @@
 		ul label,
 		ul input, ul select{
 			display:block;
-			.float_left;
+			.float_right;
 			width: 200px;
 		}
 		ul select{
@@ -150,8 +150,8 @@
 		img.avatar{
 			height:40px;
 			width:40px;
-			.float_left;
-			margin:0 10px 5px 0;
+			.float_right;
+			margin:0 0 5px 10px;
 		}
 		div{
 			.font-small;
@@ -219,7 +219,7 @@
 	.faq{
 		ol{
 			list-style:decimal outside none;
-			padding: 0 @padding-basic 0 @padding-basic * 2.5;
+			padding: 0 @padding-basic * 2.5 0 @padding-basic;
 		}
 		li{
 			padding: @padding-basic 0;
@@ -265,7 +265,7 @@
 			}
 			p{
 				margin-bottom:@margin-bottom-basic;
-				padding:0 0 0 10px;
+				padding:0 10px 0 0;
 			}
 			.item-metadata{
 				color:@color-dimmed-text;
@@ -278,9 +278,9 @@
 					margin: 10px 0 5px;
 				}
 				dd{
-					padding: 0 0 0 10px;
+					padding: 0 10px 0 0;
 					.rate_item{
-						.float_left;
+						.float_right;
 						label, input{
 							display: block;
 							.centered;
@@ -294,32 +294,32 @@
 				}
 				.video_object{
 					display:block;
-					.float_left;
+					.float_right;
 					width:168px;
 					height:125px;
-					margin: 0 20px 0 0;
+					margin: 0 0 0 20px;
 					.centered;
 					background-repeat: no-repeat;
 					object{
-						margin: 0 10px 0 0;
+						margin: 0 0 0 10px;
 					}
 					a{
 						cursor:pointer;
 						.undecorated;
 					}
 					img{
-						margin: 44px 0 0 64px;
+						margin: 44px 64px 0 0;
 					}
 				}
 			}
 			.other texarea{
-				margin: 0 0 0 25px;
+				margin: 0 25px 0 0;
 			}
 		}
 		.sticky{
 		}
 		#page_submit{
-			float: right;
+			float: left;
 		}
 	}
 }
@@ -336,7 +336,7 @@
 			margin-bottom: 10px;
 		}
 		li {
-			text-align: left;
+			text-align: right;
 		}
 	}
 	.field_with_errors input{

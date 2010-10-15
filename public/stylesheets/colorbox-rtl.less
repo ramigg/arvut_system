@@ -1,0 +1,56 @@
+/*
+    ColorBox Core Style
+    The following rules are the styles that are consistant between themes.
+    Avoid changing this area to maintain compatability with future versions of ColorBox.
+*/
+#colorbox, #cboxOverlay, #cboxWrapper{position:absolute; top:0; left:0; z-index:9999;}
+#cboxOverlay{position:fixed; width:100%; height:100%;}
+#cboxMiddleLeft, #cboxBottomLeft{clear:left;}
+#cboxContent{position:relative; overflow:visible;}
+#cboxLoadedContent{overflow:auto;}
+#cboxLoadedContent iframe{display:block; width:100%; height:100%; border:0;overflow-x:hidden;}
+#cboxTitle{margin:0;}
+#cboxLoadingOverlay, #cboxLoadingGraphic{position:absolute; top:0; left:0; width:100%;}
+#cboxPrevious, #cboxNext, #cboxClose, #cboxSlideshow{cursor:pointer;}
+
+/* 
+    ColorBox example user style
+    The following rules are ordered and tabbed in a way that represents the
+    order/nesting of the generated HTML, so that the structure easier to understand.
+*/
+#cboxOverlay{background:#000;}
+#cboxWrapper{
+    padding:25px;
+}
+#colorbox{}
+#cboxTopLeft{display:none;}
+#cboxTopCenter{display:none;}
+#cboxTopRight{display:none;}
+#cboxBottomLeft{display:none;}
+#cboxBottomCenter{display:none;}
+#cboxBottomRight{display:none;}
+#cboxMiddleLeft{display:none;}
+#cboxMiddleRight{display:none;}
+#cboxContent{
+    background: #fff;
+    padding:20px 10px;
+    .rounded-corners;
+}
+#cboxLoadedContent{margin-bottom:5px;}
+#cboxLoadingOverlay{background:url(images/loading_background.png) center center no-repeat;}
+#cboxLoadingGraphic{background:url(images/loading.gif) center center no-repeat;}
+#cboxTitle{position:absolute; top:-25px; left:0; text-align:center; width:100%; font-weight:bold; color:white;}
+#cboxCurrent{position:absolute; bottom:-25px; left:58px; font-weight:bold; color:#7C7C7C;}
+
+#cboxPrevious, #cboxNext, #cboxSlideshow{position:absolute; bottom:-29px; background:url(images/controls.png) 0px 0px no-repeat; width:23px; height:23px; text-indent:-9999px;}
+#cboxPrevious{left:0px; background-position: -51px -25px;}
+#cboxPrevious.hover{background-position:-51px 0px;}
+#cboxNext{left:27px; background-position:-75px -25px;}
+#cboxNext.hover{background-position:-75px 0px;}
+#cboxClose{right:-15px; top:-15px;background:url(images/fancy_close.png) no-repeat 0 0;position:absolute; width:30px; height:30px; text-indent:-9999px;}
+#cboxClose.hover{}
+
+.cboxSlideshow_on #cboxSlideshow{background-position:-125px 0px; right:27px;}
+.cboxSlideshow_on #cboxSlideshow.hover{background-position:-150px 0px;}
+.cboxSlideshow_off #cboxSlideshow{background-position:-150px -25px; right:27px;}
+.cboxSlideshow_off #cboxSlideshow.hover{background-position:-125px 0px;}

@@ -41,16 +41,16 @@ input[type=text],input[type=password]{
 .layout-3-columns(@menu: 17%, @content: 58%, @margin: 1%, @widget: 24%) {
 	.column-menu{
 		width: @menu;
-		.float_left;
+		.float_right;
 	}
 	.column-content{
 		width: @content;
-		.float_left;
-		margin:0 @margin 0 0;
+		.float_right;
+		margin:0 0 0 @margin;
 	}
 	.column-widgets{
 		width: @widget;
-		.float_right;
+		.float_left;
 	}
 }
 .layout-stream{
@@ -270,12 +270,12 @@ a:hover.tag{
 		height:20px;
 		position:absolute;
 		top:0;
-		left:0;
-		background: url(../images/icons.png) no-repeat 0 @bg-y;
+		right:0;
+		background: url(../images/icons.png) no-repeat 100% @bg-y;
 	}
 }
 .icon{
-	padding:0 0 0 30px;
+	padding:0 30px 0 0;
 	position:relative;
 }
 .all-icon, .empty-icon{
@@ -306,7 +306,7 @@ body {
  	font-size: @font-basic-size;
 	line-height: @font-line-height;
 	color: @color-main-text;
-	direction: ltr;
+	direction: rtl;
 }
 
 //layout
@@ -413,7 +413,7 @@ body{
 		margin: 5px 0;
 	}
 	ul{
-		margin:0 0 0 15px;
+		margin:0 15px 0 0;
 		list-style:disc outside;
 		color:@color-orange;
 		li{

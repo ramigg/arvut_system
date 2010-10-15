@@ -5,7 +5,11 @@
     <title>Hamakom</title>
     <meta content="text/html;charset=utf-8" http-equiv="content-type" />
     <%= stylesheet_link_tag 'reset', 'jquery-ui-1.8.4.custom' %>
-    <link rel="stylesheet/less" type="text/css" href="/stylesheets/styles.less" />
+    <%- if I18n.locale == :he %>
+      <link rel="stylesheet/less" type="text/css" href="/stylesheets/styles-rtl.less" />
+    <%- else -%>
+      <link rel="stylesheet/less" type="text/css" href="/stylesheets/styles.less" />
+    <%- end -%>
 
     <%= javascript_include_tag :defaults, 'jquery-ui-1.8.4.custom.min',
       'less-1.0.35.min.js', '/flowplayer/flowplayer-3.2.4.min.js',

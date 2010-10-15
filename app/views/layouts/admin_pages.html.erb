@@ -18,9 +18,9 @@
     <%= csrf_meta_tag %>
 
     <%= javascript_include_tag :ckeditor %>
-    <% if I18n.locale == :he %>
-      <%= stylesheet_link_tag 'page-plugins/rtl/screen' %>
-    <% end %>
+    <%# if I18n.locale == :he %>
+      <%#= stylesheet_link_tag 'page-plugins/rtl/screen' %>
+    <%# end %>
   </head>
   <body>
     <div class="container <%= yield :add_classes_to_container %>">
