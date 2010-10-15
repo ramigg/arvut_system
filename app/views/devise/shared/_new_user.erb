@@ -1,8 +1,10 @@
 <div class="widget-login">
-  <h2><%= t 'devise.views.new_user' %></h2>
-  <div class="submission">
-    <%= link_to t('devise.views.sign_up_now'), new_user_registration_path,
-      :class => :'button-big-main' -%>
+  <div class="inner">
+    <h2><%= t 'devise.views.new_user' %></h2>
+    <div class="submission">
+      <%= link_to t('devise.views.sign_up_now'), new_user_registration_path,
+        :class => :'button-big-main' -%>
+    </div>
+    <div class="clear-div"></div>
   </div>
-  <div class="clear-div"></div>
 </div>

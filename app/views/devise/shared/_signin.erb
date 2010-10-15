@@ -1,49 +1,59 @@
 <div class="widget-login">
-  <%= form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f| %>
-    <%= devise_error_messages! %>
-    <%- unless flash[:alert].empty? && session[:alert].empty? -%>
-      <div id="error_explanation">
-        <ul>
-          <%- unless flash[:alert].empty? -%>
-            <li><%= flash[:alert] %></li>
-          <%- end -%>
-          <%- unless session[:alert].empty? -%>
-            <li><%= session[:alert] %></li>
-          <%- end -%>
-        </ul>
+  <div class="inner">
+    <%= form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f| %>
+      <%= devise_error_messages! %>
+      <%- unless flash[:alert].empty? && session[:alert].empty? -%>
+        <div id="error_explanation">
+          <ul>
+            <%- unless flash[:alert].empty? -%>
+              <li><%= flash[:alert] %></li>
+            <%- end -%>
+            <%- unless session[:alert].empty? -%>
+              <li><%= session[:alert] %></li>
+            <%- end -%>
+          </ul>
+        </div>
+      <%- end -%>
+      <%- unless flash[:notice].empty? && session[:notice].empty? -%>
+        <div id="notice_explanation" class="ui-state-highlight">
+          <ul>
+            <%- unless flash[:notice].empty? -%>
+              <li><%= flash[:notice] %></li>
+            <%- end -%>
+            <%- unless session[:notice].empty? -%>
+              <li><%= session[:notice] %></li>
+            <%- end -%>
+          </ul>
+        </div>
+      <%- end -%>
+      <h2><%= t 'devise.views.sign_in' %></h2>
+      <ul>
+        <li>
+          <ul>
+            <li><%= f.label t 'devise.views.email' %></li>
+            <li><%= f.text_field :email, :class => [:'text-input', :required], :dir => :ltr %></li>
+          </ul>
+        </li>
+        <li>
+          <ul>
+            <li><%= f.label t 'devise.views.password' -%></li>
+            <li><%= f.password_field :password, :class => [:'text-input', :required], :dir => :ltr %></li>
+          </ul>
+        </li>
+        <% if devise_mapping.rememberable? -%>
+          <li>
+            <ul>
+              <li><%= f.check_box :remember_me %> <%= f.label t('devise.views.remember_me') %></li>
+            </ul>
+          </li>
+        <% end -%>
+      </ul>
+      <div class="submission">
+        <%= f.submit t('devise.views.sign_in_more').html_safe, :class => :'button-middle-second' %><br/>
+        <%= link_to t('devise.views.cannot_sign_in'), login_help_path %>
       </div>
-    <%- end -%>
-    <%- unless flash[:notice].empty? && session[:notice].empty? -%>
-      <div id="notice_explanation" class="ui-state-highlight">
-        <ul>
-          <%- unless flash[:notice].empty? -%>
-            <li><%= flash[:notice] %></li>
-          <%- end -%>
-          <%- unless session[:notice].empty? -%>
-            <li><%= session[:notice] %></li>
-          <%- end -%>
-        </ul>
-      </div>
-    <%- end -%>
-    <h2><%= t 'devise.views.sign_in' %></h2>
-    <div><%= f.label t 'devise.views.email' %>
-      <%= f.text_field :email, :class => [:'text-input', :required], :dir => :ltr %></div>
 
-    <div>
-      <%= f.label t 'devise.views.password' -%>
-
-      <%= f.password_field :password, :class => [:'text-input', :required], :dir => :ltr %>
-    </div>
-
-    <% if devise_mapping.rememberable? -%>
-      <div><%= f.check_box :remember_me %> <%= f.label t('devise.views.remember_me') %></div>
-    <% end -%>
-
-    <div class="submission">
-      <%= f.submit t('devise.views.sign_in_more').html_safe, :class => :'button-middle-second' %><br/>
-      <%= link_to t('devise.views.cannot_sign_in'), login_help_path %>
-    </div>
-
-  <% end %>
-  <div class="clear-div"></div>
+    <% end %>
+    <div class="clear-div"></div>
+  </div>
 </div>

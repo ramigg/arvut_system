@@ -69,7 +69,10 @@
     </li>
   </ul>
   <hr class="separator"/>
-  <div class="clear"><%= f.submit t('views.submit'), :class => 'button-middle-main' %></div>
+  <div class="clear">
+    <%= f.submit t('views.submit'), :class => 'button-middle-main' %>
+    <%= f.submit t('views.cancel'), :class => 'button-middle-cancel' %>
+  </div>
 <%- end -%>
 <%= javascript_tag "
 $(function (){

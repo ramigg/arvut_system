@@ -211,10 +211,12 @@ module DeviseHelper
     sentence = I18n.t :'activerecord.errors.user.header', :count => resource.errors.count, :model => model
 
     html = <<-HTML
-      <li class="ui-state-error">
-        #{sentence}:
-        <ul>#{messages}</ul>
-      </li>
+      <ul>
+        <li class="ui-state-error">
+          #{sentence}:
+          <ul>#{messages}</ul>
+        </li>
+      </ul>
     HTML
 
     html.html_safe

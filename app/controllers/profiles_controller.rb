@@ -7,6 +7,9 @@ class ProfilesController < ApplicationController
 
   def edit
     @profile = current_user
+
+    @feed = FeedReader::Basic.new(I18n.t('home.views.feed')).feed
+    @tags = Page.all_tags(I18n.locale)
     #    respond_with @profile
   end
 

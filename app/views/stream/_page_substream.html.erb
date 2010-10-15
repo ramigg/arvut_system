@@ -7,7 +7,7 @@
     <p class="tags">
       <%= render :partial => 'tag', :collection => page.tags(I18n.locale) %>
     </p>
-    <%- if @has_more_items -%>
+    <%- unless @has_more_items -%>
       <hr />
     <%- end -%>
   </div>

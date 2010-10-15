@@ -5,7 +5,7 @@
     <title>Hamakom</title>
     <meta content="text/html;charset=utf-8" http-equiv="content-type" />
     <%= stylesheet_link_tag 'reset', 'jquery-ui-1.8.4.custom' %>
-    <link rel="stylesheet/less" type="text/css" href="/stylesheets/pages.less" />
+    <link rel="stylesheet/less" type="text/css" href="/stylesheets/styles.less" />
 
     <%= javascript_include_tag :defaults, 'jquery-ui-1.8.4.custom.min',
       'less-1.0.35.min.js', '/flowplayer/flowplayer-3.2.4.min.js',
@@ -22,7 +22,7 @@
       .success a {color:#264409;}
     </style>
   </head>
-  <body class="<%= I18n.default_locale %>">
+  <body class="<%= I18n.default_locale %> layout-popup">
     <div class="wrapper">
       <%= yield %>
     </div>

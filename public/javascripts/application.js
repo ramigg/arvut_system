@@ -111,9 +111,8 @@ $(function () {
     if (typeof $.colorbox == 'function') {
         $('a.in-iframe').colorbox({
             iframe: true,
-            innerHeight: '80%',
-            innerWidth: '720px',
-            overlayClose: false,
+            height: '80%',
+            width: '680px',
             arrowKey: false,
             close: '',
             onComplete:function(){
@@ -127,9 +126,8 @@ $(function () {
         });
         $('a.in-wide-iframe').colorbox({
             iframe: true,
-            innerHeight: '90%',
-            innerWidth: '1010px',
-            overlayClose: false,
+            innerHeight: '80%',
+            width: '80%',
             arrowKey: false,
             close: '',
             onComplete:function(){
