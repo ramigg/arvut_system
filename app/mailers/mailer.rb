@@ -1,7 +1,7 @@
 class Mailer < ActionMailer::Base
 
   default :from => "internet@kbb1.com"
-  default_url_options[:host] = 'kabbalahgroup.info/simulator' if Rails.env == 'production'
+  default_url_options[:host] = 'kabbalahgroup.info/internet2' if Rails.env == 'production'
 
   # Subject can be set in your I18n file at config/locales/en.yml
   # with the following lookup:

@@ -37,7 +37,7 @@ Simulator::Application.configure do
     if request.host == 'localhost'
       "#{request.protocol}#{request.host_with_port}"
     else
-      "#{request.protocol}#{request.host_with_port}/simulator"
+      "#{request.protocol}#{request.host_with_port}/internet2"
     end
   }
 
