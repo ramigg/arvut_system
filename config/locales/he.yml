@@ -56,6 +56,10 @@ he:
       are_you_sure: האם אתה בטוח?
       please_select_one_of_the_options: "אנא בחר באחת מהאפשרויות"
       select_group: בחר קבוצה
+      create: משתמש חדש נוצר ברשימה
+      update: המשתמש עודכן ברשימה
+      destroy: הרשימה נמחקה בהצלחה
+      destroy_failure: הרשימה לא נמחקה
     questionnaires:
       create_new_questionnaire: צור שאלון חדש
       created_at: נוצר ב-
@@ -126,7 +130,6 @@ he:
       remove_user: מחק משתמש
       load_group_list: טעינת רשימת קבוצה
       manage_user_lists: ניהול רשימת קבוצה
-
   answer:
     model:
       answer_too_short: "התשובה שלך קצרה מידי, המינימום הוא 10 תווים"
@@ -223,8 +226,8 @@ he:
       active: 'פעילים '
       registered: 'רשומים '
       title_registered_vs_active: רשומים לעומת פעילים
-      blog: http://www.laitman.co.il/blog
-      feed: http://www.laitman.co.il/feed
+      blog: http://laitman.co.il/
+      feed: http://laitman.co.il/feed/
     faq:
       faq: שאלות נפוצות
       confirmation:
@@ -256,6 +259,7 @@ he:
       please_update_profile: "אנא עדכן את הפרופיל שלך"
       profile: פרופיל
       required: "שדה חובה"
+      updated: הפרופיל עודכן בהצלחה
   questionnaire_answer:
     controller:
       already_answered: "כבר ענית על השאלון שביקשת"
@@ -277,6 +281,10 @@ he:
       preferred_language: שפת תצוגה
       receive_notifications: "האם ברצונך לקבל עדכונים לתיבת האימייל"
       yes_answer: כן
+      avatar: תמונה
+      remove_avatar: מחק תמונה
+      contry: מדינה
+      city: עיר
   views:
     back: חזרה
     cancel: ביטול
@@ -306,44 +314,150 @@ he:
   # Used in distance_of_time_in_words(), distance_of_time_in_words_to_now(), time_ago_in_words()
   datetime:
     distance_in_words:
-      half_a_minute: "half a minute"
+      half_a_minute: 'חצי דקה'
       less_than_x_seconds:
-        one:   "less than 1 second"
-        other: "less than %{count} seconds"
+        zero: 'פחות משניה אחת'
+        one: 'פחות משניה אחת'
+        other: 'פחות מ- {{count}} שניות'
       x_seconds:
-        one:   "1 second"
-        other: "%{count} seconds"
+        one: 'שניה אחת'
+        other: '{{count}} שניות'
       less_than_x_minutes:
-        one:   "less than a minute"
-        other: "less than %{count} minutes"
+        zero: 'פחות מדקה אחת'
+        one: 'פחות מדקה אחת'
+        other: 'פחות מ- {{count}} דקות'
       x_minutes:
-        one:   "1 minute"
-        other: "%{count} minutes"
+        one: 'דקה אחת'
+        other: '{{count}} דקות'
       about_x_hours:
-        one:   "about 1 hour"
-        other: "about %{count} hours"
+        one: 'בערך שעה אחת'
+        other: 'בערך {{count}} שעות'
       x_days:
-        one:   "1 day"
-        other: "%{count} days"
+        one: 'יום אחד'
+        other: '{{count}} ימים'
       about_x_months:
-        one:   "about 1 month"
-        other: "about %{count} months"
+        one: 'בערך חודש אחד'
+        other: 'בערך {{count}} חודשים'
       x_months:
-        one:   "1 month"
-        other: "%{count} months"
+        one: 'חודש אחד'
+        other: '{{count}} חודשים'
       about_x_years:
-        one:   "about 1 year"
-        other: "about %{count} years"
+        one: 'בערך שנה אחת'
+        other: 'בערך {{count}} שנים'
       over_x_years:
-        one:   "over 1 year"
-        other: "over %{count} years"
-      almost_x_years:
-        one:   "almost 1 year"
-        other: "almost %{count} years"
+        one: 'מעל שנה אחת'
+        other: 'מעל {{count}} שנים'
     prompts:
-      year:   "Year"
-      month:  "Month"
-      day:    "Day"
-      hour:   "Hour"
-      minute: "Minute"
-      second: "Seconds"
+      year:   "שנה"
+      month:  "חודש"
+      day:    "יום"
+      hour:   "שעה"
+      minute: "דקה"
+      second: "שניה"
+  pages:
+    update: הפוסט עודכן בהצלחה
+  stream:
+    posted_ago: "לפני פורסם %{when}"
+    read_all: "המשך »"
+    home: "דף הבית"
+    all: "כל הפוסטים"
+    assignments: "משימות"
+    articles: "תכנים"
+    messages: "הודעות"
+    events: "אירועים"
+    new_items: "חדשים בלבד"
+    all_items: "הצג הכל"
+    more_items: "פוסטים נוספים »"
+
+  admin:
+    pages:
+      success: "הפוסט נוצר בהצלחה"
+      update: "הפוסט עודכן בהצלחה"
+      destroy: "הפוסט נמחק מהמערכת"
+      destroy_failure: "פעולת מחיקת הדף נכשלה"
+      unknown_type: "סוג הפוסט: %{page_type} אינו ידוע"
+      is_bonus: "פוסט בונוס?"
+      preview_show: "הצג בתצוגה מקדימה"
+      new_article: "תוכן חדש"
+      new_assignment: "משימה חדשה"
+      assignment: "משימה"
+      event: "אירוע"
+      metadata: "מידע על הפוסט"
+      content: "תוכן הפוסט"
+      name: "שם"
+      remove: "מחק"
+      add_new: "הוסף חדש"
+      article: "תוכן"
+      message: "הודעה"
+      audio: "אודיו"
+      video: "וידיאו"
+      question: "שאלה"
+      radio: "Radio"
+      checkbox: "Checkbox"
+      select: "select"
+      list: "List"
+      scale: "Scale"
+      freetext: "Free Text"
+      title_and_description: "כותרת ותאור"
+      metadata_and_content: "מידע ותוכן"
+      sorting_and_deleting: "מיון ומחיקה"
+      save_and_publish: "שמור ופרסם"
+      as_draft: "שמור כטיוטה"
+      publish_at: "פרסום עתידי"
+      publish: "פרסם"
+      title: "כותרת"
+      description: "תאור"
+      embed_string: "הטמע קוד פלייר חיצוני (Embed)"
+      url: "קישור"
+      is_autoplay: "נגן אוטומטית"
+      is_visible: "Visible"
+      featured_settings: "הגדרות תצוגה"
+      is_sticky: "פוסט דביק"
+      top_header: "הצג בראש העמוד"
+      big_banner: "באנר גדול"
+      top_side_banner: "באנר צידי עליון"
+      bottom_side_banner: "באנר צידי תחתון"
+      new_message: "הודעה חדשה"
+      message_body: "הודעה"
+      edit: "ערוך"
+      delete: "מחק"
+      permissions: "הרשאות"
+      tags: "תגיות"
+      video_player: "נגן וידיאו"
+      image: "תמונה"
+      youtube: "YouTube"
+      page_administration: "ניהול פוסטים"
+      statistics: "סטטיסטיקה"
+      help: "עזרה"
+      logout: "יציאה"
+      create_new: "יצר חדש"
+      search: "חיפוש"
+      status: "סטטוס"
+      all_posts: "כל הפוסטים"
+      drafts: "טיוטות"
+      published: "פוסטים שפורסמו"
+      future_posts: "פוסטים עתידיים"
+      type: "סוג"
+      assignments: "משימות"
+      events: "אירועים"
+      messages: "הודעות"
+      filter: "פילטר"
+      bulk_action: "פעולה גורפת"
+      set_as_draft: "הפוך לטיוטה"
+      show_on_page: "הצג"
+      items: "פוסטים"
+      arr_up: "&#9652;"
+      arr_down: "&#9662;"
+      updated_at: "עודכן ב-"
+      publish_date: "פורסם ב-"
+      actions: "פעולות"
+      are_you_sure: "האם אתה בטוח?"
+      add_answer: "הוסף תשובה"
+      other: "תשובה אחרת"
+      add_other: "הוסף תשובה אחרת"
+      label_from: "תווית מ-"
+      label_to: "תווית עד-"
+      scale_from: "מספור מ-"
+      scale_to: "מספור עד-"
+      is_multiline: "טקסט בריבוי שורות"
+      unknown_page: "פוסט לא נמצא במערכת"

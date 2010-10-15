@@ -192,7 +192,7 @@ en:
       change_password: change password
       profile: profile
       required: required field
-      updated: Profile was uccessfully updated
+      updated: Profile was successfully updated
   user:
     model:
       gender: Gender

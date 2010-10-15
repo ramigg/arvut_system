@@ -51,7 +51,7 @@ en:
     signout: Sign out
     back: Back
     update: Update
-    plase_wait: Please wait...
+    please_wait: Please wait...
 
   layout:
     search: Search
@@ -161,6 +161,12 @@ en:
       last_10_questionnaires: The last 10 questionnaires
       dashboard: My page
       admin: Admin
+      blog_title: Blog of Dr. Laitman
+      blog: http://www.laitman.com/
+      feed: http://www.laitman.com/feed
+      active: Active
+      registered: Registered
+      title_registered_vs_active: Registered vs. Active
     faq:
       faq: Frequently Asked Questions
       confirmation:
@@ -176,15 +182,17 @@ en:
         If there isn't one, please use the following link to send it again.
       email:
         If you've tried everything above and still have a problem, then please send an email to
+  pages:
+    update: Page was successfully updated
   profile:
     views:
       edit: edit
-      dear: Hello
+      dear: Hello,
       please_update_profile: please update your profile
       change_password: change password
       profile: profile
       required: required field
-
+      updated: Profile was uccessfully updated
   user:
     model:
       gender: Gender
@@ -197,12 +205,26 @@ en:
       preferred_language: Message Language
       first_name: First name
       last_name: Last name
+      avatar: Avatar
+      remove_avatar: Remove Avatar
+      contry: Country
+      city: City
 
   admin:
+    pages:
+      success: Page was successfully created
+      update: Page was successfully updated
+      destroy: Page was successfully destroyed
+      destroy_failure: Page was NOT destroyed
+      unknown_type: Unknown type of page %{page_type}
     user_list:
       create_new_user: Create New User
       create_user_list: Create User List
       update_user_list: Update User List
+      create: Successfully created user in list
+      update: Successfully updated user list
+      destroy: Successfully destroyed user list
+      destroy_failure: Page was NOT destroyed
       last_name: Last Name
       first_name: First Name
       email: Email
@@ -266,6 +288,7 @@ en:
       file: File
       group_name: Group Name
       all_groups: Everyone
+      include_email: Include Email in report
       plus: active
       minus: not active
       x: not registered
@@ -292,4 +315,159 @@ en:
 
   time:
     formats:
-      attendance_report: %d %B %Y
+      attendance_report: %B %d, %Y
+      short: %m-%d-%Y
+      graph: %b %d
+      timestamp: %m-%d-%Y %H:%M
+  date:
+    formats:
+      attendance_report: %B %d, %Y
+      short: %m-%d-%Y
+      graph: %b %d
+
+  # Used in distance_of_time_in_words(), distance_of_time_in_words_to_now(), time_ago_in_words()
+  datetime:
+    distance_in_words:
+      half_a_minute: "half a minute"
+      less_than_x_seconds:
+        one:   "less than 1 second"
+        other: "less than %{count} seconds"
+      x_seconds:
+        one:   "1 second"
+        other: "%{count} seconds"
+      less_than_x_minutes:
+        one:   "less than a minute"
+        other: "less than %{count} minutes"
+      x_minutes:
+        one:   "1 minute"
+        other: "%{count} minutes"
+      about_x_hours:
+        one:   "about 1 hour"
+        other: "about %{count} hours"
+      x_days:
+        one:   "1 day"
+        other: "%{count} days"
+      about_x_months:
+        one:   "about 1 month"
+        other: "about %{count} months"
+      x_months:
+        one:   "1 month"
+        other: "%{count} months"
+      about_x_years:
+        one:   "about 1 year"
+        other: "about %{count} years"
+      over_x_years:
+        one:   "over 1 year"
+        other: "over %{count} years"
+      almost_x_years:
+        one:   "almost 1 year"
+        other: "almost %{count} years"
+    prompts:
+      year:   "Year"
+      month:  "Month"
+      day:    "Day"
+      hour:   "Hour"
+      minute: "Minute"
+      second: "Seconds"
+
+  stream:
+    posted_ago: Posted %{when} ago
+    read_all: Read all »
+    home: Home
+    all: All
+    assignments: Assignments
+    articles: Articles
+    messages: Messages
+    events: Events
+    new_items: New Items
+    all_items: All Items
+    more_items: More items »
+
+  admin:
+    pages:
+      is_bonus: Is bonus?
+      preview_show: Display in preview
+      new_article: New Article
+      new_assignment: New Assignment
+      assignment: Assignment
+      event: Event
+      metadata: Metadata
+      content: Content
+      name: Name
+      remove: Remove
+      add_new: Add new
+      article: Article
+      message: Message
+      audio: Audio
+      video: Video
+      question: Question
+      radio: Radio
+      checkbox: Checkbox
+      select: select
+      list: List
+      scale: Scale
+      freetext: Free Text
+      title_and_description: Title & Description
+      metadata_and_content: Metadata & Content
+      sorting_and_deleting: Sorting & Deleting
+      save_and_publish: Save & Publish
+      as_draft: Save as Draft
+      publish_at: Publish at
+      publish: Publish
+      title: Title
+      description: Description
+      embed_string: String to embed
+      url: URL
+      is_autoplay: Autoplay
+      is_visible: Visible
+      featured_settings: Featured Settings
+      is_sticky: Sticky Item
+      top_header: Top Header
+      big_banner: Big Banner
+      top_side_banner: Top Side Banner
+      bottom_side_banner: Bottom Side Banner
+      new_message: New Message
+      message_body: Message
+      edit: Edit
+      delete: Delete
+      permissions: Permissions
+      tags: Tags
+      video_player: Video Player
+      image: Image
+      youtube: YouTube
+      page_administration: Page Administration
+      statistics: Statistics
+      help: Help
+      logout: logout
+      create_new: Create New
+      search: Search
+      status: Status
+      all_posts: All Posts
+      drafts: Drafts
+      published: Published
+      future_posts: Future Posts
+      type: Type
+      assignments: Assignments
+      events: Events
+      messages: Messages
+      filter: Filter
+      bulk_action: Bulk Action
+      set_as_draft: Set as Draft
+      show_on_page: Show
+      items: items
+      arr_up: &#9652;
+      arr_down: &#9662;
+      updated_at: Updated at
+      publish_date: Publish Date
+      actions: Actions
+      are_you_sure: Are you sure?
+      add_answer: Add Answer
+      other: Other
+      add_other: Add Other
+      label_from: Label From
+      label_to: Label To
+      scale_from: Scale from
+      scale_to: Scale to
+      is_multiline: Is multiline?
+      unknown_page: Unknown Page
+

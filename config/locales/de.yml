@@ -225,8 +225,8 @@ de:
       active: Aktive
       registered: Registrierte
       title_registered_vs_active: Registrierte vs. Aktive
-      blog: http://blog.laitman.de/blog
-      feed: http://blog.laitman.de/feed
+      blog: http://www.laitman.de/
+      feed: http://www.laitman.de/feed/
   layout:
     search: Suche
     search_screen_reader: "Suche nach"
@@ -294,45 +294,45 @@ de:
   # Used in distance_of_time_in_words(), distance_of_time_in_words_to_now(), time_ago_in_words()
   datetime:
     distance_in_words:
-      half_a_minute: "half a minute"
+      half_a_minute: 'eine halbe Minute'
       less_than_x_seconds:
-        one:   "less than 1 second"
-        other: "less than %{count} seconds"
+        one: 'weniger als eine Sekunde'
+        other: 'weniger als %{count} Sekunden'
       x_seconds:
-        one:   "1 second"
-        other: "%{count} seconds"
+        one: 'eine Sekunde'
+        other: '%{count} Sekunden'
       less_than_x_minutes:
-        one:   "less than a minute"
-        other: "less than %{count} minutes"
+        one: 'weniger als eine Minute'
+        other: 'weniger als %{count} Minuten'
       x_minutes:
-        one:   "1 minute"
-        other: "%{count} minutes"
+        one: 'eine Minute'
+        other: '%{count} Minuten'
       about_x_hours:
-        one:   "about 1 hour"
-        other: "about %{count} hours"
+        one: 'etwa eine Stunde'
+        other: 'etwa %{count} Stunden'
       x_days:
-        one:   "1 day"
-        other: "%{count} days"
+        one: 'ein Tag'
+        other: '%{count} Tage'
       about_x_months:
-        one:   "about 1 month"
-        other: "about %{count} months"
+        one: 'etwa ein Monat'
+        other: 'etwa %{count} Monate'
       x_months:
-        one:   "1 month"
-        other: "%{count} months"
-      about_x_years:
-        one:   "about 1 year"
-        other: "about %{count} years"
-      over_x_years:
-        one:   "over 1 year"
-        other: "over %{count} years"
+        one: 'ein Monat'
+        other: '%{count} Monate'
       almost_x_years:
-        one:   "almost 1 year"
-        other: "almost %{count} years"
+        one: 'fast ein Jahr'
+        other: 'fast %{count} Jahre'
+      about_x_years:
+        one: 'etwa ein Jahr'
+        other: 'etwa %{count} Jahre'
+      over_x_years:
+        one: 'mehr als ein Jahr'
+        other: 'mehr als %{count} Jahre'
     prompts:
-      year:   "Year"
-      month:  "Month"
-      day:    "Day"
-      hour:   "Hour"
-      minute: "Minute"
-      second: "Seconds"
+      second: "Sekunden"
+      minute: "Minuten"
+      hour: "Stunden"
+      day: "Tag"
+      month: "Monat"
+      year: "Jahr"
 

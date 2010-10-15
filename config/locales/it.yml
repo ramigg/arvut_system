@@ -293,45 +293,42 @@ it:
   # Used in distance_of_time_in_words(), distance_of_time_in_words_to_now(), time_ago_in_words()
   datetime:
     distance_in_words:
-      half_a_minute: "half a minute"
+      half_a_minute: "mezzo minuto"
       less_than_x_seconds:
-        one:   "less than 1 second"
-        other: "less than %{count} seconds"
+        one: "meno di un secondo"
+        other: "meno di {{count}} secondi"
       x_seconds:
-        one:   "1 second"
-        other: "%{count} seconds"
+        one: "1 secondo"
+        other: "{{count}} secondi"
       less_than_x_minutes:
-        one:   "less than a minute"
-        other: "less than %{count} minutes"
+        one: "meno di un minuto"
+        other: "meno di {{count}} minuti"
       x_minutes:
-        one:   "1 minute"
-        other: "%{count} minutes"
+        one: "1 minuto"
+        other: "{{count}} minuti"
       about_x_hours:
-        one:   "about 1 hour"
-        other: "about %{count} hours"
+        one: "circa un'ora"
+        other: "circa {{count}} ore"
       x_days:
-        one:   "1 day"
-        other: "%{count} days"
+        one: "1 giorno"
+        other: "{{count}} giorni"
       about_x_months:
-        one:   "about 1 month"
-        other: "about %{count} months"
+        one: "circa un mese"
+        other: "circa {{count}} mesi"
       x_months:
-        one:   "1 month"
-        other: "%{count} months"
+        one: "1 mese"
+        other: "{{count}} mesi"
       about_x_years:
-        one:   "about 1 year"
-        other: "about %{count} years"
+        one: "circa un anno"
+        other: "circa {{count}} anni"
       over_x_years:
-        one:   "over 1 year"
-        other: "over %{count} years"
-      almost_x_years:
-        one:   "almost 1 year"
-        other: "almost %{count} years"
+        one: "oltre un anno"
+        other: "oltre {{count}} anni"
     prompts:
-      year:   "Year"
-      month:  "Month"
-      day:    "Day"
-      hour:   "Hour"
-      minute: "Minute"
-      second: "Seconds"
+      year: "Anno"
+      month: "Mese"
+      day: "Giorno"
+      hour: "Ora"
+      minute: "Minuto"
+      second: "Secondi"
 
