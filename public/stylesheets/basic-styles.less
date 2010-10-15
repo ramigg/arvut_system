@@ -98,6 +98,7 @@ input[type=text],input[type=password]{
 @color-grey: #aaa;
 @color-login: black;
 @color-red: red;
+@color-green: green;
 
 //CLASSES
 //typography
@@ -393,9 +394,6 @@ body{
 	margin: 0 0 20px;
 	.rounded-corners;
 	padding:@padding-basic;
-	#error_explanation{
-		color: @color-red;
-	}
 }
 .widget-style1{
 	.widget;
@@ -442,5 +440,17 @@ body{
 		padding:20px 30px;
 	}
 	line-height: @font-line-height;
+}
+#notice_explanation{
+	color: #39b54a;
+	background: #dcffec;
+	border: 1px solid #39b54a;
+	padding: 0 5px;
+}
+#error_explanation{
+	color: @color-red;
+	background: #ffe1e1;
+	border: 1px solid #f69799;
+	padding: 0 5px;
 }
 
