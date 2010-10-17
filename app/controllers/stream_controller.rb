@@ -1,6 +1,8 @@
 class StreamController < ApplicationController
 
-  respond_to :html, :js
+  respond_to :js, :html
+
+  before_filter :set_accept_header
   
   ITEMS_PER_PAGE = 10
   
@@ -36,5 +38,16 @@ class StreamController < ApplicationController
     @feed = FeedReader::Basic.new(I18n.t('home.views.feed')).feed
     
     respond_with @pages
+  end
+
+
+  private
+  def set_accept_header
+    return unless request.env['HTTP_USER_AGENT'] =~ /MSIE /
+
+    unless request.xhr?
+      request.env["HTTP_ACCEPT"] = 'application/xml,application/xhtml+xml,text/html;q=0.9'
+      request.env["action_dispatch.request.formats"] = [ Mime::Type.new('text/html', :html) ]
+    end
   end
 end
