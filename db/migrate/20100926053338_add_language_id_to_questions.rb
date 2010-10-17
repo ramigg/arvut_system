@@ -7,7 +7,7 @@ class AddLanguageIdToQuestions < ActiveRecord::Migration
   end
 
   def self.down
-    remove_index :questions, language_id
+    remove_index :questions, "index_questions_on_language_id"
     remove_column :questions, language_id
   end
 end
