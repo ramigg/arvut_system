@@ -7,15 +7,13 @@
     <%= stylesheet_link_tag 'reset' %>
     <%- if I18n.locale == :he %>
       <%= stylesheet_link_tag 'styles-rtl.less', :rel => 'stylesheet/less' %>
-      <%#*<link rel="stylesheet/less" type="text/css" href="/stylesheets/styles-rtl.less" />%>
     <%- else -%>
       <%= stylesheet_link_tag 'styles.less', :rel => 'stylesheet/less' %>
-      <%#*<link rel="stylesheet/less" type="text/css" href="/stylesheets/styles.less" />%>
     <%- end -%>
+    <%= javascript_include_tag 'less-1.0.36.min.js' %>
 
     <%= javascript_include_tag :defaults,
       'jquery-ui-1.8.4.custom.min',
-      'less-1.0.35.min.js',
       'jquery.colorbox-min.js',
       'autoresize.jquery.min'
   %>
