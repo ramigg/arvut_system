@@ -6,6 +6,6 @@ class AddPageIdToQuestionnaireAnswers < ActiveRecord::Migration
   end
 
   def self.down
-    remove_column :users, :page_id
+    remove_column :questionnaire_answers, :page_id
   end
 end
