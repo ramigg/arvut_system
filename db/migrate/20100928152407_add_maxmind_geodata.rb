@@ -25,5 +25,6 @@ class AddMaxmindGeodata < ActiveRecord::Migration
   def self.down
     drop_table :locations
     drop_table :countries
+    drop_table :regions
   end
 end
