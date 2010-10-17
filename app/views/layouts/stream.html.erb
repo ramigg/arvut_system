@@ -6,9 +6,11 @@
     <meta content="text/html;charset=utf-8" http-equiv="content-type" />
     <%= stylesheet_link_tag 'reset' %>
     <%- if I18n.locale == :he %>
-      <link rel="stylesheet/less" type="text/css" href="/stylesheets/styles-rtl.less" />
+      <%= stylesheet_link_tag 'styles-rtl.less', :rel => 'stylesheet/less' %>
+      <%#*<link rel="stylesheet/less" type="text/css" href="/stylesheets/styles-rtl.less" />%>
     <%- else -%>
-      <link rel="stylesheet/less" type="text/css" href="/stylesheets/styles.less" />
+      <%= stylesheet_link_tag 'styles.less', :rel => 'stylesheet/less' %>
+      <%#*<link rel="stylesheet/less" type="text/css" href="/stylesheets/styles.less" />%>
     <%- end -%>
 
     <%= javascript_include_tag :defaults,
