@@ -71,7 +71,7 @@
   <hr class="separator"/>
   <div class="clear">
     <%= f.submit t('views.submit'), :class => 'button-middle-main' %>
-    <%= f.submit t('views.cancel'), :class => 'button-middle-cancel' %>
+    <%= link_to t('views.cancel'), stream_url(:stream_filter => :all), :class => 'button-middle-cancel' %>
   </div>
 <%- end -%>
 <%= javascript_tag "
