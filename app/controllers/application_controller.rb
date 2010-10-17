@@ -2,7 +2,8 @@ require "application_responder"
 
 class ApplicationController < ActionController::Base
   self.responder = ApplicationResponder
-  respond_to :js, :html
+
+  respond_to :html, :js
 
   before_filter :set_default_locale, :authenticate_user!
   after_filter :reset_default_locale
