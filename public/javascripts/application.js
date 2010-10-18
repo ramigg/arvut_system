@@ -109,37 +109,39 @@ $(function () {
     });
     
     if (typeof $.colorbox == 'function') {
-        $('a.in-iframe').colorbox({
-            iframe: true,
-            height: '80%',
-            width: '680px',
-            arrowKey: false,
-            close: '',
-            onComplete:function(){
-                $("body").css("overflow", "hidden");
-            //                alert('document will be marked as read');
-            },
-            onCleanup:function(){
-                $("body").css("overflow", "auto");
-            //                alert('refresh the stream and menu');
-            }
+        $('a.in-iframe').live('click', function(){
+            colorbox_iframe(this, '680px', '80%', false);
+            return false;
         });
-        $('a.in-wide-iframe').colorbox({
-            iframe: true,
-            innerHeight: '80%',
-            width: '80%',
-            arrowKey: false,
-            close: '',
-            onComplete:function(){
-                $("body").css("overflow", "hidden");
-            },
-            onCleanup:function(){
-                $("body").css("overflow", "auto");
-            }
+        $('a.in-wide-iframe').live('click', function(){
+            colorbox_iframe(this, '80%', false, '80%');
+            return false;
         });
     };
     $('textarea').autoResize({
         extraSpace: 40
     });
 });
+function colorbox_iframe(obj, width, height, innerHeight)
+{
+    $.fn.colorbox({
+        href: $(obj).attr('href'),
+        iframe: true,
+        open: true,
+        width: width,
+        height: height,
+        innerHeight: innerHeight,
+        arrowKey: false,
+        opacity: 0.6,
+        close: '',
+        onComplete:function(){
+            $("body").css("overflow", "hidden");
+        //                alert('document will be marked as read');
+        },
+        onCleanup:function(){
+            $("body").css("overflow", "auto");
+        //                alert('refresh the stream and menu');
+        }
+    });
+}
 
