@@ -13,3 +13,4 @@ config/exceptional.yml
 public/ckeditor_assets/**/*
 .idea/*
 public/system/**/*
+.DS_Store
