@@ -357,7 +357,7 @@ he:
   pages:
     update: הפוסט עודכן בהצלחה
   stream:
-    posted_ago: "לפני פורסם %{when}"
+    posted_ago: "פורסם לפני %{when}"
     read_all: "המשך »"
     home: "דף הבית"
     all: "כל הפוסטים"
