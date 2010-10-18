@@ -26,7 +26,7 @@ a {outline:none;}
 body {font-size:75%;color:#222;background:#fff;font-family: Helvetica, Arial, sans-serif;}
 h1, h2, h3, h4, h5, h6 {font-weight:normal;color:#111;}
 h1 {font-size:3em;line-height:1;margin-bottom:0.5em;}
-h2 {font-size:2em;margin-bottom:0.75em;}
+h2 {font-size:2em;}
 h3 {font-size:1.5em;line-height:1;margin-bottom:1em;}
 h4 {font-size:1.2em;line-height:1.25;margin-bottom:1.25em;}
 h5 {font-size:1em;font-weight:bold;margin-bottom:1.5em;}
@@ -62,7 +62,7 @@ tr.even td {background:#e5ecf9;}
 tfoot {font-style:italic;}
 caption {background:#eee;}
 .small {font-size:.8em;margin-bottom:1.875em;line-height:1.875em;}
-.large {font-size:1.2em;line-height:2.5em;margin-bottom:1.25em;}
+.large {font-size:1.2em;}
 .hide {display:none;}
 .quiet {color:#666;}
 .loud {color:#000;}
@@ -250,7 +250,7 @@ div.colborder {padding-right:24px;margin-right:25px;border-right:1px solid #eee;
 .prepend-top {margin-top:1.5em;}
 .append-bottom {margin-bottom:1.5em;}
 .box {padding:1.5em;margin-bottom:1.5em;background:#E5ECF9;}
-hr {background:#ddd;color:#ddd;clear:both;float:none;width:100%;height:.1em;margin:0 0 1.45em;border:none;}
+hr {background:#ddd;color:#ddd;clear:both;float:none;width:100%;height:.1em;border:none;}
 hr.space {background:#fff;color:#fff;}
 .clearfix:after, .container:after {content:"\0020";display:block;height:0;clear:both;visibility:hidden;overflow:hidden;}
 .clearfix, .container {display:block;}
