@@ -1,7 +1,7 @@
 class CheckPath
   def self.set_pattern
     langs = Language.all.map{|e|e.locale} rescue []
-    prefix = Rails.configuration.site_prefix.sub(/^\//,'') +
+    prefix = Rails.configuration.site_prefix.sub(/^\//,'')
     /#{prefix}\/(#{langs.join('|')})(\/|)/
   end
 
