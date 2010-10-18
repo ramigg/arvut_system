@@ -1,7 +1,7 @@
 class CheckPath
   def self.set_pattern
     langs = Language.all.map{|e|e.locale} rescue []
-    prefix = Rails.env == 'production' ? 'internet2' : ''
+    prefix = Rails.configuration.site_prefix.sub(/^\//,'') +
     /#{prefix}\/(#{langs.join('|')})(\/|)/
   end
 
@@ -51,7 +51,7 @@ Simulator::Application.routes.draw do
       :path_names => {:sign_in => 'login', :sign_out => 'logout', :sign_up => 'register'},
       :controllers => {:registrations => "profiles/registrations", :confirmations => "profiles/confirmations"}
     match "users/confirmation/awaiting/:id/:confirmation_hash",
-      :to => redirect("/internet2/%{locale}/users/confirmations/awaiting/%{id}/%{confirmation_hash}"), :as => "awaiting_confirmation"
+      :to => redirect("#{Rails.configuration.site_prefix}/%{locale}/users/confirmations/awaiting/%{id}/%{confirmation_hash}"), :as => "awaiting_confirmation"
 
     match 'login_help', :to => 'home#login_help', :as => 'login_help'
     

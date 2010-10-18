@@ -1,6 +1,9 @@
 Simulator::Application.configure do
   # Settings specified here will take precedence over those in config/environment.rb
 
+  #site prefix
+  config.site_prefix = '/internet2'
+
   # The production environment is meant for finished, "live" apps.
   # Code is not reloaded between requests
   config.cache_classes = true
@@ -37,7 +40,7 @@ Simulator::Application.configure do
     if request.host == 'localhost'
       "#{request.protocol}#{request.host_with_port}"
     else
-      "#{request.protocol}#{request.host_with_port}/internet2"
+      "#{request.protocol}#{request.host_with_port}/#{config.site_prefix}"
     end
   }
 

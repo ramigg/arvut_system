@@ -2,7 +2,7 @@ class RedirectorController < ActionController::Metal
   include ActionController::Redirecting
   include Rails.application.routes.url_helpers
 
-  PREFIX = Rails.env == 'production' ? '/internet2' : ''
+  PREFIX = "#{Rails.configuration.site_prefix}"
   PATTERN = /^\/(#{(Language.all.map{|e|e.locale} rescue []).join('|')})/
 
   def to_locale

@@ -15,7 +15,7 @@ id = video.object_id
     </a>
     <script type="text/javascript">
       $(document).ready(function() {
-        $f("video_<%= id %>",{src: '/flowplayer/flowplayer-3.2.5.swf', wmode: 'transparent'},{
+        $f("video_<%= id %>",{src: '<%= Rails.configuration.site_prefix %>/flowplayer/flowplayer-3.2.5.swf', wmode: 'transparent'},{
           key:'#\@932a7f91ab5747d7f90',
           playlist:[
             {url: '<%= video.image %>', autoPlay: true},
