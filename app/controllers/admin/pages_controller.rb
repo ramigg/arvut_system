@@ -26,7 +26,7 @@ class Admin::PagesController < ApplicationController
     @page.assets.sort! { |a, b| a.position <=> b.position } if @page.assets
 
     set_page_status @page, params
-    
+
     if @page.save
       flash[:notice] = I18n.t 'admin.pages.success'
     else
@@ -83,10 +83,10 @@ class Admin::PagesController < ApplicationController
       object.status = 'PUBLISHED'
     elsif options[:PUBLISH]
       object.status = 'PUBLISHED'
-      options[:page][:publish_at] = Time.zone.now
+      object.publish_at = Time.zone.now
     else
       object.status = 'DRAFT' # Default value
-      options[:page][:publish_at] = nil
+      options.publish_at = nil
     end
   end
   
