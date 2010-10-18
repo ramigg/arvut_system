@@ -1,8 +1,20 @@
 <%- showgrid false -%>
 <h1><%= t("admin.pages.page_administration") %></h1>
-<!--div class="span-22 large">
+<!--div class="span-20 large">
   <a href=""><%= t("admin.pages.content") %></a> | <a href=""><%= t("admin.pages.permissions") %></a> | <a href="#"><%= t("admin.pages.statistics") %></a> | <a href="#"><%= t("admin.pages.help") %></a>
 </div-->
+<div class="span-2 large">
+  <form class="float_right" action="#" method="get" accept-charset="utf-8">
+    <p>
+      <select name="languages" id="languages" onchange="change_language()">
+        <option value=-1"><%= t('admin.pages.select') %></option>
+        <% Language.all.each { |l| %>
+          <option value="<%= admin_pages_url(l.locale) %>"><%= l.language %></option>
+        <% } %>
+      </select>
+    </p>
+  </form>
+</div>
 <div class="span-2 large last"><a href="<%= destroy_user_session_path %>"><%= t("admin.pages.logout") %></a></div>
 <hr/>
 <h2><%= t("admin.pages.create_new") %>:

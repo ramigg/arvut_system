@@ -1,7 +1,7 @@
 <tr <%= even ? 'class="even"'.html_safe : ''%>>
   <td><input type="checkbox" name="selectall" value="<%= t("admin.pages.select") %>" /></td>
   <td><%= page.status %> 
-    <%- if user.roles.include?('Admin') -%>
+    <%- if current_user.is_admin? -%>
       <div class="small">(<%= page.language.locale %>, <%= page.author.first_name %> <%= page.author.last_name %>)</div>
     <%- end -%>
   </td>

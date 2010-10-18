@@ -59,7 +59,7 @@ class Page < ActiveRecord::Base
   # Returns pages for the given user
   def self.get_my_pages(user, pageno, locale = :en )
     language_id = Language.get_id_by_locale(locale)
-    conditions = user.roles.include?('Admin') ? ['author_id = ? AND language_id = ?', user, language_id] : []
+    conditions = user.is_admin? ? [] : ['author_id = ? AND language_id = ?', user, language_id]
     paginate :page => pageno,
       :order => ['updated_at DESC, publish_at DESC'],
       :conditions => conditions

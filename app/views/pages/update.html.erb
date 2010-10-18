@@ -1,0 +1,7 @@
+<%=
+if @close_popup
+  link_to t('stream.popup.close'), '#', :class => 'button-small-main', :onclick => 'parent.$.colorbox.close(); return false;'
+else
+  render :file => 'pages/show'
+end
+%>

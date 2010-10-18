@@ -19,9 +19,14 @@ class PagesController < ApplicationController
   def update
     @page = Page.find(params[:id])
     if @page.update_attributes(params[:page])
-      flash[:notice] = I18n.t 'pages.update'
+      flash[:notice] = I18n.t 'pages.update.was_successful'
+      # close popup
+      @close_popup = true
+    else
+      # Failure
+      flash[:error] = I18n.t 'pages.update.failed'
     end
-    respond_with(:admin, @page, :location => home_url)
+    respond_with @page
   end
 
 end

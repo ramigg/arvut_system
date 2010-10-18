@@ -17,11 +17,6 @@ module ApplicationHelper
     link_to_function(name, "add_fields(this, \"#{association}\", \"#{escape_javascript(fields)}\", #{hide_onclick})", :style => style)
   end
 
-  def user_has_access_to_admin?(user)
-    return false unless user
-    user.is_admin? || user.is_groupmanager? || user.is_moderator? || user.is_reports?
-  end
-  
   def is_rtl?
     I18n.default_locale == :he
   end

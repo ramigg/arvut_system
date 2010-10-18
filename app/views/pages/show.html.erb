@@ -16,9 +16,10 @@
           </div>
         <% end %>
       <% end %>
-
-      <hr/>
-      <div><%= f.submit t('views.submit'), :class => 'button-small-main' %></div>
+      <%- if @page.page_type == 'assignment' -%>
+        <hr/>
+        <div><%= f.submit t('views.submit'), :class => 'button-small-main' %></div>
+      <%- end %>
     <%- end %>
   </div>
   <div class="clear"></div>

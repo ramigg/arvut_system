@@ -6,7 +6,7 @@
     <meta name="description" content="" />
     <meta name="keywords" content="" />
 
-    <%- if I18n.locale == :he %>
+    <%- if is_rtl? %>
       <%= stylesheet_link_tag 'styles-rtl.less', :rel => 'stylesheet/less' %>
     <%- else -%>
       <%= stylesheet_link_tag 'styles.less', :rel => 'stylesheet/less' %>
@@ -25,12 +25,12 @@
     <%= csrf_meta_tag %>
 
     <%= javascript_include_tag :ckeditor %>
-    <% if I18n.locale == :he %>
+    <% if is_rtl? %>
       <%= stylesheet_link_tag 'tag-it-rtl' %>
       <%= stylesheet_link_tag 'page-plugins/rtl/screen' %>
     <% end %>
   </head>
-  <body <%= 'dir="rtl"'.html_safe if I18n.locale == :he %>>
+  <body <%= 'dir="rtl"'.html_safe if is_rtl? %>>
     <div class="container <%= yield :add_classes_to_container %>">
       <%= display_messages %>
       <%= yield %>

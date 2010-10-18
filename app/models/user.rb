@@ -45,7 +45,7 @@ class User < ActiveRecord::Base
     :styles => {:original => ['170x170>', :png], :thumb => ['40x40#', :png]},
     :convert_options => { :all => "-strip" },
     :default_url => '/images/user.png'
-#  validates_attachment_size :avatar, :less_than => 4.megabytes
+  #  validates_attachment_size :avatar, :less_than => 4.megabytes
 
   def delete_avatar=(value)
     @delete_avatar = !value.to_i.zero?
@@ -220,6 +220,11 @@ class User < ActiveRecord::Base
 
     end
   end
+
+  def user_has_access_to_admin?
+    is_admin? || is_groupmanager? || is_moderator? || is_reports?
+  end
+
 
   private
 

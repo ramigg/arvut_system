@@ -114,6 +114,9 @@ function change_language(){
     var idx = $('#languages').get(0).selectedIndex;
     var href = $('#languages').get(0).options[idx].value;
 
+    if (href == '-1')
+        return false;
+    
     location = href;
 }
 
