@@ -110,3 +110,59 @@ function remove_fields(link, is_new_record) {
     }
 };
 
+function change_language(){
+    var idx = $('#languages').get(0).selectedIndex;
+    var href = $('#languages').get(0).options[idx].value;
+
+    location = href;
+}
+
+$(function () {
+    var toggleLoading = function(){
+        $(this).toggleClass('spinner')
+    };
+
+    $('a[data-remote=true]')
+    .live('ajax:loading', toggleLoading)
+    .live('ajax:complete', toggleLoading);
+
+    $('.side_menu a[data-remote=true]')
+    .bind('click', function () {
+        $('li.current').removeClass('current');
+        $(this).parent().parent().addClass('current');
+    });
+
+    if (typeof $.colorbox == 'function') {
+        $('a.in-iframe').live('click', function(){
+            colorbox_iframe(this, '710px', '85%', false);
+            return false;
+        });
+        $('a.in-wide-iframe').live('click', function(){
+            colorbox_iframe(this, '80%', false, '80%');
+            return false;
+        });
+    };
+});
+function colorbox_iframe(obj, width, height, innerHeight)
+{
+    $.fn.colorbox({
+        href: $(obj).attr('href'),
+        iframe: true,
+        open: true,
+        width: width,
+        height: height,
+        innerHeight: innerHeight,
+        arrowKey: false,
+        opacity: 0.6,
+        close: '',
+        onComplete:function(){
+            $("body").css("overflow", "hidden");
+        //                alert('document will be marked as read');
+        },
+        onCleanup:function(){
+            $("body").css("overflow", "auto");
+        //                alert('refresh the stream and menu');
+        }
+    });
+}
+

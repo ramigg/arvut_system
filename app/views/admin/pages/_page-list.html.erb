@@ -5,6 +5,9 @@
   <td><%= page.page_type %> </td>
   <td><%= l page.updated_at, :format => :timestamp %> </td>
   <td><%= page.publish_at ? l(page.publish_at, :format => :timestamp) : '' %> </td>
-  <td><%= link_to t("admin.pages.edit"), edit_admin_page_path(page) %> </td>
+  <td>
+    <%= link_to t("admin.pages.edit"), edit_admin_page_path(page) %>
+    <%= link_to t("admin.pages.preview"), page_url(page), :class => 'in-iframe', :title => page.title %>
+  </td>
   <td><%= link_to t("admin.pages.delete"), admin_page_path(page), :confirm => t('admin.pages.are_you_sure'), :method => :delete %> </td>
 </tr>

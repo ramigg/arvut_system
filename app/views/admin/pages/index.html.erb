@@ -87,7 +87,7 @@
     </div>
   </form-->
   &nbsp;&nbsp;
-  <%= form_tag admin_pages_url, :method => :get do |f| %>
+  <%= form_tag(admin_pages_url, :method => :get) do |f| %>
     <div>
       <label for="per_page"><%= t("admin.pages.show_on_page") %></label>
       <%= select_tag 'per_page',
