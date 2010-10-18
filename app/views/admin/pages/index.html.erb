@@ -1,8 +1,8 @@
 <%- showgrid false -%>
 <h1><%= t("admin.pages.page_administration") %></h1>
-<div class="span-22 large">
+<!--div class="span-22 large">
   <a href=""><%= t("admin.pages.content") %></a> | <a href=""><%= t("admin.pages.permissions") %></a> | <a href="#"><%= t("admin.pages.statistics") %></a> | <a href="#"><%= t("admin.pages.help") %></a>
-</div>
+</div-->
 <div class="span-2 large last"><a href="<%= destroy_user_session_path %>"><%= t("admin.pages.logout") %></a></div>
 <hr/>
 <h2><%= t("admin.pages.create_new") %>:
@@ -11,13 +11,13 @@
   <a href="<%= new_admin_page_url(:page_type => 'article') %>"><%= t("admin.pages.article") %></a> |
   <a href="<%= new_admin_page_url(:page_type => 'message') %>"><%= t("admin.pages.message") %></a></h2>
 <hr/>
-<form action="" method="post" class="inline">
+<!--form action="" method="post" class="inline">
   <div class="span-8 append-16 last">
     <input type="text" class="text span-6" id="q" name="q" value=""/>
     <input type="submit" value="<%= t("admin.pages.search") %>" class="button"/>
   </div>
-</form>
-<form action="" method="post" class="inline">
+</form-->
+<!--form action="" method="post" class="inline">
   <div class="span-24 last">
     <label for="a1"><%= t("admin.pages.status") %></label>
     <select id="a1" name="a1" >
@@ -73,9 +73,9 @@
     </select>
     <input type="submit" value="<%= t("admin.pages.filter") %>" class="button"/>
   </div>
-</form>
-<div class="span-24 last">
-  <form action="" method="post" class="inline">
+</form-->
+<div class="span-24 last" style="line-height:1px;">
+  <!--form action="" method="post" class="inline">
     <div>
       <select id="a5" name="a5" >
         <option value="0"><%= t("admin.pages.bulk_action") %></option>
@@ -85,7 +85,7 @@
       </select>
       <input type="submit" value="submit" class="button"/>
     </div>
-  </form>
+  </form-->
   &nbsp;&nbsp;
   <%= form_tag admin_pages_url, :method => :get do |f| %>
     <div>
