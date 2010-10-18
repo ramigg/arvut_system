@@ -110,7 +110,7 @@ $(function () {
     
     if (typeof $.colorbox == 'function') {
         $('a.in-iframe').live('click', function(){
-            colorbox_iframe(this, '680px', '80%', false);
+            colorbox_iframe(this, '710px', '85%', false);
             return false;
         });
         $('a.in-wide-iframe').live('click', function(){
