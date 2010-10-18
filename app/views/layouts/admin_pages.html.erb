@@ -1,5 +1,4 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
-  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
@@ -18,11 +17,11 @@
     <%= csrf_meta_tag %>
 
     <%= javascript_include_tag :ckeditor %>
-    <%# if I18n.locale == :he %>
-      <%#= stylesheet_link_tag 'page-plugins/rtl/screen' %>
-    <%# end %>
+    <% if I18n.locale == :he %>
+      <%= stylesheet_link_tag 'page-plugins/rtl/screen' %>
+    <% end %>
   </head>
-  <body>
+  <body <%= 'dir="rtl"'.html_safe if I18n.locale == :he %>>
     <div class="container <%= yield :add_classes_to_container %>">
       <%= display_messages %>
       <%= yield %>

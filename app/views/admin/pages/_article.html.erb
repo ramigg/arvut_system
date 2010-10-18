@@ -1,10 +1,6 @@
 <%- showgrid false -%>
 <h1><%= t('admin.pages.new_article') %></h1>
-<div class="tabs">
-  <div class="span-5"><h2 class="tab currenttab"><a href="javascript:;"><%= t('admin.pages.metadata') %></a></h2></div>
-  <div class="span-5 append-13 last"><h2 class="tab"><a href="javascript:;"><%= t('admin.pages.content') %></a></h2></div>
-  <div class="clear"></div>
-</div>
+<%= render 'page_tabs' %>
 
 <div class="contenttabs">
   <%= form_for [:admin, @page], :html => {:id => 'page'} do |f| %>

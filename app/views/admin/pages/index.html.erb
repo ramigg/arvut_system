@@ -1,7 +1,7 @@
 <%- showgrid false -%>
 <h1><%= t("admin.pages.page_administration") %></h1>
 <div class="span-22 large">
-	<a href=""><%= t("admin.pages.content") %></a> | <a href=""><%= t("admin.pages.permissions") %></a> | <a href="#"><%= t("admin.pages.statistics") %></a> | <a href="#"><%= t("admin.pages.help") %></a>
+  <a href=""><%= t("admin.pages.content") %></a> | <a href=""><%= t("admin.pages.permissions") %></a> | <a href="#"><%= t("admin.pages.statistics") %></a> | <a href="#"><%= t("admin.pages.help") %></a>
 </div>
 <div class="span-2 large last"><a href="<%= destroy_user_session_path %>"><%= t("admin.pages.logout") %></a></div>
 <hr/>
@@ -19,24 +19,24 @@
 </form>
 <form action="" method="post" class="inline">
   <div class="span-24 last">
-	  <label for="a"><%= t("admin.pages.status") %></label>
-    <select id="a" name="a" >
+    <label for="a1"><%= t("admin.pages.status") %></label>
+    <select id="a1" name="a1" >
       <option value="0"><%= t("admin.pages.all_posts") %></option>
       <option value="1"><%= t("admin.pages.drafts") %></option>
       <option value="2"><%= t("admin.pages.published") %></option>
       <option value="3"><%= t("admin.pages.future_posts") %></option>
     </select>
     &nbsp;&nbsp;
-    <label for="a"><%= t("admin.pages.type") %></label>
-    <select id="a" name="a" >
+    <label for="a2"><%= t("admin.pages.type") %></label>
+    <select id="a2" name="a2" >
       <option value="0"><%= t("admin.pages.all_posts") %></option>
       <option value="1"><%= t("admin.pages.assignments") %></option>
       <option value="2"><%= t("admin.pages.events") %></option>
       <option value="3"><%= t("admin.pages.messages") %></option>
     </select>
     &nbsp;&nbsp;
-    <label for="a"><%= t("admin.pages.permissions") %></label>
-    <select id="a" name="a" >
+    <label for="a3"><%= t("admin.pages.permissions") %></label>
+    <select id="a3" name="a3" >
       <option value="0">for All Users</option>
       <optgroup label="by Gender">
         <option value="2">for Men Only</option>
@@ -59,8 +59,8 @@
       </optgroup>
     </select>
     &nbsp;&nbsp;
-    <label for="a">Author</label>
-    <select id="a" name="a" >
+    <label for="a4">Author</label>
+    <select id="a4" name="a4" >
       <option value="0">by All Users</option>
       <option value="1">by You Only</option>
       <optgroup label="--------">
@@ -76,28 +76,32 @@
 </form>
 <div class="span-24 last">
   <form action="" method="post" class="inline">
-    <select id="a" name="a" >
-      <option value="0"><%= t("admin.pages.bulk_action") %></option>
-      <option value="1"><%= t("admin.pages.delete") %></option>
-      <option value="2"><%= t("admin.pages.set_as_draft") %></option>
-      <option value="3"><%= t("admin.pages.publish") %></option>
-    </select>
-    <input type="submit" value="submit" class="button"/>
+    <div>
+      <select id="a5" name="a5" >
+        <option value="0"><%= t("admin.pages.bulk_action") %></option>
+        <option value="1"><%= t("admin.pages.delete") %></option>
+        <option value="2"><%= t("admin.pages.set_as_draft") %></option>
+        <option value="3"><%= t("admin.pages.publish") %></option>
+      </select>
+      <input type="submit" value="submit" class="button"/>
+    </div>
   </form>
   &nbsp;&nbsp;
   <%= form_tag admin_pages_url, :method => :get do |f| %>
-    <label for="show_on_page"><%= t("admin.pages.show_on_page") %></label>
-    <%= select_tag 'per_page',
-      options_for_select(Page.show_on_page, Page.per_page),
-      { :onchange => "this.form.submit();"} %>
-    <label for="show_on_page"><%= t("admin.pages.items") %></label>
+    <div>
+      <label for="per_page"><%= t("admin.pages.show_on_page") %></label>
+      <%= select_tag 'per_page',
+        options_for_select(Page.show_on_page, Page.per_page),
+        { :onchange => "this.form.submit();"} %>
+      <label for="per_page"><%= t("admin.pages.items") %></label>
+    </div>
   <% end %>
 </div>
 
 <hr/>
 
 <div class="span-24 last">
-  <table summary="This is the summary text for this table."  border="0" cellspacing="0" cellpadding="0">
+  <table style="border:0 none;border-collapse: collapse;border-spacing: 0;">
     <caption><%= pagination_info @pages %></caption>
     <thead>
       <tr>
