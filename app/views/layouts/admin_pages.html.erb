@@ -18,6 +18,7 @@
 
     <%= javascript_include_tag :ckeditor %>
     <% if I18n.locale == :he %>
+      <%= stylesheet_link_tag 'tag-it-rtl' %>
       <%= stylesheet_link_tag 'page-plugins/rtl/screen' %>
     <% end %>
   </head>
