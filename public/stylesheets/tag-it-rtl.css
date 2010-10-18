@@ -1,0 +1,14 @@
+div.tagit li {
+    float: right;
+    margin:2px 0 2px 5px ;
+}
+div.tagit li.tagit-new {
+    padding:2px 0 1px 4px;
+}
+div.tagit li.tagit-choice input {
+    float:right;
+    margin:2px 0 2px 5px;
+}
+div.tagit li.tagit-choice a.close {
+    padding:2px 3px 2px 0;
+}
