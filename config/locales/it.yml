@@ -44,6 +44,97 @@ it:
     models:
       user: email
   admin:
+    pages:
+      actions: Azioni
+      add_answer: "Aggiungi una Domanda"
+      add_new: "Aggiungi nuovo"
+      add_other: "Aggiungi Altro"
+      all_posts: "Tutte le Pubblicazioni"
+      are_you_sure: "Sei sicuro?"
+      arr_down: "&#9662;"
+      arr_up: "&#9652;"
+      article: Articolo
+      as_draft: "Salva come progetto"
+      assignment: Compito
+      assignments: Compiti
+      audio: Audio
+      big_banner: "Banner Grande"
+      bottom_side_banner: "Bunner lato inferiore"
+      bulk_action: "Azione in blocco"
+      checkbox: "Riquadro di controllo"
+      content: Contenuto
+      create_new: "Crea Nuovo"
+      delete: Cancella
+      description: Descrizione
+      destroy: "La pagina è stata cancellata con successo"
+      destroy_failure: "La pagina NON è stata cancellata"
+      drafts: Progetti
+      edit: Modifica
+      embed_string: "Corda da incorporare"
+      event: Evento
+      events: Eventi
+      featured_settings: "Future impostazioni"
+      filter: Filtri
+      freetext: "Testo Libero"
+      future_posts: "Pubblicazioni future"
+      help: Aiuto
+      image: Immagine
+      is_autoplay: Autoplay
+      is_bonus: "è il bonus"
+      is_multiline: "è multilinea?"
+      is_sticky: "Articolo adesivo"
+      is_visible: Visibile
+      items: Articoli
+      label_from: "Etichetta da"
+      label_to: "Etichetta per"
+      list: Lista
+      logout: Esci
+      message: Messaggio
+      message_body: Messaggio
+      messages: Messaggio
+      metadata: Metadati
+      metadata_and_content: "Metadati e Contenuti"
+      name: Nome
+      new_article: "Nuovo Articolo"
+      new_assignment: "Nuovo Compito"
+      new_message: "Nuovo Messaggio"
+      other: Altro
+      page_administration: "Pagina dell'Amministratore"
+      permissions: Permessi
+      preview_show: "Mostra in anteprima"
+      publish: Pubblica
+      publish_at: "Pubblica al"
+      publish_date: "Data di pubblicazione"
+      published: "Pubblicato "
+      question: Domanda
+      radio: Radio
+      remove: Rimuovi
+      save_and_publish: "Salva e Pubblica"
+      scale: Scala
+      scale_from: "Scala da"
+      scale_to: "Scala a:"
+      search: Cerca
+      select: Seleziona
+      set_as_draft: "Imposta come progetto"
+      show_on_page: Mostra
+      sorting_and_deleting: "Ordina e Cancella"
+      statistics: Statistiche
+      status: Stato
+      success: "La pagina è stata creata con successo"
+      tags: Etichette
+      title: "Titolo e Descrizione"
+      title_and_description: "Titolo e Descrizione"
+      top_header: Testata
+      top_side_banner: "Banner lato superiore"
+      type: Tipo
+      unknown_page: "Pagina sconosciuta"
+      unknown_type: "Tipo di pagina sconosciuta %{page_type}"
+      update: "La pagina è stata aggiornata con successo"
+      updated_at: "Aggiornamento a"
+      url: URL
+      video: Video
+      video_player: "Video Player"
+      youtube: "You Tube"
     questionnaires:
       add: Aggiungi
       add_answer: "aggiungi risposta"
@@ -125,6 +216,12 @@ it:
       please_select_one_of_the_options: "per favore seleziona una delle opzioni"
       select_group: "seleziona gruppo"
       update_user_list: "aggiorna la user list"
+      create: "Lista dell'utente creata con successo"
+      destroy: "Lista dell'utente cancellata con successo"
+      destroy_failure: "La pagina non è stata cancellata"
+      update: "Lista dell'utente aggiornata con successo"
+  pages:
+    update: "La pagina è stata aggiornata con successo"
   answer:
     model:
       answer_too_short: ""
@@ -244,6 +341,7 @@ it:
       please_update_profile: "prego aggiorna il tuo profilo"
       profile: profilo
       required: "campo richiesto"
+      updated: "Il Profilo è stato aggiornato con successo"
   questionnaire_answer:
     controller:
       already_answered: "hai già risposto a questo questionario"
@@ -253,6 +351,18 @@ it:
     views:
       all_fields_are_required: "tutti i campi sono richiesti"
       please_select_one_of_the_options: "prego seleziona una delle opzioni"
+  stream:
+    all: Tutto
+    all_items: "Tutti gli Articoli"
+    articles: Articoli
+    assignments: Compiti
+    events: Eventi
+    home: Casa
+    messages: Messaggi
+    more_items: "Altri Articoli »"
+    new_items: "Nuovi Articoli"
+    posted_ago: "Pubblicato %{when} fa"
+    read_all: "Leggi Tutto"
   user:
     model:
       birthday: "Anno di nascita"
@@ -265,6 +375,10 @@ it:
       preferred_language: "messaggio di linguaggio"
       receive_notifications: "Vuoi ricevere le notifiche alla tua email?"
       yes_answer: Si
+      avatar: Avatar
+      city: Città
+      contry: Nazione
+      remove_avatar: "Rimuovi Avatar"
   views:
     back: indietro
     cancel: "cancella "

@@ -44,6 +44,97 @@ de:
     models:
       user: Email
   admin:
+    pages:
+      actions: Actions
+      add_answer: "Add Answer"
+      add_new: "Add new"
+      add_other: "Add Other"
+      all_posts: "All Posts"
+      are_you_sure: "Are you sure?"
+      arr_down: "&#9662;"
+      arr_up: "&#9652;"
+      article: Article
+      as_draft: "Save as Draft"
+      assignment: Assignment
+      assignments: Assignments
+      audio: Audio
+      big_banner: "Big Banner"
+      bottom_side_banner: "Bottom Side Banner"
+      bulk_action: "Bulk Action"
+      checkbox: Checkbox
+      content: Content
+      create_new: "Create New"
+      delete: Delete
+      description: Description
+      destroy: "Page was successfully destroyed"
+      destroy_failure: "Page was NOT destroyed"
+      drafts: Drafts
+      edit: Edit
+      embed_string: "String to embed"
+      event: Event
+      events: Events
+      featured_settings: "Featured Settings"
+      filter: Filter
+      freetext: "Free Text"
+      future_posts: "Future Posts"
+      help: Help
+      image: Image
+      is_autoplay: Autoplay
+      is_bonus: "Is bonus?"
+      is_multiline: "Is multiline?"
+      is_sticky: "Sticky Item"
+      is_visible: Visible
+      items: items
+      label_from: "Label From"
+      label_to: "Label To"
+      list: List
+      logout: logout
+      message: Message
+      message_body: Message
+      messages: Messages
+      metadata: Metadata
+      metadata_and_content: "Metadata & Content"
+      name: Name
+      new_article: "New Article"
+      new_assignment: "New Assignment"
+      new_message: "New Message"
+      other: Other
+      page_administration: "Page Administration"
+      permissions: Permissions
+      preview_show: "Display in preview"
+      publish: Publish
+      publish_at: "Publish at"
+      publish_date: "Publish Date"
+      published: Published
+      question: Question
+      radio: Radio
+      remove: Remove
+      save_and_publish: "Save & Publish"
+      scale: Scale
+      scale_from: "Scale from"
+      scale_to: "Scale to"
+      search: Search
+      select: select
+      set_as_draft: "Set as Draft"
+      show_on_page: Show
+      sorting_and_deleting: "Sorting & Deleting"
+      statistics: Statistics
+      status: Status
+      success: "Page was successfully created"
+      tags: Tags
+      title: Title
+      title_and_description: "Title & Description"
+      top_header: "Top Header"
+      top_side_banner: "Top Side Banner"
+      type: Type
+      unknown_page: "Unknown Page"
+      unknown_type: "Unknown type of page %{page_type}"
+      update: "Page was successfully updated"
+      updated_at: "Updated at"
+      url: URL
+      video: Video
+      video_player: "Video Player"
+      youtube: YouTube
     questionnaires:
       add: hinzufügen
       add_answer: "Antwort hinzufügen"
@@ -126,6 +217,12 @@ de:
       please_select_one_of_the_options: "Wähle eine der Optionen"
       select_group: "Wähle Gruppe"
       update_user_list: "Aktualisiere User-Liste"
+      create: "Successfully created user in list"
+      destroy: "Successfully destroyed user list"
+      destroy_failure: "Page was NOT destroyed"
+      update: "Successfully updated user list"
+  pages:
+    update: "Page was successfully updated"
   answer:
     model:
       answer_too_short: "Deine Antwort ist zu kurz. Mehr als 10 Zeichen sind notwendig."
@@ -245,6 +342,19 @@ de:
       please_update_profile: "Bitte aktualisiere Dein Profil"
       profile: Profil
       required: Pflichtfeld
+      updated: "Profile was successfully updated"
+  stream:
+    all: All
+    all_items: "All Items"
+    articles: Articles
+    assignments: Assignments
+    events: Events
+    home: Home
+    messages: Messages
+    more_items: "More items »"
+    new_items: "New Items"
+    posted_ago: "Posted %{when} ago"
+    read_all: "Read all »"
   questionnaire_answer:
     controller:
       already_answered: "Du hast diesen Fragebogen bereits beantwortet"
@@ -266,6 +376,10 @@ de:
       preferred_language: Sprache
       receive_notifications: "Möchtest Du Benachrichtigungen über Email erhalten?"
       yes_answer: Ja
+      avatar: Avatar
+      city: City
+      contry: Country
+      remove_avatar: "Remove Avatar"
   views:
     back: Zurück
     cancel: Stornieren
