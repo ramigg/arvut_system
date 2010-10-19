@@ -1,1 +1,12 @@
-<%= builder.select :question_pair_id, question.entries.map{|e| [e.label, e.id]}, :prompt => t('questionnaire_answer.views.please_select_one_of_the_options')%>
+<%- obj_id = "_validSelection_#{question.object_id}" -%>
+<span id="<%= obj_id %>">
+  <%= builder.select :question_pair_id, question.entries.map{|e| [e.label, e.id]}, :prompt => t('questionnaire_answer.views.please_select_one_of_the_options')%>
+</span>
+<%- content_for :validation_script do
+  <<-JS
+  jQuery('##{obj_id}').validate({
+  expression: "if (VAL != '') return true; else return false;",
+  message: "#{I18n.t 'answer.model.select_one_option'}"
+  });
+  JS
+end -%>

@@ -168,4 +168,3 @@ function colorbox_iframe(obj, width, height, innerHeight)
         }
     });
 }
-

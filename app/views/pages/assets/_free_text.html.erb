@@ -1,7 +1,16 @@
-<% if question.is_multiline %>
-  <%= builder.text_area :text_value %>
-
-<% else %>
-  <%= builder.text_field :text_value %>
-
-<% end %>
+<%- obj_id = "_validFreeText_#{question.object_id}" -%>
+<span id="<%= obj_id %>">
+  <% if question.is_multiline %>
+    <%= builder.text_area :text_value, :rows => 5, :cols => 80 %>
+  <% else %>
+    <%= builder.text_field :text_value %>
+  <% end %>
+</span>
+<%- content_for :validation_script do
+  <<-JS
+  jQuery('##{obj_id}').validate({
+  expression: "if (VAL != '') return true; else return false;",
+  message: "#{I18n.t 'answer.model.write_an_answer'}"
+  });
+  JS
+end -%>

@@ -14,12 +14,14 @@
 
     <%= javascript_include_tag :defaults,
       'jquery.colorbox-min.js',
-      'autoresize.jquery.min', 'autocomplete-rails.js'
+      'autocomplete-rails.js',
+      #'autoresize.jquery.min',
+      'jquery.validate.js', 'jquery.validation.functions.js'
   %>
     <%= csrf_meta_tag %>
   </head>
   <% layout = controller.instance_of?(Profiles::RegistrationsController) ? 'layout-signup' : 'layout-login' %>
-  <body class="<%= I18n.default_locale %> <%= layout %>">
+  <body class="<%= I18n.locale %> <%= layout %>">
     <div class="skin_bg">
       <div class="skin_container">
         <p></p>

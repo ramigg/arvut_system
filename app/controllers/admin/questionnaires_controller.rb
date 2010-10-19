@@ -6,7 +6,7 @@ class Admin::QuestionnairesController < ApplicationController
 
   # get
   def index
-    locale = I18n.default_locale || 'en'
+    locale = I18n.locale || 'en'
     lang_id = Language.get_id_by_locale(locale)
     @questionnaires = Questionnaire.where(:language_id => lang_id).all.sort_by { |e| e.created_at }.reverse[0...10]
   end
@@ -18,7 +18,7 @@ class Admin::QuestionnairesController < ApplicationController
 
   # get
   def new
-    locale = I18n.default_locale || 'en'
+    locale = I18n.locale || 'en'
     lang_id = Language.get_id_by_locale(locale)
     @questionnaire = Questionnaire.new(:language_id => lang_id, :author_id => current_user.id)
     3.times do

@@ -18,7 +18,7 @@ module ApplicationHelper
   end
 
   def is_rtl?
-    I18n.default_locale == :he
+    I18n.locale == :he
   end
   
   def ckeditor_toolbar(klass = 'Min')

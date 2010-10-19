@@ -15,7 +15,8 @@
     <%= javascript_include_tag :defaults,
       'jquery-ui-1.8.4.custom.min',
       'jquery.colorbox-min.js',
-      'autoresize.jquery.min',
+      #'autoresize.jquery.min',
+      'jquery.validate.js', 'jquery.validation.functions.js',
       'autocomplete-rails.js'
   %>
     <%= csrf_meta_tag %>
@@ -29,7 +30,7 @@
       .success a {color:#264409;}
     </style>
   </head>
-  <body class="<%= I18n.default_locale %> layout-stream">
+  <body class="<%= I18n.locale %> layout-stream">
     <div class="skin_bg">
       <div class="skin_container">
         <p></p>

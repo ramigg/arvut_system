@@ -13,7 +13,7 @@ class Admin::TagsController < ApplicationController
   end
 
   def new
-    locale = I18n.default_locale || 'en'
+    locale = I18n.locale || 'en'
     lang_id = Language.get_id_by_locale(locale)
     
     @page = Page.new(:language_id => lang_id, :author_id => current_user.id,

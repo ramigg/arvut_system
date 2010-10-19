@@ -1,5 +1,6 @@
 Simulator::Application.configure do
   # Settings specified here will take precedence over those in config/environment.rb
+  config.i18n.default_locale = :en
 
   #site prefix
   config.site_prefix = '/internet2'

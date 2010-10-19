@@ -57,7 +57,7 @@ function add_fields(link, association, content, hide_onclick) {
     if(hide_onclick){
         $(link).hide();
     }
-};
+}
 
 // Profile: enable city only if country is selected
 var country_id = '';
@@ -95,7 +95,7 @@ function change_language(){
 
 $(function () {
     var toggleLoading = function(){
-        $(this).toggleClass('spinner')
+        $(this).toggleClass('throbber');
     };
 
     $('a[data-remote=true]')
@@ -117,10 +117,12 @@ $(function () {
             colorbox_iframe(this, '80%', false, '80%');
             return false;
         });
-    };
-    $('textarea').autoResize({
-        extraSpace: 40
-    });
+    }
+    if (typeof $.autoResize == 'function') {
+        $('textarea').autoResize({
+            extraSpace: 40
+        });
+    }
 });
 function colorbox_iframe(obj, width, height, innerHeight)
 {

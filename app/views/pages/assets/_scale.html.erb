@@ -1,12 +1,23 @@
 <%
 opt_count = question.scale_to - question.scale_from + 1
 %>
-<span class="rate_item"><%= question.label_from %></span>
-<% opt_count.times do |c| %>
-  <div class="rate_item">
-    <%= builder.radio_button :int_value, (question.scale_from + c).to_s %>
-    <%= builder.label :int_value, (c+1).to_s %>
-  </div>
-<% end %>
-<span><%= question.label_to %></span>
-<div class="clear"></div>
+<%- obj_id = "_validRadio_#{question.object_id}" -%>
+<span id="<%= obj_id %>">
+  <span class="rate_item"><%= question.label_from %></span>
+  <% opt_count.times do |c| %>
+    <div class="rate_item">
+      <%= builder.radio_button :int_value, (question.scale_from + c).to_s %>
+      <%= builder.label :int_value, (c+1).to_s %>
+    </div>
+  <% end %>
+  <span><%= question.label_to %></span>
+  <div class="clear"></div>
+</span>
+<%- content_for :validation_script do
+  <<-JS
+  jQuery('##{obj_id}').validate({
+  expression: "if (isChecked(SelfID)) return true; else return false;",
+  message: "#{I18n.t 'answer.model.select_one_option'}"
+  });
+  JS
+end -%>

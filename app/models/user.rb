@@ -159,13 +159,13 @@ class User < ActiveRecord::Base
   #  Returns last unanswered questionnaire or nil if none exists
   def last_unanswered_questionnaire
     last_unanswered = unanswered_questionnaires.last rescue nil
-    the_very_last = Questionnaire.by_language_published(I18n.default_locale).last
+    the_very_last = Questionnaire.by_language_published(I18n.locale).last
     last_unanswered == the_very_last ? last_unanswered : nil
   end
 
   #  returns array of unanswered questionnaires in the same language of the user
   def unanswered_questionnaires
-    (Questionnaire.by_language_published(I18n.default_locale).all - answered_questionnaires) rescue []
+    (Questionnaire.by_language_published(I18n.locale).all - answered_questionnaires) rescue []
   end
 
   # checks whether the profile should be updated
@@ -189,7 +189,7 @@ class User < ActiveRecord::Base
   }
   
   def last_10_questionnaires
-    last_10 = Questionnaire.last_10_published(I18n.default_locale)
+    last_10 = Questionnaire.last_10_published(I18n.locale)
     last_10.all.map{|q|
       {
         :id => q.id,

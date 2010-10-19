@@ -1,6 +1,6 @@
 <div class="header">
   <div class="logo">
-    <%= link_to image_tag('/images/logo.png'), "/internet/#{I18n.default_locale}/", :title => 'Hamakom', :alt => nil -%>
+    <%= link_to image_tag('/images/logo.png'), "/internet/#{I18n.locale}/", :title => 'Hamakom', :alt => nil -%>
     <h1>Hamakom</h1>
   </div>
   <form class="float_right" action="#" method="get" accept-charset="utf-8">
@@ -23,7 +23,7 @@
     <%= link_to t("stream.home"), stream_path(:stream_filter => 'all') %>
     <%- if user_signed_in? -%>
       |
-      <%= link_to t('home.views.edit_profile'), edit_profile_url(@profile) %> |
+      <%= link_to t('home.views.edit_profile'), edit_profile_url(@profile) if @profile %> |
       <%- if current_user.user_has_access_to_admin? -%>
         <%= link_to t('home.views.admin'), admin_pages_path %> |
       <%- end -%>

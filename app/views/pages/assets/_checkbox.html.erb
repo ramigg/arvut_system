@@ -1,13 +1,24 @@
-<% question.entries.each_with_index do |e, idx| %>
-  <div>
-    <%= check_box_tag "question_pair_id[value_ids][]", e.id.to_s, answer.values.include?(e) %>
-    <%= builder.label :value, e.label %>
-  </div>
-<% end %>
-<%- if question.other %>
-  <div class="other">
-    <%= builder.check_box :question_pair_id, {}, question.other.id %>
-    <%= builder.label :question_pair_id, question.other.label %>
-    <%= builder.text_area :text_value, :rows => 4  %>
-  </div>
-<%- end %>
+<%- obj_id = "_validCheckbox_#{question.object_id}" -%>
+<span id="<%= obj_id %>">
+  <% question.entries.each_with_index do |e, idx| %>
+    <div>
+      <%= check_box_tag "question_pair_id[value_ids][]", e.id.to_s, answer.values.include?(e) %>
+      <%= builder.label :value, e.label %>
+    </div>
+  <% end %>
+  <%- if question.other %>
+    <div class="other">
+      <%= builder.check_box :question_pair_id, {}, question.other.id %>
+      <%= builder.label :question_pair_id, question.other.label %>
+      <%= builder.text_area :text_value, :rows => 4  %>
+    </div>
+  <%- end %>
+</span>
+<%- content_for :validation_script do
+  <<-JS
+  jQuery('##{obj_id}').validate({
+  expression: "if (isChecked(SelfID)) return true; else return false;",
+  message: "#{I18n.t 'answer.model.select_at_least_one'}"
+  });
+  JS
+end -%>
