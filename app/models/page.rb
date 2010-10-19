@@ -40,7 +40,7 @@ class Page < ActiveRecord::Base
 
   #  *Scopes*
 
-  scope :published, where(:publish_at.lt => Time.now, :status => 'PUBLISHED')
+  scope :published, lambda {where(:publish_at.lt => Time.now, :status => 'PUBLISHED')}
   scope :by_conf_date, lambda {|user_reg_date| where(:publish_at.gt => user_reg_date)}
 
   scope :by_page_type, lambda {|page_type, language_id, user_reg_date|

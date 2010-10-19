@@ -2,7 +2,7 @@ Simulator::Application.configure do
   # Settings specified here will take precedence over those in config/environment.rb
 
   #site prefix
-  config.site_prefix = ''#/internet2'
+  config.site_prefix = request.host == 'localhost' ? '' : '/internet2'
 
   # The production environment is meant for finished, "live" apps.
   # Code is not reloaded between requests

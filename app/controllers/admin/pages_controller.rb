@@ -86,7 +86,7 @@ class Admin::PagesController < ApplicationController
       object.publish_at = Time.zone.now
     else
       object.status = 'DRAFT' # Default value
-      options.publish_at = nil
+      object.publish_at = nil
     end
   end
   
