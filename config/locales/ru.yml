@@ -196,7 +196,19 @@ ru:
       change_password: изменить пароль
       profile: Профиль
       required: обязательные поля
-
+      updated: "Профиль был успешно обновлен"
+  stream:
+    all: "Все посты"
+    all_items: "Все посты"
+    articles: Статьи
+    assignments: Задания
+    events: События
+    home: Главная
+    messages: Сообщения
+    more_items: "Еще посты »"
+    new_items: "Новые посты"
+    posted_ago: "Размещено %{when} назад"
+    read_all: "Читать все »"
   user:
     model:
       gender: Пол
@@ -209,8 +221,104 @@ ru:
       preferred_language: Язык сообщений
       first_name: Имя
       last_name: Фамилия
-
+      avatar: Аватар
+      city: Город
+      contry: Страна
+      remove_avatar: "Удалить Аватар"
+  pages:
+    update: "Страница была успешно обновлена"
   admin:
+    pages:
+      actions: Действия
+      add_answer: "Добавить ответ"
+      add_new: "Добавить новое"
+      add_other: "Добавить другое"
+      all_posts: "Все Посты"
+      are_you_sure: "Вы уверены?"
+      arr_down: "&#9662;"
+      arr_up: "&#9652;"
+      article: Статья
+      as_draft: "Сохранить как черновик"
+      assignment: Задание
+      assignments: Задания
+      audio: Аудио
+      big_banner: "Большой баннер"
+      bottom_side_banner: "Нижняя часть баннера"
+      bulk_action: "Массовое действие"
+      checkbox: Чек-бокс
+      content: Содержание
+      create_new: "Создать Новое"
+      delete: Удалить
+      description: Описание
+      destroy: "Страница была успешно уничтожена"
+      destroy_failure: "Страница НЕ была уничтожена"
+      drafts: Черновики
+      edit: Редактировать
+      embed_string: "Вставить строку"
+      event: Событие
+      events: События
+      featured_settings: "Используемые настройки"
+      filter: Фильтр
+      freetext: "Свободный текст"
+      future_posts: "Будущие посты"
+      help: Помощь
+      image: Изображение
+      is_autoplay: Автовоспроизведение
+      is_bonus: Бонус?
+      is_multiline: "Многострочное поле?"
+      is_sticky: "Прикрепленный пост"
+      is_visible: Видимое
+      items: посты
+      label_from: "Метка из"
+      label_to: "Метка "
+      list: Список
+      logout: выйти
+      message: Сообщение
+      message_body: Сообщение
+      messages: Сообщения
+      metadata: Метаданные
+      metadata_and_content: "Метаданные и Содержание"
+      name: Имя
+      new_article: "Новая статья"
+      new_assignment: "Новое Задание"
+      new_message: "Новое сообщение"
+      other: Другое
+      page_administration: "Администрация Страницы"
+      permissions: Полномочия
+      preview_show: "Показать в режиме предварительного просмотра"
+      publish: Опубликовать
+      publish_at: "Опубликовать в"
+      publish_date: "Дата публикации"
+      published: Опубликовано
+      question: Вопрос
+      radio: Радио
+      remove: Удалить
+      save_and_publish: "Сохранить и Опубликовать"
+      scale: Шкала
+      scale_from: "От числа"
+      scale_to: "До числа"
+      search: Искать
+      select: выбрать
+      set_as_draft: "Определить как черновик"
+      show_on_page: Показать
+      sorting_and_deleting: "Сортировка и Удаление"
+      statistics: Статистика
+      status: Статус
+      success: "Страница была успешно создана"
+      tags: Теги
+      title: Заголовок
+      title_and_description: "Заголовок  & Описание"
+      top_header: "Верхний заголовок"
+      top_side_banner: "Верхняя часть баннера"
+      type: Тип
+      unknown_page: "Неизвестная страница"
+      unknown_type: "Неизвестный вид страницы %{page_type}"
+      update: "Страница была успешно обновлена"
+      updated_at: "Обновлено "
+      url: URL
+      video: Видео
+      video_player: Видеоплейер
+      youtube: YouTube
     user_list:
       create_new_user: Создать члена группы
       create_user_list: Создать члена группы
@@ -224,6 +332,10 @@ ru:
       are_you_sure: Вы уверены?
       select_group: Выберите группу
       please_select_one_of_the_options: Выберите одну из возможностей
+      create: "Пользователь успешно создан в списке"
+      destroy: "Пользователь успешно удален из списка"
+      destroy_failure: "Страница НЕ была уничтожена"
+      update: "Список пользователей успешно обновлен"
     questionnaires:
       create_new_questionnaire: Создать новый вопросник
       created_at: Дата создания

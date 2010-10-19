@@ -44,6 +44,97 @@ es:
     models:
       user: correo-e
   admin:
+    pages:
+      actions: Acciones
+      add_answer: "Añadir respuesta"
+      add_new: "Añadir nuevo"
+      add_other: "Añadir Otros"
+      all_posts: "Todos los mensajes"
+      are_you_sure: "¿Está seguro?"
+      arr_down: "&#9662;"
+      arr_up: "&#9652;"
+      article: Artículo
+      as_draft: "Guardar como borrador"
+      assignment: Asignación
+      assignments: Asignaciones
+      audio: Audio
+      big_banner: "Gran Banner"
+      bottom_side_banner: "Banner lateral inferior"
+      bulk_action: "Acción en bloque"
+      checkbox: "Casilla de verificación"
+      content: Contenido
+      create_new: "Crear nuevo"
+      delete: Eliminar
+      description: Descripción
+      destroy: "La página fue eliminada con éxito"
+      destroy_failure: "La página NO fue eliminada"
+      drafts: Borradores
+      edit: Editar
+      embed_string: "Cadena para incrustar"
+      event: Evento
+      events: Eventos
+      featured_settings: "Configuración destacados"
+      filter: Filtro
+      freetext: "Texto libre"
+      future_posts: "Mensajes futuro"
+      help: Ayuda
+      image: Imagen
+      is_autoplay: "Reproducción automática"
+      is_bonus: "¿Es bono?"
+      is_multiline: "¿Es multilínea?"
+      is_sticky: "Anexo del artículo"
+      is_visible: Visible
+      items: artículos
+      label_from: "Desde la etiqueta"
+      label_to: "Para la etiqueta"
+      list: Lista
+      logout: "cierar de sesión"
+      message: Mensaje
+      message_body: Mensaje
+      messages: Mensajes
+      metadata: Metadata
+      metadata_and_content: "Metadata y contenido"
+      name: Nombre
+      new_article: "Nuevo artículo"
+      new_assignment: "Nueva asignación"
+      new_message: "Nuevo mensaje"
+      other: Otros
+      page_administration: "Página de administración"
+      permissions: Permisos
+      preview_show: "Mostrar en la vista previa"
+      publish: Publicar
+      publish_at: "Publicar en"
+      publish_date: "Fecha de publicación"
+      published: Publicado
+      question: Pregunta
+      radio: "Radio "
+      remove: Quitar
+      save_and_publish: "Guardar y publicar"
+      scale: Escala
+      scale_from: "Escala de"
+      scale_to: "Escala de"
+      search: Búsqueda
+      select: seleccione
+      set_as_draft: "Establecer como proyecto "
+      show_on_page: Mostrar
+      sorting_and_deleting: "Clasificación & Eliminación "
+      statistics: Estadísticas
+      status: Condiciones
+      success: "La página fue creada con éxito"
+      tags: Etiquetas
+      title: Título
+      title_and_description: "Título y Descripción"
+      top_header: "Comienzo de la página de cabecera"
+      top_side_banner: "Banner lateral superior"
+      type: Tipo
+      unknown_page: "Página desconocida"
+      unknown_type: "Tipo desconocido de la página %{page_type}"
+      update: "La página fue actualizada correctamente"
+      updated_at: "Actualizado a las"
+      url: URL
+      video: Video
+      video_player: "Reproductor de vídeo"
+      youtube: YouTube
     questionnaires:
       add: Add
       add_answer: "Add Answer"
@@ -126,6 +217,12 @@ es:
       please_select_one_of_the_options: "Please select one of the options"
       select_group: "Select Group"
       update_user_list: "Update User List"
+      create: "El usuario se ha creado correctamente en la lista"
+      destroy: "Destruyó con éxito la lista de usuarios"
+      destroy_failure: "La página NO fue destruida"
+      update: "Actualizada correctamente la lista de usuarios"
+  pages:
+    update: "La página fue actualizada correctamente"
   answer:
     model:
       answer_too_short: "Tu respuesta es demasiado corta. La longitud mínima de la respuesta es de 10 caracteres."
@@ -237,6 +334,18 @@ es:
       click_above_link_to_answer: "Haz clic sobre el enlace para contestarlo"
       hi: Hola
       you_got_new_questionnaire: "Tienes un nuevo cuestionario"
+  stream:
+    all: "Todos "
+    all_items: "Todos los artículos"
+    articles: Artículos
+    assignments: Asignaciones
+    events: Eventos
+    home: Inicio
+    messages: Mensajes
+    more_items: "Más artículos »"
+    new_items: "Nuevos productos"
+    posted_ago: "Publicado %{when} hace "
+    read_all: "Leer todos »"
   profile:
     views:
       change_password: "cambiar contraseña"
@@ -245,6 +354,7 @@ es:
       please_update_profile: "por favor actualiza tu perfil"
       profile: perfil
       required: "campo requerido"
+      updated: "El perfil se ha actualizado correctamente"
   questionnaire_answer:
     controller:
       already_answered: "Ya has contestado este cuestionario"
@@ -266,6 +376,10 @@ es:
       preferred_language: "Idioma de preferencia"
       receive_notifications: "¿Quieres recibir notificaciones en tu dirección electrónica?"
       yes_answer: Sí
+      avatar: Avatar
+      city: Ciudad
+      contry: País
+      remove_avatar: "Remover Avatar"
   views:
     back: Volver
     cancel: Cancelar
