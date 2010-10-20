@@ -1,14 +1,11 @@
 <fieldset>
   <legend><%= t("admin.pages.save_and_publish") %></legend>
-  <p>Publish at:
+  <p><%= f.submit t("admin.pages.publish_at"), :name => 'PUBLISH_AT' %>
     <%= f.text_field :publish_at, :class => 'datepicker span-3' %>
   </p>
   <p>
     <%= f.submit t("admin.pages.as_draft"), :name => 'DRAFT' %>
-    <%= link_to t('views.cancel'), admin_pages_url %>
-  </p>
-  <p>
-    <%= f.submit t("admin.pages.publish_at"), :name => 'PUBLISH_AT' %>
     <%= f.submit t("admin.pages.publish"), :name => 'PUBLISH' %>
+    <%= link_to t('views.cancel'), admin_pages_url %>
   </p>
 </fieldset>
