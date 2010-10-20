@@ -106,6 +106,7 @@ de:
       publish_at: "Veröffentlichen am"
       publish_date: "Erstellt am"
       published: Veröffentlicht
+      preview: Vorschau
       question: Frage
       radio: Radio
       remove: Entfernen
@@ -114,9 +115,10 @@ de:
       scale_from: "Skala von"
       scale_to: maßstabgerecht
       search: Suche
+      select_language: Wählen Sie Sprache
       select: auswählen
       set_as_draft: "Als Entwurf erstellen"
-      show_on_page: Zeige
+      show_on_page: Zeige %{count} Elemente
       sorting_and_deleting: "Filtern und Löschen"
       statistics: Statistik
       status: Status

@@ -286,6 +286,7 @@ ru:
       page_administration: "Администрация Страницы"
       permissions: Полномочия
       preview_show: "Показать в режиме предварительного просмотра"
+      preview: Просмотр
       publish: Опубликовать
       publish_at: "Опубликовать в"
       publish_date: "Дата публикации"
@@ -299,8 +300,9 @@ ru:
       scale_to: "До числа"
       search: Искать
       select: выбрать
+      select_language: Выбрать язык
       set_as_draft: "Определить как черновик"
-      show_on_page: Показать
+      show_on_page: Показать %{count} постов
       sorting_and_deleting: "Сортировка и Удаление"
       statistics: Статистика
       status: Статус

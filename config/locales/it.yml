@@ -102,6 +102,7 @@ it:
       page_administration: "Pagina dell'Amministratore"
       permissions: Permessi
       preview_show: "Mostra in anteprima"
+      preview: "Anteprima"
       publish: Pubblica
       publish_at: "Pubblica al"
       publish_date: "Data di pubblicazione"
@@ -115,8 +116,9 @@ it:
       scale_to: "Scala a:"
       search: Cerca
       select: Seleziona
+      select_language: Select Language
       set_as_draft: "Imposta come progetto"
-      show_on_page: Mostra
+      show_on_page: Mostra %{count} Articoli
       sorting_and_deleting: "Ordina e Cancella"
       statistics: Statistiche
       status: Stato

@@ -402,6 +402,7 @@ he:
       metadata_and_content: "מידע ותוכן"
       sorting_and_deleting: "מיון ומחיקה"
       save_and_publish: "שמור ופרסם"
+      select_language: בחר שפה
       as_draft: "שמור כטיוטה"
       publish_at: "פרסום עתידי"
       publish: "פרסם"
@@ -422,6 +423,7 @@ he:
       edit: "ערוך"
       delete: "מחק"
       permissions: "הרשאות"
+      preview: תצוגה מקדימה
       tags: "תגיות"
       video_player: "נגן וידיאו"
       image: "תמונה"
@@ -430,7 +432,7 @@ he:
       statistics: "סטטיסטיקה"
       help: "עזרה"
       logout: "יציאה"
-      create_new: "יצר חדש"
+      create_new: "צור חדש"
       search: "חיפוש"
       status: "סטטוס"
       all_posts: "כל הפוסטים"
@@ -444,7 +446,7 @@ he:
       filter: "פילטר"
       bulk_action: "פעולה גורפת"
       set_as_draft: "הפוך לטיוטה"
-      show_on_page: "הצג"
+      show_on_page: הצג %{count} פוסטים
       items: "פוסטים"
       arr_up: "&#9652;"
       arr_down: "&#9662;"

@@ -1,17 +1,17 @@
 <tr <%= even ? 'class="even"'.html_safe : ''%>>
   <td><input type="checkbox" name="selectall" value="<%= t("admin.pages.select") %>" /></td>
-  <td><%= page.status %> 
+  <td><%= page.status %>
     <%- if current_user.is_admin? -%>
-      <div class="small">(<%= page.language.locale %>, <%= page.author.first_name %> <%= page.author.last_name %>)</div>
+      <div class="small no-margin-padding">(<%= page.language.locale %>, <%= page.author.first_name %> <%= page.author.last_name %>)</div>
     <%- end -%>
   </td>
-  <td><%= page.title.mb_chars[0..53] %><%= raw '<b>...</b>' if page.title.mb_chars.length > 53 %></td>
-  <td><%= page.page_type %> </td>
+  <td class="large"><%= page.title.mb_chars[0..53] %><%= raw '<b>...</b>' if page.title.mb_chars.length > 53 %></td>
+  <td class="large"><%= page.page_type %> </td>
   <td><%= l page.updated_at, :format => :timestamp %> </td>
   <td><%= page.publish_at ? l(page.publish_at, :format => :timestamp) : '' %> </td>
-  <td>
+  <td class="large">
     <%= link_to t("admin.pages.edit"), edit_admin_page_path(page) %>
     <%= link_to t("admin.pages.preview"), page_url(page), :class => 'in-iframe', :title => page.title %>
   </td>
-  <td><%= link_to t("admin.pages.delete"), admin_page_path(page), :confirm => t('admin.pages.are_you_sure'), :method => :delete %> </td>
+  <td class="large"><%= link_to t("admin.pages.delete"), admin_page_path(page), :confirm => t('admin.pages.are_you_sure'), :method => :delete %> </td>
 </tr>

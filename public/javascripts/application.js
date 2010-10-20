@@ -93,6 +93,13 @@ function change_language(){
     location = href;
 }
 
+function new_item(){
+    var idx = $('#new-item').get(0).selectedIndex;
+    var href = $('#new-item').get(0).options[idx].value;
+
+    location = href;
+}
+
 $(function () {
     var toggleLoading = function(){
         $(this).toggleClass('throbber');

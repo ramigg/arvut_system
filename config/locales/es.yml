@@ -102,6 +102,7 @@ es:
       page_administration: "Página de administración"
       permissions: Permisos
       preview_show: "Mostrar en la vista previa"
+      preview: "La vista previa"
       publish: Publicar
       publish_at: "Publicar en"
       publish_date: "Fecha de publicación"
@@ -115,8 +116,9 @@ es:
       scale_to: "Escala de"
       search: Búsqueda
       select: seleccione
+      select_language: Seleccione Idioma
       set_as_draft: "Establecer como proyecto "
-      show_on_page: Mostrar
+      show_on_page: Mostrar %{count} artículos
       sorting_and_deleting: "Clasificación & Eliminación "
       statistics: Estadísticas
       status: Condiciones

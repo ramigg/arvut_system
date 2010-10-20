@@ -453,7 +453,7 @@ en:
       filter: Filter
       bulk_action: Bulk Action
       set_as_draft: Set as Draft
-      show_on_page: Show
+      show_on_page: Show %{count} items
       items: items
       arr_up: &#9652;
       arr_down: &#9662;
@@ -471,4 +471,5 @@ en:
       is_multiline: Is multiline?
       unknown_page: Unknown Page
       preview: Preview
+      select_language: Select Language
 
