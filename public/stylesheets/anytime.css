@@ -102,8 +102,8 @@ div.AnyTime-win
 
 .AnyTime-pkr .AnyTime-hdr
 {
-  background-color:#D0D0D1;
-  color:#606062;
+  background-color:#2379AA;
+  color:white;
   font-family:Arial,Helvetica,sans-serif;
   font-size:medium;
   font-weight:normal;
@@ -125,8 +125,8 @@ div.AnyTime-win
 .AnyTime-pkr .AnyTime-x-btn
 {
   background-color:#FCFCFF;
-  border:1px solid #F99;
-  color:#FF9F9F;
+  border:1px solid #333;
+  color:#333;
   cursor:default;
   float:right;
   margin:0.3em;
@@ -739,7 +739,7 @@ div.AnyTime-win
 {
   border:1px solid #333334;
   background-color:#C0C0C1;
-  color:#FCFCFE;
+  color:black;
   font-weight:bold;
 }
 

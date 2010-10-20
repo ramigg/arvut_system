@@ -76,7 +76,7 @@ function remove_asset($obj)
         $('#destroyed_container').append($item);
         $('#destroyed_container li:last .destroy').val(true);
     }
-    $('#container_body li').eq(index).remove();
+    $('#container_body>li').eq(index).remove();
     $('.sortlist li').eq(index).remove();
 
     // Renumerate positions
@@ -117,6 +117,16 @@ function change_language(){
     if (href == '-1')
         return false;
     
+    location = href;
+}
+
+function new_item(){
+    var idx = $('#new-items').get(0).selectedIndex;
+    var href = $('#new-items').get(0).options[idx].value;
+
+    if (href == '-1')
+        return false;
+
     location = href;
 }
 
