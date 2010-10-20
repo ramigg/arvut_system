@@ -25,4 +25,17 @@ class ProfilesController < ApplicationController
     respond_with(@profile, :location => edit_profile_path(@profile))
   end
 
+  def region_ids
+    regions = Region.options_for_select(params[:id])
+    regions = [['All country', -1]] if regions.empty?
+    
+    render :json => regions
+  end
+
+  def location_ids
+    locations = Location.options_for_select(params[:country_id], params[:region_id])
+    locations = [['All country', -1]] if locations.empty?
+
+    render :json => locations
+  end
 end

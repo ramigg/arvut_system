@@ -56,10 +56,11 @@ Simulator::Application.routes.draw do
     match 'login_help', :to => 'home#login_help', :as => 'login_help'
     
     resources :questionnaire_answers
+    
+    get 'region_ids/:region_id', :to => 'profiles#region_ids', :format => :js
+    get 'location_ids/:country_id/:region_id', :to => 'profiles#location_ids', :format => :js
     resources :profiles do
       post ':id/edit', :to => :edit, :on => :collection, :format => :js, :as => :post_edit
-
-      get :autocomplete_location_city, :on => :collection
     end
     resources :statistics
 

@@ -22,8 +22,9 @@ class User < ActiveRecord::Base
   belongs_to :user_list
 
   belongs_to :country
+  belongs_to :region
   belongs_to :location
-  validates :location, :presence => true, :user_location => true
+  validates :location, :presence => true
 
   has_many :pages
 

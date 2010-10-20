@@ -57,19 +57,36 @@
     <li>
       <span id="country">
         <%= f.label :country_id, t('user.model.country') %>
-        <%= id = @profile.country ? @profile.country.id : 0
+        <%=
+        country_id = @profile.country.id if @profile.country
         f.select :country_id,
-          options_for_select(Country.options_for_select, id),
+          options_for_select(Country.options_for_select, country_id),
           {:include_blank => 'Please select'} %>
+      </span>
+    </li>
+    <li>
+      <span id="region">
+        <%= f.label :region_id, t('user.model.region') %>
+        <%=
+        country_id = @profile.country.id if @profile.country
+        region_id = @profile.region.id if @profile.region
+        disabled = country_id == 0
+        f.select :region_id,
+          options_for_select(Region.options_for_select(country_id), region_id),
+          {:include_blank => 'Please select'}, :disabled => disabled %>
       </span>
     </li>
     <li>
       <span id="city">
         <%= f.label :location_id, t('user.model.city') %>
-        <%= loc = @profile.location ? @profile.location.city : ' '
-        text_field_tag :user_location, loc, :disabled => true,
-          :autocomplete => autocomplete_location_city_profiles_path
-      %>
+        <%= 
+        country_id = @profile.country.id if @profile.country
+        region_id = @profile.region.id if @profile.region
+        disabled = region_id == 0
+        location_id = @profile.location.city.id if @profile.location
+        f.select :location_id,
+          options_for_select(Location.options_for_select(country_id, region_id), location_id),
+          {:include_blank => 'Please select'}, :disabled => true %>
         <input type="hidden" value="<%= @profile.location_id %>" name="user[location_id]" id="user_location_id"/>
       </span>
     </li>
@@ -90,22 +107,12 @@
 <%- end -%>
 <%= javascript_tag <<-JS
 $(function (){
-$('#user_country_id').change(function(){
-enable_city(this);
-});
-if ($('#user_country_id').val() != ''){ // It may be already selected
-enable_city($('#user_country_id'), false);
-}
 
 jQuery('#first_name').validate({
 expression: "if (VAL != '') return true; else return false;",
 message: "#{I18n.t 'answer.model.write_an_answer'}"
 });
 jQuery('#last_name').validate({
-expression: "if (VAL != '') return true; else return false;",
-message: "#{I18n.t 'answer.model.write_an_answer'}"
-});
-jQuery('#city').validate({
 expression: "if (VAL != '') return true; else return false;",
 message: "#{I18n.t 'answer.model.write_an_answer'}"
 });
@@ -118,6 +125,14 @@ expression: "if (VAL != '') return true; else return false;",
 message: "#{I18n.t 'answer.model.select_one_option'}"
 });
 jQuery('#country').validate({
+expression: "if (VAL != '') return true; else return false;",
+message: "#{I18n.t 'answer.model.select_one_option'}"
+});
+jQuery('#region').validate({
+expression: "if (VAL != '') return true; else return false;",
+message: "#{I18n.t 'answer.model.select_one_option'}"
+});
+jQuery('#city').validate({
 expression: "if (VAL != '') return true; else return false;",
 message: "#{I18n.t 'answer.model.select_one_option'}"
 });

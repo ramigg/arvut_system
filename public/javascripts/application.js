@@ -59,31 +59,71 @@ function add_fields(link, association, content, hide_onclick) {
     }
 }
 
-// Profile: enable city only if country is selected
-var country_id = '';
-$(function (){
-    $('#user_country_id').change(function(){
-        enable_city(this);
+$(document).ready(function(){
+    var def_row = "<option value=\"" + "" + "\">" + "Please select" + "</option>";
+    $("select#user_country_id").change(function(){
+        var id_value_string = $(this).val();
+        $("select#user_region_id").attr('disabled', 'disabled');
+        $("select#user_region_id option").remove();
+        $(def_row).appendTo("select#user_region_id");
+        $("select#user_location_id").attr('disabled', 'disabled');
+        $("select#user_location_id option").remove();
+        $(def_row).appendTo("select#user_location_id");
+        if (id_value_string == "") {
+            // if the id is empty remove all the sub_selection options from being selectable and do not do any ajax
+            return;
+        } else {
+            // Send the request and update sub category dropdown
+            $.ajax({
+                dataType: "json",
+                cache: false,
+                url: '/en/region_ids/' + id_value_string,
+                timeout: 4000,
+                error: function(XMLHttpRequest, errorTextStatus, error){
+                    alert("Failed to submit : " + errorTextStatus+" ;" + error);
+                },
+                success: function(data){
+                    // Fill sub category select
+                    $.each(data, function(i, j){
+                        var row = "<option value=\"" + j[1] + "\">" + j[0] + "</option>";
+                        $(row).appendTo("select#user_region_id");
+                        $("select#user_region_id").removeAttr('disabled');
+                    });
+                }
+            });
+        }
     });
-    if ($('#user_country_id').val() != ''){ // It may be already selected
-        enable_city($('#user_country_id'), false);
-    }
+    $("select#user_region_id").change(function(){
+        var id_value_string = $(this).val();
+        $("select#user_location_id").attr('disabled', 'disabled');
+        $("select#user_location_id option").remove();
+        $(def_row).appendTo("select#user_location_id");
+        if (id_value_string == "") {
+            // if the id is empty remove all the sub_selection options from being selectable and do not do any ajax
+            return;
+        } else {
+            // Send the request and update sub category dropdown
+            var country_id =  $("select#user_country_id").val();
+            $.ajax({
+                dataType: "json",
+                cache: false,
+                url: '/en/location_ids/' + country_id + '/' + id_value_string,
+                timeout: 4000,
+                error: function(XMLHttpRequest, errorTextStatus, error){
+                    alert("Failed to submit : " + errorTextStatus+" ;" + error);
+                },
+                success: function(data){
+                    // Fill sub category select
+                    $.each(data, function(i, j){
+                        var row = "<option value=\"" + j[1] + "\">" + j[0] + "</option>";
+                        $(row).appendTo("select#user_location_id");
+                        $("select#user_location_id").removeAttr('disabled');
+                    });
+                }
+            });
+        }
+    });
 });
-function enable_city(obj, clean){
-    if (clean == 'undef') {
-        clean = true;
-    }
-    if ($(obj).val() != '') {
-        $('#user_location').removeAttr('disabled');
-        country_id = $(obj).val();
-    } else {
-        $('#user_location').attr('disabled', 'disabled');
-    }
-    if (clean) {
-        $('#user_location').val('');
-        $('#user_location_id').val('');
-    }
-}
 
 //
 function change_language(){
