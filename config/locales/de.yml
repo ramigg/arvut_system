@@ -380,7 +380,7 @@ de:
       yes_answer: Ja
       avatar: Avatar
       city: Stadt
-      contry: Land
+      country: Land
       remove_avatar: "Avatar entfernen"
   views:
     back: Zurück

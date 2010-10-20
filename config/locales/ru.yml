@@ -223,7 +223,7 @@ ru:
       last_name: Фамилия
       avatar: Аватар
       city: Город
-      contry: Страна
+      country: Страна
       remove_avatar: "Удалить Аватар"
   pages:
     update: "Страница была успешно обновлена"

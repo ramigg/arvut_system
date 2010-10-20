@@ -207,7 +207,7 @@ en:
       last_name: Last name
       avatar: Avatar
       remove_avatar: Remove Avatar
-      contry: Country
+      country: Country
       city: City
 
   admin:
