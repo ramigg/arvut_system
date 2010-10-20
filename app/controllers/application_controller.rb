@@ -5,19 +5,13 @@ class ApplicationController < ActionController::Base
 
   respond_to :html, :js
 
-  before_filter :set_default_locale, :authenticate_user!
-  after_filter :reset_default_locale
+  before_filter :set_locale, :authenticate_user!
   protect_from_forgery
   layout 'application'
   helper :layout
   
-  def set_default_locale
-    @default_locale = I18n.default_locale
-    I18n.default_locale = I18n.locale = @locale = params[:locale]
-  end
-
-  def reset_default_locale
-    I18n.default_locale = @default_locale
+  def set_locale
+    I18n.locale = @locale = params[:locale]
   end
 
   # For any url_for (except devise)
