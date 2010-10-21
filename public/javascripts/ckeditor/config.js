@@ -52,6 +52,7 @@ CKEDITOR.editorConfig = function( config )
     ];
 
     config.stylesCombo_stylesSet = 'my_styles';
+    config.PreserveSessionOnFileBrowser = true;
 //TODO: Change this param so ckeditor stylesheet will work
     config.contentsCss = '/simulator/stylesheets/main.css';
     config.resize_enabled = false;
