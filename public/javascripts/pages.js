@@ -72,9 +72,11 @@ function remove_asset($obj)
     var is_new = $x.find('.new').val();
 
     if (!is_new) {
-        var $item = $('#container_body li').eq(index).clone();
+        // In order to really destroy element we have to mark it as destroyed
+        // Let's clone it, move to the special container and mark as destroyed
+        var $item = $('#container_body>li').eq(index).clone();
         $('#destroyed_container').append($item);
-        $('#destroyed_container li:last .destroy').val(true);
+        $item.find('.destroy').attr('value', true);
     }
     $('#container_body>li').eq(index).remove();
     $('.sortlist li').eq(index).remove();
@@ -96,7 +98,7 @@ function add_fields(link, association, content, hide_onclick) {
     if(hide_onclick){
         $(link).hide();
     }
-};
+}
 
 // Used in Questionnaire editor
 function remove_fields(link, is_new_record) {
@@ -108,7 +110,7 @@ function remove_fields(link, is_new_record) {
         $(link).prev("input[type=hidden]").val("1");
         $(link).closest(".fields").hide();
     }
-};
+}
 
 function change_language(){
     var idx = $('#languages').get(0).selectedIndex;
@@ -118,6 +120,7 @@ function change_language(){
         return false;
     
     location = href;
+    return false;
 }
 
 function new_item(){
@@ -128,6 +131,7 @@ function new_item(){
         return false;
 
     location = href;
+    return false;
 }
 
 $(function () {
@@ -154,7 +158,7 @@ $(function () {
             colorbox_iframe(this, '80%', false, '80%');
             return false;
         });
-    };
+    }
 });
 function colorbox_iframe(obj, width, height, innerHeight)
 {
