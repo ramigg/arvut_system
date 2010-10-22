@@ -115,40 +115,29 @@
 	}
 	.profile_editor{
 		background:@color-profile-background;
+		.rounded-corners;
 		padding: 15px;
-		img{
-			display:block;
-			.float_left;
-			margin: 0 0 10px;
-		}
-		.avatar-div{
-			.float_left;
-			margin: 0 0 0 200px;
-			input{
-				width: 20px;
+		dl{
+			line-height: 2em;
+			dt{
+				.float_left;
+				width:200px;
 				clear:both;
+				display:block;
+			}
+			dd{
+				width: 300px;
+				.float_left;
+				p{
+					line-height:1.3em;
+				}
 			}
 		}
-		ul label,
-		ul input, ul select{
-			display:block;
-			.float_left;
-			width: 200px;
+		.ValidationErrors{
+			top:-0.1em;
 		}
-		ul select{
-			width: 205px;
-		}
-		li{
-			padding: 10px 0;
-			clear:both;
-			width:100%;
-			position: relative;
-			.ValidationErrors{
-				top:-0.1em;
-			}
-			.ErrorField{
-				padding: 0;
-			}
+		.ErrorField{
+			padding: 0;
 		}
 		hr.separator{
 			margin: 20px 0;

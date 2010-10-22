@@ -59,7 +59,7 @@ Simulator::Application.routes.draw do
     resources :questionnaire_answers
     
     get 'region_ids/:region_id', :to => 'profiles#region_ids', :format => :js
-    get 'location_ids/:country_id/:region_id', :to => 'profiles#location_ids', :format => :js
+    get 'location_ids/:country_id/:location_id', :to => 'profiles#location_ids', :format => :js
     resources :profiles
 
     resources :statistics

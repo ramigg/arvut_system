@@ -1,108 +1,92 @@
+<div class="content-submenu"></div>
 <%= form_for @profile, :url => profile_path(@profile), :html => { :multipart => true, :class => 'profile_editor' }, :remote => false do |f| %>
-  <ul>
-    <li>
-      <span id="error_messages">
-        <%= f.error_messages :class => 'error', :header_message => nil, :message => nil, :header_tag => :p %>
-      </span>
-    </li>
-    <li>
-      <div id="first_name">
-        <%= f.label :first_name, t('user.model.first_name') %>
-        <%= f.text_field :first_name, :class => '' %>
-      </div>
-    </li>
-    <li>
-      <span id="last_name">
-        <%= f.label :last_name, t('user.model.last_name') %>
-        <%= f.text_field :last_name, :class => '' %>
-      </span>
-    </li>
-    <li>
-      <label for='user_gender_female'><%= t('user.model.gender') %></label>
+  <dl>
+    <span id="error_messages">
+      <%= f.error_messages :class => 'error', :header_message => nil, :message => nil, :header_tag => :p %>
+    </span>
+  </dl>
+  <dl>
+    <dt><%= f.label :first_name, t('user.model.first_name') %></dt>
+    <dd id="first_name"><%= f.text_field :first_name %></dd>
+    <dt><%= f.label :last_name, t('user.model.last_name') %></dt>
+    <dd id="last_name"><%= f.text_field :last_name %></dd>
+    <dt><label for='user_gender_female'><%= t('user.model.gender') %></label></dt>
+    <dd>
       <%= f.select :gender,
         options_for_select([
           [t('user.model.female'), 'female'],
           [t('user.model.male'), 'male'],
         ], @profile.gender) %>
-    </li>
-    <li>
-      <span id="birthday">
-        <label for='user_birthday'><%= t('user.model.birthday') %></label>
-        <%= f.select :birthday,
-          options_for_select((1900..Time.now.year).to_a.reverse, @profile.birthday || '1980'),
-          {:include_blank => 'select'} %>
-      </span>
-    </li>
-    <li>
-      <span id="language">
-        <%= f.label :language_id, t('user.model.preferred_language') %>
-        <%= f.select :language_id,
-          options_for_select(Language.options_for_select, @profile.language_id),
-          {:include_blank => 'select'} %>
-      </span>
-    </li>
-    <li>
-      <%= f.label :avatar, t('user.model.avatar') %>
+    </dd>
+    <dt><label for='user_birthday'><%= t('user.model.birthday') %></label></dt>
+    <dd id="birthday">
+      <%= f.select :birthday,
+        options_for_select((1900..Time.now.year).to_a.reverse, @profile.birthday || '1980'),
+        {:include_blank => 'select'} %>
+    </dd>
+    <dt><%= f.label :language_id, t('user.model.preferred_language') %></dt>
+    <dd id="language">
+      <%= f.select :language_id,
+        options_for_select(Language.options_for_select, @profile.language_id),
+        {:include_blank => 'select'} %>
+    </dd>
+    <dt><%= f.label :avatar, t('user.model.avatar') %></dt>
+    <dd></dd>
+    <dt>
       <%- unless @profile.new_record? || !@profile.avatar %>
         <%= image_tag @profile.avatar.url(:original), :alt => 'Avatar', :title => 'Current avatar' %>
-        <div class="avatar-div">
-          <%= f.file_field :avatar %><br/>
-          <%= f.check_box :delete_avatar %>
-          <%= f.label :delete_avatar, t('user.model.remove_avatar') %>
-        </div>
       <%- else -%>
         <%= f.file_field :avatar %>
       <%- end -%>
-    </li>
-    <li>
-      <span id="country">
-        <%= f.label :country_id, t('user.model.country') %>
-        <%=
-        country_id = @profile.country.id if @profile.country
-        f.select :country_id,
-          options_for_select(Country.options_for_select, country_id),
-          {:include_blank => 'Please select'} %>
-      </span>
-    </li>
-    <li>
-      <span id="region">
-        <%= f.label :region_id, t('user.model.region') %>
-        <%=
-        country_id = @profile.country.id if @profile.country
-        region_id = @profile.region.id if @profile.region
-        disabled = country_id == 0
-        f.select :region_id,
-          options_for_select(Region.options_for_select(country_id), region_id),
-          {:include_blank => 'Please select'}, :disabled => disabled %>
-      </span>
-    </li>
-    <li>
-      <span id="city">
-        <%= f.label :location_id, t('user.model.city') %>
-        <%= 
-        country_id = @profile.country.id if @profile.country
-        region_id = @profile.region.id if @profile.region
-        disabled = region_id == 0
-        location_id = @profile.location.city.id if @profile.location
-        f.select :location_id,
-          options_for_select(Location.options_for_select(country_id, region_id), location_id),
-          {:include_blank => 'Please select'}, :disabled => true %>
-        <input type="hidden" value="<%= @profile.location_id %>" name="user[location_id]" id="user_location_id"/>
-      </span>
-    </li>
-    <li>
-      <label><%= t('user.model.receive_notifications') %></label>
-      <%= f.select :notifybyemail,
+    </dt>
+    <dd>
+        <%= f.file_field :avatar %><br/>
+        <%= f.check_box :delete_avatar %>
+        <%= f.label :delete_avatar, t('user.model.remove_avatar') %><br/>
+        <p class="note">You can upload a JPG, GIF, or PNG file. (Do not upload pictures containing celebrities, nudity, artwork or copyrighted images.)</p>
+    </dd>
+    <dt><%= f.label :country_id, t('user.model.country') %></dt>
+    <dd id="country">
+      <%=
+      country_id = @profile.country.id if @profile.country
+      f.select :country_id,
+        options_for_select(Country.options_for_select, country_id),
+        {:include_blank => 'Please select'} %>
+    </dd>
+    <dt><%= f.label :region_id, t('user.model.region') %></dt>
+    <dd id="region">
+      <%=
+      country_id = @profile.country.id if @profile.country
+      region_id = @profile.region.id if @profile.region
+      disabled = country_id == 0
+      f.select :region_id,
+        options_for_select(Region.options_for_select(country_id), region_id),
+        {:include_blank => 'Please select'}, :disabled => disabled %>
+    </dd>
+    <dt><%= f.label :location_id, t('user.model.city') %></dt>
+    <dd id="city">
+      <%=
+      country_id = @profile.country.id if @profile.country
+      region_id = @profile.region.id if @profile.region
+      disabled = region_id == 0
+      location_id = @profile.location.city.id if @profile.location
+      f.select :location_id,
+        options_for_select(Location.options_for_select(country_id, region_id), location_id),
+        {:include_blank => 'Please select'}, :disabled => true %>
+      <input type="hidden" value="<%= @profile.location_id %>" name="user[location_id]" id="user_location_id"/>
+    </dd>
+    <dt><label><%= t('user.model.receive_notifications') %></label></dt>
+    <dd><%= f.select :notifybyemail,
         options_for_select([
           [t('user.model.yes_answer'), 'no'],
           [t('user.model.no_answer'), 'yes'],
         ], @profile.notifybyemail) %>
-    </li>
-  </ul>
+    </dd>
+  </dl>
   <hr class="separator"/>
   <div class="clear">
-    <%= f.submit t('views.submit'), :class => 'button-middle-main' %>
-    <%= link_to t('views.cancel'), stream_url(:stream_filter => :all), :class => 'button-middle-cancel' %>
+    <%= f.submit t('views.submit'), :class => 'button-small-main' %>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <%= link_to t('views.cancel'), stream_url(:stream_filter => :all), :class => 'button-small-cancel' %>
   </div>
 <%- end -%>
 <%= javascript_tag <<-JS
