@@ -22,10 +22,14 @@ Simulator::Application.routes.draw do
   get "groups/index"
   get "groups/create"
 
+  match '/' => "redirector#to_login"
+
+  match 'ckeditor/images', :to => 'ckeditor#images'
+  match 'ckeditor/files',  :to => 'ckeditor#files'
+  match 'ckeditor/create/:kind', :to => 'ckeditor#create'
+
   langs = Language.all.map{|e|e.locale} rescue []
   pattern = langs.join('|')
-
-  match '/' => "redirector#to_login"
 
   # Redirect to /<locale>/users/login if only /<locale> was supplied and user is not logged in
   constraints(CheckNotLoggedIn) do
@@ -40,9 +44,6 @@ Simulator::Application.routes.draw do
   end
 
   scope '/(:locale)', :constraints => {:locale => /#{pattern}/} do
-    match 'ckeditor/images', :to => 'ckeditor#images'
-    match 'ckeditor/files',  :to => 'ckeditor#files'
-    match 'ckeditor/create/:kind', :to => 'ckeditor#create'
 
     root :to => 'redirector#to_home'
     match 'dashboard', :to => 'home#dashboard', :as => 'dashboard'
