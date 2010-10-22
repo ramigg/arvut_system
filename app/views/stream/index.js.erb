@@ -1,5 +1,5 @@
 <%- if @skip_pages == StreamController::ITEMS_PER_PAGE -%>
-  $(".column-content").html("<%= escape_javascript(render('page_stream'))%>");
+  $(".column-content").html("<%= escape_javascript(render('page_stream_layout'))%>");
 <%- else -%>
-  $(".more_items").replaceWith("<%= escape_javascript(render('page_substream'))%>");
+  $(".more_items").replaceWith("<%= escape_javascript(render('page_stream'))%>");
 <%- end -%>

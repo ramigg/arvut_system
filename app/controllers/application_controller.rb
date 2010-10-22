@@ -9,6 +9,14 @@ class ApplicationController < ActionController::Base
   protect_from_forgery
   layout 'application'
   helper :layout
+
+  # Include widgets
+  include Apotomo::Rails::ControllerMethods
+    has_widgets do |root|
+      root << widget(:blog_widget, 'blog', :display)
+      root << widget(:profile_widget, 'profile', :display, :user => current_user)
+      root << widget('tags/container', 'tags', :container)
+    end
   
   def set_locale
     I18n.locale = @locale = params[:locale]

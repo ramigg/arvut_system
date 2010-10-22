@@ -59,9 +59,8 @@ Simulator::Application.routes.draw do
     
     get 'region_ids/:region_id', :to => 'profiles#region_ids', :format => :js
     get 'location_ids/:country_id/:region_id', :to => 'profiles#location_ids', :format => :js
-    resources :profiles do
-      post ':id/edit', :to => :edit, :on => :collection, :format => :js, :as => :post_edit
-    end
+    resources :profiles
+
     resources :statistics
 
     match 'stream/all', :to => 'stream#index',:stream_filter => 'all', :as => 'home'

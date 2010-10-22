@@ -72,3 +72,7 @@ gem 'google_visualization'
 gem 'feedtools'
 gem 'will_paginate', '~> 3.0.pre2'
 gem 'acts-as-taggable-on', :git => 'http://github.com/Bnei-Baruch/acts-as-taggable-on.git', :branch => 'master'
+
+# Cells/Apotomo
+# gem 'apotomo', '~>1.0.0', :require => 'apotomo'
+gem 'apotomo', :git => "git://github.com/apotonick/apotomo.git", :tag => "v1.0.0.beta2"

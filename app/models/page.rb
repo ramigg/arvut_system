@@ -72,7 +72,10 @@ class Page < ActiveRecord::Base
   def has_questions?
     questions
   end
-  def self.all_tags(locale)
+  def self.all_tags_strings(locale)
     tag_counts_on(:"#{locale}_tags").all.map{|e| e.name}
+  end
+  def self.all_tags(locale)
+    tag_counts_on(:"#{locale}_tags").all
   end
 end

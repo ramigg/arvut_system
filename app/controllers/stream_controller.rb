@@ -31,8 +31,6 @@ class StreamController < ApplicationController
 
     @profile = current_user
 
-    @feed = FeedReader::Basic.new(I18n.t('home.views.feed')).feed
-    
     respond_with @pages
   end
 end

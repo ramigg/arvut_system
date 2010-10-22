@@ -59,7 +59,7 @@ class Admin::PagesController < ApplicationController
 
   def tag_list
     respond_with do |format|
-      format.js{render :text => Page.all_tags(I18n.locale).to_json}
+      format.js{render :text => Page.all_tags_strings(I18n.locale).to_json}
     end
     return
   end

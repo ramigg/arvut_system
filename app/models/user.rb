@@ -225,6 +225,14 @@ class User < ActiveRecord::Base
   def user_has_access_to_admin?
     is_admin? || is_groupmanager? || is_moderator? || is_reports?
   end
+  
+  def avatar_url(type = :thumb)
+    if avatar
+      URI.escape(avatar.url(type))
+    else
+      nil
+    end
+  end
 
 
   private

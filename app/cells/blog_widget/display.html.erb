@@ -1,0 +1,14 @@
+<div class="widget-blog">
+  <h4><%= link_to t('home.views.blog_title').html_safe, t('home.views.blog'), :class => 'in-wide-iframe' %></h4>
+  <hr />
+  <ul>
+    <% @feed.items[0..10].each { |item| %>
+      <li>
+        <%= link_to item.title, item.link, :class => 'in-wide-iframe' %>
+	<span><%= t("stream.posted_ago", :when => time_ago_in_words(item.time)) %></span>
+
+      </li>
+    <% } %>
+  </ul>
+  <%= link_to t("stream.read_all"), t('home.views.blog'), :class => 'more_link in-wide-iframe' %>
+</div>
