@@ -30,6 +30,13 @@ input[type=text],input[type=password]{
 	padding: 5px;
 }
 */
+input, textarea, select{
+ 	font-family: @font-family;
+	padding:0;
+	margin:0;
+	font-size:@font-basic-size;
+	line-height:@font-basic-size;
+}
 
 //VARS
 //Layout
@@ -195,6 +202,8 @@ p{
 	border: 1px solid (@start-color + @end-color)/2;
 	border-top-color: @start-color + #222222;
 	border-bottom-color: @end-color - #333333;
+	-moz-background-clip: padding;
+	-webkit-background-clip: padding;
 }
 .button{
 	@radius: 9px;
@@ -208,11 +217,6 @@ p{
 	.centered;
 	white-space:normal;
 	text-shadow: 0 1px 0 rgba(0, 0, 0, 50%);
-}
-a.button-big-main, a.button-big-second, a.button-middle-main, a.button-middle-second, a.button-small-main, a.button-small-second{
-	display:block;
-	color:@color-button;
-	.undecorated;
 }
 .button-big-main{
 	@blur-size: 1px;
@@ -251,7 +255,7 @@ a.button-big-main, a.button-big-second, a.button-middle-main, a.button-middle-se
 	@blur-size: 1px;
 	@y-offset: 1px;
 	.button;
-	padding:3px 5px 5px;
+	padding:3px 5px 4px;
 	font-size:90%;
 }
 .button-small-second{
@@ -263,6 +267,18 @@ a.button-big-main, a.button-big-second, a.button-middle-main, a.button-middle-se
 	@start-color: @color-cancel-light;
 	@end-color: @color-cancel-dark;
 	.button-small-main;
+}
+a.button-big-main, a.button-big-second, a.button-big-cancel,
+a.button-middle-main, a.button-middle-second, a.button-middle-cancel,
+a.button-small-main, a.button-small-second, a.button-small-cancel,
+a.button-big-main:hover, a.button-big-second:hover a.button-big-cancel:hover,
+a.button-middle-main:hover, a.button-middle-second:hover, a.button-middle-cancel:hover,
+a.button-small-main:hover, a.button-small-second:hover, a.button-small-cancel:hover{
+	color:@color-button;
+	.undecorated;
+	white-space: nowrap;
+	display:inline-block;
+	line-height:@font-line-height;
 }
 
 //tags
@@ -333,7 +349,6 @@ body {
 		color: @color-main-text;
 	}
 }
-
 //layout
 .float_left{
 	float:left;
