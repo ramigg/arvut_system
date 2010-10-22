@@ -25,14 +25,14 @@ class ProfilesController < ApplicationController
   end
 
   def region_ids
-    regions = Region.options_for_select(params[:id])
+    regions = Region.options_for_select(params[:region_id])
     regions = [['All country', -1]] if regions.empty?
     
     render :json => regions
   end
 
   def location_ids
-    locations = Location.options_for_select(params[:country_id], params[:region_id])
+    locations = Location.options_for_select(params[:country_id], params[:location_id])
     locations = [['All country', -1]] if locations.empty?
 
     render :json => locations

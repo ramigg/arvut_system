@@ -7,11 +7,13 @@
     <meta name="description" content="" />
     <meta name="keywords" content="" />
     <link rel="icon" type="image/x-icon" href="/favicon.ico" />
-    <link rel="stylesheet" type="text/css" href="/stylesheets/reset.css" media="screen" />
-    <link rel="stylesheet/less" type="text/css" href="/stylesheets/styles.less" />
-    <script type="text/javascript" src="/javascripts/jquery-1.4.2.min.js"></script>
-    <script type="text/javascript" src="/javascripts/less-1.0.35.js"></script>
-    <script type="text/javascript" src="/flowplayer/flowplayer-3.2.4.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="/internet2/stylesheets/reset.css" media="screen" />
+    <link rel="stylesheet" type="text/css" href="/internet2/stylesheets/styles.css">
+    <script type="text/javascript" src="/internet2/javascripts/jquery-1.4.2.min.js"></script>
+<link href="/stylesheets/reset.css?1286332629" media="screen" rel="stylesheet" type="text/css" />
+<link href="/stylesheets/styles.less?1287718595" media="screen" rel="stylesheet/less" type="text/css" />
+<script src="/javascripts/less-1.0.36.min.js?1287286196" type="text/javascript"></script>
+    
     <style type="text/css">
     hr{clear:both; margin:5px 0;}
     </style>
@@ -174,6 +176,7 @@
           <input class="button-big-main" type="submit" value="Button-Big" />
           <input class="button-big-second" type="submit" value="Button-Big-Sec" />
           <input class="button-big-cancel" type="submit" value="Button-Big-Cancel" />
+	   <p>&nbsp;</p>
           <input class="button-middle-main" type="submit" value="Button-Middle" />
           <input class="button-middle-second" type="submit" value="Button-Middle-sec" />
           <input class="button-middle-cancel" type="submit" value="Button-Middle-cancel" />
@@ -181,6 +184,21 @@
           <input class="button-small-main" type="submit" value="Button-Small" />
           <input class="button-small-second" type="submit" value="Button-Small-sec" />
           <input class="button-small-cancel" type="submit" value="Button-Small-Cancel" />
+        </p>
+      </form>
+	  <p>&nbsp;</p>
+      <hr />
+      <form action="index_submit" method="get" accept-charset="utf-8">
+        <p>
+		<a class="button-big-main" >Button-Big</a>
+		<a class="button-big-second" >Button-Big-Sec</a>
+		<a class="button-big-cancel" >Button-Big-Cancel</a>
+		<a class="button-middle-main" >Button-Middle</a>
+		<a class="button-middle-second" >Button-Middle-sec</a>
+		<a class="button-middle-cancel" >Button-Middle-cancel</a>
+		<a class="button-small-main" >Button-Small</a>
+		<a class="button-small-second" >Button-Small-sec</a>
+		<a class="button-small-cancel" >Button-Small-Cancel</a>
         </p>
       </form>
       <hr />
@@ -218,19 +236,66 @@
       <hr />
 <div class="video">
   <h4>inline video</h4>
-  <p>
-	t amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip</p>
-    <div class="flow_player" id="video_155336268">&nbsp;</div>
-    <script type="text/javascript">
-      $(document).ready(function() {
-        flowplayer('video_155336268',{src: 'flowplayer-3.2.5.swf', wmode: 'transparent'},{
-          clip:'http://www.kab.co.il/images/attachments/91/196791_myself.jpg'
-      });
-    });
-    </script>
+<form name="MyTestForm">
+			<fieldset>
+			<label for="fname">First Name: </label><input type="text" name="firstName" id="fname"><br/>
+			<label for="lname">Last Name: </label><input type="text" name="lastName" id="lname"><br/>
+			EMail: <input type="text" name="email"><br/>
+			Password: <input type="password" name="password"><br/>
+			Gender: <input type="radio" name="gender" value="male"/>&nbsp;
+					<input type="radio"	name="gender" value="female"/><br/>
+			Reminder: <input type="checkbox" name="checkbox" value="Y"/><br/>
+			Select: <select name="selectOne">
+				<option value="1">Option 1</option>
+				<option value="2">Option 2</option>
+				<option value="3">Option 3</option>
+				<option value="4">Option 4</option>
+				<option value="5">Option 5</option>
+			</select><br/>
+			Select Multiple: <select name="selectMultiple" multiple>
+				<option value="1">Opt One</option>
+				<option value="2">Opt Two</option>
+				<option value="3">Opt Three</option>
+				<option value="4">Opt Four</option>
+				<option value="5">Opt Five</option>
+			</select><br/>
+			</fieldset>
+
+		<fieldset>
+		Com OS: <SELECT name="ComOS">
+			<OPTION selected label="none" value="none">None</OPTION>
+			<OPTGROUP label="PortMaster 3">
+				<OPTION label="3.7.1" value="pm3_3.7.1">PortMaster 3 with ComOS 3.7.1</OPTION>
+				<OPTION label="3.7" value="pm3_3.7">PortMaster 3 with ComOS 3.7</OPTION>
+				<OPTION label="3.5" value="pm3_3.5">PortMaster 3 with ComOS 3.5</OPTION>
+			</OPTGROUP>
+			<OPTGROUP label="PortMaster 2">
+				<OPTION label="3.7" value="pm2_3.7">PortMaster 2 with ComOS 3.7</OPTION>
+				<OPTION label="3.5" value="pm2_3.5">PortMaster 2 with ComOS 3.5</OPTION>
+			</OPTGROUP>
+			<OPTGROUP label="IRX">
+				<OPTION label="3.7R" value="IRX_3.7R">IRX with ComOS 3.7R</OPTION>
+				<OPTION label="3.5R" value="IRX_3.5R">IRX with ComOS 3.5R</OPTION>
+			</OPTGROUP>
+		</SELECT><br/>
+			
+			Text: <textarea name="textArea" cols="36" rows="5"></textarea><br/>
+		</fieldset>
+
+		<fieldset>
+			<input type="hidden" name="hiddenInput"/>
+			<input type="button" name="button1" value="A Button"/><br/> 
+			<button name="button2" value="Normal Button">Normal Button</button><br/>
+			<button name="button3" value="Submit Button" type="submit">Submit Button</button><br/>
+			<button name="button4" value="Reset Button" type="reset">Reset Button</button><br/>
+			<input type="image" name="imageInput" src="google_reader.jpg" value="imageValue"/><br/>
+			Upload File: <input type="file" name="fileInput"/><br/>
+			<input type="reset" name="reset" value="Reset"/>&nbsp;
+			<input type="submit" name="submit" value="Submit"/><br/>
+		</fieldset>
+		</form>
 </div>
 
 </div>
-
   </body>
 </html>

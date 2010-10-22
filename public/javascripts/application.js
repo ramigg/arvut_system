@@ -1,4 +1,6 @@
 $(function (){
+    $("select, input:checkbox, input:radio, input:file").uniform();
+    
     // Basic report generator
     if (typeof $.datepicker == 'function') {
         $('.datepicker').datepicker();
@@ -64,11 +66,19 @@ $(document).ready(function(){
     $("select#user_country_id").change(function(){
         var id_value_string = $(this).val();
         $("select#user_region_id").attr('disabled', 'disabled');
+        $("select#user_region_id").parent().attr('disabled', 'disabled');
         $("select#user_region_id option").remove();
         $(def_row).appendTo("select#user_region_id");
+        $("select#user_region_id").prev().text(
+            $("select#user_region_id :selected").text()
+            );
         $("select#user_location_id").attr('disabled', 'disabled');
+        $("select#user_location_id").parent().attr('disabled', 'disabled');
         $("select#user_location_id option").remove();
         $(def_row).appendTo("select#user_location_id");
+        $("select#user_location_id").prev().text(
+            $("select#user_location_id :selected").text()
+            );
         if (id_value_string == "") {
             // if the id is empty remove all the sub_selection options from being selectable and do not do any ajax
             return;
@@ -87,8 +97,12 @@ $(document).ready(function(){
                     $.each(data, function(i, j){
                         var row = "<option value=\"" + j[1] + "\">" + j[0] + "</option>";
                         $(row).appendTo("select#user_region_id");
-                        $("select#user_region_id").removeAttr('disabled');
                     });
+                    $("select#user_region_id").prev().text(
+                        $("select#user_region_id :selected").text()
+                        );
+                    $("select#user_region_id").removeAttr('disabled');
+                    $("select#user_region_id").parent().removeAttr('disabled');
                 }
             });
         }
@@ -96,8 +110,12 @@ $(document).ready(function(){
     $("select#user_region_id").change(function(){
         var id_value_string = $(this).val();
         $("select#user_location_id").attr('disabled', 'disabled');
+        $("select#user_location_id").parent().attr('disabled', 'disabled');
         $("select#user_location_id option").remove();
         $(def_row).appendTo("select#user_location_id");
+        $("select#user_location_id").prev().text(
+            $("select#user_location_id :selected").text()
+            );
         if (id_value_string == "") {
             // if the id is empty remove all the sub_selection options from being selectable and do not do any ajax
             return;
@@ -117,8 +135,12 @@ $(document).ready(function(){
                     $.each(data, function(i, j){
                         var row = "<option value=\"" + j[1] + "\">" + j[0] + "</option>";
                         $(row).appendTo("select#user_location_id");
-                        $("select#user_location_id").removeAttr('disabled');
                     });
+                    $("select#user_location_id").removeAttr('disabled');
+                    $("select#user_location_id").parent().removeAttr('disabled');
+                    $("select#user_location_id").prev().text(
+                        $("select#user_location_id :selected").text()
+                        );
                 }
             });
         }
