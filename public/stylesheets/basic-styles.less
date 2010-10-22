@@ -77,8 +77,14 @@ input[type=text],input[type=password]{
 @font-line-height: 18px;
 
 //colors
-@color-main-text: #666;
 @color-white: #fff;
+@color-orange: #f7931e;
+@color-grey: #aaa;
+@color-black: black;
+@color-red: red;
+@color-green: green;
+
+@color-main-text: #666;
 @color-main-light: #00acc2;
 @color-main-dark: #2971a7;
 @color-second-light: #8ac63f;
@@ -94,11 +100,8 @@ input[type=text],input[type=password]{
 @color-tag-background: #ebf8ff;
 @color-tag-hover-background: @color-main-dark;
 @color-separator: #bcccd3;
-@color-orange: #f7931e;
-@color-grey: #aaa;
-@color-login: black;
-@color-red: red;
-@color-green: green;
+@color-login: @color-black;
+@color-menu: @color-black;
 
 //CLASSES
 //typography
@@ -188,15 +191,23 @@ p{
 	behavior: url(PIE.htc);
 }
 //forms
+.button_borders{
+	border: 1px solid (@start-color + @end-color)/2;
+	border-top-color: @start-color + #222222;
+	border-bottom-color: @end-color - #333333;
+}
 .button{
+	@radius: 9px;
 	.rounded-corners;
 	.gradient;
 	.bold;
-	.borderless;
-	.drop-shadow;
+	//.borderless;
+	//.drop-shadow;
+	.button_borders;
 	color:@color-button;
 	.centered;
 	white-space:normal;
+	text-shadow: 0 1px 0 rgba(0, 0, 0, 50%);
 }
 a.button-big-main, a.button-big-second, a.button-middle-main, a.button-middle-second, a.button-small-main, a.button-small-second{
 	display:block;
@@ -207,7 +218,7 @@ a.button-big-main, a.button-big-second, a.button-middle-main, a.button-middle-se
 	@blur-size: 1px;
 	@y-offset: 1px;
 	.button;
-	padding:0.8em 15px;
+	padding:0.8em 15px 0.7em;
 	font-size:120%;
 }
 .button-big-second{
@@ -215,11 +226,16 @@ a.button-big-main, a.button-big-second, a.button-middle-main, a.button-middle-se
 	@end-color: @color-second-dark;
 	.button-big-main;
 }
+.button-big-cancel{
+	@start-color: @color-cancel-light;
+	@end-color: @color-cancel-dark;
+	.button-big-main;
+}
 .button-middle-main{
 	@blur-size: 1px;
 	@y-offset: 1px;
 	.button;
-	padding:0.8em 10px;
+	padding:0.8em 10px 0.7em;
 }
 .button-middle-cancel{
 	@start-color: @color-cancel-light;
@@ -235,12 +251,17 @@ a.button-big-main, a.button-big-second, a.button-middle-main, a.button-middle-se
 	@blur-size: 1px;
 	@y-offset: 1px;
 	.button;
-	padding:0.8em 5px;
-	font-size:75%;
+	padding:3px 5px 5px;
+	font-size:90%;
 }
 .button-small-second{
 	@start-color: @color-second-light;
 	@end-color: @color-second-dark;
+	.button-small-main;
+}
+.button-small-cancel{
+	@start-color: @color-cancel-light;
+	@end-color: @color-cancel-dark;
 	.button-small-main;
 }
 
@@ -286,10 +307,10 @@ a:hover.tag{
 	.icon-span(0);
 }
 .assignment-icon-old{
-	.icon-span(-30px);
+	.icon-span(-27px);
 }
 .assignment-icon-new{
-	.icon-span(-60px);
+	.icon-span(-57px);
 }
 .event-icon{
 	.icon-span(-90px);
@@ -392,6 +413,8 @@ body{
 	.clear;
 	margin: 10px 0 0;
 	.centered;
+	color: @color-dimmed-text;
+	.font-small;
 }
 //widgets column
 .widget{
