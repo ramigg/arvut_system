@@ -9,6 +9,8 @@ class Page < ActiveRecord::Base
 
   has_many :assets, :dependent => :destroy, :order => :position
   has_many :questionnaire_answers
+  
+  has_many :page_userflags, :dependent => :destroy
 
   accepts_nested_attributes_for :questionnaire_answers, :allow_destroy => true
   accepts_nested_attributes_for :assets, :allow_destroy => true

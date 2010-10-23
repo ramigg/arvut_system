@@ -1,6 +1,9 @@
-<%=
-if @close_popup
-  link_to t('stream.popup.close'), '#', :class => 'button-small-main', :onclick => 'parent.$.colorbox.close(); return false;'
+<% if @close_popup %>             
+<%= link_to t('stream.popup.close'), '#', :class => 'button-small-main', :onclick => 'parent.$.colorbox.close(); return false;' %>
+<script type="text/javascript">
+	parent.$("#page-<%= @page.id%> .assignment-icon-new").removeClass('assignment-icon-new').addClass('assignment-icon-old')
+</script>
+<% 
 else
   render :file => 'pages/show'
 end

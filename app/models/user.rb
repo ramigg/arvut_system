@@ -21,6 +21,8 @@ class User < ActiveRecord::Base
   belongs_to :language
   belongs_to :user_list
 
+  has_many :page_userflags
+
   belongs_to :country
   belongs_to :region
   belongs_to :location
