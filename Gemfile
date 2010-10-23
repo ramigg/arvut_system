@@ -3,9 +3,7 @@ source 'http://rubygems.org'
 gem 'rails', '3.0.0'
 gem 'railties', '3.0.0'
 gem  'remail'
-# gem 'cells', '3.4.0.beta1'#, :git => 'http://github.com/apotonick/cells.git'
-# gem 'cells', :git => 'http://github.com/fsmanuel/cells.git', :branch => "master"
-# gem 'cells3'#, :git => 'http://github.com/mlomnicki/cells3.git'
+# extension for arel where 
 gem "meta_where"
 
 # Bundle edge Rails instead:

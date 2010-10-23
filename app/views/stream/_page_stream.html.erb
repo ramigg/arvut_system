@@ -1,6 +1,6 @@
 <%- @pages.each {|page| -%>
-  <div class="item <%= 'sticky_item' if page.is_sticky %>">
-    <h2 class="assignment-icon-new icon"><span></span><%= link_to page.title, page_url(page), :class => 'in-iframe', :title => page.title %></h2>
+  <div id="page-<%= page.id %>" class="item <%= 'sticky_item' if page.is_sticky %>">
+    <h2 class="<%= is_answered_css(page) %> icon"><span></span><%= link_to page.title, page_url(page), :class => 'in-iframe', :title => page.title %></h2>
     <%= page[:description].html_safe %>
     <%= link_to t("stream.read_all").html_safe, page_url(page), :class => 'in-iframe more_link', :title => page.title %>
     <p class="item-metadata"><%= t("stream.posted_ago", :when => time_ago_in_words(page.publish_at)) %></p>
