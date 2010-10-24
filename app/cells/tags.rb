@@ -1,6 +1,6 @@
 module Tags
 
-  class Container < BaseWidget
+  class Container < Apotomo::Widget
 
     has_widgets do |me|
       for t in Page.all_tags(I18n.locale)
@@ -15,7 +15,7 @@ module Tags
 
   private
   
-  class Tag < BaseWidget
+  class Tag < Apotomo::Widget
     def display
       @tag = param :tag
       render
