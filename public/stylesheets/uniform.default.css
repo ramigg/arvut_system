@@ -393,7 +393,7 @@ div.button span {
 
 /* Select */
 div.selector {
-  width: 190px;
+/*  width: 190px;*/
   font-size: 12px;
 }
 
@@ -411,7 +411,7 @@ div.selector span {
 
 div.selector span {
   color: #666;
-  width: 158px;
+/*  width: 158px;*/
   text-shadow: 0 1px 0 #fff;
 }
 
