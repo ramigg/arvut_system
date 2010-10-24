@@ -1,7 +1,5 @@
-<span id="<%= obj_id %>">
-  <% if question.is_multiline %>
-    <%= builder.text_area :text_value, :rows => 5, :cols => 80 %>
-  <% else %>
-    <%= builder.text_field :text_value %>
-  <% end %>
-</span>
+<% if question.is_multiline %>
+  <%= builder.text_area :text_value, :rows => 5, :cols => 80 %>
+<% else %>
+  <%= builder.text_field :text_value %>
+<% end %>
