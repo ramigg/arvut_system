@@ -1,4 +1,3 @@
-<%- obj_id = "_validRadio_#{question.object_id}" -%>
 <span id="<%= obj_id %>" class="input_wrap">
   <% question.entries.each_with_index do |e, idx| %>
     <div>
@@ -14,11 +13,3 @@
     </div>
   <%- end %>
 </span>
-<%- content_for :validation_script do
-  <<-JS
-  jQuery('##{obj_id}').validate({
-  expression: "if (isChecked(SelfID)) return true; else return false;",
-  message: "#{I18n.t 'answer.model.select_one_option'}"
-  });
-  JS
-end -%>

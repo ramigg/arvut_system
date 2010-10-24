@@ -1,4 +1,3 @@
-<%- obj_id = "_validCheckbox_#{question.object_id}" -%>
 <span id="<%= obj_id %>">
   <% question.entries.each_with_index do |e, idx| %>
     <div>
@@ -14,11 +13,3 @@
     </div>
   <%- end %>
 </span>
-<%- content_for :validation_script do
-  <<-JS
-  jQuery('##{obj_id}').validate({
-  expression: "if (isChecked(SelfID)) return true; else return false;",
-  message: "#{I18n.t 'answer.model.select_at_least_one'}"
-  });
-  JS
-end -%>

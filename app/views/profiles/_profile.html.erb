@@ -89,38 +89,3 @@
     <%= link_to t('views.cancel'), stream_url(:stream_filter => :all), :class => 'button-small-cancel' %>
   </div>
 <%- end -%>
-<%= javascript_tag <<-JS
-$(function (){
-
-jQuery('#first_name').validate({
-expression: "if (VAL != '') return true; else return false;",
-message: "#{I18n.t 'answer.model.write_an_answer'}"
-});
-jQuery('#last_name').validate({
-expression: "if (VAL != '') return true; else return false;",
-message: "#{I18n.t 'answer.model.write_an_answer'}"
-});
-jQuery('#birthday').validate({
-expression: "if (VAL != '') return true; else return false;",
-message: "#{I18n.t 'answer.model.select_one_option'}"
-});
-jQuery('#language').validate({
-expression: "if (VAL != '') return true; else return false;",
-message: "#{I18n.t 'answer.model.select_one_option'}"
-});
-jQuery('#country').validate({
-expression: "if (VAL != '') return true; else return false;",
-message: "#{I18n.t 'answer.model.select_one_option'}"
-});
-jQuery('#region').validate({
-expression: "if (VAL != '') return true; else return false;",
-message: "#{I18n.t 'answer.model.select_one_option'}"
-});
-jQuery('#city').validate({
-expression: "if (VAL != '') return true; else return false;",
-message: "#{I18n.t 'answer.model.select_one_option'}"
-});
-
-});
-JS
-%>
