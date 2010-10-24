@@ -4,7 +4,7 @@
   <head>
     <title>Hamakom</title>
     <meta content="text/html;charset=utf-8" http-equiv="content-type" />
-    <%= render 'head' %>
+    <%= render 'shared/head' %>
   </head>
   <% layout = controller.instance_of?(Profiles::RegistrationsController) ? 'layout-signup' : 'layout-login' %>
   <body class="<%= I18n.locale %> <%= layout %>">
