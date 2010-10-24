@@ -43,3 +43,12 @@ require 'date'
 def days_in_month(year, month)
   (Date.new(year, 12, 31) << (12-month)).day
 end
+
+
+module Cell
+  class Base
+    def default_url_options(options={})
+      { :locale => I18n.locale, :host => (request.host_with_port + ::Rails.configuration.site_prefix) }
+    end
+  end  
+end

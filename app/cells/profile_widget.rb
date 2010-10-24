@@ -1,4 +1,4 @@
-class ProfileWidget < BaseWidget
+class ProfileWidget < Apotomo::Widget
   
   def display
     @profile = param :user
