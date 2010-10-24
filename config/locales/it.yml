@@ -379,6 +379,7 @@ it:
       yes_answer: Si
       avatar: Avatar
       city: Città
+      region: Regione
       country: Nazione
       remove_avatar: "Rimuovi Avatar"
   views:

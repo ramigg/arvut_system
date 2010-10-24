@@ -63,17 +63,17 @@ function add_fields(link, association, content, hide_onclick) {
 
 $(document).ready(function(){
     var def_row = "<option value=\"" + "" + "\">" + "Please select" + "</option>";
-    $("select#user_country_id").change(function(){
+    $("select#user_country_id").live('change', function(){
         var id_value_string = $(this).val();
         $("select#user_region_id").attr('disabled', 'disabled');
-        $("select#user_region_id").parent().attr('disabled', 'disabled');
+        $("select#user_region_id").parent().addClass('disabled');
         $("select#user_region_id option").remove();
         $(def_row).appendTo("select#user_region_id");
         $("select#user_region_id").prev().text(
             $("select#user_region_id :selected").text()
             );
         $("select#user_location_id").attr('disabled', 'disabled');
-        $("select#user_location_id").parent().attr('disabled', 'disabled');
+        $("select#user_location_id").parent().addClass('disabled');
         $("select#user_location_id option").remove();
         $(def_row).appendTo("select#user_location_id");
         $("select#user_location_id").prev().text(
@@ -87,7 +87,7 @@ $(document).ready(function(){
             $.ajax({
                 dataType: "json",
                 cache: false,
-                url: '/en/region_ids/' + id_value_string,
+                url: '/en/profiles/region_ids/' + id_value_string,
                 timeout: 4000,
                 error: function(XMLHttpRequest, errorTextStatus, error){
                     alert("Failed to submit : " + errorTextStatus+" ;" + error);
@@ -102,15 +102,15 @@ $(document).ready(function(){
                         $("select#user_region_id :selected").text()
                         );
                     $("select#user_region_id").removeAttr('disabled');
-                    $("select#user_region_id").parent().removeAttr('disabled');
+                    $("select#user_region_id").parent().removeClass('disabled');
                 }
             });
         }
     });
-    $("select#user_region_id").change(function(){
+    $("select#user_region_id").live('change', function(){
         var id_value_string = $(this).val();
         $("select#user_location_id").attr('disabled', 'disabled');
-        $("select#user_location_id").parent().attr('disabled', 'disabled');
+        $("select#user_location_id").parent().addClass('disabled');
         $("select#user_location_id option").remove();
         $(def_row).appendTo("select#user_location_id");
         $("select#user_location_id").prev().text(
@@ -125,7 +125,7 @@ $(document).ready(function(){
             $.ajax({
                 dataType: "json",
                 cache: false,
-                url: '/en/location_ids/' + country_id + '/' + id_value_string,
+                url: '/en/profiles/location_ids/' + country_id + '/' + id_value_string,
                 timeout: 4000,
                 error: function(XMLHttpRequest, errorTextStatus, error){
                     alert("Failed to submit : " + errorTextStatus+" ;" + error);
@@ -137,7 +137,7 @@ $(document).ready(function(){
                         $(row).appendTo("select#user_location_id");
                     });
                     $("select#user_location_id").removeAttr('disabled');
-                    $("select#user_location_id").parent().removeAttr('disabled');
+                    $("select#user_location_id").parent().removeClass('disabled');
                     $("select#user_location_id").prev().text(
                         $("select#user_location_id :selected").text()
                         );

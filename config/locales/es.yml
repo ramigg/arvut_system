@@ -380,6 +380,7 @@ es:
       yes_answer: Sí
       avatar: Avatar
       city: Ciudad
+      region: Región
       country: País
       remove_avatar: "Remover Avatar"
   views:

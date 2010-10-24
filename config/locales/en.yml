@@ -209,6 +209,7 @@ en:
       remove_avatar: Remove Avatar
       country: Country
       city: City
+      region: Region
 
   admin:
     pages:

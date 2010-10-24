@@ -285,6 +285,7 @@ he:
       remove_avatar: מחק תמונה
       country: מדינה
       city: עיר
+      region: איזור
   views:
     back: חזרה
     cancel: ביטול
