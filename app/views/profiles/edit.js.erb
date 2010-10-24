@@ -1,1 +1,4 @@
-$("#profile").html("<%= escape_javascript(render('profile'))%>");  
+$(".column-content").html("<%= escape_javascript(render('profile'))%>");
+$(function (){
+   $("select, input:checkbox, input:radio, input:file").uniform();
+});

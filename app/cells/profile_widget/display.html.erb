@@ -2,7 +2,7 @@
   <%= image_tag @profile.avatar_url(:thumb), :class => 'avatar' %>
   <h5><%= @profile.first_name %> <%= @profile.last_name %></h5>
   <div>
-    <%= link_to t('home.views.edit_profile'), edit_profile_url(:id => @profile.id) %> 
+    <%= link_to t('home.views.edit_profile'), edit_profile_url(:id => @profile.id), :remote => true %> 
 | <%= link_to t('views.signout'), destroy_user_session_url, :title => t('views.signout') %>
   </div>
   <div class="clear-div"></div>
