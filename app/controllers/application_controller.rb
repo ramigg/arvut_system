@@ -33,23 +33,23 @@ class ApplicationController < ActionController::Base
   end
 
   def check_if_admin
-    redirect_to :dashboard unless current_user.is_admin?
+    redirect_to :home unless current_user.is_admin?
   end
 
   def check_if_restricted
-    redirect_to :dashboard unless current_user.is_admin? || current_user.is_moderator? || current_user.is_reports? || current_user.is_groupmanager?
+    redirect_to :home unless current_user.is_admin? || current_user.is_moderator? || current_user.is_reports? || current_user.is_groupmanager?
   end
 
   def check_if_moderator
-    redirect_to :dashboard unless current_user.is_admin? || current_user.is_moderator?
+    redirect_to :home unless current_user.is_admin? || current_user.is_moderator?
   end
 
   def check_if_groupmanager
-    redirect_to :dashboard unless current_user.is_admin? || current_user.is_groupmanager?
+    redirect_to :home unless current_user.is_admin? || current_user.is_groupmanager?
   end
 
   def check_if_reports
-    redirect_to :dashboard unless current_user.is_admin? || current_user.is_reports?
+    redirect_to :home unless current_user.is_admin? || current_user.is_reports?
   end
 end
 

@@ -4,30 +4,7 @@
   <head>
     <title>Hamakom</title>
     <meta content="text/html;charset=utf-8" http-equiv="content-type" />
-    <%= stylesheet_link_tag 'reset', 'uniform.default.css' %>
-    <%- if Rails.env == 'development' -%>
-      <%- if is_rtl? %>
-        <%= stylesheet_link_tag 'styles-rtl.less', :rel => 'stylesheet/less' %>
-      <%- else -%>
-        <%= stylesheet_link_tag 'styles.less', :rel => 'stylesheet/less' %>
-      <%- end -%>
-      <%= javascript_include_tag 'less-1.0.36.min.js' %>
-    <%- else -%>
-      <%- if is_rtl? %>
-        <%= stylesheet_link_tag 'styles-rtl' %>
-      <%- else -%>
-        <%= stylesheet_link_tag 'styles' %>
-      <%- end -%>
-    <%- end -%>
-
-    <%= javascript_include_tag :defaults,
-      'jquery-ui-1.8.4.custom.min',
-      'jquery.colorbox-min.js',
-      'jquery.uniform.min.js',
-      'jquery.validate.js', 'jquery.validation.functions.js',
-      'autocomplete-rails.js'
-  %>
-    <%= csrf_meta_tag %>
+    <%= render 'head' %>
     <style type="text/css">
       .error, .notice, .success {padding:.8em;margin-bottom:1em;border:2px solid #ddd;}
       .error {background:#FBE3E4;color:#8a1f11;border-color:#FBC2C4;}
