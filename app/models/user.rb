@@ -71,6 +71,9 @@ class User < ActiveRecord::Base
     :birthday,
     :notifybyemail,
     :language_id,
+    :country,
+    :region,
+    :location_id,
   ]
 
   REQUIRED_FIELDS.each { |req|
