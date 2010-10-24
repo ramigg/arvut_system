@@ -23,7 +23,7 @@
     <%= link_to t("stream.home"), stream_path(:stream_filter => 'all') %>
     <%- if user_signed_in? -%>
       |
-      <%= link_to t('home.views.edit_profile'), edit_profile_url(@profile) if @profile %> |
+      <%= link_to t('home.views.edit_profile'), edit_profile_url(@profile), :remote => true if @profile %> |
       <%- if current_user.user_has_access_to_admin? -%>
         <%= link_to t('home.views.admin'), admin_pages_path %> |
       <%- end -%>

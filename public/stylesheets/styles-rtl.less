@@ -1,6 +1,6 @@
 // basic styles
-@import "basic-styles-rtl";
-@import "colorbox-rtl";
+@import "_basic-styles-rtl";
+@import "_colorbox-rtl";
 
 // Main stream
 .layout-stream{
@@ -30,6 +30,7 @@
 				top:0;
 				right:0;
 				padding:0 35px 0 10px;
+				color:@color-menu;
 				width:100%-25; // no - comments 
 					
 			}
@@ -43,7 +44,7 @@
 		}
 		.current a:hover{
 			background:@color-stream-background;
-			color:@color-main-dark;
+			color:@color-menu;
 		}
 		.read a{
 			font-weight:normal;
@@ -81,14 +82,17 @@
 			h2{
 				margin:0 0 10px;
 			}
+			h2.icon{
+				padding: 0 20px 0 0
+			}
 			hr{
 				height:1px;
 				background:@color-separator;
-				margin:0 30px 10px 0;
+				margin:0 20px 10px 0;
 			}
 			p{
 				margin-bottom:@margin-bottom-basic;
-				padding:0 30px 0 0;
+				padding:0 20px 0 0;
 			}
 			.item-metadata{
 				color:@color-dimmed-text;
@@ -111,40 +115,29 @@
 	}
 	.profile_editor{
 		background:@color-profile-background;
+		.rounded-corners;
 		padding: 15px;
-		img{
-			display:block;
-			.float_right;
-			margin: 0 0 10px;
-		}
-		.avatar-div{
-			.float_right;
-			margin: 0 200px 0 0;
-			input{
-				width: 20px;
+		dl{
+			line-height: 2em;
+			dt{
+				.float_right;
+				width:200px;
 				clear:both;
+				display:block;
+			}
+			dd{
+				width: 300px;
+				.float_right;
+				p{
+					line-height:1.3em;
+				}
 			}
 		}
-		ul label,
-		ul input, ul select{
-			display:block;
-			.float_right;
-			width: 200px;
+		.ValidationErrors{
+			top:-0.1em;
 		}
-		ul select{
-			width: 205px;
-		}
-		li{
-			padding: 10px 0;
-			clear:both;
-			width:100%;
-			position: relative;
-			.ValidationErrors{
-				top:-0.1em;
-			}
-			.ErrorField{
-				padding: 0;
-			}
+		.ErrorField{
+			padding: 0;
 		}
 		hr.separator{
 			margin: 20px 0;
@@ -244,7 +237,7 @@
 		@blur-size: 0;
 		.rounded-corners;
 		.drop-shadow;
-		width:600px;
+		width:640px;
 	}
 	.edit-stream{
 		padding:0;
