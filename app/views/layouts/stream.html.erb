@@ -5,18 +5,25 @@
     <title>Hamakom</title>
     <meta content="text/html;charset=utf-8" http-equiv="content-type" />
     <%= stylesheet_link_tag 'reset', 'uniform.default.css' %>
-    <%- if is_rtl? %>
-      <%= stylesheet_link_tag 'styles-rtl.less', :rel => 'stylesheet/less' %>
+    <%- if Rails.env == 'development' -%>
+      <%- if is_rtl? %>
+        <%= stylesheet_link_tag 'styles-rtl.less', :rel => 'stylesheet/less' %>
+      <%- else -%>
+        <%= stylesheet_link_tag 'styles.less', :rel => 'stylesheet/less' %>
+      <%- end -%>
+      <%= javascript_include_tag 'less-1.0.36.min.js' %>
     <%- else -%>
-      <%= stylesheet_link_tag 'styles.less', :rel => 'stylesheet/less' %>
+      <%- if is_rtl? %>
+        <%= stylesheet_link_tag 'styles-rtl' %>
+      <%- else -%>
+        <%= stylesheet_link_tag 'styles' %>
+      <%- end -%>
     <%- end -%>
-    <%= javascript_include_tag 'less-1.0.36.min.js' %>
 
     <%= javascript_include_tag :defaults,
       'jquery-ui-1.8.4.custom.min',
       'jquery.colorbox-min.js',
       'jquery.uniform.min.js',
-      #'autoresize.jquery.min',
       'jquery.validate.js', 'jquery.validation.functions.js',
       'autocomplete-rails.js'
   %>
@@ -41,23 +48,23 @@
     <div class="wrapper">
       <%= render 'stream/header' %>
 
-	    <div class="column-menu">
-	      <div class="content-submenu"></div>
-	      <div><%= render 'stream/page_menu' %></div>
-	      <div><%= render_widget 'tags' %></div>
-	      <div><%= render 'stream/search_menu' %></div>
-	    </div>
+      <div class="column-menu">
+        <div class="content-submenu"></div>
+        <div><%= render 'stream/page_menu' %></div>
+        <div><%= render_widget 'tags' %></div>
+        <div><%= render 'stream/search_menu' %></div>
+      </div>
 
-	    <div class="column-content">
-	     <%= yield %>
-	    </div>
+      <div class="column-content">
+        <%= yield %>
+      </div>
 
-	    <div class="column-widgets">
-	   <div class="content-submenu"></div>
-	      <div><%= render_widget 'profile' %></div>
-	      <div><%= render_widget 'blog' %></div>
-	    </div><!-- widget column end -->
-	    <div class="clear"></div>
+      <div class="column-widgets">
+        <div class="content-submenu"></div>
+        <div><%= render_widget 'profile' %></div>
+        <div><%= render_widget 'blog' %></div>
+      </div><!-- widget column end -->
+      <div class="clear"></div>
 
       <div class="footer">
         New internet project - We build it together
