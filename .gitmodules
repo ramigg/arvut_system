@@ -1,0 +1,3 @@
+[submodule "vendor/plugins/more"]
+	path = vendor/plugins/more
+	url = git://github.com/cloudhead/more.git
