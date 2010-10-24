@@ -87,7 +87,7 @@ $(document).ready(function(){
             $.ajax({
                 dataType: "json",
                 cache: false,
-                url: '/en/profiles/region_ids/' + id_value_string,
+                url: SITE_URL + '/en/profiles/region_ids/' + id_value_string,
                 timeout: 4000,
                 error: function(XMLHttpRequest, errorTextStatus, error){
                     alert("Failed to submit : " + errorTextStatus+" ;" + error);
@@ -125,7 +125,7 @@ $(document).ready(function(){
             $.ajax({
                 dataType: "json",
                 cache: false,
-                url: '/en/profiles/location_ids/' + country_id + '/' + id_value_string,
+                url: SITE_URL + '/en/profiles/location_ids/' + country_id + '/' + id_value_string,
                 timeout: 4000,
                 error: function(XMLHttpRequest, errorTextStatus, error){
                     alert("Failed to submit : " + errorTextStatus+" ;" + error);

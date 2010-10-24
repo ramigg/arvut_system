@@ -4,28 +4,7 @@
   <head>
     <title>Hamakom</title>
     <meta content="text/html;charset=utf-8" http-equiv="content-type" />
-    <%= stylesheet_link_tag 'reset' %>
-    <%- if Rails.env == 'development' -%>
-      <%- if is_rtl? %>
-        <%= stylesheet_link_tag 'styles-rtl.less', :rel => 'stylesheet/less' %>
-      <%- else -%>
-        <%= stylesheet_link_tag 'styles.less', :rel => 'stylesheet/less' %>
-      <%- end -%>
-      <%= javascript_include_tag 'less-1.0.36.min.js' %>
-    <%- else -%>
-      <%- if is_rtl? %>
-        <%= stylesheet_link_tag 'styles-rtl' %>
-      <%- else -%>
-        <%= stylesheet_link_tag 'styles' %>
-      <%- end -%>
-    <%- end -%>
-
-    <%= javascript_include_tag :defaults,
-      'jquery.colorbox-min.js',
-      'autocomplete-rails.js',
-      'jquery.validate.js', 'jquery.validation.functions.js'
-  %>
-    <%= csrf_meta_tag %>
+    <%= render 'head' %>
   </head>
   <% layout = controller.instance_of?(Profiles::RegistrationsController) ? 'layout-signup' : 'layout-login' %>
   <body class="<%= I18n.locale %> <%= layout %>">
