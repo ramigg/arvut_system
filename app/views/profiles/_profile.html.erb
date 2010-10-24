@@ -1,4 +1,5 @@
 <div class="content-submenu"></div>
+<%#*:validations => true,%> 
 <%= form_for @profile, :url => profile_path(@profile), :html => { :multipart => true, :class => 'profile_editor' }, :remote => false do |f| %>
   <dl>
     <span id="error_messages">
@@ -34,7 +35,7 @@
     <dd></dd>
     <dt>
       <%- unless @profile.new_record? || !@profile.avatar %>
-        <%= image_tag @profile.avatar.url(:original), :alt => 'Avatar', :title => 'Current avatar' %>
+        <%= image_tag @profile.avatar_url(:original), :alt => 'Avatar', :title => 'Current avatar' %>
       <%- else -%>
         <%= f.file_field :avatar %>
       <%- end -%>
@@ -69,11 +70,10 @@
       country_id = @profile.country.id if @profile.country
       region_id = @profile.region.id if @profile.region
       disabled = region_id == 0
-      location_id = @profile.location.city.id if @profile.location
+      location_id = @profile.location.id if @profile.location
       f.select :location_id,
         options_for_select(Location.options_for_select(country_id, region_id), location_id),
-        {:include_blank => 'Please select'}, :disabled => true %>
-      <input type="hidden" value="<%= @profile.location_id %>" name="user[location_id]" id="user_location_id"/>
+        {:include_blank => 'Please select'}, :disabled => disabled %>
     </dd>
     <dt><label><%= t('user.model.receive_notifications') %></label></dt>
     <dd><%= f.select :notifybyemail,

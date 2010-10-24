@@ -1,6 +1,8 @@
 <%
 video = question
 id = video.object_id
+image = video.image
+url = video.url
 %>
 <div class="video">
   <h4><%= video.name %></h4>
@@ -18,18 +20,21 @@ id = video.object_id
         $f("video_<%= id %>",{src: '<%= Rails.configuration.site_prefix %>/flowplayer/flowplayer.commercial-3.2.5.swf', wmode: 'transparent'},{
           key:'#\@432d5aedb59612f8458',
           playlist:[
-            {url: '<%= video.image %>', autoPlay: true},
+            <%- unless image.empty? -%>
+            {url: '<%= image %>', autoPlay: true},
+            <%- end -%>
+
             {url: '<%= video.url %>', autoPlay: <%= video.is_autoplay? %>}
-          ],
-          // show stop button so we can see stop events too
-          plugins: {
-            controls: {
-              url: 'flowplayer.controls-3.2.3.swf',
-              stop: true
-            }
-          }
-        });
-      });
+      ],
+      // show stop button so we can see stop events too
+      plugins: {
+        controls: {
+          url: 'flowplayer.controls-3.2.3.swf',
+          stop: true
+        }
+      }
+    });
+  });
     </script>
     <div class="clear"></div>
   <%- end -%>
