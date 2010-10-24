@@ -224,6 +224,7 @@ ru:
       avatar: Аватар
       city: Город
       country: Страна
+      region: Регион
       remove_avatar: "Удалить Аватар"
   pages:
     update: "Страница была успешно обновлена"
