@@ -386,6 +386,8 @@ de:
       region: Bereich
       country: Land
       remove_avatar: "Avatar entfernen"
+      no_file_selected: Kein Bild
+      choose_image: Wählen Sie Bild
   views:
     back: Zurück
     cancel: Stornieren

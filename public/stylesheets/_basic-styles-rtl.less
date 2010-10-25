@@ -4,13 +4,14 @@
 		width: 264px;
 	}
 }
-/* draw any selected text yellow on red background */
+/* draw any selected text yellow on red background
 ::-moz-selection { color: gold;  background: red; }
 ::selection      { color: gold;  background: red; }
-
-/* draw selected text in a paragraph white on black */
+ */
+/* draw selected text in a paragraph white on black
 p::-moz-selection { color: white;  background: black; }
 p::selection      { color: white;  background: black; }
+ */
 
 input::-moz-focus-inner{padding: 0;}
 
@@ -199,18 +200,27 @@ p{
 // Form elements
 form{
 	input, textarea{
-		border: 1px solid #e6e6e6;
+		border: 1px solid #b3b3b3;
 		padding: 2px 5px 2px 10px;
-		line-height:19px;
 		color: @color-dimmed-text;
 		font-family: @font-family;
 		font-size: @font-basic-size - 1;
 	}
+        select{
+            padding-left:18px !important;
+        }
+        select.select-ltr{
+            text-align:left;
+            direction:ltr;
+        }
+        option{
+            background: white;
+        }
 }
 .button_borders{
 	border: 1px solid (@start-color + @end-color)/2;
-	border-top-color: @start-color + #222222;
-	border-bottom-color: @end-color - #333333;
+	border-top: 1px solid @start-color + #222222;
+	border-bottom: 1px solid @end-color - #333333;
 	-moz-background-clip: padding;
 	-webkit-background-clip: padding;
 }
@@ -323,7 +333,7 @@ a:hover.tag{
 	}
 }
 .icon{
-	padding:0 30px 0 0;
+	padding:0 0 0 30px;
 	position:relative;
 }
 .all-icon, .empty-icon{
@@ -334,9 +344,15 @@ a:hover.tag{
 }
 .assignment-icon-old{
 	.icon-span(-27px);
+        span{
+            background-position: 5px -27px;
+        }
 }
 .assignment-icon-new{
 	.icon-span(-57px);
+        span{
+            background-position: 5px -57px;
+        }
 }
 .event-icon{
 	.icon-span(-90px);
@@ -354,7 +370,7 @@ body {
  	font-size: @font-basic-size;
 	line-height: @font-line-height;
 	color: @color-main-text;
-	direction: rtl;
+	direction: ltr;
 	p{
 		color: @color-main-text;
 	}
@@ -401,6 +417,7 @@ body{
 	@radius:10px;
 	.rounded-corners;
 	.drop-shadow;
+	direction: rtl;
 }
 .header{
 	.rounded-corners;
@@ -424,7 +441,7 @@ body{
 		left:0;
 		h1{
 			position:absolute;
-			text-indent:-9999px;
+			text-indent:9999px;
 		}
 	}
 }
@@ -516,3 +533,8 @@ body{
 	background: url(../images/throbber.gif) no-repeat 1% 0 !important;
 }
 
+.shadow-class{
+    @blur-size: 1px;
+    @shadow-color: #aaa;
+    .drop-shadow;
+}

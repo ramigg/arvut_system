@@ -1,0 +1,6 @@
+div.selector select,
+div.checker input,
+div.radio input,
+div.uploader input{
+    filter: alpha(opacity:0);
+}

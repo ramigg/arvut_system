@@ -287,6 +287,9 @@ he:
       country: מדינה
       city: עיר
       region: איזור
+      no_file_selected: קובץ לא נבחר
+      choose_image: בחר תמונה
+
   views:
     back: חזרה
     cancel: ביטול

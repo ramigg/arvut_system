@@ -213,6 +213,8 @@ en:
       country: Country
       city: City
       region: Region
+      no_file_selected: No image selected
+      choose_image: Choose Image
 
   admin:
     pages:

@@ -23,13 +23,13 @@
     <dd id="birthday">
       <%= f.select :birthday,
         options_for_select((1900..Time.now.year).to_a.reverse, @profile.birthday || '1980'),
-        {:include_blank => 'select'} %>
+        {:include_blank => 'select'}, :class => 'select-ltr' %>
     </dd>
     <dt><%= f.label :language_id, t('user.model.preferred_language') %></dt>
     <dd id="language">
       <%= f.select :language_id,
         options_for_select(Language.options_for_select, @profile.language_id),
-        {:include_blank => 'select'} %>
+        {:include_blank => 'select'}, :class => 'select-ltr' %>
     </dd>
     <dt><%= f.label :avatar, t('user.model.avatar') %></dt>
     <dd></dd>
@@ -52,7 +52,7 @@
       country_id = @profile.country.id if @profile.country
       f.select :country_id,
         options_for_select(Country.options_for_select, country_id),
-        {:include_blank => 'Please select'} %>
+        {:include_blank => 'Please select'}, :class => 'select-ltr' %>
     </dd>
     <dt><%= f.label :region_id, t('user.model.region') %></dt>
     <dd id="region">
@@ -62,7 +62,7 @@
       disabled = country_id == 0
       f.select :region_id,
         options_for_select(Region.options_for_select(country_id), region_id),
-        {:include_blank => 'Please select'}, :disabled => disabled %>
+        {:include_blank => 'Please select'}, :disabled => disabled, :class => 'select-ltr' %>
     </dd>
     <dt><%= f.label :location_id, t('user.model.city') %></dt>
     <dd id="city">
@@ -73,7 +73,7 @@
       location_id = @profile.location.id if @profile.location
       f.select :location_id,
         options_for_select(Location.options_for_select(country_id, region_id), location_id),
-        {:include_blank => 'Please select'}, :disabled => disabled %>
+        {:include_blank => 'Please select'}, :disabled => disabled, :class => 'select-ltr' %>
     </dd>
     <dt><label><%= t('user.model.receive_notifications') %></label></dt>
     <dd><%= f.select :notifybyemail,
@@ -90,6 +90,9 @@
   </div>
 <%- end -%>
 <%= javascript_tag <<-JS
+$.uniform.options.fileDefaultText = '#{I18n.t('user.model.no_file_selected')}';
+$.uniform.options.fileBtnText = '#{I18n.t('user.model.choose_image')}';
+
 $(document).ready(function(){
   $('.profile_editor').validate({
     rules: {

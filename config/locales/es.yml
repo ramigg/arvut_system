@@ -386,6 +386,8 @@ es:
       region: Región
       country: País
       remove_avatar: "Remover Avatar"
+      no_file_selected: No hay imagen
+      choose_image: Seleccione Imagen
   views:
     back: Volver
     cancel: Cancelar
