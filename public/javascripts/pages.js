@@ -13,7 +13,7 @@ $(document).ready(function() {
 
     $('.datepicker').AnyTime_picker(
     {
-        format: "%Y-%m-%d %H:%i",
+        format: "%Y-%m-%d %H:%i %:",
         firstDOW: 1
     } );
 
