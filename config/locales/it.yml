@@ -224,6 +224,8 @@ it:
       update: "Lista dell'utente aggiornata con successo"
   pages:
     update: "La pagina è stata aggiornata con successo"
+    views:
+      required: "campo richiesto"
   answer:
     model:
       answer_too_short: ""

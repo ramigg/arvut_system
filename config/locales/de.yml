@@ -225,6 +225,8 @@ de:
       update: "Benutzerliste erfolgreich aktualisiert"
   pages:
     update: "Seite erfolgreich aktualisiert"
+    views:
+      required: Pflichtfeld
   answer:
     model:
       answer_too_short: "Deine Antwort ist zu kurz. Mehr als 10 Zeichen sind notwendig."

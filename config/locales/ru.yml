@@ -229,6 +229,8 @@ ru:
       remove_avatar: "Удалить Аватар"
   pages:
     update: "Страница была успешно обновлена"
+    views:
+      required: обязательные поля
   admin:
     pages:
       actions: Действия

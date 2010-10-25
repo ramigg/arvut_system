@@ -1,5 +1,5 @@
 <% if question.is_multiline %>
   <%= builder.text_area :text_value, :rows => 5, :cols => 80, :class => 'required', :title => 'required field' %>
 <% else %>
-  <%= builder.text_field :text_value, :class => 'required', :title => 'required field' %>
+  <%= builder.text_field :text_value, :class => 'required', :title => t('pages.views.required') %>
 <% end %>
