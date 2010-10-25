@@ -367,9 +367,9 @@ he:
     messages: "הודעות"
     events: "אירועים"
     new_items: "חדשים בלבד"
-    all_items: "הצג הכל"
+    all_items: "המשך"
     more_items: "פוסטים נוספים »"
-
+    tags_menu: נושאים
   admin:
     pages:
       success: "הפוסט נוצר בהצלחה"

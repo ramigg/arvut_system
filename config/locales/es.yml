@@ -348,6 +348,7 @@ es:
     new_items: "Nuevos productos"
     posted_ago: "Publicado %{when} hace "
     read_all: "Leer todos »"
+    tags_menu: Temas
   profile:
     views:
       change_password: "cambiar contraseña"

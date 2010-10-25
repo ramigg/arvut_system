@@ -78,7 +78,12 @@ class Page < ActiveRecord::Base
     tag_counts_on(:"#{locale}_tags").all.map{|e| e.name}
   end
   def self.all_tags(locale)
-    tag_counts_on(:"#{locale}_tags").all
+    result = tag_counts_on(:"#{locale}_tags").all
+    if result && result.size > 0
+      result
+    else
+      nil
+    end
   end
   
   def is_assignment?
