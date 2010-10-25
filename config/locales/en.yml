@@ -150,6 +150,7 @@ en:
 
   home:
     views:
+      site_name: Sviva Tova
       edit_profile: Edit profile
       check_for_new_questionnaire: Check for new questionnaire
       view_reports: View Reports

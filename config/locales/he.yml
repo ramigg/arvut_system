@@ -211,6 +211,7 @@ he:
       not_locked: "לא נעולה"
   home:
     views:
+      site_name: סביבה טובה
       answered: עניתי
       check_for_new_questionnaire: "בדוק האם קיים שאלון חדש"
       dashboard: הדף שלי
