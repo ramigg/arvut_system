@@ -10,10 +10,22 @@ class ProfilesController < ApplicationController
 
     @tags = Page.all_tags(I18n.locale)
     #    respond_with @profile
+
+    # User can edit only this profile
+    if @profile.id.to_s != params[:id]
+      render :nothing => true
+    end
   end
 
   def update
     @profile = current_user
+    
+    # User can edit only this profile
+    if @profile.id.to_s != params[:id]
+      render :nothing => true
+      return
+    end
+    
     if @profile.update_attributes(params[:user])
       flash[:notice] = I18n.t 'profile.view.updated'
       @profile.register_activity('submit profile')
