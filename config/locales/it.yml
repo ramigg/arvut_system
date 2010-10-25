@@ -383,6 +383,9 @@ it:
       region: Regione
       country: Nazione
       remove_avatar: "Rimuovi Avatar"
+      no_file_selected: Nessuna immagine
+      choose_image: Scegli Immagine
+
   views:
     back: indietro
     cancel: "cancella "

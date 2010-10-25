@@ -1,6 +1,7 @@
 // basic styles
 @import "_basic-styles-rtl";
 @import "_colorbox-rtl";
+@import "_uniform";
 
 // Main stream
 .layout-stream{
@@ -118,7 +119,6 @@
 		.rounded-corners;
 		padding: 15px;
 		dl{
-			line-height: 2em;
 			dt{
 				.float_right;
 				width:200px;
@@ -135,6 +135,7 @@
 		}
                 textarea, input{
         		width: 176px;
+                        margin:2px;
                 }
 		hr.separator{
 			margin: 20px 0;
@@ -204,6 +205,9 @@
 		ul ul{
 			margin-bottom: 10px;
 		}
+                input, textarea{
+                    pading:0;
+                }
 	}
 	.widget-register{
 		.widget-style2;
@@ -287,6 +291,7 @@
 						}
 					}
 				}
+
 			}
 			.video{
 				object{

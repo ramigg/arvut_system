@@ -227,6 +227,8 @@ ru:
       country: Страна
       region: Регион
       remove_avatar: "Удалить Аватар"
+      no_file_selected: Нет файла
+      choose_image: Выбрать фото
   pages:
     update: "Страница была успешно обновлена"
   admin:

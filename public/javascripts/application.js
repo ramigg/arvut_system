@@ -216,3 +216,12 @@ function colorbox_iframe(obj, width, height, innerHeight)
     });
 }
 
+$(function () {
+    $('input:text,textarea,div.uploader span.filename').live('hover', function(event){
+        if (event.type == 'mouseover') {
+            $(this).addClass('shadow-class');
+        } else {
+            $(this).removeClass('shadow-class');
+        }
+    });
+});

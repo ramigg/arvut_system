@@ -1,5 +1,4 @@
-<%= stylesheet_link_tag 'reset',
-  'uniform.default.css' %>
+<%= stylesheet_link_tag 'reset' %>
 <%- if Rails.env == 'development' -%>
   <%- if is_rtl? %>
     <%= stylesheet_link_tag 'styles-rtl.less', :rel => 'stylesheet/less' %>
@@ -14,6 +13,10 @@
     <%= stylesheet_link_tag 'styles' %>
   <%- end -%>
 <%- end -%>
+<!--[if IE]>
+<%= stylesheet_link_tag 'uniform-ie' %>
+<![endif]-->
+
 
 <script type="text/javascript">
   var SITE_URL = '<%= request.protocol + request.host_with_port + Rails.configuration.site_prefix %>';
