@@ -7,7 +7,7 @@ opt_count = question.scale_to - question.scale_from + 1
     <%= builder.radio_button :int_value,
       (question.scale_from + c).to_s,
       :class => 'required',
-      :title => 'required field' %>
+      :title => t('pages.views.required') %>
     <%= builder.label :int_value, (c+1).to_s %>
   </div>
 <% end %>

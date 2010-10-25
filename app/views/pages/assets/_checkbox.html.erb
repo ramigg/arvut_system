@@ -3,7 +3,7 @@
     <%= check_box_tag "question_pair_id[value_ids][]",
       e.id.to_s, answer.values.include?(e),
       :class => 'required',
-      :title => 'required field' %>
+      :title => t('pages.views.required') %>
     <%= builder.label :value, e.label %>
   </div>
 <% end %>

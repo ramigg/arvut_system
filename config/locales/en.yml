@@ -185,6 +185,8 @@ en:
         If you've tried everything above and still have a problem, then please send an email to
   pages:
     update: Page was successfully updated
+    views:
+      required: required field
   profile:
     views:
       edit: edit

@@ -225,6 +225,8 @@ es:
       update: "Actualizada correctamente la lista de usuarios"
   pages:
     update: "La página fue actualizada correctamente"
+    views:
+      required: "campo requerido"
   answer:
     model:
       answer_too_short: "Tu respuesta es demasiado corta. La longitud mínima de la respuesta es de 10 caracteres."
