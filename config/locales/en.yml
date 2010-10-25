@@ -150,6 +150,7 @@ en:
 
   home:
     views:
+      site_name: Sviva Tova
       edit_profile: Edit profile
       check_for_new_questionnaire: Check for new questionnaire
       view_reports: View Reports
@@ -210,6 +211,8 @@ en:
       country: Country
       city: City
       region: Region
+      no_file_selected: No image selected
+      choose_image: Choose Image
 
   admin:
     pages:

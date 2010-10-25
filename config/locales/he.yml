@@ -211,6 +211,7 @@ he:
       not_locked: "לא נעולה"
   home:
     views:
+      site_name: סביבה טובה
       answered: עניתי
       check_for_new_questionnaire: "בדוק האם קיים שאלון חדש"
       dashboard: הדף שלי
@@ -286,6 +287,9 @@ he:
       country: מדינה
       city: עיר
       region: איזור
+      no_file_selected: קובץ לא נבחר
+      choose_image: בחר תמונה
+
   views:
     back: חזרה
     cancel: ביטול
