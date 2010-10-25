@@ -77,7 +77,7 @@ class User < ActiveRecord::Base
   ]
 
   REQUIRED_FIELDS.each { |req|
-    validates req, :presence => true
+#    validates req, :presence => true
   }
   
   state_machine :state, :initial => :idle do
