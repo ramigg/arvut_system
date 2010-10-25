@@ -77,7 +77,7 @@ class Admin::PagesController < ApplicationController
 
   private
 
-  def set_page_status object, options
+  def set_page_status(object, options)
 
     if options[:PUBLISH_AT]
       object.status = 'PUBLISHED'
