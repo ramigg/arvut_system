@@ -26,7 +26,7 @@ class User < ActiveRecord::Base
   belongs_to :country
   belongs_to :region
   belongs_to :location
-  validates :location, :presence => true
+#  validates :location, :presence => true
 
   has_many :pages
 
