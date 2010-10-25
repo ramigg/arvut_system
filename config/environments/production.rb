@@ -3,7 +3,7 @@ Simulator::Application.configure do
   config.i18n.default_locale = :en
 
   #site prefix
-  config.site_prefix = '/internet2'
+  config.site_prefix = '/internet'
 
   # The production environment is meant for finished, "live" apps.
   # Code is not reloaded between requests
