@@ -13,7 +13,6 @@ class PageUserflag < ActiveRecord::Base
       options.merge!({:is_answered => true})
       create(options)
     end
-      
   end
 
 end
