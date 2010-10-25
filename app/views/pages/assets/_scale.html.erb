@@ -4,7 +4,10 @@ opt_count = question.scale_to - question.scale_from + 1
 <span class="rate_item"><%= question.label_from %></span>
 <% opt_count.times do |c| %>
   <div class="rate_item">
-    <%= builder.radio_button :int_value, (question.scale_from + c).to_s %>
+    <%= builder.radio_button :int_value,
+      (question.scale_from + c).to_s,
+      :class => 'required',
+      :title => 'required field' %>
     <%= builder.label :int_value, (c+1).to_s %>
   </div>
 <% end %>

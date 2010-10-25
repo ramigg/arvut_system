@@ -132,19 +132,16 @@
 					line-height:1.3em;
 				}
 			}
+		}
                 textarea, input{
         		width: 176px;
                 }
-		}
-		.ValidationErrors{
-			top:-0.1em;
-		}
-		.ErrorField{
-			padding: 0;
-		}
 		hr.separator{
 			margin: 20px 0;
 		}
+                label.error {
+                    color:red;
+                }
 	}
 	.widget-profile{
 		.widget-style1;
@@ -322,8 +319,14 @@
 		.sticky{
 		}
 		#page_submit{
-			float: left;
+			.float_left;
 		}
+                label.error {
+                    color:red;
+                    display:block;
+                    font-size:12px;
+                    font-weight:normal;
+                }
 	}
 }
 
@@ -355,4 +358,18 @@
 	h2{
 		margin: 0 auto 10px;
 	}
+}
+.login-static-content{
+    ul{
+        list-style: disc inside;
+        padding: 10px 10px 0 0;
+        color: #666666;
+    }
+    h3{
+        color: #666666;
+        font-size:14px;
+    }
+    p{
+        margin: 0 0 10px;
+    }
 }

@@ -365,6 +365,7 @@ it:
     new_items: "Nuovi Articoli"
     posted_ago: "Pubblicato %{when} fa"
     read_all: "Leggi Tutto"
+    tags_menu: Argomenti
   user:
     model:
       birthday: "Anno di nascita"

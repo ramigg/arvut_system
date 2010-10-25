@@ -1,1 +1,4 @@
-<%= builder.select :question_pair_id, question.entries.map{|e| [e.label, e.id]}, :prompt => t('questionnaire_answer.views.please_select_one_of_the_options')%>
+<%= builder.select :question_pair_id,
+  question.entries.map{|e| [e.label, e.id]},
+  {:prompt => t('questionnaire_answer.views.please_select_one_of_the_options')},
+  {:class => 'required', :title => 'required field' } %>

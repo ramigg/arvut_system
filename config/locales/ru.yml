@@ -209,6 +209,7 @@ ru:
     new_items: "Новые посты"
     posted_ago: "Размещено %{when} назад"
     read_all: "Читать все »"
+    tags_menu: Темы
   user:
     model:
       gender: Пол

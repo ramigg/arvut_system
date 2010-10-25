@@ -33,19 +33,19 @@ class ProfilesController < ApplicationController
     else
       @klass = 'error'
     end
-    respond_with(@profile, :location => edit_profile_path(@profile))
+    respond_with(@profile, :location => :home)
   end
 
   def region_ids
     regions = Region.options_for_select(params[:region_id])
-    regions = [['All country', -1]] if regions.empty?
+    regions = [['All country', '']] if regions.empty?
     
     render :json => regions
   end
 
   def location_ids
     locations = Location.options_for_select(params[:country_id], params[:location_id])
-    locations = [['All country', -1]] if locations.empty?
+    locations = [['All country', '']] if locations.empty?
 
     render :json => locations
   end

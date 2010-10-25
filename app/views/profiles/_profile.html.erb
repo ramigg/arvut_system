@@ -89,3 +89,29 @@
     <%= link_to t('views.cancel'), stream_url(:stream_filter => :all), :class => 'button-small-cancel' %>
   </div>
 <%- end -%>
+<%= javascript_tag <<-JS
+$(document).ready(function(){
+  $('.profile_editor').validate({
+    rules: {
+      "user[first_name]":   "required",
+      "user[last_name]":    "required",
+      "user[birthday]":     "required",
+      "user[country_id]":   "required",
+      "user[region_id]":    "required",
+      "user[location_id]":  "required"
+    },
+    messages:{
+      "user[first_name]":   " required field",
+      "user[last_name]":    " required field",
+      "user[birthday]":     " required field",
+      "user[country_id]":   " required field",
+      "user[region_id]":    " required field",
+      "user[location_id]":  " required field"
+    },
+    errorPlacement: function(error, element) {
+      error.appendTo( element.parents("dd") );
+    }
+  });
+});
+JS
+%>

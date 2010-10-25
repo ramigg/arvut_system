@@ -493,33 +493,21 @@ body{
 	line-height: @font-line-height;
 }
 // Errors
-#notice_explanation{
-	color: #39b54a;
-	background: #dcffec;
-	border: 1px solid #39b54a;
-	padding: 0 5px;
+#error_explanation {
+    border:1px solid #FF838C;
+    color:#FF1D25;
+    background:#FFE1E1;
+    padding:5px;
+    margin-bottom:10px;
 }
-#error_explanation,
-.ValidationErrors{
-	color: @color-red;
-	background: #ffe1e1;
-	border: 1px solid #f69799;
-	padding: 0 5px;
-	display: inline-block;
+#notice_explanation {
+    border:1px solid #39B54A;
+    color:#009245;
+    background:#DCFFEC;
+    padding:5px;
+    margin-bottom:10px;
 }
-.ValidationErrors{
-	position: absolute;
-	right:-0.5em;
-	top:0.7em;
-	.rounded-corners;
-}
-.ErrorField{
-	border: 1px solid #f69799;
-	padding: 0 5px;
-	display: inline-block;
-	.rounded-corners;
-	position:relative;
-}
+
 .form_element{
 	position: relative;
 }

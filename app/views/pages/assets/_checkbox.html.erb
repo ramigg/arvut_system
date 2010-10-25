@@ -1,6 +1,9 @@
 <% question.entries.each_with_index do |e, idx| %>
   <div>
-    <%= check_box_tag "question_pair_id[value_ids][]", e.id.to_s, answer.values.include?(e) %>
+    <%= check_box_tag "question_pair_id[value_ids][]",
+      e.id.to_s, answer.values.include?(e),
+      :class => 'required',
+      :title => 'required field' %>
     <%= builder.label :value, e.label %>
   </div>
 <% end %>

@@ -3,12 +3,15 @@ module Tags
   class Container < Apotomo::Widget
 
     has_widgets do |me|
-      for t in Page.all_tags(I18n.locale)
-        me << widget('tags/tag', "tag-#{t.id}", :display, :tag => t.name)
+      if tags = Page.all_tags(I18n.locale)
+        for t in tags
+          me << widget('tags/tag', "tag-#{t.id}", :display, :tag => t.name)
+        end                                 
       end
     end
     
     def container
+      @tags = Page.all_tags(I18n.locale)
       render
     end
   end

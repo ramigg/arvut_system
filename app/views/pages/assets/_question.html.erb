@@ -1,4 +1,6 @@
-<%- klass_name = question.class.to_s.underscore %>
+<%-
+klass_name = question.class.to_s.underscore
+-%>
 <%
 answer = question.find_answer(@qa.answers)
 %>
@@ -13,3 +15,13 @@ answer = question.find_answer(@qa.answers)
     <% end %>
   </dd>
 </dl>
+<%= javascript_tag <<-JS
+$(document).ready(function(){
+  $('.edit-stream form').validate({
+    errorPlacement: function(error, element) {
+      error.appendTo( element.parents("dd").prev() );
+    }
+  });
+});
+JS
+%>
