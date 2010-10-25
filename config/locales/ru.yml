@@ -231,6 +231,8 @@ ru:
       choose_image: Выбрать фото
   pages:
     update: "Страница была успешно обновлена"
+    views:
+      required: обязательные поля
   admin:
     pages:
       actions: Действия

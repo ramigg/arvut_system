@@ -361,6 +361,8 @@ he:
       second: "שניה"
   pages:
     update: הפוסט עודכן בהצלחה
+    views:
+      required: "שדה חובה"
   stream:
     posted_ago: "פורסם לפני %{when}"
     read_all: "המשך »"
