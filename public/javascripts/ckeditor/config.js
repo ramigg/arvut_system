@@ -28,12 +28,10 @@ CKEDITOR.editorConfig = function( config )
     ['Bold','Italic','Underline'],
     ['NumberedList','BulletedList'],
     ['JustifyLeft','JustifyCenter','JustifyRight'],
-    ['TextColor','BGColor'],
-    ['Link','Unlink'],
-    ['Image','Flash'],
+    ['Link','Unlink','Image','Flash'],
     //    '/',
     ['Styles'],
-    ['Source', '-', 'Maximize', 'ShowBlocks']
+    ['Source', 'Maximize', 'ShowBlocks']
     ];
 
     config.toolbar_Min_he =
@@ -43,12 +41,20 @@ CKEDITOR.editorConfig = function( config )
     ['Bold','Italic','Underline'],
     ['NumberedList','BulletedList'],
     ['JustifyRight','JustifyCenter','JustifyLeft'],
-    //['BidiLtr', 'BidiRtl'],
-    ['TextColor','BGColor'],
     ['Link','Unlink'],
     ['Image','Flash'],
     ['Source', '-', 'Maximize', 'ShowBlocks'],
     ['Styles']
+    ];
+
+    config.toolbar_Pic =
+    [
+    ['Image']
+    ];
+
+    config.toolbar_Pic_he =
+    [
+    ['Image']
     ];
 
     config.stylesCombo_stylesSet = 'my_styles';

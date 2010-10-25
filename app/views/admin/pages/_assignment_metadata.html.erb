@@ -1,10 +1,12 @@
 <div class="span-18">
   <fieldset>
-  <legend><%= t("admin.pages.article") %></legend>
+    <legend><%= t("admin.pages.article") %></legend>
     <%= f.label :title, t("admin.pages.title") %>
     <%= f.text_field :title, :class => 'title span-17 last' %>
     <%= f.label :description, t("admin.pages.description"), :class => 'text' %>
-    <%= f.cktext_area :description, :toolbar => ckeditor_toolbar, :class => 'span-17 last', :width => '650px', :height => '6em' %>
+    <%= f.cktext_area :description, :toolbar => ckeditor_toolbar, :class => 'span-17 last', :width => '650px', :height => '12em' %>
+    <%= f.label :picture4preview, t("admin.pages.picture4preview"), :class => 'text' %>
+    <%= f.text_field :picture4preview, :class => 'title span-17 last' %>
   </fieldset>
   <%= render 'permissions' %>
   <%= render 'tags' %>

@@ -1,4 +1,4 @@
-﻿/*
+/*
 Copyright (c) 2003-2010, CKSource - Frederico Knabben. All rights reserved.
 For licensing, see LICENSE.html or http://ckeditor.com/license
 */
@@ -28,12 +28,10 @@ CKEDITOR.editorConfig = function( config )
     ['Bold','Italic','Underline'],
     ['NumberedList','BulletedList'],
     ['JustifyLeft','JustifyCenter','JustifyRight'],
-    ['TextColor','BGColor'],
-    ['Link','Unlink'],
-    ['Image','Flash'],
+    ['Link','Unlink','Image','Flash'],
     //    '/',
     ['Styles'],
-    ['Source', '-', 'Maximize', 'ShowBlocks']
+    ['Source', 'Maximize', 'ShowBlocks']
     ];
 
     config.toolbar_Min_he =
@@ -43,17 +41,27 @@ CKEDITOR.editorConfig = function( config )
     ['Bold','Italic','Underline'],
     ['NumberedList','BulletedList'],
     ['JustifyRight','JustifyCenter','JustifyLeft'],
-    //['BidiLtr', 'BidiRtl'],
-    ['TextColor','BGColor'],
     ['Link','Unlink'],
     ['Image','Flash'],
     ['Source', '-', 'Maximize', 'ShowBlocks'],
     ['Styles']
     ];
 
+    config.toolbar_Pic =
+    [
+    ['Image']
+    ];
+
+    config.toolbar_Pic_he =
+    [
+    ['Image']
+    ];
+
     config.stylesCombo_stylesSet = 'my_styles';
-    config.contentsCss = '/stylesheets/main.css';
-	config.resize_enabled = false;
-	config.toolbarCanCollapse = false;
+    config.PreserveSessionOnFileBrowser = true;
+//TODO: Change this param so ckeditor stylesheet will work
+    config.contentsCss = '/simulator/stylesheets/main.css';
+    config.resize_enabled = false;
+    config.toolbarCanCollapse = false;
 };
 

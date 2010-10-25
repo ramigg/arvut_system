@@ -310,6 +310,7 @@ en:
       unknown_page: Unknown Page
       preview: Preview
       select_language: Select Language
+      picture4preview: Picture for preview
     user_list:
       create_new_user: Create New User
       create_user_list: Create User List
