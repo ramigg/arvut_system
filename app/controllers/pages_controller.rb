@@ -22,6 +22,7 @@ class PagesController < ApplicationController
       flash[:notice] = I18n.t 'pages.update.was_successful'
       # close popup
       @close_popup = true
+      PageUserflag.mark_as_answered(@page, current_user) if @page.is_assignment?
     else
       # Failure
       flash[:error] = I18n.t 'pages.update.failed'
