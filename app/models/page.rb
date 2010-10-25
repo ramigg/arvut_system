@@ -80,4 +80,8 @@ class Page < ActiveRecord::Base
   def self.all_tags(locale)
     tag_counts_on(:"#{locale}_tags").all
   end
+  
+  def is_assignment?
+    page_type == 'assignment'
+  end
 end

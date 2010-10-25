@@ -16,7 +16,7 @@
           </div>
         <% end %>
       <% end %>
-      <%- if @page.page_type == 'assignment' -%>
+      <%- if @page.is_assignment? -%>
         <hr/>
         <div><%= f.submit t('views.submit'), :class => 'button-small-main' %></div>
       <%- end %>
