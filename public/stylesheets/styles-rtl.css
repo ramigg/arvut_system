@@ -78,15 +78,8 @@ body{background:#afdfff url(../images/gradient.png) repeat-x 0 0;color:black;}
 .widget-style2 ul a{text-decoration:none;}
 .widget-style2 .more_link{display:block;text-align:right;font-size:11px;margin:20px 0 0;}
 .widget-style3{margin:0 0 20px;-webkit-border-radius:9px;-moz-border-radius:9px;border-radius:9px;behavior:url(PIE.htc);position:relative;padding:10px;padding:3px;border:1px solid #dcf2ff;line-height:18px;}.widget-style3 .inner{-webkit-border-radius:5px;-moz-border-radius:5px;border-radius:5px;behavior:url(PIE.htc);position:relative;background:#dcf2ff;padding:20px 30px;}
-.error{border-color:red;}
-.notice{border-color:#FFD324;}
-.success{border-color:#C6D880;}
-label.error{color:red;}
-label.notice{color:#514721;}
-label.success{color:#264409;}
-.error a,.error h3{color:red;}
-.notice a{color:#514721;}
-.success a{color:#264409;}
+#error_explanation{border:1px solid #FF838C;color:#FF1D25;background:#FFE1E1;padding:5px;margin-bottom:10px;}
+#notice_explanation{border:1px solid #39B54A;color:#009245;background:#DCFFEC;padding:5px;margin-bottom:10px;}
 .form_element{position:relative;}
 .throbber{padding-left:35px;background:url(../images/throbber.gif) no-repeat 1% 0 !important;}
 #colorbox,#cboxOverlay,#cboxWrapper{position:absolute;top:0;left:0;z-index:9999;}
@@ -144,10 +137,9 @@ label.success{color:#264409;}
 .layout-stream .content-stream .more_items{height:22px;line-height:22px;padding:0 0 0 20px;}
 .layout-stream .profile_editor{background:#f1f1f1;-webkit-border-radius:5px;-moz-border-radius:5px;border-radius:5px;behavior:url(PIE.htc);position:relative;padding:15px;}.layout-stream .profile_editor dl{line-height:2em;}.layout-stream .profile_editor dl dt{float:right;width:200px;clear:both;display:block;}
 .layout-stream .profile_editor dl dd{width:300px;float:right;}.layout-stream .profile_editor dl dd p{line-height:1.3em;}
-.layout-stream .profile_editor dl textarea,.layout-stream .profile_editor dl input{width:176px;}
-.layout-stream .profile_editor .ValidationErrors{top:-0.1em;}
-.layout-stream .profile_editor .ErrorField{padding:0;}
+.layout-stream .profile_editor textarea,.layout-stream .profile_editor input{width:176px;}
 .layout-stream .profile_editor hr.separator{margin:20px 0;}
+.layout-stream .profile_editor label.error{color:red;}
 .layout-stream .widget-profile{margin:0 0 20px;-webkit-border-radius:5px;-moz-border-radius:5px;border-radius:5px;behavior:url(PIE.htc);position:relative;padding:10px;background:#dcf2ff;background:#f1f1f1;padding:10px 10px 0;}.layout-stream .widget-profile img.avatar{height:40px;width:40px;float:right;margin:0 0 5px 10px;}
 .layout-stream .widget-profile div{font-size:11px;margin-top:7px;}
 .layout-stream .widget-blog{margin:0 0 20px;-webkit-border-radius:5px;-moz-border-radius:5px;border-radius:5px;behavior:url(PIE.htc);position:relative;padding:10px;border:2px solid #aaaaaa;}.layout-stream .widget-blog h4{color:#f7931e;}
@@ -191,6 +183,7 @@ label.success{color:#264409;}
 .layout-popup .edit-stream .item .video .video_object img{margin:44px 64px 0 0;}
 .layout-popup .edit-stream .item .other texarea{margin:0 25px 0 0;}
 .layout-popup .edit-stream #page_submit{float:left;}
+.layout-popup .edit-stream label.error{color:red;display:block;font-size:12px;font-weight:normal;}
 .layout-signup .widget-register{margin:0 0 20px;-webkit-border-radius:9px;-moz-border-radius:9px;border-radius:9px;behavior:url(PIE.htc);position:relative;padding:10px;padding:3px;border:1px solid #dcf2ff;line-height:18px;text-align:center;}.layout-signup .widget-register .inner{-webkit-border-radius:5px;-moz-border-radius:5px;border-radius:5px;behavior:url(PIE.htc);position:relative;background:#dcf2ff;padding:20px 30px;}
 .layout-signup .widget-register .text-input{width:100%;}
 .layout-signup .widget-register ul ul{margin-bottom:10px;}
@@ -199,3 +192,6 @@ label.success{color:#264409;}
 .layout-signup .field_with_errors label{color:red;}
 .layout-signup .submission{text-align:center;margin:20px 0;}
 .layout-signup h2{margin:0 auto 10px;}
+.login-static-content ul{list-style:disc inside;padding:10px 10px 0 0;color:#666666;}
+.login-static-content h3{color:#666666;font-size:14px;}
+.login-static-content p{margin:0 0 10px;}

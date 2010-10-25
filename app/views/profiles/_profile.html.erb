@@ -90,6 +90,7 @@
   </div>
 <%- end -%>
 <%= javascript_tag <<-JS
+$(document).ready(function(){
   $('.profile_editor').validate({
     rules: {
       "user[first_name]":   "required",
@@ -111,5 +112,6 @@
       error.appendTo( element.parents("dd") );
     }
   });
+});
 JS
 %>

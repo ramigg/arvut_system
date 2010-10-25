@@ -1,6 +1,6 @@
 <% question.entries.each_with_index do |e, idx| %>
   <div>
-    <%= builder.radio_button :question_pair_id, e.id %>
+    <%= builder.radio_button :question_pair_id, e.id, :class => 'required', :title => 'required field' %>
     <%= builder.label :question_pair_id, e.label %>
   </div>
 <% end %>
