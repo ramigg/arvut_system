@@ -92,10 +92,10 @@ Simulator::Application.routes.draw do
         put :draft, :on => :member
       end
 
-      get  'admin_tasks/admin_panel', :to => 'admin_tasks#index', :as => 'admin_panel'
-      get  'admin_tasks/autocomplete_user_email', :to => 'admin_tasks#autocomplete_user_email', :as => 'autocomplete_user_email_admin_tasks'
-      get  'admin_tasks/remove_user', :to => 'admin_tasks#remove_user', :as => 'remove_user'
-      delete 'admin_tasks/remove_user_action', :to => 'admin_tasks#remove_user_action', :as => 'remove_user_action'
+      get  'panel', :to => 'admin_tasks#index'
+      get  'autocomplete_user_email', :to => 'admin_tasks#autocomplete_user_email', :as => 'autocomplete_user_email_admin_tasks'
+      get  'remove_user', :to => 'admin_tasks#remove_user', :as => 'remove_user'
+      delete 'remove_user_action', :to => 'admin_tasks#remove_user_action', :as => 'remove_user_action'
     end
 
     constraints(CheckNotLoggedIn) do

@@ -4,7 +4,6 @@
       <% if current_user.is_admin? || current_user.is_moderator? %>
         <%= t('admin.reports.manage_questionnaires') %>:
         <ul>
-          <li><%= link_to t('admin.reports.questionnaires_list'), admin_questionnaires_url %></li>
           <li><%= link_to t('admin.reports.pages_list'), admin_pages_url %></li>
         </ul>
       <% end %>
