@@ -19,6 +19,8 @@ end
 
 Simulator::Application.routes.draw do
 
+  match 'PIE.htc' => "static_files#get_htc"
+
   get "groups/index"
   get "groups/create"
 
