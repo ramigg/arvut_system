@@ -153,6 +153,7 @@ ru:
 
   home:
     views:
+      site_name: Sviva Tova
       edit_profile: Изменить профиль
       check_for_new_questionnaire: Проверить наличие новых вопросников
       view_reports: Показать отчеты
