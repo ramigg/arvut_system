@@ -1,7 +1,6 @@
 <div class="column-content">
   <div class="edit-stream">
     <h1><%= @page.title %></h1>
-    <div class="description"><%= @page.description.html_safe %></div>
 
     <%= form_for @page do |f|%>
       <%= f.error_messages :header_message => t('questionnaire_answer.views.all_fields_are_required'),

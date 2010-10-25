@@ -26,7 +26,7 @@ class User < ActiveRecord::Base
   belongs_to :country
   belongs_to :region
   belongs_to :location
-  validates :location, :presence => true
+#  validates :location, :presence => true
 
   has_many :pages
 
@@ -77,7 +77,7 @@ class User < ActiveRecord::Base
   ]
 
   REQUIRED_FIELDS.each { |req|
-    validates req, :presence => true
+#    validates req, :presence => true
   }
   
   state_machine :state, :initial => :idle do

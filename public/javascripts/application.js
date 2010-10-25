@@ -1,8 +1,9 @@
 $(function (){
-    $("select, input:checkbox, input:radio, input:file").uniform();
-    
+    if (typeof $.fn.uniform == 'function') {
+        $("select, input:checkbox, input:radio, input:file").uniform();
+    }
     // Basic report generator
-    if (typeof $.datepicker == 'function') {
+    if (typeof $.fn.datepicker == 'function') {
         $('.datepicker').datepicker();
         $('.datepicker').datepicker('option', {
             dateFormat: 'dd.mm.yy'
@@ -49,7 +50,7 @@ function remove_fields(link, is_new_record) {
         $(link).prev("input[type=hidden]").val("1");
         $(link).closest(".fields").hide();
     }
-};
+}
 
 // Used in Questionnaire editor
 function add_fields(link, association, content, hide_onclick) {
@@ -147,7 +148,6 @@ $(document).ready(function(){
     });
 });
 
-//
 function change_language(){
     var idx = $('#languages').get(0).selectedIndex;
     var href = $('#languages').get(0).options[idx].value;
@@ -177,7 +177,7 @@ $(function () {
         $(this).parent().parent().addClass('current');
     });
     
-    if (typeof $.colorbox == 'function') {
+    if (typeof $.fn.colorbox == 'function') {
         $('a.in-iframe').live('click', function(){
             colorbox_iframe(this, '710px', '85%', false);
             return false;
@@ -187,7 +187,7 @@ $(function () {
             return false;
         });
     }
-    if (typeof $.autoResize == 'function') {
+    if (typeof $.fn.autoResize == 'function') {
         $('textarea').autoResize({
             extraSpace: 40
         });
@@ -207,6 +207,7 @@ function colorbox_iframe(obj, width, height, innerHeight)
         close: '',
         onComplete:function(){
             $("body").css("overflow", "hidden");
+            $("#colorbox").css("display", "block");
         //                alert('document will be marked as read');
         },
         onCleanup:function(){
@@ -217,11 +218,12 @@ function colorbox_iframe(obj, width, height, innerHeight)
 }
 
 $(function () {
-    $('input:text,textarea,div.uploader span.filename').live('hover', function(event){
-        if (event.type == 'mouseover') {
-            $(this).addClass('shadow-class');
-        } else {
-            $(this).removeClass('shadow-class');
-        }
-    });
+    // This kills PIE.htc with IE :(
+//    $('input:text,textarea,div.uploader span.filename').live('hover', function(event){
+//        if (event.type == 'mouseover') {
+//            $(this).addClass('shadow-class');
+//        } else {
+//            $(this).removeClass('shadow-class');
+//        }
+//    });
 });
