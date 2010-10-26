@@ -1,5 +1,7 @@
 class Admin::PagesController < ApplicationController
 
+  respond_to :html, :js
+
   before_filter :check_if_restricted
   layout 'admin_pages'
 
