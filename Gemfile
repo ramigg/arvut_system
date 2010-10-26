@@ -61,8 +61,9 @@ end
 #end
 
 # CKEditor + Paperclip
-gem 'ckeditor', '3.4.0.pre'
-gem 'paperclip' # For windows only , :git => 'http://github.com/benben/paperclip.git'
+gem 'ckeditor', :git => 'git@github.com:Bnei-Baruch/rails-ckeditor.git', :branch => 'rails3'
+gem 'paperclip', :git => 'http://github.com/thoughtbot/paperclip.git', :platforms => :mri
+#gem 'paperclip' # For windows only , :git => 'http://github.com/benben/paperclip.git'
 
 gem 'delayed_job', '2.1.0.pre2'
 
