@@ -1,8 +1,7 @@
 class Admin::BasicReportsController < ApplicationController
   before_filter :check_if_reports
 
-  respond_to :html
-  respond_to :xls, :js, :only => :create
+  respond_to :html, :xls, :js, :only
 
   def index
     @report = ReportsGenerator::BasicReport.new
@@ -16,8 +15,8 @@ class Admin::BasicReportsController < ApplicationController
     # Fields for report
     @only = [:last_name, :first_name]
     @table_headers = [
-      t(User::PROFILE_FIELDS.select { |pf| pf[:id] == 'last_name' }[0][:label]),
-      t(User::PROFILE_FIELDS.select { |pf| pf[:id] == 'first_name' }[0][:label]),
+      t('user.model.last_name'),
+      t('user.model.first_name'),
     ]
 
     if @report.display_profile

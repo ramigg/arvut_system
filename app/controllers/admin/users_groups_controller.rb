@@ -41,7 +41,7 @@ class Admin::UsersGroupsController < ApplicationController
       @users_group.user_lists << user_list_item
     end
 
-    if @users_group.save
+    if @users_group.save(false)
       flash[:notice] = 'Successfully loaded'
     else
       flash[:alert] = 'Failed to load from file'

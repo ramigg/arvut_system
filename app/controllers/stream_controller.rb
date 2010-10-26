@@ -1,5 +1,7 @@
 class StreamController < ApplicationController
 
+  respond_to :html, :js
+
   ITEMS_PER_PAGE = 10
   
   # Accepts the following:

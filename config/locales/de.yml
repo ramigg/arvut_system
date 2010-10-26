@@ -183,6 +183,7 @@ de:
       group_management: Gruppen-Management
       group_name: Gruppenname
       include_email: "Schließe Email in Bericht ein"
+      order_by_total: Order by activity
       load_group_list: "Lade Gruppenliste"
       manage_questionnaires: "Manage Fragebögen"
       manage_user_lists: "Manage User-Liste"

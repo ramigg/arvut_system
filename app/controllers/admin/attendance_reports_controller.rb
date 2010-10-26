@@ -1,8 +1,7 @@
 class Admin::AttendanceReportsController < ApplicationController
   before_filter :check_if_reports
 
-  respond_to :html
-  respond_to :xls, :js, :only => :create
+  respond_to :html, :xls, :js
   
   def index
     @report = ReportsGenerator::AttendanceReport.new
@@ -16,13 +15,11 @@ class Admin::AttendanceReportsController < ApplicationController
     # Fields for report
     @only = [:last_name, :first_name] + (@report.include_email? ? [:email] : [])
     @table_headers = [
-      t(User::PROFILE_FIELDS.select { |pf| pf[:id] == 'last_name' }[0][:label]),
-      t(User::PROFILE_FIELDS.select { |pf| pf[:id] == 'first_name' }[0][:label]),
+      t('user.model.last_name'),
+      t('user.model.first_name'),
       @report.include_email? ? t('admin.reports.user') : nil
     ].compact
 
-    respond_with(@users, :only => @only, :headers => @table_headers, :date => @report.date, :type => :attendance_report) do |format|
-      format.html { render :partial => 'attendance_report_for_users', :layout => nil }
-    end
+    respond_with(@users, :only => @only, :headers => @table_headers, :date => [@report.when_start, @report.when_end], :type => :attendance_report)
   end
 end

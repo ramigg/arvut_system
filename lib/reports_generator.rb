@@ -82,32 +82,26 @@ module ReportsGenerator
     extend ActiveModel::Naming
     include ActiveModel::Conversion
 
-    # Month to build the report for
-    attr_accessor :date, :month, :year, :users_group_id, :include_email
-
-    def initialize(attributes = {})
-      attributes.each do |name, value|
-        send("#{name}=", value)
-      end
-
-      if @date
-        @year = @date.year
-        @month = @date.month
-      end
-    end
-
     # Setters for accessors
-    [:date].each{|f|
+    [:when_start, :when_end].each{|f|
+      attr_accessor f
       define_method("#{f}=") {|value|
         instance_variable_set("@#{f}", value.empty? ? Time.now.midnight.utc : Time.parse(value))
       }
     }
 
-    [:users_group_id, :include_email].each{|f|
+    [:users_group_id, :include_email, :order_by_total].each{|f|
+      attr_accessor f
       define_method("#{f}=") {|value|
         instance_variable_set("@#{f}", value.to_i)
       }
     }
+
+    def initialize(attributes = {})
+      attributes.each do |name, value|
+        send("#{name}=", value)
+      end
+    end
 
     def include_email?
       include_email == 1
@@ -116,13 +110,11 @@ module ReportsGenerator
     # Accepts the following parameters:
     # month - Display results for specific month
     def attendance_report_by_users
-      range = @date.beginning_of_month .. @date.end_of_month
-      days = days_in_month(@year, @month)
+      range = @when_start.beginning_of_day .. @when_end.end_of_day
       activity = Activity.get_activity 'submit questionnaire_answer'
 
       result = []
       
-      #      select * from users where email in select email from user_lists where id = UG.id
       if @users_group_id != 0
         # :include => [:user, {:user => :activities}]
         userlist = UserList.where(:users_group_id => @users_group_id).includes([:user, {:user => :activities}])
@@ -136,17 +128,18 @@ module ReportsGenerator
             user = ul
             has_user = false
           end
-          result << fill_in_months_4user(user, range, days, activity.id, has_user)
+          result << fill_in_months_4user(user, range, activity.id, has_user)
         }
       else
         # All users
         User.all(:include => :user_activities).each{|user|
-          result << fill_in_months_4user(user, range, days, activity.id)
+          result << fill_in_months_4user(user, range, activity.id)
         }
       end
 
       result.sort_by { |u|
         [
+          order_by_total == 1 ? 100-u.total_attended : u.status,
           u.status,
           u.user[:last_name] ? u.user[:last_name] : '',
           u.user[:first_name] ? u.user[:first_name] : '',
@@ -162,8 +155,8 @@ module ReportsGenerator
     end
 
     private
-    def fill_in_months_4user(user, range, days, activity_id, has_user = true)
-      attendance = Array.new(days, ' ')
+    def fill_in_months_4user(user, range, activity_id, has_user = true)
+      attendance = Hash.new(' ')
       total_attended = 0
       activities_in_range = user.user_activities.select { |act|
         (act.activity_id == activity_id) &&
@@ -171,12 +164,10 @@ module ReportsGenerator
       }
 
       activities_in_range.each {|a|
-        day = a.created_at.day - 1
-        if attendance[day] == ' '
-          total_attended += 1
-          attendance[day] = '+'
-        end
+        day = "#{a.created_at.day}/#{a.created_at.month}"
+        attendance[day] = '+'
       }
+      total_attended = attendance.size
       status = has_user ? (total_attended > 0 ? '+' : '-') : 'x'
       Person.new(user, attendance, total_attended, status)
     end

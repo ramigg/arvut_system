@@ -1,6 +1,7 @@
 require 'google_visualization'
 include Google::Visualization
 
+respond_to :html, :js
 
 class StatisticsController < ActionController::Metal
   include ActionController::Rendering
@@ -40,8 +41,8 @@ class StatisticsController < ActionController::Metal
           :color => '#2e6e9e',
         },
         :hAxis => {
-#          :title => date_text,
-#          :showTextEvery => 10,
+          #          :title => date_text,
+          #          :showTextEvery => 10,
         },
         :legend => 'top',
         :pointSize => 2,

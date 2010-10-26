@@ -183,6 +183,7 @@ es:
       group_management: "Group management"
       group_name: "Group Name"
       include_email: Include Email in report
+      order_by_total: Order by activity
       load_group_list: "Load Group List"
       manage_questionnaires: "Manage questionnaires"
       manage_user_lists: "Manage User Lists"

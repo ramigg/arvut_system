@@ -396,6 +396,7 @@ ru:
       file: Файл
       group_name: Имя группы
       include_email: Включить мейл в отчет
+      order_by_total: Сортировать по активности
       all_groups: Все
       plus: активен
       minus: неактивен

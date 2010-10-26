@@ -149,12 +149,14 @@ class ApplicationResponder < ActionController::Responder
 
       if columns.any?
         unless options[:headers] == false
-          date = options[:date] == '' ? Time.now.midnight.utc : options[:date]
+          when_start = options[:date] == '' ? Time.now.midnight.utc : options[:date][0]
+          when_end = options[:date] == '' ? (Time.now + 1).midnight.utc : options[:date][1]
+          format = options[:type] || :attendance_report
 
           output << "<Row>"
           output << "<Cell ss:MergeAcross=\"4\" ss:StyleID=\"s68\"><Data ss:Type=\"String\">"
           output << "#{I18n.t('admin.reports.report')} #{I18n.t('admin.reports.for_month')} "
-          output << "#{I18n.l date.beginning_of_month, :format => :attendance_report} - #{I18n.l date.end_of_month, :format => :attendance_report}"
+          output << "#{I18n.l when_start, :format => format} - #{I18n.l when_end, :format => format}"
           output << "</Data></Cell>"
           output << "</Row>\n"
 
@@ -162,8 +164,9 @@ class ApplicationResponder < ActionController::Responder
           options[:headers].each { |header| output << "<Cell ss:StyleID=\"s64\"><Data ss:Type=\"String\">#{header}</Data></Cell>" }
           output << "<Cell ss:StyleID=\"s63\"><Data ss:Type=\"String\">#{I18n.t('admin.reports.status')}</Data></Cell>\n"
           output << "<Cell ss:StyleID=\"s63\"><Data ss:Type=\"String\">#{I18n.t('admin.reports.total')}</Data></Cell>\n"
-          (1..@resource[0].attendance.count).each { |day|
-            output << "<Cell ss:StyleID=\"s63\"><Data ss:Type=\"Number\">#{day}</Data></Cell>\n"
+          (when_start.to_i .. when_end.to_i).step(24 * 60 * 60) { |d|
+            day = Time.at(d)
+            output << "<Cell ss:StyleID=\"s63\"><Data ss:Type=\"String\">#{day.day}/#{day.month}</Data></Cell>\n"
           }
           output << "</Row>\n"
         end
@@ -185,8 +188,11 @@ class ApplicationResponder < ActionController::Responder
           end
           }</Data></Cell>\n"
           output << "<Cell ss:StyleID=\"s62\"><Data ss:Type=\"Number\">#{item.total_attended.to_s}</Data></Cell>\n"
-          item.attendance.each { |day|
-            output << "<Cell ss:StyleID=\"s62\"><Data ss:Type=\"String\">#{day}</Data></Cell>\n"
+          (when_start.to_i .. when_end.to_i).step(24 * 60 * 60) { |d|
+            day = Time.at(d)
+            at = "#{day.day}/#{day.month}"
+            content = item.attendance ? item.attendance[at] : ' '
+            output << "<Cell ss:StyleID=\"s62\"><Data ss:Type=\"String\">#{content}</Data></Cell>\n"
           }
           output << "</Row>\n"
         end

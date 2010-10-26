@@ -1,8 +1,8 @@
 <% unless @users.nil? || @users.empty? %>
   <h3><%= t('admin.reports.report') %> <%= t('admin.reports.for_month') %>
-    <%= I18n.l @report.date.beginning_of_month, :format => :attendance_report %> - <%= I18n.l @report.date.end_of_month, :format => :attendance_report %></h3>
+    <%= I18n.l @report.when_start.beginning_of_day, :format => :attendance_report %> - <%= I18n.l @report.when_end.end_of_day, :format => :attendance_report %></h3>
   <%= link_to_function t('admin.reports.print'), 'window.print();', :class => 'ui-button ui-widget ui-state-default ui-corner-all', :id => 'print_link' %>
-  <%= t('admin.reports.total') %>: <%= @users.count %>
+    <%= t('admin.reports.total') %>: <%= @users.count %>
   <table id="report" cellpadding="0" cellspacing="0">
     <thead>
       <tr>
@@ -11,8 +11,8 @@
         <% } %>
         <td><%= t('admin.reports.status') %></td>
         <td><%= t('admin.reports.total') %></td>
-        <% (1..@users[0].attendance.count).each { |day|%>
-          <td><%= day %></td>
+        <% (@report.when_start.to_i .. @report.when_end.to_i).step(24 * 60 * 60) { |d| day = Time.at(d) %>
+          <td><%= day.day %>/<%= day.month %></td>
         <% } %>
       </tr>
     </thead>
@@ -32,8 +32,11 @@
           end
         %></td>
         <td><%= user.total_attended.to_s %></td>
-        <% user.attendance.each { |day|%>
-          <td><%= day %></td>
+        <% (@report.when_start.to_i .. @report.when_end.to_i).step(24 * 60 * 60) { |d| day = Time.at(d)
+          at = "#{day.day}/#{day.month}"
+          content = user.attendance ? user.attendance[at] : ' '
+        %>
+          <td><%= content %></td>
         <% } %>
       </tr>
     <% end %>

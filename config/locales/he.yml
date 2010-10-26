@@ -112,6 +112,7 @@ he:
       file: קובץ
       group_name: שם הקבוצה
       include_email: להוסיף אימייל לדו"ח
+      order_by_total: למיין לפי פעילות
       all_groups: כולם
       plus: פעיל
       minus: לא פעיל

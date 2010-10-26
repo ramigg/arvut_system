@@ -1,0 +1,141 @@
+(in c:/projects/stimulator)
+                             groups_index GET    /groups/index(.:format)                                                 {:action=>"index", :controller=>"groups"}
+                            groups_create GET    /groups/create(.:format)                                                {:action=>"create", :controller=>"groups"}
+                                                 /(.:format)                                                             {:action=>"to_login", :controller=>"redirector"}
+                          ckeditor_images        /ckeditor/images(.:format)                                              {:action=>"images", :controller=>"ckeditor"}
+                           ckeditor_files        /ckeditor/files(.:format)                                               {:action=>"files", :controller=>"ckeditor"}
+                                                 /ckeditor/create/:kind(.:format)                                        {:action=>"create", :controller=>"ckeditor"}
+                                       en        /en(.:format)                                                           {:action=>"to_login", :controller=>"redirector"}
+                                       he        /he(.:format)                                                           {:action=>"to_login", :controller=>"redirector"}
+                                       ru        /ru(.:format)                                                           {:action=>"to_login", :controller=>"redirector"}
+                                       es        /es(.:format)                                                           {:action=>"to_login", :controller=>"redirector"}
+                                       fr        /fr(.:format)                                                           {:action=>"to_login", :controller=>"redirector"}
+                                       it        /it(.:format)                                                           {:action=>"to_login", :controller=>"redirector"}
+                                       de        /de(.:format)                                                           {:action=>"to_login", :controller=>"redirector"}
+                                                 /*path(.:format)                                                        {:action=>"to_locale", :controller=>"redirector"}
+                                     root        /(:locale)(.:format)                                                    {:action=>"to_home", :locale=>/en|he|ru|es|fr|it|de/, :controller=>"redirector"}
+                                dashboard        (/:locale)/dashboard(.:format)                                          {:action=>"dashboard", :locale=>/en|he|ru|es|fr|it|de/, :controller=>"home"}
+                         new_user_session GET    (/:locale)/users/login(.:format)                                        {:action=>"new", :locale=>/en|he|ru|es|fr|it|de/, :controller=>"devise/sessions"}
+                             user_session POST   (/:locale)/users/login(.:format)                                        {:action=>"create", :locale=>/en|he|ru|es|fr|it|de/, :controller=>"devise/sessions"}
+                     destroy_user_session GET    (/:locale)/users/logout(.:format)                                       {:action=>"destroy", :locale=>/en|he|ru|es|fr|it|de/, :controller=>"devise/sessions"}
+                            user_password POST   (/:locale)/users/password(.:format)                                     {:action=>"create", :locale=>/en|he|ru|es|fr|it|de/, :controller=>"devise/passwords"}
+                        new_user_password GET    (/:locale)/users/password/new(.:format)                                 {:action=>"new", :locale=>/en|he|ru|es|fr|it|de/, :controller=>"devise/passwords"}
+                       edit_user_password GET    (/:locale)/users/password/edit(.:format)                                {:action=>"edit", :locale=>/en|he|ru|es|fr|it|de/, :controller=>"devise/passwords"}
+                            user_password PUT    (/:locale)/users/password(.:format)                                     {:action=>"update", :locale=>/en|he|ru|es|fr|it|de/, :controller=>"devise/passwords"}
+                 cancel_user_registration GET    (/:locale)/users/cancel(.:format)                                       {:action=>"cancel", :locale=>/en|he|ru|es|fr|it|de/, :controller=>"profiles/registrations"}
+                        user_registration POST   (/:locale)/users(.:format)                                              {:action=>"create", :locale=>/en|he|ru|es|fr|it|de/, :controller=>"profiles/registrations"}
+                    new_user_registration GET    (/:locale)/users/register(.:format)                                     {:action=>"new", :locale=>/en|he|ru|es|fr|it|de/, :controller=>"profiles/registrations"}
+                   edit_user_registration GET    (/:locale)/users/edit(.:format)                                         {:action=>"edit", :locale=>/en|he|ru|es|fr|it|de/, :controller=>"profiles/registrations"}
+                        user_registration PUT    (/:locale)/users(.:format)                                              {:action=>"update", :locale=>/en|he|ru|es|fr|it|de/, :controller=>"profiles/registrations"}
+                        user_registration DELETE (/:locale)/users(.:format)                                              {:action=>"destroy", :locale=>/en|he|ru|es|fr|it|de/, :controller=>"profiles/registrations"}
+                        user_confirmation POST   (/:locale)/users/confirmation(.:format)                                 {:action=>"create", :locale=>/en|he|ru|es|fr|it|de/, :controller=>"profiles/confirmations"}
+                    new_user_confirmation GET    (/:locale)/users/confirmation/new(.:format)                             {:action=>"new", :locale=>/en|he|ru|es|fr|it|de/, :controller=>"profiles/confirmations"}
+                        user_confirmation GET    (/:locale)/users/confirmation(.:format)                                 {:action=>"show", :locale=>/en|he|ru|es|fr|it|de/, :controller=>"profiles/confirmations"}
+                              user_unlock POST   (/:locale)/users/unlock(.:format)                                       {:action=>"create", :locale=>/en|he|ru|es|fr|it|de/, :controller=>"devise/unlocks"}
+                          new_user_unlock GET    (/:locale)/users/unlock/new(.:format)                                   {:action=>"new", :locale=>/en|he|ru|es|fr|it|de/, :controller=>"devise/unlocks"}
+                              user_unlock GET    (/:locale)/users/unlock(.:format)                                       {:action=>"show", :locale=>/en|he|ru|es|fr|it|de/, :controller=>"devise/unlocks"}
+                    awaiting_confirmation        (/:locale)/users/confirmation/awaiting/:id/:confirmation_hash(.:format) {:locale=>/en|he|ru|es|fr|it|de/, :to=>#<Proc:0x0861c6d8@c:/projects/stimulator/.bundle/ruby/1.8/gems/actionpack-3.0.0/lib/action_dispatch/routing/mapper.rb:284>}
+                               login_help        (/:locale)/login_help(.:format)                                         {:action=>"login_help", :locale=>/en|he|ru|es|fr|it|de/, :controller=>"home"}
+                    questionnaire_answers GET    (/:locale)/questionnaire_answers(.:format)                              {:action=>"index", :locale=>/en|he|ru|es|fr|it|de/, :controller=>"questionnaire_answers"}
+                    questionnaire_answers POST   (/:locale)/questionnaire_answers(.:format)                              {:action=>"create", :locale=>/en|he|ru|es|fr|it|de/, :controller=>"questionnaire_answers"}
+                 new_questionnaire_answer GET    (/:locale)/questionnaire_answers/new(.:format)                          {:action=>"new", :locale=>/en|he|ru|es|fr|it|de/, :controller=>"questionnaire_answers"}
+                edit_questionnaire_answer GET    (/:locale)/questionnaire_answers/:id/edit(.:format)                     {:action=>"edit", :locale=>/en|he|ru|es|fr|it|de/, :controller=>"questionnaire_answers"}
+                     questionnaire_answer GET    (/:locale)/questionnaire_answers/:id(.:format)                          {:action=>"show", :locale=>/en|he|ru|es|fr|it|de/, :controller=>"questionnaire_answers"}
+                     questionnaire_answer PUT    (/:locale)/questionnaire_answers/:id(.:format)                          {:action=>"update", :locale=>/en|he|ru|es|fr|it|de/, :controller=>"questionnaire_answers"}
+                     questionnaire_answer DELETE (/:locale)/questionnaire_answers/:id(.:format)                          {:action=>"destroy", :locale=>/en|he|ru|es|fr|it|de/, :controller=>"questionnaire_answers"}
+                                 profiles GET    (/:locale)/profiles/region_ids/:region_id(.:format)                     {:action=>"region_ids", :format=>:js, :locale=>/en|he|ru|es|fr|it|de/, :controller=>"profiles"}
+                                 profiles GET    (/:locale)/profiles/location_ids/:country_id/:location_id(.:format)     {:action=>"location_ids", :format=>:js, :locale=>/en|he|ru|es|fr|it|de/, :controller=>"profiles"}
+                                 profiles GET    (/:locale)/profiles(.:format)                                           {:action=>"index", :locale=>/en|he|ru|es|fr|it|de/, :controller=>"profiles"}
+                                 profiles POST   (/:locale)/profiles(.:format)                                           {:action=>"create", :locale=>/en|he|ru|es|fr|it|de/, :controller=>"profiles"}
+                              new_profile GET    (/:locale)/profiles/new(.:format)                                       {:action=>"new", :locale=>/en|he|ru|es|fr|it|de/, :controller=>"profiles"}
+                             edit_profile GET    (/:locale)/profiles/:id/edit(.:format)                                  {:action=>"edit", :locale=>/en|he|ru|es|fr|it|de/, :controller=>"profiles"}
+                                  profile GET    (/:locale)/profiles/:id(.:format)                                       {:action=>"show", :locale=>/en|he|ru|es|fr|it|de/, :controller=>"profiles"}
+                                  profile PUT    (/:locale)/profiles/:id(.:format)                                       {:action=>"update", :locale=>/en|he|ru|es|fr|it|de/, :controller=>"profiles"}
+                                  profile DELETE (/:locale)/profiles/:id(.:format)                                       {:action=>"destroy", :locale=>/en|he|ru|es|fr|it|de/, :controller=>"profiles"}
+                               statistics GET    (/:locale)/statistics(.:format)                                         {:action=>"index", :locale=>/en|he|ru|es|fr|it|de/, :controller=>"statistics"}
+                               statistics POST   (/:locale)/statistics(.:format)                                         {:action=>"create", :locale=>/en|he|ru|es|fr|it|de/, :controller=>"statistics"}
+                            new_statistic GET    (/:locale)/statistics/new(.:format)                                     {:action=>"new", :locale=>/en|he|ru|es|fr|it|de/, :controller=>"statistics"}
+                           edit_statistic GET    (/:locale)/statistics/:id/edit(.:format)                                {:action=>"edit", :locale=>/en|he|ru|es|fr|it|de/, :controller=>"statistics"}
+                                statistic GET    (/:locale)/statistics/:id(.:format)                                     {:action=>"show", :locale=>/en|he|ru|es|fr|it|de/, :controller=>"statistics"}
+                                statistic PUT    (/:locale)/statistics/:id(.:format)                                     {:action=>"update", :locale=>/en|he|ru|es|fr|it|de/, :controller=>"statistics"}
+                                statistic DELETE (/:locale)/statistics/:id(.:format)                                     {:action=>"destroy", :locale=>/en|he|ru|es|fr|it|de/, :controller=>"statistics"}
+                                     home        (/:locale)/stream/all(.:format)                                         {:action=>"index", :locale=>/en|he|ru|es|fr|it|de/, :controller=>"stream"}
+                                   stream        (/:locale)/stream/:stream_filter(/:modifier)(.:format)                  {:action=>"index", :locale=>/en|he|ru|es|fr|it|de/, :controller=>"stream"}
+                                    pages GET    (/:locale)/pages(.:format)                                              {:action=>"index", :locale=>/en|he|ru|es|fr|it|de/, :controller=>"pages"}
+                                    pages POST   (/:locale)/pages(.:format)                                              {:action=>"create", :locale=>/en|he|ru|es|fr|it|de/, :controller=>"pages"}
+                                 new_page GET    (/:locale)/pages/new(.:format)                                          {:action=>"new", :locale=>/en|he|ru|es|fr|it|de/, :controller=>"pages"}
+                                edit_page GET    (/:locale)/pages/:id/edit(.:format)                                     {:action=>"edit", :locale=>/en|he|ru|es|fr|it|de/, :controller=>"pages"}
+                                     page GET    (/:locale)/pages/:id(.:format)                                          {:action=>"show", :locale=>/en|he|ru|es|fr|it|de/, :controller=>"pages"}
+                                     page PUT    (/:locale)/pages/:id(.:format)                                          {:action=>"update", :locale=>/en|he|ru|es|fr|it|de/, :controller=>"pages"}
+                                     page DELETE (/:locale)/pages/:id(.:format)                                          {:action=>"destroy", :locale=>/en|he|ru|es|fr|it|de/, :controller=>"pages"}
+                     tag_list_admin_pages GET    (/:locale)/admin/pages/tag_list(.:format)                               {:action=>"tag_list", :format=>:js, :locale=>/en|he|ru|es|fr|it|de/, :controller=>"admin/pages"}
+                              admin_pages GET    (/:locale)/admin/pages(.:format)                                        {:action=>"index", :locale=>/en|he|ru|es|fr|it|de/, :controller=>"admin/pages"}
+                              admin_pages POST   (/:locale)/admin/pages(.:format)                                        {:action=>"create", :locale=>/en|he|ru|es|fr|it|de/, :controller=>"admin/pages"}
+                           new_admin_page GET    (/:locale)/admin/pages/new(.:format)                                    {:action=>"new", :locale=>/en|he|ru|es|fr|it|de/, :controller=>"admin/pages"}
+                          edit_admin_page GET    (/:locale)/admin/pages/:id/edit(.:format)                               {:action=>"edit", :locale=>/en|he|ru|es|fr|it|de/, :controller=>"admin/pages"}
+                               admin_page GET    (/:locale)/admin/pages/:id(.:format)                                    {:action=>"show", :locale=>/en|he|ru|es|fr|it|de/, :controller=>"admin/pages"}
+                               admin_page PUT    (/:locale)/admin/pages/:id(.:format)                                    {:action=>"update", :locale=>/en|he|ru|es|fr|it|de/, :controller=>"admin/pages"}
+                               admin_page DELETE (/:locale)/admin/pages/:id(.:format)                                    {:action=>"destroy", :locale=>/en|he|ru|es|fr|it|de/, :controller=>"admin/pages"}
+                            admin_reports GET    (/:locale)/admin/reports(.:format)                                      {:action=>"index", :locale=>/en|he|ru|es|fr|it|de/, :controller=>"admin/reports"}
+                            admin_reports POST   (/:locale)/admin/reports(.:format)                                      {:action=>"create", :locale=>/en|he|ru|es|fr|it|de/, :controller=>"admin/reports"}
+                         new_admin_report GET    (/:locale)/admin/reports/new(.:format)                                  {:action=>"new", :locale=>/en|he|ru|es|fr|it|de/, :controller=>"admin/reports"}
+                        edit_admin_report GET    (/:locale)/admin/reports/:id/edit(.:format)                             {:action=>"edit", :locale=>/en|he|ru|es|fr|it|de/, :controller=>"admin/reports"}
+                             admin_report GET    (/:locale)/admin/reports/:id(.:format)                                  {:action=>"show", :locale=>/en|he|ru|es|fr|it|de/, :controller=>"admin/reports"}
+                             admin_report PUT    (/:locale)/admin/reports/:id(.:format)                                  {:action=>"update", :locale=>/en|he|ru|es|fr|it|de/, :controller=>"admin/reports"}
+                             admin_report DELETE (/:locale)/admin/reports/:id(.:format)                                  {:action=>"destroy", :locale=>/en|he|ru|es|fr|it|de/, :controller=>"admin/reports"}
+                filtered_admin_user_lists POST   (/:locale)/admin/user_lists/filtered(.:format)                          {:action=>"index", :locale=>/en|he|ru|es|fr|it|de/, :controller=>"admin/user_lists"}
+                         admin_user_lists GET    (/:locale)/admin/user_lists(.:format)                                   {:action=>"index", :locale=>/en|he|ru|es|fr|it|de/, :controller=>"admin/user_lists"}
+                         admin_user_lists POST   (/:locale)/admin/user_lists(.:format)                                   {:action=>"create", :locale=>/en|he|ru|es|fr|it|de/, :controller=>"admin/user_lists"}
+                      new_admin_user_list GET    (/:locale)/admin/user_lists/new(.:format)                               {:action=>"new", :locale=>/en|he|ru|es|fr|it|de/, :controller=>"admin/user_lists"}
+                     edit_admin_user_list GET    (/:locale)/admin/user_lists/:id/edit(.:format)                          {:action=>"edit", :locale=>/en|he|ru|es|fr|it|de/, :controller=>"admin/user_lists"}
+                          admin_user_list GET    (/:locale)/admin/user_lists/:id(.:format)                               {:action=>"show", :locale=>/en|he|ru|es|fr|it|de/, :controller=>"admin/user_lists"}
+                          admin_user_list PUT    (/:locale)/admin/user_lists/:id(.:format)                               {:action=>"update", :locale=>/en|he|ru|es|fr|it|de/, :controller=>"admin/user_lists"}
+                          admin_user_list DELETE (/:locale)/admin/user_lists/:id(.:format)                               {:action=>"destroy", :locale=>/en|he|ru|es|fr|it|de/, :controller=>"admin/user_lists"}
+                       admin_users_groups GET    (/:locale)/admin/users_groups(.:format)                                 {:action=>"index", :locale=>/en|he|ru|es|fr|it|de/, :controller=>"admin/users_groups"}
+                       admin_users_groups POST   (/:locale)/admin/users_groups(.:format)                                 {:action=>"create", :locale=>/en|he|ru|es|fr|it|de/, :controller=>"admin/users_groups"}
+                    new_admin_users_group GET    (/:locale)/admin/users_groups/new(.:format)                             {:action=>"new", :locale=>/en|he|ru|es|fr|it|de/, :controller=>"admin/users_groups"}
+                   edit_admin_users_group GET    (/:locale)/admin/users_groups/:id/edit(.:format)                        {:action=>"edit", :locale=>/en|he|ru|es|fr|it|de/, :controller=>"admin/users_groups"}
+                        admin_users_group GET    (/:locale)/admin/users_groups/:id(.:format)                             {:action=>"show", :locale=>/en|he|ru|es|fr|it|de/, :controller=>"admin/users_groups"}
+                        admin_users_group PUT    (/:locale)/admin/users_groups/:id(.:format)                             {:action=>"update", :locale=>/en|he|ru|es|fr|it|de/, :controller=>"admin/users_groups"}
+                        admin_users_group DELETE (/:locale)/admin/users_groups/:id(.:format)                             {:action=>"destroy", :locale=>/en|he|ru|es|fr|it|de/, :controller=>"admin/users_groups"}
+      autocomplete_user_email_admin_roles GET    (/:locale)/admin/roles/autocomplete_user_email(.:format)                {:action=>"autocomplete_user_email", :locale=>/en|he|ru|es|fr|it|de/, :controller=>"admin/roles"}
+                              admin_roles GET    (/:locale)/admin/roles(.:format)                                        {:action=>"index", :locale=>/en|he|ru|es|fr|it|de/, :controller=>"admin/roles"}
+                              admin_roles POST   (/:locale)/admin/roles(.:format)                                        {:action=>"create", :locale=>/en|he|ru|es|fr|it|de/, :controller=>"admin/roles"}
+                           new_admin_role GET    (/:locale)/admin/roles/new(.:format)                                    {:action=>"new", :locale=>/en|he|ru|es|fr|it|de/, :controller=>"admin/roles"}
+                          edit_admin_role GET    (/:locale)/admin/roles/:id/edit(.:format)                               {:action=>"edit", :locale=>/en|he|ru|es|fr|it|de/, :controller=>"admin/roles"}
+                               admin_role GET    (/:locale)/admin/roles/:id(.:format)                                    {:action=>"show", :locale=>/en|he|ru|es|fr|it|de/, :controller=>"admin/roles"}
+                               admin_role PUT    (/:locale)/admin/roles/:id(.:format)                                    {:action=>"update", :locale=>/en|he|ru|es|fr|it|de/, :controller=>"admin/roles"}
+                               admin_role DELETE (/:locale)/admin/roles/:id(.:format)                                    {:action=>"destroy", :locale=>/en|he|ru|es|fr|it|de/, :controller=>"admin/roles"}
+                      admin_basic_reports GET    (/:locale)/admin/basic_reports(.:format)                                {:action=>"index", :locale=>/en|he|ru|es|fr|it|de/, :controller=>"admin/basic_reports"}
+                      admin_basic_reports POST   (/:locale)/admin/basic_reports(.:format)                                {:action=>"create", :locale=>/en|he|ru|es|fr|it|de/, :controller=>"admin/basic_reports"}
+                   new_admin_basic_report GET    (/:locale)/admin/basic_reports/new(.:format)                            {:action=>"new", :locale=>/en|he|ru|es|fr|it|de/, :controller=>"admin/basic_reports"}
+                  edit_admin_basic_report GET    (/:locale)/admin/basic_reports/:id/edit(.:format)                       {:action=>"edit", :locale=>/en|he|ru|es|fr|it|de/, :controller=>"admin/basic_reports"}
+                       admin_basic_report GET    (/:locale)/admin/basic_reports/:id(.:format)                            {:action=>"show", :locale=>/en|he|ru|es|fr|it|de/, :controller=>"admin/basic_reports"}
+                       admin_basic_report PUT    (/:locale)/admin/basic_reports/:id(.:format)                            {:action=>"update", :locale=>/en|he|ru|es|fr|it|de/, :controller=>"admin/basic_reports"}
+                       admin_basic_report DELETE (/:locale)/admin/basic_reports/:id(.:format)                            {:action=>"destroy", :locale=>/en|he|ru|es|fr|it|de/, :controller=>"admin/basic_reports"}
+                 admin_attendance_reports GET    (/:locale)/admin/attendance_reports(.:format)                           {:action=>"index", :locale=>/en|he|ru|es|fr|it|de/, :controller=>"admin/attendance_reports"}
+                 admin_attendance_reports POST   (/:locale)/admin/attendance_reports(.:format)                           {:action=>"create", :locale=>/en|he|ru|es|fr|it|de/, :controller=>"admin/attendance_reports"}
+              new_admin_attendance_report GET    (/:locale)/admin/attendance_reports/new(.:format)                       {:action=>"new", :locale=>/en|he|ru|es|fr|it|de/, :controller=>"admin/attendance_reports"}
+             edit_admin_attendance_report GET    (/:locale)/admin/attendance_reports/:id/edit(.:format)                  {:action=>"edit", :locale=>/en|he|ru|es|fr|it|de/, :controller=>"admin/attendance_reports"}
+                  admin_attendance_report GET    (/:locale)/admin/attendance_reports/:id(.:format)                       {:action=>"show", :locale=>/en|he|ru|es|fr|it|de/, :controller=>"admin/attendance_reports"}
+                  admin_attendance_report PUT    (/:locale)/admin/attendance_reports/:id(.:format)                       {:action=>"update", :locale=>/en|he|ru|es|fr|it|de/, :controller=>"admin/attendance_reports"}
+                  admin_attendance_report DELETE (/:locale)/admin/attendance_reports/:id(.:format)                       {:action=>"destroy", :locale=>/en|he|ru|es|fr|it|de/, :controller=>"admin/attendance_reports"}
+              approve_admin_questionnaire PUT    (/:locale)/admin/questionnaires/:id/approve(.:format)                   {:action=>"approve", :locale=>/en|he|ru|es|fr|it|de/, :controller=>"admin/questionnaires"}
+                draft_admin_questionnaire PUT    (/:locale)/admin/questionnaires/:id/draft(.:format)                     {:action=>"draft", :locale=>/en|he|ru|es|fr|it|de/, :controller=>"admin/questionnaires"}
+                     admin_questionnaires GET    (/:locale)/admin/questionnaires(.:format)                               {:action=>"index", :locale=>/en|he|ru|es|fr|it|de/, :controller=>"admin/questionnaires"}
+                     admin_questionnaires POST   (/:locale)/admin/questionnaires(.:format)                               {:action=>"create", :locale=>/en|he|ru|es|fr|it|de/, :controller=>"admin/questionnaires"}
+                  new_admin_questionnaire GET    (/:locale)/admin/questionnaires/new(.:format)                           {:action=>"new", :locale=>/en|he|ru|es|fr|it|de/, :controller=>"admin/questionnaires"}
+                 edit_admin_questionnaire GET    (/:locale)/admin/questionnaires/:id/edit(.:format)                      {:action=>"edit", :locale=>/en|he|ru|es|fr|it|de/, :controller=>"admin/questionnaires"}
+                      admin_questionnaire GET    (/:locale)/admin/questionnaires/:id(.:format)                           {:action=>"show", :locale=>/en|he|ru|es|fr|it|de/, :controller=>"admin/questionnaires"}
+                      admin_questionnaire PUT    (/:locale)/admin/questionnaires/:id(.:format)                           {:action=>"update", :locale=>/en|he|ru|es|fr|it|de/, :controller=>"admin/questionnaires"}
+                      admin_questionnaire DELETE (/:locale)/admin/questionnaires/:id(.:format)                           {:action=>"destroy", :locale=>/en|he|ru|es|fr|it|de/, :controller=>"admin/questionnaires"}
+                        admin_admin_panel GET    (/:locale)/admin/admin_tasks/admin_panel(.:format)                      {:action=>"index", :locale=>/en|he|ru|es|fr|it|de/, :controller=>"admin/admin_tasks"}
+admin_autocomplete_user_email_admin_tasks GET    (/:locale)/admin/admin_tasks/autocomplete_user_email(.:format)          {:action=>"autocomplete_user_email", :locale=>/en|he|ru|es|fr|it|de/, :controller=>"admin/admin_tasks"}
+                        admin_remove_user GET    (/:locale)/admin/admin_tasks/remove_user(.:format)                      {:action=>"remove_user", :locale=>/en|he|ru|es|fr|it|de/, :controller=>"admin/admin_tasks"}
+                 admin_remove_user_action DELETE (/:locale)/admin/admin_tasks/remove_user_action(.:format)               {:action=>"remove_user_action", :locale=>/en|he|ru|es|fr|it|de/, :controller=>"admin/admin_tasks"}
+                                                 (/:locale)/*path(.:format)                                              {:action=>"to_login", :locale=>/en|he|ru|es|fr|it|de/, :controller=>"redirector"}
+                                                 (/:locale)/*path(.:format)                                              {:action=>"to_home", :locale=>/en|he|ru|es|fr|it|de/, :controller=>"redirector"}
+                            apotomo_event        /:controller/render_event_response(.:format)                            {:action=>"render_event_response"}
+                          ckeditor_images        /ckeditor/images(.:format)                                              {:action=>"images", :controller=>"ckeditor"}
+                           ckeditor_files        /ckeditor/files(.:format)                                               {:action=>"files", :controller=>"ckeditor"}
+                                                 /ckeditor/create/:kind(.:format)                                        {:action=>"create", :controller=>"ckeditor"}

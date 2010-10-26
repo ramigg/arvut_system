@@ -10,7 +10,9 @@ module FeedReader
       unless force
         @feed = Cache.fetch(:content_type => 'FeedReader', :content_uid => "#{url}", :language_id => lang_id)
       end
-      @feed ||= FeedTools::Feed.open(url)
+      begin
+        @feed ||= FeedTools::Feed.open(url)
+      end
     end
 
     def self.store_in_cache
