@@ -1,8 +1,6 @@
 require 'google_visualization'
 include Google::Visualization
 
-respond_to :html, :js
-
 class StatisticsController < ActionController::Metal
   include ActionController::Rendering
   
