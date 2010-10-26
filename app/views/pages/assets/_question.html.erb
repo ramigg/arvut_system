@@ -1,8 +1,6 @@
-<%-
-klass_name = question.class.to_s.underscore
--%>
 <%
 answer = question.find_answer(@qa.answers)
+klass_name = answer.class.to_s
 %>
 <dl class="form_element">
   <dt><%= answer.question.title %></dt>
@@ -11,7 +9,7 @@ answer = question.find_answer(@qa.answers)
       <%= f.error_messages :header_message => false, :message => false, :header_tag => :h3 %>
       <%= f.hidden_field :my_type, :value => klass_name %>
       <%= f.hidden_field :question_id %>
-      <%= render :partial => "pages/assets/#{klass_name}", :locals => {:builder => f, :klass => klass_name, :question => question, :answer => answer} %>
+      <%= render :partial => "pages/assets/#{klass_name.underscore}", :locals => {:builder => f, :question => question, :answer => answer} %>
     <% end %>
   </dd>
 </dl>
