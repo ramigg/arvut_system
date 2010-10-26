@@ -281,3 +281,7 @@ div.uploader input{opacity:0;position:absolute;top:0;right:0;bottom:0;float:righ
 .login-static-content ul{list-style:disc inside;padding:10px 10px 0 0;color:#666666;}
 .login-static-content h3{color:#666666;font-size:14px;}
 .login-static-content p{margin:0 0 10px;}
+#admin-menu dt{margin:10px 0;}
+#admin-menu dd{margin:0 10px;}
+#user_lists tr{border-top:1px solid;border-bottom:1px solid;}
+#user_lists td{padding:0 10px;}
