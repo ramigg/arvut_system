@@ -18,6 +18,17 @@
       <%- if @page.is_assignment? -%>
         <hr/>
         <div><%= f.submit t('views.submit'), :class => 'button-small-main' %></div>
+        <%= javascript_tag <<-JS
+    $(document).ready(function(){
+    $('.edit-stream form').validate({
+    errorPlacement: function(error, element) {
+    error.appendTo( element.parents("dd").prev() );
+    }
+    });
+    });
+        JS
+        %>
+
       <%- end %>
     <%- end %>
   </div>
