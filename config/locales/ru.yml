@@ -340,6 +340,7 @@ ru:
       delete: Удалить
       are_you_sure: Вы уверены?
       select_group: Выберите группу
+      group: Группа
       please_select_one_of_the_options: Выберите одну из возможностей
       create: "Пользователь успешно создан в списке"
       destroy: "Пользователь успешно удален из списка"

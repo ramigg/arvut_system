@@ -218,7 +218,7 @@ es:
       has_user: "Has user?"
       last_name: "Last Name"
       please_select_one_of_the_options: "Please select one of the options"
-      select_group: "Select Group"
+      group: "Group"
       update_user_list: "Update User List"
       create: "El usuario se ha creado correctamente en la lista"
       destroy: "Destruyó con éxito la lista de usuarios"

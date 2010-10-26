@@ -31,8 +31,6 @@ function attach_autocomplete()
                     dataType: "json",
                     data: {
                         term: request.term,
-                        additional: 'country_id',
-                        country_id: country_id
                     },
                     success: function( data ) {
                         response( data );

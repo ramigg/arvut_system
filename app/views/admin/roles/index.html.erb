@@ -1,4 +1,4 @@
-<h2>Change roles to user</h2>
+<h2><%= t('admin.reports.manage_user_roles') %></h2>
 
 <div id="to-admin">
   <%= form_tag(admin_roles_path, :method => :post) do %>
@@ -7,9 +7,8 @@
         Email, First or Last Name of an existing user:
         <ul>
           <li>
-            <%= text_field_tag :email, @email, :class => ['text-input', 'short-input'],
-              :autocomplete => autocomplete_user_email_admin_roles_url %>
-            <%= submit_tag t('views.load'), :name => 'load_user', :id => 'load_user' %>
+            <%= text_field_tag :email, @email, :autocomplete => autocomplete_user_email_admin_roles_url %>
+            <%= submit_tag t('views.load'), :name => 'load_user', :id => 'load_user', :class => 'button-small-main' %>
           </li>
         </ul>
       </li>
@@ -26,6 +25,6 @@
       </li>
     </ul>
     <hr/>
-    <%= submit_tag t('views.submit') %>
+    <%= submit_tag t('views.submit'), :class => 'button-small-main' %>
   <%- end %>
 </div>

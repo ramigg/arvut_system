@@ -3,12 +3,12 @@
 </p>
 <p>
   <%= form_for @groups, :url => filtered_admin_user_lists_url, :html => {:method => :post, :id => 'user_list'} do |builder|%>
-    <%= builder.label :id, t('admin.user_list.select_group'), :class => 'text' %><br/>
+    <%= builder.label :id, t('admin.user_list.select_group'), :class => 'text' %>
     <%= builder.select :id, @groups.map{|e| [e.name, e.id]},
       :prompt => t('admin.user_list.please_select_one_of_the_options')%>
-    <%= builder.submit 'Filter by group', :disable_with => t('views.please_wait') %>
+    <%= builder.submit 'Filter by group', :disable_with => t('views.please_wait'), :class => 'button-small-main' %>
   <% end %>
-</p>
+</p><br/>
 <table id="user_lists">
   <thead>
     <tr>

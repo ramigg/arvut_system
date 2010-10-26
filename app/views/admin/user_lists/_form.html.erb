@@ -19,5 +19,5 @@
   <%= builder.select :users_group_id, UsersGroup.all.map{|e| [e.name, e.id]}, :prompt => t('admin.user_list.please_select_one_of_the_options')%>
 </p>
 
-<%= builder.submit submit_text, :disable_with => t('views.please_wait') %>
-<%= link_to t('views.cancel'), admin_user_lists_url, :class => 'ui-button ui-widget ui-state-default ui-corner-all' %>
+<%= builder.submit submit_text, :disable_with => t('views.please_wait'), :class => 'button-small-main' %>
+<%= link_to t('views.cancel'), admin_user_lists_url, :class => 'button-small-main' %>

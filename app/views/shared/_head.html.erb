@@ -1,4 +1,4 @@
-<%= stylesheet_link_tag 'reset' %>
+<%= stylesheet_link_tag 'reset', 'jquery-ui-1.8.4.custom' %>
 <%- if Rails.env == 'development' -%>
   <%- if is_rtl? %>
     <%= stylesheet_link_tag 'styles-rtl.less', :rel => 'stylesheet/less' %>
@@ -25,7 +25,7 @@
 <%= javascript_include_tag 'jquery-1.4.3.min',
   'rails',
   'application',
-  'jquery-ui-1.8.4.custom.min',
+  'jquery-ui-1.8.4.custom.min', 'jquery-ui-1.8.4.custom.min', "jquery.ui.datepicker-#{I18n.locale}.js",
   '/flowplayer/flowplayer-3.2.4.min.js',
   'jquery.colorbox-min.js',
   'autocomplete-rails.js',

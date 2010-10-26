@@ -328,6 +328,7 @@ en:
       are_you_sure: Are you sure?
       please_select_one_of_the_options: Please select one of the options
       select_group: Select Group
+      group: Group
     questionnaires:
       create_new_questionnaire: Create new questionnaire
       created_at: Created at
@@ -383,6 +384,8 @@ en:
       group_name: Group Name
       all_groups: Everyone
       include_email: Include Email in report
+      order_by_total: Order by 'Total' instead of 'Last Name'
+      pages_list: Edit Pages
       plus: active
       minus: not active
       x: not registered

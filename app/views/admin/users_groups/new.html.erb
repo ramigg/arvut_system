@@ -16,6 +16,6 @@
     <li><%= t('admin.reports.file') %> (Format: Name,Family,Email) <ul><li><%= file_field_tag 'file' %></li></ul></li>
   </ul>
   <hr class="sub-hr"/>
-  <%= f.submit t('admin.reports.upload'), :disable_with => 'Uploading...' %>
-  <%= link_to t('views.cancel'), dashboard_url, :class => 'ui-button ui-widget ui-state-default ui-corner-all' %>
+  <%= f.submit t('admin.reports.upload'), :disable_with => 'Uploading...', :class => 'button-small-main' %>
+  <%= link_to t('views.cancel'), home_url, :class => 'button-small-main' %>
 <% end %>

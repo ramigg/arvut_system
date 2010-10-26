@@ -1,20 +1,10 @@
-<h2>Remove user</h2>
+<h2><%= t('admin.reports.remove_user') %></h2>
 
 <div id="to-admin">
-  <%= form_tag(remove_user_action_path, :method => :delete) do %>
-    <ul>
-      <li>
-        Email of an existing user:
-        <ul>
-          <li>
-            <%= text_field_tag :email, @email, :class => ['text-input', 'short-input'],
-              :autocomplete => admin_autocomplete_user_email_admin_tasks_url
-            %>
-          </li>
-        </ul>
-      </li>
-    </ul>
-    <hr/>
-    <%= submit_tag t('views.submit') %>
+  <%= form_tag(admin_remove_user_action_url, :method => :delete) do %>
+    Email of an existing user:
+    <%= text_field_tag :email, @email, :class => ['text-input', 'short-input'],
+      :autocomplete => admin_autocomplete_user_email_admin_tasks_url %>
+    <%= submit_tag t('views.submit'), :class => 'button-small-main' %>
   <%- end %>
 </div>

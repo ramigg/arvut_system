@@ -217,6 +217,7 @@ it:
       last_name: nome
       please_select_one_of_the_options: "per favore seleziona una delle opzioni"
       select_group: "seleziona gruppo"
+      group: "Gruppo"
       update_user_list: "aggiorna la user list"
       create: "Lista dell'utente creata con successo"
       destroy: "Lista dell'utente cancellata con successo"

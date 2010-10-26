@@ -219,6 +219,7 @@ de:
       last_name: Familienname
       please_select_one_of_the_options: "Wähle eine der Optionen"
       select_group: "Wähle Gruppe"
+      group: "Gruppe"
       update_user_list: "Aktualisiere User-Liste"
       create: "Benutzer in Liste erfolgreich erstellt"
       destroy: "Erfolgreich gelöschte Benutzerliste"
