@@ -2,7 +2,7 @@
 <%- @pages.each {|page| -%>
   <div id="page-<%= page.id %>" class="item <%= 'sticky_item' if page.is_sticky %>">
     <h2 class="<%= is_answered_css(page) %> icon"><span></span><%= link_to page.title, page_url(page), :class => 'in-iframe', :title => page.title %></h2>
-    <%- if page[:picture4preview] -%>
+    <%- unless page[:picture4preview].nil? || page[:picture4preview].empty? -%>
       <%= image_tag  page[:picture4preview], :class => :preview_image %>
     <%- end -%>
     <%= page[:description].html_safe %>
