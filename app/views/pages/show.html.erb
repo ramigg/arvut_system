@@ -24,7 +24,6 @@
         rules: {
           #{yield :rules}
         },
-        debug: true,
         errorPlacement: function(error, element) {
           error.appendTo( element.parents("dd").prev() );
         }
