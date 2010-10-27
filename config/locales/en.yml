@@ -187,6 +187,7 @@ en:
     update: Page was successfully updated
     views:
       required: required field
+      content_required: required text content
   profile:
     views:
       edit: edit

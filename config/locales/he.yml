@@ -365,6 +365,7 @@ he:
     update: הפוסט עודכן בהצלחה
     views:
       required: "שדה חובה"
+      content_required: נא להכניס טקסט
   stream:
     posted_ago: "פורסם לפני %{when}"
     read_all: "המשך »"

@@ -229,6 +229,7 @@ de:
     update: "Seite erfolgreich aktualisiert"
     views:
       required: Pflichtfeld
+      content_required: Füllen Text
   answer:
     model:
       answer_too_short: "Deine Antwort ist zu kurz. Mehr als 10 Zeichen sind notwendig."

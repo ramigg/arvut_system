@@ -2,7 +2,6 @@
   <div>
     <%= check_box_tag "#{builder.object_name}value_ids[]",
       e.id.to_s, answer.values.include?(e),
-      :class => 'required',
       :title => t('pages.views.required') %>
     <%= builder.label :value, e.label %>
   </div>
@@ -11,6 +10,36 @@
   <div class="other">
     <%= builder.check_box :question_pair_id, {}, question.other.id %>
     <%= builder.label :question_pair_id, question.other.label %><br/>
-    <%= builder.text_area :text_value, :rows => 4, :cols => 80  %>
+    <%= builder.text_area :text_value, :rows => 4, :cols => 80, :title => t('pages.views.content_required') %>
   </div>
 <%- end %>
+<%
+if question.other
+  text_field = "#{builder.object_name}[text_value]".gsub!(/[\[\]]/, '_').gsub(/__/, '_').gsub(/_*$/, '')
+  other_field = "#{builder.object_name}[question_pair_id]".gsub(/[\[\]]/, '_').gsub(/__/, '_').gsub(/_*$/, '')
+  fields = "#{builder.object_name}".gsub(/[\[\]]/, '_').gsub(/__/, '_').gsub(/_*$/, '') + 'value_ids_'
+
+  content_for :validation_scripts do
+    <<-JS
+    $("##{other_field}").click(function(){
+      $("##{text_field},##{fields}").valid();
+    });
+    JS
+  end
+
+  content_for :rules do
+    "
+    '#{builder.object_name}[text_value]': {
+      required: '##{other_field}:checked'
+    },
+    '#{builder.object_name}value_ids[]': {
+      required: '##{other_field}:unchecked'
+    },
+    "
+  end
+else
+  content_for :rules do
+    "'#{builder.object_name}value_ids[]': 'required',"
+  end
+end
+%>
