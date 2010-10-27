@@ -228,6 +228,7 @@ es:
     update: "La página fue actualizada correctamente"
     views:
       required: "campo requerido"
+      content_required: rellene el texto
   answer:
     model:
       answer_too_short: "Tu respuesta es demasiado corta. La longitud mínima de la respuesta es de 10 caracteres."

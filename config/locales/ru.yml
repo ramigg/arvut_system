@@ -234,6 +234,8 @@ ru:
     update: "Страница была успешно обновлена"
     views:
       required: обязательные поля
+      content_required: текст обязателен
+
   admin:
     pages:
       actions: Действия

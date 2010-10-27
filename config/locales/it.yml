@@ -227,6 +227,7 @@ it:
     update: "La pagina è stata aggiornata con successo"
     views:
       required: "campo richiesto"
+      content_required: inserisci il testo qui
   answer:
     model:
       answer_too_short: ""
