@@ -400,6 +400,7 @@ ru:
       group_name: Имя группы
       include_email: Включить мейл в отчет
       order_by_total: Сортировать по активности
+      pages_list: Редактировать посты
       all_groups: Все
       plus: активен
       minus: неактивен

@@ -1,9 +1,9 @@
 <div class="header">
   <div class="logo">
-    <%= link_to image_tag('/images/logo.png'), "/internet/#{I18n.locale}/", :title => t('home.views.site_name') , :alt => nil -%>
+    <%= link_to image_tag("/images/logo-#{I18n.locale}.png"), "/internet/#{I18n.locale}/", :title => t('home.views.site_name') , :alt => nil -%>
     <h1><%= t('home.views.site_name') %></h1>
   </div>
-  <form class="float_right" action="#" method="get" accept-charset="utf-8">
+  <form action="#" method="get" accept-charset="utf-8">
     <p>
       <% if user_signed_in?
         suffix = ''

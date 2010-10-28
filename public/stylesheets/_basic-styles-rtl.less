@@ -51,6 +51,10 @@ input[type=text],input[type=password]{
 		.float_right;
 		margin:0 0 0 @margin;
 	}
+        .content-wide{
+            width: @content + @widget + @margin;
+            margin: 0;
+        }
 	.column-widgets{
 		width: @widget;
 		.float_left;
@@ -427,8 +431,8 @@ body{
 	position:relative;
 	.header-menu{
 		color: @color-white;
-		.float_right;
-		margin: 0 10px 0 0;
+		.float_left;
+		margin: 0 0 0 10px;
 		line-height: 25px;
 		a{
 			color: @color-white;
@@ -437,12 +441,15 @@ body{
 	.logo	{
 		position:absolute;
 		bottom:0;
-		left:0;
+		right:0;
 		h1{
 			position:absolute;
 			top:-1000px;
 		}
 	}
+        form{
+            .float_left;
+        }
 }
 .content-submenu{
 	height:25px;
