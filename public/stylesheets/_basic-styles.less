@@ -51,6 +51,10 @@ input[type=text],input[type=password]{
 		.float_left;
 		margin:0 @margin 0 0;
 	}
+        .content-wide{
+            width: @content + @widget + @margin;
+            margin: 0;
+        }
 	.column-widgets{
 		width: @widget;
 		.float_right;
@@ -364,7 +368,6 @@ body {
  	font-size: @font-basic-size;
 	line-height: @font-line-height;
 	color: @color-main-text;
-	direction: ltr;
 	p{
 		color: @color-main-text;
 	}
@@ -411,6 +414,7 @@ body{
 	@radius:10px;
 	.rounded-corners;
 	.drop-shadow;
+	direction: ltr;
 }
 .header{
 	.rounded-corners;

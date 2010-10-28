@@ -4,3 +4,4 @@ div.radio input,
 div.uploader input{
     filter: alpha(opacity:0);
 }
+.ui-helper-hidden-accessible { position: absolute; top: -1000px; left:0;}
