@@ -104,14 +104,37 @@
   $last,
   $in_transition = false;
 
+  var pollID = 0;
+  var pollSketches = function() {
+    $.ajax({
+      url: 'get_classboard',
+      data: {lang: 'English'},
+      success: transit_init
+    });
+  }
+  
   $(function (){
+    startPollingSketches();
+  });
+
+  function startPollingSketches(){
+    pollID = setInterval(pollSketches, 5000);
+  }
+  
+  function stopPollingSketches(){
+    clearInterval(pollID);
+    pollID = 0;
+  }
+
+  function transit_init(data){
+    alert(data);
     $images = $('.content .images img');
     total = $images.length;
     $last = $current = $images.last();
     $first = $images.first();
     $last.css('z-index', 10); // Become the upper for sure
     $('.title').text(total + '/' + total);
-  });
+  }
 
   function first(){
     transit_to($first);
