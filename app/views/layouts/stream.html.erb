@@ -1,13 +1,15 @@
 <% content_for :content do %>
-	<div class="column-content">
-	  <%= yield %>
-	</div>
+  <div class="column-content <%= yield :content_width if  content_for?(:content_width) %>">
+    <%= yield %>
+  </div>
 
-	<div class="column-widgets">
-	  <div class="content-submenu"></div>
-	  <div><%= render_widget 'profile' %></div>
-	  <div><%= render_widget 'blog' %></div>
-	</div>
-<% end %>
+  <%- unless content_for?(:hide_widgets) -%>
+    <div class="column-widgets">
+      <div class="content-submenu"></div>
+      <div><%= render_widget 'profile' %></div>
+      <div><%= render_widget 'blog' %></div>
+    </div>
+  <%- end -%>
+<%- end -%>
 
 <%= render :file => 'layouts/main' %>

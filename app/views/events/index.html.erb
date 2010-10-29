@@ -1,0 +1,150 @@
+<%- content_for :content_width do -%>content-wide<%- end -%>
+<%- content_for :hide_widgets do -%>please do not display widgets!!!<%- end -%>
+<div class="content-submenu">
+  <em>Events</em> | World Kabbalah Conventio 2010
+</div>
+<div class="content-stream event-stream">
+  <div class="admin">
+    rem ipsum no hinc unum mundi vel, splendide complectitur cu vix. In per veri solum integre, id qui facer delectus. Odio atqui mentitum at sed. Per oratio aliquip te, autem quando adolescens ei qui. Vis quodsi doctus ex.
+    Quod appetere intellegam vel ei, no eam solum mnesarchum. At vix repudiare aliquando, ne quo alia magna errem. Malorum nostrud vivendum sea ut, eam ut alterum mediocritatem. Has te probo latine evertitur, est insolens disputationi cu.
+  </div>
+  <div class="tabs">
+    <span class="active"><%= link_to 'Stream', '#', :remote => true %></span>
+    <span><%= link_to 'Gallery', '#', :remote => true %></span>
+    <span class="admin-link"><%= link_to 'Admin', '#', :onclick => "$('.admin').toggle(); return false;" %></span>
+  </div>
+  <div class="bgnd">
+    <div class="support">
+      <span style="color:green">ONLINE!</span><br/>
+      <a href="#">Technical Support</a>
+    </div>
+    <div class="player">
+      <object width="400" height="305" data="http://switch3.castup.net/cunet/gm.asp?ClipMediaID=160788" name="player" id="player" type="video/x-ms-wmv">
+        <param value="http://switch3.castup.net/cunet/gm.asp?ClipMediaID=160788" name="src"/>
+        <param value="true" name="autostart"/>
+        <param value="true" name="controller"/>
+        <param value="50" name="volume"/>
+        <param value="full" name="uiMode"/>
+        <param value="true" name="animationAtStart"/>
+        <param value="false" name="showDisplay"/>
+        <param value="true" name="ShowAudioControls"/>
+        <param value="false" name="ShowPositionControls"/>
+        <param value="false" name="transparentAtStart"/>
+        <param value="true" name="ShowControls"/>
+        <param value="true" name="ShowStatusBar"/>
+        <param value="false" name="ShowTracker"/>
+        <param value="false" name="ClickToPlay"/>
+        <param value="#000000" name="DisplayBackColor"/>
+        <param value="#ffffff" name="DisplayForeColor"/>
+        <param value="false" name="balance"/>
+      </object>
+      <form action="#" method="get" accept-charset="utf-8">
+        <p>
+          <% if user_signed_in?
+            suffix = ''
+          else
+            suffix = '/users/login'
+          end
+          locale = I18n.locale.to_s
+        %>
+          <select name="language" id="language" onchange="alert('language')">
+            <% Language.all.each { |l| %>
+              <option <%= 'selected="selected"'.html_safe if l.locale == locale %> value="<%= root_path(l.locale) + suffix %>"><%= l.language %></option>
+            <% } %>
+          </select>
+        </p>
+      </form>
+      <form action="#" method="get" accept-charset="utf-8">
+        <p>
+          <select name="quality" id="quality" onchange="alert('quality')">
+            <option>Israel - Hiqh Quality</option>
+            <option>Israel - Medium Quality</option>
+            <option>Israel - Low Quality</option>
+            <option>USA - Hiqh Quality</option>
+            <option>USA - Medium Quality</option>
+            <option>USA - Low Quality</option>
+          </select>
+        </p>
+      </form>
+    </div>
+    <div class="services">
+      <div class="tabs">
+        <span><%= link_to 'Questions', '#', :remote => true %></span>
+        <span><%= link_to 'Schedule', '#', :remote => true %></span>
+        <span class="active"><%= link_to 'Sketches', '#', :remote => true %></span>
+      </div>
+      <div class="content">
+        <div class="images">
+          <img alt="" src="http://www.kab.tv/classboard/sketches/part4_00074.jpg"></img>
+          <img alt="" src="http://www.kab.tv/classboard/sketches/part4_00075.jpg"></img>
+          <img alt="" src="http://www.kab.tv/classboard/sketches/part4_00076.jpg"></img>
+          <img alt="" src="http://www.kab.tv/classboard/sketches/part4_00077.jpg"></img>
+          <img alt="" src="http://www.kab.tv/classboard/sketches/part4_00078.jpg"></img>
+          <img alt="" src="http://www.kab.tv/classboard/sketches/part4_00079.jpg"></img>
+        </div>
+        <div class="buttons">
+          <a class="float_left" href="#" onclick="first(); return false;">&laquo; First</a>
+          <a class="float_left" href="#" onclick="prev(); return false;">&lsaquo; Prev</a>
+          <span class="title"></span>
+          <a class="float_right" href="#" onclick="last(); return false;">Last &raquo;</a>
+          <a class="float_right" href="#" onclick="next(); return false;">Next &rsaquo;</a>
+          <div class="clear"></div>
+        </div>
+      </div>
+    </div>
+    <div class="clear"></div>
+  </div>
+  <div class="clear"></div>
+</div>
+<script type="text/javascript">
+  var total = 0,
+  $current = 0,
+  $images,
+  $first,
+  $last,
+  $in_transition = false;
+
+  $(function (){
+    $images = $('.content .images img');
+    total = $images.length;
+    $last = $current = $images.last();
+    $first = $images.first();
+    $last.css('z-index', 10); // Become the upper for sure
+    $('.title').text(total + '/' + total);
+  });
+
+  function first(){
+    transit_to($first);
+  }
+
+  function last(){
+    transit_to($last);
+  }
+
+  function prev(){
+    $item = $current.prev();
+    transit_to($item);
+  }
+
+  function next(){
+    $item = $current.next();
+    transit_to($item);
+  }
+
+  function transit_to($item){
+    if (total <= 1 || $item.length == 0 || $current === $item || $in_transition) return;
+    $in_transition = true;
+
+    $item.css('z-index', 9); // Beneath the upper one
+    $('.title').text(($item.index() + 1) + '/' + total);
+    $current.animate({opacity: 0}, 1000, 'linear', // Hide the upper one
+    function(){
+      $item.css('z-index', 10); // Become the upper
+      $current.css({'z-index': 1, 'opacity': 1}); // Go back
+      $current = $item;
+      $in_transition = false;
+    }
+  );
+  }
+
+</script>

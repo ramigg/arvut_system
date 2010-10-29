@@ -47,6 +47,8 @@ Simulator::Application.routes.draw do
 
   scope '/(:locale)', :constraints => {:locale => /#{pattern}/} do
 
+    get "events/index", :to => 'events#index'
+
     root :to => 'redirector#to_home'
     match 'dashboard', :to => 'home#dashboard', :as => 'dashboard'
 

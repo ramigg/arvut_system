@@ -120,6 +120,109 @@
 		.sticky{
 		}
 	}
+        .event-stream{
+            .admin{
+                display:none;
+            }
+            .tabs{
+                position: relative;
+                height: 22px;
+                margin-top: 8px;
+                .admin-link{
+                    position:absolute;
+                    right:0;
+                    top:0;
+                    padding:0;
+                    a{
+                        font-size: @font-basic-size;
+                        text-decoration:underline;
+                        color: #006ab6;
+                    }
+                }
+                span{
+                    padding: 6px;
+                    margin: 0;
+                    a{
+                        font-size: @font-basic-size;
+                        text-decoration:underline;
+                        color: #006ab6;
+                    }
+                }
+                span.active{
+                    background-color: #f9f7e8;
+                    a{
+                        text-decoration:none;
+                        color: #f15a24;
+                        .bold;
+                    }
+                }
+            }
+            .bgnd{
+                background-color: #f9f7e8;
+                padding: 46px 6px;
+                position: relative;
+                .support{
+                    position:absolute;
+                    top: 10px;
+                    right: 340px;
+                 }
+                .player{
+                    border:1px solid #808080;
+                    .float_left;
+                    margin:0;
+                    padding:4px;
+                    width:400px;
+                    height: 305px;
+                    background-color: white;
+                }
+                form{
+                    .float_left;
+                    margin: 8px 10px 5px -7px;
+                }
+                .services{
+                    width:315px;
+                    height: 305px;
+                    .float_right;
+                    padding: 5px;
+                    background-color: #efedde;
+                    .tabs{
+                        background-color: #f9f7e8;
+                        left:425px;
+                        position:absolute;
+                        top:16px;
+                        span.active{
+                            background-color: #efedde;
+                        }
+                    }
+                    .content{
+                        position: relative;
+                        img{
+                            width: 290px;
+                            height: 217px;
+                            position: absolute;
+                            top: 4px;
+                            left: 4px;
+                        }
+                        .images{
+                            width: 290px;
+                            height: 217px;
+                            background-color:white;
+                            border:1px solid #808080;
+                            padding:4px;
+                            position:relative;
+                            margin:20px auto 10px;
+                        }
+                        .buttons{
+                            text-align: center;
+                            padding: 0 5px;
+                            a{
+                                padding: 0 5px;
+                            }
+                        }
+                    }
+                }
+            }
+        }
 	.profile_editor{
 		background:@color-profile-background;
 		.rounded-corners;
