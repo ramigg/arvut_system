@@ -177,6 +177,8 @@ p{
 	-moz-border-radius: @radius;
 	border-radius: @radius;
 	behavior: url(PIE.htc);
+	-moz-background-clip: padding;
+	-webkit-background-clip: padding;
 	position:relative;
 }
 @start-color: @color-main-light;
@@ -185,7 +187,7 @@ p{
 	background: -webkit-gradient(linear, 0 0, 0 bottom, from(@start-color), to(@end-color));
 	background: -moz-linear-gradient(@start-color, @end-color);
 	background: linear-gradient(@start-color, @end-color);
-	-pie-background: linear-gradient(bottom, @start-color, @end-color);
+	-pie-background: linear-gradient(top, @start-color, @end-color);
 	behavior: url(PIE.htc);
 	position:relative;
 }
@@ -225,8 +227,6 @@ form{
 	border: 1px solid (@start-color + @end-color)/2;
 	border-top: 1px solid @start-color + #222222;
 	border-bottom: 1px solid @end-color - #333333;
-	-moz-background-clip: padding;
-	-webkit-background-clip: padding;
 }
 .button{
 	@radius: 9px;
@@ -397,23 +397,26 @@ body {
 
 // Site
 body{
-	background:#afdfff url(../images/gradient.png) repeat-x 0 0;
+	//Regular background:#afdfff url(../images/gradient.png) repeat-x 0 0;
+	background:#00aeef;
 	color: @color-login;
 }
 .skin_bg{
 	top:0;
 	position:absolute;
 	height:1000px;
-	background:url(../images/bluebg.png) no-repeat center top;
+	// Regular background:url(../images/bluebg.png) no-repeat center top;
+	background:url(../images/c2010bg.png) no-repeat center top;
 	width:100%;
 }
 .skin_container{
 	width:@wrapper-width;
 	margin:0 auto;
 }
+@skin-regular-height: 100px;
 .wrapper {
 	position:relative;
-	margin:100px auto 20px;
+	margin:@skin-regular-height + 100px auto 20px;
 	width:@wrapper-width;
 	padding:@wrapper-padding;
 	background:#fff;

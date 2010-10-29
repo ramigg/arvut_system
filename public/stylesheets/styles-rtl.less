@@ -406,3 +406,60 @@
         padding:0 10px;
     }
 }
+
+//counter
+#cdcontainer {
+    font-family:Helvetica, Arial, "MS Tahoma", sans-serif;
+    font-weight:bold;
+    text-align:center;
+    font-size:26px;
+    color:@color-white;
+    position:absolute;
+    top:115px;
+    right:50%;
+    width:264px;
+    margin:0 -132px 0 0;
+    span{
+        display:block;
+        .float_left;
+        width:25px;
+        height:33px;
+        line-height:35px;
+        padding:2px 0 0;
+        position:relative;
+
+        span{
+            margin:1px;
+            background:url(../images/counter.png) no-repeat 0 0;
+            top:0;
+            position:absolute;
+        }
+    }
+    .d{
+        margin:0 2px;
+        text-align:center;
+        @start-color:@color-orange;
+        @end-color:@color-orange - #333333;
+        .gradient;
+        @radius:3px;
+        .rounded-corners;
+    }
+    .dots, .line{
+        color:@color-orange - #333333;
+        margin:0 2px 0 0;
+        width:8px;
+        position:relative;
+        top:-1px;
+    }
+    .line{
+        margin:0 0 0 2px;
+        position:relative;
+    }
+}
+.skinlink{
+    display:block;
+    width:360px;
+    height:200px;
+    margin:0 auto;
+    position:relative;
+}

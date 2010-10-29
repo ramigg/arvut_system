@@ -9,8 +9,16 @@
   <% layout = controller.instance_of?(Profiles::RegistrationsController) ? 'layout-signup' : 'layout-login' %>
   <body class="<%= I18n.locale %> <%= layout %>">
     <div class="skin_bg">
+<%#*<div class="skin_container">%>
+<%#*<p></p>%>
+<%#*</div>%>
       <div class="skin_container">
-        <p></p>
+        <div id="cdcontainer">time container</div>
+        <script type="text/javascript">
+          var launchdate = new cdLocalTime("cdcontainer", 'October 29, 2010 05:22:35', 0, "November 9, 2010 09:00:00");
+          launchdate.displaycountdown("days", formatresults2);
+        </script>
+        <a href="#" class="skinlink"></a>
       </div>
     </div>
 
