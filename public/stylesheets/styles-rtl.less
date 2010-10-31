@@ -409,51 +409,58 @@
 
 //counter
 #cdcontainer {
-    font-family:Helvetica, Arial, "MS Tahoma", sans-serif;
-    font-weight:bold;
-    text-align:center;
-    font-size:26px;
-    color:@color-white;
     position:absolute;
     top:115px;
     right:50%;
-    width:264px;
-    margin:0 -132px 0 0;
+    width:259px;
+    margin:0 -128px 0 0;
     span{
         display:block;
         .float_left;
         width:25px;
-        height:33px;
-        line-height:35px;
-        padding:2px 0 0;
-        position:relative;
-
-        span{
-            margin:1px;
-            background:url(../images/counter.png) no-repeat 0 0;
-            top:0;
-            position:absolute;
-        }
-    }
-    .d{
+        height:36px;
         margin:0 2px;
-        text-align:center;
-        @start-color:@color-orange;
-        @end-color:@color-orange - #333333;
-        .gradient;
-        @radius:3px;
-        .rounded-corners;
     }
+    .d, .dots, .line{
+        background:url(../images/counter_numbers.png) no-repeat 0 0;
+    }
+    .number_0{
+        background-position:-27*0px 0;
+    }
+    .number_1{
+        background-position:-27*1px 0;
+    }
+    .number_2{
+        background-position:-27*2px 0;
+    }
+    .number_3{
+        background-position:-27*3px 0;
+    }
+    .number_4{
+        background-position:-27*4px 0;
+    }
+    .number_5{
+        background-position:-27*5px 0;
+    }
+    .number_6{
+        background-position:-27*6px 0;
+    }
+    .number_7{
+        background-position:-27*7px 0;
+    }
+    .number_8{
+        background-position:-27*8px 0;
+    }
+    .number_9{
+        background-position:-27*9px 0;
+    }
+
     .dots, .line{
-        color:@color-orange - #333333;
-        margin:0 2px 0 0;
-        width:8px;
-        position:relative;
-        top:-1px;
+    width:5px;
+        background-position:-280px 0;
     }
     .line{
-        margin:0 0 0 2px;
-        position:relative;
+        background-position:-307px 0;
     }
 }
 .skinlink{
