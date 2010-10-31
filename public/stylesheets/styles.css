@@ -297,8 +297,18 @@ div.uploader input{opacity:0;position:absolute;top:0;right:0;bottom:0;float:righ
 #admin-menu dd{margin:0 10px;}
 #user_lists tr{border-top:1px solid;border-bottom:1px solid;}
 #user_lists td{padding:0 10px;}
-#cdcontainer{font-family:Helvetica,Arial,"MS Tahoma",sans-serif;font-weight:bold;text-align:center;font-size:26px;color:#ffffff;position:absolute;top:115px;left:50%;width:264px;margin:0 0 0 -132px;}#cdcontainer span{display:block;float:left;width:25px;height:33px;line-height:35px;padding:2px 0 0;position:relative;}#cdcontainer span span{margin:1px;background:url(../images/counter.png) no-repeat 0 0;top:0;position:absolute;}
-#cdcontainer .d{margin:0 2px;text-align:center;background:-webkit-gradient(linear, 0 0, 0 bottom, from(#f7931e), to(#c46000));background:-moz-linear-gradient(#f7931e, #c46000);background:linear-gradient(#f7931e, #c46000);-pie-background:linear-gradient(top, #f7931e, #c46000);behavior:url(PIE.htc);position:relative;-webkit-border-radius:3px;-moz-border-radius:3px;border-radius:3px;behavior:url(PIE.htc);-moz-background-clip:padding;-webkit-background-clip:padding;position:relative;}
-#cdcontainer .dots,#cdcontainer .line{color:#c46000;margin:0 2px 0 0;width:8px;position:relative;top:-1px;}
-#cdcontainer .line{margin:0 0 0 2px;position:relative;}
+#cdcontainer{position:absolute;top:115px;left:50%;width:259px;margin:0 0 0 -132px;}#cdcontainer span{display:block;float:left;width:25px;height:36px;margin:0 2px;}
+#cdcontainer .d,#cdcontainer .dots,#cdcontainer .line{background:url(../images/counter_numbers.png) no-repeat 0 0;}
+#cdcontainer .number_0{background-position:0px 0;}
+#cdcontainer .number_1{background-position:-27px 0;}
+#cdcontainer .number_2{background-position:-54px 0;}
+#cdcontainer .number_3{background-position:-81px 0;}
+#cdcontainer .number_4{background-position:-108px 0;}
+#cdcontainer .number_5{background-position:-135px 0;}
+#cdcontainer .number_6{background-position:-162px 0;}
+#cdcontainer .number_7{background-position:-189px 0;}
+#cdcontainer .number_8{background-position:-216px 0;}
+#cdcontainer .number_9{background-position:-243px 0;}
+#cdcontainer .dots,#cdcontainer .line{width:5px;background-position:-280px 0;}
+#cdcontainer .line{background-position:-307px 0;}
 .skinlink{display:block;width:360px;height:200px;margin:0 auto;position:relative;}

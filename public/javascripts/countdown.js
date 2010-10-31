@@ -99,32 +99,32 @@ function formatresults2(){
 	digits[7] = arguments[3]%10;
 
 	return 	"<div class='time'>" +
-			"<span class='d'>"+digits[0]+"<span></span></span>" +
-			"<span class='d'>"+digits[1]+"<span></span></span>" +
-			"<span class='line'>|</span>" +
-			"<span class='d'>"+digits[2]+"<span></span></span>" +
-			"<span class='d'>"+digits[3]+"<span></span></span>" +
-			"<span class='dots'>:</span>" +
-			"<span class='d'>"+digits[4]+"<span></span></span>" +
-			"<span class='d'>"+digits[5]+"<span></span></span>" +
-			"<span class='dots'>:</span>" +
-			"<span class='d'>"+digits[6]+"<span></span></span>" +
-			"<span class='d'>"+digits[7]+"<span></span></span>" +
-			"<div class='clear'></div>" +
+			"<span class='d number_"+digits[0]+"'></span>" +
+			"<span class='d number_"+digits[1]+"'></span>" +
+			"<span class='line'></span>" +        
+			"<span class='d number_"+digits[2]+"'></span>" +
+			"<span class='d number_"+digits[3]+"'></span>" +
+			"<span class='dots'></span>" +        
+			"<span class='d number_"+digits[4]+"'></span>" +
+			"<span class='d number_"+digits[5]+"'></span>" +
+			"<span class='dots'></span>" +        
+			"<span class='d number_"+digits[6]+"'></span>" +
+			"<span class='d number_"+digits[7]+"'></span>" +
+			"<div class='clear'></div>" +         
 		"</div>";
   } else{ //else if target date/time met
 	return 	"<div class='time'>" +
-			"<span class='d'>0<span></span></span>" +
-			"<span class='d'>0<span></span></span>" +
+			"<span class='d number_0'></span>" +
+			"<span class='d number_0'></span>" +
 			"<span class='line'>|</span>" +
-			"<span class='d'>0<span></span></span>" +
-			"<span class='d'>0<span></span></span>" +
+			"<span class='d number_0'></span>" +
+			"<span class='d number_0'></span>" +
 			"<span class='dots'>:</span>" +
-			"<span class='d'>0<span></span></span>" +
-			"<span class='d'>0<span></span></span>" +
+			"<span class='d number_0'></span>" +
+			"<span class='d number_0'></span>" +
 			"<span class='dots'>:</span>" +
-			"<span class='d'>0<span></span></span>" +
-			"<span class='d'>0<span></span></span>" +
+			"<span class='d number_0'></span>" +
+			"<span class='d number_0'></span>" +
 			"<div class='clear'></div>" +
 		"</div>";
   }

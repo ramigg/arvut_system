@@ -14,7 +14,7 @@
       <div class="skin_container">
         <div id="cdcontainer">time container</div>
         <script type="text/javascript">
-          var launchdate = new cdLocalTime("cdcontainer", 'October 29, 2010 05:22:35', 0, "November 9, 2010 09:00:00");
+	  var launchdate = new cdLocalTime("cdcontainer", '<%= Time.new.strftime('%B %d, %Y %H:%M:%S') %>', 0, "November 9, 2010 09:00:00");
           launchdate.displaycountdown("days", formatresults2);
         </script>
         <a href="#" class="skinlink"></a>

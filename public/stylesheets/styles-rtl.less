@@ -120,6 +120,121 @@
 		.sticky{
 		}
 	}
+        .event-stream{
+            .admin{
+                display:none;
+            }
+            .tabs{
+                position: relative;
+                height: 22px;
+                margin-top: 8px;
+                .admin-link{
+                    position:absolute;
+                    left:0;
+                    top:0;
+                    padding:0;
+                    a{
+                        font-size: @font-basic-size;
+                        text-decoration:underline;
+                        color: #006ab6;
+                    }
+                }
+                span{
+                    padding: 6px;
+                    margin: 0;
+                    a{
+                        font-size: @font-basic-size;
+                        text-decoration:underline;
+                        color: #006ab6;
+                    }
+                }
+                span.active{
+                    background-color: #f9f7e8;
+                    a{
+                        text-decoration:none;
+                        color: #f15a24;
+                        .bold;
+                    }
+                }
+            }
+            .bgnd{
+                background-color: #f9f7e8;
+                padding: 46px 6px;
+                position: relative;
+                .support{
+                    position:absolute;
+                    top: 10px;
+                    left: 340px;
+                 }
+                .player{
+                    border:1px solid #808080;
+                    .float_right;
+                    margin:0;
+                    padding:4px;
+                    width:400px;
+                    height: 305px;
+                    background-color: white;
+                }
+                form{
+                    .float_left;
+                    margin: 8px -7px 5px 10px;
+                }
+                .services{
+                    width:315px;
+                    height: 305px;
+                    .float_left;
+                    padding: 5px;
+                    background-color: #efedde;
+                    .tabs{
+                        background-color: #f9f7e8;
+                        right:425px;
+                        position:absolute;
+                        top:16px;
+                        span.active{
+                            background-color: #efedde;
+                        }
+                    }
+                    .content{
+                        position: relative;
+                        img{
+                            width: 290px;
+                            height: 217px;
+                            position: absolute;
+                            top: 4px;
+                            right: 4px;
+                        }
+                        .images{
+                            width: 290px;
+                            height: 217px;
+                            background-color:white;
+                            border:1px solid #808080;
+                            padding:4px;
+                            position:relative;
+                            margin:20px auto 10px;
+                        }
+                        .buttons{
+                            text-align: center;
+                            padding: 0 5px;
+                            a{
+                                padding: 0 5px;
+                            }
+                            .left_button{
+                                .float_right;
+                            }
+                            .right_button{
+                                .float_left;
+                            }
+                            #new_sketches{
+                                color: #f15a24;
+                                .bold;
+                                margin:10px 0 0;
+                                font-size: @font-basic-size - 1;
+                            }
+                        }
+                    }
+                }
+            }
+        }
 	.profile_editor{
 		background:@color-profile-background;
 		.rounded-corners;
@@ -409,51 +524,58 @@
 
 //counter
 #cdcontainer {
-    font-family:Helvetica, Arial, "MS Tahoma", sans-serif;
-    font-weight:bold;
-    text-align:center;
-    font-size:26px;
-    color:@color-white;
     position:absolute;
     top:115px;
     right:50%;
-    width:264px;
-    margin:0 -132px 0 0;
+    width:259px;
+    margin:0 -128px 0 0;
     span{
         display:block;
         .float_left;
         width:25px;
-        height:33px;
-        line-height:35px;
-        padding:2px 0 0;
-        position:relative;
-
-        span{
-            margin:1px;
-            background:url(../images/counter.png) no-repeat 0 0;
-            top:0;
-            position:absolute;
-        }
-    }
-    .d{
+        height:36px;
         margin:0 2px;
-        text-align:center;
-        @start-color:@color-orange;
-        @end-color:@color-orange - #333333;
-        .gradient;
-        @radius:3px;
-        .rounded-corners;
     }
+    .d, .dots, .line{
+        background:url(../images/counter_numbers.png) no-repeat 0 0;
+    }
+    .number_0{
+        background-position:-27*0px 0;
+    }
+    .number_1{
+        background-position:-27*1px 0;
+    }
+    .number_2{
+        background-position:-27*2px 0;
+    }
+    .number_3{
+        background-position:-27*3px 0;
+    }
+    .number_4{
+        background-position:-27*4px 0;
+    }
+    .number_5{
+        background-position:-27*5px 0;
+    }
+    .number_6{
+        background-position:-27*6px 0;
+    }
+    .number_7{
+        background-position:-27*7px 0;
+    }
+    .number_8{
+        background-position:-27*8px 0;
+    }
+    .number_9{
+        background-position:-27*9px 0;
+    }
+
     .dots, .line{
-        color:@color-orange - #333333;
-        margin:0 2px 0 0;
-        width:8px;
-        position:relative;
-        top:-1px;
+    width:5px;
+        background-position:-280px 0;
     }
     .line{
-        margin:0 0 0 2px;
-        position:relative;
+        background-position:-307px 0;
     }
 }
 .skinlink{

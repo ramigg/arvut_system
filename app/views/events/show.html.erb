@@ -75,19 +75,15 @@
       </div>
       <div class="content">
         <div class="images">
-          <img alt="" src="http://www.kab.tv/classboard/sketches/part4_00074.jpg"></img>
-          <img alt="" src="http://www.kab.tv/classboard/sketches/part4_00075.jpg"></img>
-          <img alt="" src="http://www.kab.tv/classboard/sketches/part4_00076.jpg"></img>
-          <img alt="" src="http://www.kab.tv/classboard/sketches/part4_00077.jpg"></img>
-          <img alt="" src="http://www.kab.tv/classboard/sketches/part4_00078.jpg"></img>
-          <img alt="" src="http://www.kab.tv/classboard/sketches/part4_00079.jpg"></img>
         </div>
         <div class="buttons">
-          <a class="float_left" href="#" onclick="first(); return false;">&laquo; First</a>
-          <a class="float_left" href="#" onclick="prev(); return false;">&lsaquo; Prev</a>
+          <a class="left_button" href="#" onclick="first(); return false;">&laquo; First</a>
+          <a class="left_button" href="#" onclick="prev(); return false;">&lsaquo; Prev</a>
           <span class="title"></span>
-          <a class="float_right" href="#" onclick="last(); return false;">Last &raquo;</a>
-          <a class="float_right" href="#" onclick="next(); return false;">Next &rsaquo;</a>
+          <a class="right_button" href="#" onclick="last(); return false;">Last &raquo;</a>
+          <a class="right_button" href="#" onclick="next(); return false;">Next &rsaquo;</a>
+          <div class="clear"></div>
+          <a id="new_sketches" class="right_button hidden" href="#" onclick="last(); return false;">There are new sketches &raquo;</a>
           <div class="clear"></div>
         </div>
       </div>
@@ -107,18 +103,22 @@
   var pollID = 0;
   var pollSketches = function() {
     $.ajax({
-      url: 'get_classboard',
-      data: {lang: 'English'},
+      url: 'event_data/classboard',
+      data: {
+        lang: 'English',
+        total: total
+      },
       success: transit_init
     });
   }
   
   $(function (){
+    pollSketches();
     startPollingSketches();
   });
 
   function startPollingSketches(){
-    pollID = setInterval(pollSketches, 5000);
+    pollID = setInterval(pollSketches, 30000);
   }
   
   function stopPollingSketches(){
@@ -127,13 +127,19 @@
   }
 
   function transit_init(data){
-    alert(data);
     $images = $('.content .images img');
-    total = $images.length;
-    $last = $current = $images.last();
-    $first = $images.first();
-    $last.css('z-index', 10); // Become the upper for sure
-    $('.title').text(total + '/' + total);
+    if (total == 0 && $images.length > 0) { // The first time some images were added
+      total = $images.length;
+      $last = $current = $images.last();
+      $first = $images.first();
+      $last.css('z-index', 10); // Become the upper for sure
+      $('.title').text(total + '/' + total);
+    } else if (total != 0 && total != $images.length) { // Only if more images are here now
+      total = $images.length;
+      $last = $images.last();
+      $('.title').text(($current.index() + 1) + '/' + total);
+      $('#new_sketches').show();
+    }
   }
 
   function first(){
@@ -142,6 +148,7 @@
 
   function last(){
     transit_to($last);
+    $('#new_sketches').hide();
   }
 
   function prev(){

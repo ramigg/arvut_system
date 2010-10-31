@@ -47,8 +47,6 @@ Simulator::Application.routes.draw do
 
   scope '/(:locale)', :constraints => {:locale => /#{pattern}/} do
 
-    get "events/index", :to => 'events#index'
-
     root :to => 'redirector#to_home'
     match 'dashboard', :to => 'home#dashboard', :as => 'dashboard'
 
@@ -73,6 +71,9 @@ Simulator::Application.routes.draw do
     match 'stream/all', :to => 'stream#index',:stream_filter => 'all', :as => 'home'
     match 'stream/:stream_filter(/:modifier)' => 'stream#index', :as => :stream
     resources :pages
+    resources :events do
+      get 'event_data/classboard' => 'event_data#classboard', :format => :js
+    end
     
     namespace 'admin' do
       resources :pages do
