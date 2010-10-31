@@ -1,0 +1,9 @@
+<META>
+  <POLICY-REFERENCES>
+    <POLICY-REF about="/w3c/simulator.p3p">
+      <INCLUDE>/</INCLUDE>
+      <COOKIE-INCLUDE/>
+    </POLICY-REF>
+  </POLICY-REFERENCES>
+</META>
+
