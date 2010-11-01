@@ -254,6 +254,7 @@ en:
       publish_at: Publish at
       publish: Publish
       title: Title
+      subtitle: Subtitle
       description: Description
       embed_string: String to embed
       url: URL

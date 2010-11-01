@@ -125,6 +125,7 @@ de:
       success: "Seite erfolgreich erstellt"
       tags: Tags
       title: Titel
+      subtitle: Untertitel
       title_and_description: "Titel und Beschreibung"
       top_header: "Top Header"
       top_side_banner: "Oberer Seitenbanner"

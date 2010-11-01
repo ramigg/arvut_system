@@ -125,6 +125,7 @@ it:
       success: "La pagina è stata creata con successo"
       tags: Etichette
       title: "Titolo e Descrizione"
+      subtitle: "Sottotitolo"
       title_and_description: "Titolo e Descrizione"
       top_header: Testata
       top_side_banner: "Banner lato superiore"

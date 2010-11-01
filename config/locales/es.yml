@@ -125,6 +125,7 @@ es:
       success: "La página fue creada con éxito"
       tags: Etiquetas
       title: Título
+      subtitle: Subtítulo
       title_and_description: "Título y Descripción"
       top_header: "Comienzo de la página de cabecera"
       top_side_banner: "Banner lateral superior"
