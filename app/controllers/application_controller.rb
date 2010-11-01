@@ -18,11 +18,13 @@ class ApplicationController < ActionController::Base
   
   def set_locale
     I18n.locale = @locale = params[:locale]
+#    cookies[:sviva_tova_locale] = {:value => @locale, :expires => 10.years.from_now, :domain => 'localhost' }
+    response.headers['Set-Cookie'] = "sviva_tova_locale=#{@locale}; path=/; expires=#{I18n.l(1.year.from_now, :locale => :en, :format => "%a, %d-%b-%Y %H:%M:%S GMT")}"
   end
 
   # For any url_for (except devise)
   def default_url_options(options={})
-    { :locale => I18n.locale }
+    { :locale => (params[:locale] || I18n.locale) }
   end
 
   # Devise plugin only

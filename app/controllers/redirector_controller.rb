@@ -1,4 +1,6 @@
 class RedirectorController < ActionController::Metal
+  include ActionController::Helpers
+  include ActionController::Cookies
   include ActionController::Redirecting
   include Rails.application.routes.url_helpers
 
@@ -21,7 +23,8 @@ class RedirectorController < ActionController::Metal
   def redirect(path)
     host = env['HTTP_HOST']
     # Is there some known language in path? Default: en
-    lang = PATTERN.match(env['PATH_INFO']) || '/en'
+    def_lang = cookies[:sviva_tova_locale] || 'en'
+    lang = PATTERN.match(env['PATH_INFO']) || "/#{def_lang}"
     # Transfer also query parameters
     query = env['QUERY_STRING'].empty? ? '' : "?#{env['QUERY_STRING']}"
     # Copy flash to session
