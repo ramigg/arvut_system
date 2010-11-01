@@ -1,0 +1,27 @@
+<%- showgrid false -%>
+<h1><%= t('admin.pages.new_event') %></h1>
+<%= render 'page_tabs' %>
+
+<div class="contenttabs">
+  <%= form_for [:admin, @page], :html => {:id => 'page'} do |f| %>
+    <%= render 'hidden', :f => f %>
+    <div class="tab currenttab">
+      <%= render 'assignment_metadata', :f => f %>
+
+      <div class="span-6 last">
+        <%#= render 'page_save', :f => f %>
+        <%= render 'featured_settings', :f => f %>
+      </div>
+      <div class="clear"></div>
+    </div>
+
+    <div class="tab">
+      <%= render 'assignment_content', :f => f, :noquestions => true %>
+      <div class="span-6 last">
+        <%= render 'page_save', :f => f %>
+        <%= render 'sorting', :f => f %>
+      </div>
+      <div class="clear"></div>
+    </div>
+  <%- end -%>
+</div>
