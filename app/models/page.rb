@@ -63,9 +63,9 @@ class Page < ActiveRecord::Base
   # Returns pages for the given user
   def self.get_my_pages(user, pageno, locale = :en )
     language_id = Language.get_id_by_locale(locale)
-    conditions = case user
+    conditions = case
     when user.is_admin?
-      []
+      ['language_id = ?', language_id]
     when user.is_super_moderator?
       ['language_id = ?', language_id]
     else
