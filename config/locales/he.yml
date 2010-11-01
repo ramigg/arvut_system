@@ -80,6 +80,7 @@ he:
       publish_at: "פרסום עתידי"
       publish: "פרסם"
       title: "כותרת"
+      subtitle: "תת כותרת"
       description: "תאור"
       embed_string: "הטמע קוד פלייר חיצוני (Embed)"
       url: "קישור"

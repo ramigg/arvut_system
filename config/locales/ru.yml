@@ -318,6 +318,7 @@ ru:
       success: "Страница была успешно создана"
       tags: Теги
       title: Заголовок
+      subtitle: Подзаголовок
       title_and_description: "Заголовок  & Описание"
       top_header: "Верхний заголовок"
       top_side_banner: "Верхняя часть баннера"
