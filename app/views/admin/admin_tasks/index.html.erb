@@ -1,6 +1,6 @@
 <% if current_user.user_has_access_to_admin? %>
   <dl id="admin-menu">
-    <% if current_user.is_admin? || current_user.is_moderator? %>
+    <% if current_user.is_admin? || current_user.is_super_moderator? || current_user.is_moderator? %>
       <dt><%= t('admin.reports.manage_questionnaires') %>:</dt>
       <dd><%= link_to t('admin.reports.pages_list'), admin_pages_url %></dd>
     <% end %>

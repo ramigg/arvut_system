@@ -102,7 +102,7 @@
     </div>
   </form-->
   &nbsp;&nbsp;
-  <%= form_tag(admin_pages_url(:locale => I18n.locale), :method => :get) do |f| %>
+  <%= form_tag(admin_pages_url(:locale => I18n.locale), :method => :get) do %>
     <div>
       <% count = select_tag 'per_page',
         options_for_select(Page.show_on_page, Page.per_page),
