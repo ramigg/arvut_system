@@ -4,7 +4,7 @@
   <select class="span-4" name="new-items" id="new-items" onchange="new_item()">
     <option value=-1"><%= t('admin.pages.create_new') %></option>
     <option value="<%= new_admin_page_url(:page_type => 'assignment') %>"><%= t("admin.pages.assignment") %></option>
-    <option value="<%= new_admin_page_url(:page_type => 'xxx') %>"><%= t("admin.pages.event") %></option>
+    <option value="<%= new_admin_page_url(:page_type => 'event') %>"><%= t("admin.pages.event") %></option>
     <option value="<%= new_admin_page_url(:page_type => 'article') %>"><%= t("admin.pages.article") %></option>
     <option value="<%= new_admin_page_url(:page_type => 'message') %>"><%= t("admin.pages.message") %></option>
   </select>

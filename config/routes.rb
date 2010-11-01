@@ -2,7 +2,7 @@ class CheckPath
   def self.set_pattern
     langs = Language.all.map{|e|e.locale} rescue []
     prefix = Rails.configuration.site_prefix.sub(/^\//,'')
-    /#{prefix}\/(#{langs.join('|')})(\/|)/
+    /#{prefix}\/(#{langs.join('|')})(\/|)|render_event_response/
   end
 
   def self.matches?(request)
@@ -18,6 +18,7 @@ class CheckNotLoggedIn
 end
 
 Simulator::Application.routes.draw do
+  match ":controller/render_event_response", :to => "#render_event_response", :as => "apotomo_event"
 
   match '*PIE.htc' => "static_files#get_htc"
 
@@ -71,9 +72,7 @@ Simulator::Application.routes.draw do
     match 'stream/all', :to => 'stream#index',:stream_filter => 'all', :as => 'home'
     match 'stream/:stream_filter(/:modifier)' => 'stream#index', :as => :stream
     resources :pages
-    resources :events do
-      get 'event_data/classboard' => 'event_data#classboard', :format => :js
-    end
+    resources :events
     
     namespace 'admin' do
       resources :pages do

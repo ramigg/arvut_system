@@ -96,6 +96,8 @@ class Admin::PagesController < ApplicationController
     case page_type
     when 'assignment'
       'assignment'
+    when 'event'
+      'event'
     when 'message'
       'message'
     when 'article'
