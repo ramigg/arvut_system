@@ -66,7 +66,7 @@ class Page < ActiveRecord::Base
     conditions = case user
     when user.is_admin?
       []
-    when current_user.is_super_moderator?
+    when user.is_super_moderator?
       ['language_id = ?', language_id]
     else
       ['author_id = ? AND language_id = ?', user, language_id]
