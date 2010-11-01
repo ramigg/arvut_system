@@ -231,6 +231,45 @@
                                 font-size: @font-basic-size - 1;
                             }
                         }
+                        #questions{
+                            .ask-question-toggle{
+                                text-align: center;
+                                margin: 10px 0;
+                            }
+                            .question-list{
+                                display:none;
+                            }
+                            dl{
+                                overflow-y: auto;
+                                border-top: 1px solid #666666;
+                                height: 250px;
+                                margin: 0 10px;
+                                dt{
+                                    padding: 5px 10px 0;
+                                }
+                                dd{
+                                    padding: 0 10px 5px;
+                                }
+                                .even{
+                                    background: #feedd0;
+                                }
+                                .odd{
+                                    background: #fff;
+                                }
+                                .who{
+                                    color: #f15a24;
+                                }
+                                .where{
+                                    color: #666666;
+                                }
+                            }
+                            .question-ask{
+                                .ask-div{
+                                }
+                                form{
+                                }
+                            }
+                        }
                     }
                 }
             }
@@ -399,6 +438,7 @@
 			.item-metadata{
 				color:@color-dimmed-text;
 				.font-small;
+                                clear:both;
 			}
 			.form_element{
 				margin: 0 0 10px;
