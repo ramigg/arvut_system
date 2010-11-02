@@ -5,7 +5,13 @@
       <div class="small no-margin-padding">(<%= page.language.locale %>, <%= page.author.first_name %> <%= page.author.last_name %>)</div>
     <%- end -%>
   </td>
-  <td class="large"><%= page.title.mb_chars[0..53] %><%= raw '<b>...</b>' if page.title.mb_chars.length > 53 %></td>
+  <td class="large">
+		<%= page.title.mb_chars[0..53] %><%= raw '<b>...</b>' if page.title.mb_chars.length > 53 %>
+		<% if page.subtitle? %>
+			<br /><small><%= page.subtitle.mb_chars[0..53] %><%= raw '<b>...</b>' if page.subtitle.mb_chars.length > 53 %></small>
+		<% end %>
+		
+	</td>
   <td class="large"><%= page.page_type %> </td>
   <td><%= l page.updated_at, :format => :timestamp %> </td>
   <td><%= page.publish_at ? l(page.publish_at, :format => :timestamp) : '' %> </td>

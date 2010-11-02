@@ -55,10 +55,23 @@ class Page < ActiveRecord::Base
   }
 
   #  scope :all_pages, lambda {|language_id| where(:language_id => language_id)}
-  scope :ordered,  order('is_sticky', 'publish_at DESC')
+  scope :ordered, order('is_sticky', 'publish_at DESC')
   
-  #TODO Add new_pages scope
-  scope :new_pages,  order('is_sticky', 'publish_at DESC')
+  # scope :read_pages, lambda {|user_id| 
+  #   joins(:page_userflags).where(:page_userflags => {:user_id => user_id, :is_read => true}) 
+  # }
+
+  scope :completed_assignments, lambda {|language_id, user_reg_date, user_id|
+    by_page_type('assignment', language_id, user_reg_date).joins(:page_userflags).where(:page_userflags => {:user_id => user_id, :is_answered => true}) 
+  }
+  
+  scope :read_pages_by_page_type, lambda {|page_type, language_id, user_reg_date, user_id|
+    by_page_type(page_type, language_id, user_reg_date).joins(:page_userflags).where(:page_userflags => {:user_id => user_id, :is_read => true})
+  }
+  
+  def self.new_pages_by_page_type(page_type, language_id, user_reg_date, user_id)
+    (by_page_type(page_type, language_id, user_reg_date) - read_pages_by_page_type(page_type, language_id, user_reg_date, user_id))
+  end
 
   # Returns pages for the given user
   def self.get_my_pages(user, pageno, locale = :en )

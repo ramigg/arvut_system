@@ -4,13 +4,14 @@ class PageUserflag < ActiveRecord::Base
 
   # scope for_user, lanbda{|user_id, page_id| where(:user_id => user_id, page_id => page_id)}
   
-  def self.mark_as_answered(page, user)
+  def self.add_flag(page, user, flag_name)
+    flag_name = flag_name.to_sym
     options = {:page_id => page.id, :user_id => user.id}
     record = where(options).first
     if record
-      record.update_attribute(:is_answered, true) 
+      record.update_attribute(flag_name, true) 
     else
-      options.merge!({:is_answered => true})
+      options.merge!({flag_name => true})
       create(options)
     end
   end

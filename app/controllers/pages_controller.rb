@@ -13,6 +13,9 @@ class PagesController < ApplicationController
     @questionnaire_answers << @qa
 
     @profile = current_user
+    PageUserflag.add_flag(@page, current_user, :is_read)
+    
+    respond_with @page
   end
 
   # put
@@ -24,7 +27,7 @@ class PagesController < ApplicationController
       flash[:notice] = I18n.t 'pages.update.was_successful'
       # close popup
       @close_popup = true
-      PageUserflag.mark_as_answered(@page, current_user) if @page.is_assignment?
+      PageUserflag.add_flag(@page, current_user, :is_answered) if @page.is_assignment?
     else
       # Failure
       flash[:error] = I18n.t 'pages.update.failed'
