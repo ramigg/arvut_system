@@ -5,9 +5,12 @@
   <div class="question-list">
     <div class="ask-question-toggle"><%= link_to 'Ask Question', '#', :class => 'button-small-main',
         :onclick => '$(".question-list").hide(); $(".question-ask").show(); return false;' %></div>
-    <dl>
+    <dl id="questions">
+      <%- if @questions.empty? %>
+        <dd class="even">No questions yet.</dd>
+      <%- end -%>
       <%- @questions.each_with_index {|q, idx|
-          klass = idx & 1 == 0 ? 'odd' : 'even'
+        klass = idx & 1 == 0 ? 'odd' : 'even'
         -%>
         <dt class="<%= klass %>"><span class="who"><%= q.qname %></span>, <span class="where"><%= q.qfrom %></span></dt>
         <dd class="<%= klass %>"><%= q.qquestion %></dd>
@@ -36,5 +39,38 @@
 <%- end -%>
 
 <script type="text/javascript">
+  $(function (){
+    kabtv.questions.pollQuestions();
+    kabtv.questions.startPollingQuestions();
+  });
 
+  (function ($) {
+
+    if (!window.kabtv) { window.kabtv = {}; }
+    if (!kabtv.questions) { kabtv.questions = {}; }
+
+    $.extend(kabtv.questions, {
+      last_question_id: 0,
+      
+      pollID: 0,
+      pollQuestions: function() {
+        $.ajax({
+          url: '<%= url_for_event(:more_questions) %>',
+          data: {
+            last_question_id: kabtv.questions.last_question_id
+          }
+        });
+      },
+
+      startPollingQuestions: function (){
+        kabtv.questions.pollID = setInterval(kabtv.questions.pollQuestions, 30000);
+      },
+
+      stopPollingQuestions: function (){
+        clearInterval(kabtv.questions.pollID);
+        kabtv.questions.pollID = 0;
+      }
+    });
+
+  })(jQuery);
 </script>

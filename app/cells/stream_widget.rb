@@ -31,6 +31,8 @@ module StreamWidget
   private
 
   class Questions < Apotomo::Widget
+    include ActionView::Helpers::JavaScriptHelper
+    
     responds_to_event :more_questions, :with => :process_request
     responds_to_event :submit, :with => :process_submit
     
@@ -40,16 +42,54 @@ module StreamWidget
     end
 
     def process_request
-      
+      last_question_id = (param :last_question_id).to_i
+
+      @questions = KabtvQuestion.approved_questions(last_question_id)
+
+      if @questions.empty?
+        if last_question_id == 0
+          # no questions => no questions
+          render :text => '', :content_type => Mime::JS
+        else
+          # questions => no questions
+          render :text => "
+            $('dl#questions').html('#{escape_javascript '<dd class="even">No questions yet.</dd>'.html_safe}');
+            kabtv.questions.last_question_id = 0;
+          ", :content_type => Mime::JS
+        end
+      else
+        content = ''
+        @questions.each_with_index {|q, idx|
+          klass = ((last_question_id + 1 + idx) & 1) == 0 ? 'odd' : 'even'
+          content += <<-HTML
+            <dt class="#{klass}"><span class="who">#{q.qname}</span>, <span class="where">#{q.qfrom}</span></dt>
+            <dd class="#{klass}">#{q.qquestion}</dd>
+          HTML
+        }
+        if last_question_id == 0
+          # no questions => questions
+          render :text => "
+            $('dl#questions').html('#{escape_javascript content.html_safe}');
+            kabtv.questions.last_question_id = #{@questions.count};
+          ", :content_type => Mime::JS
+        else
+          # questions => more questions
+          render :text => "
+            $('dl#questions').append('#{escape_javascript content.html_safe}');
+            kabtv.questions.last_question_id =+ #{@questions.count};
+          ", :content_type => Mime::JS
+        end
+      end
     end
 
     def process_submit
-      replace
+      
     end
   end
 
   class Sketches < Apotomo::Widget
     include ActionView::Helpers::JavaScriptHelper
+    
     responds_to_event :classboard, :with => :display_classboard
     
     def display
