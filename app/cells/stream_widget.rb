@@ -18,8 +18,8 @@ module StreamWidget
   class Container < Apotomo::Widget
     has_widgets do |me|
       me << widget('stream_widget/sketches', 'sketches', :display)
+      me << widget('stream_widget/questions', 'questions', :display)
     end
-    
     
     def display
       @stream_preset = param :stream_preset
@@ -30,7 +30,26 @@ module StreamWidget
   
   private
 
+  class Questions < Apotomo::Widget
+    responds_to_event :more_questions, :with => :process_request
+    responds_to_event :submit, :with => :process_submit
+    
+    def display
+      @questions = KabtvQuestion.approved_questions
+      render
+    end
+
+    def process_request
+      
+    end
+
+    def process_submit
+      replace
+    end
+  end
+
   class Sketches < Apotomo::Widget
+    include ActionView::Helpers::JavaScriptHelper
     responds_to_event :classboard, :with => :display_classboard
     
     def display
@@ -38,7 +57,7 @@ module StreamWidget
     end
 
     def display_classboard
-      @images = []
+      images = []
       begin
         data = EventDataReader::ClassBoard.new.classboard
         url = data['urls'][1]['sketches']
@@ -49,10 +68,10 @@ module StreamWidget
         total = data['thumbnails'].size
         sketches = (data['thumbnails'].reverse)[last_one .. total] || []
         sketches.each{ |img|
-          @images << "<img alt='' src='#{url}/#{img}'></img>"
+          images << "<img alt='' src='#{url}/#{img}'></img>"
         }
       end
-      render
+      render :text => "$('.images').append('#{escape_javascript images.join('').html_safe}');", :content_type => Mime::JS
     end
   end
 

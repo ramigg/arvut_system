@@ -1,18 +1,17 @@
-<div class="sketches">
-	<div class="images">
-	</div>
-	<div class="buttons">
-	  <a class="left_button" href="#" onclick="first(); return false;">&laquo; First</a>
-	  <a class="left_button" href="#" onclick="prev(); return false;">&lsaquo; Prev</a>
-	  <span class="title"></span>
-	  <a class="right_button" href="#" onclick="last(); return false;">Last &raquo;</a>
-	  <a class="right_button" href="#" onclick="next(); return false;">Next &rsaquo;</a>
-	  <div class="clear"></div>
-	  <a id="new_sketches" class="right_button hidden" href="#" onclick="last(); return false;">There are new sketches &raquo;</a>
-	  <div class="clear"></div>
-	</div>
-</div>
-
+<%= widget_div do -%>
+  <div class="images">
+  </div>
+  <div class="buttons">
+    <a class="left_button" href="#" onclick="first(); return false;">&laquo; First</a>
+    <a class="left_button" href="#" onclick="prev(); return false;">&lsaquo; Prev</a>
+    <span class="title"></span>
+    <a class="right_button" href="#" onclick="last(); return false;">Last &raquo;</a>
+    <a class="right_button" href="#" onclick="next(); return false;">Next &rsaquo;</a>
+    <div class="clear"></div>
+    <a id="new_sketches" class="right_button hidden" href="#" onclick="last(); return false;">There are new sketches &raquo;</a>
+    <div class="clear"></div>
+  </div>
+<%- end -%>
 
 <script type="text/javascript">
   var total = 0,

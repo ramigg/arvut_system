@@ -1,63 +1,66 @@
-<div class="support">
-  <span style="color:green">ONLINE!</span><br/>
-  <a href="#">Technical Support</a>
-</div>
-<div class="player">
-  <object width="400" height="305" data="http://switch3.castup.net/cunet/gm.asp?ClipMediaID=160788" name="player" id="player" type="video/x-ms-wmv">
-    <param value="http://switch3.castup.net/cunet/gm.asp?ClipMediaID=160788" name="src"/>
-    <param value="true" name="autostart"/>
-    <param value="true" name="controller"/>
-    <param value="50" name="volume"/>
-    <param value="full" name="uiMode"/>
-    <param value="true" name="animationAtStart"/>
-    <param value="false" name="showDisplay"/>
-    <param value="true" name="ShowAudioControls"/>
-    <param value="false" name="ShowPositionControls"/>
-    <param value="false" name="transparentAtStart"/>
-    <param value="true" name="ShowControls"/>
-    <param value="true" name="ShowStatusBar"/>
-    <param value="false" name="ShowTracker"/>
-    <param value="false" name="ClickToPlay"/>
-    <param value="#000000" name="DisplayBackColor"/>
-    <param value="#ffffff" name="DisplayForeColor"/>
-    <param value="false" name="balance"/>
-  </object>
-  <form action="#" method="get" accept-charset="utf-8">
-    <p>
-      <% if @current_user.signed_in?
-        suffix = ''
-      else
-        suffix = '/users/login'
-      end
-      locale = I18n.locale.to_s
-    %>
-      <select name="language" id="language" onchange="alert('language')">
-        <% Language.all.each { |l| %>
-          <option <%= 'selected="selected"'.html_safe if l.locale == locale %> value="<%= root_path(l.locale) + suffix %>"><%= l.language %></option>
-        <% } %>
-      </select>
-    </p>
-  </form>
-  <form action="#" method="get" accept-charset="utf-8">
-    <p>
-      <select name="quality" id="quality" onchange="alert('quality')">
-        <option>Israel - Hiqh Quality</option>
-        <option>Israel - Medium Quality</option>
-        <option>Israel - Low Quality</option>
-        <option>USA - Hiqh Quality</option>
-        <option>USA - Medium Quality</option>
-        <option>USA - Low Quality</option>
-      </select>
-    </p>
-  </form>
-</div>
-<div class="services">
-  <div class="tabs">
-    <span><%= link_to 'Questions', '#', :remote => true %></span>
-    <span><%= link_to 'Schedule', '#', :remote => true %></span>
-    <span class="active"><%= link_to 'Sketches', '#', :remote => true %></span>
+<%= widget_div do -%>
+  <div class="support">
+    <span style="color:green">ONLINE!</span><br/>
+    <a href="#">Technical Support</a>
   </div>
-  <div class="content">
-		<%= rendered_children['sketches'] %>
+  <div class="player">
+    <object width="400" height="305" data="http://switch3.castup.net/cunet/gm.asp?ClipMediaID=160788" name="player" id="player" type="video/x-ms-wmv">
+      <param value="http://switch3.castup.net/cunet/gm.asp?ClipMediaID=160788" name="src"/>
+      <param value="true" name="autostart"/>
+      <param value="true" name="controller"/>
+      <param value="50" name="volume"/>
+      <param value="full" name="uiMode"/>
+      <param value="true" name="animationAtStart"/>
+      <param value="false" name="showDisplay"/>
+      <param value="true" name="ShowAudioControls"/>
+      <param value="false" name="ShowPositionControls"/>
+      <param value="false" name="transparentAtStart"/>
+      <param value="true" name="ShowControls"/>
+      <param value="true" name="ShowStatusBar"/>
+      <param value="false" name="ShowTracker"/>
+      <param value="false" name="ClickToPlay"/>
+      <param value="#000000" name="DisplayBackColor"/>
+      <param value="#ffffff" name="DisplayForeColor"/>
+      <param value="false" name="balance"/>
+    </object>
+    <form action="#" method="get" accept-charset="utf-8">
+      <p>
+        <% if @current_user.signed_in?
+          suffix = ''
+        else
+          suffix = '/users/login'
+        end
+        locale = I18n.locale.to_s
+      %>
+        <select name="language" id="language" onchange="alert('language')">
+          <% Language.all.each { |l| %>
+            <option <%= 'selected="selected"'.html_safe if l.locale == locale %> value="<%= root_path(l.locale) + suffix %>"><%= l.language %></option>
+          <% } %>
+        </select>
+      </p>
+    </form>
+    <form action="#" method="get" accept-charset="utf-8">
+      <p>
+        <select name="quality" id="quality" onchange="alert('quality')">
+          <option>Israel - Hiqh Quality</option>
+          <option>Israel - Medium Quality</option>
+          <option>Israel - Low Quality</option>
+          <option>USA - Hiqh Quality</option>
+          <option>USA - Medium Quality</option>
+          <option>USA - Low Quality</option>
+        </select>
+      </p>
+    </form>
   </div>
-</div>
+  <div class="services">
+    <div class="tabs">
+      <span><%= link_to 'Questions', '#', :remote => true %></span>
+      <span><%= link_to 'Schedule', '#', :remote => true %></span>
+      <span class="active"><%= link_to 'Sketches', '#', :remote => true %></span>
+    </div>
+    <div class="content">
+      <%= rendered_children['sketches'] %>
+      <%= rendered_children['questions'] %>
+    </div>
+  </div>
+<%- end -%>
