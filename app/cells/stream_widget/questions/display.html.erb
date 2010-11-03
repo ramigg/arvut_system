@@ -1,40 +1,72 @@
-<style type="text/css">
-  #sketches {display: none;}
-</style>
 <%= widget_div do -%>
   <div class="question-list">
     <div class="ask-question-toggle"><%= link_to 'Ask Question', '#', :class => 'button-small-main',
-        :onclick => '$(".question-list").hide(); $(".question-ask").show(); return false;' %></div>
-    <dl>
-      <%- @questions.each_with_index {|q, idx|
-          klass = idx & 1 == 0 ? 'odd' : 'even'
-        -%>
-        <dt class="<%= klass %>"><span class="who"><%= q.qname %></span>, <span class="where"><%= q.qfrom %></span></dt>
-        <dd class="<%= klass %>"><%= q.qquestion %></dd>
-      <%- } -%>
+        :onclick => 'kabtv.questions.toggleAskAndQuestions(); return false;' %></div>
+    <dl id="questions">
+      <dd class="even">Loading...</dd>
     </dl>
   </div>
   <div class="question-ask">
     <div class="ask-div">Ask a question</div>
-    <%= form_tag '', 'data-event-url' => url_for_event(:submit), :class => 'ask-form' do %>
+    <%= form_for @ask, :as => :kabtv_question, :url => url_for_event(:submit_question),
+      :remote => true, :class => 'ask-form' do |f| %>
       <div class="inputs">
-        <%= label_tag 'who' %>
-        <%= text_field_tag 'who' %>
-        <%= label_tag 'where' %>
-        <%= text_field_tag 'where' %>
-        <%= label_tag 'message' %>
-        <%= text_area_tag 'message', '', :rows => 5, :cols => 10 %>
+        <%= f.label :qname, 'Who' %>
+        <%= f.text_field :qname %>
+        <%= f.label :qfrom, 'From' %>
+        <%= f.text_field :qfrom %>
+        <%= f.label :qquestion, 'Question' %>
+        <%= f.text_area :qquestion, :rows => 5, :cols => 10 %>
       </div>
       <div class="buttons">
-        <%= submit_tag 'Ask Question', :class => 'button-small-main' %>
+        <%= submit_tag 'Ask Question', :class => 'button-small-main',
+          :onclick => 'kabtv.questions.toggleAskAndQuestions();' %>
         &nbsp;&nbsp;&nbsp;
         <%= submit_tag 'Cancel', :class => 'button-small-cancel',
-          :onclick => '$(".question-list").show(); $(".question-ask").hide(); return false;' %>
+          :onclick => 'kabtv.questions.toggleAskAndQuestions(); return false;' %>
       </div>
     <%- end -%>
   </div>
 <%- end -%>
 
 <script type="text/javascript">
+  $(function (){
+    kabtv.questions.pollQuestions();
+    kabtv.questions.startPollingQuestions();
+  });
 
+  (function ($) {
+
+    if (!window.kabtv) { window.kabtv = {}; }
+    if (!kabtv.questions) { kabtv.questions = {}; }
+
+    $.extend(kabtv.questions, {
+      last_question_id: 0,
+      
+      pollID: 0,
+      pollQuestions: function() {
+        $.ajax({
+          url: '<%= url_for_event(:more_questions) %>',
+          data: {
+            last_question_id: kabtv.questions.last_question_id
+          }
+        });
+      },
+
+      startPollingQuestions: function (){
+        kabtv.questions.pollID = setInterval(kabtv.questions.pollQuestions, 30000);
+      },
+
+      stopPollingQuestions: function (){
+        clearInterval(kabtv.questions.pollID);
+        kabtv.questions.pollID = 0;
+      },
+
+      toggleAskAndQuestions: function (){
+        $(".question-list").toggle();
+        $(".question-ask").toggle();
+      }
+    });
+
+  })(jQuery);
 </script>
