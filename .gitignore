@@ -17,3 +17,5 @@ public/system/**/*
 *.swp
 *.swo
 userfiles
+lib/yaml2csv/**
+.project
