@@ -1,0 +1,5 @@
+<%= widget_div do %>
+	<%= render 'preset_list' %>
+	<%= rendered_children['admin_form'] %>
+	<a href="#" onclick="<%= trigger_event(:new_preset, :stream_preset => 'kuku') %>; return false;">New preset</a>
+<% end %>

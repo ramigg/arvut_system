@@ -1,18 +1,78 @@
 module StreamWidget
+  class Apotomo::Widget
+    include StreamWidget::StreamHelper
+    StreamHelper.instance_methods(false).each do |method|
+      helper_method method
+    end
+  end
 
-  class Admin < Apotomo::Widget
-    responds_to_event :submit, :with => :process_form
+  class AdminContainer < Apotomo::Widget
+    # responds_to_event :presetUpdated, :with => :redraw
+
+    after_add do |me, parent|
+      me.root.respond_to_event :presetUpdated, :with => :redraw, :on => me.name
+    end
     
-    def display_form
-      # debugger
-      @stream_preset = StreamPreset.find_or_initialize_by_id(param(:stream_preset))
+    has_widgets do |me|
+      me << widget('stream_widget/admin_stream_preset', 'admin_form', :display)
+      me.respond_to_event :new_preset, :with => :new, :on => 'admin_form'
+      me.respond_to_event :edit_preset, :with => :edit, :on => 'admin_form'
+    end
+    
+    def display
+      @stream_presets = StreamPreset.all
       render
     end
     
-    def process_form
-      replace :view => :display_form
+    def redraw
+      @stream_presets = StreamPreset.all
+      render
     end
     
+  end
+
+  class AdminStreamPreset < Apotomo::Widget
+    responds_to_event :submit, :with => :process_form
+    
+
+    def display
+      render
+    end
+    
+    def new
+      # debugger
+      @stream_preset = StreamPreset.new
+      3.times do
+        @stream_preset.stream_items << StreamItem.new
+      end
+      replace :view => :display
+    end
+
+    def edit
+      # debugger
+      @stream_preset = StreamPreset.find(param(:stream_preset_id))
+      replace :view => :display
+    end
+    
+    def process_form
+      # debugger
+      if param(:stream_preset)[:id].empty?
+        @stream_preset = StreamPreset.new
+      else
+        @stream_preset = StreamPreset.find(param(:stream_preset)[:id]) || StreamPreset.new
+      end
+      if @stream_preset.update_attributes(param(:stream_preset))
+        trigger :presetUpdated
+        update :text => "<span style=\"color:green;font-weight:bold;\">Succesfully saved!</span>"
+      else
+        # replace :view => :edit        
+        update :text => "Succesfully saved!"
+      end
+    end
+    
+  end
+
+  class AdminStreamItem < Apotomo::Widget
   end
 
   class Container < Apotomo::Widget
@@ -49,7 +109,6 @@ module StreamWidget
   end
 
   class Sketches < Apotomo::Widget
-    include ActionView::Helpers::JavaScriptHelper
     responds_to_event :classboard, :with => :display_classboard
     
     def display

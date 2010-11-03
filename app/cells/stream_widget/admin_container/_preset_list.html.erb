@@ -1,0 +1,7 @@
+<% if !@stream_presets.blank? %>
+<ul id="preset_list">
+  <% for stream_preset in @stream_presets %>
+    <li style="font-weight:bold;cursor:pointer;" onclick="<%= trigger_event(:edit_preset, :stream_preset_id => stream_preset.id) %>"><%= stream_preset.name %></li>
+  <% end %>
+</ul>
+<% end %>
