@@ -152,7 +152,7 @@
                     background-color: #f9f7e8;
                     a{
                         text-decoration:none;
-                        color: #f15a24;
+                        color: @color-event-orange;
                         .bold;
                     }
                 }
@@ -225,13 +225,14 @@
                                 .float_right;
                             }
                             #new_sketches{
-                                color: #f15a24;
+                                color: @color-event-orange;
                                 .bold;
                                 margin:10px 0 0;
                                 font-size: @font-basic-size - 1;
                             }
                         }
                         #questions{
+                            display: none;
                             .ask-question-toggle{
                                 text-align: center;
                                 margin: 10px 0;
@@ -256,7 +257,7 @@
                                     background: #fff;
                                 }
                                 .who{
-                                    color: #f15a24;
+                                    color: @color-event-orange;
                                 }
                                 .where{
                                     color: #666666;
@@ -284,6 +285,52 @@
                                     .buttons{
                                         margin: 10px 0 0;
                                         text-align: left;
+                                    }
+                                }
+                            }
+                        }
+                        #sketches{
+                            display:none;
+                        }
+                        #schedule{
+                            .days{
+                                padding-bottom: 10px;
+                                height: 20px;
+                                a{
+                                    font-size: 10px;
+                                    text-decoration: underline;
+                                }
+                                a.active, a:hover{
+                                    color: @color-event-orange;
+                                    text-decoration: none;
+                                }
+                            }
+                            .weekdays{
+                                position: relative;
+                                height: 280px;
+                                overflow: auto;
+                                .weekday{
+                                    position: absolute;
+                                    top: 0;
+                                    left: 0;
+                                    background: #efedde;
+                                    height: 280px;
+                                    width: 100%;
+                                    .hdr{
+                                        font-weight: bold;
+                                        border-bottom: 2px solid #999999;
+                                    }
+                                    .time{
+                                        width:50px;
+                                    }
+                                    tr {
+                                        border-bottom: 1px dashed #999;
+                                    }
+                                    .item1{
+                                        color: @color-event-orange;
+                                    }
+                                    table{
+                                        width: 100%;
                                     }
                                 }
                             }

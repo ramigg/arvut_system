@@ -54,13 +54,32 @@
   </div>
   <div class="services">
     <div class="tabs">
-      <span><%= link_to 'Questions', '#', :remote => true %></span>
-      <span><%= link_to 'Schedule', '#', :remote => true %></span>
-      <span class="active"><%= link_to 'Sketches', '#', :remote => true %></span>
+      <span><%= link_to 'Questions', '#', :onclick => 'return kabtv.tabs.select_me(this)' %></span>
+      <span class="active"><%= link_to 'Schedule', '#', :onclick => 'return kabtv.tabs.select_me(this)' %></span>
+      <span><%= link_to 'Sketches', '#', :onclick => 'return kabtv.tabs.select_me(this)' %></span>
     </div>
     <div class="content">
-      <%= rendered_children['sketches'] %>
-      <%= rendered_children['questions'] %>
+      <%= rendered_children.values.join("\n").html_safe %>
     </div>
   </div>
 <%- end -%>
+
+<script type="text/javascript">
+  (function ($) {
+
+    if (!window.kabtv) { window.kabtv = {}; }
+    if (!kabtv.tabs) { kabtv.tabs = {}; }
+
+    $.extend(kabtv.tabs, {
+      select_me: function(me) {
+        $('.tabs span').removeClass('active');
+        $(me).parent().addClass('active');
+        $('.content>div').hide();
+        var name = $(me).text().toLowerCase();
+        $('.content #' + name).show();
+        return false;
+      }
+    });
+
+  })(jQuery);
+</script>

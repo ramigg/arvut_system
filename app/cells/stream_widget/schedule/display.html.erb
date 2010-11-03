@@ -1,0 +1,42 @@
+<%= widget_div do -%>
+  <div class="days">
+    <%- @days.each{ |day| -%>
+      <%=
+      link_to day, '#', :onclick => 'kabtv.schedule.show_day(this); return false;',
+      :class => "A_#{day}"
+    %>
+    <%- } -%>
+  </div>
+  <div class="weekdays">
+    <%- @days.each{ |day| -%>
+      <div class="weekday D_<%= day %>">
+        <%- schedule = @schedules[day] -%>
+        <%= schedule %>
+      </div>
+    <%- } -%>
+  </div>
+<%- end -%>
+
+<script type="text/javascript">
+  $(function (){
+    $(".weekdays>div").hide();
+    $(".D_<%= Date::DAYNAMES[Date.today.wday] %>").show();
+    $(".days a.A_<%= Date::DAYNAMES[Date.today.wday] %>").addClass('active');;
+  });
+
+  (function ($) {
+    if (!window.kabtv) { window.kabtv = {}; }
+    if (!kabtv.schedule) { kabtv.schedule = {}; }
+
+    $.extend(kabtv.schedule, {
+      show_day: function(me){
+        var $me = $(me);
+        $me.parent().children().removeClass('active');
+        $me.addClass('active');
+        $(".weekdays>div").hide();
+        $(".D_" + $me.text()).show();
+      }
+    });
+
+  })(jQuery);
+</script>

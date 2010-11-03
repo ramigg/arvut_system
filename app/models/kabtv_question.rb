@@ -22,26 +22,13 @@ class KabtvQuestion < Kabtv
 
   def self.ask_question(question)
     return nil if question[:qquestion].empty?
-    
-    question[:lang] = case I18n.locale
-    when :en
-      'English'
-    when :he
-      'Hebrew'
-    when :ru
-      'Russian'
-    when :de
-      'German'
-    when :it
-      'Italian'
-    when :es
-      'Spanish'
-    when :fr
-      'French'
-    end
-    question[:isquestion] = 1
-    question[:is_hidden] = 0
-    question[:timestamp] = Time.now.to_s(:db)
-    KabtvQuestion.new(question).save(false)
+    question.merge!(
+      :lang => map_locale_2_language(I18n.locale),
+      :isquestion => 1,
+      :is_hidden => 0,
+      :timestamp => Time.now.to_s(:db)
+    )
+    KabtvQuestion.new(question).save(:validate => false)
   end
+
 end

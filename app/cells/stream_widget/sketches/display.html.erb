@@ -60,11 +60,11 @@
           kabtv.sketches.$last = kabtv.sketches.$current = kabtv.sketches.$images.last();
           kabtv.sketches.$first = kabtv.sketches.$images.first();
           kabtv.sketches.$last.css('z-index', 10); // Become the upper for sure
-          $('.title').text(kabtv.sketches.total + '/' + kabtv.sketches.total);
+          $('#sketches .title').text(kabtv.sketches.total + '/' + kabtv.sketches.total);
         } else if (kabtv.sketches.total != 0 && kabtv.sketches.total != kabtv.sketches.$images.length) { // Only if more images are here now
           kabtv.sketches.total = kabtv.sketches.$images.length;
           kabtv.sketches.$last = kabtv.sketches.$images.last();
-          $('.title').text((kabtv.sketches.$current.index() + 1) + '/' + kabtv.sketches.total);
+          $('#sketches .title').text((kabtv.sketches.$current.index() + 1) + '/' + kabtv.sketches.total);
           $('#new_sketches').show();
         }
       },

@@ -17,6 +17,7 @@ module StreamWidget
 
   class Container < Apotomo::Widget
     has_widgets do |me|
+      me << widget('stream_widget/schedule', 'schedule', :display)
       me << widget('stream_widget/sketches', 'sketches', :display)
       me << widget('stream_widget/questions', 'questions', :display)
     end
@@ -97,6 +98,42 @@ module StreamWidget
     end
   end
 
+  class Schedule < Apotomo::Widget
+    include ActionView::Helpers::JavaScriptHelper
+
+    def display
+      @days = Date::DAYNAMES
+      @schedules = {}
+      language = Kabtv.map_locale_2_language(I18n.locale)
+      @days.each { |weekday|
+        @schedules[weekday] = generate_schedule(weekday, language)
+      }
+      render
+    end
+
+    private
+
+    def generate_schedule(weekday, language)
+      alist = KabtvListing.get_day(weekday, language)
+      return "<h3>No broadcast on #{weekday}</h3>" if alist.empty?
+      
+      list = "<div class='hdr'>#{KabtvDates.get_day(weekday, language)}</div><table>"
+      alist.each_with_index { |item, index|
+        time = sprintf("<td class='time'>%02d:%02d</td>",
+          item.start_time / 100,
+          item.start_time % 100)
+        title = item.title.gsub '[\r\n]', ''
+        title.gsub! '<div>', ''
+        title.gsub! '</div>', ''
+        list += "<tr>#{time}<td class='title item#{index & 1}'>#{title}</td></tr>"
+      }
+      list += "</table>"
+
+      list.html_safe
+    end
+
+  end
+
   class Sketches < Apotomo::Widget
     include ActionView::Helpers::JavaScriptHelper
     
@@ -125,5 +162,4 @@ module StreamWidget
       render :text => text, :content_type => Mime::JS
     end
   end
-
 end
