@@ -10,6 +10,7 @@
     <%= f.label :picture4preview, t("admin.pages.picture4preview"), :class => 'text' %>
     <%= f.text_field :picture4preview, :class => 'title span-17 last' %>
   </fieldset>
+  <%= render 'presets', :f => f %>
   <%= render 'permissions' %>
   <%= render 'tags' %>
 </div>

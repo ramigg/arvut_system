@@ -1,0 +1,4 @@
+<fieldset>
+  <legend><%= t("admin.pages.presets") %></legend>
+  <%= f.select :stream_preset_id, StreamPreset.all.collect{|p| [p.name, p.id]} %>
+</fieldset>
