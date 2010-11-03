@@ -176,6 +176,10 @@
                     height: 305px;
                     background-color: white;
                 }
+                #object{
+                    width:400px;
+                    height: 305px;
+                }
                 form{
                     .float_left;
                     margin: 8px -7px 5px 10px;
@@ -226,10 +230,114 @@
                                 .float_left;
                             }
                             #new_sketches{
-                                color: #f15a24;
+                                color: @color-event-orange;
                                 .bold;
                                 margin:10px 0 0;
                                 font-size: @font-basic-size - 1;
+                            }
+                        }
+                        #questions{
+                            display: none;
+                            .ask-question-toggle{
+                                text-align: center;
+                                margin: 10px 0;
+                            }
+                            .question-list{
+                            }
+                            dl{
+                                overflow-y: auto;
+                                border-top: 1px solid #666666;
+                                height: 250px;
+                                margin: 0 10px;
+                                dt{
+                                    padding: 5px 10px 0;
+                                }
+                                dd{
+                                    padding: 0 10px 5px;
+                                }
+                                .even{
+                                    background: #feedd0;
+                                }
+                                .odd{
+                                    background: #fff;
+                                }
+                                .who{
+                                    color: @color-event-orange;
+                                }
+                                .where{
+                                    color: #666666;
+                                }
+                            }
+                            .question-ask{
+                                display:none;
+                                .ask-div{
+                                    text-align: center;
+                                    margin: 10px 0;
+                                }
+                                form{
+                                    float: none;
+                                    border-top: 1px solid #666;
+                                    margin: 10px;
+                                    padding: 10px 0 0;
+                                    .inputs{
+                                        label{
+                                            display:block;
+                                        }
+                                        input, textarea{
+                                            width:94%;
+                                        }
+                                    }
+                                    .buttons{
+                                        margin: 10px 0 0;
+                                        text-align: right;
+                                    }
+                                }
+                            }
+                        }
+                        #sketches{
+                            display:none;
+                        }
+                        #schedule{
+                            .days{
+                                padding-bottom: 10px;
+                                height: 20px;
+                                a{
+                                    font-size: 10px;
+                                    text-decoration: underline;
+                                }
+                                a.active, a:hover{
+                                    color: @color-event-orange;
+                                    text-decoration: none;
+                                }
+                            }
+                            .weekdays{
+                                position: relative;
+                                height: 280px;
+                                overflow: auto;
+                                .weekday{
+                                    position: absolute;
+                                    top: 0;
+                                    left: 0;
+                                    background: #efedde;
+                                    height: 280px;
+                                    width: 100%;
+                                    .hdr{
+                                        font-weight: bold;
+                                        border-bottom: 2px solid #999999;
+                                    }
+                                    .time{
+                                        width:50px;
+                                    }
+                                    tr {
+                                        border-bottom: 1px dashed #999;
+                                    }
+                                    .item1{
+                                        color: @color-event-orange;
+                                    }
+                                    table{
+                                        width: 100%;
+                                    }
+                                }
                             }
                         }
                     }
@@ -400,6 +508,7 @@
 			.item-metadata{
 				color:@color-dimmed-text;
 				.font-small;
+                                clear:both;
 			}
 			.form_element{
 				margin: 0 0 10px;
