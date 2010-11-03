@@ -23,7 +23,8 @@ module StreamWidget
     end
     
     def display
-      @stream_preset = param :stream_preset
+      @stream_preset = Page.find(30).stream_preset # param :stream_preset
+      @languages = @stream_preset.stream_items.map(&:language_id).uniq
       @current_user = param :current_user
       render
     end

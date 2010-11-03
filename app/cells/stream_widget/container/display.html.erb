@@ -4,52 +4,21 @@
     <a href="#">Technical Support</a>
   </div>
   <div class="player">
-    <object width="400" height="305" data="http://switch3.castup.net/cunet/gm.asp?ClipMediaID=160788" name="player" id="player" type="video/x-ms-wmv">
-      <param value="http://switch3.castup.net/cunet/gm.asp?ClipMediaID=160788" name="src"/>
-      <param value="true" name="autostart"/>
-      <param value="true" name="controller"/>
-      <param value="50" name="volume"/>
-      <param value="full" name="uiMode"/>
-      <param value="true" name="animationAtStart"/>
-      <param value="false" name="showDisplay"/>
-      <param value="true" name="ShowAudioControls"/>
-      <param value="false" name="ShowPositionControls"/>
-      <param value="false" name="transparentAtStart"/>
-      <param value="true" name="ShowControls"/>
-      <param value="true" name="ShowStatusBar"/>
-      <param value="false" name="ShowTracker"/>
-      <param value="false" name="ClickToPlay"/>
-      <param value="#000000" name="DisplayBackColor"/>
-      <param value="#ffffff" name="DisplayForeColor"/>
-      <param value="false" name="balance"/>
-    </object>
+    <div id="object">Loading...</div>
     <form action="#" method="get" accept-charset="utf-8">
       <p>
-        <% if @current_user.signed_in?
-          suffix = ''
-        else
-          suffix = '/users/login'
-        end
-        locale = I18n.locale.to_s
-      %>
-        <select name="language" id="language" onchange="alert('language')">
-          <% Language.all.each { |l| %>
-            <option <%= 'selected="selected"'.html_safe if l.locale == locale %> value="<%= root_path(l.locale) + suffix %>"><%= l.language %></option>
+        <select name="language_id" id="language_id">
+          <%- locale = I18n.locale.to_s -%>
+          <% @languages.each { |l_id|
+            l = Language.find(l_id)
+          %>
+            <option <%= 'selected="selected"'.html_safe if l.locale == locale %> value="<%= l_id %>"><%= l.language %></option>
           <% } %>
         </select>
       </p>
     </form>
     <form action="#" method="get" accept-charset="utf-8">
-      <p>
-        <select name="quality" id="quality" onchange="alert('quality')">
-          <option>Israel - Hiqh Quality</option>
-          <option>Israel - Medium Quality</option>
-          <option>Israel - Low Quality</option>
-          <option>USA - Hiqh Quality</option>
-          <option>USA - Medium Quality</option>
-          <option>USA - Low Quality</option>
-        </select>
-      </p>
+      <p><select name="quality" id="quality"></select></p>
     </form>
   </div>
   <div class="services">
@@ -65,12 +34,40 @@
 <%- end -%>
 
 <script type="text/javascript">
+  $(function (){
+    // init
+    var lang_id = $("select#language_id").val();
+    $(kabtv.tabs.presets[lang_id]).appendTo('#quality');
+    $("select#quality").prev().text( $("select#quality :selected").text() );
+    var stream_url = $("select#quality").val();
+    kabtv.tabs.draw_player(stream_url);
+
+    $("select#language_id").live('change', function(){
+      var lang_id = $(this).val();
+      $("select#quality option").remove();
+      $(kabtv.tabs.presets[lang_id]).appendTo('#quality');
+      $("select#quality").prev().text( $("select#quality :selected").text() );
+    });
+    $("select#quality").live('change', function(){
+      var stream_url = $(this).val();
+      kabtv.tabs.draw_player(stream_url);
+    });
+  });
+
   (function ($) {
 
     if (!window.kabtv) { window.kabtv = {}; }
     if (!kabtv.tabs) { kabtv.tabs = {}; }
 
     $.extend(kabtv.tabs, {
+      presets : {
+<%- @languages.each{ |language_id| -%>
+  <%- items = @stream_preset.stream_items.select{|item| item.language_id == language_id}  -%>
+  <%= language_id %>: "<%- items.each {|item| -%><option value='<%= item.stream_url %>'><%= item.description %></option><%- } -%>"
+  <%= language_id == @languages.last ? '' : ',' %>
+<%- } -%>
+      },
+
       select_me: function(me) {
         $('.tabs span').removeClass('active');
         $(me).parent().addClass('active');
@@ -78,6 +75,30 @@
         var name = $(me).text().toLowerCase();
         $('.content #' + name).show();
         return false;
+      },
+
+      object: '<object width="400" height="305" name="player" id="player" type="video/x-ms-wmv" data="URL_PATTERN"> \
+        <param value="URL_PATTERN" name="src"/> \
+        <param value="true" name="autostart"/> \
+        <param value="true" name="controller"/> \
+        <param value="50" name="volume"/> \
+        <param value="full" name="uiMode"/> \
+        <param value="true" name="animationAtStart"/> \
+        <param value="false" name="showDisplay"/> \
+        <param value="true" name="ShowAudioControls"/> \
+        <param value="false" name="ShowPositionControls"/> \
+        <param value="false" name="transparentAtStart"/> \
+        <param value="true" name="ShowControls"/> \
+        <param value="true" name="ShowStatusBar"/> \
+        <param value="false" name="ShowTracker"/> \
+        <param value="false" name="ClickToPlay"/> \
+        <param value="#000000" name="DisplayBackColor"/> \
+        <param value="#ffffff" name="DisplayForeColor"/> \
+        <param value="false" name="balance"/> \
+        </object>',
+      draw_player: function(url){
+        var object = kabtv.tabs.object.replace(/URL_PATTERN/g, url);
+        $('#object').html(object);
       }
     });
 
