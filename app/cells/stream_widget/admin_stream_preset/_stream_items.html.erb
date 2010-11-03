@@ -1,0 +1,8 @@
+<tr>
+	<td><%= link_to_remove_fields 'Remove', stream_items %></td>
+	<td><%= stream_items.text_field :description, :style => "width:100px" %></td>
+	<td><%= stream_items.select :language_id, Language.all.collect{|l|[ l.language, l.id]}, :style => "width:100px" %></td>
+	<td><%= stream_items.text_field :stream_url, :style => "width:100px" %></td>
+	<td><%= stream_items.text_field :inactive_image, :style => "width:100px" %></td>
+	<td><%= stream_items.check_box :is_default, :style => "width:100px" %></td>
+</tr>

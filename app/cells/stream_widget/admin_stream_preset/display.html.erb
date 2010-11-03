@@ -1,0 +1,57 @@
+<%= widget_div do %>
+	<% if @stream_preset %>
+		<%= form_for @stream_preset, :as => :stream_preset, :url => url_for_event(:submit), :remote => true do |f| -%>
+			<%= f.hidden_field :id %>
+			<%= f.label :name, 'Preset name' %>
+		 	<%= f.text_field :name %>
+			<br />
+			<%= f.label :is_active %>
+			<%= f.check_box :is_active %>
+	
+			<br />
+			<table style="border:0 none;border-collapse: collapse;border-spacing: 0;">
+		    <caption></caption>
+		    <thead>
+		      <tr>
+						<th colspan="2">Description</th>
+						<th>Language</th>
+						<th>Stream URL</th>
+						<th>Inactive image</th>
+						<th>Is default</th>
+					</tr>
+						
+				<%= f.fields_for :stream_items do |stream_items| -%>
+					<%= render :partial => "stream_items", :locals => { :stream_items => stream_items } %>
+				<% end -%>
+			</table>
+			<p><%= link_to_add_fields 'Add stream item', f, :stream_items %></p>
+			<%= f.submit "Submit", :disable_with => 'Submiting...' %>
+  
+		<% end -%>
+	<% else %>
+	  <div>
+	  	Please select preset to edit or add new preset
+	  </div>
+	<% end %> 
+<% end -%>
+
+<%= javascript_tag do %>
+	function add_field(link, association, content) {
+    var new_id = new Date().getTime();
+    var regexp = new RegExp("new_" + association, "g");
+		content = content.replace(regexp, new_id)
+    $(link).parent().prev().after(content);
+	}
+	
+	function remove_field(link, is_new_record) {
+	    $(link).closest("div.add_other").children("p.add_other").children("a").show();
+	    if(is_new_record){
+	        $(link).parent().parent().remove();
+	    }
+	    else{
+	        $(link).prev("input[type=hidden]").val("1");
+	        $(link).parent().parent().hide();
+	    }
+	}
+	
+<% end %>
