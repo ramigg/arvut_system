@@ -47,6 +47,8 @@
       $("select#quality option").remove();
       $(kabtv.tabs.presets[lang_id]).appendTo('#quality');
       $("select#quality").prev().text( $("select#quality :selected").text() );
+	    var stream_url = $("select#quality").val();
+	    kabtv.tabs.draw_player(stream_url);
     });
     $("select#quality").live('change', function(){
       var stream_url = $(this).val();
@@ -62,8 +64,8 @@
     $.extend(kabtv.tabs, {
       presets : {
 <%- @languages.each{ |language_id| -%>
-  <%- items = @stream_preset.stream_items.select{|item| item.language_id == language_id}  -%>
-  <%= language_id %>: "<%- items.each {|item| -%><option value='<%= item.stream_url %>'><%= item.description %></option><%- } -%>"
+  <%- items = @stream_preset.stream_items.select{|item| item.language_id == language_id && !item.description.empty? && !item.stream_url.empty?}  -%>
+  <%= language_id %>: "<%- items.each {|item| -%><option <%= "selected='selected'".html_safe if item.is_default %> value='<%= item.stream_url %>'><%= item.description %></option><%- } -%>"
   <%= language_id == @languages.last ? '' : ',' %>
 <%- } -%>
       },
