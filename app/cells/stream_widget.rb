@@ -79,7 +79,7 @@ module StreamWidget
     has_widgets do |me|
       me << widget('stream_widget/schedule', 'schedule', :display)
       me << widget('stream_widget/sketches', 'sketches', :display)
-      me << widget('stream_widget/questions', 'questions', :display)
+      me << widget('stream_widget/questions', 'questions', :display, :current_user => (param :current_user))
     end
     
     def display
@@ -99,7 +99,10 @@ module StreamWidget
     responds_to_event :submit_question, :with => :process_submit
     
     def display
+      current_user = param :current_user
       @ask = KabtvQuestion.new
+      @ask.qname = [current_user.first_name, current_user.last_name].join(' ')
+      @ask.qfrom = [current_user.location.city, current_user.region.name, current_user.country.name].join(', ')
       render
     end
 
