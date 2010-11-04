@@ -4,13 +4,17 @@
   <em>Events</em> | <%= @page.title %>
 </div>
 <div class="content-stream event-stream">
-  <div class="admin">
-    <%= render_widget 'stream_admin' %>
-  </div>
+  <%- if current_user.is_stream_manager? || current_user.is_admin? -%>
+    <div class="admin">
+      <%= render_widget 'stream_admin' %>
+    </div>
+  <%- end -%>
   <div class="tabs">
-    <span class="active"><%= link_to 'Stream', '#', :remote => true %></span>
-    <span><%= link_to 'Gallery', '#', :remote => true %></span>
-    <span class="admin-link"><%= link_to 'Admin', '#', :onclick => "$('.admin').toggle(); return false;" %></span>
+    <!--span class="active"><%= link_to 'Stream', '#', :remote => true %></span>
+    <span><%= link_to 'Gallery', '#', :remote => true %></span-->
+    <%- if current_user.is_stream_manager? || current_user.is_admin? -%>
+      <span class="admin-link"><%= link_to 'Admin', '#', :onclick => "$('.admin').toggle(); return false;" %></span>
+    <%- end -%>
   </div>
   <div class="bgnd">
     <%= render_widget 'stream_container' %>

@@ -1,4 +1,7 @@
 (in c:/projects/stimulator)
+                            apotomo_event        /:controller/render_event_response(.:format)                            {:action=>"render_event_response"}
+                            apotomo_event        /:controller/render_event_response(.:format)                            {:action=>"render_event_response", :subdomain=>"admin"}
+                                                 /*PIE.htc(.:format)                                                     {:action=>"get_htc", :controller=>"static_files"}
                              groups_index GET    /groups/index(.:format)                                                 {:action=>"index", :controller=>"groups"}
                             groups_create GET    /groups/create(.:format)                                                {:action=>"create", :controller=>"groups"}
                                                  /(.:format)                                                             {:action=>"to_login", :controller=>"redirector"}
@@ -34,7 +37,7 @@
                               user_unlock POST   (/:locale)/users/unlock(.:format)                                       {:action=>"create", :locale=>/en|he|ru|es|fr|it|de/, :controller=>"devise/unlocks"}
                           new_user_unlock GET    (/:locale)/users/unlock/new(.:format)                                   {:action=>"new", :locale=>/en|he|ru|es|fr|it|de/, :controller=>"devise/unlocks"}
                               user_unlock GET    (/:locale)/users/unlock(.:format)                                       {:action=>"show", :locale=>/en|he|ru|es|fr|it|de/, :controller=>"devise/unlocks"}
-                    awaiting_confirmation        (/:locale)/users/confirmation/awaiting/:id/:confirmation_hash(.:format) {:locale=>/en|he|ru|es|fr|it|de/, :to=>#<Proc:0x0861c6d8@c:/projects/stimulator/.bundle/ruby/1.8/gems/actionpack-3.0.0/lib/action_dispatch/routing/mapper.rb:284>}
+                    awaiting_confirmation        (/:locale)/users/confirmation/awaiting/:id/:confirmation_hash(.:format) {:to=>#<Proc:0x08550108@c:/projects/stimulator/.bundle/ruby/1.8/gems/actionpack-3.0.0/lib/action_dispatch/routing/mapper.rb:284>, :locale=>/en|he|ru|es|fr|it|de/}
                                login_help        (/:locale)/login_help(.:format)                                         {:action=>"login_help", :locale=>/en|he|ru|es|fr|it|de/, :controller=>"home"}
                     questionnaire_answers GET    (/:locale)/questionnaire_answers(.:format)                              {:action=>"index", :locale=>/en|he|ru|es|fr|it|de/, :controller=>"questionnaire_answers"}
                     questionnaire_answers POST   (/:locale)/questionnaire_answers(.:format)                              {:action=>"create", :locale=>/en|he|ru|es|fr|it|de/, :controller=>"questionnaire_answers"}
@@ -68,6 +71,13 @@
                                      page GET    (/:locale)/pages/:id(.:format)                                          {:action=>"show", :locale=>/en|he|ru|es|fr|it|de/, :controller=>"pages"}
                                      page PUT    (/:locale)/pages/:id(.:format)                                          {:action=>"update", :locale=>/en|he|ru|es|fr|it|de/, :controller=>"pages"}
                                      page DELETE (/:locale)/pages/:id(.:format)                                          {:action=>"destroy", :locale=>/en|he|ru|es|fr|it|de/, :controller=>"pages"}
+                                   events GET    (/:locale)/events(.:format)                                             {:action=>"index", :locale=>/en|he|ru|es|fr|it|de/, :controller=>"events"}
+                                   events POST   (/:locale)/events(.:format)                                             {:action=>"create", :locale=>/en|he|ru|es|fr|it|de/, :controller=>"events"}
+                                new_event GET    (/:locale)/events/new(.:format)                                         {:action=>"new", :locale=>/en|he|ru|es|fr|it|de/, :controller=>"events"}
+                               edit_event GET    (/:locale)/events/:id/edit(.:format)                                    {:action=>"edit", :locale=>/en|he|ru|es|fr|it|de/, :controller=>"events"}
+                                    event GET    (/:locale)/events/:id(.:format)                                         {:action=>"show", :locale=>/en|he|ru|es|fr|it|de/, :controller=>"events"}
+                                    event PUT    (/:locale)/events/:id(.:format)                                         {:action=>"update", :locale=>/en|he|ru|es|fr|it|de/, :controller=>"events"}
+                                    event DELETE (/:locale)/events/:id(.:format)                                         {:action=>"destroy", :locale=>/en|he|ru|es|fr|it|de/, :controller=>"events"}
                      tag_list_admin_pages GET    (/:locale)/admin/pages/tag_list(.:format)                               {:action=>"tag_list", :format=>:js, :locale=>/en|he|ru|es|fr|it|de/, :controller=>"admin/pages"}
                               admin_pages GET    (/:locale)/admin/pages(.:format)                                        {:action=>"index", :locale=>/en|he|ru|es|fr|it|de/, :controller=>"admin/pages"}
                               admin_pages POST   (/:locale)/admin/pages(.:format)                                        {:action=>"create", :locale=>/en|he|ru|es|fr|it|de/, :controller=>"admin/pages"}
@@ -129,10 +139,11 @@
                       admin_questionnaire GET    (/:locale)/admin/questionnaires/:id(.:format)                           {:action=>"show", :locale=>/en|he|ru|es|fr|it|de/, :controller=>"admin/questionnaires"}
                       admin_questionnaire PUT    (/:locale)/admin/questionnaires/:id(.:format)                           {:action=>"update", :locale=>/en|he|ru|es|fr|it|de/, :controller=>"admin/questionnaires"}
                       admin_questionnaire DELETE (/:locale)/admin/questionnaires/:id(.:format)                           {:action=>"destroy", :locale=>/en|he|ru|es|fr|it|de/, :controller=>"admin/questionnaires"}
-                        admin_admin_panel GET    (/:locale)/admin/admin_tasks/admin_panel(.:format)                      {:action=>"index", :locale=>/en|he|ru|es|fr|it|de/, :controller=>"admin/admin_tasks"}
-admin_autocomplete_user_email_admin_tasks GET    (/:locale)/admin/admin_tasks/autocomplete_user_email(.:format)          {:action=>"autocomplete_user_email", :locale=>/en|he|ru|es|fr|it|de/, :controller=>"admin/admin_tasks"}
-                        admin_remove_user GET    (/:locale)/admin/admin_tasks/remove_user(.:format)                      {:action=>"remove_user", :locale=>/en|he|ru|es|fr|it|de/, :controller=>"admin/admin_tasks"}
-                 admin_remove_user_action DELETE (/:locale)/admin/admin_tasks/remove_user_action(.:format)               {:action=>"remove_user_action", :locale=>/en|he|ru|es|fr|it|de/, :controller=>"admin/admin_tasks"}
+                              admin_panel GET    (/:locale)/admin/panel(.:format)                                        {:action=>"index", :locale=>/en|he|ru|es|fr|it|de/, :controller=>"admin/admin_tasks"}
+admin_autocomplete_user_email_admin_tasks GET    (/:locale)/admin/autocomplete_user_email(.:format)                      {:action=>"autocomplete_user_email", :locale=>/en|he|ru|es|fr|it|de/, :controller=>"admin/admin_tasks"}
+                        admin_remove_user GET    (/:locale)/admin/remove_user(.:format)                                  {:action=>"remove_user", :locale=>/en|he|ru|es|fr|it|de/, :controller=>"admin/admin_tasks"}
+                  admin_stream_management GET    (/:locale)/admin/stream_management(.:format)                            {:action=>"stream_management", :locale=>/en|he|ru|es|fr|it|de/, :controller=>"admin/admin_tasks"}
+                 admin_remove_user_action DELETE (/:locale)/admin/remove_user_action(.:format)                           {:action=>"remove_user_action", :locale=>/en|he|ru|es|fr|it|de/, :controller=>"admin/admin_tasks"}
                                                  (/:locale)/*path(.:format)                                              {:action=>"to_login", :locale=>/en|he|ru|es|fr|it|de/, :controller=>"redirector"}
                                                  (/:locale)/*path(.:format)                                              {:action=>"to_home", :locale=>/en|he|ru|es|fr|it|de/, :controller=>"redirector"}
                             apotomo_event        /:controller/render_event_response(.:format)                            {:action=>"render_event_response"}

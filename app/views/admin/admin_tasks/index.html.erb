@@ -14,10 +14,14 @@
       <dd><%= link_to t('admin.reports.manage_user_roles'), admin_roles_url %></dd>
       <dd><%= link_to t('admin.reports.remove_user'), admin_remove_user_url %></dd>
     <% end %>
-    <% if current_user.is_groupmanager? %>
+    <% if current_user.is_admin? || current_user.is_groupmanager? %>
       <dt><%= t('admin.reports.group_management') %>:</dt>
       <dd><%= link_to t('admin.reports.manage_user_lists'), admin_user_lists_url %></dd>
       <dd><%= link_to t('admin.reports.load_group_list'), new_admin_users_group_url %></dd>
+    <% end %>
+    <% if current_user.is_admin? || current_user.is_stream_manager? %>
+      <dt><%= t('admin.reports.stream_management') %>:</dt>
+      <dd><%= link_to t('admin.reports.stream_management'), admin_stream_management_url %></dd>
     <% end %>
   </dl>
 <% end %>

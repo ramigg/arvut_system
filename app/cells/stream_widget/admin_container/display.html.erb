@@ -1,5 +1,12 @@
 <%= widget_div do %>
-	<%= render 'preset_list' %>
-	<%= rendered_children['admin_form'] %>
-	<a href="#" onclick="<%= trigger_event(:new_preset, :stream_preset => 'kuku') %>; return false;">New preset</a>
+  <div class="left-side" style="float:left;width:120px;height:300px;overflow-x: auto;overflow-y: none;padding:10px;margin:0 10px 0 0;background:#EFEDDE;">
+    <h6>Stream selection</h6>
+    <div>
+      <a href="#" onclick="$('#preset_list li').css('font-weight', 'normal');<%= trigger_event(:new_preset, :stream_preset => 'non-important') %>; return false;">New preset</a>
+    </div>
+    <hr style="border: 1px solid #999; margin: auto;" />
+    <%= render 'preset_list' %>
+  </div>
+  <%= rendered_children['admin_form'] %>
 <% end %>
+<div class="clear"></div>

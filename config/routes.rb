@@ -19,6 +19,7 @@ end
 
 Simulator::Application.routes.draw do
   match ":controller/render_event_response", :to => "#render_event_response", :as => "apotomo_event"
+  match "admin_tasks/render_event_response", :to => "admin/admin_tasks#render_event_response"
 
   match '*PIE.htc' => "static_files#get_htc"
 
@@ -75,6 +76,7 @@ Simulator::Application.routes.draw do
     resources :events
     
     namespace 'admin' do
+
       resources :pages do
         get 'tag_list', :on => :collection, :format => :js
       end
@@ -97,6 +99,8 @@ Simulator::Application.routes.draw do
       get  'panel', :to => 'admin_tasks#index'
       get  'autocomplete_user_email', :to => 'admin_tasks#autocomplete_user_email', :as => 'autocomplete_user_email_admin_tasks'
       get  'remove_user', :to => 'admin_tasks#remove_user', :as => 'remove_user'
+      get  'stream_management', :to => 'admin_tasks#stream_management', :as => 'stream_management'
+
       delete 'remove_user_action', :to => 'admin_tasks#remove_user_action', :as => 'remove_user_action'
     end
 

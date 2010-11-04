@@ -6,7 +6,10 @@
 #   cities = City.create([{ :name => 'Chicago' }, { :name => 'Copenhagen' }])
 #   Mayor.create(:name => 'Daley', :city => cities.first)
 puts '--> Roles'
-['Groupmanager', 'super_moderator', 'Moderator', 'Reports', 'Anonymous', 'Regular', 'Admin', 'Super'].each do |role|
+['Groupmanager', 'super_moderator', 'Moderator',
+  'Stream_Manager',
+  'Reports', 'Anonymous', 'Regular', 'Admin', 'Super',
+].each do |role|
   Role.find_or_create_by_role role
 end
 

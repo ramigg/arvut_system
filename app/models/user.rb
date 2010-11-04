@@ -228,7 +228,8 @@ class User < ActiveRecord::Base
   end
 
   def user_has_access_to_admin?
-    is_admin? || is_groupmanager? || is_super_moderator? || is_moderator? || is_reports?
+    is_admin? || is_groupmanager? || is_super_moderator? ||
+      is_moderator? || is_reports? || is_stream_manager?
   end
   
   def avatar_url(type = :thumb)
