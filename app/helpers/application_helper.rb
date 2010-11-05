@@ -141,4 +141,24 @@ module ApplicationHelper
         </script>
     }.html_safe
   end
+  
+  def post_url(page)
+    if page.page_type == 'event'
+      event_url(page)
+    else
+      page_url(page)
+    end
+  end
+  
+  def post_link_class(page)
+    if page.page_type == 'event'
+      ''
+    else
+      'in-iframe'
+    end
+  end
+  
+  def open_in_remote?(page)
+    page.page_type == 'event'
+  end
 end
