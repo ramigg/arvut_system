@@ -30,6 +30,8 @@
 <%- end -%>
 
 <script type="text/javascript">
+  var last_question_id = 0;
+
   $(function (){
     kabtv.questions.url_for_more_questions = '<%= url_for_event(:more_questions) %>';
 

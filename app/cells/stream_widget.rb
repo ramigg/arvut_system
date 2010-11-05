@@ -76,6 +76,9 @@ module StreamWidget
   end
 
   class Container < Apotomo::Widget
+    include ActionView::Helpers::JavaScriptHelper
+    responds_to_event :update_presets, :with => :process_request
+
     has_widgets do |me|
       me << widget('stream_widget/schedule', 'schedule', :display)
       me << widget('stream_widget/sketches', 'sketches', :display)
@@ -87,6 +90,41 @@ module StreamWidget
       @languages = @stream_preset.stream_items.map(&:language_id).uniq
       @current_user = param :current_user
       render
+    end
+
+    def process_request
+      @stream_preset = Page.find(30).stream_preset # param :stream_preset
+      timestamp = param :timestamp
+      if @stream_preset.updated_at.to_s == timestamp
+        render :text => '', :content_type => Mime::JS
+        return
+      end
+      @languages = @stream_preset.stream_items.map(&:language_id).uniq
+      @presets = get_presets
+
+      render :text => "
+        #{"kabtv.tabs.timestamp = '#{@stream_preset.updated_at.to_s}';".html_safe}
+        #{"kabtv.tabs.presets_data = #{@stream_preset.to_json};".html_safe}
+        #{"kabtv.tabs.presets = #{@presets.to_json};".html_safe}
+      ", :content_type => Mime::JS
+    end
+
+    def get_presets
+      presets = {}
+      @languages.each{ |language_id|
+        items = @stream_preset.stream_items.select{|item|
+          item.language_id == language_id && !item.description.empty? && !item.stream_url.empty?
+        }
+        options_list = []
+        image = ''
+        items.each {|item|
+          options_list << "<option #{"selected='selected'".html_safe if item.is_default} value='#{item.stream_url}'>#{item.description}</option>"
+          image = "<img src='#{item.inactive_image}' alt='No broadcast' />" unless item.inactive_image.empty?
+        }
+        presets[language_id] = {:options => options_list.join(','), :image => image}
+      }
+
+      presets
     end
   end
   

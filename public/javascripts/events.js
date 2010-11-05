@@ -127,14 +127,13 @@
     }
 
     $.extend(kabtv.questions, {
-        last_question_id: 0,
         url_for_more_questions: '',
         pollID: 0,
         pollQuestions: function() {
             $.ajax({
                 url: kabtv.questions.url_for_more_questions,
                 data: {
-                    last_question_id: kabtv.questions.last_question_id
+                    last_question_id: last_question_id
                 }
             });
         },
@@ -167,9 +166,43 @@
     }
 
     $.extend(kabtv.tabs, {
-        presets : {
+        presets : {},
+        presets_data : {},
+        timestamp: 0,
+
+        url_for_presets_update: '',
+        pollID: 0,
+        pollPresets: function() {
+            $.ajax({
+                url: kabtv.tabs.url_for_presets_update,
+                data: {
+                    timestamp: kabtv.tabs.timestamp
+                },
+                success: kabtv.tabs.init
+            });
         },
 
+        // init
+        init: function(data){
+            if (data == "")
+                return;
+            eval(data);
+            var lang_id = $("select#language_id").val();
+            $("select#quality option").remove();
+            $(kabtv.tabs.presets[lang_id].options).appendTo('#quality');
+            $("select#quality").prev().text( $("select#quality :selected").text() );
+            var stream_url = $("select#quality").val();
+            kabtv.tabs.draw_player(stream_url);
+        },
+        
+        startPollingPresets: function (){
+            kabtv.tabs.pollID = setInterval(kabtv.tabs.pollPresets, 30000);
+        },
+
+        stopPollingPresets: function (){
+            clearInterval(kabtv.tabs.pollID);
+            kabtv.tabs.pollID = 0;
+        },
         select_me: function(me) {
             $('.tabs span').removeClass('active');
             $(me).parent().addClass('active');
@@ -199,8 +232,14 @@
         <param value="false" name="balance"/> \
         </object>',
         draw_player: function(url){
-            var object = kabtv.tabs.object.replace(/URL_PATTERN/g, url);
-            $('#object').html(object);
+            if (url == null) return;
+            if (kabtv.tabs.presets_data.stream_preset.is_active) {
+                var object = kabtv.tabs.object.replace(/URL_PATTERN/g, url);
+                $('#object').html(object);
+            } else {
+                var lang_id = $("select#language_id").val();
+                $('#object').html(kabtv.tabs.presets[lang_id].image);
+            }
         }
     });
 

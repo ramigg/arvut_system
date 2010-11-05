@@ -35,17 +35,14 @@
 
 <script type="text/javascript">
   $(function (){
-    // init
-    var lang_id = $("select#language_id").val();
-    $(kabtv.tabs.presets[lang_id]).appendTo('#quality');
-    $("select#quality").prev().text( $("select#quality :selected").text() );
-    var stream_url = $("select#quality").val();
-    kabtv.tabs.draw_player(stream_url);
+    kabtv.tabs.url_for_presets_update = '<%= url_for_event(:update_presets) %>';
+    kabtv.tabs.pollPresets();
+    kabtv.tabs.startPollingPresets();
 
     $("select#language_id").live('change', function(){
       var lang_id = $(this).val();
       $("select#quality option").remove();
-      $(kabtv.tabs.presets[lang_id]).appendTo('#quality');
+      $(kabtv.tabs.presets[lang_id].options).appendTo('#quality');
       $("select#quality").prev().text( $("select#quality :selected").text() );
       var stream_url = $("select#quality").val();
       kabtv.tabs.draw_player(stream_url);
