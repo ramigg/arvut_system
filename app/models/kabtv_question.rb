@@ -11,13 +11,13 @@ class KabtvQuestion < Kabtv
     SQL
     new_questions = find_by_sql(sql)
     sql = <<-SQL
-      SELECT count(*)
+      SELECT count(*) AS total
         FROM questions WHERE
-         (isquestion = 1) AND (is_hidden=0 OR is_hidden IS NULL) AND (approved <> 0)
+         (isquestion = 1) AND (is_hidden=0 OR is_hidden IS NULL) AND (approved <> 0 AND approved IS NOT NULL)
     SQL
     total_questions = find_by_sql(sql)
 
-    [new_questions, total_questions]
+    [new_questions, total_questions[0].total.to_i]
   end
 
   def self.ask_question(question)
