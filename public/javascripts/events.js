@@ -32,6 +32,7 @@
         },
 
         stopPollingSketches: function (){
+            if (kabtv.sketches.pollID == 0) return;
             clearInterval(kabtv.sketches.pollID);
             kabtv.sketches.pollID = 0;
         },
@@ -143,6 +144,7 @@
         },
 
         stopPollingQuestions: function (){
+            if (kabtv.questions.pollID == 0) return;
             clearInterval(kabtv.questions.pollID);
             kabtv.questions.pollID = 0;
         },
@@ -196,12 +198,21 @@
         },
         
         startPollingPresets: function (){
+            var elem = $("select#language_id");
+            var parent = $("#uniform-" + elem[0].id);
+            if (parent.length == 0) elem.uniform();
+            elem = $("select#quality");
+            parent = $("#uniform-" + elem[0].id);
+            if (parent.length == 0) elem.uniform();
+
             kabtv.tabs.pollID = setInterval(kabtv.tabs.pollPresets, 30000);
         },
 
         stopPollingPresets: function (){
+            if (kabtv.tabs.pollID == 0) return;
             clearInterval(kabtv.tabs.pollID);
             kabtv.tabs.pollID = 0;
+            kabtv.tabs.timestamp = 0;
         },
         select_me: function(me) {
             $('.tabs span').removeClass('active');

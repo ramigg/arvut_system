@@ -1,7 +1,10 @@
 <%- if @skip_pages == StreamController::ITEMS_PER_PAGE -%>
   $(".column-content").removeClass('content-wide').html("<%= escape_javascript(render('page_stream_layout'))%>");
-	$(".column-widgets").show();
+  $(".column-widgets").show();
+  kabtv.sketches.stopPollingSketches();
+  kabtv.questions.stopPollingQuestions();
+  kabtv.tabs.stopPollingPresets();
 <%- else -%>
-	$(".more_items").prev().append("<hr />");
+  $(".more_items").prev().append("<hr />");
   $(".more_items").replaceWith("<%= escape_javascript(render('page_stream'))%>");
 <%- end -%>
