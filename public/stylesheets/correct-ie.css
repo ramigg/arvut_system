@@ -6,9 +6,8 @@ div.uploader input{
 }
 .ui-helper-hidden-accessible { position: absolute; top: -1000px; left:0;}
 .he.layout-stream .item {
-	zoom: 100%;
+    zoom: 100%;
 }
 .he.layout-stream .item h2 a {
-	display: inline-block;
+    display: inline-block;
 }
-

@@ -1,4 +1,4 @@
-@media only screen and (max-width: 767px) and (min-width: 480px){body{padding:48px 28px 0;width:264px;}}input::-moz-focus-inner{padding:0;}
+input::-moz-focus-inner{padding:0;}
 *{outline:none;}
 hr{margin:0;clear:both;border:0 none;}
 img{display:block;}

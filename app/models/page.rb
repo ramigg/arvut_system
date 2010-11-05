@@ -1,6 +1,5 @@
 class Page < ActiveRecord::Base
 
-
   #  *Associations*
 
   Language.all.each do |l|
