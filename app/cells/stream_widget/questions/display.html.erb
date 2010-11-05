@@ -31,42 +31,9 @@
 
 <script type="text/javascript">
   $(function (){
+    kabtv.questions.url_for_more_questions = '<%= url_for_event(:more_questions) %>';
+
     kabtv.questions.pollQuestions();
     kabtv.questions.startPollingQuestions();
   });
-
-  (function ($) {
-
-    if (!window.kabtv) { window.kabtv = {}; }
-    if (!kabtv.questions) { kabtv.questions = {}; }
-
-    $.extend(kabtv.questions, {
-      last_question_id: 0,
-      
-      pollID: 0,
-      pollQuestions: function() {
-        $.ajax({
-          url: '<%= url_for_event(:more_questions) %>',
-          data: {
-            last_question_id: kabtv.questions.last_question_id
-          }
-        });
-      },
-
-      startPollingQuestions: function (){
-        kabtv.questions.pollID = setInterval(kabtv.questions.pollQuestions, 30000);
-      },
-
-      stopPollingQuestions: function (){
-        clearInterval(kabtv.questions.pollID);
-        kabtv.questions.pollID = 0;
-      },
-
-      toggleAskAndQuestions: function (){
-        $(".question-list").toggle();
-        $(".question-ask").toggle();
-      }
-    });
-
-  })(jQuery);
 </script>
