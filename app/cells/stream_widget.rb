@@ -135,8 +135,8 @@ module StreamWidget
     def display
       current_user = param :current_user
       @ask = KabtvQuestion.new
-      @ask.qname = [current_user.first_name, current_user.last_name].join(' ')
-      @ask.qfrom = [current_user.location.city, current_user.region.name, current_user.country.name].join(', ')
+      @ask.qname = [current_user.first_name, current_user.last_name].join(' ') rescue ''
+      @ask.qfrom = [current_user.location.city, current_user.region.name, current_user.country.name].join(', ') rescue ''
       render
     end
 
