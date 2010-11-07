@@ -79,7 +79,7 @@
             kabtv.sketches.$in_transition = true;
 
             $item.css('z-index', 9); // Beneath the upper one
-            $('.title').text(($item.index() + 1) + '/' + kabtv.sketches.total);
+            $('#sketches .title').text(($item.index() + 1) + '/' + kabtv.sketches.total);
             kabtv.sketches.$current.animate({
                 opacity: 0
             }, 1000, 'linear', // Hide the upper one
