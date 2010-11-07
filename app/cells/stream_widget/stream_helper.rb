@@ -14,9 +14,12 @@ module StreamWidget
         render(:view => '_stream_items', :locals => {:stream_items => builder})
       end
       link_to_function(func_name, "add_field(this, \"#{association}\", \"#{escape_javascript(fields)}\")")
-      
-      
-      
     end
+    
+    def current_preset
+      return nil unless session[:stream_preset_id]
+      StreamPreset.find(session[:stream_preset_id])
+    end
+    
   end
 end

@@ -20,6 +20,7 @@ module StreamWidget
     end
     
     def display
+      @current_preset = current_preset
       @stream_presets = StreamPreset.all
       render
     end
@@ -36,11 +37,11 @@ module StreamWidget
     
 
     def display
+      @stream_preset = current_preset
       render
     end
     
     def new
-      # debugger
       @stream_preset = StreamPreset.new
       3.times do
         @stream_preset.stream_items << StreamItem.new
@@ -49,13 +50,11 @@ module StreamWidget
     end
 
     def edit
-      # debugger
       @stream_preset = StreamPreset.find(param(:stream_preset_id))
       replace :view => :display
     end
     
     def process_form
-      # debugger
       if param(:stream_preset)[:id].empty?
         @stream_preset = StreamPreset.new
       else
@@ -72,9 +71,6 @@ module StreamWidget
     
   end
 
-  class AdminStreamItem < Apotomo::Widget
-  end
-
   class Container < Apotomo::Widget
     include ActionView::Helpers::JavaScriptHelper
     responds_to_event :update_presets, :with => :process_request
@@ -86,14 +82,14 @@ module StreamWidget
     end
     
     def display
-      @stream_preset = Page.find(30).stream_preset # param :stream_preset
+      @stream_preset = current_preset
       @languages = @stream_preset.stream_items.map(&:language_id).uniq
       @current_user = param :current_user
       render
     end
 
     def process_request
-      @stream_preset = Page.find(30).stream_preset # param :stream_preset
+      @stream_preset = current_preset
       timestamp = param :timestamp
       if @stream_preset.updated_at.to_s == timestamp
         render :text => '', :content_type => Mime::JS
