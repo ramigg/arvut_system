@@ -134,7 +134,7 @@ module StreamWidget
     
     def display
       current_user = param :current_user
-      @ask = KabtvQuestion.new
+      @ask = CopyQuestion.new
       @ask.qname = [current_user.first_name, current_user.last_name].join(' ') rescue ''
       @ask.qfrom = [current_user.location.city, current_user.region.name, current_user.country.name].join(', ') rescue ''
       render
@@ -143,7 +143,7 @@ module StreamWidget
     def process_request
       last_question_id = (param :last_question_id).to_i
 
-      (@questions, @total_questions) = KabtvQuestion.approved_questions(last_question_id)
+      (@questions, @total_questions) = CopyQuestion.approved_questions(last_question_id)
 
       if @questions.empty?
         if last_question_id == 0
@@ -194,7 +194,7 @@ module StreamWidget
     end
 
     def process_submit
-      if KabtvQuestion.ask_question(param(:kabtv_question), param(:current_user))
+      if CopyQuestion.ask_question(param(:kabtv_question), param(:current_user))
         message = I18n.t 'kabtv.kabtv.awaiting_for_approval'
       else
         message = I18n.t 'no_question'
@@ -219,10 +219,10 @@ module StreamWidget
     private
 
     def generate_schedule(weekday, language)
-      alist = KabtvListing.get_day(weekday, language)
+      alist = CopyListing.get_day(weekday, language)
       return "<h3>#{I18n.t 'no_broadcast_on'}#{weekday}</h3>" if alist.empty?
       
-      list = "<div class='hdr'>#{KabtvDates.get_day(weekday, language)}</div><table>"
+      list = "<div class='hdr'>#{CopyDates.get_day(weekday, language)}</div><table>"
       alist.each_with_index { |item, index|
         time = sprintf("<td class='time'>%02d:%02d</td>",
           item.start_time / 100,
