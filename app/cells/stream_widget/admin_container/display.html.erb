@@ -1,6 +1,6 @@
 <%= widget_div do %>
   <div class="left-side" style="float:left;width:120px;height:300px;overflow-x: auto;overflow-y: none;padding:10px;margin:0 10px 0 0;background:#EFEDDE;">
-    <h6>Stream selection</h6>
+    <h6><%= t('kabtv.kabtvstream_selection') %></h6>
     <div>
       <a href="#" onclick="$('#preset_list li').css('font-weight', 'normal');<%= trigger_event(:new_preset, :stream_preset => 'non-important') %>; return false;">New preset</a>
     </div>

@@ -1,28 +1,28 @@
 <%= widget_div do -%>
   <div class="question-list">
-    <div class="ask-question-toggle"><%= link_to 'Ask Question', '#', :class => 'button-small-main',
+    <div class="ask-question-toggle"><%= link_to t('kabtv.kabtv.ask_question'), '#', :class => 'button-small-main',
         :onclick => 'kabtv.questions.toggleAskAndQuestions(); return false;' %></div>
     <dl id="questions">
-      <dd class="even">No questions yet.</dd>
+      <dd class="even"><%= t 'kabtv.kabtv.no_questions_yet' %></dd>
     </dl>
   </div>
   <div class="question-ask">
-    <div class="ask-div">Ask a question</div>
+    <div class="ask-div"><% t('kabtv.kabtv.ask_question') %></div>
     <%= form_for @ask, :as => :kabtv_question, :url => url_for_event(:submit_question),
       :remote => true, :class => 'ask-form' do |f| %>
       <div class="inputs">
-        <%= f.label :qname, 'Who' %>
+        <%= f.label :qname, t('kabtv.kabtv.who') %>
         <%= f.text_field :qname %>
-        <%= f.label :qfrom, 'From' %>
+        <%= f.label :qfrom, t('kabtv.kabtv.from') %>
         <%= f.text_field :qfrom %>
-        <%= f.label :qquestion, 'Question' %>
+        <%= f.label :qquestion, t('kabtv.kabtv.question') %>
         <%= f.text_area :qquestion, :rows => 5, :cols => 10 %>
       </div>
       <div class="buttons">
-        <%= submit_tag 'Ask Question', :class => 'button-small-main',
+        <%= submit_tag t('kabtv.kabtv.ask_question'), :class => 'button-small-main',
           :onclick => 'kabtv.questions.toggleAskAndQuestions();' %>
         &nbsp;&nbsp;&nbsp;
-        <%= submit_tag 'Cancel', :class => 'button-small-cancel',
+        <%= submit_tag t('kabtv.kabtv.cancel'), :class => 'button-small-cancel',
           :onclick => 'kabtv.questions.toggleAskAndQuestions(); return false;' %>
       </div>
     <%- end -%>

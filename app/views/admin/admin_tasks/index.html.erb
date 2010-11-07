@@ -20,8 +20,8 @@
       <dd><%= link_to t('admin.reports.load_group_list'), new_admin_users_group_url %></dd>
     <% end %>
     <% if current_user.is_admin? || current_user.is_stream_manager? %>
-      <dt><%= t('admin.reports.stream_management') %>:</dt>
-      <dd><%= link_to t('admin.reports.stream_management'), admin_stream_management_url %></dd>
+      <dt><%= t('kabtv.admin.stream_management') %>:</dt>
+      <dd><%= link_to t('kabtv.admin.stream_management'), admin_stream_management_url %></dd>
     <% end %>
   </dl>
 <% end %>

@@ -62,10 +62,9 @@ module StreamWidget
       end
       if @stream_preset.update_attributes(param(:stream_preset))
         trigger :presetUpdated
-        update :text => "<span style=\"color:green;font-weight:bold;\">Succesfully saved!</span>"
+        update :text => "<span style=\"color:green;font-weight:bold;\">#{I18n.t 'kabtv.admin.successfully_saved'}</span>"
       else
-        # replace :view => :edit        
-        update :text => "Succesfully saved!"
+        update :text => I18n.t(kabtv.admin.successfully_saved)
       end
     end
     
@@ -115,7 +114,7 @@ module StreamWidget
         image = ''
         items.each {|item|
           options_list << "<option #{"selected='selected'".html_safe if item.is_default} value='#{item.stream_url}'>#{item.description}</option>"
-          image = "<img src='#{item.inactive_image}' alt='No broadcast' />" unless item.inactive_image.empty?
+          image = "<img src='#{item.inactive_image}' alt='#{I18n.t 'kabtv.kabtv.no_broadcast'}' />" unless item.inactive_image.empty?
         }
         presets[language_id] = {:options => options_list.join(','), :image => image}
       }
@@ -153,7 +152,7 @@ module StreamWidget
         elsif @total_questions == 0
           # questions => no new questions
           render :text => "
-            $('dl#questions').html('#{escape_javascript '<dd class="even">No questions yet.</dd>'.html_safe}');
+            $('dl#questions').html('#{escape_javascript "<dd class='even'>#{I18n.t 'kabtv.kabtv.no_questions_yet'}</dd>".html_safe}');
             kabtv.questions.last_question_id = 0;
           ", :content_type => Mime::JS
         else
@@ -163,8 +162,8 @@ module StreamWidget
         content = ''
         @questions.each_with_index {|q, idx|
           klass = ((last_question_id + 1 + idx) & 1) == 0 ? 'odd' : 'even'
-          name = q.qname.empty? ? 'Guest' : q.qname
-          from = q.qfrom.empty? ? 'Somewhere' : q.qfrom
+          name = q.qname.empty? ? I18n.t('kabtv.kabtv.guest') : q.qname
+          from = q.qfrom.empty? ? I18n.t('kabtv.kabtv.somewhere') : q.qfrom
           style = q.lang == 'Hebrew' ? 'style="direction:rtl"' : ''
           if q.stimulator_id.to_i > 0
             user = User.find(q.stimulator_id)
@@ -196,9 +195,9 @@ module StreamWidget
 
     def process_submit
       if KabtvQuestion.ask_question(param(:kabtv_question), param(:current_user))
-        message = 'Your question is awaiting approval'
+        message = I18n.t 'kabtv.kabtv.awaiting_for_approval'
       else
-        message = 'Please fill "Question" field in'
+        message = I18n.t 'no_question'
       end
       render :text => "alert('#{message}');", :content_type => Mime::JS
     end
@@ -221,7 +220,7 @@ module StreamWidget
 
     def generate_schedule(weekday, language)
       alist = KabtvListing.get_day(weekday, language)
-      return "<h3>No broadcast on #{weekday}</h3>" if alist.empty?
+      return "<h3>#{I18n.t 'no_broadcast_on'}#{weekday}</h3>" if alist.empty?
       
       list = "<div class='hdr'>#{KabtvDates.get_day(weekday, language)}</div><table>"
       alist.each_with_index { |item, index|
@@ -231,7 +230,17 @@ module StreamWidget
         title = item.title.gsub '[\r\n]', ''
         title.gsub! '<div>', ''
         title.gsub! '</div>', ''
-        list += "<tr>#{time}<td class='title item#{index & 1}'>#{title}</td></tr>"
+        descr = item.descr.gsub '[\r\n]', ''
+        descr.gsub!(/href=([^"])(\S+)/, 'href="\1\2" ')
+        descr.gsub!('target=_blank', 'class="target_blank"')
+        descr.gsub!('target="_blank"', 'class="target_blank"')
+        descr.gsub!('&main', '&amp;main')
+        descr.gsub!('<br>', '<br/>')
+        descr.gsub!(/<font\s+color\s*=\s*["\'](\w+)["\']>/, '<span style="color:\1">')
+        descr.gsub!(/<font\s+color\s*=\s*["\'](#[0-9A-Fa-f]+)["\']>/, '<span style="color:\1">')
+        descr.gsub!('</font>', '</span>')
+
+        list += "<tr>#{time}<td class='title item#{index & 1}'>#{title}<br/>#{descr}</td></tr>"
       }
       list += "</table>"
 
