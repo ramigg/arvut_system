@@ -128,6 +128,7 @@ module StreamWidget
 
   class Questions < Apotomo::Widget
     include ActionView::Helpers::JavaScriptHelper
+    include ActionView::Helpers::AssetTagHelper
     
     responds_to_event :more_questions, :with => :process_request
     responds_to_event :submit_question, :with => :process_submit
@@ -165,8 +166,15 @@ module StreamWidget
           name = q.qname.empty? ? 'Guest' : q.qname
           from = q.qfrom.empty? ? 'Somewhere' : q.qfrom
           style = q.lang == 'Hebrew' ? 'style="direction:rtl"' : ''
+          if q.stimulator_id.to_i > 0
+            user = User.find(q.stimulator_id)
+            img = "<img src='#{user.avatar_url(:thumb)}' />"
+          else
+            img = "<img src='/images/user.png' />"
+          end
+
           content += <<-HTML
-            <dt class="#{klass}" #{style}><span class="who">#{name}</span> @ <span class="where">#{from}</span></dt>
+            <dt class="#{klass}" #{style}>#{img}<span class="who">#{name}</span> @ <span class="where">#{from}</span></dt>
             <dd class="#{klass}" #{style}>#{q.qquestion}</dd>
           HTML
         }
@@ -187,7 +195,7 @@ module StreamWidget
     end
 
     def process_submit
-      if KabtvQuestion.ask_question(param :kabtv_question)
+      if KabtvQuestion.ask_question(param(:kabtv_question), param(:current_user))
         message = 'Your question is awaiting approval'
       else
         message = 'Please fill "Question" field in'

@@ -3,7 +3,7 @@ class KabtvQuestion < Kabtv
   
   def self.approved_questions(last_question_id = 0)
     sql = <<-SQL
-      SELECT id, qfrom, qname, qquestion, who, lang
+      SELECT id, qfrom, qname, qquestion, who, lang, stimulator_id
         FROM questions WHERE
          (id > #{last_question_id}) AND
          (isquestion = 1) AND (is_hidden=0 OR is_hidden IS NULL) AND (approved <> 0)
@@ -20,12 +20,13 @@ class KabtvQuestion < Kabtv
     [new_questions, total_questions[0].total.to_i]
   end
 
-  def self.ask_question(question)
+  def self.ask_question(question, current_user)
     return nil if question[:qquestion].empty?
     question.merge!(
       :lang => map_locale_2_language(I18n.locale),
       :isquestion => 1,
       :is_hidden => 0,
+      :stimulator_id => current_user.id,
       :timestamp => Time.now.to_s(:db)
     )
     KabtvQuestion.new(question).save(:validate => false)
