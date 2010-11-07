@@ -80,8 +80,8 @@ gem 'acts-as-taggable-on', :git => 'http://github.com/Bnei-Baruch/acts-as-taggab
 
 # Cells/Apotomo
 # gem 'apotomo', '~>1.0.0', :require => 'apotomo'
-gem 'apotomo', :git => "git://github.com/apotonick/apotomo.git", :branch => 'master'#, :tag => "v1.0.0.beta2"
-#gem 'apotomo', :git => "git@github.com:Bnei-Baruch/apotomo.git", :branch => 'master'
+#gem 'apotomo', :git => "git://github.com/apotonick/apotomo.git", :branch => 'master'#, :tag => "v1.0.0.beta2"
+gem 'apotomo', :git => "git@github.com:Bnei-Baruch/apotomo.git", :branch => 'master'
               
          
 # Cache store:
