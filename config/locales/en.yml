@@ -482,3 +482,49 @@ en:
     all_items: All Items
     more_items: More items »
     tags_menu: Topics
+
+  kabtv:
+    admin:
+      successfully_saved: Succesfully saved!
+      stream_management: Stream Management
+      preset_name: Preset name
+      is_active: Is active
+      default: Default
+      inactive_image: Inactive image
+      stream_URL: Stream URL
+      language: Language
+      description: Description
+      add_stream_item: Add stream item
+      submit: Submit
+      submitting: Submitting...
+      select_preset_or_add: Please select preset to edit or add new preset
+      stream_selection: Stream selection
+
+    kabtv:
+      no_broadcast: No broadcast
+      no_broadcast_on: No broadcast on
+      no_questions_yet: No questions yet.
+      guest: Guest
+      somewhere: Somewhere
+      awaiting_for_approval: Your question is awaiting for approval
+      no_question: Please fill "Question" field in
+      first: First
+      prev: Prev
+      last: Last
+      next: Next
+      new_sketches: There are new sketches
+      ask_question: Ask Question
+      question: Question
+      who: Who
+      from: From
+      loading: Loading...
+      questions: Questions
+      schedule: Schedule
+      sketches: Sketches
+      technical_support: Technical Support
+
+      
+
+
+
+      

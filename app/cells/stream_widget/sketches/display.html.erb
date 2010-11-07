@@ -2,13 +2,13 @@
   <div class="images">
   </div>
   <div class="buttons">
-    <a class="left_button" href="#" onclick="kabtv.sketches.first(); return false;">&laquo; First</a>
-    <a class="left_button" href="#" onclick="kabtv.sketches.prev(); return false;">&lsaquo; Prev</a>
+    <a class="left_button" href="#" onclick="kabtv.kabtv.first(); return false;">&laquo; <%= I18n.t 'kabtv.kabtv.first' %></a>
+    <a class="left_button" href="#" onclick="kabtv.kabtv.prev(); return false;">&lsaquo; <%= I18n.t 'kabtv.kabtv.prev' %></a>
     <span class="title"></span>
-    <a class="right_button" href="#" onclick="kabtv.sketches.last(); return false;">Last &raquo;</a>
-    <a class="right_button" href="#" onclick="kabtv.sketches.next(); return false;">Next &rsaquo;</a>
+    <a class="right_button" href="#" onclick="kabtv.kabtv.last(); return false;"><%= I18n.t 'kabtv.kabtv.last' %> &raquo;</a>
+    <a class="right_button" href="#" onclick="kabtv.kabtv.next(); return false;"><%= I18n.t 'kabtv.kabtv.next' %>&rsaquo;</a>
     <div class="clear"></div>
-    <a id="new_sketches" class="right_button hidden" href="#" onclick="kabtv.sketches.last(); return false;">There are new sketches &raquo;</a>
+    <a id="new_sketches" class="right_button hidden" href="#" onclick="kabtv.kabtv.last(); return false;"><%= I18n.t 'kabtv.kabtv.nextnew_sketches' %> &raquo;</a>
     <div class="clear"></div>
   </div>
 <%- end -%>

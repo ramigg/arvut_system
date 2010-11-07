@@ -182,6 +182,19 @@
                 },
                 success: kabtv.tabs.init
             });
+            $.ajax({
+                url: 'http://live.kab.tv/button.php',
+                data: {
+                    image: 'tech',
+                    lang: 'ru',
+                    no_image: 1
+                },
+                dataType: 'jsonp',
+                success: function(msg){
+                    $('.online-status').html(msg.res);
+                }
+            });
+
         },
 
         // init

@@ -2,9 +2,9 @@
   <% if @stream_preset %>
     <%= form_for @stream_preset, :as => :stream_preset, :url => url_for_event(:submit), :remote => true do |f| -%>
       <%= f.hidden_field :id %>
-      <%= f.label :name, 'Preset name' %>
+      <%= f.label :name, I18n.t('kabtv.admin.preset_name') %>
       <%= f.text_field :name %>
-      <%= f.label :is_active %>
+      <%= f.label I18n.t('kabtv.admin.is_active') %>
       <%= f.check_box :is_active %>
 
       <div style="overflow: auto;height:260px;margin-bottom: 10px;border-bottom: 2px solid #aaa;">
@@ -12,11 +12,11 @@
           <caption></caption>
           <thead>
             <tr>
-              <th style="font-weight:normal;">Description</th>
-              <th style="font-weight:normal;">Language</th>
-              <th style="font-weight:normal;">Stream URL</th>
-              <th style="font-weight:normal;">Inactive image</th>
-              <th style="font-weight:normal;">Default</th>
+              <th style="font-weight:normal;"><%= I18n.t('kabtv.admin.description') %></th>
+              <th style="font-weight:normal;"><%= I18n.t('kabtv.admin.language') %></th>
+              <th style="font-weight:normal;"><%= I18n.t('kabtv.admin.stream_URL') %></th>
+              <th style="font-weight:normal;"><%= I18n.t('kabtv.admin.inactive_image') %></th>
+              <th style="font-weight:normal;"><%= I18n.t('kabtv.admin.default') %></th>
               <th style="font-weight:normal;">X</th>
             </tr>
           </thead>
@@ -26,13 +26,13 @@
           <% end -%>
         </table>
       </div>
-      <p style='float: left;'><%= link_to_add_fields 'Add stream item', f, :stream_items %></p>
-      <%= f.submit "Submit", :style => 'float: right;', :class => 'button-small-main', :disable_with => 'Submitting...' %>
+      <p style='float: left;'><%= link_to_add_fields I18n.t('kabtv.admin.add_stream_item'), f, :stream_items %></p>
+      <%= f.submit I18n.t('kabtv.admin.submit'), :style => 'float: right;', :class => 'button-small-main', :disable_with => I18n.t('kabtv.admin.submitting') %>
 
     <% end -%>
   <% else %>
     <div>
-      Please select preset to edit or add new preset
+      <%= I18n.t('kabtv.admin.select_preset_or_add') %>
     </div>
   <% end %>
   <div class="clear"></div>
