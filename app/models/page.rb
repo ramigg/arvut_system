@@ -54,7 +54,8 @@ class Page < ActiveRecord::Base
   }
 
   #  scope :all_pages, lambda {|language_id| where(:language_id => language_id)}
-  scope :ordered, order('is_sticky', 'publish_at DESC')
+  scope :ordered_all, order('is_sticky DESC', 'publish_at DESC')
+  scope :ordered, order('publish_at DESC')
   
   # scope :read_pages, lambda {|user_id| 
   #   joins(:page_userflags).where(:page_userflags => {:user_id => user_id, :is_read => true}) 
