@@ -92,7 +92,7 @@
                 kabtv.sketches.$current = $item;
                 kabtv.sketches.$in_transition = false;
             }
-            );
+        );
         }
     });
 
@@ -254,14 +254,52 @@
         <param value="#ffffff" name="DisplayForeColor"/> \
         <param value="false" name="balance"/> \
         </object>',
+        objectMSIE: '<object classid="clsid:6BF52A52-394A-11D3-B153-00C04F79FAA6" \
+        style="background-color:#000000" id="player" name="player" type="application/x-oleobject" \
+        width="380" height="288" standby="Loading Windows Media Player components...">\
+        <param name="URL" value="URL_PATTERN" /><param name="AutoStart" value="1" />\
+        <param name="AutoPlay" value="1" /><param name="volume" value="50" />\
+        <param name="uiMode" value="full" /><param name="animationAtStart" value="1" />\
+        <param name="showDisplay" value="1" /><param name="transparentAtStart" value="0" />\
+        <param name="ShowControls" value="1" /><param name="ShowStatusBar" value="1" />\
+        <param name="ClickToPlay" value="0" /><param name="bgcolor" value="#000000" />\
+        <param name="windowlessVideo" value="1" /><param name="balance" value="0" />',
         draw_player: function(url){
             if (url == null) return;
             if (kabtv.tabs.presets_data.stream_preset.is_active) {
-                var object = kabtv.tabs.object.replace(/URL_PATTERN/g, url);
+                var object;
+                if ($.browser.msie)
+                    object = kabtv.tabs.objectMSIE.replace(/URL_PATTERN/g, url);
+                else
+                    object = kabtv.tabs.object.replace(/URL_PATTERN/g, url);
                 $('#object').html(object);
             } else {
                 var lang_id = $("select#language_id").val();
                 $('#object').html(kabtv.tabs.presets[lang_id].image);
+            }
+        },
+
+        detach: function(){
+            var $obj = $('#player');
+            if ($obj) {
+                var obj = $obj[0];
+                if (obj.URL){
+                    if (obj.controls && obj.controls.isAvailable('Stop')){
+                        obj.controls.stop();
+                    }
+                    obj.openPlayer(obj.URL);
+                }
+            }
+        },
+
+        fs: function(){
+            var $obj = $('#player');
+            if ($obj) {
+                var obj = $obj[0];
+                if (obj.playState == 3) {
+                    obj.fullScreen = true;
+                    obj.fullScreen = 'true';
+                }
             }
         }
     });
