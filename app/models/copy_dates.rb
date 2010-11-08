@@ -10,7 +10,7 @@ class CopyDates < ActiveRecord::Base
       m = 0
     end
     year = DateTime.now.year
-    @local_day_names ||= I18n.t 'date.standalone_day_names'
+    @local_day_names ||= I18n.t 'date.abbr_day_names'
     local_day = @local_day_names[Date::DAYNAMES.index(weekday)]
     @local_month_names ||= I18n.t 'date.month_names'
     local_month = @local_month_names[m]
