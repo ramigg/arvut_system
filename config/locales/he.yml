@@ -474,3 +474,44 @@ he:
     all_items: "המשך"
     more_items: "פוסטים נוספים »"
     tags_menu: נושאים
+
+
+  kabtv:
+    admin:
+      successfully_saved: נשמר בהצלחה
+      stream_management: ניהול סטרימים
+      preset_name: שם ה- Preset
+      is_active: שידור פעיל
+      default: ברירת מחדל
+      inactive_image: תמונה לשידור
+      stream_URL: לינק ל- Stream
+      language: שפה
+      description: תאור
+      add_stream_item: הוסף stream item
+      submit: שמור
+      submitting: מעדכן שינויים...
+      select_preset_or_add: בחר Preset לעריכה או צור חדש
+      stream_selection: בחירת Stream
+
+    kabtv:
+      no_broadcast: אין שידורים היום
+      no_broadcast_on: אין שידורים ב-
+      no_questions_yet: אין עדיין שאלות.
+      guest: אורח
+      somewhere: ממקום לא ידוע
+      awaiting_for_approval: השאלה שלך ממתינה לאישור
+      no_question: יש להזין את תוכן השאלה
+      first: ראשון
+      prev: קודם
+      last: אחרון
+      next: הבא
+      new_sketches: יש שרטוטים מעודכנים
+      ask_question: שאל שאלה
+      question: שאלה
+      who: שם
+      from: מהיכן
+      loading: טוען...
+      questions: שאלות
+      schedule: לוח שידורים
+      sketches: שרטוטים
+      technical_support: תמיכה טכנית
