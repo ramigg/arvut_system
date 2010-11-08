@@ -128,6 +128,7 @@ module StreamWidget
   class Questions < Apotomo::Widget
     include ActionView::Helpers::JavaScriptHelper
     include ActionView::Helpers::AssetTagHelper
+    alias_method(:controller, :parent_controller)
     
     responds_to_event :more_questions, :with => :process_request
     responds_to_event :submit_question, :with => :process_submit
@@ -167,10 +168,11 @@ module StreamWidget
           style = q.lang == 'Hebrew' ? 'style="direction:rtl"' : ''
           if q.stimulator_id.to_i > 0
             user = User.find(q.stimulator_id)
-            img = "<img src='#{user.avatar_url(:thumb)}' />"
+            img = "<img src='/#{::Rails.configuration.site_prefix}/#{image_path user.avatar_url(:thumb)}' />"
           else
-            img = "<img src='/images/user.png' />"
+            img = "<img src='/#{::Rails.configuration.site_prefix}/#{image_path 'user.png'}' />"
           end
+          img.gsub! /\/\/\//, '/'
 
           content += <<-HTML
             <dt class="#{klass}" #{style}>#{img}<span class="who">#{name}</span> @ <span class="where">#{from}</span></dt>
