@@ -22,7 +22,7 @@ class CopyQuestion < ActiveRecord::Base
   def self.ask_question(question, current_user)
     return nil if question[:qquestion].empty?
     question.merge!(
-      :lang => map_locale_2_language(I18n.locale),
+      :lang => Kabtv.map_locale_2_language(I18n.locale),
       :isquestion => 1,
       :is_hidden => 0,
       :stimulator_id => current_user.id,
