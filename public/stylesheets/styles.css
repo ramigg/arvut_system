@@ -231,6 +231,8 @@ div.uploader input{opacity:0;position:absolute;top:0;right:0;bottom:0;float:righ
 .layout-stream .event-stream .bgnd .player{border:1px solid #808080;float:left;margin:0;padding:4px;width:400px;height:305px;background-color:white;}
 .layout-stream .event-stream .bgnd #object{width:400px;height:305px;}
 .layout-stream .event-stream .bgnd form{float:left;margin:8px 10px 5px -7px;}
+.layout-stream .event-stream .bgnd .full_screen{background:url(../images/video-icons.gif) no-repeat 0 -37px;width:23px;height:23px;display:block;left:356px;bottom:19px;position:absolute;}
+.layout-stream .event-stream .bgnd .detach{background:url(../images/video-icons.gif) no-repeat 0 0;width:23px;height:23px;display:block;left:392px;bottom:19px;position:absolute;}
 .layout-stream .event-stream .bgnd .services{width:315px;height:305px;float:right;padding:5px;background-color:#efedde;}.layout-stream .event-stream .bgnd .services .tabs{background-color:#f9f7e8;left:425px;position:absolute;top:16px;}.layout-stream .event-stream .bgnd .services .tabs span.active{background-color:#efedde;}
 .layout-stream .event-stream .bgnd .services .content{position:relative;}.layout-stream .event-stream .bgnd .services .content img{width:290px;height:217px;position:absolute;top:4px;left:4px;}
 .layout-stream .event-stream .bgnd .services .content .images{width:290px;height:217px;background-color:white;border:1px solid #808080;padding:4px;position:relative;margin:20px auto 10px;}
