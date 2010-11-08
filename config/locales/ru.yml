@@ -518,39 +518,39 @@ ru:
   kabtv:
     admin:
       successfully_saved: Успешно сохранено!
-      stream_management: Stream Management
+      stream_management: Управление вещанием
       preset_name: Preset name
-      is_active: Is active
-      default: Default
-      inactive_image: Inactive image
-      stream_URL: Stream URL
-      language: Language
-      description: Description
-      add_stream_item: Add stream item
-      submit: Submit
-      submitting: Submitting...
-      select_preset_or_add: Please select preset to edit or add new preset
-      stream_selection: Stream selection
+      is_active: активный
+      default: # умолчание
+      inactive_image: картинка для неактивного канала
+      stream_URL: URL вещания
+      language: язык
+      description: описание
+      add_stream_item: Добавить канал
+      submit: Отправить
+      submitting: Ждите...
+      select_preset_or_add: Выберите preset или добавьте новый
+      stream_selection: Выбор канала
 
     kabtv:
-      no_broadcast: No broadcast
-      no_broadcast_on: No broadcast on
-      no_questions_yet: No questions yet.
-      guest: Guest
-      somewhere: Somewhere
-      awaiting_for_approval: Your question is awaiting for approval
-      no_question: Please fill "Question" field in
-      first: First
-      prev: Prev
-      last: Last
-      next: Next
-      new_sketches: There are new sketches
-      ask_question: Ask Question
-      question: Question
-      who: Who
-      from: From
-      loading: Loading...
-      questions: Questions
-      schedule: Schedule
-      sketches: Sketches
-      technical_support: Technical Support
+      no_broadcast: Нет вещания
+      no_broadcast_on: Нет вещания в
+      no_questions_yet: Еще нет вопросов.
+      guest: Гость
+      somewhere: откуда-то
+      awaiting_for_approval: Ваш вопрос ожидает одобрения модератором
+      no_question: Пожалуйста заполните поле "Вопрос"
+      first: Первый
+      prev: Пред.
+      last: Последний
+      next: След.
+      new_sketches: Нет новых чертежей
+      ask_question: Задать вопрос
+      question: Вопрос
+      who: Кто
+      from: Откуда
+      loading: Загрузка...
+      questions: Вопросы
+      schedule: Расписание
+      sketches: Чертежы
+      technical_support: Техподдержка

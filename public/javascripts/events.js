@@ -107,12 +107,12 @@
     }
 
     $.extend(kabtv.schedule, {
-        show_day: function(me){
+        show_day: function(me, day){
             var $me = $(me);
             $me.parent().children().removeClass('active');
             $me.addClass('active');
             $(".weekdays>div").hide();
-            $(".D_" + $me.text()).show();
+            $(".D_" + day).show();
         }
     });
 

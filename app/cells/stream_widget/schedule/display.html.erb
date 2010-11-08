@@ -1,8 +1,12 @@
+<%-
+  local_day_names = I18n.t 'date.abbr_day_names'
+-%>
 <%= widget_div do -%>
   <div class="days">
     <%- @days.each{ |day| -%>
       <%=
-      link_to day, '#', :onclick => 'kabtv.schedule.show_day(this); return false;',
+      local_day = local_day_names[Date::DAYNAMES.index(day)]
+      link_to local_day, '#', :onclick => "kabtv.schedule.show_day(this, '#{day}'); return false;",
       :class => "A_#{day}"
     %>
     <%- } -%>
@@ -10,8 +14,7 @@
   <div class="weekdays">
     <%- @days.each{ |day| -%>
       <div class="weekday D_<%= day %>">
-        <%- schedule = @schedules[day] -%>
-        <%= schedule %>
+        <%= @schedules[day] %>
       </div>
     <%- } -%>
   </div>
