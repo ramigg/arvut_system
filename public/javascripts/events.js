@@ -227,11 +227,10 @@
             kabtv.tabs.pollID = 0;
             kabtv.tabs.timestamp = 0;
         },
-        select_me: function(me) {
+        select_me: function(me, name) {
             $('.tabs span').removeClass('active');
             $(me).parent().addClass('active');
             $('.content>div').hide();
-            var name = $(me).text().toLowerCase();
             $('.content #' + name).show();
             return false;
         },

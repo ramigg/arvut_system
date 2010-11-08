@@ -26,9 +26,9 @@
   </div>
   <div class="services">
     <div class="tabs">
-      <span><%= link_to I18n.t('kabtv.kabtv.questions'), '#', :onclick => 'return kabtv.tabs.select_me(this)' %></span>
-      <span class="active"><%= link_to I18n.t('kabtv.kabtv.schedule'), '#', :onclick => 'return kabtv.tabs.select_me(this)' %></span>
-      <span><%= link_to I18n.t('kabtv.kabtv.sketches'), '#', :onclick => 'return kabtv.tabs.select_me(this)' %></span>
+      <span><%= link_to I18n.t('kabtv.kabtv.questions'), '#', :onclick => 'return kabtv.tabs.select_me(this, "questions")' %></span>
+      <span class="active"><%= link_to I18n.t('kabtv.kabtv.schedule'), '#', :onclick => 'return kabtv.tabs.select_me(this, "schedule")' %></span>
+      <span><%= link_to I18n.t('kabtv.kabtv.sketches'), '#', :onclick => 'return kabtv.tabs.select_me(this, "sketches")' %></span>
     </div>
     <div class="content">
       <%= rendered_children.values.join("\n").html_safe %>
