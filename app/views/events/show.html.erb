@@ -1,7 +1,7 @@
 <%- content_for :content_width do -%>content-wide<%- end -%>
 <%- content_for :hide_widgets do -%>please do not display widgets!!!<%- end -%>
 <div class="content-submenu">
-  <em>Events</em> | <%= @page.title %>
+  <em><%= I18n.t('stream.events') %></em> | <%= @page.title %>
 </div>
 <div class="content-stream event-stream">
   <%- if current_user.is_stream_manager? || current_user.is_admin? -%>

@@ -168,11 +168,10 @@ module StreamWidget
           style = q.lang == 'Hebrew' ? 'style="direction:rtl"' : ''
           if q.stimulator_id.to_i > 0
             user = User.find(q.stimulator_id)
-            img = "<img src='/#{::Rails.configuration.site_prefix}/#{image_path user.avatar_url(:thumb)}' />"
+            img = "<img src='#{image_path user.avatar_url(:thumb)}' />"
           else
-            img = "<img src='/#{::Rails.configuration.site_prefix}/#{image_path 'user.png'}' />"
+            img = "<img src='#{image_path 'user.png'}' />"
           end
-          img.gsub! /\/\/\//, '/'
 
           content += <<-HTML
             <dt class="#{klass}" #{style}>#{img}<span class="who">#{name}</span> @ <span class="where">#{from}</span></dt>
