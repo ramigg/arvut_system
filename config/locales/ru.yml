@@ -540,11 +540,11 @@ ru:
       somewhere: откуда-то
       awaiting_for_approval: Ваш вопрос ожидает одобрения модератором
       no_question: Пожалуйста заполните поле "Вопрос"
-      first: Первый
-      prev: Пред.
-      last: Последний
-      next: След.
-      new_sketches: Нет новых чертежей
+      first: начало
+      prev: пред.
+      last: конец
+      next: след.
+      new_sketches: Есть новые чертежи
       ask_question: Задать вопрос
       question: Вопрос
       who: Кто
