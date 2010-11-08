@@ -10,10 +10,10 @@ class CopyDates < ActiveRecord::Base
       m = 0
     end
     year = DateTime.now.year
-    @local_day_names ||= I18n.t 'date.day_names'
-    local_day = @local_day_names[Date::DAYNAMES.index(weekday)]
-    @local_month_names ||= I18n.t 'date.month_names'
-    local_month = @local_month_names[m]
+    local_day_names ||= I18n.t 'date.day_names'
+    local_day = local_day_names[Date::DAYNAMES.index(weekday)]
+    local_month_names ||= I18n.t 'date.month_names'
+    local_month = local_month_names[m]
     "#{local_day.upcase}, #{d} #{local_month}, #{year}"
   end
 end
