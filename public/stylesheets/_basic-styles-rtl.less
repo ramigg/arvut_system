@@ -406,26 +406,29 @@ body {
 
 // Site
 body{
-	//Regular background:#afdfff url(../images/gradient.png) repeat-x 0 0;
-	background:#00aeef;
+	//Regular
+        background:#afdfff url(../images/gradient.png) repeat-x 0 0;
+	//Event background:#00aeef;
 	color: @color-login;
 }
 .skin_bg{
 	top:0;
 	position:absolute;
 	height:1000px;
-	// Regular background:url(../images/bluebg.png) no-repeat center top;
-	background:url(../images/c2010bg.png) no-repeat center top;
+	// Regular
+        background:url(../images/bluebg.png) no-repeat center top;
+	// Event background:url(../images/c2010bg.png) no-repeat center top;
 	width:100%;
 }
 .skin_container{
 	width:@wrapper-width;
 	margin:0 auto;
 }
-@skin-regular-height: 100px;
+//Event @skin-regular-height: 100px;
 .wrapper {
 	position:relative;
-	margin:@skin-regular-height + 100px auto 20px;
+        margin: 100px auto 20px;
+	//Event: margin:@skin-regular-height + 100px auto 20px;
 	width:@wrapper-width;
 	padding:@wrapper-padding;
 	background:#fff;

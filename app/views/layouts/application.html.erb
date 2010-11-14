@@ -9,17 +9,17 @@
   <% layout = controller.instance_of?(Profiles::RegistrationsController) ? 'layout-signup' : 'layout-login' %>
   <body class="<%= I18n.locale %> <%= layout %>">
     <div class="skin_bg">
-<%#*<div class="skin_container">%>
-<%#*<p></p>%>
-<%#*</div>%>
       <div class="skin_container">
-        <div id="cdcontainer">time container</div>
-        <script type="text/javascript">
-          var launchdate = new cdLocalTime("cdcontainer", '<%= Time.new.strftime('%B %d, %Y %H:%M:%S') %>', 0, "November 9, 2010 09:00:00");
-          launchdate.displaycountdown("days", formatresults2);
-        </script>
-        <a href="#" class="skinlink"></a>
+        <p></p>
       </div>
+      <%#*<div class="skin_container">%>
+        <%#*<div id="cdcontainer">time container</div>%>
+        <%#*<script type="text/javascript">%>
+          <%#*var launchdate = new cdLocalTime("cdcontainer", '<%= Time.new.strftime('%B %d, %Y %H:%M:%S') % >', 0, "November 9, 2010 09:00:00");%>
+          <%#*launchdate.displaycountdown("days", formatresults2);%>
+        <%#*</script>%>
+        <%#*<a href="#" class="skinlink"></a>%>
+      <%#*</div>%>
     </div>
     <div class="clear"></div>
     <div class="wrapper">

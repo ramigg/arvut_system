@@ -67,10 +67,10 @@ body{font-family:Arial,Verdana,sans-serif;font-size:13px;line-height:18px;color:
 .float_right{float:right;}
 .clear{clear:both;}
 .clear-div{line-height:1px;font-size:1px;height:1px;clear:both;}
-body{background:#00aeef;color:black;}
-.skin_bg{top:0;position:absolute;height:1000px;background:url(../images/c2010bg.png) no-repeat center top;width:100%;}
+body{background:#afdfff url(../images/gradient.png) repeat-x 0 0;color:black;}
+.skin_bg{top:0;position:absolute;height:1000px;background:url(../images/bluebg.png) no-repeat center top;width:100%;}
 .skin_container{width:940px;margin:0 auto;}
-.wrapper{position:relative;margin:200px auto 20px;width:940px;padding:10px;background:#fff;-webkit-border-radius:10px;-moz-border-radius:10px;border-radius:10px;behavior:url(PIE.htc);-moz-background-clip:padding;-webkit-background-clip:padding;position:relative;-webkit-box-shadow:#666666 0px 0px 10px;-moz-box-shadow:#666666 0px 0px 10px;box-shadow:#666666 0px 0px 10px;behavior:url(PIE.htc);position:relative;direction:rtl;}
+.wrapper{position:relative;margin:100px auto 20px;width:940px;padding:10px;background:#fff;-webkit-border-radius:10px;-moz-border-radius:10px;border-radius:10px;behavior:url(PIE.htc);-moz-background-clip:padding;-webkit-background-clip:padding;position:relative;-webkit-box-shadow:#666666 0px 0px 10px;-moz-box-shadow:#666666 0px 0px 10px;box-shadow:#666666 0px 0px 10px;behavior:url(PIE.htc);position:relative;direction:rtl;}
 .header{-webkit-border-radius:5px;-moz-border-radius:5px;border-radius:5px;behavior:url(PIE.htc);-moz-background-clip:padding;-webkit-background-clip:padding;position:relative;background:-webkit-gradient(linear, 0 0, 0 bottom, from(#00acc2), to(#2971a7));background:-moz-linear-gradient(#00acc2, #2971a7);background:linear-gradient(#00acc2, #2971a7);-pie-background:linear-gradient(top, #00acc2, #2971a7);behavior:url(PIE.htc);position:relative;height:20px;padding:10px;margin:0 0 10px;position:relative;}.header .header-menu{color:#ffffff;float:left;margin:0 0 0 10px;line-height:25px;}.header .header-menu a{color:#ffffff;}
 .header .logo{position:absolute;bottom:0;right:0;}.header .logo h1{position:absolute;top:-1000px;}
 .header form{float:left;}
