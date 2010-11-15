@@ -281,14 +281,14 @@ es:
       send_instructions: "En unos minutos, recibirás un email con instrucciones sobre cómo desbloquear tu cuenta."
       unlocked: "Tu cuenta ha sido desbloqueada con éxito. Ahora estás conectado."
     views:
-      cannot_sign_in: "Cannot sign in? Click here for help!"
+      cannot_sign_in: "¿No puede entrar? Haga click aquí para ayudarle"
       change_my_password: "Cambiar mi contraseña"
       confirm_new_password: "Confirmación de la contraseña"
       current_password: "Contraseña actual (la necesitamos para confirmar tus cambios)"
       email: Email
       forgot_password: "¿Has olvidado tu contraseña?"
       new_password: "Nueva contraseña (al menos 6 caracteres)"
-      new_user: "New User?"
+      new_user: " ¿Es usuario nuevo?"
       no_confirmation_instructions: "¿Recibiste instrucciones de confirmación?"
       no_unlock_instructions: "¿Recibiste instrucciones para el desbloqueo?"
       password: Contraseña
@@ -300,7 +300,7 @@ es:
       sign_in_more: "Conectar&nbsp;&nbsp;&nbsp;&#9658;"
       sign_up: Regístrate
       sign_up_more: "Inscríbete&nbsp;&nbsp;&nbsp;&#9658;"
-      sign_up_now: "Sign up NOW!!!"
+      sign_up_now: "¡Regístrese ahora!"
   errors:
     messages:
       already_confirmed: "ya fue confirmado"
