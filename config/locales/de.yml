@@ -53,7 +53,7 @@ de:
       are_you_sure: "Bist Du sicher?"
       arr_down: "&#9662;"
       arr_up: "&#9652;"
-      article: Artikel
+      article: Material
       as_draft: "Als Entwurf speichern"
       assignment: Aufgabe
       assignments: Aufgaben
@@ -95,7 +95,7 @@ de:
       metadata: Metadaten
       metadata_and_content: "Metadaten und Inhalt"
       name: Name
-      new_article: "Neuer Artikel"
+      new_article: "Neuer Material"
       new_assignment: "Neue Aufgabe"
       new_message: "Neue Nachricht"
       other: Anderes
@@ -354,7 +354,7 @@ de:
   stream:
     all: Alle
     all_items: "Alle Einträge"
-    articles: Artikel
+    articles: Materialien
     assignments: Aufgabe
     events: Events
     home: Home

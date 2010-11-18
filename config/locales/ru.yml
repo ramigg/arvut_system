@@ -246,7 +246,7 @@ ru:
       are_you_sure: "Вы уверены?"
       arr_down: "&#9662;"
       arr_up: "&#9652;"
-      article: Статья
+      article: Материал
       as_draft: "Сохранить как черновик"
       assignment: Задание
       assignments: Задания
@@ -288,7 +288,7 @@ ru:
       metadata: Метаданные
       metadata_and_content: "Метаданные и Содержание"
       name: Имя
-      new_article: "Новая статья"
+      new_article: "Новый материал"
       new_assignment: "Новое Задание"
       new_message: "Новое сообщение"
       other: Другое

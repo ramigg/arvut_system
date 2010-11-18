@@ -53,7 +53,7 @@ it:
       are_you_sure: "Sei sicuro?"
       arr_down: "&#9662;"
       arr_up: "&#9652;"
-      article: Articolo
+      article: Contenuti
       as_draft: "Salva come progetto"
       assignment: Compito
       assignments: Compiti
@@ -95,7 +95,7 @@ it:
       metadata: Metadati
       metadata_and_content: "Metadati e Contenuti"
       name: Nome
-      new_article: "Nuovo Articolo"
+      new_article: "Nuovo Contenuti"
       new_assignment: "Nuovo Compito"
       new_message: "Nuovo Messaggio"
       other: Altro
@@ -361,7 +361,7 @@ it:
   stream:
     all: Tutto
     all_items: "Tutti gli Articoli"
-    articles: Articoli
+    articles: Contenuti
     assignments: Compiti
     events: Eventi
     home: Casa

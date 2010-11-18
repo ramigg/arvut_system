@@ -53,7 +53,7 @@ es:
       are_you_sure: "¿Está seguro?"
       arr_down: "&#9662;"
       arr_up: "&#9652;"
-      article: Artículo
+      article: Contenido
       as_draft: "Guardar como borrador"
       assignment: Asignación
       assignments: Asignaciones
@@ -95,7 +95,7 @@ es:
       metadata: Metadata
       metadata_and_content: "Metadata y contenido"
       name: Nombre
-      new_article: "Nuevo artículo"
+      new_article: "Nuevo contenido"
       new_assignment: "Nueva asignación"
       new_message: "Nuevo mensaje"
       other: Otros
@@ -344,7 +344,7 @@ es:
   stream:
     all: "Todos "
     all_items: "Todos los artículos"
-    articles: Artículos
+    articles: Contenidos
     assignments: Asignaciones
     events: Eventos
     home: Inicio

@@ -226,7 +226,7 @@ en:
       unknown_type: Unknown type of page %{page_type}
       is_bonus: Is bonus?
       preview_show: Display in preview
-      new_article: New Article
+      new_article: New Content
       new_assignment: New Assignment
       assignment: Assignment
       event: Event
@@ -235,7 +235,7 @@ en:
       name: Name
       remove: Remove
       add_new: Add new
-      article: Article
+      article: Content
       message: Message
       audio: Audio
       video: Video
