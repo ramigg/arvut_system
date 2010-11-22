@@ -49,7 +49,7 @@ Simulator::Application.routes.draw do
 
   scope '/(:locale)', :constraints => {:locale => /#{pattern}/} do
 
-    root :to => 'redirector#to_home'
+    root :to => 'stream#index', :stream_filter => 'all'
     match 'dashboard', :to => 'home#dashboard', :as => 'dashboard'
 
     devise_for :users,
@@ -70,7 +70,7 @@ Simulator::Application.routes.draw do
     resources :statistics
     
     # HOME
-    match 'stream/all', :to => 'stream#index',:stream_filter => 'all', :as => 'home'
+    match 'stream/all', :to => 'stream#index', :stream_filter => 'all', :as => 'home'
     match 'stream/:stream_filter(/:modifier)' => 'stream#index', :as => :stream
     resources :pages
     resources :events

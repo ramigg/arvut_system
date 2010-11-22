@@ -8,7 +8,7 @@
     -%>
     <li class="<%= style %> <%= current %>"><h5 class="<%= icon %>-icon icon">
         <%= link_to "#{name}#{count}".html_safe,
-          stream_path(:stream_filter => name_downcase), :remote => true %>
+          anchor_path(stream_path(:stream_filter => name_downcase)), :remote => true %>
         <span></span>
       </h5></li>
   <%- end -%>

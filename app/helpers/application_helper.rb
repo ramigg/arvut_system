@@ -1,4 +1,14 @@
 module ApplicationHelper
+
+  LANGS = (Language.all.map{|e|e.locale} rescue []).join('|')
+
+  def anchor_path(path)
+    path =~ /(.*)\/(#{LANGS})\/(.+)/
+    prefix = $1
+    lang = $2
+    filter = $3
+    "#{prefix}/#{lang}?p=#{filter}"
+  end
   
   def link_to_remove_fields(name, f)
     is_new_record = f.object.new_record?

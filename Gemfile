@@ -1,9 +1,9 @@
 source 'http://rubygems.org'
 
-gem 'rails', '3.0.0'
-gem 'railties', '3.0.0'
+gem 'rails', '3.0.3'
+gem 'railties', '3.0.3'
 gem  'remail'
-# extension for arel where 
+# extension for  arel where
 gem "meta_where"
 
 # Bundle edge Rails instead:
