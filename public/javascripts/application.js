@@ -164,21 +164,21 @@ function new_item(){
 
 $(function () {
 
-		$("#throbber").ajaxStart(function(){
-		   $(this).addClass('throbber');
-		 });
+    $("#throbber").ajaxStart(function(){
+        $(this).addClass('throbber');
+    });
 		
-		$("#throbber").ajaxComplete(function(){
-		   $(this).removeClass('throbber');
-		 });
+    $("#throbber").ajaxComplete(function(){
+        $(this).removeClass('throbber');
+    });
 		
     // link parser for ajax pages history
     $('a.data-remote')
     .live('click', function (e) {
-				e.preventDefault();
+        e.preventDefault();
         $('li.current').removeClass('current');
         $(this).parent().parent().addClass('current');
-				var pattern = new RegExp('/(' + LANGS + ')(.+)')
+        var pattern = new RegExp('/(' + LANGS + ')(.+)');
         var href = this.href.match(pattern)[2];
         $.setFragment({
             p: href
@@ -189,9 +189,15 @@ $(function () {
     $(document).bind("fragmentChange.page", function () {
         var res = document.location.href.match(/(.+)#p=(.+)/);
         if (res != null){
+            // Keep only http://.../<lang> part from res[1]
+            var pattern = new RegExp('(.+)/(' + LANGS + ')/(.+)');
+            var tail = res[1].match(pattern);
+            if (tail != null) {
+                document.location.href = tail[1] + '/' + tail[2];
+            }
             path = res[1] + "/" + res[2];
             path = path.replace(/%2F/g, '/');
-						$.getScript(path);
+            $.getScript(path);
         } else {
             $.getScript(document.location.href);
         }

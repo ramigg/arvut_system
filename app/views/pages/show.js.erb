@@ -1,3 +1,6 @@
 $(".column-content").removeClass('content-wide');
 $(".column-content").html("<%= escape_javascript(render('page'))%>");
 $(".column-widgets").show();
+if (typeof $.fn.uniform == 'function') {
+  $(".edit-stream select, .edit-stream input:checkbox, .edit-stream input:radio, .edit-stream input:file").uniform();
+}

@@ -460,7 +460,16 @@ body{
 .content-submenu{
 	height:25px;
 	line-height:25px;
+        padding:0 10px;
 	.font-small;
+        position: relative;
+        .back{
+            position: absolute;
+            top: 0;
+            right: 10px;
+            font-size:@font-basic-size - 1px;
+            font-weight:bold;
+        }
 }
 .footer{
 	.clear;
@@ -544,7 +553,6 @@ body{
 	padding-right: 35px;
 	//background: url(../images/throbber.gif) no-repeat 99% 0 !important;
 	display:block !important;
-	
 }
 #throbber{
 	position:fixed;
