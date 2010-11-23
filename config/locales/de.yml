@@ -332,6 +332,7 @@ de:
       title_registered_vs_active: Registrierte vs. Aktive
       blog: http://www.laitman.de/
       feed: http://www.laitman.de/feed/
+      loading: Wird geladen...
   layout:
     search: Suche
     search_screen_reader: "Suche nach"

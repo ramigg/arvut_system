@@ -168,6 +168,7 @@ en:
       active: Active
       registered: Registered
       title_registered_vs_active: Registered vs. Active
+      loading: Loading...
     faq:
       faq: Frequently Asked Questions
       confirmation:

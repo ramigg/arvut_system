@@ -171,6 +171,7 @@ ru:
       title_registered_vs_active: Все vs. Активные
       blog: http://www.laitman.ru/
       feed: http://www.laitman.ru/feed
+      loading: Загрузка...
     faq:
       faq: Часто задаваемые вопросы
       confirmation:

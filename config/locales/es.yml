@@ -331,6 +331,7 @@ es:
       title_registered_vs_active: Registrado vs. Activo
       blog: http://laitman.es/
       feed: http://laitman.es/feed
+      loading: Cargando...
   layout:
     search: Buscar
     search_screen_reader: Buscar

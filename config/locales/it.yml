@@ -330,6 +330,7 @@ it:
       title_registered_vs_active: Registrato vs. Attivo
       blog: http://laitman.it/
       feed: http://laitman.it/feed
+      loading: Caricamento in corso...
   layout:
     search: ricerca
     search_screen_reader: "ricerca per"

@@ -326,6 +326,7 @@ he:
       title_registered_vs_active: רשומים לעומת פעילים
       blog: http://laitman.co.il/
       feed: http://laitman.co.il/feed/
+      loading: טוען...
     faq:
       faq: שאלות נפוצות
       confirmation:
