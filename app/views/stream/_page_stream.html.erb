@@ -3,13 +3,13 @@
   <div class="sticky_pages">
     <%- @sticky_pages.each {|page| -%>
       <div id="page-<%= page.id %>" class="item">
-        <h2 class="sticky-icon icon"><span></span><%= link_to page.title, post_url(page), :class => post_link_class(page), :title => page.title, :remote => open_in_remote?(page) %></h2>
+        <h2 class="sticky-icon icon"><span></span><%= link_to page.title, post_url(page), :class => post_link_class(page), :title => page.title %></h2>
         <% if page.subtitle?%><p><strong><%= page[:subtitle].html_safe %></strong></p><% end %>
         <%- unless page[:picture4preview].nil? || page[:picture4preview].empty? -%>
           <%= image_tag  page[:picture4preview], :class => :preview_image %>
         <%- end -%>
         <%= page[:description].html_safe %>
-        <%= link_to t("stream.read_all").html_safe, post_url(page), :class => post_link_class(page) + ' more_link', :title => page.title , :remote => open_in_remote?(page), :'data-type' =>'script' %>
+        <%= link_to t("stream.read_all").html_safe, post_url(page), :class => post_link_class(page) + ' more_link', :title => page.title , :'data-type' =>'script' %>
         <p class="item-metadata"><%= t("stream.posted_ago", :when => time_ago_in_words(page.publish_at)) %></p>
         <p class="tags">
           <%= render :partial => 'tag', :collection => page.tags(I18n.locale) %>
@@ -25,13 +25,13 @@
 <% last_page = @pages.last %>
 <%- @pages.each {|page| -%>
   <div id="page-<%= page.id %>" class="item">
-    <h2 class="<%= is_answered_css(page) %> icon"><span></span><%= link_to page.title, post_url(page), :class => post_link_class(page), :title => page.title, :remote => open_in_remote?(page) %></h2>
+    <h2 class="<%= is_answered_css(page) %> icon"><span></span><%= link_to page.title, post_url(page), :class => post_link_class(page), :title => page.title %></h2>
     <% if page.subtitle?%><p><strong><%= page[:subtitle].html_safe %></strong></p><% end %>
     <%- unless page[:picture4preview].nil? || page[:picture4preview].empty? -%>
       <%= image_tag  page[:picture4preview], :class => :preview_image %>
     <%- end -%>
     <%= page[:description].html_safe %>
-    <%= link_to t("stream.read_all").html_safe, post_url(page), :class => post_link_class(page) + ' more_link', :title => page.title , :remote => open_in_remote?(page), :'data-type' =>'script' %>
+    <%= link_to t("stream.read_all").html_safe, post_url(page), :class => post_link_class(page) + ' more_link', :title => page.title , :'data-type' =>'script' %>
     <p class="item-metadata"><%= t("stream.posted_ago", :when => time_ago_in_words(page.publish_at)) %></p>
     <p class="tags">
       <%= render :partial => 'tag', :collection => page.tags(I18n.locale) %>

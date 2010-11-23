@@ -371,6 +371,7 @@ it:
     posted_ago: "Pubblicato %{when} fa"
     read_all: "Leggi Tutto"
     tags_menu: Argomenti
+    back: « Indietro
   user:
     model:
       birthday: "Anno di nascita"

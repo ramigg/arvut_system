@@ -5,6 +5,8 @@ Simulator::Application.configure do
   
   #site prefix
   config.site_prefix = ''
+  config.open_stream_in_popup = false
+  config.open_blog_in_popup = false
 
   config.log_level = :info
   # In the development environment your application's code is reloaded on

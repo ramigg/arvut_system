@@ -20,11 +20,11 @@ if question.other
   fields = "#{builder.object_name}".gsub(/[\[\]]/, '_').gsub(/__/, '_').gsub(/_*$/, '') + 'value_ids_'
 
   content_for :validation_scripts do
-    <<-JS
-    $("##{other_field}").click(function(){
-      $("##{text_field},##{fields}").valid();
+    "
+    $('##{other_field}').click(function(){
+      $('##{text_field},##{fields}').valid();
     });
-    JS
+    "
   end
 
   content_for :rules do

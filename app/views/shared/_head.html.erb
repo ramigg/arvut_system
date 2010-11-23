@@ -20,23 +20,26 @@
 
 <script type="text/javascript">
   var SITE_URL = '<%= request.protocol + request.host_with_port + Rails.configuration.site_prefix %>';
+	var LANGS = '<%= (Language.all.map{|e|e.locale} rescue []).join('|') %>';
 </script>
 
-<%= javascript_include_tag 'jquery-1.4.3.min',
+<%=  
+	list =
+	['jquery-1.4.3.min',
   'rails',
   'application',
-  'jquery-ui-1.8.4.custom.min', "jquery.ui.datepicker-#{I18n.locale}.js",
+  'jquery-ui-1.8.4.custom.min', 
+	"jquery.ui.datepicker-#{I18n.locale}.js",
   '/flowplayer/flowplayer-3.2.4.min.js',
-  'jquery.colorbox-min.js',
   'autocomplete-rails.js',
   'jquery.uniform.min.js',
   'jquery-validation',
   'jquery.ba-url.min.js',
   #'countdown',
-  'events'
+  'events']                
+	list << 'jquery.colorbox-min.js' if Rails.configuration.open_stream_in_popup || Rails.configuration.open_blog_in_popup
+	list << "jquery.ui.datepicker-#{I18n.locale}.js" if current_user && current_user.is_restricted?
 
-  #if request.env['HTTP_USER_AGENT'].match(/MSIE/)
-      #javascript_include_tag 'eCSStender'
-  #end
+  javascript_include_tag list
 %>
 <%= csrf_meta_tag %>

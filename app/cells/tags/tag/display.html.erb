@@ -1,5 +1,5 @@
-<li class="read">
+<li id="menu-tag<%= @tag %>" class="read">
 	<h5>
-  	<%= link_to @tag, stream_path(:stream_filter => 'tag', :modifier => @tag), :remote => true %>
+  	<%= link_to @tag, stream_path(:stream_filter => 'tag', :modifier => @tag), :class => 'data-remote' %>
 	</h5>
 </li>

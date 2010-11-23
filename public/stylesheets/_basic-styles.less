@@ -542,7 +542,25 @@ body{
 }
 .throbber{
 	padding-right: 35px;
-	background: url(../images/throbber.gif) no-repeat 99% 0 !important;
+	//background: url(../images/throbber.gif) no-repeat 99% 0 !important;
+	display:block !important;
+	
+}
+#throbber{
+	position:fixed;
+	top:0;
+	left:50%;
+	z-index:100;
+	display:none;
+	background:#ffcc00;
+	padding:4px 8px;
+	font-weight:bold;
+	-webkit-border-radius: 0 0 @radius @radius;
+	-moz-border-radius: 0 0 @radius @radius;
+	border-radius: 0 0 @radius @radius;
+	behavior: url(PIE.htc);
+	-moz-background-clip: padding;
+	-webkit-background-clip: padding;
 }
 
 .shadow-class{

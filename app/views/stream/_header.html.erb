@@ -1,6 +1,7 @@
+<div id="throbber" >Loading...</div>
 <div class="header">
   <div class="logo">
-    <%= link_to image_tag("/images/logo-#{I18n.locale}.png"), "/internet/#{I18n.locale}/", :title => t('home.views.site_name') , :alt => nil -%>
+    <%= link_to image_tag("/images/logo-#{I18n.locale}.png"), :root, :title => t('home.views.site_name') , :alt => nil -%>
     <h1><%= t('home.views.site_name') %></h1>
   </div>
   <form action="#" method="get" accept-charset="utf-8">
@@ -20,11 +21,11 @@
     </p>
   </form>
   <div class="header-menu">
-    <%= link_to t("stream.home"), stream_path(:stream_filter => 'all') %>
+    <%= link_to t("stream.home"), :root %>
     <%- if user_signed_in? -%>
       |
-      <%= link_to t('home.views.edit_profile'), edit_profile_url(current_user), :remote => true %> |
-      <%- if current_user.user_has_access_to_admin? -%>
+      <%= link_to t('home.views.edit_profile'), edit_profile_url(current_user), :class => 'data-remote' %> |
+      <%- if current_user.is_restricted? -%>
         <%= link_to t('home.views.admin'), admin_panel_url %> |
       <%- end -%>
       <%= link_to t('views.signout'), destroy_user_session_path, :title => t('views.signout') %>

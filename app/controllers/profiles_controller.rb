@@ -33,7 +33,7 @@ class ProfilesController < ApplicationController
     else
       @klass = 'error'
     end
-    respond_with(@profile, :location => :home)
+    respond_with(@profile, :location => :root)
   end
 
   def region_ids

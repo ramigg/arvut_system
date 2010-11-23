@@ -1,13 +1,9 @@
 <% if Rails.configuration.open_stream_in_popup %>
 	<% if @passed_validation %>
-		<script type="text/javascript">
 			parent.$("#page-<%= @page.id%> .assignment-icon-new").removeClass('assignment-icon-new').addClass('assignment-icon-old');
 	    parent.$.colorbox.close();
-		</script>
 	<% else; render :file => 'pages/show'; end %>
 <% elsif @passed_validation %>
-	<script type="text/javascript">
 		history.back();
-	</script>
 <% end %>
   

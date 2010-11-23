@@ -1,2 +1,3 @@
-$(".column-content").addClass('content-wide').html("<%= escape_javascript(render('page'))%>");
+$(".column-content").removeClass('content-wide');
+$(".column-content").html("<%= escape_javascript(render('page'))%>");
 $(".column-widgets").show();

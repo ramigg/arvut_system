@@ -6,9 +6,9 @@
     current = name_downcase == params[:stream_filter] ? 'current' : ''
     name = t("stream.#{name_downcase}")
     -%>
-    <li class="<%= style %> <%= current %>"><h5 class="<%= icon %>-icon icon">
+    <li id="menu-<%= name_downcase %>" class="<%= style %> <%= current %>"><h5 class="<%= icon %>-icon icon">
         <%= link_to "#{name}#{count}".html_safe,
-          anchor_path(stream_path(:stream_filter => name_downcase)), :remote => true %>
+          stream_path(:stream_filter => name_downcase), :class => 'data-remote' %>
         <span></span>
       </h5></li>
   <%- end -%>

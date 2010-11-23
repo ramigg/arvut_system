@@ -4,6 +4,8 @@ Simulator::Application.configure do
 
   #site prefix
   config.site_prefix = '/internet'
+  config.open_stream_in_popup = false
+  config.open_blog_in_popup = false
 
   # The production environment is meant for finished, "live" apps.
   # Code is not reloaded between requests

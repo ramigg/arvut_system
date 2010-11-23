@@ -163,29 +163,26 @@ function new_item(){
 }
 
 $(function () {
-    var toggleLoading = function(){
-        $(this).toggleClass('throbber');
-    };
 
-    $('a[data-remote=true]')
-    .live('ajax:loading', toggleLoading)
-    .live('ajax:complete', toggleLoading);
-
-    // Side-menu links
-    $('.side_menu a[data-remote=true]')
+		$("#throbber").ajaxStart(function(){
+		   $(this).addClass('throbber');
+		 });
+		
+		$("#throbber").ajaxComplete(function(){
+		   $(this).removeClass('throbber');
+		 });
+		
+    // link parser for ajax pages history
+    $('a.data-remote')
     .live('click', function (e) {
-        e.preventDefault();
+				e.preventDefault();
         $('li.current').removeClass('current');
         $(this).parent().parent().addClass('current');
+				var pattern = new RegExp('/(' + LANGS + ')(.+)')
+        var href = this.href.match(pattern)[2];
         $.setFragment({
-            p: $.queryString(this.href).p
+            p: href
         });
-        var res = this.href.match(/(.+)\?p=(.+)/);
-        if (res != null){
-            $.getScript(res[1] + "/" + res[2]);
-        } else {
-            $.getScript(this.href);
-        }
         return false;
     });
     $.fragmentChange(true);
@@ -194,10 +191,10 @@ $(function () {
         if (res != null){
             path = res[1] + "/" + res[2];
             path = path.replace(/%2F/g, '/');
+						$.getScript(path);
         } else {
-            $.getScript(path);
+            $.getScript(document.location.href);
         }
-        $.getScript(path);
     });
     if ($.fragment().p) {
         $(document).trigger("fragmentChange.page");

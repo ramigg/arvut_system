@@ -354,6 +354,7 @@ es:
     posted_ago: "Publicado %{when} hace "
     read_all: "Leer todo »"
     tags_menu: Temas
+    back: « Volver
   profile:
     views:
       change_password: "cambiar contraseña"

@@ -1,14 +1,4 @@
 module ApplicationHelper
-
-  LANGS = (Language.all.map{|e|e.locale} rescue []).join('|')
-
-  def anchor_path(path)
-    path =~ /(.*)\/(#{LANGS})\/(.+)/
-    prefix = $1
-    lang = $2
-    filter = $3
-    "#{prefix}/#{lang}?p=#{filter}"
-  end
   
   def link_to_remove_fields(name, f)
     is_new_record = f.object.new_record?
@@ -161,14 +151,15 @@ module ApplicationHelper
   end
   
   def post_link_class(page)
-    if page.page_type == 'event'
-      ''
+    if Rails.configuration.open_stream_in_popup
+      if page.page_type == 'event'
+        ''
+      else
+        'in-iframe'
+      end
     else
-      'in-iframe'
+      'data-remote' # will be parsed by javascript for bookmark URL's
     end
   end
   
-  def open_in_remote?(page)
-    page.page_type == 'event'
-  end
 end

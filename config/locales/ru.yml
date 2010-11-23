@@ -211,6 +211,7 @@ ru:
     posted_ago: "Размещено %{when} назад"
     read_all: "Читать все »"
     tags_menu: Темы
+    back: « Назад
   user:
     model:
       gender: Пол

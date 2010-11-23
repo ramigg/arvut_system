@@ -364,6 +364,7 @@ de:
     posted_ago: "vor %{when} Gepostet"
     read_all: "Alles Lesen »"
     tags_menu: Themen
+    back: « Zurück
   questionnaire_answer:
     controller:
       already_answered: "Du hast diesen Fragebogen bereits beantwortet"

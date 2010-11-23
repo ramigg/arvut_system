@@ -26,7 +26,7 @@ class PagesController < ApplicationController
     if @page.save(:validate => false)
       flash[:notice] = I18n.t 'pages.update.was_successful'
       # close popup
-      @close_popup = true
+      @passed_validation = true
       PageUserflag.add_flag(@page, current_user, :is_answered) if @page.is_assignment?
     else
       # Failure
