@@ -163,6 +163,12 @@ function new_item(){
 }
 
 $(function () {
+    var pattern = new RegExp('http://(.+)/(' + LANGS + ')/([^#]+)');
+    var tail = document.location.href.match(pattern);
+    if (tail != null) {
+        var path = tail[3].replace(/%2F/g, '/');
+        document.location.href = 'http://' + tail[1] + '/' + tail[2] + '#p=' + path;
+    }
 
     $("#throbber").ajaxStart(function(){
         $(this).addClass('throbber');
@@ -189,14 +195,16 @@ $(function () {
     $(document).bind("fragmentChange.page", function () {
         var res = document.location.href.match(/(.+)#p=(.+)/);
         if (res != null){
+            path = res[1] + "/" + res[2];
+            path = path.replace(/%2F/g, '/');
+            
             // Keep only http://.../<lang> part from res[1]
             var pattern = new RegExp('(.+)/(' + LANGS + ')/(.+)');
             var tail = res[1].match(pattern);
             if (tail != null) {
-                document.location.href = tail[1] + '/' + tail[2];
+                path = res[2].replace(/%2F/g, '/');
+                document.location.href = tail[1] + '/' + tail[2] + '#p=' + path;
             }
-            path = res[1] + "/" + res[2];
-            path = path.replace(/%2F/g, '/');
             $.getScript(path);
         } else {
             $.getScript(document.location.href);
