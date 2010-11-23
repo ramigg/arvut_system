@@ -469,7 +469,16 @@ body{
 .content-submenu{
 	height:25px;
 	line-height:25px;
+        padding:0 10px;
 	.font-small;
+        position: relative;
+        .back{
+            position: absolute;
+            top: 0;
+            left: 10px;
+            font-size:@font-basic-size - 1px;
+            font-weight:bold;
+        }
 }
 .footer{
 	.clear;
@@ -551,7 +560,24 @@ body{
 }
 .throbber{
 	padding-left: 35px;
-	background: url(../images/throbber.gif) no-repeat 1% 0 !important;
+	//background: url(../images/throbber.gif) no-repeat 1% 0 !important;
+	display:block !important;
+}
+#throbber{
+	position:fixed;
+	top:0;
+	left:50%;
+	z-index:100;
+	display:none;
+	background:#ffcc00;
+	padding:4px 8px;
+	font-weight:bold;
+	-webkit-border-radius: 0 0 @radius @radius;
+	-moz-border-radius: 0 0 @radius @radius;
+	border-radius: 0 0 @radius @radius;
+	behavior: url(PIE.htc);
+	-moz-background-clip: padding;
+	-webkit-background-clip: padding;
 }
 
 .shadow-class{
