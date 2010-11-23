@@ -4,6 +4,7 @@ class BlogWidget < Apotomo::Widget
 
   def display
     @feed = FeedReader::Basic.new(I18n.t('home.views.feed')).feed rescue nil
+    @link_class = ::Rails.configuration.open_blog_in_popup ? 'in-wide-iframe' : ''
     render if @feed
   end
 
