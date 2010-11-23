@@ -163,13 +163,14 @@ function new_item(){
 }
 
 $(function () {
-    var pattern = new RegExp('http://(.+)/(' + LANGS + ')/([^#]+)');
-    var tail = document.location.href.match(pattern);
-    if (tail != null) {
-        var path = tail[3].replace(/%2F/g, '/');
-        document.location.href = 'http://' + tail[1] + '/' + tail[2] + '#p=' + path;
+    var update_link = document.location.href.match(/stream|event|page|profile/);
+    if (update_link != null) {
+        var pattern = new RegExp('http://(.+)/(' + LANGS + ')/([^#]+)');
+        var tail = document.location.href.match(pattern);
+        if (tail != null) {
+            document.location.href = 'http://' + tail[1] + '/' + tail[2] + '#' + tail[3];
+        }
     }
-
     $("#throbber").ajaxStart(function(){
         $(this).addClass('throbber');
     });
@@ -182,37 +183,32 @@ $(function () {
     $('a.data-remote')
     .live('click', function (e) {
         e.preventDefault();
-        $('li.current').removeClass('current');
-        $(this).parent().parent().addClass('current');
-        var pattern = new RegExp('/(' + LANGS + ')(.+)');
-        var href = this.href.match(pattern)[2];
-        $.setFragment({
-            p: href
-        });
+        var pattern = new RegExp('/(' + LANGS + ')/(.+)');
+        var href = this.href.match(pattern);
+        if (href != null) {
+            $.bbq.pushState('#' + href[2]);
+        }
         return false;
     });
-    $.fragmentChange(true);
-    $(document).bind("fragmentChange.page", function () {
-        var res = document.location.href.match(/(.+)#p=(.+)/);
-        if (res != null){
-            path = res[1] + "/" + res[2];
-            path = path.replace(/%2F/g, '/');
-            
-            // Keep only http://.../<lang> part from res[1]
-            var pattern = new RegExp('(.+)/(' + LANGS + ')/(.+)');
-            var tail = res[1].match(pattern);
-            if (tail != null) {
-                path = res[2].replace(/%2F/g, '/');
-                document.location.href = tail[1] + '/' + tail[2] + '#p=' + path;
+    $(window).bind("hashchange", function (e) {
+        var hash_str = e.fragment;
+        if (hash_str != null){
+            // Keep only http://.../<lang> part from href
+            var pattern = new RegExp('(.+)/(' + LANGS + ')/([^#]+)');
+            var tail = document.location.href.match(pattern);
+            if (tail != null && tail[3] != null) {
+                document.location.href = tail[1] + '/' + tail[2] + '/' + hash_str;
             }
-            $.getScript(path);
+            $.getScript(document.location.href.replace(/#/, '/'));
         } else {
+            // Hash was removed
             $.getScript(document.location.href);
         }
     });
-    if ($.fragment().p) {
-        $(document).trigger("fragmentChange.page");
+    if ($.param.fragment()) {
+        $(window).trigger('hashchange');
     }
+
     if (typeof $.fn.colorbox == 'function') {
         $('a.in-iframe').live('click', function(){
             colorbox_iframe(this, '710px', '85%', false);
