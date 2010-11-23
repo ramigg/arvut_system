@@ -1,4 +1,6 @@
-<%= render "shared/breadcrumbs", :page => @page%>
+<% unless Rails.configuration.open_stream_in_popup %>
+	<%= render "shared/breadcrumbs", :page => @page%>
+<% end %>
 <div class="content-stream">
   <div class="edit-stream">
     <h1><%= @page.title %></h1>

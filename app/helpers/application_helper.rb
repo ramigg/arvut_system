@@ -151,12 +151,8 @@ module ApplicationHelper
   end
   
   def post_link_class(page)
-    if Rails.configuration.open_stream_in_popup
-      if page.page_type == 'event'
-        ''
-      else
-        'in-iframe'
-      end
+    if Rails.configuration.open_stream_in_popup && page.page_type != 'event'
+      'in-iframe'
     else
       'data-remote' # will be parsed by javascript for bookmark URL's
     end
