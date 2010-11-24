@@ -1,5 +1,5 @@
 <% if current_user.is_restricted? %>
-  <%= statistics(new_statistic_url, 'stats', 'reg-vs-active', @start, @finish) %>
+  <%= statistics(new_statistic_url, 'stats', 'reg-vs-active', 600, 300, @start, @finish) %>
   <dl id="admin-menu">
     <% if current_user.is_admin? || current_user.is_super_moderator? || current_user.is_moderator? %>
       <dt><%= t('admin.reports.manage_questionnaires') %>:</dt>

@@ -32,8 +32,8 @@ class StatisticsController < ActionController::Metal
       ],
       :target => "##{target}",
       :draw_options => {
-        :width => 420,
-        :height => 300,
+        :width => params[:w] || 420,
+        :height => params[:h] || 300,
         :title => title_text,
         :titleTextStyle => {
           :color => '#2e6e9e',

@@ -25,8 +25,8 @@ module ApplicationHelper
     is_rtl? ? "#{klass}_he" : klass
   end
 
-  def statistics(url, div_id, chart, start = nil, finish = nil)
-    url = "#{url}?target=stats&amp;chart=#{chart}&amp;flash=#{'%i'% Time.now}"
+  def statistics(url, div_id, chart, width, height, start = nil, finish = nil)
+    url = "#{url}?target=stats&amp;chart=#{chart}&amp;flash=#{'%i'% Time.now}&amp;w=#{width}&amp;h=#{height}"
     url += "&amp;start=#{start}" unless start.nil?
     url += "&amp;finish=#{finish}" unless finish.nil?
 
