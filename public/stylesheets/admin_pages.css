@@ -364,9 +364,9 @@ form p{
     background-position: right center;
 }
 .pages-list th .asc {
-    background-image: url(/images/up_arrow.gif);
+    background-image: url(../images/up_arrow.gif);
 }
 
 .pages-list th .desc {
-    background-image: url(/images/down_arrow.gif);
+    background-image: url(../images/down_arrow.gif);
 }
