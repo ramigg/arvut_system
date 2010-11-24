@@ -86,7 +86,7 @@ class Page < ActiveRecord::Base
   def self.filter(page, filter)
     return scoped unless filter
 
-    if filter[:status] != ''
+    if filter[:status] && filter[:status] != ''
       page = case filter[:status]
       when 'FUTURE'
         page.where(:status => 'PUBLISHED', :publish_at.gt => Time.zone.now)
@@ -94,8 +94,8 @@ class Page < ActiveRecord::Base
         page.where(:status => filter[:status])
       end
     end
-    page = page.where(:page_type => filter[:page_type]) if filter[:page_type] != ''
-    page = page.where(:author_id => filter[:author]) if filter[:author] != ''
+    page = page.where(:page_type => filter[:page_type]) if filter[:page_type] && filter[:page_type] != ''
+    page = page.where(:author_id => filter[:author]) if filter[:author] && filter[:author] != ''
     page
   end
 
