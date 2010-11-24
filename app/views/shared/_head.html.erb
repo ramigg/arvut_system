@@ -41,5 +41,9 @@
 	list << "jquery.ui.datepicker-#{I18n.locale}.js" if current_user && current_user.is_restricted?
 
   javascript_include_tag list
+
 %>
+
+<%= Statistics::Basic.script %>
+
 <%= csrf_meta_tag %>
