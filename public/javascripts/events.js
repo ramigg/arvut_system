@@ -253,6 +253,7 @@
         <param value="#000000" name="DisplayBackColor"/> \
         <param value="#ffffff" name="DisplayForeColor"/> \
         <param value="false" name="balance"/> \
+        <param value="false" name="enableContextMenu"/> \
         </object>',
         objectMSIE: '<object classid="clsid:6BF52A52-394A-11D3-B153-00C04F79FAA6" \
         style="background-color:#000000" id="player" name="player" type="application/x-oleobject" \
@@ -263,6 +264,7 @@
         <param name="showDisplay" value="1" /><param name="transparentAtStart" value="0" />\
         <param name="ShowControls" value="1" /><param name="ShowStatusBar" value="1" />\
         <param name="ClickToPlay" value="0" /><param name="bgcolor" value="#000000" />\
+        <param name="enableContextMenu" value="0" />\
         <param name="windowlessVideo" value="1" /><param name="balance" value="0" />',
         draw_player: function(url){
             if (url == null) return;
