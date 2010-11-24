@@ -24,7 +24,8 @@
 
     <%= csrf_meta_tag %>
 
-    <%= javascript_include_tag :ckeditor %>
+    <%= javascript_include_tag :ckeditor, '/ckfinder/ckfinder' %>
+
     <% if is_rtl? %>
       <%= stylesheet_link_tag 'tag-it-rtl' %>
       <%= stylesheet_link_tag 'page-plugins/rtl/screen' %>
