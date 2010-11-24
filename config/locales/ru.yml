@@ -240,6 +240,10 @@ ru:
 
   admin:
     pages:
+      all: Все
+      only_you: Только вы
+      by_author: По автору
+      reset: Очистить форму
       actions: Действия
       add_answer: "Добавить ответ"
       add_new: "Добавить новое"
@@ -269,7 +273,7 @@ ru:
       event: Событие
       events: События
       featured_settings: "Используемые настройки"
-      filter: Фильтр
+      filter: Фильтровать
       freetext: "Свободный текст"
       future_posts: "Будущие посты"
       help: Помощь
@@ -301,7 +305,7 @@ ru:
       publish: Опубликовать
       publish_at: "Опубликовать в"
       publish_date: "Дата публикации"
-      published: Опубликовано
+      published: Опубликованные
       question: Вопрос
       radio: Радио
       remove: Удалить
@@ -313,7 +317,7 @@ ru:
       select: выбрать
       select_language: Выбрать язык
       set_as_draft: "Определить как черновик"
-      show_on_page: Показать %{count} постов
+      show_on_page: Показать постов &#58; %{count}
       sorting_and_deleting: "Сортировка и Удаление"
       statistics: Статистика
       status: Статус

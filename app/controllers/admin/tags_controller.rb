@@ -9,7 +9,7 @@ class Admin::TagsController < ApplicationController
     # Update number of items to show on page (if supplied)
     Page.per_page = params[:per_page].to_i if params[:per_page]
 
-    @pages = Page.get_my_pages current_user, params[:page]
+    @pages = Page.get_my_pages :user => current_user, :page_no => params[:page]
   end
 
   def new

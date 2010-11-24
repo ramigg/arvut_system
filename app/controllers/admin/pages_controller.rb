@@ -5,12 +5,22 @@ class Admin::PagesController < ApplicationController
   before_filter :check_if_restricted
   layout 'admin_pages'
 
+  helper_method :sort_column, :sort_direction
+
   # Display all my tasks
   def index
     # Update number of items to show on page (if supplied)
     Page.per_page = params[:per_page].to_i if params[:per_page]
+    Page.per_page = 10 if Page.per_page <= 0
 
-    @pages = Page.get_my_pages current_user, params[:page], I18n.locale
+    @authors = Page.select('DISTINCT(author_id)')
+
+    @pages = Page.get_my_pages :user => current_user,
+      :page_no => params[:page] || 1,
+      :locale => I18n.locale,
+      :sort => ("#{sort_column} #{sort_direction}"),
+      :search => params[:search],
+      :filter => {:status => params[:status], :page_type => params[:page_type], :author => params[:author]}
   end
 
   def new
@@ -78,6 +88,14 @@ class Admin::PagesController < ApplicationController
   end
 
   private
+
+  def sort_column
+    Page.column_names.include?(params[:sort]) ?  params[:sort] : 'updated_at DESC, publish_at DESC'
+  end
+
+  def sort_direction
+    %w[asc desc ].include?(params[:direction]) ? params[:direction] : ''
+  end
 
   def set_page_status(object, options)
 

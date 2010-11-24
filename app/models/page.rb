@@ -73,20 +73,45 @@ class Page < ActiveRecord::Base
     (by_page_type(page_type, language_id, user_reg_date) - read_pages_by_page_type(page_type, language_id, user_reg_date, user_id))
   end
 
-  # Returns pages for the given user
-  def self.get_my_pages(user, pageno, locale = :en )
-    language_id = Language.get_id_by_locale(locale)
-    conditions = case
-    when user.is_admin?
-      ['language_id = ?', language_id]
-    when user.is_super_moderator?
-      ['language_id = ?', language_id]
+  def self.search(search)
+    if search
+      search = "%#{search}%"
+      where((:title.matches % search) | (:description.matches % search) |
+        (:message_body.matches % search)  | (:subtitle.matches % search))
     else
-      ['author_id = ? AND language_id = ?', user, language_id]
+      scoped
     end
-    paginate :page => pageno,
-      :order => ['updated_at DESC, publish_at DESC'],
-      :conditions => conditions
+  end
+
+  def self.filter(page, filter)
+    return scoped unless filter
+
+    if filter[:status] != ''
+      page = case filter[:status]
+      when 'FUTURE'
+        page.where(:status => 'PUBLISHED', :publish_at.gt => Time.zone.now)
+      else
+        page.where(:status => filter[:status])
+      end
+    end
+    page = page.where(:page_type => filter[:page_type]) if filter[:page_type] != ''
+    page = page.where(:author_id => filter[:author]) if filter[:author] != ''
+    page
+  end
+
+  # Returns pages for the given user
+  def self.get_my_pages(options)
+    user = options[:user]
+    sort = options[:sort] || 'updated_at DESC, publish_at DESC'
+    locale = options[:locale] || :en
+    page = options[:page_no] || 1
+
+    p = Page.where(:language_id => Language.get_id_by_locale(locale))
+    p = p.where(:author_id => user) unless user.is_admin? || user.is_super_moderator?
+    p = p.search(options[:search]) if options[:search]
+    p = p.filter(p, options[:filter]) if options[:filter]
+
+    p.order(sort).paginate :page => page, :per_page => Page.per_page
   end
   
   def tags(locale)

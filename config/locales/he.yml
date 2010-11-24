@@ -44,6 +44,7 @@ he:
       user: אימייל
   admin:
     pages:
+      reset: נקה את הטופס
       success: "הפוסט נוצר בהצלחה"
       update: "הפוסט עודכן בהצלחה"
       destroy: "הפוסט נמחק מהמערכת"

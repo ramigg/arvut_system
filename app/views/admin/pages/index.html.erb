@@ -26,31 +26,35 @@
   <a href=""><%= t("admin.pages.content") %></a> | <a href=""><%= t("admin.pages.permissions") %></a> | <a href="#"><%= t("admin.pages.statistics") %></a> | <a href="#"><%= t("admin.pages.help") %></a>
 </div-->
 <hr/>
-<!--form action="" method="post" class="inline">
-  <div class="span-8 append-16 last">
-    <input type="text" class="text span-6" id="q" name="q" value=""/>
-    <input type="submit" value="<%= t("admin.pages.search") %>" class="button"/>
+<%= form_tag admin_pages_url(:locale => I18n.locale), :method => 'get', :class => 'inline', :id => 'search-form' do %>
+  <div class="span-12 append-12 last">
+    <%= hidden_field_tag :direction, params[:direction] %>
+    <%= hidden_field_tag :sort, params[:sort] %>
+    <%= hidden_field_tag :page_no, params[:page_no] %>
+    <%= hidden_field_tag :per_page, params[:per_page] %>
+    <%= text_field_tag :search, params[:search], :class =>'text span-6' %>
+    <%= submit_tag t("admin.pages.search"), :name => nil, :class => 'button-small-main' %>
+    <%= submit_tag t("admin.pages.reset"), :name => nil, :class => 'button-small-cancel', :onclick => 'reset_form();' %>
   </div>
-</form-->
-<!--form action="" method="post" class="inline">
   <div class="span-24 last">
-    <label for="a1"><%= t("admin.pages.status") %></label>
-    <select id="a1" name="a1" >
-      <option value="0"><%= t("admin.pages.all_posts") %></option>
-      <option value="1"><%= t("admin.pages.drafts") %></option>
-      <option value="2"><%= t("admin.pages.published") %></option>
-      <option value="3"><%= t("admin.pages.future_posts") %></option>
+    <label for="status"><%= t("admin.pages.status") %></label>
+    <select id="status" name="status" >
+      <option value="" <%= 'selected="selected"' if params[:status] == '' %>><%= t("admin.pages.all_posts") %></option>
+      <option value="DRAFT" <%= 'selected="selected"' if params[:status] == 'DRAFT' %>><%= t("admin.pages.drafts") %></option>
+      <option value="PUBLISHED" <%= 'selected="selected"' if params[:status] == 'PUBLISHED' %>><%= t("admin.pages.published") %></option>
+      <option value="FUTURE" <%= 'selected="selected"' if params[:status] == 'FUTURE' %>><%= t("admin.pages.future_posts") %></option>
     </select>
     &nbsp;&nbsp;
-    <label for="a2"><%= t("admin.pages.type") %></label>
-    <select id="a2" name="a2" >
-      <option value="0"><%= t("admin.pages.all_posts") %></option>
-      <option value="1"><%= t("admin.pages.assignments") %></option>
-      <option value="2"><%= t("admin.pages.events") %></option>
-      <option value="3"><%= t("admin.pages.messages") %></option>
+    <label for="page_type"><%= t("admin.pages.type") %></label>
+    <select id="page_type" name="page_type" >
+      <option value="" <%= 'selected="selected"' if params[:page_type] == '' %>><%= t("admin.pages.all_posts") %></option>
+      <option value="assignment" <%= 'selected="selected"' if params[:page_type] == 'assignment' %>><%= t("admin.pages.assignments") %></option>
+      <option value="event" <%= 'selected="selected"' if params[:page_type] == 'event' %>><%= t("admin.pages.events") %></option>
+      <option value="article" <%= 'selected="selected"' if params[:page_type] == 'article' %>><%= t("admin.pages.content") %></option>
+      <option value="message" <%= 'selected="selected"' if params[:page_type] == 'message' %>><%= t("admin.pages.messages") %></option>
     </select>
     &nbsp;&nbsp;
-    <label for="a3"><%= t("admin.pages.permissions") %></label>
+    <!--label for="a3"><%= t("admin.pages.permissions") %></label>
     <select id="a3" name="a3" >
       <option value="0">for All Users</option>
       <optgroup label="by Gender">
@@ -74,57 +78,58 @@
       </optgroup>
     </select>
     &nbsp;&nbsp;
-    <label for="a4">Author</label>
-    <select id="a4" name="a4" >
-      <option value="0">by All Users</option>
-      <option value="1">by You Only</option>
+    -->
+    <label for="author"><%= t("admin.pages.by_author") %></label>
+    <select id="author" name="author" >
+      <option value="" <%= 'selected="selected"' if params[:author] == '' %>><%= t("admin.pages.all") %></option>
+      <option value="<%= current_user.id %>" <%= 'selected="selected"' if params[:author] == current_user.id.to_s %>><%= t("admin.pages.only_you") %></option>
       <optgroup label="--------">
-        <option value="2">by User1</option>
-        <option value="3">by User2</option>
-        <option value="4">by User3</option>
-        <option value="5">by User4</option>
-        <option value="6">by User5</option>
+        <%- @authors.all.each {|a| -%>
+          <option value="<%= a.author_id %>" <%= 'selected="selected"' if params[:author] == a.author_id.to_s && a.author_id != current_user.id %>><%= User.find(a.author_id).first_name %> <%= User.find(a.author_id).last_name %></option>
+        <%- } -%>
       </optgroup>
     </select>
-    <input type="submit" value="<%= t("admin.pages.filter") %>" class="button"/>
+    <%= submit_tag t("admin.pages.filter"), :name => nil, :class => 'button-small-main' %>
   </div>
-</form-->
-<div class="span-24 last" style="line-height:1px;">
-  <!--form action="" method="post" class="inline">
-    <div>
-      <select id="a5" name="a5" >
-        <option value="0"><%= t("admin.pages.bulk_action") %></option>
-        <option value="1"><%= t("admin.pages.delete") %></option>
-        <option value="2"><%= t("admin.pages.set_as_draft") %></option>
-        <option value="3"><%= t("admin.pages.publish") %></option>
-      </select>
-      <input type="submit" value="submit" class="button"/>
-    </div>
-  </form-->
-  &nbsp;&nbsp;
-  <%= form_tag(admin_pages_url(:locale => I18n.locale), :method => :get) do %>
+  <div class="span-24 last" style="line-height:1px; clear: both;">
+    <!--form action="" method="post" class="inline">
+      <div>
+        <select id="a5" name="a5" >
+          <option value="0"><%= t("admin.pages.bulk_action") %></option>
+          <option value="1"><%= t("admin.pages.delete") %></option>
+          <option value="2"><%= t("admin.pages.set_as_draft") %></option>
+          <option value="3"><%= t("admin.pages.publish") %></option>
+        </select>
+        <input type="submit" value="submit" class="button"/>
+      </div>
+    </form-->
+    &nbsp;&nbsp;
     <div>
       <% count = select_tag 'per_page',
         options_for_select(Page.show_on_page, Page.per_page),
         { :onchange => "this.form.submit();"} %>
       <%= t("admin.pages.show_on_page", :count => count).html_safe %>
     </div>
-  <% end %>
-</div>
+  </div>
+<%- end -%>
 
 <hr/>
+<br/>
 
+<div class="prepend-8 append-8 span-8 large">
+  <div class="span-8"><%= will_paginate @pages %></div>
+</div>
 <div class="span-24 last">
-  <table style="border:0 none;border-collapse: collapse;border-spacing: 0;">
+  <table style="border:0 none;border-collapse: collapse;border-spacing: 0;" class="pages-list">
     <caption><%= pagination_info @pages %></caption>
     <thead>
       <tr>
         <th class="span-1"><input type="checkbox" name="selectall" value="select" /></th>
-        <th class="span-2"><a href="#"><%= t("admin.pages.status") %></a></th>
-        <th class="span-10"><a href="#"><%= t("admin.pages.title") %></a></th>
-        <th class="span-2"><a href="#"><%= t("admin.pages.type") %></a></th>
-        <th class="span-3"><a href="#"><%= t("admin.pages.updated_at") %></a></th>
-        <th class="span-3"><a href="#"><%= t("admin.pages.publish_date") %></a></th>
+        <th class="span-2"><%= sortable_admin t("admin.pages.status"), 'status' %></th>
+        <th class="span-10"><%= sortable_admin t("admin.pages.title"), 'title' %></th>
+        <th class="span-2"><%= sortable_admin t("admin.pages.type"), 'page_type' %></th>
+        <th class="span-3"><%= sortable_admin t("admin.pages.updated_at"), 'updated_at' %></th>
+        <th class="span-3"><%= sortable_admin t("admin.pages.publish_date"), 'publish_at' %></th>
         <th class="span-3 last" colspan="2"><%= t("admin.pages.actions") %></th>
       </tr>
     </thead>

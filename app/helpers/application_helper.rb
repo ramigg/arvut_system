@@ -157,5 +157,13 @@ module ApplicationHelper
       'data-remote' # will be parsed by javascript for bookmark URL's
     end
   end
+
+  def sortable_admin(title, column)
+    css_class = (column == sort_column) ? "current #{sort_direction}" : nil
+    direction = (column == sort_column && sort_direction == 'asc') ? 'desc' : 'asc'
+    page_no = params[:page_no] || 1
+    per_page = params[:per_page] || Page.per_page
+    link_to title, params.merge(:sort => column, :direction => direction, :per_page => per_page, :page_no => page_no), {:class => css_class}
+  end
   
 end
