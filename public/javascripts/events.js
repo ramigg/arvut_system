@@ -235,7 +235,7 @@
             return false;
         },
 
-        object: '<object width="400" height="305" name="player" id="player" type="video/x-ms-wmv" data="URL_PATTERN"> \
+        object: '<object width="320" height="305" name="player" id="player" type="video/x-ms-wmv" data="URL_PATTERN"> \
         <param value="URL_PATTERN" name="src"/> \
         <param value="true" name="autostart"/> \
         <param value="true" name="controller"/> \
@@ -257,7 +257,7 @@
         </object>',
         objectMSIE: '<object classid="clsid:6BF52A52-394A-11D3-B153-00C04F79FAA6" \
         style="background-color:#000000" id="player" name="player" type="application/x-oleobject" \
-        width="380" height="288" standby="Loading Windows Media Player components...">\
+        width="320" height="288" standby="Loading Windows Media Player components...">\
         <param name="URL" value="URL_PATTERN" /><param name="AutoStart" value="1" />\
         <param name="AutoPlay" value="1" /><param name="volume" value="50" />\
         <param name="uiMode" value="full" /><param name="animationAtStart" value="1" />\
