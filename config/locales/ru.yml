@@ -528,6 +528,7 @@ ru:
       show_schedule: расписание
       show_sketches: чертежи
       show_support: техподдержку
+      show_separate_window: Разрешить "Отдельное окно"
       successfully_saved: Успешно сохранено!
       stream_management: Управление вещанием
       preset_name: Preset name

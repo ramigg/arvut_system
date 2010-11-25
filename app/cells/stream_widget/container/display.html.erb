@@ -10,8 +10,8 @@
   <%- end -%>
   <div class="player"
   <%- unless current_preset.show_questions || current_preset.show_sketches || current_preset.show_schedule -%>
-       style="float: none; margin: 0 auto;"
-  <%- end -%>
+         style="float: none; margin: 0 auto;"
+       <%- end -%>
        >
     <div id="object"><%= I18n.t('kabtv.kabtv.loading') %></div>
     <form action="#" method="get" accept-charset="utf-8">
@@ -29,7 +29,9 @@
     <form action="#" method="get" accept-charset="utf-8">
       <p><select name="quality" id="quality"></select></p>
     </form>
-    <a class="player-btn" onclick="kabtv.tabs.detach(); return false;"><span class="detach"> </span></a>
+    <%- if current_preset.show_separate_window -%>
+      <a class="player-btn" onclick="kabtv.tabs.detach(); return false;"><span class="detach"> </span></a>
+    <%- end -%>
     <a class="player-btn" onclick="kabtv.tabs.fs(); return false;"><span class="full_screen"> </span></a>
   </div>
   <%- if current_preset.show_questions || current_preset.show_sketches || current_preset.show_schedule -%>
