@@ -16,24 +16,33 @@ $(document).ready(function() {
         firstDOW: 1
     } );
 
-    if ($('.sortlist').length > 0) {
-        $('.sortlist').sortable({
-            containment: 'parent',
-            stop: function(event, ui) {
-                var new_pos = $('.sortlist li').index($(ui.item));
-                var update_class = $(ui.item).attr('class');
-            }
-        });
+    //    if ($('.sortlist').length > 0) {
+    $('.sortlist').sortable({
+        containment: 'parent'
+    });
+    var pos_before;
+    $('.sortlist').live('sortstart', function(event, ui) {
+        pos_before = $('.sortlist li').index(ui.item);
+    });
+    $('.sortlist').live('sortupdate', function(event, ui) {
+        var pos_after = $('.sortlist li').index(ui.item);
+        var li = $($('#container_body > li').get(pos_before)).detach();
+        if (pos_after == 0) {
+            li.insertBefore($('#container_body > li:eq(0)'));
+        } else {
+            li.insertAfter($('#container_body > li:eq(' + (pos_after - 1) + ')'));
+        }
+    });
 		
-        $('.sortlist').disableSelection();
-        $('.sortlist')[0].onselectstart = function () {
-            return false;
-        };
+    $('.sortlist').disableSelection();
+    $('.sortlist')[0].onselectstart = function () {
+        return false;
+    };
 	
-        $('.sortlist .deleteicon').live('click', function() {
-            remove_asset($(this));
-        });
-    }
+    $('.sortlist .deleteicon').live('click', function() {
+        remove_asset($(this));
+    });
+    //    }
     $('#container_body li.asset').each(function(index, element){
         i = index + 1;
         name = $(element).find('legend').html();
@@ -178,11 +187,11 @@ function colorbox_iframe(obj, width, height, innerHeight)
         close: '',
         onComplete:function(){
             $("body").css("overflow", "hidden");
-            //                alert('document will be marked as read');
+        //                alert('document will be marked as read');
         },
         onCleanup:function(){
             $("body").css("overflow", "auto");
-            //                alert('refresh the stream and menu');
+        //                alert('refresh the stream and menu');
         }
     });
 }
