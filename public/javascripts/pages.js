@@ -28,17 +28,19 @@ $(document).ready(function() {
     $('.sortlist').live('sortupdate', function(event, ui) {
         var pos_after = $('.sortlist li').index(ui.item);
         var li = $($('#container_body > li').get(pos_before)).detach();
+        var input = $($('#container_body > input').get(pos_before)).detach();
         if (pos_after == 0) {
             li.insertBefore($('#container_body > li:eq(0)'));
         } else {
             li.insertAfter($('#container_body > li:eq(' + (pos_after - 1) + ')'));
         }
+        input.insertAfter(li);
+        $('#container_body > li input[name*="position"]').each(function(index){
+            $(this).val(index + 1);
+        });
     });
 		
     $('.sortlist').disableSelection();
-    $('.sortlist')[0].onselectstart = function () {
-        return false;
-    };
 	
     $('.sortlist .deleteicon').live('click', function() {
         remove_asset($(this));
