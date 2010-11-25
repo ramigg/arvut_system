@@ -18,7 +18,8 @@ $(document).ready(function() {
 
     //    if ($('.sortlist').length > 0) {
     $('.sortlist').sortable({
-        containment: 'parent'
+        containment: 'parent',
+        tolerance: 'pointer'
     });
     var pos_before;
     $('.sortlist').live('sortstart', function(event, ui) {
