@@ -1,5 +1,5 @@
 <% unless Rails.configuration.open_stream_in_popup %>
-	<%= render "shared/breadcrumbs", :page => @page%>
+  <%= render "shared/breadcrumbs", :page => @page%>
 <% end %>
 <div class="content-stream">
   <div class="edit-stream">
@@ -12,10 +12,14 @@
         <div style="margin: 0; padding: 0; display: inline;">
           <%= f_qa.hidden_field :author_id %>
         </div>
-        <% @page.assets.each_with_index do |asset, index|%>
-          <div class="item">
-            <%= render :partial => "pages/assets/#{asset.resource_type.downcase}", :locals => {:question => asset.resource, :builder => f_qa, :index => index} %>
-          </div>
+        <% if @page.page_type == 'message' %>
+          <%= @page.message_body.html_safe %>
+        <% else %>
+          <% @page.assets.each_with_index do |asset, index|%>
+            <div class="item">
+              <%= render :partial => "pages/assets/#{asset.resource_type.downcase}", :locals => {:question => asset.resource, :builder => f_qa, :index => index} %>
+            </div>
+          <% end %>
         <% end %>
       <% end %>
       <%- if @page.is_assignment? -%>
@@ -30,17 +34,17 @@
 <script type="text/javascript" charset="utf-8">
 </script>
 <%- if @page.is_assignment? -%>
-<script type="text/javascript" charset="utf-8">
+  <script type="text/javascript" charset="utf-8">
     $(document).ready(function(){
       $('.edit-stream form').validate({
         rules: {
-          <%= yield :rules %>
+  <%= yield :rules %>
         },
         errorPlacement: function(error, element) {
           error.appendTo( element.parents("dd").prev() );
         }
       });
-    <%= yield :validation_scripts %>
+  <%= yield :validation_scripts %>
     });
-</script>
+  </script>
 <% end %>
