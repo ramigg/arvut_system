@@ -491,6 +491,11 @@ en:
 
   kabtv:
     admin:
+      show: Show
+      show_questions: questions
+      show_schedule: schedule
+      show_sketches: sketches
+      show_support: support
       successfully_saved: Succesfully saved!
       stream_management: Stream Management
       preset_name: Preset name

@@ -523,11 +523,16 @@ ru:
 
   kabtv:
     admin:
+      show: Показывать
+      show_questions: вопросы
+      show_schedule: расписание
+      show_sketches: чертежи
+      show_support: техподдержку
       successfully_saved: Успешно сохранено!
       stream_management: Управление вещанием
       preset_name: Preset name
       is_active: активный
-      default: # умолчание
+      default: default
       inactive_image: картинка для неактивного канала
       stream_URL: URL вещания
       language: язык

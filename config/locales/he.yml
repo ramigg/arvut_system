@@ -480,6 +480,11 @@ he:
 
   kabtv:
     admin:
+      show: הצג
+      show_questions: שאלות
+      show_schedule: לוח שידורים
+      show_sketches: שרטוטים
+      show_support: תמיכה טכנית
       successfully_saved: נשמר בהצלחה
       stream_management: ניהול סטרימים
       preset_name: שם ה- Preset

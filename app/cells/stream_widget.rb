@@ -134,6 +134,7 @@ module StreamWidget
     responds_to_event :submit_question, :with => :process_submit
     
     def display
+      return unless current_preset.show_questions
       current_user = param :current_user
       @ask = CopyQuestion.new
       @ask.qname = [current_user.first_name, current_user.last_name].join(' ') rescue ''
@@ -209,6 +210,8 @@ module StreamWidget
     include ActionView::Helpers::JavaScriptHelper
 
     def display
+      return unless current_preset.show_schedule
+
       @days = Date::DAYNAMES
       @schedules = {}
       language = Kabtv.map_locale_2_language(I18n.locale)
@@ -255,6 +258,8 @@ module StreamWidget
     responds_to_event :classboard, :with => :display_classboard
     
     def display
+      return unless current_preset.show_sketches
+
       render
     end
 
