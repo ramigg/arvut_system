@@ -172,6 +172,8 @@ $(function () {
         }
     }
     $("#throbber").ajaxStart(function(){
+        if (document.location.href.match(/events/))
+            return;
         $(this).addClass('throbber');
     });
 		
