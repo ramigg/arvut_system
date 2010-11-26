@@ -13,7 +13,7 @@ class StreamController < ApplicationController
 
     @language_id = Language.get_id_by_locale(I18n.locale)
     @is_new = @modifier == 'new'
-    @user_confirmation_date = current_user.confirmed_at
+    @user_confirmation_date = current_user.confirmed_at - 2.day # Give new users something to see...
 
     if @stream_filter == 'tag'
       @stream_header = "Tag: #{@modifier}"

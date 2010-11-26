@@ -19,3 +19,4 @@ public/system/**/*
 userfiles
 lib/yaml2csv/**
 .project
+/*.backup
