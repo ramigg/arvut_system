@@ -173,16 +173,18 @@
         timestamp: 0,
 
         url_for_presets_update: '',
+				poll_tabs: true,
+				poll_support: true,
         pollID: 0,
         pollPresets: function() {
-            $.ajax({
+            kabtv.tabs.poll_tabs && $.ajax({
                 url: kabtv.tabs.url_for_presets_update,
                 data: {
                     timestamp: kabtv.tabs.timestamp
                 },
                 success: kabtv.tabs.init
             });
-            $.ajax({
+            kabtv.tabs.poll_support && $.ajax({
                 url: 'http://live.kab.tv/button.php',
                 data: {
                     image: 'tech',

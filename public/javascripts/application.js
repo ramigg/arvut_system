@@ -171,8 +171,8 @@ $(function () {
             document.location.href = 'http://' + tail[1] + '/' + tail[2] + '#' + tail[3];
         }
     }
-    $("#throbber").ajaxStart(function(){
-        if (document.location.href.match(/events/))
+    $("#throbber").ajaxSend(function(evt, request, settings){
+        if (document.location.href.match(/\#events\//) && settings.url.match(/source=(stream_container|questions|sketches)/))
             return;
         $(this).addClass('throbber');
     });
