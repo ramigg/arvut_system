@@ -1,6 +1,6 @@
 class StreamController < ApplicationController
 
-  respond_to :html, :js
+  respond_to :js, :html
 
   ITEMS_PER_PAGE = 10
   
