@@ -1,6 +1,6 @@
 class StreamController < ApplicationController
 
-  respond_to :js, :html
+  respond_to :html, :js
 
   ITEMS_PER_PAGE = 10
   
@@ -38,6 +38,7 @@ class StreamController < ApplicationController
 
     @profile = current_user
 
+    request.env['HTTP_ACCEPT'] = 'text/javascript, application/javascript, */*; q=0.01' if request.xhr? # IE8 problems
     respond_with @pages
   end
 end
