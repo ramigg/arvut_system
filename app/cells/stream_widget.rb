@@ -82,6 +82,8 @@ module StreamWidget
     
     def display
       @stream_preset = current_preset
+      @show_tabs = @stream_preset.show_questions || @stream_preset.show_sketches || @stream_preset.show_schedule
+      @show_support = @stream_preset.show_support
       @languages = @stream_preset.stream_items.map(&:language_id).uniq
       @current_user = param :current_user
       render
