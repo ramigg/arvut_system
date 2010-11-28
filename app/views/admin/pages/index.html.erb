@@ -1,21 +1,28 @@
 <%- showgrid false -%>
 <h1><%= t("admin.pages.page_administration") %></h1>
-<div class="span-4">
-  <select class="span-4" name="new-items" id="new-items" onchange="new_item()">
+<div class="span-10">
+  <select name="new-items" id="new-items">
     <option value=-1"><%= t('admin.pages.create_new') %></option>
     <option value="<%= new_admin_page_url(:page_type => 'assignment') %>"><%= t("admin.pages.assignment") %></option>
     <option value="<%= new_admin_page_url(:page_type => 'event') %>"><%= t("admin.pages.event") %></option>
     <option value="<%= new_admin_page_url(:page_type => 'article') %>"><%= t("admin.pages.article") %></option>
     <option value="<%= new_admin_page_url(:page_type => 'message') %>"><%= t("admin.pages.message") %></option>
   </select>
+  <select name="new-language" id="new-language">
+    <option value=""><%= t('admin.pages.select_language') %></option>
+    <% Language.all.each { |l| %>
+      <option value="<%= l.locale %>"><%= l.language %></option>
+    <% } %>
+  </select>
+  <%= submit_tag t("admin.pages.create"), :name => nil, :class => 'button-small-main', :onclick => 'new_item(); return false;' %>
 </div>
-<div class="large prepend-14 span-4">
+<div class="large prepend-8 span-4">
   <form action="#" method="get" accept-charset="utf-8">
     <p>
       <select name="languages" id="languages" onchange="change_language()">
-        <option value=-1"><%= t('admin.pages.select_language') %></option>
+        <option value="-1"><%= t('admin.pages.select_language') %></option>
         <% Language.all.each { |l| %>
-          <option value="<%= admin_pages_url(l.locale) %>"><%= l.language %></option>
+          <option value="<%= admin_pages_url(l.locale) %>" <%= 'selected="selected"' if l.locale.to_sym == I18n.locale %>><%= l.language %></option>
         <% } %>
       </select>
     </p>
@@ -33,8 +40,8 @@
     <%= hidden_field_tag :page_no, params[:page_no] %>
     <%= hidden_field_tag :per_page, params[:per_page] %>
     <%= text_field_tag :search, params[:search], :class =>'text span-6' %>
-    <%= submit_tag t("admin.pages.search"), :name => nil, :class => 'button-small-main' %>
-    <%= submit_tag t("admin.pages.reset"), :name => nil, :class => 'button-small-cancel', :onclick => 'reset_form();' %>
+    <%= submit_tag t("admin.pages.search"), :name => nil, :class => 'button-small-main', :onclick => 'store_setup();' %>
+    <%= submit_tag t("admin.pages.reset"), :name => nil, :class => 'button-small-cancel', :onclick => 'reset_form(); return false;' %>
   </div>
   <div class="span-24 last">
     <label for="status"><%= t("admin.pages.status") %></label>
@@ -89,7 +96,7 @@
         <%- } -%>
       </optgroup>
     </select>
-    <%= submit_tag t("admin.pages.filter"), :name => nil, :class => 'button-small-main' %>
+    <%= submit_tag t("admin.pages.filter"), :name => nil, :class => 'button-small-main', :onclick => 'store_setup();' %>
   </div>
   <div class="span-24 last" style="line-height:1px; clear: both;">
     <!--form action="" method="post" class="inline">

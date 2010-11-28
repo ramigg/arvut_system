@@ -240,6 +240,7 @@ ru:
 
   admin:
     pages:
+      create: Создать
       all: Все
       only_you: Только вы
       by_author: По автору

@@ -1,5 +1,16 @@
+function store_setup(){
+    setCookie('st_admin_setup', $("#search-form").formSerialize());
+}
 function reset_form(){
-    $("#search-form #search").val('');
+    $("#search-form").resetForm();
+    delCookie('st_admin_setup');
+    return false;
+}
+function setCookie(name, value, expires) {
+    document.cookie = name + "=" + escape(value) + "; path=/" + ((expires == null) ? "" : "; expires=" + expires.toGMTString());
+}
+function delCookie(name) {
+    document.cookie = name + "=; expires=Thu, 01-Jan-70 00:00:01 GMT" + "; path=/";
 }
 $(document).ready(function() {
 		
@@ -140,7 +151,8 @@ function new_item(){
     if (href == '-1')
         return false;
 
-    location = href;
+    idx = $('#new-language').get(0).selectedIndex;
+    location = href + '&language=' + $('#new-language').get(0).options[idx].value;
     return false;
 }
 

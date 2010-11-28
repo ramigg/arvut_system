@@ -220,6 +220,7 @@ en:
 
   admin:
     pages:
+      create: Create
       by_author: By author
       all: All
       only_you: Only you

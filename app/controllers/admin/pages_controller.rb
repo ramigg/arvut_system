@@ -9,6 +9,13 @@ class Admin::PagesController < ApplicationController
 
   # Display all my tasks
   def index
+    if params.count <= 3 && cookies['st_admin_setup']
+      CGI.parse(cookies['st_admin_setup']).each{|x|
+        name = x[0]
+        value = x[1][0]
+        params[name] = value
+      }
+    end
     # Update number of items to show on page (if supplied)
     Page.per_page = params[:per_page].to_i if params[:per_page]
     Page.per_page = 10 if Page.per_page <= 0
@@ -24,7 +31,7 @@ class Admin::PagesController < ApplicationController
   end
 
   def new
-    lang_id = Language.get_id_by_locale(I18n.locale)
+    lang_id = Language.get_id_by_locale(params[:language] || I18n.locale)
     
     @page = Page.new(:language_id => lang_id, :author_id => current_user.id,
       :status => 'DRAFT', :page_type => params[:page_type])

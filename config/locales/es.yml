@@ -45,6 +45,7 @@ es:
       user: correo-e
   admin:
     pages:
+      create: Crear
       reset: Forma clara
       actions: Acciones
       add_answer: "Añadir respuesta"
