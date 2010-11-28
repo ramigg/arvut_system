@@ -1,6 +1,7 @@
 class StreamController < ApplicationController
 
   respond_to :html, :js
+  before_filter :adjust_format_for_ie8
 
   ITEMS_PER_PAGE = 10
   
@@ -38,7 +39,11 @@ class StreamController < ApplicationController
 
     @profile = current_user
 
-    request.env['HTTP_ACCEPT'] = 'text/javascript, application/javascript, */*; q=0.01' if request.xhr? # IE8 problems
     respond_with @pages
+  end
+
+  private
+  def adjust_format_for_ie8
+    request.format = :js if request.xhr? && request.env['HTTP_ACCEPT'] == '*/*' # IE8 problems
   end
 end
