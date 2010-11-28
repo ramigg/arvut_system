@@ -2,7 +2,7 @@ function store_setup(){
     setCookie('st_admin_setup', $("#search-form").formSerialize());
 }
 function reset_form(){
-    $("#search-form").resetForm();
+    $("#search-form").clearForm();
     delCookie('st_admin_setup');
     return false;
 }
