@@ -1,6 +1,7 @@
 class PagesController < ApplicationController
 
   respond_to :html, :js
+  before_filter :adjust_format_for_ie8
   
   def show
     @page = Page.find(params[:id])
@@ -35,4 +36,8 @@ class PagesController < ApplicationController
     respond_with @page
   end
 
+  private
+  def adjust_format_for_ie8
+    request.format = :js if request.xhr? && request.env['HTTP_ACCEPT'] == '*/*' # IE8 problems
+  end
 end
