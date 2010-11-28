@@ -1,6 +1,7 @@
 class EventsController < ApplicationController
   layout 'stream'
   respond_to :html, :js
+  before_filter :adjust_format_for_ie8
   
   before_filter :set_stream_preset_id
   
@@ -21,4 +22,7 @@ class EventsController < ApplicationController
     session[:stream_preset_id] = @page.stream_preset if @page
   end
 
+  def adjust_format_for_ie8
+    request.format = :js if request.xhr? && request.env['HTTP_ACCEPT'] == '*/*' # IE8 problems
+  end
 end
