@@ -45,6 +45,7 @@ de:
       user: Email
   admin:
     pages:
+      create: Erstellen
       reset: Klare Form
       actions: Aktionen
       add_answer: "Antwort hinzufügen"

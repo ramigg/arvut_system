@@ -45,6 +45,7 @@ it:
       user: email
   admin:
     pages:
+      create: Crea
       reset: Chiara forma
       actions: Azioni
       add_answer: "Aggiungi una Domanda"

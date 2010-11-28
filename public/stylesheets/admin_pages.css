@@ -370,3 +370,6 @@ form p{
 .pages-list th .desc {
     background-image: url(../images/down_arrow.gif);
 }
+form select{
+    padding-right: 0 !important;
+}
