@@ -1,6 +1,7 @@
 class EventsController < ApplicationController
   layout 'stream'
   respond_to :html, :js
+  before_filter :adjust_format_for_ie8
   
   before_filter :set_stream_preset_id
   

@@ -1,6 +1,7 @@
 class PagesController < ApplicationController
 
   respond_to :html, :js
+  before_filter :adjust_format_for_ie8
   
   def show
     @page = Page.find(params[:id])

@@ -65,4 +65,9 @@ module Devise::Controllers::Helpers
     url = session.delete(:"#{scope}_return_to")
     url
   end
+  
+  def adjust_format_for_ie8
+    request.format = :js if request.xhr? && request.env['HTTP_ACCEPT'] == '*/*' # IE8 problems
+  end
+  
 end
