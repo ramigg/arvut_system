@@ -10,7 +10,7 @@
     </ul>
   </div>
 <%- end -%>
-<%= form_for(:admin_users_group, @users_group, :html => {:multipart => true}) do |f| %>
+  <%= form_for([:admin, @users_group], :html => {:multipart => true}) do |f| %>
   <ul>
     <li><%= t('admin.reports.group_name') %> <ul><li><%= f.text_field 'name' %></li></ul></li>
     <li><%= t('admin.reports.file') %> (Format: Name,Family,Email) <ul><li><%= file_field_tag 'file' %></li></ul></li>

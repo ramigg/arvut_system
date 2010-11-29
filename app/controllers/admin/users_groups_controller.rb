@@ -28,7 +28,8 @@ class Admin::UsersGroupsController < ApplicationController
     end
 
     @users_group = UsersGroup.new params[:users_group]
-    
+
+     uploaded_io = uploaded_io.tempfile
     while line = uploaded_io.gets
       items = line.mb_chars.chomp.split(/,/)
       email = items[2].to_s
@@ -47,7 +48,7 @@ class Admin::UsersGroupsController < ApplicationController
       flash[:alert] = 'Failed to load from file'
     end
 
-    respond_with(@users_group, :location => dashboard_url)
+    respond_with(@users_group)
   end
 
 end
