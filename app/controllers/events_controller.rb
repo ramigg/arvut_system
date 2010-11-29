@@ -11,6 +11,7 @@ class EventsController < ApplicationController
   def show
     @page ||= Page.find(params[:id])
     
+    PageUserflag.add_flag(@page, current_user, :is_read)
     respond_with @page
   end
   

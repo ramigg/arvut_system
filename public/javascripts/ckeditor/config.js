@@ -30,7 +30,7 @@ CKEDITOR.editorConfig = function( config )
     ['JustifyLeft','JustifyCenter','JustifyRight'],
     ['Link','Unlink','Image','Flash'],
     //    '/',
-    ['Styles'],
+    // ['Styles'],
     ['Source', 'Maximize', 'ShowBlocks']
     ];
 
@@ -43,8 +43,8 @@ CKEDITOR.editorConfig = function( config )
     ['JustifyRight','JustifyCenter','JustifyLeft'],
     ['Link','Unlink'],
     ['Image','Flash'],
-    ['Source', '-', 'Maximize', 'ShowBlocks'],
-    ['Styles']
+    ['Source', '-', 'Maximize', 'ShowBlocks']//,
+    // ['Styles']
     ];
 
     config.toolbar_Pic =
@@ -57,10 +57,10 @@ CKEDITOR.editorConfig = function( config )
     ['Image']
     ];
 
-    config.stylesCombo_stylesSet = 'my_styles';
+    // config.stylesCombo_stylesSet = 'my_styles';
     config.PreserveSessionOnFileBrowser = true;
 //TODO: Change this param so ckeditor stylesheet will work
-    config.contentsCss = '/simulator/stylesheets/main.css';
+    // config.contentsCss = '/simulator/stylesheets/main.css';
     config.resize_enabled = false;
     config.toolbarCanCollapse = false;
 };

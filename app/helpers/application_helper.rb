@@ -165,5 +165,26 @@ module ApplicationHelper
     per_page = params[:per_page] || Page.per_page
     link_to title, params.merge(:sort => column, :direction => direction, :per_page => per_page, :page_no => page_no), {:class => css_class}
   end
+
+  def pages_menu_count_and_style(stream_filter)
+    count = Page.new_pages_by_page_type(stream_filter, Language.get_id_by_locale(I18n.locale), current_user.date_to_show_pages_from, current_user.id).count
+    count > 0 ? [" (#{count})", ''] : ['', 'read']
+  end
+  
+  def is_answered_css(page)
+    return '' unless page.page_type == 'assignment'
+    if page.is_answered?(current_user)
+      'assignment-icon-old'
+    else
+      'assignment-icon-new'
+    end
+  end
+  def is_read_css(page)
+    if page.is_read?(current_user)
+      'read-page'
+    else
+      ''
+    end
+  end
   
 end

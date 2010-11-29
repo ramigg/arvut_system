@@ -13,16 +13,15 @@ class StreamController < ApplicationController
 
     @language_id = Language.get_id_by_locale(I18n.locale)
     @is_new = @modifier == 'new'
-    @user_confirmation_date = current_user.confirmed_at - 10.day # Give new users something to see...
 
     if @stream_filter == 'tag'
       @stream_header = "Tag: #{@modifier}"
       @stream_subclass = "by tag"
-      @pages =  Page.tagged_with(@modifier).by_page_type(@stream_filter, @language_id, @user_confirmation_date)
+      @pages =  Page.tagged_with(@modifier).by_page_type(@stream_filter, @language_id, current_user.date_to_show_pages_from)
     else
       @stream_header = @stream_filter.humanize.pluralize
       @stream_subclass = @stream_header.singularize.downcase
-      @pages =  Page.by_page_type(@stream_filter, @language_id, @user_confirmation_date)
+      @pages =  Page.by_page_type(@stream_filter, @language_id, current_user.date_to_show_pages_from)
     end
     @pages = @stream_filter == 'all' ? @pages.ordered_all : @pages.ordered
     count = @pages.count

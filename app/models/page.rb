@@ -137,4 +137,17 @@ class Page < ActiveRecord::Base
   def is_assignment?
     page_type == 'assignment'
   end
+  
+  def is_read?(user)
+    flags = page_userflags.where(:user_id => user.id).first rescue nil
+    flags ? flags.is_read? : false
+  end
+  def is_bookmarked?(user)
+    flags = page_userflags.where(:user_id => user.id).first rescue nil
+    flags ? flags.is_bookmark? : false
+  end
+  def is_answered?(user)
+    flags = page_userflags.where(:user_id => user.id).first rescue nil
+    flags ? flags.is_answered? : false
+  end
 end

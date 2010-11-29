@@ -238,6 +238,10 @@ class User < ActiveRecord::Base
       nil
     end
   end
+  
+  def date_to_show_pages_from
+    confirmed_at - 10.day # Give new users something to see...
+  end
 
 
   private
