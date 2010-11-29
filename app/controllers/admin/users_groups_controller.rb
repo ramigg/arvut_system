@@ -48,7 +48,7 @@ class Admin::UsersGroupsController < ApplicationController
       flash[:alert] = 'Failed to load from file'
     end
 
-    respond_with(@users_group)
+    respond_with(@users_group, :location => :home)
   end
 
 end
