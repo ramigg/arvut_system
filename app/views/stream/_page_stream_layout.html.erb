@@ -1,7 +1,9 @@
 <div class="content-submenu">
-<%#= link_to t("stream.new_items"), stream_path(:stream_filter => @stream_subclass, :modifier => 'new'), :remote => true %>
-<%#*|%>
-<%#= link_to t("stream.all_items"), stream_path(:stream_filter => @stream_subclass, :modifier => 'all'), :remote => true %>
+<% unless @is_tag %>
+	<%= t("stream.filter")%>:&nbsp; <%= link_to t("stream.new_items"), stream_path(:stream_filter => @stream_subclass, :modifier => 'new'), :class => 'data-remote' %>
+	&nbsp;|&nbsp;
+	<%= link_to t("stream.all"), stream_path(:stream_filter => @stream_subclass), :class => 'data-remote' %>
+<% end %>
 </div>
 <div class="content-stream">
 	<%= render('page_stream') %>

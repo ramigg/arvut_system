@@ -484,11 +484,12 @@ en:
     articles: Content
     messages: Messages
     events: Events
-    new_items: New Items
+    new_items: New posts
     all_items: All Items
     more_items: More items »
     tags_menu: Topics
-    back: « Back 
+    back: « Back        
+    filter: Filter by 
 
   kabtv:
     admin:

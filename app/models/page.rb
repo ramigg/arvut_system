@@ -68,10 +68,15 @@ class Page < ActiveRecord::Base
   scope :read_pages_by_page_type, lambda {|page_type, language_id, user_reg_date, user_id|
     by_page_type(page_type, language_id, user_reg_date).joins(:page_userflags).where(:page_userflags => {:user_id => user_id, :is_read => true})
   }
-  
-  def self.new_pages_by_page_type(page_type, language_id, user_reg_date, user_id)
-    (by_page_type(page_type, language_id, user_reg_date) - read_pages_by_page_type(page_type, language_id, user_reg_date, user_id))
-  end
+
+  # .where(:id - PageUserflag.select(:id).where({:user_id => u.id} & {:is_read => true}))
+  scope :new_pages_by_page_type, lambda {|page_type, language_id, user_reg_date, user_id|
+    by_page_type(page_type, language_id, user_reg_date).where("pages.id not in (select puf.page_id from page_userflags as puf where puf.user_id = #{user_id} and puf.is_read = true)")
+  }
+
+  # def self.new_pages_by_page_type(page_type, language_id, user_reg_date, user_id)
+  #   (by_page_type(page_type, language_id, user_reg_date) - read_pages_by_page_type(page_type, language_id, user_reg_date, user_id))
+  # end
 
   def self.search(search)
     if search

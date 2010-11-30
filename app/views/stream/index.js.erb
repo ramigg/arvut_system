@@ -9,5 +9,10 @@
   $(".more_items").replaceWith("<%= escape_javascript(render('page_stream'))%>");
 <%- end -%>
 
-$('li.current').removeClass('current');
-$('#menu-<%= @stream_filter + @modifier.to_s %>').addClass('current');
+
+	$('li.current').removeClass('current');
+<% if @is_tag %>
+	$('#menu-<%= @stream_filter + @modifier.to_s %>').addClass('current');
+<% else %>	
+	$('#menu-<%= @stream_filter %>').addClass('current');
+<% end %>
