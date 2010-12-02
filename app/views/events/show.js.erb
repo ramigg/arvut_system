@@ -1,3 +1,4 @@
 $(".column-widgets").hide();
 $(".column-content").addClass('content-wide').html("<%= escape_javascript(render(:template => 'events/show.html.erb'))%>");
 <%= render :file => 'shared/_update_pages_menu'%>
+$('html, body').animate({scrollTop:0}, 'slow');
