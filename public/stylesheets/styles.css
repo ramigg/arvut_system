@@ -229,8 +229,9 @@ div.uploader input{opacity:0;position:absolute;top:0;right:0;bottom:0;float:righ
 .layout-stream .content-stream .item .more_link{display:block;text-align:right;font-size:11px;margin:10px 20px 0 0;}
 .layout-stream .content-stream .more_items{height:22px;line-height:22px;padding:0 20px 0 0;}
 .layout-stream .content-stream .sticky_pages{border:4px solid #dcf2ff;-webkit-border-radius:5px;-moz-border-radius:5px;border-radius:5px;behavior:url(PIE.htc);-moz-background-clip:padding;-webkit-background-clip:padding;position:relative;padding:10px 10px 0;margin:-12px -12px 10px;}
-.layout-stream .content-stream .edit-stream{padding:12px 0 0;border-top:2px solid #f1f1f1;margin:16px 0 0;}.layout-stream .content-stream .edit-stream hr{height:1px;background:#bcccd3;margin:10px 0px;clear:both;}
-.layout-stream .content-stream .edit-stream h1{margin:0 0 10px;}
+.layout-stream .content-stream .content-actions{height:16px;line-height:8px;border-bottom:2px solid #f1f1f1;}.layout-stream .content-stream .content-actions span{color:#aaa;font-weight:bold;}
+.layout-stream .content-stream .edit-stream{padding:12px 0 0;margin:0;}.layout-stream .content-stream .edit-stream hr{height:1px;background:#bcccd3;margin:10px 0px;clear:both;}
+.layout-stream .content-stream .edit-stream h1{margin:10px 0 20px;text-align:center;}
 .layout-stream .content-stream .edit-stream .description{padding:10px 0;}
 .layout-stream .content-stream .edit-stream .item{margin:10px 0;}.layout-stream .content-stream .edit-stream .item h4{margin:0 0 10px;}
 .layout-stream .content-stream .edit-stream .item hr{height:3px;background:#bcccd3;margin:10px 0px;}
