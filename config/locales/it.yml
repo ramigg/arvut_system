@@ -375,6 +375,10 @@ it:
     read_all: "Leggi Tutto"
     tags_menu: Argomenti
     back: « Indietro
+    filter: Filtra per
+    mark_as: Segna come
+    read: letto
+    unread: Da leggere
   user:
     model:
       birthday: "Anno di nascita"

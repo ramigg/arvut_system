@@ -155,4 +155,17 @@ class Page < ActiveRecord::Base
     flags = page_userflags.where(:user_id => user.id).first rescue nil
     flags ? flags.is_answered? : false
   end
+  def toggle_read(user)
+    flags = page_userflags.where(:user_id => user.id).first rescue nil
+    if flags 
+      if flags.is_read?
+        flags.is_read = false
+      else
+        flags.is_read = true
+      end
+      flags.save
+    else
+      PageUserflag.add_flag(self, user, :is_read)
+    end
+  end
 end

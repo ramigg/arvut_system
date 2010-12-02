@@ -35,5 +35,11 @@ class PagesController < ApplicationController
     end
     respond_with @page
   end
+  
+  def toggle_is_read
+    @page = Page.find(params[:id])
+    @page.toggle_read(current_user)
+    render :template => 'shared/toggle_is_read.js.erb'
+  end
 
 end

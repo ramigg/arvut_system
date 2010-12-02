@@ -2,6 +2,7 @@
 <%- content_for :hide_widgets do -%>please do not display widgets!!!<%- end -%>
 <%= render "shared/breadcrumbs", :page => @page%>
 <div class="content-stream event-stream">
+	<%= render "shared/content_actions", :page => @page %>
   <%- if current_user.is_stream_manager? || current_user.is_admin? -%>
     <div class="admin">
       <%= render_widget 'stream_admin' %>

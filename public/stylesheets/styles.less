@@ -134,100 +134,109 @@
                     padding: 10px 10px 0;
                     margin: -12px -12px 10px;
 		}
-                .edit-stream{
-                        padding:12px 0 0;
-												border-top: 2px solid #f1f1f1;
-												margin:16px 0 0;
-                        hr{
-                                height:1px;
-                                background:@color-separator;
-                                margin:10px 0px;
-                                .clear;
-                        }
-                        h1{
+    .content-actions{
+	  	height:16px;	
+			line-height:8px;
+			border-bottom: 2px solid #f1f1f1;
+			span{
+				color:#aaa;
+				font-weight: bold;
+			}
+		}            
+		.edit-stream{
+                padding:12px 0 0;
+								margin:0;
+                hr{
+                        height:1px;
+                        background:@color-separator;
+                        margin:10px 0px;
+                        .clear;
+                }
+                h1{
+                        margin:10px 0 20px;
+												text-align:center;
+                }
+                .description{
+                        padding:@padding-basic 0;
+                }
+                .item{
+                        margin: 10px 0;
+                        h4{
                                 margin:0 0 10px;
                         }
-                        .description{
-                                padding:@padding-basic 0;
+                        hr{
+                                height:3px;
+                                background:@color-separator;
+                                margin:10px 0px;
                         }
-                        .item{
-                                margin: 10px 0;
-                                h4{
-                                        margin:0 0 10px;
+                        p{
+                                margin-bottom:@margin-bottom-basic;
+                                padding:0 0 0 10px;
+                        }
+                        .item-metadata{
+                                color:@color-dimmed-text;
+                                .font-small;
+                                clear:both;
+                        }
+                        .form_element{
+                                margin: 0 0 10px;
+                                dt{
+                                        .bold;
+                                        margin: 10px 0 5px;
                                 }
-                                hr{
-                                        height:3px;
-                                        background:@color-separator;
-                                        margin:10px 0px;
-                                }
-                                p{
-                                        margin-bottom:@margin-bottom-basic;
-                                        padding:0 0 0 10px;
-                                }
-                                .item-metadata{
-                                        color:@color-dimmed-text;
-                                        .font-small;
-                                        clear:both;
-                                }
-                                .form_element{
-                                        margin: 0 0 10px;
-                                        dt{
-                                                .bold;
-                                                margin: 10px 0 5px;
-                                        }
-                                        dd{
-                                                padding: 0 0 0 10px;
-                                                .rate_item{
-                                                        .float_left;
-                                                        label, input{
-                                                                display: block;
-                                                                .centered;
-                                                        }
-                                                }
-                                        }
-                                }
-                                .video{
-                                        object{
-                                                margin: 10px;
-                                        }
-                                        .video_object{
-                                                display:block;
+                                dd{
+                                        padding: 0 0 0 10px;
+                                        .rate_item{
                                                 .float_left;
-                                                width:168px;
-                                                height:125px;
-                                                margin: 0 20px 0 0;
-                                                .centered;
-                                                background-repeat: no-repeat;
-                                                object{
-                                                        margin: 0 10px 0 0;
-                                                }
-                                                a{
-                                                        cursor:pointer;
-                                                        .undecorated;
-                                                }
-                                                img{
-                                                        margin: 44px 0 0 64px;
+                                                label, input{
+                                                        display: block;
+                                                        .centered;
                                                 }
                                         }
                                 }
-                                .other textarea{
-                                        margin: 0 0 0 25px;
-                                        width: 460px;
+                        }
+                        .video{
+                                object{
+                                        margin: 10px;
                                 }
-                                .free_text {
-                                        width: 485px;
+                                .video_object{
+                                        display:block;
+                                        .float_left;
+                                        width:168px;
+                                        height:125px;
+                                        margin: 0 20px 0 0;
+                                        .centered;
+                                        background-repeat: no-repeat;
+                                        object{
+                                                margin: 0 10px 0 0;
+                                        }
+                                        a{
+                                                cursor:pointer;
+                                                .undecorated;
+                                        }
+                                        img{
+                                                margin: 44px 0 0 64px;
+                                        }
                                 }
                         }
-                        #page_submit{
-                                .float_right;
+                        .other textarea{
+                                margin: 0 0 0 25px;
+                                width: 460px;
                         }
-                        label.error {
-                            color:red;
-                            display:block;
-                            font-size:12px;
-                            font-weight:normal;
+                        .free_text {
+                                width: 485px;
                         }
                 }
+                #page_submit{
+                        .float_right;
+                }
+                label.error {
+                    color:red;
+                    display:block;
+                    font-size:12px;
+                    font-weight:normal;
+                }
+        }
 	}
         .event-stream{
             .admin{

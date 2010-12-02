@@ -489,7 +489,10 @@ en:
     more_items: More items »
     tags_menu: Topics
     back: « Back        
-    filter: Filter by 
+    filter: Filter by
+    mark_as: Mark as
+    read: read
+    unread: unread
 
   kabtv:
     admin:

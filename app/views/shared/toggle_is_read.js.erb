@@ -1,0 +1,2 @@
+<%= render :file => 'shared/_update_pages_menu' %>
+$(".content-actions").replaceWith("<%= escape_javascript(render('shared/content_actions', :page => @page))%>");

@@ -368,6 +368,10 @@ de:
     read_all: "Alles Lesen »"
     tags_menu: Themen
     back: « Zurück
+    filter: Filtern nach
+    mark_as: Markieren
+    read: als gelesen
+    unread: als ungelesen
   questionnaire_answer:
     controller:
       already_answered: "Du hast diesen Fragebogen bereits beantwortet"

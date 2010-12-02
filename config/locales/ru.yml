@@ -213,6 +213,10 @@ ru:
     read_all: "Читать все »"
     tags_menu: Темы
     back: « Назад
+    filter: Фильтр по
+    mark_as: Отметить как
+    read: прочитанное
+    unread: непрочитанное
   user:
     model:
       gender: Пол

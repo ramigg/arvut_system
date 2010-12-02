@@ -477,8 +477,11 @@ he:
     all_items: "המשך"
     more_items: "פוסטים נוספים »"
     tags_menu: נושאים
-    back: « חזרה לדף הקודם
+    back: "« חזרה לדף הקודם"
     filter: "הצג לפי"
+    mark_as: "סמן כ-"
+    read: "נקרא"
+    unread: "לא נקרא"
 
   kabtv:
     admin:

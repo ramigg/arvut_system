@@ -72,7 +72,11 @@ Simulator::Application.routes.draw do
     # HOME
     match 'stream/all', :to => 'stream#index', :stream_filter => 'all', :as => 'home'
     match 'stream/:stream_filter(/:modifier)' => 'stream#index', :as => :stream
-    resources :pages
+
+    resources :pages do
+      put 'toggle_is_read', :on => :member
+    end
+
     resources :events
     
     namespace 'admin' do

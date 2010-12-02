@@ -358,6 +358,10 @@ es:
     read_all: "Leer todo »"
     tags_menu: Temas
     back: « Volver
+    filter: Filtrar por
+    mark_as: Marcar como
+    read: leído
+    unread: no leído
   profile:
     views:
       change_password: "cambiar contraseña"
