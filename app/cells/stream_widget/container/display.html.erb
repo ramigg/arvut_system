@@ -57,13 +57,11 @@
 <script type="text/javascript">
   $(function (){
 		
-		kabtv.tabs.poll_tabs = <%= @show_tabs %>;
-		kabtv.tabs.poll_support = <%= @show_support %>;
+    kabtv.tabs.poll_tabs = <%= @show_tabs %>;
+    kabtv.tabs.poll_support = <%= @show_support %>;
     kabtv.tabs.url_for_presets_update = '<%= url_for_event(:update_presets) %>';
-    <% if @show_tabs || @show_support %>
-			kabtv.tabs.pollPresets();
-    	kabtv.tabs.startPollingPresets();
-		<% end %>
+    kabtv.tabs.pollPresets();
+    kabtv.tabs.startPollingPresets();
     $("select#language_id").live('change', function(){
       var lang_id = $(this).val();
       $("select#quality option").remove();

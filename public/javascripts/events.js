@@ -177,7 +177,7 @@
         poll_support: true,
         pollID: 0,
         pollPresets: function() {
-            kabtv.tabs.poll_tabs && $.ajax({
+            $.ajax({
                 url: kabtv.tabs.url_for_presets_update,
                 data: {
                     timestamp: kabtv.tabs.timestamp,
@@ -197,7 +197,6 @@
                     $('.online-status').html(msg.res);
                 }
             });
-
         },
 
         // init
