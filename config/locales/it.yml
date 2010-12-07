@@ -309,11 +309,15 @@ it:
       not_locked: "non era bloccato"
   home:
     faq:
-      confirmation: ""
-      email: ""
       faq: "Domande frequenti"
-      forgot_password: ""
-      unlock: ""
+      confirmation:
+        Ti sei già registrato, ma il sistema non ti permette di entrare? Controlla se nella tua casella di  posta elettronica c’è un messaggio di conferma. Se non lo hai ricevuto, usa il seguente link e provvederemo a spedirne un altro.
+      forgot_password:
+        Ti sei già registrato, ma il sistema non ti permette di entrare? Hai controllato le istruzioni per la conferma qui sopra riportate? Hai forse dimenticato la password? Usa il seguente link e riprova.
+      unlock:
+        Sei stato bloccato dal sistema. Controlla la tua casella di posta elettronica  per sbloccare l’accesso. Se non hai ricevuto il messaggio, usa il seguente link e provvederemo a spedirne un altro.
+      email:
+        Se hai provato tutte le istruzioni qui sopra riportate, ma ancora non riesci ad accedere, spedisci una email al seguente indirizzo di posta elettronica
     views:
       admin: Admin
       answered: risposto
