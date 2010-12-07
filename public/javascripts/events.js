@@ -92,7 +92,7 @@
                 kabtv.sketches.$current = $item;
                 kabtv.sketches.$in_transition = false;
             }
-        );
+            );
         }
     });
 
@@ -168,19 +168,20 @@
     }
 
     $.extend(kabtv.tabs, {
-        presets : {},
-        presets_data : {},
+        presets : null,
+        presets_data : null,
         timestamp: 0,
 
         url_for_presets_update: '',
-				poll_tabs: true,
-				poll_support: true,
+        poll_tabs: true,
+        poll_support: true,
         pollID: 0,
         pollPresets: function() {
-            kabtv.tabs.poll_tabs && $.ajax({
+            $.ajax({
                 url: kabtv.tabs.url_for_presets_update,
                 data: {
-                    timestamp: kabtv.tabs.timestamp
+                    timestamp: kabtv.tabs.timestamp,
+                    stream_url: $("select#quality").val()
                 },
                 success: kabtv.tabs.init
             });
@@ -196,7 +197,6 @@
                     $('.online-status').html(msg.res);
                 }
             });
-
         },
 
         // init
@@ -204,12 +204,36 @@
             if (data == "")
                 return;
             eval(data);
-            var lang_id = $("select#language_id").val();
-            $("select#quality option").remove();
-            $(kabtv.tabs.presets[lang_id].options).appendTo('#quality');
-            $("select#quality").prev().text( $("select#quality :selected").text() );
-            var stream_url = $("select#quality").val();
-            kabtv.tabs.draw_player(stream_url);
+            // Now we have local presets_data (what to show; activity status) and presets themselves
+            //var reload_player = false; -- initialized in responce from server
+
+            // If activity status was changed - reload player
+            if ((kabtv.tabs.presets_data == null) || (kabtv.tabs.presets_data.stream_preset.is_active != presets_data.stream_preset.is_active)) {
+                reload_player = true;
+            }
+
+            // If presets were changed...
+            if (kabtv.tabs.presets != presets || kabtv.tabs.presets_data != presets_data) {
+                kabtv.tabs.presets = presets;
+                kabtv.tabs.presets_data = presets_data;
+                // Reload dropboxes
+//                var current_stream_url = $("select#quality").val();
+                var lang_id = $("select#language_id").val();
+                $("select#quality option").remove();
+                $(kabtv.tabs.presets[lang_id].options).appendTo('#quality');
+                $("select#quality").prev().text( $("select#quality :selected").text() );
+
+//                // To reload player?
+                var stream_url = $("select#quality").val();
+//                if (current_stream_url != stream_url) {
+//                    reload_player = true;
+//                }
+            }
+            
+            // Sync presets and redraw player
+            if (reload_player) {
+                kabtv.tabs.draw_player(stream_url);
+            }
         },
         
         startPollingPresets: function (){
@@ -229,6 +253,7 @@
             kabtv.tabs.pollID = 0;
             kabtv.tabs.timestamp = 0;
         },
+
         select_me: function(me, name) {
             $('.tabs span').removeClass('active');
             $(me).parent().addClass('active');
@@ -268,19 +293,22 @@
         <param name="ClickToPlay" value="0" /><param name="bgcolor" value="#000000" />\
         <param name="enableContextMenu" value="0" />\
         <param name="windowlessVideo" value="1" /><param name="balance" value="0" />',
+
         draw_player: function(url){
             if (url == null) return;
+
+            var object;
             if (kabtv.tabs.presets_data.stream_preset.is_active) {
-                var object;
                 if ($.browser.msie)
                     object = kabtv.tabs.objectMSIE.replace(/URL_PATTERN/g, url);
                 else
                     object = kabtv.tabs.object.replace(/URL_PATTERN/g, url);
-                $('#object').html(object);
             } else {
                 var lang_id = $("select#language_id").val();
-                $('#object').html(kabtv.tabs.presets[lang_id].image);
+                object = kabtv.tabs.presets[lang_id].image;
             }
+
+            $('#object').html(object);
         },
 
         detach: function(){

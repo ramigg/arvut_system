@@ -90,32 +90,44 @@ module StreamWidget
     end
 
     def process_request
-      @stream_preset = current_preset
+      stream_preset = current_preset
       timestamp = param :timestamp
-      if @stream_preset.updated_at.to_s == timestamp
+      if stream_preset.updated_at.to_s == timestamp
         render :text => '', :content_type => Mime::JS
         return
       end
-      @languages = @stream_preset.stream_items.map(&:language_id).uniq
-      @presets = get_presets
+
+      # look for channel
+      reload_player = ! stream_preset.stream_items.map{|p| p.stream_url}.include?(params[:stream_url])
+      current_item = stream_preset.stream_items.select{|p| p.stream_url == params[:stream_url]}
+
+      languages = stream_preset.stream_items.map(&:language_id).uniq
+      presets = get_presets(stream_preset, languages, current_item)
 
       render :text => "
-        #{"kabtv.tabs.timestamp = '#{@stream_preset.updated_at.to_s}';".html_safe}
-        #{"kabtv.tabs.presets_data = #{@stream_preset.to_json};".html_safe}
-        #{"kabtv.tabs.presets = #{@presets.to_json};".html_safe}
+        #{"kabtv.tabs.timestamp = '#{stream_preset.updated_at.to_s}';".html_safe}
+        #{"var presets_data = #{stream_preset.to_json};".html_safe}
+        #{"var presets = #{presets.to_json};".html_safe}
+        var reload_player = #{reload_player};
       ", :content_type => Mime::JS
     end
 
-    def get_presets
+    def get_presets(stream_preset, languages, current_item)
       presets = {}
-      @languages.each{ |language_id|
-        items = @stream_preset.stream_items.select{|item|
+      languages.each{ |language_id|
+        items = stream_preset.stream_items.select{|item|
           item.language_id == language_id && !item.description.empty? && !item.stream_url.empty?
         }
         options_list = []
         image = ''
         items.each {|item|
-          options_list << "<option #{"selected='selected'".html_safe if item.is_default} value='#{item.stream_url}'>#{item.description}</option>"
+          if (!current_item.empty? && current_item[0].language_id == language_id)
+            # this language
+            is_default = current_item[0].stream_url == item.stream_url
+          else
+            is_default = item.is_default
+          end
+          options_list << "<option #{"selected='selected'".html_safe if is_default} value='#{item.stream_url}'>#{item.description}</option>"
           image = "<img src='#{item.inactive_image}' alt='#{I18n.t 'kabtv.kabtv.no_broadcast'}' />" unless item.inactive_image.empty?
         }
         presets[language_id] = {:options => options_list.join(','), :image => image}
