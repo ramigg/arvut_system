@@ -59,6 +59,8 @@ a:hover.tag{color:#ffffff;background:#2971a7;}
 .message-icon span{display:block;width:20px;height:20px;position:absolute;top:0;left:0;background:url(../images/icons.png) no-repeat 0 -120px;}
 .article-icon span{display:block;width:20px;height:20px;position:absolute;top:0;left:0;background:url(../images/icons.png) no-repeat 0 -150px;}
 .sticky-icon span{display:block;width:20px;height:20px;position:absolute;top:0;left:0;background:url(../images/icons.png) no-repeat 0 -179px;}
+.bookmark-icon-empty span{display:block;width:20px;height:20px;position:absolute;top:-2px;left:0;background:url(../images/icons.png) no-repeat 0 -210px;}
+.bookmark-icon span{display:block;width:20px;height:20px;position:absolute;top:-2px;left:0;background:url(../images/icons.png) no-repeat 0 -240px;}
 body{font-family:"Lucida Grande","Lucida Sans Unicode",Arial,Verdana,sans-serif;font-size:13px;line-height:18px;color:#666666;}body p{color:#666666;}
 .float_left{float:left;}
 .float_right{float:right;}
@@ -229,7 +231,10 @@ div.uploader input{opacity:0;position:absolute;top:0;right:0;bottom:0;float:righ
 .layout-stream .content-stream .item .more_link{display:block;text-align:right;font-size:11px;margin:10px 20px 0 0;}
 .layout-stream .content-stream .more_items{height:22px;line-height:22px;padding:0 20px 0 0;}
 .layout-stream .content-stream .sticky_pages{border:4px solid #dcf2ff;-webkit-border-radius:5px;-moz-border-radius:5px;border-radius:5px;behavior:url(PIE.htc);-moz-background-clip:padding;-webkit-background-clip:padding;position:relative;padding:10px 10px 0;margin:-12px -12px 10px;}
-.layout-stream .content-stream .content-actions{height:16px;line-height:8px;border-bottom:2px solid #f1f1f1;}.layout-stream .content-stream .content-actions span{color:#aaa;font-weight:bold;}
+.layout-stream .content-stream .content-actions{height:30px;line-height:30px;border-bottom:2px solid #f1f1f1;margin:-10px 0 0;}.layout-stream .content-stream .content-actions .icon{padding:0 0 0 25px;}
+.layout-stream .content-stream .content-actions div{display:inline;}
+.layout-stream .content-stream .content-actions div .bookmark-icon{left:10px;top:2px;}
+.layout-stream .content-stream .content-actions div span{color:black;}
 .layout-stream .content-stream .edit-stream{padding:12px 0 0;margin:0;}.layout-stream .content-stream .edit-stream hr{height:1px;background:#bcccd3;margin:10px 0px;clear:both;}
 .layout-stream .content-stream .edit-stream h1{margin:10px 0 20px;text-align:center;}
 .layout-stream .content-stream .edit-stream .description{padding:10px 0;}
