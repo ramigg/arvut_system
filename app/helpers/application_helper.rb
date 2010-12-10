@@ -167,7 +167,11 @@ module ApplicationHelper
   end
 
   def pages_menu_count_and_style(stream_filter)
-    count = Page.new_pages_by_page_type(stream_filter, Language.get_id_by_locale(I18n.locale), current_user.date_to_show_pages_from, current_user.id).count
+    if stream_filter == 'bookmarks'
+      count = Page.favorite_pages(Language.get_id_by_locale(I18n.locale), current_user.date_to_show_pages_from, current_user).count
+    else
+      count = Page.new_pages_by_page_type(stream_filter, Language.get_id_by_locale(I18n.locale), current_user.date_to_show_pages_from, current_user.id).count
+    end
     count > 0 ? [" (#{count})", ''] : ['', 'read']
   end
   
@@ -184,6 +188,27 @@ module ApplicationHelper
       'read-page'
     else
       ''
+    end
+  end
+  def is_bookmark_css(page)
+    if page.is_bookmarked?(current_user)
+      'bookmark-icon'
+    else
+      'bookmark-icon-empty'
+    end
+  end
+  def toggle_is_read_name(page)
+    if page.is_read?(current_user)
+      "#{I18n.t("stream.mark_as")} #{I18n.t("stream.unread")}"
+    else
+      "#{I18n.t("stream.mark_as")} #{I18n.t("stream.read")}"
+    end
+  end
+  def toggle_is_bookmark_name(page)
+    if page.is_bookmarked?(current_user)
+      "#{I18n.t("stream.remove_from_favorites")}"
+    else
+      "#{I18n.t("stream.add_to_favorites")}"
     end
   end
   

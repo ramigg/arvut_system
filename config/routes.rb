@@ -75,6 +75,7 @@ Simulator::Application.routes.draw do
 
     resources :pages do
       put 'toggle_is_read', :on => :member
+      put 'toggle_is_bookmark', :on => :member
     end
 
     resources :events

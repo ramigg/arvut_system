@@ -482,6 +482,9 @@ he:
     mark_as: "סמן כ-"
     read: "נקרא"
     unread: "לא נקרא"
+    bookmarks: "המועדפים שלי"
+    add_to_favorites: "הוסף למועדפים"
+    remove_from_favorites: "הסר מהמועדפים"
 
   kabtv:
     admin:

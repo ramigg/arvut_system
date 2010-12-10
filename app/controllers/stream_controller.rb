@@ -14,13 +14,14 @@ class StreamController < ApplicationController
 
     @language_id = Language.get_id_by_locale(I18n.locale)
     @is_tag = @stream_filter == 'tag'
+    @is_bookmark = @stream_filter == 'bookmarks'
     @is_new = @modifier == 'new'
 
     if @is_tag
-      @stream_header = "Tag: #{@modifier}"
-      @stream_subclass = "by tag"
       @pages =  Page.tagged_with(@modifier).by_page_type(@stream_filter, @language_id, current_user.date_to_show_pages_from)
-    else
+    elsif @is_bookmark
+      @pages =  Page.favorite_pages(@language_id, current_user.date_to_show_pages_from, current_user)
+    else 
       @stream_header = @stream_filter.humanize.pluralize
       @stream_subclass = @stream_header.singularize.downcase
       if @is_new

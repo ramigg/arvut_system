@@ -38,8 +38,14 @@ class PagesController < ApplicationController
   
   def toggle_is_read
     @page = Page.find(params[:id])
-    @page.toggle_read(current_user)
-    render :template => 'shared/toggle_is_read.js.erb'
+    @page.toggle_flag(current_user, 'is_read')
+    render :template => 'shared/toggle_flag.js.erb'
   end
-
+  
+  def toggle_is_bookmark
+    @page = Page.find(params[:id])
+    @page.toggle_flag(current_user, 'is_bookmark')
+    render :template => 'shared/toggle_flag.js.erb'
+  end
+  
 end

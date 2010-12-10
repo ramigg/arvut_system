@@ -493,6 +493,9 @@ en:
     mark_as: Mark as
     read: read
     unread: unread
+    bookmarks: My favorites
+    add_to_favorites: Add to favorites
+    remove_from_favorites: Remove from favorites
 
   kabtv:
     admin:

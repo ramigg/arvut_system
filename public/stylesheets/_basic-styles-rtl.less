@@ -328,13 +328,13 @@ a:hover.tag{
 }
 
 //icons
-.icon-span (@bg-y: 0){
+.icon-span (@bg-y: 0, @y-pos: 0){
 	span{
 		display:block;
 		width:20px;
 		height:20px;
 		position:absolute;
-		top:0;
+		top:@y-pos;
 		right:0;
 		background: url(../images/icons.png) no-repeat 100% @bg-y;
 	}
@@ -375,6 +375,12 @@ a:hover.tag{
 }
 .sticky-icon span{
     margin-right: -6px;
+}
+.bookmark-icon-empty{
+    .icon-span(-210px, -2px);
+}
+.bookmark-icon{
+    .icon-span(-240px, -2px);
 }
 
 //general

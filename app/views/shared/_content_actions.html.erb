@@ -1,8 +1,10 @@
 <div class="content-actions">
-  <span><%= I18n.t("stream.mark_as") %>:</span> 
-  <% if page.is_read?(current_user) %>
-  <%= I18n.t("stream.read") %> | <%= link_to I18n.t("stream.unread"), toggle_is_read_page_url(page), :remote => true, :method => :put %>
-  <% else %>
-  <%= link_to I18n.t("stream.read"), toggle_is_read_page_url(page), :remote => true, :method => :put %> | <%= I18n.t("stream.unread") %>
-  <% end %>
+  <div class="<%= is_bookmark_css(page) %> icon">
+		<%= link_to toggle_is_bookmark_name(page), toggle_is_bookmark_page_url(page), :remote => true, :method => :put %>
+		<span></span>
+	</div>
+	|
+	<div>
+	  <%= link_to toggle_is_read_name(page), toggle_is_read_page_url(page), :remote => true, :method => :put %>
+	</div>
 </div>

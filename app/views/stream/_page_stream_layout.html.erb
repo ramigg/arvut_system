@@ -1,5 +1,5 @@
 <div class="content-submenu">
-<% unless @is_tag %>
+<% unless @is_tag || @is_bookmark %>
 	<%= t("stream.filter")%>:&nbsp; <%= link_to t("stream.new_items"), stream_path(:stream_filter => @stream_subclass, :modifier => 'new'), :class => 'data-remote' %>
 	&nbsp;|&nbsp;
 	<%= link_to t("stream.all"), stream_path(:stream_filter => @stream_subclass), :class => 'data-remote' %>

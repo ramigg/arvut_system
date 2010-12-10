@@ -8,22 +8,22 @@ class Page < ActiveRecord::Base
 
   has_many :assets, :dependent => :destroy, :order => :position
   has_many :questionnaire_answers
-  
+
   has_many :page_userflags, :dependent => :destroy
 
   accepts_nested_attributes_for :questionnaire_answers, :allow_destroy => true
   accepts_nested_attributes_for :assets, :allow_destroy => true
   accepts_nested_attributes_for :taggings, :allow_destroy => true
 
-  [:article_resources, :video_resources, :audio_resources, :questions].each{|resource|
+  [:article_resources, :video_resources, :audio_resources, :questions, :intention_resources].each{|resource|
     has_many resource, :through => :assets
   }
-  
+
   belongs_to :language
   belongs_to :author, :class_name => 'User', :foreign_key => 'author_id'
 
   belongs_to :stream_preset
-  
+
 
   #  *Validations*
 
@@ -48,15 +48,15 @@ class Page < ActiveRecord::Base
 
   scope :by_page_type, lambda {|page_type, language_id, user_reg_date|
     (page_type == 'all' || page_type == 'tag' ?
-        where(:language_id => language_id) :
-        where(:language_id => language_id, :page_type => page_type.singularize)).
-      published.by_conf_date(user_reg_date)
+    where(:language_id => language_id) :
+    where(:language_id => language_id, :page_type => page_type.singularize)).
+    published.by_conf_date(user_reg_date)
   }
 
   #  scope :all_pages, lambda {|language_id| where(:language_id => language_id)}
   scope :ordered_all, order('is_sticky DESC', 'publish_at DESC')
   scope :ordered, order('publish_at DESC')
-  
+
   # scope :read_pages, lambda {|user_id| 
   #   joins(:page_userflags).where(:page_userflags => {:user_id => user_id, :is_read => true}) 
   # }
@@ -64,7 +64,11 @@ class Page < ActiveRecord::Base
   scope :completed_assignments, lambda {|language_id, user_reg_date, user_id|
     by_page_type('assignment', language_id, user_reg_date).joins(:page_userflags).where(:page_userflags => {:user_id => user_id, :is_answered => true}) 
   }
-  
+
+  scope :favorite_pages, lambda {|language_id, user_reg_date, user_id|
+    by_page_type('all', language_id, user_reg_date).joins(:page_userflags).where(:page_userflags => {:user_id => user_id, :is_bookmark => true})
+  }
+
   scope :read_pages_by_page_type, lambda {|page_type, language_id, user_reg_date, user_id|
     by_page_type(page_type, language_id, user_reg_date).joins(:page_userflags).where(:page_userflags => {:user_id => user_id, :is_read => true})
   }
@@ -82,7 +86,7 @@ class Page < ActiveRecord::Base
     if search
       search = "%#{search}%"
       where((:title.matches % search) | (:description.matches % search) |
-        (:message_body.matches % search)  | (:subtitle.matches % search))
+      (:message_body.matches % search)  | (:subtitle.matches % search))
     else
       scoped
     end
@@ -119,7 +123,7 @@ class Page < ActiveRecord::Base
 
     p.order(sort).paginate :page => page, :per_page => Page.per_page
   end
-  
+
   def tags(locale)
     send "#{locale}_tag_list"
   end
@@ -138,11 +142,11 @@ class Page < ActiveRecord::Base
       nil
     end
   end
-  
+
   def is_assignment?
     page_type == 'assignment'
   end
-  
+
   def is_read?(user)
     flags = page_userflags.where(:user_id => user.id).first rescue nil
     flags ? flags.is_read? : false
@@ -155,17 +159,14 @@ class Page < ActiveRecord::Base
     flags = page_userflags.where(:user_id => user.id).first rescue nil
     flags ? flags.is_answered? : false
   end
-  def toggle_read(user)
+
+  def toggle_flag(user, flag)
     flags = page_userflags.where(:user_id => user.id).first rescue nil
     if flags 
-      if flags.is_read?
-        flags.is_read = false
-      else
-        flags.is_read = true
-      end
+      flags.send("#{flag}=", !flags.send("#{flag}?"))
       flags.save
     else
-      PageUserflag.add_flag(self, user, :is_read)
+      PageUserflag.add_flag(self, user, flag)
     end
   end
 end
