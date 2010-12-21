@@ -46,40 +46,47 @@
                 kabtv.sketches.$first = kabtv.sketches.$images.first();
                 kabtv.sketches.$last.css('z-index', 10); // Become the upper for sure
                 $('#sketches .title').text(kabtv.sketches.total + '/' + kabtv.sketches.total);
-            } else if (kabtv.sketches.total != 0 && kabtv.sketches.total != kabtv.sketches.$images.length) { // Only if more images are here now
+            } else if (kabtv.sketches.total != 0 && kabtv.sketches.$images.length == 0) { // Reset
+                kabtv.sketches.total = 0;
+                kabtv.sketches.$last = kabtv.sketches.$current = kabtv.sketches.$first = 0;
+                $('#sketches .title').text('0/0');
+            } else if (kabtv.sketches.total != 0 && kabtv.sketches.$images.length != 0 && kabtv.sketches.total != kabtv.sketches.$images.length) {
+                // Only if new amount of images are here now (either appended or resetted)
                 kabtv.sketches.total = kabtv.sketches.$images.length;
                 kabtv.sketches.$last = kabtv.sketches.$images.last();
                 $('#sketches .title').text((kabtv.sketches.$current.index() + 1) + '/' + kabtv.sketches.total);
                 $('#new_sketches').show();
             }
+            kabtv.sketches.$in_transition = false;
         },
 
         first: function (){
-            kabtv.sketches.transit_to(kabtv.sketches.$first);
+            kabtv.sketches.$item = kabtv.sketches.$first;
+            kabtv.sketches.transit_to();
         },
 
         last: function (){
-            kabtv.sketches.transit_to(kabtv.sketches.$last);
+            kabtv.sketches.$item = kabtv.sketches.$last;
+            kabtv.sketches.transit_to();
             $('#new_sketches').hide();
         },
 
         prev: function (){
             kabtv.sketches.$item = kabtv.sketches.$current.prev();
-            kabtv.sketches.transit_to(kabtv.sketches.$item);
+            kabtv.sketches.transit_to();
         },
 
         next: function (){
             kabtv.sketches.$item = kabtv.sketches.$current.next();
-            kabtv.sketches.transit_to(kabtv.sketches.$item);
+            kabtv.sketches.transit_to();
         },
 
-        transit_to: function ($item){
-            if (kabtv.sketches.total <= 1 || $item.length == 0 ||
-                kabtv.sketches.$current === $item || kabtv.sketches.$in_transition) return;
+        transit_to: function (){
+            if (kabtv.sketches.total <= 1 || kabtv.sketches.$item.length == 0 ||
+                kabtv.sketches.$current === kabtv.sketches.$item || kabtv.sketches.$in_transition) return;
             kabtv.sketches.$in_transition = true;
 
-            $item.css('z-index', 9); // Beneath the upper one
-            $('#sketches .title').text(($item.index() + 1) + '/' + kabtv.sketches.total);
+            kabtv.sketches.$item.css('z-index', 9); // Beneath the upper one
             kabtv.sketches.$current.animate({
                 opacity: 0
             }, 1000, 'linear', // Hide the upper one
@@ -89,7 +96,8 @@
                     'z-index': 1,
                     'opacity': 1
                 }); // Go back
-                kabtv.sketches.$current = $item;
+                kabtv.sketches.$current = kabtv.sketches.$item;
+                $('#sketches .title').text((kabtv.sketches.$current.index() + 1) + '/' + kabtv.sketches.total);
                 kabtv.sketches.$in_transition = false;
             }
             );
@@ -217,17 +225,17 @@
                 kabtv.tabs.presets = presets;
                 kabtv.tabs.presets_data = presets_data;
                 // Reload dropboxes
-//                var current_stream_url = $("select#quality").val();
+                //                var current_stream_url = $("select#quality").val();
                 var lang_id = $("select#language_id").val();
                 $("select#quality option").remove();
                 $(kabtv.tabs.presets[lang_id].options).appendTo('#quality');
                 $("select#quality").prev().text( $("select#quality :selected").text() );
 
-//                // To reload player?
+                //                // To reload player?
                 var stream_url = $("select#quality").val();
-//                if (current_stream_url != stream_url) {
-//                    reload_player = true;
-//                }
+            //                if (current_stream_url != stream_url) {
+            //                    reload_player = true;
+            //                }
             }
             
             // Sync presets and redraw player

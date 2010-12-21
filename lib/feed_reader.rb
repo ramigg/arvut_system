@@ -7,11 +7,14 @@ module FeedReader
     
     def initialize(url, lang_id = nil, force = false)
       lang_id ||= Language.get_id_by_locale(I18n.locale)
-      unless force
-        @feed = Cache.fetch(:content_type => 'FeedReader', :content_uid => "#{url}", :language_id => lang_id)
-      end
       begin
-        @feed ||= FeedTools::Feed.open(url)
+        unless force
+          @feed = Cache.fetch(:content_type => 'FeedReader', :content_uid => "#{url}", :language_id => lang_id)
+        end
+        unless @feed
+          @feed = FeedTools::Feed.open(url)
+          Cache.store(@feed, :content_type => 'FeedReader', :content_uid => "#{url}", :language_id => lang_id)
+        end
       end
     end
 
