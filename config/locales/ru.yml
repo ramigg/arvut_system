@@ -217,6 +217,9 @@ ru:
     mark_as: Отметить как
     read: прочитанное
     unread: непрочитанное
+    bookmarks: Закладки
+    add_to_favorites: Добавить в избранное
+    remove_from_favorites: Удалить из избранного
   user:
     model:
       gender: Пол

@@ -5,20 +5,21 @@
 # * language_id - (numeric) ID of a language the entry belongs to
 # Content of an entry is stored in field 'content'
 
-class Cache < ActiveRecord::Base
+class Cache
   def self.fetch(options)
-    begin
-      cache = Cache.where(options).first
-      data = YAML.load(cache.content) if cache
-    end
+    cache = Rails.cache.read(Cache.make_key(options))
+    data = YAML.load(cache) if cache
     data
   end
 
   def self.store(content, options)
-    begin
-      cache = Cache.where(options).first || Cache.new(options)
-      cache.content = YAML.dump(content)
-      cache.save
-    end
+    Rails.cache.write(Cache.make_key(options), YAML.dump(content))
+  end
+
+  private
+  def self.make_key(options)
+    a = []
+    options.each{|k, v| a << "#{k}=#{v}"}
+    a.sort.join(',')
   end
 end

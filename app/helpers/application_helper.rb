@@ -26,7 +26,7 @@ module ApplicationHelper
   end
 
   def statistics(url, div_id, chart, width, height, start = nil, finish = nil)
-    url = "#{url}?target=stats&amp;chart=#{chart}&amp;flash=#{'%i'% Time.now}&amp;w=#{width}&amp;h=#{height}"
+    url = "#{url}?target=#{div_id}&amp;chart=#{chart}&amp;flash=#{'%i'% Time.now}&amp;w=#{width}&amp;h=#{height}"
     url += "&amp;start=#{start}" unless start.nil?
     url += "&amp;finish=#{finish}" unless finish.nil?
 

@@ -1,10 +1,11 @@
 <div class="content-actions">
   <div class="<%= is_bookmark_css(page) %> icon">
-		<%= link_to toggle_is_bookmark_name(page), toggle_is_bookmark_page_url(page), :remote => true, :method => :put %>
-		<span></span>
-	</div>
+    <%= link_to toggle_is_bookmark_page_url(page), :remote => true, :method => :put do %>
+      <%= toggle_is_bookmark_name(page) %><span></span>
+    <%- end -%>
+  </div>
 	|
-	<div>
-	  <%= link_to toggle_is_read_name(page), toggle_is_read_page_url(page), :remote => true, :method => :put %>
-	</div>
+  <div>
+    <%= link_to toggle_is_read_name(page), toggle_is_read_page_url(page), :remote => true, :method => :put %>
+  </div>
 </div>
