@@ -1,0 +1,7 @@
+<% if @success %>
+  $('#stream_preset_messages').html('<%= escape_javascript("<span style=\"color:green;font-weight:bold;\">#{I18n.t 'kabtv.admin.successfully_saved'}</span>".html_safe) %>');
+  $('#current_state').replaceWith('<%= escape_javascript(render('current_state')) %>');
+<% else %>
+  $('#stream_preset_messages').html('<%= escape_javascript("<span style=\"color:red;font-weight:bold;\">#{I18n.t 'kabtv.admin.problem_saving'}</span>".html_safe) %>');
+<% end %>
+$('#preset_list').replaceWith('<%= escape_javascript(render('preset_list')) %>');
