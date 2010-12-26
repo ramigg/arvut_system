@@ -279,28 +279,32 @@ module StreamWidget
 
     def display_classboard
       images = []
+      reset = false
       begin
         data = EventDataReader::ClassBoard.new.classboard
         sketches_url = data[:urls][:sketches]
         sketches = data[:thumbnails]
         last_one = params[:total].to_i
         total = sketches.size
-        last_one = 0 if last_one > total
-        sketches = sketches[last_one .. total] || []
+        reset = last_one > total
+        sketches = reset ? sketches : (sketches[last_one .. total] || [])
         images = sketches.map{ |img|
           "<img alt='' src='#{sketches_url}/#{img}'></img>"
         }
       end
-      text = if images.empty?
+      text = if images.empty? && !reset
+        # Nothing to show (and it was not reset)
         total == 0 ?
+          # No sketches on server
           '$(\'.images\').html(\'\')' :
+            # No new sketches
           ''
       else
-        total > last_one && last_one != 0 ?
+        reset ?
+          # Less files... Or reset had happened or some images were removed
+          "$('.images').html('#{escape_javascript images.join('').html_safe}');" :
           # New files were added
-          "$('.images').append('#{escape_javascript images.join('').html_safe}');" :
-          # Less files... Supposedly reset happened
-          "$('.images').html('#{escape_javascript images.join('').html_safe}');"
+          "$('.images').append('#{escape_javascript images.join('').html_safe}');"
       end
       render :text => text, :content_type => Mime::JS
     end
