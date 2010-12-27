@@ -20,7 +20,7 @@ class EventsController < ApplicationController
   def set_stream_preset_id
     return unless params[:id]
     @page ||= Page.find(params[:id])
-    session[:stream_preset_id] = @page.stream_preset if @page
+    session[:stream_preset_id] = @page.try(:stream_preset_id)
   end
 
 end

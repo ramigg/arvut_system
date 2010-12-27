@@ -23,6 +23,13 @@ puts '--> Languages'
   {:locale => 'de',:language => 'Deutsch'},
 ].each{|e| Language.find_or_create_by_locale_and_language(e)}
 
+puts '--> Stream States'
+[{:name => 'not_active'},
+  {:name => 'preparing_to_broadcast'},
+  {:name => 'technical_problem'},
+].each{|e| StreamState.find_or_create_by_name(e)}
+
+
 unless Location.count > 0
   puts '--> Locations prepare'
 

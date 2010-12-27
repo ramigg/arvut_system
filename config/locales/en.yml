@@ -519,6 +519,10 @@ en:
       submitting: Submitting...
       select_preset_or_add: Please select preset to edit or add new preset
       stream_selection: Stream selection
+      stream_images: Stream images
+      stream_presets: Stream presets
+      stream_state: Stream state
+      problem_saving: There was a problem saving the record
 
     kabtv:
       no_broadcast: No broadcast

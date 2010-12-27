@@ -11,12 +11,6 @@ class Admin::AdminTasksController < ApplicationController
     event << widget('stream_widget/container', 'stream_container', :display, :current_user => current_user)
   end
   
-  def index; end
-
-  def stream_management; end
-
-  def remove_user; end
-
   def remove_user_action
     @email = params[:email]
     unless @email.empty?
