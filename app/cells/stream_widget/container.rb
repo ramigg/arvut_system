@@ -40,7 +40,8 @@ module StreamWidget
       var reload_player = #{reload_player};
       ", :content_type => Mime::JS
     end
-
+#TODO: Touch stream_presets to update it's timestmp when stream_images or stream_states changes
+#TODO: Replace old #{item.inactive_image} on line 61 to the new system.
     def get_presets(stream_preset, languages, current_item)
       presets = {}
       languages.each{ |language_id|
@@ -57,7 +58,7 @@ module StreamWidget
             is_default = item.is_default
           end
           options_list << "<option #{"selected='selected'".html_safe if is_default} value='#{item.stream_url}'>#{item.description}</option>"
-          image = "<img src='#{item.inactive_image}' alt='#{I18n.t 'kabtv.kabtv.no_broadcast'}' />" unless item.inactive_image.empty?
+          image = "<img src='#{item.inactive_image.try(:filename)}' alt='#{I18n.t 'kabtv.kabtv.no_broadcast'}' />" if item.inactive_image
         }
         presets[language_id] = {:options => options_list.join(','), :image => image}
       }

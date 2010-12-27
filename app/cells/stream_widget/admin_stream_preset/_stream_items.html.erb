@@ -1,7 +1,7 @@
 <tr style="border-bottom:3px solid white" onmouseover="$(this).css('background-color', '#f2f2f2').find('input').css('background-color', '#f2f2f2');" onmouseout="$(this).css('background-color', 'transparent').find('input').css('background-color', 'transparent');">
-	<td><%= stream_items.text_field :description, :style => "width:150px;font-size:11px;margin-right:4px;" %></td>
+	<td><%= stream_items.text_field :description, :style => "width:110px;font-size:11px;margin-right:4px;" %></td>
 	<td><%= stream_items.select :language_id, Language.all.collect{|l|[ l.language, l.id]}, {}, :style => "font-size:11px;padding:0 !important;margin-right:4px;" %></td>
-	<td><%= stream_items.text_field :stream_url, :style => "width:450px;font-size:11px;margin-right:4px;direction:ltr;" %></td>
+	<td><%= stream_items.text_field :stream_url, :style => "width:320px;font-size:11px;margin-right:4px;direction:ltr;" %></td>
 	<td><%= stream_items.check_box :is_default, :style => "width:30px;font-size:11px;" %></td>
 	<td style="width:20px;vertical-align:middle;"><%= link_to_remove_fields image_tag('icons/remove_icon.png', :style => 'width:16px; margin:0 auto;'), stream_items %></td>
 </tr>
