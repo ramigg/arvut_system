@@ -44,13 +44,13 @@ class Page < ActiveRecord::Base
   #  *Scopes*
 
   scope :published, lambda {where(:publish_at.lt => Time.zone.now, :status => 'PUBLISHED')}
-  scope :by_conf_date, lambda {|user_reg_date| where(:publish_at.gt => user_reg_date)}
+#  scope :by_conf_date, lambda {|user_reg_date| where(:publish_at.gt => user_reg_date)}
 
   scope :by_page_type, lambda {|page_type, language_id, user_reg_date|
     (page_type == 'all' || page_type == 'tag' ?
     where(:language_id => language_id) :
     where(:language_id => language_id, :page_type => page_type.singularize)).
-    published.by_conf_date(user_reg_date)
+    published
   }
 
   #  scope :all_pages, lambda {|language_id| where(:language_id => language_id)}

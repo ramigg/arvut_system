@@ -58,7 +58,8 @@ module StreamWidget
             is_default = item.is_default
           end
           options_list << "<option #{"selected='selected'".html_safe if is_default} value='#{item.stream_url}'>#{item.description}</option>"
-          image = "<img src='#{item.inactive_image.try(:filename)}' alt='#{I18n.t 'kabtv.kabtv.no_broadcast'}' />" if item.inactive_image
+          image_path = item.stream_preset.inactive_image(item.language_id)
+          image = "<img src='#{image_path.try(:filename)}' alt='#{I18n.t 'kabtv.kabtv.no_broadcast'}' />" if image_path
         }
         presets[language_id] = {:options => options_list.join(','), :image => image}
       }
