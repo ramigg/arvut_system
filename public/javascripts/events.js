@@ -39,50 +39,92 @@
 
         transit_init: function (data){
             // Note: data is already inserted by JS received from server
+            show_new_sketches = false;
+            transition_to_last = false;
             kabtv.sketches.$images = $('.content .images img');
-            if (kabtv.sketches.total == 0 && kabtv.sketches.$images.length > 0) { // The first time some images were added
-                kabtv.sketches.total = kabtv.sketches.$images.length;
-                kabtv.sketches.$last = kabtv.sketches.$current = kabtv.sketches.$images.last();
-                kabtv.sketches.$first = kabtv.sketches.$images.first();
-                kabtv.sketches.$last.css('z-index', 10); // Become the upper for sure
-                $('#sketches .title').text(kabtv.sketches.total + '/' + kabtv.sketches.total);
-            } else if (kabtv.sketches.total != 0 && kabtv.sketches.$images.length == 0) { // Reset
-                kabtv.sketches.total = 0;
-                kabtv.sketches.$last = kabtv.sketches.$current = kabtv.sketches.$first = 0;
-                $('#sketches .title').text('0/0');
-            } else if (kabtv.sketches.total != 0 && kabtv.sketches.$images.length != 0 && kabtv.sketches.total != kabtv.sketches.$images.length) {
-                // Only if new amount of images are here now (either appended or resetted)
-                kabtv.sketches.total = kabtv.sketches.$images.length;
-                kabtv.sketches.$last = kabtv.sketches.$images.last();
-                $('#sketches .title').text((kabtv.sketches.$current.index() + 1) + '/' + kabtv.sketches.total);
-                $('#new_sketches').show();
+            if (kabtv.sketches.total == 0) {
+                // There were no images before
+                if (kabtv.sketches.$images.length > 0) {
+                    // But now there is something...
+                    // The first time some images were added
+                    kabtv.sketches.total = kabtv.sketches.$images.length;
+                    kabtv.sketches.$last = kabtv.sketches.$current = kabtv.sketches.$images.last();
+                    kabtv.sketches.$first = kabtv.sketches.$images.first();
+                    kabtv.sketches.$last.css('z-index', 10); // Become the upper for sure
+                    $('#sketches .title').text(kabtv.sketches.total + '/' + kabtv.sketches.total);
+                } else {
+            // And still there are no images
             }
+            } else {
+                // There were some images
+                if (kabtv.sketches.$images.length > 0) {
+                    // And now we have some...
+                    if (kabtv.sketches.$images.length < kabtv.sketches.total) {
+                        // And now there are less: full or partial reset
+                        kabtv.sketches.total = kabtv.sketches.$images.length;
+                        kabtv.sketches.$last = kabtv.sketches.$current = kabtv.sketches.$images.last();
+                        kabtv.sketches.$first = kabtv.sketches.$images.first();
+                        kabtv.sketches.$last.css('z-index', 10); // Become the upper for sure
+                        $('#sketches .title').text(kabtv.sketches.total + '/' + kabtv.sketches.total);
+                    } else if (kabtv.sketches.total < kabtv.sketches.$images.length) {
+                        // Only if new amount of images are here now (either appended or resetted)
+                        if (kabtv.sketches.$current == kabtv.sketches.$last) {
+                            // We're on the last image...
+                            transition_to_last = true;
+                        } else {
+                            show_new_sketches = true;
+                        }
+                        kabtv.sketches.total = kabtv.sketches.$images.length;
+                        kabtv.sketches.$last = kabtv.sketches.$images.last();
+                        $('#sketches .title').text((kabtv.sketches.$current.index() + 1) + '/' + kabtv.sketches.total);
+                    }
+                } else {
+                    // And now there are nothing: full reset
+                    kabtv.sketches.total = 0;
+                    kabtv.sketches.$last = kabtv.sketches.$current = kabtv.sketches.$first = 0;
+                    $('#sketches .title').text('0/0');
+                }
+            }
+            if (show_new_sketches)
+                $('#new_sketches').show();
+            else
+                $('#new_sketches').hide();
             kabtv.sketches.$in_transition = false;
+            if (transition_to_last)
+                kabtv.sketches.last();
         },
 
         first: function (){
+            if (kabtv.sketches.total <= 1)
+                return;
             kabtv.sketches.$item = kabtv.sketches.$first;
             kabtv.sketches.transit_to();
         },
 
         last: function (){
+            if (kabtv.sketches.total <= 1)
+                return;
             kabtv.sketches.$item = kabtv.sketches.$last;
             kabtv.sketches.transit_to();
             $('#new_sketches').hide();
         },
 
         prev: function (){
+            if (kabtv.sketches.total <= 1)
+                return;
             kabtv.sketches.$item = kabtv.sketches.$current.prev();
             kabtv.sketches.transit_to();
         },
 
         next: function (){
+            if (kabtv.sketches.total <= 1)
+                return;
             kabtv.sketches.$item = kabtv.sketches.$current.next();
             kabtv.sketches.transit_to();
         },
 
         transit_to: function (){
-            if (kabtv.sketches.total <= 1 || kabtv.sketches.$item.length == 0 ||
+            if (kabtv.sketches.$item.length == 0 ||
                 kabtv.sketches.$current === kabtv.sketches.$item || kabtv.sketches.$in_transition) return;
             kabtv.sketches.$in_transition = true;
 
