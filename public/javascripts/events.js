@@ -258,7 +258,9 @@
             //var reload_player = false; -- initialized in responce from server
 
             // If activity status was changed - reload player
-            if ((kabtv.tabs.presets_data == null) || (kabtv.tabs.presets_data.stream_preset.is_active != presets_data.stream_preset.is_active)) {
+            // If not active and stream state was changed - reload player 
+            if ((kabtv.tabs.presets_data == null) || (kabtv.tabs.presets_data.stream_preset.is_active != presets_data.stream_preset.is_active) ||
+            (!presets_data.stream_preset.is_active && presets_data.stream_preset.stream_state_id != kabtv.tabs.presets_data.stream_preset.stream_state_id)) {
                 reload_player = true;
             }
 

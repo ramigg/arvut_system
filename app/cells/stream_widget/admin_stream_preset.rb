@@ -22,7 +22,6 @@ module StreamWidget
 
     def edit
       @stream_preset = StreamPreset.find(param(:stream_preset_id))
-      set_current_preset(@stream_preset.try(:id))
       replace :view => :display
     end
 
