@@ -222,7 +222,7 @@ div.uploader input{opacity:0;position:absolute;top:0;right:0;bottom:0;float:righ
 .layout-stream .side_menu .icon span{right:10px;top:2px;}
 .layout-stream .side_tags li{line-height:18px;font-size:11px;height:auto;}
 .layout-stream .side_tags a{padding:0 10px 0 15px !important;position:static !important;width:86% !important;}
-.layout-stream .content-stream{padding:10px;border:2px solid #dcf2ff;background:white;position:relative;top:1px;-webkit-border-radius:5px;-moz-border-radius:5px;border-radius:5px;behavior:url(PIE.htc);-moz-background-clip:padding;-webkit-background-clip:padding;position:relative;}.layout-stream .content-stream ol{list-style:decimal outside none;}
+.layout-stream .content-stream{padding:10px;border:2px solid #dcf2ff;background:white;position:relative;top:1px;-webkit-border-radius:5px;-moz-border-radius:5px;border-radius:5px;behavior:url(PIE.htc);-moz-background-clip:padding;-webkit-background-clip:padding;position:relative;}.layout-stream .content-stream ol{list-style:decimal inside none;margin-right:10px;}
 .layout-stream .content-stream ul{list-style:disc outside none;}
 .layout-stream .content-stream .item h2{margin:0 0 10px;}
 .layout-stream .content-stream .item h2.icon{padding:0 20px 0 0;}
