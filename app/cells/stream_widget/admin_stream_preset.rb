@@ -32,10 +32,7 @@ module StreamWidget
         @stream_preset = StreamPreset.find(param(:stream_preset)[:id]) || StreamPreset.new
       end
       @success = @stream_preset.update_attributes(param(:stream_preset))
-      render
-    end
-    
-    def redraw
+      trigger :update_current_state
       render
     end
     

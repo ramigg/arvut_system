@@ -3,21 +3,19 @@
 <%= render "shared/breadcrumbs", :page => @page%>
 <div class="content-stream event-stream">
 	<%= render "shared/content_actions", :page => @page %>
-  <%- if current_user.is_stream_manager? || current_user.is_admin? -%>
-    <div class="admin">
-      <%= render_widget 'stream_admin' %>
-    </div>
-  <%- end -%>
   <div class="tabs">
     <!--span class="active"><%= link_to 'Stream', '#', :remote => true %></span>
     <span><%= link_to 'Gallery', '#', :remote => true %></span-->
-    <%- if current_user.is_stream_manager? || current_user.is_admin? -%>
-      <span class="admin-link"><%= link_to 'Admin', '#', :onclick => "$('.admin').toggle(); return false;" %></span>
-    <%- end -%>
   </div>
   <div class="bgnd">
     <%= render_widget 'stream_container' %>
     <div class="clear"></div>
   </div>
+  <%- if current_user.is_stream_manager? || current_user.is_admin? || current_user.is_stream_operator? -%>
+      <span style="float:right;margin-left:30px;"><%= link_to 'Manage', '#', :onclick => "$('.admin').toggle(); return false;" %></span>
+    <div class="admin">
+      <%= render_widget 'stream_admin' %>
+    </div>
+  <%- end -%>
   <div class="clear"></div>
 </div>

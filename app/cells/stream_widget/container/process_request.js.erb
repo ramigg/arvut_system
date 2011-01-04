@@ -1,0 +1,4 @@
+kabtv.tabs.timestamp = '<%= @stream_preset.updated_at.to_s %>';
+var presets_data = <%= @stream_preset.to_json.html_safe %>;
+var presets = <%= @presets.to_json.html_safe %>;
+var reload_player = <%= @reload_player %>;

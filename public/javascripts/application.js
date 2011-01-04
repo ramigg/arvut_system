@@ -172,7 +172,7 @@ $(function () {
         }
     }
     $("#throbber").ajaxSend(function(evt, request, settings){
-        if (document.location.href.match(/\#events\//) && settings.url.match(/source=(stream_container|questions|sketches)/))
+        if (document.location.href.match(/\#events\//) && settings.url.match(/source=(stream_container|questions|sketches)|type=(update_current_state)/))
             return;
         $(this).addClass('throbber');
     });

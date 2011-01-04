@@ -11,7 +11,6 @@
 
   <% if @stream_preset %>
     <%= form_for @stream_preset, :as => :stream_preset, :url => url_for_event(:submit), :remote => true do |f| -%>
-			<%= render 'current_state' %>
       <%= f.hidden_field :id %>
       <%= f.label :name, I18n.t('kabtv.admin.preset_name') %>
       <%= f.text_field :name %>

@@ -23,13 +23,13 @@ module StreamWidget
       link_to_function(func_name, "add_image_field(this, \"#{association}\", \"#{escape_javascript(fields)}\")")
     end
     
-    def set_current_preset(stream_id)
-      session[:stream_preset_id] = stream_id
+    def set_current_preset
+      session[:stream_preset_id] = param :stream_preset_id rescue nil
     end
     
     def current_preset
       return nil unless session[:stream_preset_id]
-      StreamPreset.find(session[:stream_preset_id])
+      @current_preset ||= StreamPreset.find(session[:stream_preset_id])
     end
     
     def set_admin_display_mode(mode)
@@ -46,6 +46,10 @@ module StreamWidget
       else
         "color:red;"
       end
+    end
+    
+    def current_user
+      @current_user ||= param :current_user
     end
     
   end

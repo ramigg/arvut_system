@@ -10,6 +10,7 @@ module StreamWidget
     end
 
     def display
+      set_current_preset
       @stream_preset = current_preset
       @show_tabs = @stream_preset.show_questions || @stream_preset.show_sketches || @stream_preset.show_schedule
       @show_support = @stream_preset.show_support

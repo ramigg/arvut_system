@@ -508,6 +508,16 @@ he:
       submitting: מעדכן שינויים...
       select_preset_or_add: בחר Preset לעריכה או צור חדש
       stream_selection: בחירת Stream
+      stream_images: ניהול תמונות
+      stream_presets: ניהול סטרימים
+      stream_state: Stream state
+      problem_saving: There was a problem saving the record
+      stream_switcher: פאנל מפעיל השידור
+      stream_states:
+        is_active: בשידור
+        not_active: שידור לא פעיל
+        preparing_to_broadcast: הכנה לשידור
+        technical_problem: תקלה טכנית
 
     kabtv:
       no_broadcast: אין שידורים היום
