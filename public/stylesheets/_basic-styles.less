@@ -187,6 +187,7 @@ p{
 @start-color: @color-main-light;
 @end-color: @color-main-dark;
 .gradient{
+	background: @start-color; // For Opera
 	background: -webkit-gradient(linear, 0 0, 0 bottom, from(@start-color), to(@end-color));
 	background: -moz-linear-gradient(@start-color, @end-color);
 	background: linear-gradient(@start-color, @end-color);
