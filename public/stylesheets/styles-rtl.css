@@ -256,8 +256,7 @@ div.uploader input{opacity:0;position:absolute;top:0;right:0;bottom:0;float:righ
 .layout-stream .content-stream .edit-stream #page_submit{float:left;}
 .layout-stream .content-stream .edit-stream label.error{color:red;display:block;font-size:12px;font-weight:normal;}
 .layout-stream .event-stream .admin{display:none;}
-.layout-stream .event-stream .tabs{position:relative;height:22px;margin-top:8px;}.layout-stream .event-stream .tabs .admin-link{position:absolute;left:0;top:0;padding:0;}.layout-stream .event-stream .tabs .admin-link a{font-size:13px;text-decoration:underline;color:#006ab6;}
-.layout-stream .event-stream .tabs span{padding:6px;margin:0;}.layout-stream .event-stream .tabs span a{font-size:13px;text-decoration:underline;color:#006ab6;}
+.layout-stream .event-stream .tabs{position:relative;height:22px;margin-top:8px;}.layout-stream .event-stream .tabs span{padding:6px;margin:0;}.layout-stream .event-stream .tabs span a{font-size:13px;text-decoration:underline;color:#006ab6;}
 .layout-stream .event-stream .tabs span.active{background-color:#f9f7e8;}.layout-stream .event-stream .tabs span.active a{text-decoration:none;color:#f15a24;font-weight:bold;}
 .layout-stream .event-stream .bgnd{background-color:#f9f7e8;padding:46px 6px;position:relative;}.layout-stream .event-stream .bgnd .support{position:absolute;top:10px;right:8px;}.layout-stream .event-stream .bgnd .support .online-status a{color:inherit;}
 .layout-stream .event-stream .bgnd .player{border:1px solid #808080;float:right;margin:0 40px 0 0;padding:4px;width:320px;height:305px;background-color:white;}
