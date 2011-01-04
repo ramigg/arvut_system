@@ -20,29 +20,22 @@ module StreamWidget
     end
 
     def process_request
-      stream_preset = current_preset
+      @stream_preset = current_preset
       timestamp = param :timestamp
-      if stream_preset.updated_at.to_s == timestamp
+      if @stream_preset.updated_at.to_s == timestamp
         render :text => '', :content_type => Mime::JS
         return
       end
 
       # look for channel
-      reload_player = ! stream_preset.stream_items.map{|p| p.stream_url}.include?(params[:stream_url])
-      current_item = stream_preset.stream_items.select{|p| p.stream_url == params[:stream_url]}
+      @reload_player = ! @stream_preset.stream_items.map{|p| p.stream_url}.include?(params[:stream_url])
+      current_item = @stream_preset.stream_items.select{|p| p.stream_url == params[:stream_url]}
 
-      languages = stream_preset.stream_items.map(&:language_id).uniq
-      presets = get_presets(stream_preset, languages, current_item)
-
-      render :text => "
-      #{"kabtv.tabs.timestamp = '#{stream_preset.updated_at.to_s}';".html_safe}
-      #{"var presets_data = #{stream_preset.to_json};".html_safe}
-      #{"var presets = #{presets.to_json};".html_safe}
-      var reload_player = #{reload_player};
-      ", :content_type => Mime::JS
+      languages = @stream_preset.stream_items.map(&:language_id).uniq
+      @presets = get_presets(@stream_preset, languages, current_item)
+      render
     end
-#TODO: Touch stream_presets to update it's timestmp when stream_images or stream_states changes
-#TODO: Replace old #{item.inactive_image} on line 61 to the new system.
+
     def get_presets(stream_preset, languages, current_item)
       presets = {}
       languages.each{ |language_id|

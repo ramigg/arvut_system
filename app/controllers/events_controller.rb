@@ -9,6 +9,7 @@ class EventsController < ApplicationController
     event << widget('stream_widget/container', 'stream_container', :display, 
     :current_user => current_user, :stream_preset_id => @page.try(:stream_preset_id))
   end
+
   def show
     @page ||= Page.find(params[:id])
     

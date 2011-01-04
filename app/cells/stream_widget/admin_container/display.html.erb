@@ -14,3 +14,9 @@
 <% end %>
 
 <div class="clear"></div>
+<script type="text/javascript" charset="utf-8">
+function update_state(){
+	<%= trigger_event(:update_current_state).html_safe %>;
+}
+setInterval('update_state()', 10000);	
+</script>
