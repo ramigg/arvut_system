@@ -25,17 +25,14 @@ module StreamWidget
       (@questions, @total_questions) = CopyQuestion.approved_questions(last_question_id)
 
       if @questions.empty?
-        if last_question_id == 0
-          # no questions => no questions
-          render :text => '', :content_type => Mime::JS
-        elsif @total_questions == 0
+        if last_question_id == 0 || @total_questions == 0
           # questions => no new questions
-          render :text => "
+          text = "
           $('dl#questions').html('#{escape_javascript "<dd class='even'>#{I18n.t 'kabtv.kabtv.no_questions_yet'}</dd>".html_safe}');
           kabtv.questions.last_question_id = 0;
-          ", :content_type => Mime::JS
+          "
         else
-          render :text => '', :content_type => Mime::JS
+          text = ''
         end
       else
         content = ''
@@ -58,18 +55,20 @@ module StreamWidget
         }
         if last_question_id == 0
           # no questions => questions
-          render :text => "
+          text = "
           $('dl#questions').html('#{escape_javascript content.html_safe}');
           kabtv.questions.last_question_id = #{@questions.last.id};
-          ", :content_type => Mime::JS
+          "
         else
           # questions => more questions
-          render :text => "
+          text = "
           $('dl#questions').append('#{escape_javascript content.html_safe}');
           kabtv.questions.last_question_id =+ #{@questions.last.id};
-          ", :content_type => Mime::JS
+          "
         end
       end
+
+      render :text => text, :content_type => Mime::JS
     end
 
     def process_submit
