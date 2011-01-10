@@ -67,6 +67,9 @@ class Admin::PagesController < ApplicationController
 
     set_page_status @page, params
 
+    tag_list = "#{@page.locale}_tag_list"
+    params[:page][tag_list] = [] if params[:page][tag_list].nil?
+    
     if @page.update_attributes(params[:page])
       flash[:notice] = I18n.t 'admin.pages.update'
     else
@@ -78,7 +81,7 @@ class Admin::PagesController < ApplicationController
 
   def tag_list
     respond_with do |format|
-      format.js{render :text => Page.all_tags_strings(I18n.locale).to_json}
+      format.js{render :text => Page.all_tags_strings(params[:tag_list_locale]).to_json}
     end
     return
   end

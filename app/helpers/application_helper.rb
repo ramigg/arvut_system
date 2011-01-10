@@ -127,15 +127,15 @@ module ApplicationHelper
   
 # *objectTags* - Array of tags already available for the page
 # *allTagsUrl* - URL to the all available tags that can be added to the page
-  def page_tags(objectTags, allTagsUrl)
-    s = %{
+  def page_tags(objectTags, allTagsUrl, locale = 'en')
+    %{
         <div id="tags"></div>
         <script type="text/javascript">
           $(document).ready(function(){
             $("#tags").tagit({
               objectTags: #{objectTags.to_json},
               allTags : "#{allTagsUrl}",
-              locale : "#{I18n.locale}"
+              locale : "#{locale}"
             });
           });
         </script>

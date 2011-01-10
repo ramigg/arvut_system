@@ -30,7 +30,8 @@
 
         var received_tags = $.parseJSON($.ajax({
             url: options.allTags,
-            async: false
+            async: false,
+            data: "tag_list_locale=" + options.locale
         }).responseText);
 
 
