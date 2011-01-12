@@ -30,6 +30,7 @@ class Page < ActiveRecord::Base
   validates :title, :presence => true
   validates :message_body, :presence => true, :if => lambda{|e| e.page_type == 'message'}
 
+  delegate :locale, :to => :language
 
   #  *Pagination*
 
