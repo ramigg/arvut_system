@@ -241,7 +241,7 @@ div.uploader input{opacity:0;position:absolute;top:0;right:0;bottom:0;float:righ
 .layout-stream .content-stream .edit-stream .description{padding:10px 0;}
 .layout-stream .content-stream .edit-stream .item{margin:10px 0;}.layout-stream .content-stream .edit-stream .item h4{margin:0 0 10px;}
 .layout-stream .content-stream .edit-stream .item hr{height:3px;background:#bcccd3;margin:10px 0px;}
-.layout-stream .content-stream .edit-stream .item p{margin-bottom:10px;padding:0 0 0 10px;}
+.layout-stream .content-stream .edit-stream .item p{margin-bottom:10px;padding:0;}
 .layout-stream .content-stream .edit-stream .item .item-metadata{color:#666666;font-size:11px;clear:both;}
 .layout-stream .content-stream .edit-stream .item .form_element{margin:0 0 10px;}.layout-stream .content-stream .edit-stream .item .form_element dt{font-weight:bold;margin:10px 0 5px;}
 .layout-stream .content-stream .edit-stream .item .form_element dd{padding:0 0 0 10px;}.layout-stream .content-stream .edit-stream .item .form_element dd .rate_item{float:left;}.layout-stream .content-stream .edit-stream .item .form_element dd .rate_item label,.layout-stream .content-stream .edit-stream .item .form_element dd .rate_item input{display:block;text-align:center;}
