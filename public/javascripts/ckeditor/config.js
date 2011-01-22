@@ -21,6 +21,7 @@ CKEDITOR.addStylesSet( 'my_styles',
 CKEDITOR.editorConfig = function( config )
 {
     config.toolbar = 'Min';
+
     config.toolbar_Min =
     [
     ['PasteText','PasteFromWord','RemoveFormat'],
@@ -31,6 +32,16 @@ CKEDITOR.editorConfig = function( config )
     ['Link','Unlink','Image','Flash'],
     //    '/',
     // ['Styles'],
+    ['Source', 'Maximize', 'ShowBlocks']
+    ];
+
+    config.toolbar_Min_Rav =
+    [
+    ['PasteText','PasteFromWord','RemoveFormat'],
+    //    '/',
+    ['Bold','Italic','Underline'],
+    ['NumberedList','BulletedList'],
+    ['JustifyLeft','JustifyCenter','JustifyRight'],
     ['Source', 'Maximize', 'ShowBlocks']
     ];
 
@@ -45,6 +56,15 @@ CKEDITOR.editorConfig = function( config )
     ['Image','Flash'],
     ['Source', '-', 'Maximize', 'ShowBlocks']//,
     // ['Styles']
+    ];
+
+    config.toolbar_Min_Rav_he =
+    [
+    ['PasteText','PasteFromWord','RemoveFormat'],
+    ['Bold','Italic','Underline'],
+    ['NumberedList','BulletedList'],
+    ['JustifyRight','JustifyCenter','JustifyLeft'],
+    ['Source', 'Maximize', 'ShowBlocks'],
     ];
 
     config.toolbar_Pic =

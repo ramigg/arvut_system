@@ -15,15 +15,14 @@ class PagesAdmin < Apotomo::Widget
     @page = Page.new(params[:page])
     @page.assets.sort! { |a, b| a.position <=> b.position } if @page.assets
     @page.publish_at = Time.zone.now
-    @page.save
+    @success = @page.save
+    render
   end
 
-  
   private
   
   def current_user
     @current_user ||= param :current_user
   end
   
-
 end
