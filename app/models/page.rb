@@ -170,4 +170,8 @@ class Page < ActiveRecord::Base
       PageUserflag.add_flag(self, user, flag)
     end
   end
+
+  def self.get_tag_for_rav(options)
+    I18n.t('stream.rav', options)
+  end
 end

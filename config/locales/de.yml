@@ -317,6 +317,7 @@ de:
       forgot_password: "Du hast Dich bereits registriert, doch Du kommst nicht ins System? Hast Du die Anleitung zum Bestätigen gelesen? Vielleicht hast Du Dein Passwort vergessen? Versuche den folgenden Link, um es zurückzusetzen."
       unlock: "Du wurdest vom System gesperrt. Bitte checke Deine Mailbox nach dem Entsperrung-Email. Wenn dort keines ist, klicke den folgenden Link, um ein neues zu erhalten."
     views:
+      site_name: Sviva Tova
       admin: Admin
       answered: beantwortet
       check_for_new_questionnaire: "Checke neue Fragebögen"
@@ -355,6 +356,7 @@ de:
       required: Pflichtfeld
       updated: "Profil erfolgreich aktualisiert"
   stream:
+    rav: "Durch Rav"
     all: Alle
     all_items: "Alle Einträge"
     articles: Materialien
@@ -372,6 +374,9 @@ de:
     mark_as: Markieren
     read: als gelesen
     unread: als ungelesen
+    bookmarks: Favoriten
+    add_to_favorites: zu Favoriten hinzufügen
+    remove_from_favorites: Aus Favoriten entfernen
   questionnaire_answer:
     controller:
       already_answered: "Du hast diesen Fragebogen bereits beantwortet"

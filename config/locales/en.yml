@@ -476,6 +476,7 @@ en:
       second: "Seconds"
 
   stream:
+    rav: "From Rav"
     posted_ago: Posted %{when} ago
     read_all: Read more »
     home: Home

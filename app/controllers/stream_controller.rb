@@ -14,11 +14,21 @@ class StreamController < ApplicationController
 
     @language_id = Language.get_id_by_locale(I18n.locale)
     @is_tag = @stream_filter == 'tag'
+    @is_rav = @stream_filter == 'rav'
     @is_bookmark = @stream_filter == 'bookmarks'
     @is_new = @modifier == 'new'
 
     if @is_tag
       @pages =  Page.tagged_with(@modifier).by_page_type(@stream_filter, @language_id, current_user.date_to_show_pages_from)
+    elsif @is_rav
+      rav = Page.get_tag_for_rav(:locale => I18n.locale)
+      @stream_subclass = 'rav'
+      if @is_new
+        @pages =  Page.new_pages_by_page_type('tag', @language_id, current_user.date_to_show_pages_from, current_user.id)
+      else
+        @pages =  Page.by_page_type('tag', @language_id, current_user.date_to_show_pages_from)
+      end
+      @pages = @pages.tagged_with(rav)
     elsif @is_bookmark
       @pages =  Page.favorite_pages(@language_id, current_user.date_to_show_pages_from, current_user)
     else 

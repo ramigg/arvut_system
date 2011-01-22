@@ -167,7 +167,11 @@ module ApplicationHelper
   end
 
   def pages_menu_count_and_style(stream_filter)
-    if stream_filter == 'bookmarks'
+    case stream_filter
+    when 'rav'
+      rav = Page.get_tag_for_rav(:locale => I18n.locale)
+      count = Page.new_pages_by_page_type('tag', Language.get_id_by_locale(I18n.locale), current_user.date_to_show_pages_from, current_user.id).tagged_with(rav).count
+    when 'bookmarks'
       count = Page.favorite_pages(Language.get_id_by_locale(I18n.locale), current_user.date_to_show_pages_from, current_user).count
     else
       count = Page.new_pages_by_page_type(stream_filter, Language.get_id_by_locale(I18n.locale), current_user.date_to_show_pages_from, current_user.id).count
