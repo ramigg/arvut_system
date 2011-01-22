@@ -4,6 +4,10 @@ class StreamController < ApplicationController
   before_filter :adjust_format_for_ie8
 
   ITEMS_PER_PAGE = 10
+
+  has_widgets do |stream|
+    stream << widget('pages_admin', 'pages_admin', :display_form, :current_user => current_user)
+  end
   
   # Accepts the following:
   # stream/assignments

@@ -1,0 +1,20 @@
+<%= form_for @page, :as => :page, :url => url_for_event(:submit), :remote => true do |f| -%>
+	
+	<%= f.error_messages :class => 'error', :header_message => nil, :message => nil, :header_tag => :p %>
+	<%= f.hidden_field :language_id, :value => @page.language.id %>
+	<%= f.hidden_field :author_id, :value => @page.author.id %>
+	<%= f.hidden_field :page_type, :value => @page.page_type %>
+
+	<%= f.hidden_field "#{@page.locale}_tag_list".to_sym, :value => Page.get_tag_for_rav(:locale => @page.locale) %>
+	
+
+	<%= f.label :title, t("admin.pages.title") %>
+	<%= f.text_field :title %>
+	<%= f.label :description, t("admin.pages.description"), :class => 'text' %>
+	<%= f.cktext_area :description, :toolbar => ckeditor_toolbar, :class => 'span-17 last', :width => '650px', :height => '6em' %>
+	<%#= f.text_area :description %>
+	<%= f.label :message_body, t("admin.pages.message_body"), :class => 'text' %>
+  <%= f.cktext_area :message_body, :toolbar => ckeditor_toolbar, :class => 'span-17 last', :width => '650px', :height => '6em' %>
+	<%#= f.text_area :message_body %>
+	<%= f.submit I18n.t('kabtv.admin.submit'), :name => 'PUBLISHED', :class => 'button-small-main', :disable_with => I18n.t('kabtv.admin.submitting') %>
+<% end -%>	
