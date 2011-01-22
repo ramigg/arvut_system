@@ -319,6 +319,7 @@ it:
       email:
         Se hai provato tutte le istruzioni qui sopra riportate, ma ancora non riesci ad accedere, spedisci una email al seguente indirizzo di posta elettronica
     views:
+      site_name: Sviva Tova
       admin: Admin
       answered: risposto
       check_for_new_questionnaire: "Controlla per il nuovo questionario"
@@ -366,6 +367,7 @@ it:
       all_fields_are_required: "tutti i campi sono richiesti"
       please_select_one_of_the_options: "prego seleziona una delle opzioni"
   stream:
+    rav: "Con Rav"
     all: Tutto
     all_items: "Tutti gli Articoli"
     articles: Contenuti
@@ -383,6 +385,9 @@ it:
     mark_as: Segna come
     read: letto
     unread: Da leggere
+    bookmarks: preferiti
+    add_to_favorites: Aggiungi ai preferiti
+    remove_from_favorites: Rimuovi da Preferiti
   user:
     model:
       birthday: "Anno di nascita"

@@ -465,6 +465,7 @@ he:
       required: "שדה חובה"
       content_required: נא להכניס טקסט
   stream:
+    rav: "מהרב לייטמן"
     posted_ago: "פורסם לפני %{when}"
     read_all: "המשך »"
     home: "דף הבית"
