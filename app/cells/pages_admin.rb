@@ -12,14 +12,10 @@ class PagesAdmin < Apotomo::Widget
   end
   
   def process_form
-    debugger
-    return
     @page = Page.new(params[:page])
     @page.assets.sort! { |a, b| a.position <=> b.position } if @page.assets
-
-    if @page.save
-      flash[:notice] = I18n.t 'admin.pages.success'
-    end
+    @page.publish_at = Time.zone.now
+    @page.save
   end
 
   
