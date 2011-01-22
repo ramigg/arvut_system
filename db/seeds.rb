@@ -7,7 +7,7 @@
 #   Mayor.create(:name => 'Daley', :city => cities.first)
 puts '--> Roles'
 ['Groupmanager', 'super_moderator', 'Moderator',
-  'Stream_Manager','stream_operator',
+  'Stream_Manager','stream_operator', 'rav_posting', 'frontend_editor',
   'Reports', 'Anonymous', 'Regular', 'Admin', 'Super',
 ].each do |role|
   Role.find_or_create_by_role role
