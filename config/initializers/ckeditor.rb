@@ -36,16 +36,16 @@ if Object.const_defined?("Ckeditor")
     #config.swf_image_file_upload_limit = 10
     
     # Path for view all uploaded files
-    #config.file_manager_uri = "/ckeditor/files"
+    config.file_manager_uri = "#{Rails.configuration.site_prefix}/ckfinder/ckfinder.html"
     
     # Path for upload files process
-    #config.file_manager_upload_uri = "/ckeditor/create/file"
+    config.file_manager_upload_uri = "#{Rails.configuration.site_prefix}/ckfinder/core/connector/php/connector.php?command=QuickUpload&type=Files"
     
     # Path for view all uploaded images
-    #config.file_manager_image_uri = "/ckeditor/images"
+    config.file_manager_image_uri = "#{Rails.configuration.site_prefix}/ckfinder/ckfinder.html?type=Images"
     
     # Path for upload images process
-    #config.file_manager_image_upload_uri = "/ckeditor/create/image"
+    config.file_manager_image_upload_uri = "#{Rails.configuration.site_prefix}/ckfinder/core/connector/php/connector.php?command=QuickUpload&type=Images"
    
     # Model's names witch processing in ckeditor_controller
     #config.file_manager_image_model = "Ckeditor::Picture"
