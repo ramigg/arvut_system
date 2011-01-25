@@ -1,6 +1,6 @@
 class PagesAdmin < Apotomo::Widget
   helper ApplicationHelper
-  
+  helper_method :current_user
   responds_to_event :submit, :with => :process_form
 
   def display_form
@@ -19,8 +19,6 @@ class PagesAdmin < Apotomo::Widget
     render
   end
 
-  private
-  
   def current_user
     @current_user ||= param :current_user
   end
