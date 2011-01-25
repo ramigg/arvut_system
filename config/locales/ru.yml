@@ -221,6 +221,7 @@ ru:
     bookmarks: Закладки
     add_to_favorites: Добавить в избранное
     remove_from_favorites: Удалить из избранного
+    ravs_opinions: "Мнение Рава"
   user:
     model:
       gender: Пол
