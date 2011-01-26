@@ -9,7 +9,7 @@ module StreamWidget
       f.hidden_field(:_destroy, :value => '0') + link_to_function(name, "remove_field(this, #{record_type})")
     end
 
-    def link_to_add_fields(func_name, f, association)
+    def link_to_add_cell_fields(func_name, f, association)
       new_object = f.object.class.reflect_on_association(association).klass.new
       fields = f.fields_for(association, new_object, :child_index => "new_#{association}") do |builder|
         render(:view => "_#{association.to_s}", :locals => {association => builder})
