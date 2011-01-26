@@ -201,7 +201,7 @@ ru:
       updated: "Профиль был успешно обновлен"
   stream:
     new_internet: Новый интернет
-    projects_discussion: "Обсуждение проектов"
+    projects_discussion: Обсуждение
     rav: "От Рава"
     projects: Проекты
     all: "Все посты"

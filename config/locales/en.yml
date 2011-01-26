@@ -478,7 +478,7 @@ en:
 
   stream:
     new_internet: New internet
-    projects_discussion: "Projects' Discussion"
+    projects_discussion: Discussions
     rav: "From Rav"
     projects: Projects
     posted_ago: Posted %{when} ago

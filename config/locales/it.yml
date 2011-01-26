@@ -45,7 +45,7 @@ it:
       user: email
   admin:
     pages:
-      project: Project
+      project: Progetto
       create: Crea
       reset: Chiara forma
       actions: Azioni
@@ -369,9 +369,9 @@ it:
       please_select_one_of_the_options: "prego seleziona una delle opzioni"
   stream:
     new_internet: New internet
-    projects_discussion: "Projects' Discussion"
+    projects_discussion: Discussione
     rav: "Con Rav"
-    projects: Projects
+    projects: Progetti
     all: Tutto
     all_items: "Tutti gli Articoli"
     articles: Contenuti

@@ -45,7 +45,7 @@ es:
       user: correo-e
   admin:
     pages:
-      project: Project
+      project: Proyecto
       create: Crear
       reset: Forma clara
       actions: Acciones
@@ -347,8 +347,9 @@ es:
       hi: Hola
       you_got_new_questionnaire: "Tienes un nuevo cuestionario"
   stream:
-    new_internet: New internet
-    projects_discussion: "Projects' Discussion"
+    new_internet: Nueva Internet
+    projects_discussion: Discusión
+    projects: Proyectos
     rav: "Por Rav"
     all: "Todos "
     all_items: "Todos los artículos"
