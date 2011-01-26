@@ -200,7 +200,10 @@ ru:
       required: обязательные поля
       updated: "Профиль был успешно обновлен"
   stream:
+    new_internet: Новый интернет
+    projects_discussion: Обсуждение
     rav: "От Рава"
+    projects: Проекты
     all: "Все посты"
     all_items: "Все посты"
     articles: Материалы
@@ -249,6 +252,7 @@ ru:
 
   admin:
     pages:
+      project: Проект
       create: Создать
       all: Все
       only_you: Только вы

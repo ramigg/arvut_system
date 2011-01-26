@@ -56,6 +56,7 @@ de:
       arr_down: "&#9662;"
       arr_up: "&#9652;"
       article: Material
+      project: Projekt
       as_draft: "Als Entwurf speichern"
       assignment: Aufgabe
       assignments: Aufgaben
@@ -356,7 +357,10 @@ de:
       required: Pflichtfeld
       updated: "Profil erfolgreich aktualisiert"
   stream:
+    new_internet: Neue Internet
+    projects_discussion: Diskussion
     rav: "Durch Rav"
+    projects: Projekte
     all: Alle
     all_items: "Alle Einträge"
     articles: Materialien

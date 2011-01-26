@@ -1,5 +1,5 @@
 <ul id="pages_menu" class="side_menu">
-  <%- ['All', 'Rav', 'Bookmarks', 'Assignments', 'Articles', 'Messages', 'Events'].each do |name|
+  <%- ['All', 'Bookmarks', 'Assignments', 'Articles', 'Messages', 'Projects', 'Events'].each do |name|
     name_downcase = name.downcase
     icon = name_downcase.singularize
     count, style = pages_menu_count_and_style(name_downcase)

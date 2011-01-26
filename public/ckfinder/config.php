@@ -20,6 +20,8 @@
  */
 function CheckAuthentication()
 {
+//print_r($_COOKIE['CKFinder_UserRole']);
+return true;
 	// WARNING : DO NOT simply return "true". By doing so, you are allowing
 	// "anyone" to upload and list the files in your server. You must implement
 	// some kind of session validation here. Even something very simple as...
@@ -42,8 +44,8 @@ $config['LicenseKey'] = '';
  Uncomment lines below to enable PHP error reporting and displaying PHP errors.
  Do not do this on a production server. Might be helpful when debugging why CKFinder does not work as expected.
 */
-// error_reporting(E_ALL);
-// ini_set('display_errors', 1);
+error_reporting(E_ALL);
+ini_set('display_errors', 1);
 
 /*
 To make it easy to configure CKFinder, the $baseUrl and $baseDir can be used.
@@ -60,7 +62,7 @@ Examples:
 
 ATTENTION: The trailing slash is required.
 */
-$baseUrl = '/ckfinder/userfiles/';
+$baseUrl = 'http://kabbalahgroup.info/internet/ckfinder/userfiles/';
 
 /*
 $baseDir : the path to the local directory (in the server) which points to the
@@ -79,7 +81,7 @@ Examples:
 
 ATTENTION: The trailing slash is required.
 */
-$baseDir = resolveUrl($baseUrl);
+$baseDir = '/sites/rails/prod/stimulator2/public/ckfinder/userfiles/'; //resolveUrl($baseUrl);
 
 /*
  * ### Advanced Settings
@@ -117,7 +119,7 @@ To be able to use this feature, you must initialize the session data by
 uncommenting the following "session_start()" call.
 */
 $config['RoleSessionVar'] = 'CKFinder_UserRole';
-//session_start();
+session_start();
 
 /*
 AccessControl : used to restrict access or features to specific folders.
@@ -145,6 +147,24 @@ $config['AccessControl'][] = Array(
 		'fileUpload' => true,
 		'fileRename' => true,
 		'fileDelete' => true);
+
+/*
+$config['AccessControl'][] = Array(
+		'role' => '*',
+		'resourceType' => '*',
+		'folder' => '/',
+
+		'folderView' => true,
+		'folderCreate' => false,
+		'folderRename' => false,
+		'folderDelete' => false,
+
+		'fileView' => true,
+		'fileUpload' => false,
+		'fileRename' => false,
+		'fileDelete' => false);
+
+*/
 
 /*
 For example, if you want to restrict the upload, rename or delete of files in

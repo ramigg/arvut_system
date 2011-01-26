@@ -1,11 +1,20 @@
 <div class="widget-blog">
+  <h4><%= t('stream.projects_discussion') %></h4>
+  <hr />
+  <ul>
+    <li>
+      <%= link_to t('stream.new_internet'), "http://projects.kab.info/forums/98559-internet-project?lang=#{I18n.locale.to_s}", :target => '_blank' %>
+    </li>
+  </ul>
+</div>
+<div class="widget-blog">
   <h4><%= link_to t('home.views.blog_title').html_safe, t('home.views.blog'), :class => 'in-wide-iframe' %></h4>
   <hr />
   <ul>
     <% @feed.items[0..10].each { |item| %>
       <li>
         <%= link_to item.title, item.link, :class => @link_class %>
-	<span><%= t("stream.posted_ago", :when => time_ago_in_words(item.time)) %></span>
+        <span><%= t("stream.posted_ago", :when => time_ago_in_words(item.time)) %></span>
 
       </li>
     <% } %>
