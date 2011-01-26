@@ -220,6 +220,7 @@ en:
 
   admin:
     pages:
+      project: Project
       create: Create
       by_author: By author
       all: All
@@ -476,7 +477,10 @@ en:
       second: "Seconds"
 
   stream:
+    new_internet: New internet
+    projects_discussion: "Projects' Discussion"
     rav: "From Rav"
+    projects: Projects
     posted_ago: Posted %{when} ago
     read_all: Read more »
     home: Home

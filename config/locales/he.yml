@@ -44,6 +44,7 @@ he:
       user: אימייל
   admin:
     pages:
+      project: פרוייקט
       create: צור
       reset: נקה את הטופס
       success: "הפוסט נוצר בהצלחה"
@@ -465,7 +466,10 @@ he:
       required: "שדה חובה"
       content_required: נא להכניס טקסט
   stream:
+    new_internet: האינטרנט החדש
+    projects_discussion: דיונים
     rav: "מהרב לייטמן"
+    projects: פרוייקטים
     posted_ago: "פורסם לפני %{when}"
     read_all: "המשך »"
     home: "דף הבית"
