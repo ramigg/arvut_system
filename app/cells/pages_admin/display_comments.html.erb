@@ -1,0 +1,17 @@
+<%- unless @comments.empty? %>
+  <hr/>
+<%- end %>
+<ul class="comments">
+  <%- @comments.each { |c| -%>
+    <li class="one-comment">
+      <%= image_tag c.author.avatar_url(:thumb), :class => 'avatar' %>
+      <ul>
+        <%- unless c.author.first_name.nil? && c.author.last_name.nil? -%>
+        <li><span class="name"><%= c.author.first_name %> <%= c.author.last_name %></span></li>
+        <%- end -%>
+        <li><%= c.message_body.html_safe %></li>
+      </ul>
+      <span class="posted"><%= t("stream.posted_ago", :when => time_ago_in_words(c.created_at)) %></span>
+    </li>
+  <%- } -%>
+</ul>

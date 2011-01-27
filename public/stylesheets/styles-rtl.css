@@ -27,7 +27,7 @@ h3{font-size:15.6px;font-weight:bold;}
 h4{font-size:14.3px;font-weight:bold;}
 h5{font-size:13px;font-weight:bold;}
 h1 a,h2 a,h3 a,h4 a,h5{text-decoration:none;}
-p{font-size:13px;}
+p{font-size:13px;line-height:1.3em;margin-bottom:3px;}
 .small-text{font-size:11px;}
 .rounded-corners{-webkit-border-radius:5px;-moz-border-radius:5px;border-radius:5px;behavior:url(PIE.htc);-moz-background-clip:padding;-webkit-background-clip:padding;position:relative;}
 .gradient{background:#00acc2;background:-webkit-gradient(linear, 0 0, 0 bottom, from(#00acc2), to(#2971a7));background:-moz-linear-gradient(#00acc2, #2971a7);background:linear-gradient(#00acc2, #2971a7);-pie-background:linear-gradient(top, #00acc2, #2971a7);behavior:url(PIE.htc);position:relative;}
@@ -240,7 +240,11 @@ div.uploader input{opacity:0;position:absolute;top:0;right:0;bottom:0;float:righ
 .layout-stream .content-stream .content-actions div{display:inline;}
 .layout-stream .content-stream .content-actions div .bookmark-icon{left:10px;top:2px;}
 .layout-stream .content-stream .content-actions div span{color:black;}
-.layout-stream .content-stream .edit-stream{padding:12px 0 0;margin:0;}.layout-stream .content-stream .edit-stream hr{height:1px;background:#bcccd3;margin:10px 0px;clear:both;}
+.layout-stream .content-stream .edit-stream{padding:12px 0 0;margin:0;}.layout-stream .content-stream .edit-stream .comments{list-style:none;margin-right:7px;}.layout-stream .content-stream .edit-stream .comments .one-comment{clear:right;border-bottom:1px solid #F1F1F1;padding:8px 5px;}.layout-stream .content-stream .edit-stream .comments .one-comment .avatar{float:right;margin-left:10px;width:40px;}
+.layout-stream .content-stream .edit-stream .comments .one-comment ul{margin-right:50px;list-style:none;}.layout-stream .content-stream .edit-stream .comments .one-comment ul li{margin-bottom:3px;}.layout-stream .content-stream .edit-stream .comments .one-comment ul li .name{color:#555555;}
+.layout-stream .content-stream .edit-stream .comments .one-comment .posted{display:block;color:#aaaaaa;font-size:11px;margin-top:5px;text-align:left;}
+.layout-stream .content-stream .edit-stream #hiddenEditor{padding-top:20px;}.layout-stream .content-stream .edit-stream #hiddenEditor .buttons{width:79%;}.layout-stream .content-stream .edit-stream #hiddenEditor .buttons input{float:right;margin-left:20px;}
+.layout-stream .content-stream .edit-stream hr{height:1px;background:#bcccd3;margin:10px 0px;clear:both;}
 .layout-stream .content-stream .edit-stream h1{margin:10px 0 20px;text-align:center;}
 .layout-stream .content-stream .edit-stream .description{padding:10px 0;}
 .layout-stream .content-stream .edit-stream .item{margin:10px 0;}.layout-stream .content-stream .edit-stream .item h4{margin:0 0 10px;}

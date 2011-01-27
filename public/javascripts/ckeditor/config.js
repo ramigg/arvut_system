@@ -45,10 +45,18 @@ CKEDITOR.editorConfig = function( config )
     ['Source', 'Maximize', 'ShowBlocks']
     ];
 
+    config.toolbar_Min_Comments =
+    [
+    ['PasteText','PasteFromWord','RemoveFormat'],
+    ['Bold','Italic','Underline'],
+    ['NumberedList','BulletedList'],
+    ['JustifyLeft','JustifyCenter','JustifyRight'],
+    ['Maximize']
+    ];
+
     config.toolbar_Min_he =
     [
     ['PasteText','PasteFromWord','RemoveFormat'],
-    //    '/',
     ['Bold','Italic','Underline'],
     ['NumberedList','BulletedList'],
     ['JustifyRight','JustifyCenter','JustifyLeft'],
@@ -65,6 +73,15 @@ CKEDITOR.editorConfig = function( config )
     ['NumberedList','BulletedList'],
     ['JustifyRight','JustifyCenter','JustifyLeft'],
     ['Source', 'Maximize', 'ShowBlocks'],
+    ];
+
+    config.toolbar_Min_Comments_he =
+    [
+    ['PasteText','PasteFromWord','RemoveFormat'],
+    ['Bold','Italic','Underline'],
+    ['NumberedList','BulletedList'],
+    ['JustifyLeft','JustifyCenter','JustifyRight'],
+    ['Maximize']
     ];
 
     config.toolbar_Pic =

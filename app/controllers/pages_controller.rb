@@ -3,6 +3,11 @@ class PagesController < ApplicationController
   respond_to :html, :js
   before_filter :adjust_format_for_ie8
   
+  has_widgets do |stream|
+    stream << widget('pages_admin', 'comments_form', :display_comments_form, :current_user => current_user, :parent_id => params[:id])
+    stream << widget('pages_admin', 'comments', :display_comments, :current_user => current_user, :parent_id => params[:id])
+  end
+
   def show
     @page = Page.find(params[:id])
 

@@ -45,6 +45,8 @@ it:
       user: email
   admin:
     pages:
+      leave_comment: Here you can leave a comment.
+      comments_enabled: Comments enabled
       project: Progetto
       create: Crea
       reset: Chiara forma

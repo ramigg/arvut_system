@@ -1,7 +1,9 @@
 <fieldset>
   <legend><%= t("admin.pages.featured_settings") %></legend>
   <%= f.check_box :is_sticky %>
-  <%= f.label :is_sticky, t("admin.pages.is_sticky")+'?' %>
+  <%= f.label :is_sticky, t("admin.pages.is_sticky")+'?' %><br/>
+  <%= f.check_box :comments_enabled %>
+  <%= f.label :comments_enabled, t("admin.pages.comments_enabled")+'?' %>
 <!--
   <p class="not-implemented-yet">Not implemented yet.</p>
   <input type="checkbox"> <%= t("admin.pages.top_header") %></input><br/>

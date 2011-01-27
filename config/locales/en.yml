@@ -185,6 +185,7 @@ en:
       email:
         If you've tried everything above and still have a problem, then please send an email to
   pages:
+    comments_enabled: Comments enabled
     update: Page was successfully updated
     views:
       required: required field
@@ -220,6 +221,7 @@ en:
 
   admin:
     pages:
+      leave_comment: Here you can leave a comment.
       project: Project
       create: Create
       by_author: By author

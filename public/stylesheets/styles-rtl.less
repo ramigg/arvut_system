@@ -167,6 +167,47 @@
                 .edit-stream{
                         padding:12px 0 0;
 			margin:0;
+                        .comments{
+                          list-style: none;
+                          margin-right: 7px;
+                          .one-comment{
+                             clear: right;
+                             border-bottom: 1px solid #F1F1F1;
+                             padding: 8px 5px;
+                             .avatar{
+                               float: right;
+                               margin-left: 10px;
+                               width: 40px;
+                             }
+                             ul{
+                               margin-right: 50px;
+                               list-style: none;
+                               li{
+                                 margin-bottom: 3px;
+                                 .name{
+                                   color: #555555;
+                                 }
+                               }
+                             }
+                             .posted{
+                               display: block;
+                               color: @color-grey;
+                               .font-small;
+                               margin-top: 5px;
+                               text-align: left;
+                             }
+                          }
+                        }
+                        #hiddenEditor{
+                            padding-top: 20px;
+                            .buttons{
+                                width:79%;
+                                input{
+                                  float: right;
+                                  margin-left: 20px;
+                                }
+                            }
+                        }
                 hr{
                         height:1px;
                         background:@color-separator;
