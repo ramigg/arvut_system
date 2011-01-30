@@ -1,6 +1,6 @@
 class PagesAdmin < Apotomo::Widget
-  helper ApplicationHelper
-  helper_method :current_user
+
+  helper_method :current_user, :ckeditor_toolbar
   responds_to_event :submit, :with => :process_form
 
   def display_form
@@ -17,6 +17,14 @@ class PagesAdmin < Apotomo::Widget
     @page.publish_at = Time.zone.now
     @success = @page.save
     render
+  end
+  
+  def ckeditor_toolbar(klass = 'Min')
+    is_rtl? ? "#{klass}_he" : klass
+  end
+
+  def is_rtl?
+    I18n.locale == :he
   end
 
   def current_user
