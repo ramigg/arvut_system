@@ -44,6 +44,8 @@ he:
       user: אימייל
   admin:
     pages:
+      leave_comment: הסף תגובתך
+      comments_enabled: הפשר הערות
       project: פרוייקט
       create: צור
       reset: נקה את הטופס

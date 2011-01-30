@@ -252,6 +252,8 @@ ru:
 
   admin:
     pages:
+      leave_comment: Здесь можно оставить комментарий
+      comments_enabled: можно комментировать
       project: Проект
       create: Создать
       all: Все

@@ -1,0 +1,19 @@
+<div id="hiddenEditor">
+  <div><%= t('admin.pages.leave_comment') %></div><br/>
+  <div id="save_messages"></div>
+  <%= form_for @page_comment, :as => :page, :url => url_for_event(:submit), :remote => true do |f| -%>
+
+    <%= f.error_messages :class => 'error', :header_message => nil, :message => nil, :header_tag => :p %>
+    <%= f.hidden_field :language_id, :value => @page_comment.language.id %>
+    <%= f.hidden_field :author_id, :value => @page_comment.author.id %>
+    <%= f.hidden_field :page_type, :value => @page_comment.page_type %>
+    <%= f.hidden_field :status, :value => @page_comment.status %>
+    <%= f.hidden_field :parent_id, :value => @page_comment.parent_id %>
+    <%= f.label :message_body, t("admin.pages.message_body"), :class => 'text' %><br/>
+    <%= f.cktext_area :message_body, :toolbar => ckeditor_toolbar('Min_Comments'), :class => 'span-17 last', :width => '80%', :height => '15em' %><br/>
+    <div class="buttons">
+      <%= f.submit I18n.t('views.submit'), :name => 'PUBLISHED', :class => 'button-small-main', :disable_with => I18n.t('kabtv.admin.submitting') %>
+      <%= f.submit I18n.t('views.cancel'), :name => 'CANCEL', :class => 'button-small-cancel' %><br/><br/><br/>
+    </div>
+  <% end -%>
+</div>

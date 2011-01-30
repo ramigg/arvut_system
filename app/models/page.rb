@@ -45,13 +45,15 @@ class Page < ActiveRecord::Base
   #  *Scopes*
 
   scope :published, lambda {where(:publish_at.lt => Time.zone.now, :status => 'PUBLISHED')}
-#  scope :by_conf_date, lambda {|user_reg_date| where(:publish_at.gt => user_reg_date)}
+  scope :no_parent, where(:parent_id => nil)
+
+  #  scope :by_conf_date, lambda {|user_reg_date| where(:publish_at.gt => user_reg_date)}
 
   scope :by_page_type, lambda {|page_type, language_id, user_reg_date|
     (page_type == 'all' || page_type == 'tag' ?
-    where(:language_id => language_id) :
-    where(:language_id => language_id, :page_type => page_type.singularize)).
-    published
+        where(:language_id => language_id) :
+        where(:language_id => language_id, :page_type => page_type.singularize)).
+      no_parent.published
   }
 
   #  scope :all_pages, lambda {|language_id| where(:language_id => language_id)}
@@ -62,8 +64,13 @@ class Page < ActiveRecord::Base
   #   joins(:page_userflags).where(:page_userflags => {:user_id => user_id, :is_read => true}) 
   # }
 
+  scope :comments, lambda {|parent_id, language_id|
+    where(:language_id => language_id, :page_type => 'message', :parent_id => parent_id).
+      published
+  }
+
   scope :completed_assignments, lambda {|language_id, user_reg_date, user_id|
-    by_page_type('assignment', language_id, user_reg_date).joins(:page_userflags).where(:page_userflags => {:user_id => user_id, :is_answered => true}) 
+    by_page_type('assignment', language_id, user_reg_date).joins(:page_userflags).where(:page_userflags => {:user_id => user_id, :is_answered => true})
   }
 
   scope :favorite_pages, lambda {|language_id, user_reg_date, user_id|
@@ -87,7 +94,7 @@ class Page < ActiveRecord::Base
     if search
       search = "%#{search}%"
       where((:title.matches % search) | (:description.matches % search) |
-      (:message_body.matches % search)  | (:subtitle.matches % search))
+        (:message_body.matches % search)  | (:subtitle.matches % search))
     else
       scoped
     end
@@ -163,12 +170,16 @@ class Page < ActiveRecord::Base
 
   def toggle_flag(user, flag)
     flags = page_userflags.where(:user_id => user.id).first rescue nil
-    if flags 
+    if flags
       flags.send("#{flag}=", !flags.send("#{flag}?"))
       flags.save
     else
       PageUserflag.add_flag(self, user, flag)
     end
+  end
+
+  def is_comment?
+    parent_id? && page_type == 'message'
   end
 
   def self.get_tag_for_rav(options)

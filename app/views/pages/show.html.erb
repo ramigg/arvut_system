@@ -2,7 +2,7 @@
   <%= render "shared/breadcrumbs", :page => @page%>
 <% end %>
 <div class="content-stream">
-	<%= render "shared/content_actions", :page => @page %>
+  <%= render "shared/content_actions", :page => @page %>
   <div class="edit-stream">
     <h1><%= @page.title %></h1>
     <%= form_for @page, :remote => true do |f|%>
@@ -25,14 +25,18 @@
       <%- if @page.is_assignment? -%>
         <hr/>
         <div><%= f.submit t('views.submit'), :class => 'button-small-main' %></div>
-
       <%- end %>
     <%- end %>
+
+    <%= render_widget 'comments' %>
+
+    <%- if @page.comments_enabled? -%>
+      <%= render_widget 'comments_form' %>
+    <% end %>
+
   </div>
   <div class="clear"></div>
 </div>
-<script type="text/javascript" charset="utf-8">
-</script>
 <%- if @page.is_assignment? -%>
   <script type="text/javascript" charset="utf-8">
     $(document).ready(function(){

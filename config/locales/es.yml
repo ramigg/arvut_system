@@ -45,6 +45,8 @@ es:
       user: correo-e
   admin:
     pages:
+      leave_comment: Here you can leave a comment.
+      comments_enabled: Comments enabled
       project: Proyecto
       create: Crear
       reset: Forma clara

@@ -45,6 +45,8 @@ de:
       user: Email
   admin:
     pages:
+      leave_comment: Here you can leave a comment.
+      comments_enabled: Comments enabled
       create: Erstellen
       reset: Klare Form
       actions: Aktionen
