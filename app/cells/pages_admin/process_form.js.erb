@@ -1,5 +1,5 @@
 <%- if @success -%>
-  <%- unless @page.is_comment? -%>
+  <%- if @page.is_comment? -%>
     location.reload();
   <%- end -%>
 <%- else -%>
