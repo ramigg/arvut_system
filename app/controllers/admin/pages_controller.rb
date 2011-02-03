@@ -89,7 +89,7 @@ class Admin::PagesController < ApplicationController
   def destroy
     @page = Page.find(params[:id])
     @page.status = 'DELETED'
-    if @page.save
+    if @page.save(:validate => false)
       flash[:notice] = I18n.t 'admin.pages.destroy'
     else
       flash[:notice] = I18n.t 'admin.pages.destroy_failure'
