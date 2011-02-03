@@ -45,7 +45,7 @@ he:
   admin:
     pages:
       leave_comment: הסף תגובתך
-      comments_enabled: הפשר הערות
+      comments_enabled: אפשר הערות
       project: פרוייקט
       create: צור
       reset: נקה את הטופס

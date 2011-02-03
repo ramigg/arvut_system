@@ -1,5 +1,7 @@
 <%- if @success -%>
-  location.reload(); <%- unless @page.is_comment? -%>
+  <%- unless @page.is_comment? -%>
+    location.reload();
+  <%- end -%>
 <%- else -%>
   $('#save_messages').html('Save problem');
 <%- end -%>
