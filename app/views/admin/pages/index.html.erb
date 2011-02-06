@@ -67,13 +67,13 @@
       <%- if current_user.is_admin? || current_user.is_super_moderator? %>
           <label for="flocale"><%= t("admin.pages.language") %></label>
           <select id="flocale" name="flocale">
-            <option value=""><%= t("admin.pages.any_language") %></option>
-            <option value="en"><%= 'English' %></option>
-            <option value="ru"><%= 'Russian' %></option>
-            <option value="he"><%= 'Hebrew' %></option>
-            <option value="de"><%= 'Deutsch' %></option>
-            <option value="it"><%= 'Italian' %></option>
-            <option value="sp"><%= 'Spanish' %></option>
+            <option value=""   <%= 'selected="selected"' if params[:flocale] == '' %>><%= t("admin.pages.any_language") %></option>
+            <option value="en" <%= 'selected="selected"' if params[:flocale] == 'en' %>><%= 'English' %></option>
+            <option value="ru" <%= 'selected="selected"' if params[:flocale] == 'ru' %>><%= 'Russian' %></option>
+            <option value="he" <%= 'selected="selected"' if params[:flocale] == 'he' %>><%= 'Hebrew' %></option>
+            <option value="de" <%= 'selected="selected"' if params[:flocale] == 'de' %>><%= 'Deutsch' %></option>
+            <option value="it" <%= 'selected="selected"' if params[:flocale] == 'it' %>><%= 'Italian' %></option>
+            <option value="es" <%= 'selected="selected"' if params[:flocale] == 'es' %>><%= 'Spanish' %></option>
           </select>
       <%- end %>
       <!--label for="a3"><%= t("admin.pages.permissions") %></label>
