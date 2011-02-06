@@ -2,8 +2,7 @@
 <h1><%= t("admin.pages.page_administration") %></h1>
 <div class="span-10">
   <select name="new-items" id="new-items">
-    <option value=-1
-    "><%= t('admin.pages.create_new') %></option>
+    <option value=""-1"><%= t('admin.pages.create_new') %></option>
     <option value="<%= new_admin_page_url(:page_type => 'assignment') %>"><%= t("admin.pages.assignment") %></option>
     <option value="<%= new_admin_page_url(:page_type => 'event') %>"><%= t("admin.pages.event") %></option>
     <option value="<%= new_admin_page_url(:page_type => 'article') %>"><%= t("admin.pages.article") %></option>
@@ -68,12 +67,9 @@
           <label for="flocale"><%= t("admin.pages.language") %></label>
           <select id="flocale" name="flocale">
             <option value=""   <%= 'selected="selected"' if params[:flocale] == '' %>><%= t("admin.pages.any_language") %></option>
-            <option value="en" <%= 'selected="selected"' if params[:flocale] == 'en' %>><%= 'English' %></option>
-            <option value="ru" <%= 'selected="selected"' if params[:flocale] == 'ru' %>><%= 'Russian' %></option>
-            <option value="he" <%= 'selected="selected"' if params[:flocale] == 'he' %>><%= 'Hebrew' %></option>
-            <option value="de" <%= 'selected="selected"' if params[:flocale] == 'de' %>><%= 'Deutsch' %></option>
-            <option value="it" <%= 'selected="selected"' if params[:flocale] == 'it' %>><%= 'Italian' %></option>
-            <option value="es" <%= 'selected="selected"' if params[:flocale] == 'es' %>><%= 'Spanish' %></option>
+            <% Language.all.each { |l| %>
+                <option value="<%= l.locale %>" <%= 'selected="selected"' if params[:flocale] == l.locale.to_s %>><%= l.language %></option>
+            <% } %>
           </select>
       <%- end %>
       <!--label for="a3"><%= t("admin.pages.permissions") %></label>
