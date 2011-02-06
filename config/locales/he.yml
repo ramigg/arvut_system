@@ -44,6 +44,8 @@ he:
       user: אימייל
   admin:
     pages:
+      any_language: בכל שפה
+      language: שפה
       leave_comment: הסף תגובתך
       comments_enabled: אפשר הערות
       project: פרוייקט

@@ -45,6 +45,8 @@ de:
       user: Email
   admin:
     pages:
+      language: Sprache
+      any_language: jeder Sprache
       leave_comment: Here you can leave a comment.
       comments_enabled: Comments enabled
       create: Erstellen

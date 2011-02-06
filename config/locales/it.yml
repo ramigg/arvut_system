@@ -45,6 +45,8 @@ it:
       user: email
   admin:
     pages:
+      language: Лingua
+      any_language: qualsiasi lingua
       leave_comment: Here you can leave a comment.
       comments_enabled: Comments enabled
       project: Progetto

@@ -252,6 +252,8 @@ ru:
 
   admin:
     pages:
+      language: Язык
+      any_language: Любой язык
       leave_comment: Здесь можно оставить комментарий
       comments_enabled: можно комментировать
       project: Проект

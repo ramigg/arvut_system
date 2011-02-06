@@ -221,6 +221,8 @@ en:
 
   admin:
     pages:
+      language: Language
+      any_language: Any Language
       comments_enabled: Comments enabled
       leave_comment: Here you can leave a comment.
       project: Project
