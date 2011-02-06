@@ -170,7 +170,7 @@ h1 a, h2 a, h3 a, h4 a, h5{
 p{
     font-size: @font-basic-size;
     line-height: 1.3em;
-    margin-bottom: 3px;
+    margin-bottom: 1em;
 }
 .small-text{
 	.font-small;
@@ -385,10 +385,19 @@ body {
  	font-family: @font-family;
  	font-size: @font-basic-size;
 	line-height: @font-line-height;
-	color: @color-main-text;
+	color: @color-main-text !important;
 	p{
-		color: @color-main-text;
+		color: @color-main-text !important;
 	}
+	li{
+		color: @color-main-text !important;
+	}
+    .li_long_line{
+      margin-bottom: 1em;
+    }
+}
+body.cke_show_borders {
+    background: 0 none !important;
 }
 //layout
 .float_left{
