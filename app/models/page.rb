@@ -124,7 +124,8 @@ class Page < ActiveRecord::Base
     page = options[:page_no] || 1
 
     p = Page
-    p = p.where(:language_id => Language.get_id_by_locale(locale))
+    p = p.where(:language_id => Language.get_id_by_locale(locale)) unless user.is_admin? || user.is_super_moderator?
+    p = p.where(:language_id => Language.get_id_by_locale(options[:flocale])) if options[:flocale] && !options[:flocale].empty?&& (user.is_admin? || user.is_super_moderator?)
     p = p.where(:author_id => user) unless user.is_admin? || user.is_super_moderator?
     p = p.search(options[:search]) if options[:search]
     p = p.filter(p, options[:filter]) if options[:filter]

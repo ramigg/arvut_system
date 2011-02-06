@@ -24,9 +24,10 @@ class Admin::PagesController < ApplicationController
 
     @pages = Page.get_my_pages :user => current_user,
       :page_no => params[:page] || 1,
-      :locale => params[:flocale] || I18n.locale,
+      :locale => I18n.locale,
       :sort => ("#{sort_column} #{sort_direction}"),
       :search => params[:search],
+      :flocale => params[:flocale],
       :filter => {:status => params[:status], :page_type => params[:page_type], :author => params[:author]}
   end
 
