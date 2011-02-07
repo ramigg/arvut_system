@@ -1,9 +1,5 @@
-function store_setup(){
-    setCookie('st_admin_setup', $("#search-form").formSerialize());
-}
 function reset_form(){
     $("#search-form").clearForm();
-    delCookie('st_admin_setup');
     return false;
 }
 function setCookie(name, value, expires) {

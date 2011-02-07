@@ -6,26 +6,32 @@ For licensing, see LICENSE.html or http://ckeditor.com/license
 
 //http://docs.cksource.com/CKEditor_3.x/Developers_Guide/Styles
 CKEDITOR.addStylesSet( 'my_styles',
-    [
-    // Block Styles
+        [
+            // Block Styles
 
-    // Inline Styles
-    { name : 'Text item', element : 'a', attributes : { 'class' : 'icon_text' } },
-    { name : 'Audio item', element : 'a', attributes : { 'class' : 'icon_audio' } },
-    { name : 'Video item', element : 'a', attributes : { 'class' : 'icon_video' } },
-    { name : 'PDF item', element : 'a', attributes : { 'class' : 'icon_pdf' } },
-    { name : 'PPT item', element : 'a', attributes : { 'class' : 'icon_ppt' } }
-    ]);
+            // Inline Styles
+            // LI
+            { name : 'Short lines', element : 'li', attributes : { 'class' : 'li_short_line' } },
+            { name : 'Long lines', element : 'li', attributes : { 'class' : 'li_long_line' } },
+            // Links
+            { name : 'Text item', element : 'a', attributes : { 'class' : 'icon_text' } },
+            { name : 'Audio item', element : 'a', attributes : { 'class' : 'icon_audio' } },
+            { name : 'Video item', element : 'a', attributes : { 'class' : 'icon_video' } },
+            { name : 'PDF item', element : 'a', attributes : { 'class' : 'icon_pdf' } },
+            { name : 'PPT item', element : 'a', attributes : { 'class' : 'icon_ppt' } }
+        ]);
 
 //http://docs.cksource.com/CKEditor_3.x/Developers_Guide/Setting_Configurations
 CKEDITOR.editorConfig = function( config )
 {
     config.toolbar = 'Min';
+
     config.toolbar_Min =
     [
     ['PasteText','PasteFromWord','RemoveFormat'],
     //    '/',
-    ['Bold','Italic','Underline'],
+    ['Undo','Redo'],
+    ['Bold','Italic'],
     ['NumberedList','BulletedList'],
     ['JustifyLeft','JustifyCenter','JustifyRight'],
     ['Link','Unlink','Image','Flash'],
@@ -34,17 +40,53 @@ CKEDITOR.editorConfig = function( config )
     ['Source', 'Maximize', 'ShowBlocks']
     ];
 
-    config.toolbar_Min_he =
+    config.toolbar_Min_Rav =
     [
     ['PasteText','PasteFromWord','RemoveFormat'],
     //    '/',
-    ['Bold','Italic','Underline'],
+    ['Bold','Italic'],
+    ['NumberedList','BulletedList'],
+    ['JustifyLeft','JustifyCenter','JustifyRight'],
+    ['Source', 'Maximize', 'ShowBlocks']
+    ];
+
+    config.toolbar_Min_Comments =
+    [
+    ['PasteText','PasteFromWord','RemoveFormat'],
+    ['Bold','Italic'],
+    ['NumberedList','BulletedList'],
+    ['JustifyLeft','JustifyCenter','JustifyRight'],
+    ['Maximize']
+    ];
+
+    config.toolbar_Min_he =
+    [
+    ['PasteText','PasteFromWord','RemoveFormat'],
+    ['Bold','Italic'],
     ['NumberedList','BulletedList'],
     ['JustifyRight','JustifyCenter','JustifyLeft'],
     ['Link','Unlink'],
     ['Image','Flash'],
     ['Source', '-', 'Maximize', 'ShowBlocks'],
     ['Styles']
+    ];
+
+    config.toolbar_Min_Rav_he =
+    [
+    ['PasteText','PasteFromWord','RemoveFormat'],
+    ['Bold','Italic'],
+    ['NumberedList','BulletedList'],
+    ['JustifyRight','JustifyCenter','JustifyLeft'],
+    ['Source', 'Maximize', 'ShowBlocks'],
+    ];
+
+    config.toolbar_Min_Comments_he =
+    [
+    ['PasteText','PasteFromWord','RemoveFormat'],
+    ['Bold','Italic'],
+    ['NumberedList','BulletedList'],
+    ['JustifyLeft','JustifyCenter','JustifyRight'],
+    ['Maximize']
     ];
 
     config.toolbar_Pic =
@@ -60,7 +102,7 @@ CKEDITOR.editorConfig = function( config )
     config.stylesCombo_stylesSet = 'my_styles';
     config.PreserveSessionOnFileBrowser = true;
 //TODO: Change this param so ckeditor stylesheet will work
-    config.contentsCss = '/simulator/stylesheets/main.css';
+    config.contentsCss = '/stylesheets/styles.css';
     config.resize_enabled = false;
     config.toolbarCanCollapse = false;
 };
