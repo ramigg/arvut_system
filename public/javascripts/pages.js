@@ -1,5 +1,10 @@
+function store_setup(){
+    delCookie('st_admin_setup');
+    setCookie('st_admin_setup', $("#search-form").formSerialize(), (new Date).setYear(3000));
+}
 function reset_form(){
     $("#search-form").clearForm();
+    delCookie('st_admin_setup');
     return false;
 }
 function setCookie(name, value, expires) {
