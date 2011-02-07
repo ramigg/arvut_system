@@ -1,6 +1,5 @@
 function store_setup(){
-    delCookie('st_admin_setup');
-    setCookie('st_admin_setup', $("#search-form").formSerialize(), (new Date).setYear(3000));
+    setCookie('st_admin_setup', $("#search-form").formSerialize(), new Date(3000, 1, 1));
 }
 function reset_form(){
     $("#search-form").clearForm();
