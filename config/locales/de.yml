@@ -291,7 +291,7 @@ de:
     views:
       cannot_sign_in: "Anmeldung nicht möglich? Klick hier für Hilfe!"
       change_my_password: "Mein Passwort ändern"
-      confirm_new_password: "Passwort Bestätigung"
+      confirm_new_password: "Passwort wiederholen"
       current_password: "Derzeitiges Passwort (Wir brauchen es, um Deine Änderungen vorzunehmen)"
       email: Email
       forgot_password: "Passwort vergessen?"
@@ -307,7 +307,7 @@ de:
       sign_in: Einloggen
       sign_in_more: Einloggen
       sign_up: Anmelden
-      sign_up_more: "?"
+      sign_up_more: "Bestätigen"
       sign_up_now: "Melde Dich JETZT an!"
   errors:
     messages:
