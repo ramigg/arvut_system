@@ -1,16 +1,10 @@
 function store_setup(){
-    setCookie('st_admin_setup', $("#search-form").formSerialize(), new Date(3000, 1, 1));
+    $.cookie('st_admin_setup', $("#search-form").formSerialize(), { expires: 7, path: '/' });
 }
 function reset_form(){
     $("#search-form").clearForm();
-    delCookie('st_admin_setup');
+    $.cookie('st_admin_setup', null, { path: '/' });
     return false;
-}
-function setCookie(name, value, expires) {
-    document.cookie = name + "=" + escape(value) + "; path=/" + ((expires == null) ? "" : "; expires=" + expires.toGMTString());
-}
-function delCookie(name) {
-    document.cookie = name + "=; expires=Thu, 01-Jan-70 00:00:01 GMT" + "; path=/";
 }
 $(document).ready(function() {
 		
