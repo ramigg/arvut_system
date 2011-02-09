@@ -102,7 +102,7 @@ CKEDITOR.editorConfig = function( config )
     config.stylesCombo_stylesSet = 'my_styles';
     config.PreserveSessionOnFileBrowser = true;
 //TODO: Change this param so ckeditor stylesheet will work
-    config.contentsCss = '/stylesheets/styles.css';
+    config.contentsCss = ['http://kabbalahgroup.info/internet/stylesheets/styles.css', '/stylesheets/styles.css'];
     config.resize_enabled = false;
     config.toolbarCanCollapse = false;
 };
