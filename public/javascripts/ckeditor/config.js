@@ -11,8 +11,8 @@ CKEDITOR.addStylesSet( 'my_styles',
 
             // Inline Styles
             // LI
-            { name : 'Short lines', element : 'li', attributes : { 'class' : 'li_short_line' } },
-            { name : 'Long lines', element : 'li', attributes : { 'class' : 'li_long_line' } },
+            { name : 'Small margin', element : 'li', attributes : { 'class' : 'li_small_margin' } },
+            { name : 'Normal margin', element : 'li', attributes : { 'class' : 'li_normal_margin' } },
             // Links
             { name : 'Text item', element : 'a', attributes : { 'class' : 'icon_text' } },
             { name : 'Audio item', element : 'a', attributes : { 'class' : 'icon_audio' } },
