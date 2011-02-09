@@ -9,13 +9,13 @@
   </td>
   <td class="large">
     <%- if page.title %>
-        <%= page.title.mb_chars[0..53] %><%= raw '<b>...</b>' if page.title.mb_chars.length > 53 %>
+        <%= page.title %>
     <%- else %>
         <%= raw('-- no title --') %>
     <%- end %>
     <% if page.subtitle? %>
         <br />
-        <small><%= page.subtitle.mb_chars[0..53] %><%= raw '<b>...</b>' if page.subtitle.mb_chars.length > 53 %></small>
+        <small><%= page.subtitle %></small>
     <% end %>
 
   </td>
