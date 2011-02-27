@@ -16,7 +16,7 @@ gem "meta_where"
 #gem 'daemons', '~>1.1'
 gem 'mongrel'
 
-gem 'thin'
+gem 'thin', '1.2.7'
 #gem 'sqlite3-ruby', :require => 'sqlite3'
 gem 'pg'
 gem 'postgres-pr', :require => 'pg'
