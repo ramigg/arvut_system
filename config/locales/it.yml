@@ -274,17 +274,17 @@ it:
       unlock_my_account: "libera il mio account"
       welcome: benvenuto
     passwords:
-      send_instructions: ""
+      send_instructions: "You will receive an email with instructions about how to reset your password in a few minutes."
       updated: "la tua password è stata cambiata con successo. Ora sei iscritto"
     registrations:
-      destroyed: ""
-      signed_up: ""
-      updated: ""
+      destroyed: "Bye! Your account was successfully cancelled. We hope to see you again soon."
+      signed_up: "L'operazione è stata conclusa con successo. Si prega di controllare la tua e-mail . Un messaggio di conferma da attivare è stato spedito."
+      updated: "You updated your account successfully."
     sessions:
       signed_in: "Iscritto con successo"
       signed_out: "terminato con successo"
     unlocks:
-      send_instructions: ""
+      send_instructions: "You will receive an email with instructions about how to unlock your account in a few minutes."
       unlocked: "Il tuo account è stato aperto con successo. Ora sei iscritto"
     views:
       cannot_sign_in: "Non puoi iscriverti? Clicca qui per aiuto"

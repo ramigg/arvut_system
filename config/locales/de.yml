@@ -280,7 +280,7 @@ de:
       updated: "Dein Passwort wurde nicht erfolgreich geändert."
     registrations:
       destroyed: "Bye! Dein Account wurde erfolgreich gelöscht. Wir hoffen, Dich bald wieder zu sehen!"
-      signed_up: "Du hast Dich erfolgreich eingeloggt. Eine Bestätigungsemail wurde an Dich gesandt, um Deinen Akkount zu aktivieren."
+      signed_up: "Du bist jetzt registriert. Ein Aktivierungscode wurde an Deine Email-Adresse verschickt."
       updated: "Du hast Deinen Account erfolgreich aktualisiert."
     sessions:
       signed_in: "Du hast dich erfolgreich angemeldet."
