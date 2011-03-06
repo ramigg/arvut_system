@@ -3,5 +3,5 @@
     location.reload();
   <%- end -%>
 <%- else -%>
-  $('#save_messages').html('Save problem');
+  $('#save_messages').html('<%= @specific_message || 'Save problem' %>');
 <%- end -%>

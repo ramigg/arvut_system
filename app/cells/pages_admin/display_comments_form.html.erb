@@ -1,6 +1,6 @@
 <div id="hiddenEditor">
   <div><%= t('admin.pages.leave_comment') %></div><br/>
-  <div id="save_messages"></div>
+  <div id="save_messages" style='color: red; font-weight: bold;'></div>
   <%= form_for @page_comment, :as => :page, :url => url_for_event(:submit), :remote => true do |f| -%>
 
     <%= f.error_messages :class => 'error', :header_message => nil, :message => nil, :header_tag => :p %>
