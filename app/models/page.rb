@@ -146,7 +146,8 @@ class Page < ActiveRecord::Base
   def self.all_tags(locale)
     result = tag_counts_on(:"#{locale}_tags").all
     if result && result.size > 0
-      result
+      result = result.select{|r| Page.published.tagged_with(r.name).count > 0}
+      result.empty? ? nil : result
     else
       nil
     end
