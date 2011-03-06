@@ -2,22 +2,25 @@
   <h4><%= t('stream.projects_discussion') %></h4>
   <hr/>
   <ul>
-    <li>
-      <%= link_to t('stream.new_internet'), "http://internet.kabbalahgroup.info/", :target => '_blank' %>
-    </li>
-  </ul>
-</div>
-<div class="widget-blog">
-  <ul>
+    <li><%= link_to t('stream.new_internet'), "http://internet.kabbalahgroup.info/", :target => '_blank' %></li>
     <%- if params[:locale] == 'he' -%>
-        <li><%= link_to 'לוח אירועים מרכזיים שנתי', "https://spreadsheets.google.com/ccc?hl=ru&key=tnfWTye98fPiWt1JDXl50NQ&authkey=CIy-qroK&hl=ru#gid=0", :target => '_blank' %></li>
-    <%- elsif params[:locale] == 'ru' -%>
-        <li><%= link_to 'Держим курс', "http://www.kabbalahgroup.info/rus/new/", :target => '_blank' %></li>
-    <%- elsif params[:locale] == 'es' -%>
-        <li><%= link_to 'Seguimos navegando', "http://www.kabbalahgroup.info/spa/new/", :target => '_blank' %></li>
+        <li><%= link_to 'חדרי עבודה וירטואליים', "http://video-chat.heroku.com/client/broadcaster", :target => '_blank' %></li>
     <%- end -%>
   </ul>
 </div>
+<%- if %w{ he ru es}.include?(params[:locale]) -%>
+    <div class="widget-blog">
+      <ul>
+        <%- if params[:locale] == 'he' -%>
+            <li><%= link_to 'לוח אירועים מרכזיים שנתי', "https://spreadsheets.google.com/ccc?hl=ru&key=tnfWTye98fPiWt1JDXl50NQ&authkey=CIy-qroK&hl=ru#gid=0", :target => '_blank' %></li>
+        <%- elsif params[:locale] == 'ru' -%>
+            <li><%= link_to 'Держим курс', "http://www.kabbalahgroup.info/rus/new/", :target => '_blank' %></li>
+        <%- elsif params[:locale] == 'es' -%>
+            <li><%= link_to 'Seguimos navegando', "http://www.kabbalahgroup.info/spa/new/", :target => '_blank' %></li>
+        <%- end -%>
+      </ul>
+    </div>
+<%- end -%>
 <div class="widget-blog">
   <h4><%= link_to t('home.views.blog_title').html_safe, t('home.views.blog'), :class => 'in-wide-iframe' %></h4>
   <hr/>
