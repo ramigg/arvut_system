@@ -1,11 +1,11 @@
 /*
-Copyright (c) 2003-2010, CKSource - Frederico Knabben. All rights reserved.
-For licensing, see LICENSE.html or http://ckeditor.com/license
-*/
+ Copyright (c) 2003-2010, CKSource - Frederico Knabben. All rights reserved.
+ For licensing, see LICENSE.html or http://ckeditor.com/license
+ */
 
 
 //http://docs.cksource.com/CKEditor_3.x/Developers_Guide/Styles
-CKEDITOR.addStylesSet( 'my_styles',
+CKEDITOR.addStylesSet('my_styles',
         [
             // Block Styles
 
@@ -22,82 +22,83 @@ CKEDITOR.addStylesSet( 'my_styles',
         ]);
 
 //http://docs.cksource.com/CKEditor_3.x/Developers_Guide/Setting_Configurations
-CKEDITOR.editorConfig = function( config )
-{
+CKEDITOR.editorConfig = function(config) {
     config.toolbar = 'Min';
 
     config.toolbar_Min =
-    [
-    ['PasteText','PasteFromWord','RemoveFormat'],
-    //    '/',
-    ['Undo','Redo'],
-    ['Bold','Italic'],
-    ['NumberedList','BulletedList'],
-    ['JustifyLeft','JustifyCenter','JustifyRight'],
-    ['Link','Unlink','Image','Flash'],
-    //    '/',
-    ['Styles'],
-    ['Source', 'Maximize', 'ShowBlocks']
-    ];
+            [
+                ['PasteText','PasteFromWord','RemoveFormat'],
+                //    '/',
+                ['Undo','Redo'],
+                ['Bold','Italic'],
+                ['NumberedList','BulletedList'],
+                ['JustifyLeft','JustifyCenter','JustifyRight'],
+                ['Link','Unlink','Image','Flash'],
+                //    '/',
+                ['Table'],
+                ['Styles'],
+                ['Source', 'Maximize', 'ShowBlocks']
+            ];
 
     config.toolbar_Min_Rav =
-    [
-    ['PasteText','PasteFromWord','RemoveFormat'],
-    //    '/',
-    ['Bold','Italic'],
-    ['NumberedList','BulletedList'],
-    ['JustifyLeft','JustifyCenter','JustifyRight'],
-    ['Source', 'Maximize', 'ShowBlocks']
-    ];
+            [
+                ['PasteText','PasteFromWord','RemoveFormat'],
+                //    '/',
+                ['Bold','Italic'],
+                ['NumberedList','BulletedList'],
+                ['JustifyLeft','JustifyCenter','JustifyRight'],
+                ['Source', 'Maximize', 'ShowBlocks']
+            ];
 
     config.toolbar_Min_Comments =
-    [
-    ['PasteText','PasteFromWord','RemoveFormat'],
-    ['Bold','Italic'],
-    ['NumberedList','BulletedList'],
-    ['JustifyLeft','JustifyCenter','JustifyRight'],
-    ['Maximize']
-    ];
+            [
+                ['PasteText','PasteFromWord','RemoveFormat'],
+                ['Bold','Italic'],
+                ['NumberedList','BulletedList'],
+                ['JustifyLeft','JustifyCenter','JustifyRight'],
+                ['Maximize']
+            ];
 
     config.toolbar_Min_he =
-    [
-    ['PasteText','PasteFromWord','RemoveFormat'],
-    ['Bold','Italic'],
-    ['NumberedList','BulletedList'],
-    ['JustifyRight','JustifyCenter','JustifyLeft'],
-    ['Link','Unlink'],
-    ['Image','Flash'],
-    ['Source', '-', 'Maximize', 'ShowBlocks'],
-    ['Styles']
-    ];
+            [
+                ['PasteText','PasteFromWord','RemoveFormat'],
+                ['Bold','Italic'],
+                ['NumberedList','BulletedList'],
+                ['JustifyRight','JustifyCenter','JustifyLeft'],
+                ['Link','Unlink'],
+                ['Image','Flash'],
+                ['Source', '-', 'Maximize', 'ShowBlocks'],
+                ['Table'],
+                ['Styles']
+            ];
 
     config.toolbar_Min_Rav_he =
-    [
-    ['PasteText','PasteFromWord','RemoveFormat'],
-    ['Bold','Italic'],
-    ['NumberedList','BulletedList'],
-    ['JustifyRight','JustifyCenter','JustifyLeft'],
-    ['Source', 'Maximize', 'ShowBlocks'],
-    ];
+            [
+                ['PasteText','PasteFromWord','RemoveFormat'],
+                ['Bold','Italic'],
+                ['NumberedList','BulletedList'],
+                ['JustifyRight','JustifyCenter','JustifyLeft'],
+                ['Source', 'Maximize', 'ShowBlocks'],
+            ];
 
     config.toolbar_Min_Comments_he =
-    [
-    ['PasteText','PasteFromWord','RemoveFormat'],
-    ['Bold','Italic'],
-    ['NumberedList','BulletedList'],
-    ['JustifyLeft','JustifyCenter','JustifyRight'],
-    ['Maximize']
-    ];
+            [
+                ['PasteText','PasteFromWord','RemoveFormat'],
+                ['Bold','Italic'],
+                ['NumberedList','BulletedList'],
+                ['JustifyLeft','JustifyCenter','JustifyRight'],
+                ['Maximize']
+            ];
 
     config.toolbar_Pic =
-    [
-    ['Image']
-    ];
+            [
+                ['Image']
+            ];
 
     config.toolbar_Pic_he =
-    [
-    ['Image']
-    ];
+            [
+                ['Image']
+            ];
 
     config.stylesCombo_stylesSet = 'my_styles';
     config.PreserveSessionOnFileBrowser = true;
