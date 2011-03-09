@@ -1,17 +1,17 @@
 <%= stylesheet_link_tag 'reset', 'jquery-ui-1.8.4.custom' %>
 <%- if Rails.env == 'development' && !request.env['HTTP_USER_AGENT'].match(/MSIE/) -%>
-  <%- if is_rtl? %>
-    <%= stylesheet_link_tag 'styles-rtl.less', :rel => 'stylesheet/less' %>
-  <%- else -%>
-    <%= stylesheet_link_tag 'styles.less', :rel => 'stylesheet/less' %>
-  <%- end -%>
-  <%= javascript_include_tag 'less-1.0.36.min.js' %>
+    <%- if is_rtl? %>
+        <%= stylesheet_link_tag 'styles-rtl.less', :rel => 'stylesheet/less' %>
+    <%- else -%>
+        <%= stylesheet_link_tag 'styles.less', :rel => 'stylesheet/less' %>
+    <%- end -%>
+    <%= javascript_include_tag 'less-1.0.36.min.js' %>
 <%- else -%>
-  <%- if is_rtl? %>
-    <%= stylesheet_link_tag 'styles-rtl' %>
-  <%- else -%>
-    <%= stylesheet_link_tag 'styles' %>
-  <%- end -%>
+    <%- if is_rtl? %>
+        <%= stylesheet_link_tag 'styles-rtl' %>
+    <%- else -%>
+        <%= stylesheet_link_tag 'styles' %>
+    <%- end -%>
 <%- end -%>
 <!--[if IE]>
 <%= stylesheet_link_tag 'correct-ie' %>
@@ -21,30 +21,40 @@
   </style>
 <%- end -%>
 <![endif]-->
+<%# Skin %>
+<style type="text/css">
+    body {
+        background: #333 url(/images/skin/orangebg.png) repeat-x;
+    }
+
+    .skin_bg {
+        background: url(/images/skin/banner.png) no-repeat center top;
+    }
+</style>
 
 <script type="text/javascript">
-  var SITE_URL = '<%= request.protocol + request.host_with_port + Rails.configuration.site_prefix %>';
-  var LANGS = '<%= (Language.all.map{|e|e.locale} rescue []).join('|') %>';
+    var SITE_URL = '<%= request.protocol + request.host_with_port + Rails.configuration.site_prefix %>';
+    var LANGS = '<%= (Language.all.map{|e|e.locale} rescue []).join('|') %>';
 </script>
 
-<%=  
-list =
-  ['jquery-1.4.3.min',
-  'rails',
-  'application',
-  'jquery-ui-1.8.4.custom.min',
-  "jquery.ui.datepicker-#{I18n.locale}.js",
-  '/flowplayer/flowplayer-3.2.4.min.js',
-  'autocomplete-rails.js',
-  'jquery.uniform.min.js',
-  'jquery-validation',
-  'jquery.ba-bbq.min.js',
-  #'countdown',
-  'events']
-list << 'jquery.colorbox-min.js' if Rails.configuration.open_stream_in_popup || Rails.configuration.open_blog_in_popup
-list << "jquery.ui.datepicker-#{I18n.locale}.js" if current_user && current_user.is_restricted?
+<%=
+    list =
+            ['jquery-1.4.3.min',
+             'rails',
+             'application',
+             'jquery-ui-1.8.4.custom.min',
+             "jquery.ui.datepicker-#{I18n.locale}.js",
+             '/flowplayer/flowplayer-3.2.4.min.js',
+             'autocomplete-rails.js',
+             'jquery.uniform.min.js',
+             'jquery-validation',
+             'jquery.ba-bbq.min.js',
+             #'countdown',
+             'events']
+    list << 'jquery.colorbox-min.js' if Rails.configuration.open_stream_in_popup || Rails.configuration.open_blog_in_popup
+    list << "jquery.ui.datepicker-#{I18n.locale}.js" if current_user && current_user.is_restricted?
 
-javascript_include_tag list
+    javascript_include_tag list
 
 %>
 
