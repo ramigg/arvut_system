@@ -21,17 +21,6 @@
   </style>
 <%- end -%>
 <![endif]-->
-<%# Skin %>
-<style type="text/css">
-    body {
-        background: #333 url(../images/skin/orangebg.png) repeat-x;
-    }
-
-    .skin_bg {
-        background: url(../images/skin/banner.png) no-repeat center top;
-    }
-</style>
-
 <script type="text/javascript">
     var SITE_URL = '<%= request.protocol + request.host_with_port + Rails.configuration.site_prefix %>';
     var LANGS = '<%= (Language.all.map{|e|e.locale} rescue []).join('|') %>';

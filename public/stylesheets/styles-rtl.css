@@ -380,3 +380,5 @@ div.uploader input{opacity:0;position:absolute;top:0;right:0;bottom:0;float:righ
 #cdcontainer .dots,#cdcontainer .line{width:5px;background-position:-280px 0;}
 #cdcontainer .line{background-position:-307px 0;}
 .skinlink{display:block;width:360px;height:200px;margin:0 auto;position:relative;}
+body{background:#333333 url(../images/skin/orangebg.png) repeat-x;}
+.skin_bg{background:url(../images/skin/banner.png) no-repeat center top;}
