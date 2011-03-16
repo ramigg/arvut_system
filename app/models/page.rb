@@ -66,7 +66,7 @@ class Page < ActiveRecord::Base
 
   scope :comments, lambda {|parent_id, language_id|
     where(:language_id => language_id, :page_type => 'message', :parent_id => parent_id).
-      published
+      published.ordered
   }
 
   scope :completed_assignments, lambda {|language_id, user_reg_date, user_id|
