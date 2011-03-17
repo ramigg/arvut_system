@@ -266,7 +266,7 @@ de:
     mails:
       change_my_password: "Passwort ändern"
       confirm_my_account: "Meinen Account bestätigen"
-      confirm_through_link: "Du kannst Deinen Account mit dem Link unten bestätigen"
+      confirm_through_link: "Klicken Sie bitte auf den unten angegebenen Link, um den Account zu bestätigen. Sollte der Link nicht funktionieren, kopieren Sie ihn bitte und fügen Sie ihn in die Adressleiste Ihres Browsers ein."
       hello: Hallo
       reset_password_line1: "Du hast einen Link angefordert, um Dein Passwort zu ändern. Verwende den Link unten!"
       reset_password_line2: "Wenn Du Dies nicht angefordert hast, ignoriere bitte dieses Mail."

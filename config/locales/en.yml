@@ -87,7 +87,7 @@ en:
       cannot_sign_in: Cannot sign in? Click here for help!
     mails:
       welcome: Welcome
-      confirm_through_link: You can confirm your account through the link below
+      confirm_through_link: Please click the link below to confirm your account. If you click the link and it appears to be broken, please copy and paste it into a new browser window.
       confirm_my_account: Confirm my account
       hello: Hello
       reset_password_line1: Someone has requested a link to change your password, and you can do this through the link below

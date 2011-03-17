@@ -3,5 +3,5 @@
 
   <p><%= t 'devise.mails.confirm_through_link' %>:</p>
 
-  <p><%= link_to t('devise.mails.confirm_my_account'), user_confirmation_url(:user => @resource, :locale => locale, :confirmation_token => @resource.confirmation_token) %></p>
+  <p><%= link_to user_confirmation_url(:user => @resource, :locale => locale, :confirmation_token => @resource.confirmation_token).to_s, user_confirmation_url(:user => @resource, :locale => locale, :confirmation_token => @resource.confirmation_token) %></p>
 </div>

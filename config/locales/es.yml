@@ -265,7 +265,7 @@ es:
     mails:
       change_my_password: "Cambiar mi contraseña"
       confirm_my_account: "Confirmar mi cuenta"
-      confirm_through_link: "Puedes confirmar tu cuenta en el enlace siguiente"
+      confirm_through_link: "Cliquear el enlace abajo para confirmar su cuenta. Si el enlace aparece corrupto, por favor copiar y pegar la información en una nueva página."
       hello: Hola
       reset_password_line1: "Alguien ha solicitado un enlace para cambiar tu contraseña. Puedes hacerlo a través del enlace siguiente"
       reset_password_line2: "Si no lo solicitaste, por favor, ignora este email"
