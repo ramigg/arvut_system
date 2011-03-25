@@ -14,6 +14,7 @@ class ApplicationController < ActionController::Base
       root << widget(:blog_widget, 'blog', :display)
       root << widget(:profile_widget, 'profile', :display, :user => current_user)
       root << widget('tags/container', 'tags', :container)
+      root << widget(:social_button, 'social_button', :display, :user => current_user)
     end
   
   def set_locale

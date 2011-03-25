@@ -1,0 +1,21 @@
+<%= widget_div do %>
+    <a href="#" id="we-button" class="<%= @button_class %>" onclick="<%= trigger_event(:button_press); %> set_we(); return false;"><%= t('kabtv.admin.stream_states.is_active') %></a>
+
+<script type="text/javascript">
+    var intervalid = 0;
+
+    <% if @status %>
+        intervalid = setTimeout("set_me", <%= @timeout %>*1000);
+    <% end %>
+    function set_we(){
+        if (intervalid) clearTimeout(intervalid);
+        intervalid = setTimeout("set_me", <%= ButtonClick.TIME_OUT %>*1000);
+        $('#we-button').removeClass('me_button').addClass('we_button');
+    }
+    function set_me(){
+        $('#we-button').removeClass('we_button').addClass('me_button');
+    }
+
+</script>
+
+<% end -%>

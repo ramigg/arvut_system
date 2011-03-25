@@ -17,6 +17,7 @@ class User < ActiveRecord::Base
 
   has_many :user_activities, :dependent => :destroy
   has_many :activities, :through => :user_activities
+
   has_and_belongs_to_many :roles
   belongs_to :language
   belongs_to :user_list
@@ -30,6 +31,8 @@ class User < ActiveRecord::Base
 
   has_many :pages
 
+  has_many :button_clicks
+  
   # Include default devise modules. Others available are:
   # :token_authenticatable, :confirmable, :lockable and :timeoutable
   devise :database_authenticatable, :registerable,
