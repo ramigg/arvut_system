@@ -14,6 +14,5 @@ class SocialButton < Apotomo::Widget
   def button_press
     user = param :user
     ButtonClick.create(:user_id => user.id)
-    render
   end
 end

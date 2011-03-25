@@ -1,19 +1,37 @@
 <%= widget_div do %>
-    <a href="#" id="we-button" class="<%= @button_class %>" onclick="<%= trigger_event(:button_press); %> set_we(); return false;"><%= t('kabtv.admin.stream_states.is_active') %></a>
+    <a href="#" id="we-button" class="<%= @button_class %>" onclick="<%= trigger_event(:button_press) %>; set_we(); return false;"
+       onmousedown="set_pressed()" onmouseup="set_released()" onmouseout="set_released()"></a>
 
 <script type="text/javascript">
     var intervalid = 0;
+    var is_we = <%= @status %>;
 
     <% if @status %>
-        intervalid = setTimeout("set_me", <%= @timeout %>*1000);
+        intervalid = setTimeout("set_me()", <%= @timeout %>*1000);
     <% end %>
     function set_we(){
         if (intervalid) clearTimeout(intervalid);
-        intervalid = setTimeout("set_me", <%= ButtonClick.TIME_OUT %>*1000);
+        intervalid = setTimeout("set_me()", 30*60*1000);
         $('#we-button').removeClass('me_button').addClass('we_button');
+        is_we = true;
     }
     function set_me(){
         $('#we-button').removeClass('we_button').addClass('me_button');
+        is_we = false;
+    }
+    function set_pressed(){
+        if (is_we) {
+            $('#we-button').removeClass('we_button').addClass('we_button_pressed');
+        } else {
+            $('#we-button').removeClass('me_button').addClass('me_button_pressed');
+        }
+    }
+    function set_released(){
+        if (is_we) {
+            $('#we-button').removeClass('we_button_pressed').addClass('we_button');
+        } else {
+            $('#we-button').removeClass('me_button_pressed').addClass('me_button');
+        }
     }
 
 </script>

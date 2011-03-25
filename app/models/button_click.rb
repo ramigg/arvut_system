@@ -8,7 +8,7 @@ class ButtonClick < ActiveRecord::Base
   }
 
   def self.time_left(user_id)
-    time_passed = (Time.now - last_click(user_id).first.created_at).to_i
+    time_passed = (Time.now - last_click(user_id).first.created_at).to_i rescue TIME_OUT
     time_passed > TIME_OUT ? 0 : TIME_OUT - time_passed
   end
 
