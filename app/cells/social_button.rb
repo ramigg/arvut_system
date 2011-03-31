@@ -17,6 +17,7 @@ class SocialButton < Apotomo::Widget
     user = param :user
     @status = ButtonClick.status(user.id)
     ButtonClick.create(:user_id => user.id) unless @status
+    render
   end
 
   def button_clicks_edit
