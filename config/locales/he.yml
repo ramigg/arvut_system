@@ -553,3 +553,9 @@ he:
       cancel: ביטול
       open_in_default_viewer:  לצפייה בנגן מדיה
       full_screen:  למסך מלא
+
+  social_button:
+    i_commit_to: "אני מתחייב ל- "
+    clicks_a_day: "לחיצות ביום"
+    change: "שנה"
+    cancel: "ביטול"

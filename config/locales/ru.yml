@@ -587,3 +587,9 @@ ru:
       cancel: Отменить
       open_in_default_viewer: Отдельное окно
       full_screen: На весь экран
+
+  social_button:
+    i_commit_to: Я обязуюсь на
+    clicks_a_day: кликов в день
+    change: Изменить
+    cancel: Отменить

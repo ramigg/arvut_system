@@ -566,6 +566,12 @@ en:
       open_in_default_viewer: Open in Default Viewer
       full_screen: Full Screen
 
+  social_button:
+    i_commit_to: I commit to
+    clicks_a_day: clicks a day
+    change: Change
+    cancel: Cancel
+
       
 
 

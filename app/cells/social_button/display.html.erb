@@ -1,39 +1,59 @@
 <%= widget_div do %>
-    <a href="#" id="we-button" class="<%= @button_class %>" onclick="<%= trigger_event(:button_press) %>; set_we(); return false;"
-       onmousedown="set_pressed()" onmouseup="set_released()" onmouseout="set_released()"></a>
+  <a href="#" id="we-button" class="<%= @button_class %>" onclick="<%= trigger_event(:button_press) %>; set_we(); return false;"
+     onmousedown="set_pressed()" onmouseup="set_released()" onmouseout="set_released()"></a>
+  <div class="clicks-set-info">
+    <%= I18n.t('social_button.i_commit_to') %> <span><%= @button_click_set %></span> <%= I18n.t('social_button.clicks_a_day') %>. <a href="#" onclick="show_form(); return false;"><%= I18n.t('social_button.change') %></a>
+  </div>
+  <div class="clicks-set-form" style="display:none;">
+    <%= form_for @user, :as => :user, :url => url_for_event(:button_clicks_edit), :remote => true do |f| -%>
+      <%= f.text_field :button_click_set, :style => 'width:20px;', :value => @button_click_set %>
+      <%= f.submit I18n.t('kabtv.admin.submit'), :style => '', :class => 'button-small-main', :disable_with => I18n.t('kabtv.admin.submitting') %>
+      <a href="#" onclick="hide_form(); return false;"><%= I18n.t('social_button.cancel') %></a>
+    <% end %>
+  </div>
+  <br/>
+  <br/>
 
-<script type="text/javascript">
+  <script type="text/javascript">
     var intervalid = 0;
     var is_we = <%= @status %>;
 
     <% if @status %>
-        intervalid = setTimeout("set_me()", <%= @timeout %>*1000);
+    intervalid = setTimeout("set_me()", <%= @timeout %>*1000);
     <% end %>
     function set_we(){
-        if (intervalid) clearTimeout(intervalid);
-        intervalid = setTimeout("set_me()", 30*60*1000);
-        $('#we-button').removeClass('me_button').addClass('we_button');
-        is_we = true;
+      if (intervalid) clearTimeout(intervalid);
+      intervalid = setTimeout("set_me()", 30*60*1000);
+      $('#we-button').removeClass('me_button').addClass('we_button');
+      is_we = true;
     }
     function set_me(){
-        $('#we-button').removeClass('we_button').addClass('me_button');
-        is_we = false;
+      $('#we-button').removeClass('we_button').addClass('me_button');
+      is_we = false;
     }
     function set_pressed(){
-        if (is_we) {
-            $('#we-button').removeClass('we_button').addClass('we_button_pressed');
-        } else {
-            $('#we-button').removeClass('me_button').addClass('me_button_pressed');
-        }
+      if (is_we) {
+        $('#we-button').removeClass('we_button').addClass('we_button_pressed');
+      } else {
+        $('#we-button').removeClass('me_button').addClass('me_button_pressed');
+      }
     }
     function set_released(){
-        if (is_we) {
-            $('#we-button').removeClass('we_button_pressed').addClass('we_button');
-        } else {
-            $('#we-button').removeClass('me_button_pressed').addClass('me_button');
-        }
+      if (is_we) {
+        $('#we-button').removeClass('we_button_pressed').addClass('we_button');
+      } else {
+        $('#we-button').removeClass('me_button_pressed').addClass('me_button');
+      }
+    }
+    function show_form(){
+      $('.clicks-set-info').hide();
+      $('.clicks-set-form').show();
+    }
+    function hide_form(){
+      $('.clicks-set-form').hide();
+      $('.clicks-set-info').show();
     }
 
-</script>
+  </script>
 
 <% end -%>
