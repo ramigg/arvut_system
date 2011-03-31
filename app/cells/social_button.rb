@@ -16,7 +16,7 @@ class SocialButton < Apotomo::Widget
   def button_press
     user = param :user
     @status = ButtonClick.status(user.id)
-    ButtonClick.create(:user_id => user.id) if @status
+    ButtonClick.create(:user_id => user.id) unless @status
   end
 
   def button_clicks_edit

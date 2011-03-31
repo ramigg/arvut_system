@@ -12,6 +12,8 @@ class ButtonClick < ActiveRecord::Base
     time_passed > TIME_OUT ? 0 : TIME_OUT - time_passed
   end
 
+#  true - button should be green (time passed is less than TIME_OUT)
+#  false - button should be red (time passed is more than TIME_OUT)
   def self.status(user_id)
     time_left(user_id) != 0
   end
