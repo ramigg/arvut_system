@@ -2573,12 +2573,6 @@ div.uploader input {
   margin: 0 auto;
   position: relative;
 }
-body {
-  background: #333333 url(../images/skin/orangebg.png) repeat-x;
-}
-.skin_bg {
-  background: url(../images/skin/banner.png) no-repeat center top;
-}
 a#we-button {
   background: transparent url("../images/we_buttons.png") no-repeat 0 -330px;
   display: block;
