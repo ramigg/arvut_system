@@ -43,9 +43,9 @@ class Admin::BasicReportsController < ApplicationController
     
     report = StringIO.new 
     CSV::Writer.generate(report, ',') do |csv|
-      csv << ["email", "date", "button clicks"]
+      csv << ["email", "name","date", "button clicks", "button clicks setting"]
       clicks.each do |u|
-        csv << [u.email, u.sdate, u.clicks]
+        csv << [u.email, u.name, u.sdate, u.clicks, u.button_click_set]
       end
     end
     
