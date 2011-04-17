@@ -43,6 +43,22 @@ class User < ActiveRecord::Base
     lang = Language.get_id_by_locale(locale)
     where(:notifybyemail => 'yes', :language_id => lang)
   }
+  
+  scope :users_clicks,
+#      find_by_sql("
+#      select users.email, users.button_click_set, bc.sdate, bc.click_count 
+#            from users left outer join (
+#              select user_id, date(created_at) as sdate, count(*) as click_count 
+#              from button_clicks 
+#              where date(created_at) is null or date(created_at) > '2011-03-25'
+#              group by button_clicks.user_id, sdate
+#            ) AS bc on (users.id = bc.user_id) order by bc.sdate asc;      
+#      ")
+      joins(:button_clicks.outer).
+      select("email, user_id, date(button_clicks.created_at) as sdate, count(*) as clicks").
+      where("date(button_clicks.created_at) IS ? or date(button_clicks.created_at) > ?", nil, -10.weeks.from_now.to_date).
+      group(:sdate, :user_id, :email).
+      order("sdate, clicks")
 
   before_create :update_user_list
   after_destroy :roles_cleanup

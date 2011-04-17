@@ -1,9 +1,12 @@
 require 'net/http'
 require 'uri'
+
 class SocialButton < Apotomo::Widget
   respond_to_event :button_press, :with => :button_press
   respond_to_event :button_clicks_edit, :with => :button_clicks_edit
-
+  
+  helper_method :current_user
+  
   def display
     user = param :user
     @status = ButtonClick.status(user.id)
@@ -27,5 +30,7 @@ class SocialButton < Apotomo::Widget
     @button_click_set = user.button_click_set
     render
   end
-  
+  def current_user
+    param :user
+  end
 end

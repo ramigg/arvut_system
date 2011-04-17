@@ -9,6 +9,11 @@
       <%= f.text_field :button_click_set, :style => 'width:20px;', :value => @button_click_set %>
       <%= f.submit I18n.t('kabtv.admin.submit'), :style => '', :class => 'button-small-main', :disable_with => I18n.t('kabtv.admin.submitting') %>
       <a href="#" onclick="hide_form(); return false;"><%= I18n.t('social_button.cancel') %></a>
+    <% end %>    
+  </div>
+  <div>
+    <% if current_user.is_admin? || current_user.is_reports? %>
+      <%= link_to I18n.t('social_button.generate_csv_report'), generate_report_admin_basic_reports_url %>
     <% end %>
   </div>
   <br/>

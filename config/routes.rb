@@ -93,7 +93,9 @@ Simulator::Application.routes.draw do
       resources :roles do
         get :autocomplete_user_email, :on => :collection
       end
-      resources :basic_reports
+      resources :basic_reports do
+        get :generate_report, :on => :collection
+      end
       resources :attendance_reports
 
       resources :questionnaires do

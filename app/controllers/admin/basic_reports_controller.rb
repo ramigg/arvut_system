@@ -1,8 +1,9 @@
+require 'csv'
 class Admin::BasicReportsController < ApplicationController
   before_filter :check_if_reports
 
   respond_to :html, :xls, :js, :only
-
+  
   def index
     @report = ReportsGenerator::BasicReport.new
   end
@@ -35,4 +36,24 @@ class Admin::BasicReportsController < ApplicationController
       format.html { render :partial => 'basic_report_for_users', :layout => nil }
     end
   end
+  
+  def generate_report
+    
+    clicks = User.users_clicks.all
+    
+    report = StringIO.new 
+    CSV::Writer.generate(report, ',') do |csv|
+      csv << ["email", "date", "button clicks"]
+      clicks.each do |u|
+        csv << [u.email, u.sdate, u.clicks]
+      end
+    end
+    
+    report.rewind   
+    
+    send_data(report.read, :type => 'text/csv; charset=utf-8; header=present',
+      :filename => 'report.csv',:disposition => 'attachment')
+
+  end
+
 end
