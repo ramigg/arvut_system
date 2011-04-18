@@ -56,7 +56,7 @@ class User < ActiveRecord::Base
 #      ")
       joins(:button_clicks.outer).
       select("email, user_id, button_click_set, (last_name || ' ' || first_name) as name, date(button_clicks.created_at) as sdate, count(*) as clicks").
-      where("date(button_clicks.created_at) > ?", -10.weeks.from_now.to_date).
+      where("date(button_clicks.created_at) > ?", -1.weeks.from_now.to_date).
       group(:sdate, :user_id, :email, :button_click_set, :first_name, :last_name).
       order("sdate DESC, clicks DESC")
 
