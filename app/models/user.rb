@@ -45,16 +45,13 @@ class User < ActiveRecord::Base
   }
   
   scope :users_clicks,
-#      find_by_sql("
-#      select users.email, users.button_click_set, bc.sdate, bc.click_count 
-#            from users left outer join (
-#              select user_id, date(created_at) as sdate, count(*) as click_count 
-#              from button_clicks 
-#              where date(created_at) is null or date(created_at) > '2011-03-25'
-#              group by button_clicks.user_id, sdate
-#            ) AS bc on (users.id = bc.user_id) order by bc.sdate asc;      
-#      ")
-      joins(:button_clicks.outer).
+      #SELECT email, user_id, button_click_set, (last_name || ' ' || first_name) as name, 
+      #  date(button_clicks.created_at) as sdate, count(*) as clicks 
+      #FROM "users" INNER JOIN "button_clicks" ON "button_clicks"."user_id" = "users"."id" 
+      #WHERE (date(button_clicks.created_at) > '2011-04-12') 
+      #GROUP BY sdate, user_id, email, button_click_set, first_name, last_name 
+      #ORDER BY sdate DESC, clicks DESC
+      joins(:button_clicks).
       select("email, user_id, button_click_set, (last_name || ' ' || first_name) as name, date(button_clicks.created_at) as sdate, count(*) as clicks").
       where("date(button_clicks.created_at) > ?", -1.weeks.from_now.to_date).
       group(:sdate, :user_id, :email, :button_click_set, :first_name, :last_name).
