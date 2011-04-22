@@ -57,7 +57,7 @@ class SocialButton < Apotomo::Widget
       'cht=p3&'+
       'chs=200x100&'+
       'chd=t:'+clicks.to_s+','+(limit-clicks).to_s+'&'+
-      'chco=19B743&'+
+      'chco=19B743,FF0000&'+
       'chdl=We|Me'
   end
 
