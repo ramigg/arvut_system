@@ -13,6 +13,8 @@ class SocialButton < Apotomo::Widget
     @button_class = @status ? 'we_button' : 'me_button'
     @timeout = ButtonClick.time_left(user.id)
     @button_click_set = user.button_click_set || 'X'
+    @today_clicks = ''
+    calc_today_clicks()
     render
   end
 
@@ -30,7 +32,33 @@ class SocialButton < Apotomo::Widget
     @button_click_set = user.button_click_set
     render
   end
+
   def current_user
     param :user
   end
+  
+  private
+  def calc_today_clicks
+    clicks = ButtonClick.today_clicks(current_user.id)
+    if (clicks.length == 0)
+      clicks = 0
+    else
+      clicks = clicks[0].clicks.to_i
+    end
+
+    limit = current_user.button_click_set
+
+    if (limit == nil)
+      limit = [1, clicks.to_i].max
+    end
+
+    @today_clicks = 
+      'https://chart.googleapis.com/chart?'+
+      'cht=p3&'+
+      'chs=200x100&'+
+      'chd=t:'+clicks.to_s+','+(limit-clicks).to_s+'&'+
+      'chco=19B743&'+
+      'chdl=We|Me'
+  end
+
 end

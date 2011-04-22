@@ -16,6 +16,12 @@
       <%= link_to I18n.t('social_button.generate_csv_report'), generate_report_admin_basic_reports_url %>
     <% end %>
   </div>
+  <div>
+    <center>
+      <img src="<%= @today_clicks %>" /><br>
+      <%= I18n.t('social_button.we_clicks_for_today') %>
+    </center>
+  </div>
   <br/>
   <br/>
 
