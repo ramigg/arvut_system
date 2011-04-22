@@ -6,6 +6,13 @@ class ButtonClick < ActiveRecord::Base
   scope :last_click, lambda{ |user_id|
     where(:user_id => user_id).order("created_at DESC").limit(1)
   }
+  
+  scope :today_clicks, lambda{ |user_id| 
+    select("count(*) as clicks").
+    group(:user_id).
+    where(:user_id => user_id).
+    where("date(button_clicks.created_at) = ?", Date.today)
+  }
 
   def self.time_left(user_id)
     time_passed = (Time.now - last_click(user_id).first.created_at).to_i rescue TIME_OUT
