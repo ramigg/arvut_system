@@ -22,6 +22,7 @@ class SocialButton < Apotomo::Widget
     user = param :user
     @status = ButtonClick.status(user.id)
     ButtonClick.create(:user_id => user.id) unless @status
+    calc_today_clicks()
     render
   end
 
@@ -48,7 +49,7 @@ class SocialButton < Apotomo::Widget
 
     limit = current_user.button_click_set
 
-    if (limit == nil)
+    if (limit == nil || limit < 1 || limit < clicks.to_i)
       limit = [1, clicks.to_i].max
     end
 
