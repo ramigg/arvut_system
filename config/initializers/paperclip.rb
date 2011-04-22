@@ -10,6 +10,8 @@ elsif File.exist?('/opt/local/bin/identify')
   Paperclip.options[:command_path] = '/opt/local/bin/'
 elsif File.exist?('/usr/bin/identify')
   Paperclip.options[:command_path] = '/usr/bin/'
+elsif File.exist?('/usr/local/bin/identify')
+  Paperclip.options[:command_path] = '/usr/local/bin/'
 else
   raise 'Unable to find ImageMagic path'
 end
