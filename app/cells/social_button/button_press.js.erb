@@ -1,3 +1,5 @@
 <% unless @status %>
 set_we();
+refresh_clicks_chart(<%= @today_clicks %>, <%= @today_total %>);
+refresh_chart_text("<%= I18n.t('social_button.we_clicks_for_today', :clicks => @today_clicks, :total => @today_total) %>");
 <% end  %>

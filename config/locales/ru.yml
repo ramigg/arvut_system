@@ -594,4 +594,4 @@ ru:
     change: Изменить
     cancel: Отменить
     generate_csv_report: Сгенерировать отчет
-    we_clicks_for_today: We нажатия на сегодня
+    we_clicks_for_today: %{clicks} We нажатия из %{total} сегодня

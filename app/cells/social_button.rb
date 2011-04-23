@@ -12,8 +12,7 @@ class SocialButton < Apotomo::Widget
     @status = ButtonClick.status(user.id)
     @button_class = @status ? 'we_button' : 'me_button'
     @timeout = ButtonClick.time_left(user.id)
-    @button_click_set = user.button_click_set || 'X'
-    @today_clicks = ''
+    @button_click_set = user.button_click_set || '1'
     calc_today_clicks()
     render
   end
@@ -31,6 +30,7 @@ class SocialButton < Apotomo::Widget
 #    if params[:user]
     user.update_attributes(params[:user])
     @button_click_set = user.button_click_set
+    calc_today_clicks()
     render
   end
 
@@ -47,17 +47,19 @@ class SocialButton < Apotomo::Widget
       clicks = clicks[0].clicks.to_i
     end
 
-    limit = current_user.button_click_set
+    total = current_user.button_click_set
 
-    if (limit == nil || limit < 1 || limit < clicks.to_i)
-      limit = [1, clicks.to_i].max
+    if (total == nil || total < 1 || total < clicks.to_i)
+      total = [1, clicks.to_i].max
     end
 
-    @today_clicks = 
+    @today_clicks = clicks;
+    @today_total = total;
+    @today_clicks_src = #[clicks, limit]
       'https://chart.googleapis.com/chart?'+
       'cht=p3&'+
       'chs=200x100&'+
-      'chd=t:'+clicks.to_s+','+(limit-clicks).to_s+'&'+
+      'chd=t:'+clicks.to_s+','+(total-clicks).to_s+'&'+
       'chco=19B743,FF0000&'+
       'chdl=We|Me'
   end

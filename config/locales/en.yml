@@ -572,7 +572,7 @@ en:
     change: Change
     cancel: Cancel
     generate_csv_report: Generate report
-    we_clicks_for_today: We clicks for today
+    we_clicks_for_today: %{clicks} We clicks from %{total} for today
 
       
 
