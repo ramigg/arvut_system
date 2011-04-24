@@ -18,12 +18,34 @@
   </div>
   <div>
     <center>
-      <img src="<%= @today_clicks %>" /><br>
-      <%= I18n.t('social_button.we_clicks_for_today') %>
+      <img id="we-clicks-chart" src="<%= @today_clicks_src %>"
+        title="<%= I18n.t('social_button.we_clicks_for_today', :clicks => @today_clicks, :total => @today_total) %>"/><br/>
+      <span id="we-clicks-chart-span">
+        <%= I18n.t('social_button.we_clicks_for_today', :clicks => @today_clicks, :total => @today_total) %>
+      </span>
     </center>
   </div>
   <br/>
   <br/>
+  
+  <script type="text/javascript">
+    function refresh_clicks_chart(clicks, total)
+    {
+      $('#we-clicks-chart').attr("src",
+        'https://chart.googleapis.com/chart?'+
+        'cht=p3&'+
+        'chs=200x100&'+
+        'chd=t:'+clicks+','+(total-clicks)+'&'+
+        'chco=19B743,FF0000&'+
+        'chdl=We|Me');
+    }
+
+    function refresh_chart_text(new_text)
+    {
+      $('#we-clicks-chart-span').text(new_text);
+      $('#we-clicks-chart').attr("title", new_text);
+    }
+  </script>
 
   <script type="text/javascript">
     var intervalid = 0;
