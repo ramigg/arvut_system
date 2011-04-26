@@ -8,8 +8,8 @@ class ButtonClick < ActiveRecord::Base
   }
   
   scope :today_clicks, lambda{ |user_id| 
-    select("count(*) as clicks").
-    group(:user_id).
+#    select("count(*) as clicks").
+#    group(:user_id).
     where(:user_id => user_id).
     where("date(button_clicks.created_at) = ?", Date.today)
   }
