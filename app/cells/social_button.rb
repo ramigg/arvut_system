@@ -12,7 +12,7 @@ class SocialButton < Apotomo::Widget
     @status = ButtonClick.status(user.id)
     @button_class = @status ? 'we_button' : 'me_button'
     @timeout = ButtonClick.time_left(user.id)
-    @button_click_set = user.button_click_set || '1'
+    @button_click_set = user.button_click_set || 1
     calc_today_clicks(@button_click_set)
     render
   end
