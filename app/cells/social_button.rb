@@ -44,7 +44,7 @@ class SocialButton < Apotomo::Widget
     @today_total = total.blank? ? current_user.button_click_set : total
 
     if @today_total.blank? || @today_total < 1 || @today_total < @today_clicks
-      @today_total = [1, clicks.to_i].max
+      @today_total = [1, @today_clicks.to_i].max
     end
 
     @today_clicks_src = "https://chart.googleapis.com/chart?cht=p3&chs=200x100&chd=t:#{@today_clicks},#{@today_total-@today_clicks}&chco=19B743,FF0000&chdl=We|Me"
