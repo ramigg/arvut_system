@@ -39,7 +39,7 @@ class SocialButton < Apotomo::Widget
   end
   
   private
-  def calc_today_clicks(total)
+  def calc_today_clicks(total = nil)
     @today_clicks = ButtonClick.today_clicks(current_user.id).count
     @today_total = total.blank? ? current_user.button_click_set : total
 
