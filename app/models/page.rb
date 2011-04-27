@@ -27,7 +27,8 @@ class Page < ActiveRecord::Base
 
   #  *Validations*
 
-  validates :title, :presence => true
+  validates :title, :presence => true, :length => { :maximum => 255 }
+  validates :subtitle, :length => { :maximum => 255 }
   validates :message_body, :presence => true, :if => lambda { |e| e.page_type == 'message' }
 
   delegate :locale, :to => :language
