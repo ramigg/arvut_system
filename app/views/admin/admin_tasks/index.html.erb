@@ -24,5 +24,9 @@
       <dt><%= t('kabtv.admin.stream_management') %>:</dt>
       <dd><%= link_to t('kabtv.admin.stream_management'), admin_stream_management_url %></dd>
     <% end %>
+    <% if current_user.is_super? %>
+      <dt>Cache Management:</dt>
+      <dd><%= link_to 'Clear Cache', admin_clear_cache_url %></dd>
+    <% end %>
   </dl>
 <% end %>

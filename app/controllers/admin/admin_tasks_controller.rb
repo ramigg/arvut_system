@@ -31,4 +31,9 @@ class Admin::AdminTasksController < ApplicationController
       render :remove_user
     end
   end
+
+  def clear_cache
+    Rails.cache.clear
+    render :text => 'Done'
+  end
 end

@@ -104,6 +104,7 @@ Simulator::Application.routes.draw do
       end
 
       get  'panel', :to => 'admin_tasks#index'
+      get  'clear_cache', :to => 'admin_tasks#clear_cache'
       get  'autocomplete_user_email', :to => 'admin_tasks#autocomplete_user_email', :as => 'autocomplete_user_email_admin_tasks'
       get  'remove_user', :to => 'admin_tasks#remove_user', :as => 'remove_user'
       get  'stream_management', :to => 'admin_tasks#stream_management', :as => 'stream_management'
