@@ -561,3 +561,5 @@ he:
     cancel: "ביטול"
     generate_csv_report: "חולל דוח"
     we_clicks_for_today: "%{clicks} לחיצות We להיום מתוך %{total}"
+    we_all_clicks_for_today: "%{clicks} לחיצות We להיום מתוך %{total} עבור כל המשתמשים"
+    we_group_clicks_for_today: "%{clicks} לחיצות We להיום מתוך %{total} למשתמשים מקבוצה שלך"

@@ -42,12 +42,21 @@ class SocialButton < Apotomo::Widget
   def calc_today_clicks(total = nil)
     @today_clicks = ButtonClick.today_clicks(current_user.id).count
     @today_total = total.blank? ? current_user.button_click_set : total
-
     if @today_total.blank? || @today_total < 1 || @today_total < @today_clicks
       @today_total = [1, @today_clicks.to_i].max
     end
 
-    @today_clicks_src = "https://chart.googleapis.com/chart?cht=p3&chs=200x100&chd=t:#{@today_clicks},#{@today_total-@today_clicks}&chco=19B743,FF0000&chdl=We|Me"
+    @today_all_clicks = ButtonClick.today_total_clicks.count
+    @today_all_total = User.users_recent_button_click_set[0].total.to_i
+    if @today_all_total < 1 || @today_all_total < @today_all_clicks
+      @today_all_total = [1, @today_all_total.to_i].max
+    end
+    
+    @today_group_clicks = -1 #???
+    @today_group_total = -1 #???
+    #if @today_group_total < 1 || @today_group_total < @today_group_clicks
+    #  @today_group_total = [1, @today_group_total.to_i].max
+    #end
   end
 
 end

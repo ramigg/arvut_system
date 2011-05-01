@@ -18,20 +18,35 @@
   </div>
   <div>
     <center>
-      <img id="we-clicks-chart" src="<%= @today_clicks_src %>"
-        title="<%= I18n.t('social_button.we_clicks_for_today', :clicks => @today_clicks, :total => @today_total) %>"/><br/>
+
+      <img id="we-clicks-chart" src="https://chart.googleapis.com/chart?cht=p3&chs=200x100&chd=t:<%=@today_clicks%>,<%=(@today_total-@today_clicks)%>&chco=19B743,FF0000&chdl=We|Me"
+        title="<%= I18n.t('social_button.we_clicks_for_today', :clicks => @today_clicks, :total => @today_total) %>"/>
       <span id="we-clicks-chart-span">
         <%= I18n.t('social_button.we_clicks_for_today', :clicks => @today_clicks, :total => @today_total) %>
       </span>
+      
+      <img id="we-all-clicks-chart" src="https://chart.googleapis.com/chart?cht=p3&chs=200x100&chd=t:<%=@today_all_clicks%>,<%=(@today_all_total-@today_all_clicks)%>&chco=19B743,FF0000&chdl=We|Me"
+        title="<%= I18n.t('social_button.we_all_clicks_for_today', :clicks => @today_all_clicks, :total => @today_all_total) %>"/>
+      <span id="we-all-clicks-chart-span">
+        <%= I18n.t('social_button.we_all_clicks_for_today', :clicks => @today_all_clicks, :total => @today_all_total) %>
+      </span>
+
+      <!--
+      <img id="we-group-clicks-chart" src="https://chart.googleapis.com/chart?cht=p3&chs=200x100&chd=t:<%=@today_group_clicks%>,<%=(@today_group_total-@today_group_clicks)%>&chco=19B743,FF0000&chdl=We|Me"
+        title="<%= I18n.t('social_button.we_group_clicks_for_today', :clicks => @today_group_clicks, :total => @today_group_total) %>"/>
+      <span id="we-group-clicks-chart-span">
+        <%= I18n.t('social_button.we_group_clicks_for_today', :clicks => @today_group_clicks, :total => @today_group_total) %>
+      </span>
+      -->
     </center>
   </div>
   <br/>
   <br/>
   
   <script type="text/javascript">
-    function refresh_clicks_chart(clicks, total)
+    function refresh_chart(id, clicks, total)
     {
-      $('#we-clicks-chart').attr("src",
+      $('#'+id).attr("src",
         'https://chart.googleapis.com/chart?'+
         'cht=p3&'+
         'chs=200x100&'+
@@ -39,13 +54,39 @@
         'chco=19B743,FF0000&'+
         'chdl=We|Me');
     }
+    
+    function refresh_clicks_chart(clicks, total)
+    {
+      refresh_chart('we-clicks-chart', clicks, total);
+    }
 
     function refresh_chart_text(new_text)
     {
       $('#we-clicks-chart-span').text(new_text);
       $('#we-clicks-chart').attr("title", new_text);
     }
-  </script>
+    
+    function refresh_all_clicks_chart(clicks, total)
+    {
+      refresh_chart('we-all-clicks-chart', clicks, total);
+    }
+
+    function refresh_all_chart_text(new_text)
+    {
+      $('#we-all-clicks-chart-span').text(new_text);
+      $('#we-all-clicks-chart').attr("title", new_text);
+    }
+    function refresh_group_clicks_chart(clicks, total)
+    {
+      refresh_chart('we-group-clicks-chart', clicks, total);
+    }
+
+    function refresh_group_chart_text(new_text)
+    {
+      $('#we-group-clicks-chart-span').text(new_text);
+      $('#we-group-clicks-chart').attr("title", new_text);
+    }
+    </script>
 
   <script type="text/javascript">
     var intervalid = 0;

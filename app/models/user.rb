@@ -44,6 +44,8 @@ class User < ActiveRecord::Base
     where(:notifybyemail => 'yes', :language_id => lang)
   }
   
+  # Selects users with their clicks count to generate report.
+  # The report is for 1 week
   scope :users_clicks,
       #SELECT email, user_id, button_click_set, (last_name || ' ' || first_name) as name, 
       #  date(button_clicks.created_at) as sdate, count(*) as clicks 
@@ -56,6 +58,11 @@ class User < ActiveRecord::Base
       where("date(button_clicks.created_at) > ?", -1.weeks.from_now.to_date).
       group(:sdate, :user_id, :email, :button_click_set, :first_name, :last_name).
       order("sdate DESC, clicks DESC")
+  
+  # Counts all user button_click_set which were active in the last 2 weeks
+  scope :users_recent_button_click_set,
+      select("SUM(CASE WHEN button_click_set is null THEN 1 ELSE button_click_set END) as total").
+      where(:id => ButtonClick.two_weeks_active_users)
 
   before_create :update_user_list
   after_destroy :roles_cleanup
