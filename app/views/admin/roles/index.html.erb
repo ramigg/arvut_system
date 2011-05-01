@@ -19,7 +19,7 @@
           <% @all_roles.each_with_index do |r, idx| %>
             <% checked = @user ? @user.roles.include?(r) : false %>
             <li>
-              <%= check_box_tag "role[#{idx}]", r.id, checked %> <label for="role[<%=idx%>]"><%= r.role %></label>
+              <%= check_box_tag "role[#{idx}]", r.id, checked %> <label for="role_<%=idx%>"><%= r.role %></label>
             </li>
           <%- end -%>
         </ul>

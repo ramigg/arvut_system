@@ -593,7 +593,7 @@ ru:
     clicks_a_day: кликов в день
     change: Изменить
     cancel: Отменить
-    generate_csv_report: Сгенерировать отчет
-    we_clicks_for_today: %{clicks} We нажатия из %{total} сегодня
-    we_all_clicks_for_today: %{clicks} We нажатия из %{total} сегодня всех ползавателей
-    we_group_clicks_for_today: %{clicks} We нажатия из %{total} сегодня твоей групы
+    generate_csv_report: "Сгенерировать отчет"
+    we_clicks_for_today: "Ты - %{clicks} We из %{total}"
+    we_all_clicks_for_today: "Все пользователи - %{clicks} We из %{total}"
+    we_group_clicks_for_today: "Твоя группа - %{clicks} We из %{total}"
