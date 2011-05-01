@@ -594,6 +594,6 @@ ru:
     change: Изменить
     cancel: Отменить
     generate_csv_report: "Сгенерировать отчет"
-    we_clicks_for_today: "Сегодня: ты - %{clicks} We нажатий из %{total}"
-    we_all_clicks_for_today: "Сегодня: все пользователи - %{clicks} We нажатий из %{total}"
-    we_group_clicks_for_today: "Сегодня: твоя группа - %{clicks} We нажатий из %{total}"
+    we_clicks_for_today: "Ты - %{clicks} We из %{total}"
+    we_all_clicks_for_today: "Все пользователи - %{clicks} We из %{total}"
+    we_group_clicks_for_today: "Твоя группа - %{clicks} We из %{total}"
