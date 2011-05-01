@@ -46,8 +46,8 @@ class SocialButton < Apotomo::Widget
       @today_total = [1, @today_clicks.to_i].max
     end
 
-    @today_all_clicks = 456#ButtonClick.today_total_clicks.count
-    @today_all_total = 13000#User.users_recent_button_click_set[0].total.to_i
+    @today_all_clicks = ButtonClick.today_total_clicks.count
+    @today_all_total = User.users_recent_button_click_set[0].total.to_i
     if @today_all_total < 1 || @today_all_total < @today_all_clicks
       @today_all_total = [1, @today_all_total.to_i].max
     end
