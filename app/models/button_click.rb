@@ -14,13 +14,15 @@ class ButtonClick < ActiveRecord::Base
   }
   
   # Selects clicks of all users for today (today timezone is the server timzone!)
-  scope :today_total_clicks,
+  scope :today_total_clicks, lambda{
     where("date(button_clicks.created_at) = ?", Date.today)
+  }
 
-  scope :two_weeks_active_users,
+  scope :two_weeks_active_users, lambda{
     select("user_id as id").
-    where("date(created_at) > ?", -2.weeks.from_now.to_date).
-    group(:user_id)
+        where("date(created_at) > ?", -2.weeks.from_now.to_date).
+        group(:user_id)
+  }
 
   def self.time_left(user_id)
     time_passed = (Time.now - last_click(user_id).first.created_at).to_i rescue TIME_OUT
