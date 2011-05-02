@@ -61,7 +61,7 @@ class User < ActiveRecord::Base
   
   # Counts all user button_click_set which were active in the last 2 weeks
   scope :users_recent_button_click_set,
-      select("SUM(CASE WHEN button_click_set is null THEN 1 ELSE button_click_set END) as total").
+      select("SUM(CASE WHEN button_click_set is null THEN 1 WHEN button_click_set > 48 THEN 48 ELSE button_click_set END) as total").
       where(:id => ButtonClick.two_weeks_active_users)
 
   before_create :update_user_list
