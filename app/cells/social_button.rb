@@ -51,7 +51,7 @@ class SocialButton < Apotomo::Widget
     if @today_all_total < 1 || @today_all_total < @today_all_clicks
       @today_all_total = [1, @today_all_total.to_i].max
     end
-    
+        
     @today_group_clicks = -1 #???
     @today_group_total = -1 #???
     #if @today_group_total < 1 || @today_group_total < @today_group_clicks
