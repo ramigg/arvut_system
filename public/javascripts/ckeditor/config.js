@@ -23,6 +23,8 @@ CKEDITOR.addStylesSet('my_styles',
 
 //http://docs.cksource.com/CKEditor_3.x/Developers_Guide/Setting_Configurations
 CKEDITOR.editorConfig = function(config) {
+    config.format_tags = 'p;h2;h3;h4;h5;h6';
+    
     config.toolbar = 'Min';
 
     config.toolbar_Min =
@@ -36,7 +38,7 @@ CKEDITOR.editorConfig = function(config) {
                 ['Link','Unlink','Image','Flash'],
                 //    '/',
                 ['Table'],
-                ['Styles'],
+                ['Styles','Format'],
                 ['Source', 'Maximize', 'ShowBlocks']
             ];
 
@@ -69,7 +71,7 @@ CKEDITOR.editorConfig = function(config) {
                 ['Image','Flash'],
                 ['Source', '-', 'Maximize', 'ShowBlocks'],
                 ['Table'],
-                ['Styles']
+                ['Styles', 'Format']
             ];
 
     config.toolbar_Min_Rav_he =
@@ -78,7 +80,7 @@ CKEDITOR.editorConfig = function(config) {
                 ['Bold','Italic'],
                 ['NumberedList','BulletedList'],
                 ['JustifyRight','JustifyCenter','JustifyLeft'],
-                ['Source', 'Maximize', 'ShowBlocks'],
+                ['Source', 'Maximize', 'ShowBlocks']
             ];
 
     config.toolbar_Min_Comments_he =

@@ -124,6 +124,9 @@ a:hover{
 .bold{
 	font-weight:bold;
 }
+.italic{
+	font-style:italic;
+}
 .font-small{
 	font-size:@font-small;
 }
@@ -151,14 +154,18 @@ h1{
 h2{
 	font-size: @font-basic-size * 1.25;
 	.bold;
+    .centered;
+    color: @color-main-light;
 }
 h3{
 	font-size: @font-basic-size * 1.2;
 	.bold;
+    .centered;
 }
 h4{
 	font-size: @font-basic-size * 1.1;
 	.bold;
+    .italic;
 }
 h5{
 	font-size: @font-basic-size;
