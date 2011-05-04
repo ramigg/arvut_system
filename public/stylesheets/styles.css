@@ -30,7 +30,7 @@ h4{font-size:14.3px;font-weight:bold;font-style:italic;margin:0;padding:0;}
 h5{font-size:13px;font-weight:bold;text-align:center;margin:0;padding:0;}
 h6{font-size:13px;font-weight:bold;margin:0;padding:0;}
 h1 a,h2 a,h3 a,h4 a,h5{text-decoration:none;}
-p{font-size:13px;line-height:1.3em;margin-bottom:1em;}
+p{font-size:13px;line-height:1.3em;margin:0;padding:0;margin-bottom:1em;}
 .small-text{font-size:11px;}
 .rounded-corners{-webkit-border-radius:5px;-moz-border-radius:5px;border-radius:5px;behavior:url(PIE.htc);-moz-background-clip:padding;-webkit-background-clip:padding;position:relative;}
 .gradient{background:#00acc2;background:-webkit-gradient(linear, 0 0, 0 bottom, from(#00acc2), to(#2971a7));background:-moz-linear-gradient(#00acc2, #2971a7);background:linear-gradient(#00acc2, #2971a7);-pie-background:linear-gradient(top, #00acc2, #2971a7);behavior:url(PIE.htc);position:relative;}
