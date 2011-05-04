@@ -219,6 +219,7 @@ div.uploader input{opacity:0;position:absolute;top:0;right:0;bottom:0;float:righ
 .layout-stream .column-menu hr{height:2px;background:#aaaaaa;margin:10px 10px 10px 0;}
 .layout-stream .side_menu{margin:10px 0 0;}.layout-stream .side_menu li{position:relative;margin:0 0 0 -10px;height:22px;line-height:22px;overflow:hidden;}.layout-stream .side_menu li a{text-decoration:none;display:block;position:absolute;top:0;left:0;padding:0 10px 0 35px;color:black;width:75%;}
 .layout-stream .side_menu li a:hover{background:#2971a7;color:#ffffff;}
+.layout-stream .side_menu li h5{text-align:left;}
 .layout-stream .side_menu .current a{background:#dcf2ff;}
 .layout-stream .side_menu .current a:hover{background:#dcf2ff;color:black;}
 .layout-stream .side_menu .read a{font-weight:normal;}
