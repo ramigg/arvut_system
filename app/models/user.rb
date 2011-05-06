@@ -47,22 +47,36 @@ class User < ActiveRecord::Base
   # Selects users with their clicks count to generate report.
   # The report is for 1 week
   scope :users_clicks,
-      #SELECT email, user_id, button_click_set, (last_name || ' ' || first_name) as name, 
-      #  date(button_clicks.created_at) as sdate, count(*) as clicks 
-      #FROM "users" INNER JOIN "button_clicks" ON "button_clicks"."user_id" = "users"."id" 
-      #WHERE (date(button_clicks.created_at) > '2011-04-12') 
-      #GROUP BY sdate, user_id, email, button_click_set, first_name, last_name 
-      #ORDER BY sdate DESC, clicks DESC
-      joins(:button_clicks).
-      select("email, user_id, button_click_set, (last_name || ' ' || first_name) as name, date(button_clicks.created_at) as sdate, count(*) as clicks").
-      where("date(button_clicks.created_at) > ?", -1.weeks.from_now.to_date).
-      group(:sdate, :user_id, :email, :button_click_set, :first_name, :last_name).
-      order("sdate DESC, clicks DESC")
+    #SELECT email, user_id, button_click_set, (last_name || ' ' || first_name) as name, 
+    #  date(button_clicks.created_at) as sdate, count(*) as clicks 
+    #FROM "users" INNER JOIN "button_clicks" ON "button_clicks"."user_id" = "users"."id" 
+    #WHERE (date(button_clicks.created_at) > '2011-04-12') 
+    #GROUP BY sdate, user_id, email, button_click_set, first_name, last_name 
+    #ORDER BY sdate DESC, clicks DESC
+    joins(:button_clicks).
+    select("email, user_id, button_click_set, (last_name || ' ' || first_name) as name, date(button_clicks.created_at) as sdate, count(*) as clicks").
+    where("date(button_clicks.created_at) > ?", -1.weeks.from_now.to_date).
+    group(:sdate, :user_id, :email, :button_click_set, :first_name, :last_name).
+    order("sdate DESC, clicks DESC")
   
   # Counts all user button_click_set which were active in the last 2 weeks
   scope :users_recent_button_click_set,
-      select("SUM(CASE WHEN button_click_set is null THEN 1 WHEN button_click_set > 48 THEN 48 ELSE button_click_set END) as total").
-      where(:id => ButtonClick.two_weeks_active_users)
+    select("SUM(CASE WHEN button_click_set is null THEN 1 WHEN button_click_set > 48 THEN 48 ELSE button_click_set END) as total").
+    where('id IN ('+ButtonClick.two_weeks_active_users.to_sql+')')
+
+  # Counts user button_click_set which were active in the last 2 weeks
+  # and from the same group!
+  scope :users_recent_button_click_set_for_group,
+  lambda{|email|
+    select("SUM(CASE WHEN button_click_set is null THEN 1 WHEN button_click_set > 48 THEN 48 ELSE button_click_set END) as total").
+    where('id IN ('+ButtonClick.two_weeks_active_users_filter_by_scope(User.group_users_by_email(email)).to_sql+')')
+  }
+
+  scope :group_users_by_email,
+    lambda{|email|
+      select(:id).
+      where('email IN (' + UserList.group_emails_by_email(email).to_sql + ')')
+    }
 
   before_create :update_user_list
   after_destroy :roles_cleanup

@@ -18,7 +18,6 @@
   </div>
   <div>
     <center>
-
       <img id="we-clicks-chart" src="https://chart.googleapis.com/chart?cht=p3&chs=200x100&chd=t:<%=@today_clicks%>,<%=(@today_total-@today_clicks)%>&chco=19B743,FF0000&chdl=We|Me"
         title="<%= I18n.t('social_button.we_clicks_for_today', :clicks => @today_clicks, :total => @today_total) %>"/>
       <span id="we-clicks-chart-span">
@@ -33,13 +32,16 @@
         <%= I18n.t('social_button.we_all_clicks_for_today', :clicks => @today_all_clicks, :total => @today_all_total) %>
       </span>
 
-      <!--
-      <img id="we-group-clicks-chart" src="https://chart.googleapis.com/chart?cht=p3&chs=200x100&chd=t:<%=@today_group_clicks%>,<%=(@today_group_total-@today_group_clicks)%>&chco=19B743,FF0000&chdl=We|Me"
+      <% if UserList.group_emails_by_email(current_user.email).length > 0 %>
+
+      <br/>
+      <br/>
+      <img id="we-group-clicks-chart" src="https://chart.googleapis.com/chart?cht=p3&chs=200x100&chd=t:<%=(100*@today_group_clicks)/@today_group_total%>,<%=(100*(@today_group_total-@today_group_clicks))/@today_group_total%>&chco=19B743,FF0000&chdl=We|Me"
         title="<%= I18n.t('social_button.we_group_clicks_for_today', :clicks => @today_group_clicks, :total => @today_group_total) %>"/>
       <span id="we-group-clicks-chart-span">
         <%= I18n.t('social_button.we_group_clicks_for_today', :clicks => @today_group_clicks, :total => @today_group_total) %>
       </span>
-      -->
+      <% end %>
     </center>
   </div>
   <br/>
