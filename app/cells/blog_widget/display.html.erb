@@ -8,23 +8,25 @@
     <%- end -%>
   </ul>
 </div>
-<%- if %w{ he ru es en }.include?(params[:locale]) -%>
-    <div class="widget-blog">
-      <ul>
-        <%- if params[:locale] == 'he' -%>
-            <li><%= link_to 'לוח אירועים מרכזיים שנתי', 'https://spreadsheets.google.com/ccc?hl=ru&key=tnfWTye98fPiWt1JDXl50NQ&authkey=CIy-qroK&hl=ru#gid=0', :target => '_blank' %></li>
-            <li><%= link_to 'לוח דרושים - השתתפות בהפצה', 'http://www.kab.co.il/kabbalah/%D7%94%D7%A9%D7%AA%D7%AA%D7%A4%D7%95%D7%AA-%D7%91%D7%94%D7%A4%D7%A6%D7%AA-%D7%97%D7%9B%D7%9E%D7%AA-%D7%94%D7%A7%D7%91%D7%9C%D7%94?utm_source=kab-co-il&utm_medium=banner&utm_content=240x61&utm_campaign=hafaza', :target => '_blank' %></li>
-        <%- elsif params[:locale] == 'ru' -%>
-            <li><%= link_to 'Календарь мероприятий', "https://spreadsheets.google.com/ccc?hl=ru&key=tnfWTye98fPiWt1JDXl50NQ&authkey=CIy-qroK&hl=ru#gid=2", :target => '_blank' %></li>
-            <li><%= link_to 'Держим курс', "http://www.kabbalahgroup.info/rus/new/", :target => '_blank' %></li>
-        <%- elsif params[:locale] == 'en' -%>
-            <li><%= link_to 'Calendar of Major Events', "https://spreadsheets.google.com/ccc?hl=en&key=tnfWTye98fPiWt1JDXl50NQ&authkey=CIy-qroK&hl=en#gid=6", :target => '_blank' %></li>
-        <%- elsif params[:locale] == 'es' -%>
-            <li><%= link_to 'Seguimos navegando', "http://www.kabbalahgroup.info/spa/new/", :target => '_blank' %></li>
-        <%- end -%>
-      </ul>
-    </div>
-<%- end -%>
+<div class="widget-blog">
+  <ul>
+    <%- if params[:locale] == 'he' -%>
+        <li><%= link_to 'לוח אירועים מרכזיים שנתי', 'https://spreadsheets.google.com/ccc?hl=ru&key=tnfWTye98fPiWt1JDXl50NQ&authkey=CIy-qroK&hl=ru#gid=0', :target => '_blank' %></li>
+        <li><%= link_to 'לוח דרושים - השתתפות בהפצה', 'http://www.kab.co.il/kabbalah/%D7%94%D7%A9%D7%AA%D7%AA%D7%A4%D7%95%D7%AA-%D7%91%D7%94%D7%A4%D7%A6%D7%AA-%D7%97%D7%9B%D7%9E%D7%AA-%D7%94%D7%A7%D7%91%D7%9C%D7%94?utm_source=kab-co-il&utm_medium=banner&utm_content=240x61&utm_campaign=hafaza', :target => '_blank' %></li>
+    <%- elsif params[:locale] == 'ru' -%>
+        <li><%= link_to 'Конгресс в Москве', "http://www.kabbalah.info/rus/congress/#news", :target => '_blank' %></li>
+        <li><%= link_to 'Календарь мероприятий', "https://spreadsheets.google.com/ccc?hl=ru&key=tnfWTye98fPiWt1JDXl50NQ&authkey=CIy-qroK&hl=ru#gid=2", :target => '_blank' %></li>
+        <li><%= link_to 'Держим курс', "http://www.kabbalahgroup.info/rus/new/", :target => '_blank' %></li>
+        <li><%= link_to 'Читаем каббалистические тексты', "http://www.kabhebrew.info/", :target => '_blank' %></li>
+    <%- elsif params[:locale] == 'es' -%>
+        <li><%= link_to 'Seguimos navegando', "http://www.kabbalahgroup.info/spa/new/", :target => '_blank' %></li>
+        <li><%= link_to 'La lectura de los textos cabalísticos', "http://www.kabhebrew.info/spanish_1.htm", :target => '_blank' %></li>
+    <%- else #params[:locale] == 'en' -%>
+        <li><%= link_to 'Calendar of Major Events', "https://spreadsheets.google.com/ccc?hl=en&key=tnfWTye98fPiWt1JDXl50NQ&authkey=CIy-qroK&hl=en#gid=6", :target => '_blank' %></li>
+        <li><%= link_to 'We read the kabbalistic texts', "http://www.kabhebrew.info/english_1.htm", :target => '_blank' %></li>
+  <%- end -%>
+  </ul>
+</div>
 <div class="widget-blog">
   <h4><%= link_to t('home.views.blog_title').html_safe, t('home.views.blog'), :class => 'in-wide-iframe' %></h4>
   <hr/>
