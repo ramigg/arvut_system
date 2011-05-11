@@ -42,8 +42,8 @@ class SocialButton < Apotomo::Widget
   def calc_today_clicks(email, total = nil)
     @today_clicks = ButtonClick.today_clicks(current_user.id).count
     @today_total = total.blank? ? current_user.button_click_set : total
-    if @today_total.blank? || @today_total < 1 || @today_total < @today_clicks
-      @today_total = [1, @today_clicks.to_i].max
+    if @today_total.blank? || @today_total < 1
+      @today_total = 1
     end
 
     @today_all_clicks = ButtonClick.today_total_clicks.count

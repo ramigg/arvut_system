@@ -18,11 +18,20 @@
   </div>
   <div>
     <center>
-      <img id="we-clicks-chart" src="https://chart.googleapis.com/chart?cht=p3&chs=200x100&chd=t:<%=@today_clicks%>,<%=(@today_total-@today_clicks)%>&chco=19B743,FF0000&chdl=We|Me"
-        title="<%= I18n.t('social_button.we_clicks_for_today', :clicks => @today_clicks, :total => @today_total) %>"/>
-      <span id="we-clicks-chart-span">
-        <%= I18n.t('social_button.we_clicks_for_today', :clicks => @today_clicks, :total => @today_total) %>
-      </span>
+      
+      <% if @today_clicks > @today_total %>
+        <img id="we-clicks-chart" src="https://chart.googleapis.com/chart?cht=p3&chs=200x100&chd=t:1,0&chco=19B743,FF0000&chdl=We|Me"
+          title="<%= I18n.t('social_button.we_clicks_for_today_assist', :clicks => @today_clicks, :total => @today_total, :assist => (@today_clicks-@today_total)) %>"/>
+        <span id="we-clicks-chart-span">
+          <%= I18n.t('social_button.we_clicks_for_today_assist', :clicks => @today_clicks, :total => @today_total, :assist => (@today_clicks-@today_total)) %>
+        </span>
+      <% else %>
+        <img id="we-clicks-chart" src="https://chart.googleapis.com/chart?cht=p3&chs=200x100&chd=t:<%=@today_clicks%>,<%=(@today_total-@today_clicks)%>&chco=19B743,FF0000&chdl=We|Me"
+          title="<%= I18n.t('social_button.we_clicks_for_today', :clicks => @today_clicks, :total => @today_total) %>"/>
+        <span id="we-clicks-chart-span">
+          <%= I18n.t('social_button.we_clicks_for_today', :clicks => @today_clicks, :total => @today_total) %>
+        </span>
+      <% end %>
 
       <br/>
       <br/>

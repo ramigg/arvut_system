@@ -573,6 +573,7 @@ en:
     cancel: Cancel
     generate_csv_report: Generate report
     we_clicks_for_today: %{clicks} We clicks from %{total} for today
+    we_clicks_for_today_assist: %{clicks} We clicks for today, %{assist} clicks from them are in favor of everybody. Arvut!
     we_all_clicks_for_today: %{clicks} We clicks from %{total} for today for everybody
     we_group_clicks_for_today: %{clicks} We clicks from %{total} for today for your group
 

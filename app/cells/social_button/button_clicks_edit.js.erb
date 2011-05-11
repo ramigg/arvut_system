@@ -1,7 +1,12 @@
 $('.clicks-set-info span').html(<%= @button_click_set %>);
 hide_form();
+<% if @today_clicks > @today_total %>
+refresh_clicks_chart(1, 1);
+refresh_chart_text("<%= I18n.t('social_button.we_clicks_for_today_assist', :clicks => @today_clicks, :total => @today_total, :assist => (@today_clicks-@today_total)) %>");
+<% else %>
 refresh_clicks_chart(<%= @today_clicks %>, <%= @today_total %>);
 refresh_chart_text("<%= I18n.t('social_button.we_clicks_for_today', :clicks => @today_clicks, :total => @today_total) %>");
+<% end %>
 refresh_all_clicks_chart(<%= @today_all_clicks %>, <%= @today_all_total %>);
 refresh_all_chart_text("<%= I18n.t('social_button.we_all_clicks_for_today', :clicks => @today_all_clicks, :total => @today_all_total) %>");
 refresh_group_clicks_chart(<%= @today_group_clicks %>, <%= @today_group_total %>);
