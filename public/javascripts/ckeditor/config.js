@@ -108,5 +108,6 @@ CKEDITOR.editorConfig = function(config) {
     config.contentsCss = ['http://kabbalahgroup.info/internet/stylesheets/styles.css', '/stylesheets/styles.css'];
     config.resize_enabled = false;
     config.toolbarCanCollapse = false;
+    config.forcePasteAsPlainText = true;
 };
 
