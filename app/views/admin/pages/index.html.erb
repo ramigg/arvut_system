@@ -101,6 +101,7 @@
       <select id="author" name="author">
         <option value="" <%= 'selected="selected"' if params[:author] == '' %>><%= t("admin.pages.all") %></option>
         <option value="<%= current_user.id %>" <%= 'selected="selected"' if params[:author] == current_user.id.to_s %>><%= t("admin.pages.only_you") %></option>
+        <option value="-7" <%= 'selected="selected"' if params[:author] == '-7' %>><%= t("admin.pages.only_moderators") %></option>
         <optgroup label="--------">
           <%- @authors.all.each { |a| -%>
               <option value="<%= a.author_id %>" <%= 'selected="selected"' if params[:author] == a.author_id.to_s && a.author_id != current_user.id %>><%= User.find(a.author_id).first_name %> <%= User.find(a.author_id).last_name %></option>

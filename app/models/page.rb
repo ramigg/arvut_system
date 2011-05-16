@@ -27,8 +27,8 @@ class Page < ActiveRecord::Base
 
   #  *Validations*
 
-  validates :title, :presence => true, :length => { :maximum => 255 }
-  validates :subtitle, :length => { :maximum => 255 }
+  validates :title, :presence => true, :length => {:maximum => 255}
+  validates :subtitle, :length => {:maximum => 255}
   validates :message_body, :presence => true, :if => lambda { |e| e.page_type == 'message' }
 
   delegate :locale, :to => :language
@@ -117,7 +117,14 @@ class Page < ActiveRecord::Base
              end
     end
     page = page.where(:page_type => filter[:page_type]) if filter[:page_type] && filter[:page_type] != ''
-    page = page.where(:author_id => filter[:author]) if filter[:author] && filter[:author] != ''
+    # :user == -7 => moderators
+    if filter[:author] && filter[:author] != ''
+      if filter[:author] != '-7'
+        page = page.where(:author_id => filter[:author])
+      else
+        page = page.where(:author_id => Role.find_by_role('Moderator').users)
+      end
+    end
     page
   end
 

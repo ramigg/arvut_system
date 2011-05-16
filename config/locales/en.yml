@@ -230,6 +230,7 @@ en:
       by_author: By author
       all: All
       only_you: Only you
+      only_moderators: Only moderators
       reset: Clear form
       success: Page was successfully created
       update: Page was successfully updated

@@ -260,6 +260,7 @@ ru:
       create: Создать
       all: Все
       only_you: Только вы
+      only_moderators: Только модераторы
       by_author: По автору
       reset: Очистить форму
       actions: Действия

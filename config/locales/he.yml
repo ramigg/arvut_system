@@ -44,6 +44,10 @@ he:
       user: אימייל
   admin:
     pages:
+      by_author: By author
+      all: All
+      only_you: Only you
+      only_moderators: Only moderators
       any_language: בכל שפה
       language: שפה
       leave_comment: הסף תגובתך
