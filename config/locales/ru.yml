@@ -595,6 +595,6 @@ ru:
     cancel: Отменить
     generate_csv_report: "Сгенерировать отчет"
     we_clicks_for_today: "Ты - %{clicks} We из %{total}"
-    we_clicks_for_today_assist: "Ты - %{clicks} из каторых %{assist} для всех. Арвут!"
+    we_clicks_for_today_assist: "Ты сделал %{clicks} кликов, из которых %{assist} - для товарщей. Арвут!"
     we_all_clicks_for_today: "Все пользователи - %{clicks} We из %{total}"
     we_group_clicks_for_today: "Твоя группа - %{clicks} We из %{total}"
