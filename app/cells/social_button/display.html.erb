@@ -56,7 +56,40 @@
   <br/>
   <br/>
   
+  <script type="text/javascript" src="/javascripts/comet/jquery/json2.js"></script>
+  <script type="text/javascript" src="/javascripts/comet/org/cometd-namespace.js"></script>
+  <script type="text/javascript" src="/javascripts/comet/org/cometd-json.js"></script>
+  <script type="text/javascript" src="/javascripts/comet/org/TransportRegistry.js"></script>
+  <script type="text/javascript" src="/javascripts/comet/org/WebSocketTransport.js"></script>
+  <script type="text/javascript" src="/javascripts/comet/org/Transport.js"></script>
+  <script type="text/javascript" src="/javascripts/comet/org/LongPollingTransport.js"></script>
+  <script type="text/javascript" src="/javascripts/comet/org/RequestTransport.js"></script>
+  <script type="text/javascript" src="/javascripts/comet/org/CallbackPollingTransport.js"></script>
+  <script type="text/javascript" src="/javascripts/comet/org/Utils.js"></script>
+  <script type="text/javascript" src="/javascripts/comet/org/Cometd.js"></script>
+  <script type="text/javascript" src="/javascripts/comet/org/cometd/AckExtension.js"></script>
+  <script type="text/javascript" src="/javascripts/comet/org/cometd/ReloadExtension.js"></script>
+  <script type="text/javascript" src="/javascripts/comet/jquery/jquery.kookie.js"></script>
+  <script type="text/javascript" src="/javascripts/comet/jquery/jquery.cometd.js"></script>
+  <script type="text/javascript" src="/javascripts/comet/jquery/jquery.cometd-reload.js"></script>
+  <script type="text/javascript" src="/javascripts/comet/app.js"></script>
+  
+  <script type="text/javascript" src="/javascripts/social_button/button_auto_update.js"></script>
+  
   <script type="text/javascript">
+  
+    var button_update_app = null;
+  
+    $(document).ready(function() {    
+      button_update_app = new $.ButtonUpdateApp(<%= @users_group_id %>, <%= current_user.id %>);
+    });
+
+    function update_others(is_click, today_clicks, today_total, today_all_clicks, today_all_total, today_group_clicks, today_group_total)
+    {
+      if (button_update_app != null)
+        button_update_app.update_others(is_click, today_clicks, today_total, today_all_clicks, today_all_total, today_group_clicks, today_group_total);
+    };
+  
     function refresh_chart(id, clicks, total)
     {
       if (total > 100)
@@ -79,10 +112,21 @@
       refresh_chart('we-clicks-chart', clicks, total);
     }
 
-    function refresh_chart_text(new_text)
+    function refresh_chart_text(clicks, total)
     {
-      $('#we-clicks-chart-span').text(new_text);
-      $('#we-clicks-chart').attr("title", new_text);
+      var text = "";
+      if (clicks > total) {
+        text = "<%= I18n.t('social_button.we_clicks_for_today_assist', :clicks => "??clicks", :total => "??total", :assist => "??assist") %>";
+        text = text.replace("??assist", clicks - total);
+      } else {
+        text = "<%= I18n.t('social_button.we_clicks_for_today', :clicks => "??clicks", :total => "??total") %>";
+      }
+      
+      text = text.replace("??clicks", clicks);
+      text = text.replace("??total", total)
+      
+      $('#we-clicks-chart-span').text(text);
+      $('#we-clicks-chart').attr("title", text);
     }
     
     function refresh_all_clicks_chart(clicks, total)
@@ -90,20 +134,30 @@
       refresh_chart('we-all-clicks-chart', clicks, total);
     }
 
-    function refresh_all_chart_text(new_text)
+    function refresh_all_chart_text(clicks, total)
     {
-      $('#we-all-clicks-chart-span').text(new_text);
-      $('#we-all-clicks-chart').attr("title", new_text);
+      var text = "<%= I18n.t('social_button.we_all_clicks_for_today', :clicks => "??clicks", :total => "??total") %>";
+
+      text = text.replace("??clicks", clicks);
+      text = text.replace("??total", total);
+
+      $('#we-all-clicks-chart-span').text(text);
+      $('#we-all-clicks-chart').attr("title", text);
     }
     function refresh_group_clicks_chart(clicks, total)
     {
       refresh_chart('we-group-clicks-chart', clicks, total);
     }
 
-    function refresh_group_chart_text(new_text)
+    function refresh_group_chart_text(clicks, total)
     {
-      $('#we-group-clicks-chart-span').text(new_text);
-      $('#we-group-clicks-chart').attr("title", new_text);
+      var text = "<%= I18n.t('social_button.we_group_clicks_for_today', :clicks => "??clicks", :total => "??total") %>"
+      
+      text = text.replace("??clicks", clicks);
+      text = text.replace("??total", total)
+
+      $('#we-group-clicks-chart-span').text(text);
+      $('#we-group-clicks-chart').attr("title", text);
     }
     </script>
 

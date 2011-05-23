@@ -30,7 +30,7 @@ class ButtonClick < ActiveRecord::Base
   
   scope :two_weeks_active_users, lambda{
     select("user_id as id").
-    where("date(created_at) > ?", -200.weeks.from_now.to_date).
+    where("date(created_at) > ?", -2.weeks.from_now.to_date).
     group(:user_id)
   }
   

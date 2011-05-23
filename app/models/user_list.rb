@@ -61,5 +61,11 @@ class UserList < ActiveRecord::Base
       joins('INNER JOIN user_lists as a ON user_lists.users_group_id = a.users_group_id' ).
       where(:email => email)
     }
+    
+  scope :group_id_by_email,
+    lambda { |email|
+      select('users_group_id').
+      where(:email => email)
+    }
   
 end
