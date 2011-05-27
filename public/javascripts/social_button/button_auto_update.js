@@ -61,16 +61,16 @@
             
       function resetMethods() {
         _self.limitChanged = function(newLimit) {
-          alert("limit changed - reset " + group_id);
+          //alert("limit changed - reset " + group_id);
         };
         
         _self.buttonPressed = function() {
-          alert("button pressed - reset " + group_id);
+          //alert("button pressed - reset " + group_id);
         };
           
         _self.update_others = function(is_click, today_clicks, today_total, today_all_clicks, today_all_total, today_group_clicks, today_group_total) {
-          alert("update others - reset " + group_id + " " + today_all_clicks
-            + " " + today_all_total + " " + today_group_clicks + " " + today_group_total );
+          //alert("update others - reset " + group_id + " " + today_all_clicks
+          //  + " " + today_all_total + " " + today_group_clicks + " " + today_group_total );
         };
 
       };
