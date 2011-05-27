@@ -104,8 +104,11 @@
 
     function refresh_chart(id, clicks, total)
     {
-      if (total > 100)
-      {
+      if (clicks > total) {
+        clicks = total;
+      }
+      
+      if (total > 100) {
         clicks = (clicks * 100) / total;
         total = 100;
       }
