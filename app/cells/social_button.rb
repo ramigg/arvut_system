@@ -13,7 +13,7 @@ class SocialButton < Apotomo::Widget
     @button_class = @status ? 'we_button' : 'me_button'
     @timeout = ButtonClick.time_left(user.id)
     @button_click_set = user.button_click_set || 1
-    calc_today_clicks(user.email, @button_click_set)
+    calc_today_clicks(user.id, user.email, @button_click_set)
     render
   end
 
@@ -21,7 +21,7 @@ class SocialButton < Apotomo::Widget
     user = param :user
     @status = ButtonClick.status(user.id)
     ButtonClick.create(:user_id => user.id) unless @status
-    calc_today_clicks(user.email)
+    calc_today_clicks(user.id, user.email)
     render
   end
 
@@ -30,7 +30,7 @@ class SocialButton < Apotomo::Widget
 #    if params[:user]
     user.update_attributes(params[:user])
     @button_click_set = user.button_click_set
-    calc_today_clicks(user.email, @button_click_set)
+    calc_today_clicks(user.id, user.email, @button_click_set)
     render
   end
 
@@ -39,8 +39,8 @@ class SocialButton < Apotomo::Widget
   end
   
   private
-  def calc_today_clicks(email, total = nil)
-    @today_clicks = ButtonClick.today_clicks(current_user.id).count
+  def calc_today_clicks(id, email, total = nil)
+    @today_clicks = ButtonClick.today_clicks(id).count
     @today_total = total.blank? ? current_user.button_click_set : total
     if @today_total.blank? || @today_total < 1
       @today_total = 1
@@ -50,6 +50,13 @@ class SocialButton < Apotomo::Widget
     @today_all_total = User.users_recent_button_click_set[0].total.to_i
     if @today_all_total < 1 || @today_all_total < @today_all_clicks
       @today_all_total = [1, @today_all_total.to_i].max
+    end
+    
+    @users_group_id = UserList.group_id_by_email(email);
+    if (@users_group_id.count < 1 or @users_group_id[0].users_group_id.blank?)
+      @users_group_id = "null"
+    else
+      @users_group_id = @users_group_id[0].users_group_id
     end
 
     @today_group_clicks = ButtonClick.today_total_clics_by_gourp(email).count

@@ -57,4 +57,7 @@ Simulator::Application.configure do
   # config.threadsafe!
 
   config.active_support.deprecation = :notify
+  
+  # enable push-engine (update web-page without refresh)
+  config.enable_comet = false
 end
