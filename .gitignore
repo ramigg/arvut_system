@@ -22,3 +22,4 @@ lib/yaml2csv/**
 /*.backup
 vendor/cache
 .redcar/**/*
+/.redcar/
