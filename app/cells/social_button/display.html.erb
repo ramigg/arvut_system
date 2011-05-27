@@ -56,7 +56,7 @@
   <br/>
   <br/>
   
-  <% if (config.enable_comet) %>
+  <% if Rails.configuration.enable_comet %>
   <script type="text/javascript" src="/javascripts/comet/jquery/json2.js"></script>
   <script type="text/javascript" src="/javascripts/comet/org/cometd-namespace.js"></script>
   <script type="text/javascript" src="/javascripts/comet/org/cometd-json.js"></script>
@@ -94,6 +94,10 @@
     
   </script>
 
+  <% else %>
+    <script type="text/javascript">
+      function update_others(){}
+    </script>
   <% end %>
 
   <script type="text/javascript">
@@ -211,4 +215,4 @@
 
   </script>
 
-<% end -%>
+<% end %>
