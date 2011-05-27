@@ -56,6 +56,7 @@
   <br/>
   <br/>
   
+  <% if (config.enable_comet) %>
   <script type="text/javascript" src="/javascripts/comet/jquery/json2.js"></script>
   <script type="text/javascript" src="/javascripts/comet/org/cometd-namespace.js"></script>
   <script type="text/javascript" src="/javascripts/comet/org/cometd-json.js"></script>
@@ -76,6 +77,7 @@
   
   <script type="text/javascript" src="/javascripts/social_button/button_auto_update.js"></script>
   
+
   <script type="text/javascript">
   
     var button_update_app = null;
@@ -89,7 +91,13 @@
       if (button_update_app != null)
         button_update_app.update_others(is_click, today_clicks, today_total, today_all_clicks, today_all_total, today_group_clicks, today_group_total);
     };
-  
+    
+  </script>
+
+  <% end %>
+
+  <script type="text/javascript">
+
     function refresh_chart(id, clicks, total)
     {
       if (total > 100)
