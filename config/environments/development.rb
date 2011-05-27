@@ -43,5 +43,5 @@ Simulator::Application.configure do
 
   config.active_support.deprecation = :log
   
-  config.enable_comet = true
+  config.enable_comet = false
 end
