@@ -6,13 +6,19 @@ class SocialButton < Apotomo::Widget
   respond_to_event :button_clicks_edit, :with => :button_clicks_edit
   
   helper_method :current_user
+  helper_method :get_button_click_set
+
+  def get_button_click_set
+    user = param :user
+    (user.button_click_set.nil? || user.button_click_set == 0) ? 1 : user.button_click_set    
+  end
   
   def display
     user = param :user
     @status = ButtonClick.status(user.id)
     @button_class = @status ? 'we_button' : 'me_button'
     @timeout = ButtonClick.time_left(user.id)
-    @button_click_set = user.button_click_set || 1
+    @button_click_set = get_button_click_set()
     calc_today_clicks(user.id, user.email, @button_click_set)
     render
   end
@@ -29,7 +35,7 @@ class SocialButton < Apotomo::Widget
     user = param :user
 #    if params[:user]
     user.update_attributes(params[:user])
-    @button_click_set = user.button_click_set
+    @button_click_set = get_button_click_set()
     calc_today_clicks(user.id, user.email, @button_click_set)
     render
   end

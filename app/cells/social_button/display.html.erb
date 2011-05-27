@@ -2,11 +2,11 @@
   <a href="#" id="we-button" class="<%= @button_class %>" onclick="<%= trigger_event(:button_press) %>; return false;"
      onmousedown="set_pressed()" onmouseup="set_released()" onmouseout="set_released()"></a>
   <div class="clicks-set-info">
-    <%= I18n.t('social_button.i_commit_to') %> <span><%= @button_click_set %></span> <%= I18n.t('social_button.clicks_a_day') %>. <a href="#" onclick="show_form(); return false;"><%= I18n.t('social_button.change') %></a>
+    <%= I18n.t('social_button.i_commit_to') %> <span><%= get_button_click_set %></span> <%= I18n.t('social_button.clicks_a_day') %>. <a href="#" onclick="show_form(); return false;"><%= I18n.t('social_button.change') %></a>
   </div>
   <div class="clicks-set-form" style="display:none;">
     <%= form_for @user, :as => :user, :url => url_for_event(:button_clicks_edit), :remote => true do |f| -%>
-      <%= f.text_field :button_click_set, :style => 'width:20px;', :value => @button_click_set %>
+      <%= f.text_field :button_click_set, :style => 'width:20px;', :value => get_button_click_set %>
       <%= f.submit I18n.t('kabtv.admin.submit'), :style => '', :class => 'button-small-main', :disable_with => I18n.t('kabtv.admin.submitting') %>
       <a href="#" onclick="hide_form(); return false;"><%= I18n.t('social_button.cancel') %></a>
     <% end %>
