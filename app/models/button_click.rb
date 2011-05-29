@@ -6,13 +6,13 @@ class ButtonClick < ActiveRecord::Base
   scope :last_click, lambda{ |user_id|
     where(:user_id => user_id).order("created_at DESC").limit(1)
   }
-  
+
   # Selects clicks of a user for today (today timezone is the server timzone!)
-  scope :today_clicks, lambda{ |user_id| 
+  scope :today_clicks, lambda{ |user_id|
     where(:user_id => user_id).
     where("date(button_clicks.created_at) = ?", Date.today)
   }
-  
+
   # Selects clicks of all users for today (today timezone is the server timzone!)
   scope :today_total_clicks, lambda{
     where("date(button_clicks.created_at) = ?", Date.today)

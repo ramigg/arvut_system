@@ -166,8 +166,10 @@ en:
       blog: http://www.laitman.com/
       feed: http://www.laitman.com/feed
       active: Active
+      button: We!
       registered: Registered
       title_registered_vs_active: Registered vs. Active
+      title_registered_vs_button: Registered vs. We!
       loading: Loading...
     faq:
       faq: Frequently Asked Questions
