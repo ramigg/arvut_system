@@ -156,7 +156,7 @@ GROUP BY CAST (confirmed_at AS DATE) ORDER BY CAST (confirmed_at AS DATE)
       button.each { |a|
         key = a.when
         date = @basic.revert(I18n.l Date.parse(a.when), :format => :graph)
-        val = a.active_no.to_i / (regs == 0 ? 1 : regs)
+        val = a.active_no.to_i
         regs += hash[key].to_i
         # [date, active, registered]
         data << [ date, val, regs ]

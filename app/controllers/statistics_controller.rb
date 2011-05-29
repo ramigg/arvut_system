@@ -64,9 +64,9 @@ class StatisticsController < ActionController::Metal
     options = {
       :columns => [
         {:type => DataType::STRING, :label => date_text},
-        {:type => DataType::NUMBER, :label => button_text},
-        {:type => DataType::NUMBER, :label => registered_text}
-      ],
+        {:type => DataType::NUMBER, :label => registered_text},
+    {:type => DataType::NUMBER, :label => button_text}
+    ],
       :target => "##{target}",
       :draw_options => {
         :width => params[:w] || 420,
