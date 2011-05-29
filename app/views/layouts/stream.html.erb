@@ -17,9 +17,9 @@
 <%- end -%>
 
 <% content_for :head do %>
-	<%- if current_user.is_rav_posting? || current_user.is_frontend_editor? || current_user.is_admin? -%>
-		<%= javascript_include_tag :ckeditor, '/ckfinder/ckfinder' %>
-	<% end %>
+	<%#- if current_user.is_rav_posting? || current_user.is_frontend_editor? || current_user.is_admin? -%>
+		<%#= javascript_include_tag :ckeditor, '/ckfinder/ckfinder' %>
+	<%# end %>
 <%- end -%>
 
 <%= render :file => 'layouts/main' %>

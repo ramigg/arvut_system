@@ -4,9 +4,9 @@
     &nbsp;|&nbsp;
     <%= link_to t("stream.all"), stream_path(:stream_filter => @stream_subclass), :class => 'data-remote' %>
   <% end %>
-    <%- if current_user.is_rav_posting? || current_user.is_frontend_editor? || current_user.is_admin? -%>
-    	<%= link_to "#{t('admin.pages.create_new')} #{t('admin.pages.message')}", '#', :onclick => '$("#hiddenEditor").slideDown("slow"); return false;', :class => 'rav_create_new' %>
-		<% end %>
+    <%#- if Rav doesn't use this, and no one else too... # current_user.is_rav_posting? || current_user.is_frontend_editor? || current_user.is_admin? -%>
+    	<%#= link_to "#{t('admin.pages.create_new')} #{t('admin.pages.message')}", '#', :onclick => '$("#hiddenEditor").slideDown("slow"); return false;', :class => 'rav_create_new' %>
+		<%# end %>
 </div>
 <div class="content-stream">
 	<%- if current_user.is_rav_posting? || current_user.is_frontend_editor? || current_user.is_admin? -%>
