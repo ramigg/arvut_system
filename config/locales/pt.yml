@@ -1,0 +1,557 @@
+---
+pt:
+  activerecord:
+    attributes:
+      user:
+        email: "Endereço de e-mail"
+        password: Senha
+    errors:
+      messages:
+        accepted: "precisa ser aceito"
+        blank: "não pode estar em branco"
+        confirmation: "não corresponde a confirmação"
+        empty: "não pode estar vazio"
+        equal_to: "precisa ser igual a %{count}"
+        even: "é preciso ser par"
+        exclusion: reservado
+        greater_than: "precisa ser maior que %{count}"
+        greater_than_or_equal_to: "é preciso ser maior ou igual a %{count}"
+        inclusion: "não está incluído na lista"
+        invalid: inválido
+        less_than: "não pode ser menor que  %{count}"
+        less_than_or_equal_to: "é preciso ser menor ou igual a %{count}"
+        not_a_number: "não é um número"
+        odd: "é preciso ser ímpar"
+        taken: "já foi tomado"
+        too_long: "muito longo (o máximo é %{count} caracteres)"
+        too_short: "muito curto (o mínimo é %{count} caracteres)"
+        wrong_length: "Comprimento incorreto (deveria ser %{count} caracteres)"
+      models:
+        user:
+          attributes:
+            email:
+              blank: "campo em branco"
+              invalid: inválido
+            password:
+              blank: "campo em branco"
+              confirmation: "a confirmação não coincide"
+              too_short: "muito curto (o mínimo é %{count} caracteres)"
+          blank: "campo em branco"
+      user:
+        header:
+          one: "A operação falhou por causa do seguinte erro"
+          other: "A operação falhou por causa dos seguintes %{count} erros"
+    models:
+      user: E-mail
+  admin:
+    pages:
+      actions: Ações
+      add_answer: "Adicionar resposta"
+      add_new: "Adicionar um novo"
+      add_other: "Adicionar outros"
+      all: Tudo
+      all_posts: "Todos os posts"
+      any_language: "Qualquer Linguagem"
+      are_you_sure: "Você está certo?"
+      arr_down: "&#9662;"
+      arr_up: "&#9652;"
+      article: Conteúdo
+      as_draft: "Salvar como rascunho"
+      assignment: Tarefa
+      assignments: Tarefas
+      audio: Audio
+      big_banner: "Grande Banner"
+      bottom_side_banner: "Banner lateral inferior"
+      bulk_action: "Ação em bloco"
+      by_author: "Por Author"
+      checkbox: Checkbox
+      comments_enabled: "Comentários habilitados"
+      content: Conteúdo
+      create: Criar
+      create_new: "Criar novo"
+      delete: Deletar
+      description: Descrição
+      destroy: "A página foi eliminada com sucesso"
+      destroy_failure: "A página não foi eliminada"
+      drafts: Rascunhos
+      edit: editar
+      embed_string: "String a ser inserida"
+      event: Evento
+      events: Eventos
+      featured_settings: "Configuração de características"
+      filter: Filtro
+      freetext: "Texto livre"
+      future_posts: "Posts Futuros "
+      help: Ajuda
+      image: Imagem
+      is_autoplay: "Reprodução automática"
+      is_bonus: "É bonus?"
+      is_multiline: "É multilinha?"
+      is_sticky: "Item Fixo"
+      is_visible: Visível
+      items: items
+      label_from: "Etiqueta de"
+      label_to: "Etiquetar para"
+      language: Linguagem
+      leave_comment: "Aqui você pode deixar um comentário."
+      list: Lista
+      logout: sair
+      message: Menssagem
+      message_body: Menssagem
+      messages: Menssagens
+      metadata: Metadata
+      metadata_and_content: "Metadata & Conteúdo"
+      name: Nome
+      new_article: "Novo Conteúdo"
+      new_assignment: "Nova Tarefa"
+      new_message: "Nova Menssagem"
+      only_moderators: "Somente moderadores"
+      only_you: "Somente você"
+      other: Outro
+      page_administration: "Página de Administração"
+      permissions: Permissões
+      picture4preview: "Prever figura"
+      preview: Previsão
+      preview_show: "Mostrar previsão"
+      project: Projeto
+      publish: Publicar
+      publish_at: "Publicar em"
+      publish_date: "Data de publicação"
+      published: Publicado
+      question: Questão
+      radio: Radio
+      remove: Remover
+      reset: "Limpar formulário"
+      save_and_publish: "Salvar & Publicar"
+      scale: Escala
+      scale_from: "Escalar de"
+      scale_to: "Scalar para"
+      search: Busca
+      select: selecione
+      select_language: "Selecine a Linguagem"
+      set_as_draft: "Marcar como Rascunho"
+      show_on_page: "Mostrar %{count} items"
+      sorting_and_deleting: "Classificar & Deletar"
+      statistics: Estatísticas
+      status: Status
+      subtitle: Legenda
+      success: "A página foi criada com sucesso"
+      tags: "Etiquetas (Tags)"
+      title: Título
+      title_and_description: "Título e Descrição"
+      top_header: "Cabeçalho superior"
+      top_side_banner: "Banner lateral superior"
+      type: Tipo
+      unknown_page: "Página desconhecida"
+      unknown_type: "Tipo desconhecido de página %{page_type}"
+      update: "A página foi atualizada com sucesso"
+      updated_at: "Atualizado em"
+      url: URL
+      video: Video
+      video_player: "Reprodutor de Video"
+      youtube: YouTube
+    questionnaires:
+      add: Adicionar
+      add_answer: "Adicionar resposta"
+      add_other: "Adicionar outro"
+      approve: Aprovar
+      are_you_sure: "Você está certo?"
+      create_new_questionnaire: "Criar novo questionário"
+      create_questionnaire: "Criar questionário"
+      created_at: "Criado em"
+      created_by: "Criado por"
+      delete: Deletar
+      description: Descrição
+      edit: Editar
+      fields_marked_in_red_are_required: "Campos marcados em vermelho são obrigatórios"
+      is_multiline: "É multilinha?"
+      label_from: "Etiqueta de"
+      label_to: "Etiquetar para"
+      other: Outro
+      questionnaire_description: "Descrição do questionário"
+      questionnaire_editor: "Editor de Questionário "
+      questionnaire_excerpt: "Fonte do trecho do questionário"
+      questionnaire_related_links: "Links Relacionados ao Questionário"
+      questionnaire_title: "Título de questionário"
+      remove: Remover
+      scale_from: "Redimensionar de"
+      scale_to: "Escalar para"
+      set_draft: Rascunho
+      status: Status
+      title: Título
+      update_questionnaire: "Atualizar questionário"
+    reports:
+      all_groups: Todos
+      attendance_report: "Relatório de presença"
+      basic_report: "Relatório de Atividades de Usuário"
+      date: "Selecionar um mês"
+      date_range: "Por favor selecione um intervalo de datas"
+      display_also_profile: "Mostrar também o perfil"
+      export_to_excel: "Exportar para o Excel"
+      file: Arquivo
+      for_month: para
+      from: De
+      generate_report: "Gerar relatório"
+      generating: Gerando...
+      group_management: "Gerenciamento de grupo"
+      group_name: "Nome do Grupo"
+      include_email: "Incluir E-mail no relatório"
+      load_group_list: "Carregar Lista de Grupo"
+      manage_questionnaires: "Gerenciar Questionários"
+      manage_user_lists: "Gerenciar Lista de Usuários"
+      manage_user_roles: "Gerenciar funções de usuários"
+      minus: "não ativo"
+      order_by_total: "Ordenar por \"Total\" em vez de \"Último Nome\""
+      pages_list: "Editar Paginas"
+      plus: ativo
+      print: Imprimir
+      questionnaires_list: "Lista de Questionários"
+      remove_user: "Remover usuário"
+      report: Relatório
+      reports: Relatórios
+      show_only_confirmed_users: "Mostrar somente usuários confirmados"
+      status: Status
+      to: Para
+      total: Total
+      upload: Upload
+      user: Usuários
+      user_activities: "Relatório de Atividades de Usuário"
+      user_management: "Gerenciamento de usuários"
+      users_who_answered_questionnaires: "Usuários que responderam os questionários"
+      users_who_not_signed_in: "Usuários que não logaram"
+      users_who_signed_in: "Usuários logados"
+      x: "não registrado"
+    user_list:
+      are_you_sure: "Você tem certeza?"
+      create: "Usuário criado na lista com sucesso"
+      create_new_user: "Criar novo usuário"
+      create_user_list: "Criar lista de usuários"
+      delete: Deletar
+      destroy: "Lista de usuários eliminada com sucesso"
+      destroy_failure: "A página NÂO foi eliminada"
+      edit: Editar
+      email: E-mail
+      first_name: "Primeiro Nome"
+      group: Grupo
+      has_user: "Tem usuário?"
+      last_name: "Último nome"
+      please_select_one_of_the_options: "Por favor selecione uma das opções"
+      select_group: "Selecionar grupo"
+      update: "Lista de usuários atualizada com sucesso"
+      update_user_list: "Atualizar lista de usuários"
+  answer:
+    model:
+      answer_too_short: "Sua resposta é muito curta. O comprimento mínimo de uma resposta é de 10 caracteres."
+      select_at_least_one: "Você tem que selecionar pelo menos uma opção."
+      select_one_option: "Você tem que selecionar uma das opções."
+      write_an_answer: "Você tem que escrever uma resposta."
+  date:
+    formats:
+      attendance_report: "%B %d, %Y"
+      graph: "%b %d"
+      short: "%m-%d-%Y"
+  datetime:
+    distance_in_words:
+      about_x_hours:
+        one: "cerca de 1 hora"
+        other: "cerca de %{count} hours"
+      about_x_months:
+        one: "cerca de um mês"
+        other: "cerca de %{count} meses"
+      about_x_years:
+        one: "cerca de 1 ano"
+        other: "cerca de %{count} anos"
+      almost_x_years:
+        one: "quase um ano"
+        other: "quase %{count} ano"
+      half_a_minute: "meio minuto"
+      less_than_x_minutes:
+        one: "menos de um minuto"
+        other: "menos que %{count} minutos"
+      less_than_x_seconds:
+        one: "menos que 1 segundo"
+        other: "menos que %{count} segundos"
+      over_x_years:
+        one: "mais de 1 ano"
+        other: "mais que %{count} anos"
+      x_days:
+        one: "1 dia"
+        other: "%{count} dias"
+      x_minutes:
+        one: "1 minuto"
+        other: "%{count} minutos"
+      x_months:
+        one: "1 mês"
+        other: "%{count} meses"
+      x_seconds:
+        one: "1 segundo"
+        other: "%{count} segundos"
+    prompts:
+      day: Dia
+      hour: Hora
+      minute: Minuto
+      month: Mês
+      second: Segundos
+      year: Ano
+  devise:
+    confirmations:
+      confirmed: "Sua conta foi confirmada com êxito. Agora você está logado"
+      send_instructions: "Você receberá um email com instruções sobre como confirmar a sua conta, em poucos minutos."
+    failure:
+      inactive: "Sua conta não foi ativada ainda."
+      invalid: "E-mail ou senha inválida."
+      invalid_token: "Token de autenticação inválido."
+      locked: "Sua conta está bloqueada."
+      timeout: "Sua sessão expirou, por favor faça login novamente para continuar."
+      unauthenticated: "Você precisa fazer login ou cadastrar-se antes de continuar."
+      unconfirmed: "Você precisa confirmar a sua conta antes de continuar."
+    mailer:
+      confirmation_instructions:
+        user_subject: "Confirmação de instruções"
+      reset_password_instructions:
+        user_subject: "Instruções de redefinição de senha"
+      unlock_instructions:
+        user_subject: "Desbloquear Instruções"
+    mails:
+      change_my_password: "Alterar minha senha"
+      confirm_my_account: "Confirmar minha conta"
+      confirm_through_link: "Clique no link abaixo para confirmar sua conta. Se você clicar no link e ele parecer quebrado, por favor, copie e cole em uma nova janela do navegador."
+      hello: Olá
+      reset_password_line1: "Alguém pediu um link para alterar sua senha, e você pode fazer isso através do link abaixo"
+      reset_password_line2: "Se você não pediu isso, por favor ignore este e-mail"
+      reset_password_line3: "Sua senha não será alterada até que você acesse o link acima e crie um novo"
+      unlock_line1: "Sua conta foi bloqueada devido a tentativas excessivas de acessos sem sucesso"
+      unlock_line2: "Clique no link abaixo para desbloquear a sua conta"
+      unlock_my_account: "Desbloquear a minha conta"
+      welcome: Bem-vindo
+    passwords:
+      send_instructions: "Você receberá um email com instruções sobre como redefinir sua senha em alguns minutos."
+      updated: "Sua senha foi alterada com sucesso. Agora você está logado"
+    registrations:
+      destroyed: "Até logo! Sua conta foi cancelada com sucesso. Esperamos vê-lo novamente em breve."
+      signed_up: "Você se inscreveu com êxito. Por favor, consulte seu e-mail por uma mensagem de confirmação para ativar sua conta!"
+      updated: "Você atualizou a sua conta com êxito."
+    sessions:
+      signed_in: "Conectado com sucesso."
+      signed_out: "Desconectado com sucesso."
+    unlocks:
+      send_instructions: "Você receberá um email com instruções sobre como desbloquear a sua conta em poucos minutos."
+      unlocked: "Sua conta foi desbloqueada com sucesso. Agora você está logado"
+    views:
+      cannot_sign_in: "Não é possível logar? Clique aqui para ajuda!"
+      change_my_password: "Alterar minha senha"
+      confirm_new_password: "Confirmação da senha"
+      current_password: "Senha atual (precisamos dela para confirmar as alterações)"
+      email: E-mail
+      forgot_password: "Esqueceu sua senha?"
+      new_password: "Nova senha (pelo menos 6 caracteres)"
+      new_user: "Novo Usuário?"
+      no_confirmation_instructions: "Não recebeu instruções de confirmação?"
+      no_unlock_instructions: "Não recebeu instruções de desbloqueio?"
+      password: Senha
+      remember_me: "Lembrar Me"
+      resend_confirmation_instructions: "Reenviar confirmação de instruções"
+      resend_unlock_instructions: "Reenviar instruções de desbloqueio"
+      send_reset_password: "Envie-me instruções de redefinição de senha"
+      sign_in: "Inscreva-se no"
+      sign_in_more: "Logar&nbsp;&nbsp;&nbsp;&#9658;"
+      sign_up: Inscreva-se
+      sign_up_more: "Logar&nbsp;&nbsp;&nbsp;&#9658;"
+      sign_up_now: "Cadastre-se AGORA!"
+  errors:
+    messages:
+      already_confirmed: "já foi confirmado"
+      not_found: "não encontrado"
+      not_locked: "não estava travado"
+  home:
+    faq:
+      confirmation: "Você já está registrado, mas o sistema ainda não permite você logar? Por favor, procure em sua caixa de e-mail  confirmação. Se não houver um, por favor, use o link abaixo para receber outro."
+      email: "Se você já tentou de tudo acima e ainda tem um problema, por favor envie um email para"
+      faq: "Perguntas frequentes"
+      forgot_password: "Você já está registrado, mas o sistema ainda não permite você logar? Você verifique as instruções de confirmação acima? Talvez você tenha esquecido sua senha? Tente o link abaixo para redefini-la."
+      unlock: "Você foi bloqueado pelo sistema. Por favor, verifique sua caixa postal para o desbloqueio de e-mail. Se não houver um, por favor, use o link abaixo para recebê-lo novamente."
+    views:
+      active: Ativo
+      admin: Administrador
+      answered: respondido
+      blog: "http://laitman.com.br/"
+      blog_title: "Blog do Dr. Laitman"
+      check_for_new_questionnaire: "Verifique um novo questionário"
+      dashboard: "Minha Página"
+      date: Data
+      edit_profile: "Editar perfil"
+      feed: "http://laitman.com.br/feed/"
+      last_10_questionnaires: "Os últimos 10 questionários"
+      loading: "Carregando ..."
+      not_answered: "não respondido"
+      registered: Registrado
+      site_name: "Sviva Tova"
+      status: Status
+      title: Título
+      title_registered_vs_active: "Registrado vs Ativo"
+      view_reports: "Ver relatórios"
+  kabtv:
+    admin:
+      add_stream_item: "Adicionar ao item de fluxo"
+      default: Padrão
+      description: Descrição
+      inactive_image: "Imagem inativa"
+      is_active: "Está ativo"
+      language: Linguagem
+      preset_name: "Nome de preset"
+      problem_saving: "Houve um problema ao salvar a gravação"
+      select_preset_or_add: "Por favor selecione para editar ou adicione um novo preset"
+      show: Mostrar
+      show_questions: Questões
+      show_schedule: Agenda
+      show_separate_window: "Habilitar janela separada"
+      show_sketches: Esboços
+      show_support: Suporte
+      stream_URL: "Fluxo URL"
+      stream_images: "Fluxo de imagens"
+      stream_management: "Gerenciamento de fluxo"
+      stream_presets: "Preset de fluxo"
+      stream_selection: "Seleção de fluxo"
+      stream_state: "Estado do fluxo"
+      stream_states:
+        is_active: "No ar"
+        not_active: "Fora do ar"
+        preparing_to_broadcast: "Preparando para transmitir"
+        technical_problem: "Problema técnico"
+      stream_switcher: "Chaveador de fluxo"
+      submit: Enviar
+      submitting: Enviando...
+      successfully_saved: "Salvo com sucesso!"
+    kabtv:
+      ask_question: "Faça uma pergunta"
+      awaiting_for_approval: "Sua questão está aguardando aprovação"
+      cancel: Cancelar
+      first: Primeiro
+      from: De
+      full_screen: "Tela cheia"
+      guest: Convidado
+      last: Último
+      loading: Carregando...
+      new_sketches: "Não há novos esboços"
+      next: Próximo
+      no_broadcast: "Sem transmissão"
+      no_broadcast_on: "Nenhuma transmissão no ar"
+      no_question: "Por favor preencha a “questão” no campo"
+      no_questions_yet: "Sem questões ainda."
+      open_in_default_viewer: "Abrir no visualizador padrão"
+      prev: Anterior
+      question: Questão
+      questions: Questões
+      schedule: Agenda
+      sketches: Esboços
+      somewhere: "Em algum lugar"
+      technical_support: "Suporte técnico"
+      who: Quem
+  layout:
+    search: Procurar
+    search_screen_reader: "Procurar por"
+  notification:
+    mailer:
+      new_questionnaire_for_you: "Há um novo questionário para você..."
+    views:
+      click_above_link_to_answer: "Clique acima para responder"
+      hi: Olá
+      you_got_new_questionnaire: "Você tem um novo questionário"
+  pages:
+    comments_enabled: "Comentário habilitados"
+    update: "A página foi atualizada com sucesso"
+    views:
+      content_required: "conteúdo de texto requerido"
+      required: "campo requerido"
+  profile:
+    views:
+      change_password: "mudar a senha"
+      dear: "Olá,"
+      edit: editar
+      please_update_profile: "por favor atualize suas configurações"
+      profile: "configurações pessoais"
+      required: "campo requerido"
+      updated: "As configurações pessoais foram atualizadas com êxito"
+  questionnaire_answer:
+    controller:
+      already_answered: "Você já respondeu esse questionário."
+      no_questionnaire: "Esse questionário não existe"
+      no_success: "O questionário não foi respondido com sucesso."
+      was_success: "O questionário foi respondido com sucesso."
+    views:
+      all_fields_are_required: "Todos os campos são requeridos!"
+      please_select_one_of_the_options: "Por favor selecione uma das opções"
+  social_button:
+    cancel: Cancelar
+    change: Mudar
+    clicks_a_day: "cliques por dia"
+    generate_csv_report: "Gerar relatório"
+    i_commit_to: "Eu me comprometo a "
+    we_all_clicks_for_today: "%{clicks} We cliques de %{total} para hoje para todo o mundo"
+    we_clicks_for_today: "%{clicks} We cliques de %{total} para hoje"
+    we_clicks_for_today_assist: "%{clicks} We cliques para hoje, %{assist} cliques destes são em favor de todos. Arvut!"
+    we_group_clicks_for_today: "%{clicks} We cliques de %{total}para hoje por seu grupo"
+  stream:
+    add_to_favorites: "Adicionar aos favoritos"
+    all: "Todos os posts"
+    all_items: "Todos os items"
+    articles: Conteúdo
+    assignments: Agendamentos
+    back: "Â« Voltar"
+    bookmarks: "Meus favoritos"
+    events: Eventos
+    filter: "Filtrar por"
+    home: Principal
+    mark_as: "Marcar como"
+    messages: Menssagens
+    more_items: "Mais items Â»"
+    new_internet: "Nova internet"
+    new_items: "Novos posts"
+    posted_ago: "Postado %{when} dias atrás"
+    projects: Projetos
+    projects_discussion: Discussões
+    rav: "Do Rav"
+    read: Lido
+    read_all: "Leia mais Â»"
+    remove_from_favorites: "Remover dos favoritos"
+    tags_menu: tópicos
+    unread: "Não lidos"
+  time:
+    formats:
+      attendance_report: "%B %d, %Y"
+      graph: "%b %d"
+      short: "%m-%d-%Y"
+      timestamp: "%m-%d-%Y %H:%M"
+  user:
+    model:
+      avatar: Avatar
+      birthday: "Ano de Nascimento"
+      choose_image: "Escolha uma imagem"
+      city: Cidade
+      country: País
+      female: Feminino
+      first_name: "Primeiro Nome"
+      gender: Sexo
+      last_name: "Último nome"
+      male: Masculino
+      no_answer: " Não"
+      no_file_selected: "Nenhuma imagem selecionada"
+      preferred_language: "Idioma de preferencia"
+      receive_notifications: "Você gostaria de receber notificações por e-mail"
+      region: Região
+      remove_avatar: "Remover Avatar"
+      yes_answer: " Sim"
+  views:
+    back: Voltar
+    cancel: Cancelar
+    load: Carregar
+    please_wait: "Por favor aguarde..."
+    signout: Desconectar
+    submit: Enviar
+    update: Atualizar
+es:
+  date:
+    abbr_month_names: "[nil, \"Jan\", \"Fev\", \"Mar\", \"Abr\", \"Mai\", \"Jun\", \"Jul\", \"Ago\", \"Set\", \"Out\", \"Nov\", \"Dez\"]"
+    day_names: "[\"Domingo\", \"Monday \", \"Terça\", \"Quarta\", \"Quinta-feira\", \"Friday \", \"Sábado\"]"
+    month_names: ""
+    order: "[:day, :month, :year]"
