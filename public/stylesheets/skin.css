@@ -1,9 +1,10 @@
 body{
-	background: transparent url(../images/skin/bg.png) repeat-x 0 0;
+	background: #fff url(../images/skin/bg.png) repeat-x 0 0;
 }
 .skin_bg {
-	background: url(../images/skin/bg_image.png) no-repeat center top;
+	background: url(../images/skin/bg_image.png) no-repeat center 18px;
 }
 .wrapper{
-	margin:170px auto 20px;
+	margin:230px auto 20px;
 }
+
