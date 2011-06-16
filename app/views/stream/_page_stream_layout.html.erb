@@ -9,9 +9,9 @@
 		<%# end %>
 </div>
 <div class="content-stream">
-	<%- if current_user.is_rav_posting? || current_user.is_frontend_editor? || current_user.is_admin? -%>
-		<%= render_widget 'pages_admin' %>
-	<% end %>
+	<%#- if current_user.is_rav_posting? || current_user.is_frontend_editor? || current_user.is_admin? -%>
+		<%#= render_widget 'pages_admin' %>
+	<%# end %>
 
   <%= render('page_stream') %>
 </div>
