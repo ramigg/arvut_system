@@ -10,12 +10,12 @@ class ButtonClick < ActiveRecord::Base
   # Selects clicks of a user for today (today timezone is the server timzone!)
   scope :today_clicks, lambda{ |user_id|
     where(:user_id => user_id).
-    where("date(button_clicks.created_at) = ?", Date.today)
+    where("date(button_clicks.created_at) = ?", Date.parse(Time.now.utc.to_s))
   }
 
   # Selects clicks of all users for today (today timezone is the server timzone!)
   scope :today_total_clicks, lambda{
-    where("date(button_clicks.created_at) = ?", Date.today)
+    where("date(button_clicks.created_at) = ?", Date.parse(Time.now.utc.to_s))
   }
 
   scope :today_total_clics_by_gourp, lambda{|email|
