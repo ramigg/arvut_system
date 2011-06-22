@@ -265,7 +265,7 @@ class User < ActiveRecord::Base
   end
 
   def is_restricted?
-    is_admin? || is_super_moderator? || is_moderator? || is_reports? || is_groupmanager? || is_super? || is_stream_manager?
+    is_admin? || is_super_moderator? || is_moderator? || is_reports? || is_groupmanager? || is_super? || is_stream_manager? || is_translator?
   end
   
   def avatar_url(type = :thumb)
