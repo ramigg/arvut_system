@@ -1,12 +1,12 @@
----
-de:
-  activerecord:
-    attributes:
-      user:
+--- 
+de: 
+  activerecord: 
+    attributes: 
+      user: 
         email: Emailadresse
         password: Passwort
-    errors:
-      messages:
+    errors: 
+      messages: 
         accepted: "muss akzeptiert werden"
         blank: "darf nicht leer sein"
         confirmation: "Bestätigung stimmt nicht überein"
@@ -26,41 +26,35 @@ de:
         too_long: "ist zu lang (das Maximum sind ... Zeichen)"
         too_short: "ist zu kurz (muss mindestens ... Zeichen sein)"
         wrong_length: "Länge ungültig (sollte ... Zeichen sein)"
-      models:
-        user:
-          attributes:
-            email:
+      models: 
+        user: 
+          attributes: 
+            email: 
               blank: "Wert fehlt"
               invalid: ungültig
-            password:
+            password: 
               blank: "darf nicht leer sein"
               confirmation: "Bestätigung stimmt nicht überein"
               too_short: "ist zu kurz"
           blank: "Leeres Feld"
-      user:
-        header:
+      user: 
+        header: 
           one: "Die Ausführung schlug fehl wegen folgendem Fehler"
           other: "Die Ausführung schlug fehl wegen folgender Fehler"
-    models:
+    models: 
       user: Email
-  admin:
-    pages:
-      language: Sprache
-      any_language: jeder Sprache
-      leave_comment: Here you can leave a comment.
-      comments_enabled: Comments enabled
-      create: Erstellen
-      reset: Klare Form
+  admin: 
+    pages: 
       actions: Aktionen
       add_answer: "Antwort hinzufügen"
       add_new: Hinzufügen
       add_other: "Anderes hinzufügen"
       all_posts: "Alle Einträge"
+      any_language: "jeder Sprache"
       are_you_sure: "Bist Du sicher?"
       arr_down: "&#9662;"
       arr_up: "&#9652;"
       article: Material
-      project: Projekt
       as_draft: "Als Entwurf speichern"
       assignment: Aufgabe
       assignments: Aufgaben
@@ -69,7 +63,9 @@ de:
       bottom_side_banner: "Unterer Seitenbanner"
       bulk_action: Massenaktion
       checkbox: Kontrollkästchen
+      comments_enabled: "Comments enabled"
       content: Inhalt
+      create: Erstellen
       create_new: "Neu erstellen"
       delete: Löschen
       description: Beschreibung
@@ -94,6 +90,8 @@ de:
       items: Elemente
       label_from: "Markierung von"
       label_to: "Markierung bis"
+      language: Sprache
+      leave_comment: "Here you can leave a comment."
       list: Liste
       logout: ausloggen
       message: Nachricht
@@ -108,31 +106,33 @@ de:
       other: Anderes
       page_administration: Seitenverwaltung
       permissions: Rechte
+      preview: Vorschau
       preview_show: "Vorschau anzeigen"
+      project: Projekt
       publish: Veröffentlichen
       publish_at: "Veröffentlichen am"
       publish_date: "Erstellt am"
       published: Veröffentlicht
-      preview: Vorschau
       question: Frage
       radio: Radio
       remove: Entfernen
+      reset: "Klare Form"
       save_and_publish: "Speichern und veröffentlichen"
       scale: Skala
       scale_from: "Skala von"
       scale_to: maßstabgerecht
       search: Suche
-      select_language: Wählen Sie Sprache
       select: auswählen
+      select_language: "Wählen Sie Sprache"
       set_as_draft: "Als Entwurf erstellen"
-      show_on_page: Zeige %{count} Elemente
+      show_on_page: "Zeige %{count} Elemente"
       sorting_and_deleting: "Filtern und Löschen"
       statistics: Statistik
       status: Status
+      subtitle: Untertitel
       success: "Seite erfolgreich erstellt"
       tags: Tags
       title: Titel
-      subtitle: Untertitel
       title_and_description: "Titel und Beschreibung"
       top_header: "Top Header"
       top_side_banner: "Oberer Seitenbanner"
@@ -144,8 +144,8 @@ de:
       url: URL
       video: Video
       video_player: "Video Player"
-      youtube: "YouTube"
-    questionnaires:
+      youtube: YouTube
+    questionnaires: 
       add: hinzufügen
       add_answer: "Antwort hinzufügen"
       add_other: "Andere hinzufügen"
@@ -161,7 +161,6 @@ de:
       fields_marked_in_red_are_required: "Felder in rot sind Pflichtfelder"
       is_multiline: Mehrzeilig?
       label_from: "?"
-      label_to: ""
       other: anderes
       questionnaire_description: Fragebogenbeschreibung
       questionnaire_editor: "Fragebogen Editor"
@@ -175,7 +174,7 @@ de:
       status: Status
       title: Titel
       update_questionnaire: "Fragebogen aktualisieren"
-    reports:
+    reports: 
       all_groups: Alle
       attendance_report: "Teilnahme Bericht"
       basic_report: User-Aktivitätsbericht
@@ -191,12 +190,12 @@ de:
       group_management: Gruppen-Management
       group_name: Gruppenname
       include_email: "Schließe Email in Bericht ein"
-      order_by_total: Order by activity
       load_group_list: "Lade Gruppenliste"
       manage_questionnaires: "Manage Fragebögen"
       manage_user_lists: "Manage User-Liste"
       manage_user_roles: "Manage User-Rollen"
       minus: "nicht aktiv"
+      order_by_total: "Order by activity"
       plus: aktiv
       print: Drucken
       questionnaires_list: Fragebogen-Liste
@@ -215,40 +214,122 @@ de:
       users_who_not_signed_in: "User, die sich nicht angemeldet haben"
       users_who_signed_in: "Angemeldete User"
       x: "nicht registriert"
-    user_list:
+    user_list: 
       are_you_sure: "Bist Du sicher?"
+      create: "Benutzer in Liste erfolgreich erstellt"
       create_new_user: "Neuen User anlegen"
       create_user_list: "Erstelle User-Liste"
       delete: Löschen
+      destroy: "Erfolgreich gelöschte Benutzerliste"
+      destroy_failure: "Seite wurde NICHT gelöscht"
       edit: Bearbeiten
       email: Email
       first_name: Vorname
+      group: Gruppe
       has_user: "?"
       last_name: Familienname
       please_select_one_of_the_options: "Wähle eine der Optionen"
       select_group: "Wähle Gruppe"
-      group: "Gruppe"
-      update_user_list: "Aktualisiere User-Liste"
-      create: "Benutzer in Liste erfolgreich erstellt"
-      destroy: "Erfolgreich gelöschte Benutzerliste"
-      destroy_failure: "Seite wurde NICHT gelöscht"
       update: "Benutzerliste erfolgreich aktualisiert"
-  pages:
-    update: "Seite erfolgreich aktualisiert"
-    views:
-      required: Pflichtfeld
-      content_required: Füllen Text
-  answer:
-    model:
+      update_user_list: "Aktualisiere User-Liste"
+  answer: 
+    model: 
       answer_too_short: "Deine Antwort ist zu kurz. Mehr als 10 Zeichen sind notwendig."
       select_at_least_one: "Du musst mindestens eine Option wählen."
       select_one_option: "Du musst eine der Optionen wählen."
       write_an_answer: "Du musst eine Antwort schreiben."
-  devise:
-    confirmations:
+  date: 
+    abbr_month_names: 
+      - ~
+      - Jan
+      - Feb
+      - Mär
+      - Apr
+      - Mai
+      - Jun
+      - Jul
+      - Aug
+      - Sep
+      - Oct
+      - Nov
+      - Dez
+    day_names: 
+      - Sonntag
+      - Montag
+      - Dienstag
+      - Mittwoch
+      - Donnerstag
+      - Freitag
+      - Samstag
+    formats: 
+      graph: "%d %B"
+      short: "%d %B %Y"
+    month_names: 
+      - ~
+      - Januar
+      - Februar
+      - März
+      - April
+      - Mai
+      - Juni
+      - Juli
+      - August
+      - September
+      - October
+      - November
+      - Dezember
+    order: 
+      - !ruby/symbol day
+      - !ruby/symbol month
+      - !ruby/symbol year
+  datetime: 
+    distance_in_words: 
+      about_x_hours: 
+        one: "etwa einer Stunde"
+        other: "etwa %{count} Stunden"
+      about_x_months: 
+        one: "etwa einem Monat"
+        other: "etwa %{count} Monaten"
+      about_x_years: 
+        one: "etwa einem Jahr"
+        other: "etwa %{count} Jahren"
+      almost_x_years: 
+        one: "fast einem Jahr"
+        other: "fast %{count} Jahren"
+      half_a_minute: "einer halben Minute"
+      less_than_x_minutes: 
+        one: "weniger als einer Minute"
+        other: "weniger als %{count} Minuten"
+      less_than_x_seconds: 
+        one: "weniger als einer Sekunde"
+        other: "weniger als %{count} Sekunden"
+      over_x_years: 
+        one: "mehr als einem Jahr"
+        other: "mehr als %{count} Jahren"
+      x_days: 
+        one: "einem Tag"
+        other: "%{count} Tagen"
+      x_minutes: 
+        one: "einer Minute"
+        other: "%{count} Minuten"
+      x_months: 
+        one: "einem Monat"
+        other: "%{count} Monaten"
+      x_seconds: 
+        one: "einer Sekunde"
+        other: "%{count} Sekunden"
+    prompts: 
+      day: Tag
+      hour: Stunden
+      minute: Minuten
+      month: Monat
+      second: Sekunden
+      year: Jahr
+  devise: 
+    confirmations: 
       confirmed: "Dein Account wurde bestätigt. Du bist nun angemeldet."
       send_instructions: "Du erhältst umgehend ein Email, wie Du Deinen Account bestätigen kannst."
-    failure:
+    failure: 
       inactive: "Dein Account wurde noch nicht bestätigt."
       invalid: "Email oder Passwort ungültig."
       invalid_token: "Ungültige Authentifizierung"
@@ -256,14 +337,14 @@ de:
       timeout: "Deine Sitzung ist abgelaufen, bitte melde Dich neu an, um fortzufahren."
       unauthenticated: "Du musst dich erst anmelden, bevor es weitergeht."
       unconfirmed: "Du musst Deine Anmeldung bestätigen, um fortzufahren."
-    mailer:
-      confirmation_instructions:
+    mailer: 
+      confirmation_instructions: 
         user_subject: "Anleitung zum Bestätigen"
-      reset_password_instructions:
+      reset_password_instructions: 
         user_subject: "Passwort Anleitung zurücksetzen"
-      unlock_instructions:
+      unlock_instructions: 
         user_subject: "Anleitung zum Entsperren"
-    mails:
+    mails: 
       change_my_password: "Passwort ändern"
       confirm_my_account: "Meinen Account bestätigen"
       confirm_through_link: "Klicken Sie bitte auf den unten angegebenen Link, um den Account zu bestätigen. Sollte der Link nicht funktionieren, kopieren Sie ihn bitte und fügen Sie ihn in die Adressleiste Ihres Browsers ein."
@@ -275,20 +356,20 @@ de:
       unlock_line2: "Klick den Link unten, um Deinen Account zu entsperren."
       unlock_my_account: "Meinen Account entsperren."
       welcome: Willkommen
-    passwords:
+    passwords: 
       send_instructions: "Du erhältst umgehend ein Email, wie Du Dein Passwort zurücksetzen kannst."
       updated: "Dein Passwort wurde nicht erfolgreich geändert."
-    registrations:
+    registrations: 
       destroyed: "Bye! Dein Account wurde erfolgreich gelöscht. Wir hoffen, Dich bald wieder zu sehen!"
       signed_up: "Du bist jetzt registriert. Ein Aktivierungscode wurde an Deine Email-Adresse verschickt."
       updated: "Du hast Deinen Account erfolgreich aktualisiert."
-    sessions:
+    sessions: 
       signed_in: "Du hast dich erfolgreich angemeldet."
       signed_out: "Du hast dich erfolgreich abgemeldet."
-    unlocks:
+    unlocks: 
       send_instructions: "Du erhältst umgehend ein Email, wie Du Deinen Account entsperren kannst."
       unlocked: "Dein Account wurde erfolgreich entsperrt. Du bist nun eingeloggt."
-    views:
+    views: 
       cannot_sign_in: "Anmeldung nicht möglich? Klick hier für Hilfe!"
       change_my_password: "Mein Passwort ändern"
       confirm_new_password: "Passwort wiederholen"
@@ -307,113 +388,124 @@ de:
       sign_in: Einloggen
       sign_in_more: Einloggen
       sign_up: Anmelden
-      sign_up_more: "Bestätigen"
+      sign_up_more: Bestätigen
       sign_up_now: "Melde Dich JETZT an!"
-  errors:
-    messages:
+  errors: 
+    messages: 
       already_confirmed: "ist bereits bestätigt"
       not_found: "nicht gefunden"
       not_locked: "war nicht geschlossen"
-  home:
-    faq:
+  home: 
+    faq: 
       confirmation: "Du hast Dich bereits registriert, doch Du kommst nicht ins System? Bitte checke Deine Mailbox nach dem Bestätigungs-Email. Wenn dort keines ist, klicke den folgenden Link, um ein neues zu erhalten."
       email: "Wenn Du alles versucht hast und noch immer ein Problem besteht, sende bitte ein Email an: "
       faq: "Häufig gestellte Fragen"
       forgot_password: "Du hast Dich bereits registriert, doch Du kommst nicht ins System? Hast Du die Anleitung zum Bestätigen gelesen? Vielleicht hast Du Dein Passwort vergessen? Versuche den folgenden Link, um es zurückzusetzen."
       unlock: "Du wurdest vom System gesperrt. Bitte checke Deine Mailbox nach dem Entsperrung-Email. Wenn dort keines ist, klicke den folgenden Link, um ein neues zu erhalten."
-    views:
-      site_name: Sviva Tova
+    views: 
+      active: Aktive
       admin: Admin
       answered: beantwortet
+      blog: "http://www.laitman.de/"
+      blog_title: "Blog von Dr. Laitman"
       check_for_new_questionnaire: "Checke neue Fragebögen"
       dashboard: "Meine Seite"
       date: Datum
       edit_profile: "Profil bearbeiten"
+      feed: "http://www.laitman.de/feed/"
       last_10_questionnaires: "Die letzten 10 Fragebögen"
+      loading: "Wird geladen..."
       not_answered: "nicht beantwortet"
+      registered: Registrierte
+      site_name: "Sviva Tova"
       status: Status
       title: Titel
+      title_registered_vs_active: "Registrierte vs. Aktive"
       view_reports: "Berichte einsehen"
-      blog_title: Blog von Dr. Laitman
-      active: Aktive
-      registered: Registrierte
-      title_registered_vs_active: Registrierte vs. Aktive
-      blog: http://www.laitman.de/
-      feed: http://www.laitman.de/feed/
-      loading: Wird geladen...
-  layout:
+  layout: 
     search: Suche
     search_screen_reader: "Suche nach"
-  notification:
-    mailer:
+  notification: 
+    mailer: 
       new_questionnaire_for_you: "Es gibt einen neuen Fragebogen für Dich.."
-    views:
+    views: 
       click_above_link_to_answer: "Klick den Link darüber für die Antwort"
       hi: Hi
       you_got_new_questionnaire: "Du hast einen neuen Fragebogen bekommen"
-  profile:
-    views:
+  pages: 
+    update: "Seite erfolgreich aktualisiert"
+    views: 
+      content_required: "Füllen Text"
+      required: Pflichtfeld
+  profile: 
+    views: 
       change_password: "Passwort ändern"
-      dear: Hallo,
+      dear: "Hallo,"
       edit: bearbeiten
       please_update_profile: "Bitte aktualisiere Dein Profil"
       profile: Profil
       required: Pflichtfeld
       updated: "Profil erfolgreich aktualisiert"
-  stream:
-    new_internet: Neue Internet
-    projects_discussion: Diskussion
-    rav: "Durch Rav"
-    projects: Projekte
-    all: Alle
-    all_items: "Alle Einträge"
-    articles: Materialien
-    assignments: Aufgabe
-    events: Events
-    home: Home
-    messages: Nachrichten
-    more_items: "Mehr Einträge »"
-    new_items: "Neue Einträge"
-    posted_ago: "vor %{when} gepostet"
-    read_all: "Alles Lesen »"
-    tags_menu: Themen
-    back: « Zurück
-    filter: Filtern nach
-    mark_as: Markieren
-    read: als gelesen
-    unread: als ungelesen
-    bookmarks: Favoriten
-    add_to_favorites: zu Favoriten hinzufügen
-    remove_from_favorites: Aus Favoriten entfernen
-  questionnaire_answer:
-    controller:
+  questionnaire_answer: 
+    controller: 
       already_answered: "Du hast diesen Fragebogen bereits beantwortet"
       no_questionnaire: "Diesen Fragebogen gibt es nicht"
       no_success: "Fragebogen wurde nicht erfolgreich beantwortet"
       was_success: "Du hast den Fragebogen erfolgreich beantwortet"
-    views:
+    views: 
       all_fields_are_required: "Alle Felder sind Pflichtfelder"
       please_select_one_of_the_options: "Bitte wähle eine der folgenden Optionen"
-  user:
-    model:
+  stream: 
+    add_to_favorites: "zu Favoriten hinzufügen"
+    all: Alle
+    all_items: "Alle Einträge"
+    articles: Materialien
+    assignments: Aufgabe
+    back: "« Zurück"
+    bookmarks: Favoriten
+    events: Events
+    filter: "Filtern nach"
+    home: Home
+    mark_as: Markieren
+    messages: Nachrichten
+    more_items: "Mehr Einträge »"
+    new_internet: "Neue Internet"
+    new_items: "Neue Einträge"
+    posted_ago: "vor %{when} gepostet"
+    projects: Projekte
+    projects_discussion: Diskussion
+    rav: "Durch Rav"
+    read: "als gelesen"
+    read_all: "Alles Lesen »"
+    remove_from_favorites: "Aus Favoriten entfernen"
+    tags_menu: Themen
+    unread: "als ungelesen"
+  time: 
+    formats: 
+      attendance_report: "%d ל%B %Y"
+      graph: "%d %B"
+      short: "%d-%m-%Y"
+      timestamp: "%m-%d-%Y %H:%M"
+  user: 
+    model: 
+      avatar: Avatar
       birthday: Geburtsjahr
+      choose_image: "Wählen Sie Bild"
+      city: Stadt
+      country: Land
       female: Weiblich
       first_name: Vorname
       gender: Geschlecht
       last_name: Familienname
       male: Männlich
       no_answer: Nein
+      no_file_selected: "Kein Bild"
       preferred_language: Sprache
       receive_notifications: "Möchtest Du Benachrichtigungen über Email erhalten?"
-      yes_answer: Ja
-      avatar: Avatar
-      city: Stadt
       region: Bereich
-      country: Land
       remove_avatar: "Avatar entfernen"
-      no_file_selected: Kein Bild
-      choose_image: Wählen Sie Bild
-  views:
+      yes_answer: Ja
+  views: 
     back: Zurück
     cancel: Stornieren
     load: Laden
@@ -421,65 +513,3 @@ de:
     signout: Abmelden
     submit: bestätigen
     update: aktualisieren
-
-  date:
-    formats:
-      short: %d %B %Y
-      graph: %d %B
-    day_names: [Sonntag, Montag, Dienstag, Mittwoch, Donnerstag, Freitag, Samstag]
-    month_names: [~, Januar, Februar, März, April, Mai, Juni, Juli, August, September, October, November, Dezember]
-    abbr_month_names: [~, Jan, Feb, Mär, Apr, Mai, Jun, Jul, Aug, Sep, Oct, Nov, Dez]
-    order: [ :day, :month, :year ]
-
-  time:
-    formats:
-      graph: %d %B
-      short: %d-%m-%Y
-      attendance_report: %d ל%B %Y
-      timestamp: %m-%d-%Y %H:%M
-
-  # Used in distance_of_time_in_words(), distance_of_time_in_words_to_now(), time_ago_in_words()
-  datetime:
-    distance_in_words:
-      half_a_minute: 'einer halben Minute'
-      less_than_x_seconds:
-        one: 'weniger als einer Sekunde'
-        other: 'weniger als %{count} Sekunden'
-      x_seconds:
-        one: 'einer Sekunde'
-        other: '%{count} Sekunden'
-      less_than_x_minutes:
-        one: 'weniger als einer Minute'
-        other: 'weniger als %{count} Minuten'
-      x_minutes:
-        one: 'einer Minute'
-        other: '%{count} Minuten'
-      about_x_hours:
-        one: 'etwa einer Stunde'
-        other: 'etwa %{count} Stunden'
-      x_days:
-        one: 'einem Tag'
-        other: '%{count} Tagen'
-      about_x_months:
-        one: 'etwa einem Monat'
-        other: 'etwa %{count} Monaten'
-      x_months:
-        one: 'einem Monat'
-        other: '%{count} Monaten'
-      almost_x_years:
-        one: 'fast einem Jahr'
-        other: 'fast %{count} Jahren'
-      about_x_years:
-        one: 'etwa einem Jahr'
-        other: 'etwa %{count} Jahren'
-      over_x_years:
-        one: 'mehr als einem Jahr'
-        other: 'mehr als %{count} Jahren'
-    prompts:
-      second: "Sekunden"
-      minute: "Minuten"
-      hour: "Stunden"
-      day: "Tag"
-      month: "Monat"
-      year: "Jahr"
-

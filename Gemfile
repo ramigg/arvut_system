@@ -75,7 +75,7 @@ gem 'delayed_job', '2.1.0.pre2'
 
 gem 'google_visualization'
 gem 'feedtools'
-gem 'will_paginate', '~> 3.0.pre2'
+gem 'will_paginate', '~> 3.0.pre'
 gem 'acts-as-taggable-on', :git => 'http://github.com/Bnei-Baruch/acts-as-taggable-on.git', :branch => 'master'
 
 # Cells/Apotomo
@@ -87,3 +87,4 @@ gem 'apotomo', :git => "git@github.com:Bnei-Baruch/apotomo.git", :branch => 'mas
 # Cache store:
 # gem 'dalli'
 gem 'memcache-client'
+gem 'tolk'

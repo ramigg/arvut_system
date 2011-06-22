@@ -9,6 +9,7 @@ puts '--> Roles'
 ['Groupmanager', 'super_moderator', 'Moderator',
   'Stream_Manager','stream_operator', 'rav_posting', 'frontend_editor',
   'Reports', 'Anonymous', 'Regular', 'Admin', 'Super',
+    'Translator'
 ].each do |role|
   Role.find_or_create_by_role role
 end
