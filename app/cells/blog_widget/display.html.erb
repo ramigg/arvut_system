@@ -1,18 +1,41 @@
-<div class="widget-blog">
-  <h4><%= t('stream.projects_discussion') %></h4>
-  <hr/>
-  <ul>
-    <li><%= link_to t('stream.new_internet'), 'http://internet.kabbalahgroup.info/', :target => '_blank' %></li>
-    <%- if params[:locale] == 'he' -%>
-        <li><%= link_to 'חדרי עבודה וירטואליים', 'http://video-chat.heroku.com/client/broadcaster', :target => '_blank' %></li>
-    <%- end -%>
-  </ul>
-</div>
+<!--div class="widget-blog">
+  <script src="http://widgets.twimg.com/j/2/widget.js"></script>
+    <script>
+    new TWTR.Widget({
+      version: 2,
+      type: 'profile',
+      rpp: 6,
+      interval: 6000,
+      width: 201,
+      height: 300,
+      theme: {
+        shell: {
+          background: '#aaaaaa',
+          color: '#1f0c1f'
+        },
+        tweets: {
+          background: '#ffffff',
+          color: '#666666',
+          links: '#003e74'
+        }
+      },
+      features: {
+        scrollbar: true,
+        loop: false,
+        live: true,
+        hashtags: true,
+        timestamp: true,
+        avatars: false,
+        behavior: 'all'
+      }
+    }).render().setUser('kabcast').start();
+    </script>
+</div-->
 <div class="widget-blog">
   <ul>
     <%- if params[:locale] == 'he' -%>
         <li><%= link_to 'לוח אירועים מרכזיים שנתי', 'https://spreadsheets.google.com/ccc?hl=ru&key=tnfWTye98fPiWt1JDXl50NQ&authkey=CIy-qroK&hl=ru#gid=0', :target => '_blank' %></li>
-        <li><%= link_to 'לוח דרושים - השתתפות בהפצה', 'http://www.kab.co.il/kabbalah/%D7%94%D7%A9%D7%AA%D7%AA%D7%A4%D7%95%D7%AA-%D7%91%D7%94%D7%A4%D7%A6%D7%AA-%D7%97%D7%9B%D7%9E%D7%AA-%D7%94%D7%A7%D7%91%D7%9C%D7%94?utm_source=kab-co-il&utm_medium=banner&utm_content=240x61&utm_campaign=hafaza', :target => '_blank' %></li>
+        <li><%= link_to 'לוח דרושים - השתתפות בהפצה', 'http://www.kab.co.il/kabbalah/%D7%94%D7%A9%D7%AA%D7%AA%D7%A4%D7%95%D7%AA-%D7%91%D7%94%D7%A4%D7%A6%D7%AA-%D7%97%D7%9B%D7%9E%D7%AA-%D7%94%D7%A7%D7%91%D7%9C%D7%94?utm_source=sviva-tova&utm_medium=link&utm_campaign=hafaza', :target => '_blank' %></li>
     <%- elsif params[:locale] == 'ru' -%>
         <li><%= link_to 'Конгресс в Москве', "http://www.kabbalah.info/rus/congress/#news", :target => '_blank' %></li>
         <li><%= link_to 'Календарь мероприятий', "https://spreadsheets.google.com/ccc?hl=ru&key=tnfWTye98fPiWt1JDXl50NQ&authkey=CIy-qroK&hl=ru#gid=2", :target => '_blank' %></li>
