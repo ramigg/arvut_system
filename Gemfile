@@ -16,7 +16,7 @@ gem "meta_where"
 #gem 'daemons', '~>1.1'
 gem 'mongrel'
 
-gem 'thin', '1.2.7'
+gem 'thin'
 #gem 'sqlite3-ruby', :require => 'sqlite3'
 gem 'pg'
 gem 'postgres-pr', :require => 'pg'
@@ -46,6 +46,7 @@ gem 'devise', :git => 'http://github.com/plataformatec/devise.git', :branch => '
 
 group :production do
   gem 'exceptional'
+  gem 'newrelic_rpm'
 end
 
 group :development do
@@ -75,8 +76,12 @@ gem 'delayed_job', '2.1.0.pre2'
 
 gem 'google_visualization'
 gem 'feedtools'
-gem 'will_paginate', '~> 3.0.pre2'
+gem 'will_paginate', '~> 3.0.pre'
 gem 'acts-as-taggable-on', :git => 'http://github.com/Bnei-Baruch/acts-as-taggable-on.git', :branch => 'master'
+gem 'excel_exporter', :git => 'http://github.com/gshilin/excel_exporter.git'
+gem 'rubyzip'
+gem 'onfire', '0.1.0'
+
 
 # Cells/Apotomo
 # gem 'apotomo', '~>1.0.0', :require => 'apotomo'
@@ -87,3 +92,4 @@ gem 'apotomo', :git => "git@github.com:Bnei-Baruch/apotomo.git", :branch => 'mas
 # Cache store:
 # gem 'dalli'
 gem 'memcache-client'
+gem 'tolk'

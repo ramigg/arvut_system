@@ -403,6 +403,7 @@ en:
       include_email: Include Email in report
       order_by_total: Order by 'Total' instead of 'Last Name'
       pages_list: Edit Pages
+      translations: Translations
       plus: active
       minus: not active
       x: not registered

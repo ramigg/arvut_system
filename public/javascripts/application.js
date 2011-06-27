@@ -207,7 +207,7 @@ $(function () {
             $.getScript(document.location.href);
         }
     });
-    if ($.param.fragment()) {
+    if ($.param.fragment && $.param.fragment()) {
         $(window).trigger('hashchange');
     }
 

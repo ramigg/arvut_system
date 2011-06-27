@@ -1,12 +1,12 @@
----
-it:
-  activerecord:
-    attributes:
-      user:
+--- 
+it: 
+  activerecord: 
+    attributes: 
+      user: 
         email: "indirizzo E-mail"
         password: password
-    errors:
-      messages:
+    errors: 
+      messages: 
         accepted: "deve essere accettato"
         blank: "non puà essere vuoto"
         confirmation: "non confermare "
@@ -26,37 +26,31 @@ it:
         too_long: "troppo lungo (massimo N°        di caratteri"
         too_short: "troppo corto (minimo N°         caratteri"
         wrong_length: "lunghezza sbagliata (deve essere N°    caratteri"
-      models:
-        user:
-          attributes:
-            email:
+      models: 
+        user: 
+          attributes: 
+            email: 
               blank: "valore mancante"
               invalid: "non valido"
-            password:
+            password: 
               blank: "non può essere vuoto"
               confirmation: "non confermare"
               too_short: "troppo corto (minimo N°         caratteri"
           blank: "campo vuoto"
-      user:
-        header:
+      user: 
+        header: 
           one: "operazione fallita a causa del seguente errore"
           other: "operazione fallita a causa dei seguenti N°    errori"
-    models:
+    models: 
       user: email
-  admin:
-    pages:
-      language: Лingua
-      any_language: qualsiasi lingua
-      leave_comment: Here you can leave a comment.
-      comments_enabled: Comments enabled
-      project: Progetto
-      create: Crea
-      reset: Chiara forma
+  admin: 
+    pages: 
       actions: Azioni
       add_answer: "Aggiungi una Domanda"
       add_new: "Aggiungi nuovo"
       add_other: "Aggiungi Altro"
       all_posts: "Tutte le Pubblicazioni"
+      any_language: "qualsiasi lingua"
       are_you_sure: "Sei sicuro?"
       arr_down: "&#9662;"
       arr_up: "&#9652;"
@@ -69,7 +63,9 @@ it:
       bottom_side_banner: "Bunner lato inferiore"
       bulk_action: "Azione in blocco"
       checkbox: "Riquadro di controllo"
+      comments_enabled: "Comments enabled"
       content: Contenuto
+      create: Crea
       create_new: "Crea Nuovo"
       delete: Cancella
       description: Descrizione
@@ -94,6 +90,8 @@ it:
       items: Articoli
       label_from: "Etichetta da"
       label_to: "Etichetta per"
+      language: Лingua
+      leave_comment: "Here you can leave a comment."
       list: Lista
       logout: Esci
       message: Messaggio
@@ -108,8 +106,9 @@ it:
       other: Altro
       page_administration: "Pagina dell'Amministratore"
       permissions: Permessi
+      preview: Anteprima
       preview_show: "Mostra in anteprima"
-      preview: "Anteprima"
+      project: Progetto
       publish: Pubblica
       publish_at: "Pubblica al"
       publish_date: "Data di pubblicazione"
@@ -117,22 +116,23 @@ it:
       question: Domanda
       radio: Radio
       remove: Rimuovi
+      reset: "Chiara forma"
       save_and_publish: "Salva e Pubblica"
       scale: Scala
       scale_from: "Scala da"
       scale_to: "Scala a:"
       search: Cerca
       select: Seleziona
-      select_language: Select Language
+      select_language: "Select Language"
       set_as_draft: "Imposta come progetto"
-      show_on_page: Mostra %{count} Articoli
+      show_on_page: "Mostra %{count} Articoli"
       sorting_and_deleting: "Ordina e Cancella"
       statistics: Statistiche
       status: Stato
+      subtitle: Sottotitolo
       success: "La pagina è stata creata con successo"
       tags: Etichette
       title: "Titolo e Descrizione"
-      subtitle: "Sottotitolo"
       title_and_description: "Titolo e Descrizione"
       top_header: Testata
       top_side_banner: "Banner lato superiore"
@@ -145,7 +145,7 @@ it:
       video: Video
       video_player: "Video Player"
       youtube: "You Tube"
-    questionnaires:
+    questionnaires: 
       add: Aggiungi
       add_answer: "aggiungi risposta"
       add_other: "aggiungi altro"
@@ -175,7 +175,7 @@ it:
       status: stato
       title: titolo
       update_questionnaire: "aggiorna questionario"
-    reports:
+    reports: 
       all_groups: ciascuno
       attendance_report: "Riporta frequenza"
       basic_report: "report attività user"
@@ -213,40 +213,117 @@ it:
       users_who_not_signed_in: "users che non hanno firmato"
       users_who_signed_in: "Users iscritti"
       x: "non registrato"
-    user_list:
+    user_list: 
       are_you_sure: "sei sicuro?"
+      create: "Lista dell'utente creata con successo"
       create_new_user: "crea nuova user "
       create_user_list: "crea una user list"
       delete: "cancella "
+      destroy: "Lista dell'utente cancellata con successo"
+      destroy_failure: "La pagina non è stata cancellata"
       edit: edito
       email: Email
       first_name: cognome
+      group: Gruppo
       has_user: "hai una user ?"
       last_name: nome
       please_select_one_of_the_options: "per favore seleziona una delle opzioni"
       select_group: "seleziona gruppo"
-      group: "Gruppo"
-      update_user_list: "aggiorna la user list"
-      create: "Lista dell'utente creata con successo"
-      destroy: "Lista dell'utente cancellata con successo"
-      destroy_failure: "La pagina non è stata cancellata"
       update: "Lista dell'utente aggiornata con successo"
-  pages:
-    update: "La pagina è stata aggiornata con successo"
-    views:
-      required: "campo richiesto"
-      content_required: inserisci il testo qui
-  answer:
-    model:
-      answer_too_short: ""
+      update_user_list: "aggiorna la user list"
+  answer: 
+    model: 
       select_at_least_one: "Devi selezionare almeno una opzione"
       select_one_option: "devi selezionare una delle opzioni"
       write_an_answer: "Devi scrivere una risposta"
-  devise:
-    confirmations:
+  date: 
+    abbr_month_names: 
+      - ~
+      - Gen
+      - Feb
+      - Mar
+      - Apr
+      - Mag
+      - Gui
+      - Lug
+      - Ago
+      - Set
+      - Ott
+      - Nov
+      - Dic
+    day_names: 
+      - Domenica
+      - Lunedi
+      - Martedì
+      - Mercoledì
+      - Giovedi
+      - Venerdì
+      - Sabato
+    formats: 
+      graph: "%d %B"
+      short: "%d %B %Y"
+    month_names: 
+      - ~
+      - Gennaio
+      - Febbraio
+      - Marzo
+      - Aprile
+      - Maggio
+      - Giugno
+      - Luglio
+      - Agosto
+      - Settembre
+      - Ottobre
+      - Novembre
+      - Dicembre
+    order: 
+      - !ruby/symbol day
+      - !ruby/symbol month
+      - !ruby/symbol year
+  datetime: 
+    distance_in_words: 
+      about_x_hours: 
+        one: "circa un'ora"
+        other: "circa %{count} ore"
+      about_x_months: 
+        one: "circa un mese"
+        other: "circa %{count} mesi"
+      about_x_years: 
+        one: "circa un anno"
+        other: "circa %{count} anni"
+      half_a_minute: "mezzo minuto"
+      less_than_x_minutes: 
+        one: "meno di un minuto"
+        other: "meno di %{count} minuti"
+      less_than_x_seconds: 
+        one: "meno di un secondo"
+        other: "meno di %{count} secondi"
+      over_x_years: 
+        one: "oltre un anno"
+        other: "oltre %{count} anni"
+      x_days: 
+        one: "1 giorno"
+        other: "%{count} giorni"
+      x_minutes: 
+        one: "1 minuto"
+        other: "%{count} minuti"
+      x_months: 
+        one: "1 mese"
+        other: "%{count} mesi"
+      x_seconds: 
+        one: "1 secondo"
+        other: "%{count} secondi"
+    prompts: 
+      day: Giorno
+      hour: Ora
+      minute: Minuto
+      month: Mese
+      second: Secondi
+      year: Anno
+  devise: 
+    confirmations: 
       confirmed: "Il tuo account è stato confermato con successo. Ora sei iscritto"
-      send_instructions: ""
-    failure:
+    failure: 
       inactive: "il tuo account non è stato  ancora attivato"
       invalid: "email o password non valida"
       invalid_token: "prova di autenticazione non valida"
@@ -254,39 +331,36 @@ it:
       timeout: "la tua sessione è finita , prego firmare di nuovo per  continuare"
       unauthenticated: "bisogna firmare "
       unconfirmed: "devi confermare il tuo account prima di continuare"
-    mailer:
-      confirmation_instructions:
+    mailer: 
+      confirmation_instructions: 
         user_subject: "istruzioni di conferma"
-      reset_password_instructions:
+      reset_password_instructions: 
         user_subject: "resetta  istruzioni password"
-      unlock_instructions:
+      unlock_instructions: 
         user_subject: "istruzioni aperte"
-    mails:
+    mails: 
       change_my_password: "Cambia la mia password"
       confirm_my_account: "Conferma il mio account"
       confirm_through_link: "Clicca sul link qui sotto e conferma il tuo account. Se clicchi e il link non si apre, copialo e incollalo direttamente nella finestra del browser."
       hello: Salve
-      reset_password_line1: ""
       reset_password_line2: "Se non hai richiesto questo, prego ignora questa email"
-      reset_password_line3: ""
-      unlock_line1: ""
       unlock_line2: "Clicca il link in basso per aprire il tuo account"
       unlock_my_account: "libera il mio account"
       welcome: benvenuto
-    passwords:
+    passwords: 
       send_instructions: "You will receive an email with instructions about how to reset your password in a few minutes."
       updated: "la tua password è stata cambiata con successo. Ora sei iscritto"
-    registrations:
+    registrations: 
       destroyed: "Bye! Your account was successfully cancelled. We hope to see you again soon."
       signed_up: "L'operazione è stata conclusa con successo. Si prega di controllare la tua e-mail . Un messaggio di conferma da attivare è stato spedito."
       updated: "You updated your account successfully."
-    sessions:
+    sessions: 
       signed_in: "Iscritto con successo"
       signed_out: "terminato con successo"
-    unlocks:
+    unlocks: 
       send_instructions: "You will receive an email with instructions about how to unlock your account in a few minutes."
       unlocked: "Il tuo account è stato aperto con successo. Ora sei iscritto"
-    views:
+    views: 
       cannot_sign_in: "Non puoi iscriverti? Clicca qui per aiuto"
       change_my_password: "Cambia la mia password"
       confirm_new_password: "conferma la password"
@@ -307,179 +381,125 @@ it:
       sign_up: iscriviti
       sign_up_more: scrivi…..
       sign_up_now: "Iscriviti ora"
-  errors:
-    messages:
+  errors: 
+    messages: 
       already_confirmed: "già confermato"
       not_found: "non trovato"
       not_locked: "non era bloccato"
-  home:
-    faq:
+  home: 
+    faq: 
+      confirmation: "Ti sei già registrato, ma il sistema non ti permette di entrare? Controlla se nella tua casella di  posta elettronica c’è un messaggio di conferma. Se non lo hai ricevuto, usa il seguente link e provvederemo a spedirne un altro."
+      email: "Se hai provato tutte le istruzioni qui sopra riportate, ma ancora non riesci ad accedere, spedisci una email al seguente indirizzo di posta elettronica"
       faq: "Domande frequenti"
-      confirmation:
-        Ti sei già registrato, ma il sistema non ti permette di entrare? Controlla se nella tua casella di  posta elettronica c’è un messaggio di conferma. Se non lo hai ricevuto, usa il seguente link e provvederemo a spedirne un altro.
-      forgot_password:
-        Ti sei già registrato, ma il sistema non ti permette di entrare? Hai controllato le istruzioni per la conferma qui sopra riportate? Hai forse dimenticato la password? Usa il seguente link e riprova.
-      unlock:
-        Sei stato bloccato dal sistema. Controlla la tua casella di posta elettronica  per sbloccare l’accesso. Se non hai ricevuto il messaggio, usa il seguente link e provvederemo a spedirne un altro.
-      email:
-        Se hai provato tutte le istruzioni qui sopra riportate, ma ancora non riesci ad accedere, spedisci una email al seguente indirizzo di posta elettronica
-    views:
-      site_name: Sviva Tova
+      forgot_password: "Ti sei già registrato, ma il sistema non ti permette di entrare? Hai controllato le istruzioni per la conferma qui sopra riportate? Hai forse dimenticato la password? Usa il seguente link e riprova."
+      unlock: "Sei stato bloccato dal sistema. Controlla la tua casella di posta elettronica  per sbloccare l’accesso. Se non hai ricevuto il messaggio, usa il seguente link e provvederemo a spedirne un altro."
+    views: 
+      active: Attivo
       admin: Admin
       answered: risposto
+      blog: "http://laitman.it/"
+      blog_title: "Il Blog del Dr. Laitman"
       check_for_new_questionnaire: "Controlla per il nuovo questionario"
       dashboard: "la mia pagina"
       date: Data
       edit_profile: "profilo dell 'editore"
+      feed: "http://laitman.it/feed"
       last_10_questionnaires: "Gli ultimi dieci questionari"
+      loading: "Caricamento in corso..."
       not_answered: "non risposto"
+      registered: Registrato
+      site_name: "Sviva Tova"
       status: Status
       title: Titolo
+      title_registered_vs_active: "Registrato vs. Attivo"
       view_reports: "vedi i reports"
-      blog_title: Il Blog del Dr. Laitman
-      active: Attivo
-      registered: Registrato
-      title_registered_vs_active: Registrato vs. Attivo
-      blog: http://laitman.it/
-      feed: http://laitman.it/feed
-      loading: Caricamento in corso...
-  layout:
+  layout: 
     search: ricerca
     search_screen_reader: "ricerca per"
-  notification:
-    mailer:
+  notification: 
+    mailer: 
       new_questionnaire_for_you: "c'è un nuovo questionario per te"
-    views:
+    views: 
       click_above_link_to_answer: "Clicca sul link per rispondere "
       hi: salve
       you_got_new_questionnaire: "hai preso un nuovo questionario"
-  profile:
-    views:
+  pages: 
+    update: "La pagina è stata aggiornata con successo"
+    views: 
+      content_required: "inserisci il testo qui"
+      required: "campo richiesto"
+  profile: 
+    views: 
       change_password: "cambia password"
-      dear: Hello,
+      dear: "Hello,"
       edit: compila
       please_update_profile: "prego aggiorna il tuo profilo"
       profile: profilo
       required: "campo richiesto"
       updated: "Il Profilo è stato aggiornato con successo"
-  questionnaire_answer:
-    controller:
+  questionnaire_answer: 
+    controller: 
       already_answered: "hai già risposto a questo questionario"
       no_questionnaire: "non c'è un tale questionario"
       no_success: "non hai risposto con successo al questionario"
       was_success: "hai risposto con successo al questionario"
-    views:
+    views: 
       all_fields_are_required: "tutti i campi sono richiesti"
       please_select_one_of_the_options: "prego seleziona una delle opzioni"
-  stream:
-    new_internet: New internet
-    projects_discussion: Discussione
-    rav: "Con Rav"
-    projects: Progetti
+  stream: 
+    add_to_favorites: "Aggiungi ai preferiti"
     all: Tutto
     all_items: "Tutti gli Articoli"
     articles: Contenuti
     assignments: Compiti
+    back: "« Indietro"
+    bookmarks: preferiti
     events: Eventi
+    filter: "Filtra per"
     home: Casa
+    mark_as: "Segna come"
     messages: Messaggi
     more_items: "Altri Articoli »"
+    new_internet: "New internet"
     new_items: "Nuovi Articoli"
     posted_ago: "Pubblicato %{when} fa"
-    read_all: "Leggi Tutto"
-    tags_menu: Argomenti
-    back: « Indietro
-    filter: Filtra per
-    mark_as: Segna come
+    projects: Progetti
+    projects_discussion: Discussione
+    rav: "Con Rav"
     read: letto
-    unread: Da leggere
-    bookmarks: preferiti
-    add_to_favorites: Aggiungi ai preferiti
-    remove_from_favorites: Rimuovi da Preferiti
-  user:
-    model:
+    read_all: "Leggi Tutto"
+    remove_from_favorites: "Rimuovi da Preferiti"
+    tags_menu: Argomenti
+    unread: "Da leggere"
+  time: 
+    formats: 
+      attendance_report: "%d ל%B %Y"
+      graph: "%d %B"
+      short: "%d-%m-%Y"
+      timestamp: "%m-%d-%Y %H:%M"
+  user: 
+    model: 
+      avatar: Avatar
       birthday: "Anno di nascita"
+      choose_image: "Scegli Immagine"
+      city: Città
+      country: Nazione
       female: femminile
       first_name: Cognome
       gender: genere
       last_name: Nome
       male: maschile
       no_answer: "No"
+      no_file_selected: "Nessuna immagine"
       preferred_language: "messaggio di linguaggio"
       receive_notifications: "Vuoi ricevere le notifiche alla tua email?"
-      yes_answer: Si
-      avatar: Avatar
-      city: Città
       region: Regione
-      country: Nazione
       remove_avatar: "Rimuovi Avatar"
-      no_file_selected: Nessuna immagine
-      choose_image: Scegli Immagine
-
-  views:
+      yes_answer: Si
+  views: 
     back: indietro
     cancel: "cancella "
     load: carica
-    plase_wait: "aspetta prego"
     signout: esci
     submit: presenta
     update: aggiorna
-
-  date:
-    formats:
-      short: %d %B %Y
-      graph: %d %B
-    day_names: [Domenica, Lunedi, Martedì, Mercoledì, Giovedi, Venerdì, Sabato]
-    month_names: [~, Gennaio, Febbraio, Marzo, Aprile, Maggio, Giugno, Luglio, Agosto, Settembre, Ottobre, Novembre, Dicembre]
-    abbr_month_names: [~, Gen, Feb, Mar, Apr, Mag, Gui, Lug, Ago, Set, Ott, Nov, Dic]
-    order: [ :day, :month, :year ]
-
-  time:
-    formats:
-      graph: %d %B
-      short: %d-%m-%Y
-      attendance_report: %d ל%B %Y
-      timestamp: %m-%d-%Y %H:%M
-
-  # Used in distance_of_time_in_words(), distance_of_time_in_words_to_now(), time_ago_in_words()
-  datetime:
-    distance_in_words:
-      half_a_minute: "mezzo minuto"
-      less_than_x_seconds:
-        one: "meno di un secondo"
-        other: "meno di %{count} secondi"
-      x_seconds:
-        one: "1 secondo"
-        other: "%{count} secondi"
-      less_than_x_minutes:
-        one: "meno di un minuto"
-        other: "meno di %{count} minuti"
-      x_minutes:
-        one: "1 minuto"
-        other: "%{count} minuti"
-      about_x_hours:
-        one: "circa un'ora"
-        other: "circa %{count} ore"
-      x_days:
-        one: "1 giorno"
-        other: "%{count} giorni"
-      about_x_months:
-        one: "circa un mese"
-        other: "circa %{count} mesi"
-      x_months:
-        one: "1 mese"
-        other: "%{count} mesi"
-      about_x_years:
-        one: "circa un anno"
-        other: "circa %{count} anni"
-      over_x_years:
-        one: "oltre un anno"
-        other: "oltre %{count} anni"
-    prompts:
-      year: "Anno"
-      month: "Mese"
-      day: "Giorno"
-      hour: "Ora"
-      minute: "Minuto"
-      second: "Secondi"
-

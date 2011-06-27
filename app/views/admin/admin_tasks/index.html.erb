@@ -28,5 +28,9 @@
       <dt>Cache Management:</dt>
       <dd><%= link_to 'Clear Cache', admin_clear_cache_url %></dd>
     <% end %>
+    <% if current_user.is_translator? || current_user.is_admin? || current_user.is_super? %>
+      <dt><%= t('admin.reports.translations') %>:</dt>
+      <dd><%= link_to t('admin.reports.translations'), root_tolk_url %></dd>
+    <% end %>
   </dl>
 <% end %>

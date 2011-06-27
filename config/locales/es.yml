@@ -1,12 +1,12 @@
----
-es:
-  activerecord:
-    attributes:
-      user:
+--- 
+es: 
+  activerecord: 
+    attributes: 
+      user: 
         email: "Dirección electrónica"
         password: Contraseña
-    errors:
-      messages:
+    errors: 
+      messages: 
         accepted: "debe ser aceptado"
         blank: "no puede estar en blanco"
         confirmation: "la confirmación no coincide"
@@ -26,37 +26,31 @@ es:
         too_long: "es demasiado larga (el máximo es de %{count} caracteres)"
         too_short: "es demasiado corta (el mínimo es de %{count} caracteres)"
         wrong_length: "tiene una longitud errónea (debería ser de %{count} caracteres)"
-      models:
-        user:
-          attributes:
-            email:
+      models: 
+        user: 
+          attributes: 
+            email: 
               blank: "-- valor en blanco"
               invalid: "no es válido"
-            password:
+            password: 
               blank: "-- no puede estar en blanco"
               confirmation: "la confirmación no coincide"
               too_short: "demasiado corta (el mínimo es de %{count} caracteres)"
           blank: "Campo en blanco"
-      user:
-        header:
+      user: 
+        header: 
           one: "La operación falló debido al siguiente error"
           other: "La operación falló debido a los siguientes %{count} errores"
-    models:
+    models: 
       user: correo-e
-  admin:
-    pages:
-      any_language: Cualquier Idioma
-      language: Idioma
-      leave_comment: Here you can leave a comment.
-      comments_enabled: Comments enabled
-      project: Proyecto
-      create: Crear
-      reset: Forma clara
+  admin: 
+    pages: 
       actions: Acciones
       add_answer: "Añadir respuesta"
       add_new: "Añadir nuevo"
       add_other: "Añadir Otros"
       all_posts: "Todos los mensajes"
+      any_language: "Cualquier Idioma"
       are_you_sure: "¿Está seguro?"
       arr_down: "&#9662;"
       arr_up: "&#9652;"
@@ -69,7 +63,9 @@ es:
       bottom_side_banner: "Banner lateral inferior"
       bulk_action: "Acción en bloque"
       checkbox: "Casilla de verificación"
+      comments_enabled: "Comments enabled"
       content: Contenido
+      create: Crear
       create_new: "Crear nuevo"
       delete: Eliminar
       description: Descripción
@@ -94,6 +90,8 @@ es:
       items: artículos
       label_from: "Desde la etiqueta"
       label_to: "Para la etiqueta"
+      language: Idioma
+      leave_comment: "Here you can leave a comment."
       list: Lista
       logout: "cierar de sesión"
       message: Mensaje
@@ -108,8 +106,9 @@ es:
       other: Otros
       page_administration: "Página de administración"
       permissions: Permisos
-      preview_show: "Mostrar en la vista previa"
       preview: "La vista previa"
+      preview_show: "Mostrar en la vista previa"
+      project: Proyecto
       publish: Publicar
       publish_at: "Publicar en"
       publish_date: "Fecha de publicación"
@@ -117,22 +116,23 @@ es:
       question: Pregunta
       radio: "Radio "
       remove: Quitar
+      reset: "Forma clara"
       save_and_publish: "Guardar y publicar"
       scale: Escala
       scale_from: "Escala de"
       scale_to: "Escala de"
       search: Búsqueda
       select: seleccione
-      select_language: Seleccione Idioma
+      select_language: "Seleccione Idioma"
       set_as_draft: "Establecer como proyecto "
-      show_on_page: Mostrar %{count} artículos
+      show_on_page: "Mostrar %{count} artículos"
       sorting_and_deleting: "Clasificación & Eliminación "
       statistics: Estadísticas
       status: Condiciones
+      subtitle: Subtítulo
       success: "La página fue creada con éxito"
       tags: Etiquetas
       title: Título
-      subtitle: Subtítulo
       title_and_description: "Título y Descripción"
       top_header: "Comienzo de la página de cabecera"
       top_side_banner: "Banner lateral superior"
@@ -145,7 +145,7 @@ es:
       video: Video
       video_player: "Reproductor de vídeo"
       youtube: YouTube
-    questionnaires:
+    questionnaires: 
       add: Add
       add_answer: "Add Answer"
       add_other: "Add Other"
@@ -175,7 +175,7 @@ es:
       status: Status
       title: Title
       update_questionnaire: "Update Questionnaire"
-    reports:
+    reports: 
       all_groups: Everyone
       attendance_report: "Attendance report"
       basic_report: "User Activities report"
@@ -190,19 +190,18 @@ es:
       generating: Generating...
       group_management: "Group management"
       group_name: "Group Name"
-      include_email: Include Email in report
-      order_by_total: Order by activity
+      include_email: "Include Email in report"
       load_group_list: "Load Group List"
       manage_questionnaires: "Manage questionnaires"
       manage_user_lists: "Manage User Lists"
       manage_user_roles: "Manage user roles"
       minus: "not active"
+      order_by_total: "Order by activity"
       plus: active
       print: Print
       questionnaires_list: "Questionnaires list"
       remove_user: "Remove user"
       report: Informe
-      show_only_confirmed_users: "Mostrar sólo a los usuarios confirmados"
       show_only_confirmed_users: "Show only confirmed users"
       status: Status
       to: A
@@ -215,39 +214,121 @@ es:
       users_who_not_signed_in: "Usuarios no conectados"
       users_who_signed_in: "Usuarios conectados"
       x: "not registered"
-    user_list:
+    user_list: 
       are_you_sure: "Are you sure?"
+      create: "El usuario se ha creado correctamente en la lista"
       create_new_user: "Create New User"
       create_user_list: "Create User List"
       delete: Delete
+      destroy: "Destruyó con éxito la lista de usuarios"
+      destroy_failure: "La página NO fue destruida"
       edit: Edit
       email: Email
       first_name: "First Name"
+      group: Group
       has_user: "Has user?"
       last_name: "Last Name"
       please_select_one_of_the_options: "Please select one of the options"
-      group: "Group"
-      update_user_list: "Update User List"
-      create: "El usuario se ha creado correctamente en la lista"
-      destroy: "Destruyó con éxito la lista de usuarios"
-      destroy_failure: "La página NO fue destruida"
       update: "Actualizada correctamente la lista de usuarios"
-  pages:
-    update: "La página fue actualizada correctamente"
-    views:
-      required: "campo requerido"
-      content_required: rellene el texto
-  answer:
-    model:
+      update_user_list: "Update User List"
+  answer: 
+    model: 
       answer_too_short: "Tu respuesta es demasiado corta. La longitud mínima de la respuesta es de 10 caracteres."
       select_at_least_one: "Tienes que seleccionar al menos una opción."
       select_one_option: "Tienes que seleccionar una de las opciones."
       write_an_answer: "Tienes que escribir una respuesta"
-  devise:
-    confirmations:
+  date: 
+    abbr_month_names: 
+      - ~
+      - Ene
+      - Feb
+      - Mar
+      - Abr
+      - May
+      - Jun
+      - Jul
+      - Ago
+      - Sep
+      - Oct
+      - Nov
+      - Dic
+    day_names: 
+      - Domingo
+      - Lunes
+      - Martes
+      - Miércoles
+      - Jueves
+      - Viernes
+      - Sábado
+    formats: 
+      graph: "%d %B"
+      short: "%d %B %Y"
+    month_names: 
+      - ~
+      - Enero
+      - Febrero
+      - Marzo
+      - Abril
+      - Mayo
+      - Junio
+      - Julio
+      - Agosto
+      - Septiembre
+      - Octubre
+      - Noviembre
+      - Diciembre
+    order: 
+      - !ruby/symbol day
+      - !ruby/symbol month
+      - !ruby/symbol year
+  datetime: 
+    distance_in_words: 
+      about_x_hours: 
+        one: "alrededor de 1 hora"
+        other: "alrededor de %{count} horas"
+      about_x_months: 
+        one: "alrededor de 1 mes"
+        other: "alrededor de %{count} meses"
+      about_x_years: 
+        one: "alrededor de 1 año"
+        other: "alrededor de %{count} años"
+      almost_x_years: 
+        one: "casi 1 año"
+        other: "casi %{count} años"
+      half_a_minute: "medio minuto"
+      less_than_x_minutes: 
+        one: "menos de 1 minuto"
+        other: "menos de %{count} minutos"
+      less_than_x_seconds: 
+        one: "menos de 1 segundo"
+        other: "menos de %{count} segundos"
+      over_x_years: 
+        one: "más de 1 año"
+        other: "más de %{count} años"
+      x_days: 
+        one: "1 día"
+        other: "%{count} días"
+      x_minutes: 
+        one: "1 minuto"
+        other: "%{count} minutos"
+      x_months: 
+        one: "1 mes"
+        other: "%{count} meses"
+      x_seconds: 
+        one: "1 segundo"
+        other: "%{count} segundos"
+    prompts: 
+      day: Día
+      hour: Hora
+      minute: Minutos
+      month: Mes
+      second: Segundos
+      year: Año
+  devise: 
+    confirmations: 
       confirmed: "Tu cuenta ha sido confirmada con éxito. Ahora estás conectado."
       send_instructions: "En unos minutos recibirás un correo electrónico con instrucciones sobre cómo confirmar tu cuenta."
-    failure:
+    failure: 
       inactive: "Tu cuenta no ha sido activada aún."
       invalid: "Dirección electrónica o contraseña inválido."
       invalid_token: "Documento de autenticación inválido."
@@ -255,14 +336,14 @@ es:
       timeout: "Tu sesión ha expirado, por favor conéctate de nuevo para continuar."
       unauthenticated: "Tienes que conectarte o actualizar tu conexión para continuar."
       unconfirmed: "Tienes que confirmar tu cuenta antes de continuar."
-    mailer:
-      confirmation_instructions:
+    mailer: 
+      confirmation_instructions: 
         user_subject: "Instrucciones para la confirmación"
-      reset_password_instructions:
+      reset_password_instructions: 
         user_subject: "Instrucciones para restaurar la contraseña"
-      unlock_instructions:
+      unlock_instructions: 
         user_subject: "Instrucciones de desbloqueo"
-    mails:
+    mails: 
       change_my_password: "Cambiar mi contraseña"
       confirm_my_account: "Confirmar mi cuenta"
       confirm_through_link: "Cliquear el enlace abajo para confirmar su cuenta. Si el enlace aparece corrupto, por favor copiar y pegar la información en una nueva página."
@@ -274,20 +355,20 @@ es:
       unlock_line2: "Haz clic sobre el enlace siguiente para desbloquear tu cuenta"
       unlock_my_account: "Desbloquear mi cuenta"
       welcome: Bienvenido
-    passwords:
+    passwords: 
       send_instructions: "En unos minutos, recibirás un email con instrucciones sobre cómo cambiar tu contraseña."
       updated: "Tu contraseña fue cambiada con éxito. Ahora estás conectado."
-    registrations:
+    registrations: 
       destroyed: "¡Adios! Tu cuenta ha sido cancelada con éxito. Esperamos volver a verte pronto."
       signed_up: "Te has registrado con éxito. ¡Por favor, revisa tu email en busca de un mensaje de confirmación para activar tu cuenta!"
       updated: "Has actualizado tu cuenta con éxito."
-    sessions:
+    sessions: 
       signed_in: Conectado.
       signed_out: Desconectado.
-    unlocks:
+    unlocks: 
       send_instructions: "En unos minutos, recibirás un email con instrucciones sobre cómo desbloquear tu cuenta."
       unlocked: "Tu cuenta ha sido desbloqueada con éxito. Ahora estás conectado."
-    views:
+    views: 
       cannot_sign_in: "¿No puede entrar? Haga click aquí para ayudarle"
       change_my_password: "Cambiar mi contraseña"
       confirm_new_password: "Confirmación de la contraseña"
@@ -308,112 +389,122 @@ es:
       sign_up: Regístrate
       sign_up_more: "Inscríbete&nbsp;&nbsp;&nbsp;&#9658;"
       sign_up_now: "¡Regístrese ahora!"
-  errors:
-    messages:
+  errors: 
+    messages: 
       already_confirmed: "ya fue confirmado"
       not_found: "no encontrado"
       not_locked: "no estaba bloqueado"
-  home:
-    faq:
+  home: 
+    faq: 
       confirmation: "You have already registered, but the system still doesn't permit you to enter? Please check your mailbox for the confirmation email. If there isn't one, please use the following link to send you another one."
       email: "If you've tried everything above and still have a problem, then please send an email to"
       faq: "Frequently Asked Questions"
       forgot_password: "You have already registered, but the system still doesn't permit you to enter? Did you check the confirmation instructions above? Maybe you forgot your password? Try the following link to reset it."
       unlock: "You've been locked by the system. Please check your mailbox for the unlock email. If there isn't one, please use the following link to send it again."
-    views:
-      site_name: Sviva Tova
+    views: 
+      active: Activo
       admin: Admin
       answered: respondido
+      blog: "http://laitman.es/"
+      blog_title: "Blog del Dr. Laitman"
       check_for_new_questionnaire: "Revisar si hay un nuevo cuestionario"
       dashboard: "Mi página"
       date: Fecha
       edit_profile: "Editar perfil"
+      feed: "http://laitman.es/feed"
       last_10_questionnaires: "Los últimos 10 cuestionarios"
+      loading: Cargando...
       not_answered: "no respondido"
+      registered: Registrado
+      site_name: "Sviva Tova"
       status: Posición
       title: Título
+      title_registered_vs_active: "Registrado vs. Activo"
       view_reports: "Ver informes"
-      blog_title: Blog del Dr. Laitman
-      active: Activo
-      registered: Registrado
-      title_registered_vs_active: Registrado vs. Activo
-      blog: http://laitman.es/
-      feed: http://laitman.es/feed
-      loading: Cargando...
-  layout:
+  layout: 
     search: Buscar
     search_screen_reader: Buscar
-  notification:
-    mailer:
+  notification: 
+    mailer: 
       new_questionnaire_for_you: "Hay un nuevo cuestionario para ti…"
-    views:
+    views: 
       click_above_link_to_answer: "Haz clic sobre el enlace para contestarlo"
       hi: Hola
       you_got_new_questionnaire: "Tienes un nuevo cuestionario"
-  stream:
-    new_internet: Nueva Internet
-    projects_discussion: Discusión
-    projects: Proyectos
-    rav: "Por Rav"
-    all: "Todos "
-    all_items: "Todos los artículos"
-    articles: Contenidos
-    assignments: Asignaciones
-    events: Eventos
-    home: Inicio
-    messages: Mensajes
-    more_items: "Más artículos »"
-    new_items: "Nuevos productos"
-    posted_ago: "Publicado %{when} hace "
-    read_all: "Leer todo »"
-    tags_menu: Temas
-    back: « Volver
-    filter: Filtrar por
-    mark_as: Marcar como
-    read: leído
-    unread: no leído
-    bookmarks: favoritos
-    add_to_favorites: Añadir a Favoritos
-    remove_from_favorites: Eliminar de mis favoritos
-
-  profile:
-    views:
+  pages: 
+    update: "La página fue actualizada correctamente"
+    views: 
+      content_required: "rellene el texto"
+      required: "campo requerido"
+  profile: 
+    views: 
       change_password: "cambiar contraseña"
-      dear: Hola,
+      dear: "Hola,"
       edit: editar
       please_update_profile: "por favor actualiza tu perfil"
       profile: perfil
       required: "campo requerido"
       updated: "El perfil se ha actualizado correctamente"
-  questionnaire_answer:
-    controller:
+  questionnaire_answer: 
+    controller: 
       already_answered: "Ya has contestado este cuestionario"
       no_questionnaire: "No existe ese cuestionario"
       no_success: "El cuestionario no ha sido respondido con éxito."
       was_success: "El cuestionario ha sido respondido con éxito."
-    views:
+    views: 
       all_fields_are_required: "¡Todos los campos son obligatorios!"
       please_select_one_of_the_options: "Por favor selecciona una de las acciones"
-  user:
-    model:
+  stream: 
+    add_to_favorites: "Añadir a Favoritos"
+    all: "Todos "
+    all_items: "Todos los artículos"
+    articles: Contenidos
+    assignments: Asignaciones
+    back: "« Volver"
+    bookmarks: favoritos
+    events: Eventos
+    filter: "Filtrar por"
+    home: Inicio
+    mark_as: "Marcar como"
+    messages: Mensajes
+    more_items: "Más artículos »"
+    new_internet: "Nueva Internet"
+    new_items: "Nuevos productos"
+    posted_ago: "Publicado %{when} hace "
+    projects: Proyectos
+    projects_discussion: Discusión
+    rav: "Por Rav"
+    read: leído
+    read_all: "Leer todo »"
+    remove_from_favorites: "Eliminar de mis favoritos"
+    tags_menu: Temas
+    unread: "no leído"
+  time: 
+    formats: 
+      attendance_report: "%d ל%B %Y"
+      graph: "%d %B"
+      short: "%d-%m-%Y"
+      timestamp: "%m-%d-%Y %H:%M"
+  user: 
+    model: 
+      avatar: Avatar
       birthday: "Año de nacimiento"
+      choose_image: "Seleccione Imagen"
+      city: Ciudad
+      country: País
       female: Mujer
       first_name: Nombre
       gender: Género
       last_name: Apellido
       male: Hombre
       no_answer: " No"
+      no_file_selected: "No hay imagen"
       preferred_language: "Idioma de preferencia"
       receive_notifications: "¿Quieres recibir notificaciones en tu dirección electrónica?"
-      yes_answer: Sí
-      avatar: Avatar
-      city: Ciudad
       region: Región
-      country: País
       remove_avatar: "Remover Avatar"
-      no_file_selected: No hay imagen
-      choose_image: Seleccione Imagen
-  views:
+      yes_answer: Sí
+  views: 
     back: Volver
     cancel: Cancelar
     load: Load
@@ -421,65 +512,3 @@ es:
     signout: Desconectar
     submit: Enviar
     update: Actualizar
-
-  date:
-    formats:
-      short: %d %B %Y
-      graph: %d %B
-    day_names: [Domingo, Lunes, Martes, Miércoles, Jueves, Viernes, Sábado]
-    month_names: [~, Enero, Febrero, Marzo, Abril, Mayo, Junio, Julio, Agosto, Septiembre, Octubre, Noviembre, Diciembre]
-    abbr_month_names: [~, Ene, Feb, Mar, Abr, May, Jun, Jul, Ago, Sep, Oct, Nov, Dic]
-    order: [ :day, :month, :year ]
-
-  time:
-    formats:
-      graph: %d %B
-      short: %d-%m-%Y
-      attendance_report: %d ל%B %Y
-      timestamp: %m-%d-%Y %H:%M
-
-  # Used in distance_of_time_in_words(), distance_of_time_in_words_to_now(), time_ago_in_words()
-  datetime:
-    distance_in_words:
-      half_a_minute: "medio minuto"
-      less_than_x_seconds:
-        one: "menos de 1 segundo"
-        other: "menos de %{count} segundos"
-      x_seconds:
-        one: "1 segundo"
-        other: "%{count} segundos"
-      less_than_x_minutes:
-        one: "menos de 1 minuto"
-        other: "menos de %{count} minutos"
-      x_minutes:
-        one: "1 minuto"
-        other: "%{count} minutos"
-      about_x_hours:
-        one: "alrededor de 1 hora"
-        other: "alrededor de %{count} horas"
-      x_days:
-        one: "1 día"
-        other: "%{count} días"
-      about_x_months:
-        one: "alrededor de 1 mes"
-        other: "alrededor de %{count} meses"
-      x_months:
-        one: "1 mes"
-        other: "%{count} meses"
-      about_x_years:
-        one: "alrededor de 1 año"
-        other: "alrededor de %{count} años"
-      over_x_years:
-        one: "más de 1 año"
-        other: "más de %{count} años"
-      almost_x_years:
-        one: "casi 1 año"
-        other: "casi %{count} años"
-    prompts:
-      year: "Año"
-      month: "Mes"
-      day: "Día"
-      hour: "Hora"
-      minute: "Minutos"
-      second: "Segundos"
-
