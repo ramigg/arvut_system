@@ -78,7 +78,7 @@
       resetMethods();
       
       var app = new $.App(
-        "localhost:8080", //contextPath, // CometD server path or ip
+        "comet.kbb1.com:80", //contextPath, // CometD server path or ip
         "1", //applicationId, // String identifying the application id, base channel
         "Hello World", //username, // For authenticated applications only, if null no authentication
         "ac5c3404f57a5061f36a694eb5d56214", // For authenticated applications only, if null no authentication
