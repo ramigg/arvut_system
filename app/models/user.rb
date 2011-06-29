@@ -267,7 +267,12 @@ class User < ActiveRecord::Base
   def is_restricted?
     is_admin? || is_super_moderator? || is_moderator? || is_reports? || is_groupmanager? || is_super? || is_stream_manager? || is_translator?
   end
-  
+
+  def active?
+    #super and (not self.confirmed_at.nil?)
+    !self.confirmed_at.nil?
+  end
+
   def avatar_url(type = :thumb)
     if avatar
       URI.escape(avatar.url(type))
