@@ -269,8 +269,7 @@ class User < ActiveRecord::Base
   end
 
   def active?
-    #super and (not self.confirmed_at.nil?)
-    !self.confirmed_at.nil?
+   !self.confirmed_at.nil?
   end
 
   def avatar_url(type = :thumb)
