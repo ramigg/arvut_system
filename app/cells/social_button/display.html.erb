@@ -57,26 +57,10 @@
   <br/>
   
   <% if Rails.configuration.enable_comet %>
-  <script type="text/javascript" src="<%= Rails.configuration.site_prefix %>/javascripts/comet/jquery/json2.js"></script>
-  <script type="text/javascript" src="<%= Rails.configuration.site_prefix %>/javascripts/comet/org/cometd-namespace.js"></script>
-  <script type="text/javascript" src="<%= Rails.configuration.site_prefix %>/javascripts/comet/org/cometd-json.js"></script>
-  <script type="text/javascript" src="<%= Rails.configuration.site_prefix %>/javascripts/comet/org/TransportRegistry.js"></script>
-  <script type="text/javascript" src="<%= Rails.configuration.site_prefix %>/javascripts/comet/org/WebSocketTransport.js"></script>
-  <script type="text/javascript" src="<%= Rails.configuration.site_prefix %>/javascripts/comet/org/Transport.js"></script>
-  <script type="text/javascript" src="<%= Rails.configuration.site_prefix %>/javascripts/comet/org/LongPollingTransport.js"></script>
-  <script type="text/javascript" src="<%= Rails.configuration.site_prefix %>/javascripts/comet/org/RequestTransport.js"></script>
-  <script type="text/javascript" src="<%= Rails.configuration.site_prefix %>/javascripts/comet/org/CallbackPollingTransport.js"></script>
-  <script type="text/javascript" src="<%= Rails.configuration.site_prefix %>/javascripts/comet/org/Utils.js"></script>
-  <script type="text/javascript" src="<%= Rails.configuration.site_prefix %>/javascripts/comet/org/Cometd.js"></script>
-  <script type="text/javascript" src="<%= Rails.configuration.site_prefix %>/javascripts/comet/org/cometd/AckExtension.js"></script>
-  <script type="text/javascript" src="<%= Rails.configuration.site_prefix %>/javascripts/comet/org/cometd/ReloadExtension.js"></script>
-  <script type="text/javascript" src="<%= Rails.configuration.site_prefix %>/javascripts/comet/jquery/jquery.kookie.js"></script>
-  <script type="text/javascript" src="<%= Rails.configuration.site_prefix %>/javascripts/comet/jquery/jquery.cometd.js"></script>
-  <script type="text/javascript" src="<%= Rails.configuration.site_prefix %>/javascripts/comet/jquery/jquery.cometd-reload.js"></script>
-  <script type="text/javascript" src="<%= Rails.configuration.site_prefix %>/javascripts/comet/app.js"></script>
-  
-  <script type="text/javascript" src="<%= Rails.configuration.site_prefix %>/javascripts/social_button/button_auto_update.js"></script>
-  
+  <%= javascript_include_tag ['comet/jquery/json2.js', 'comet/org/cometd-namespace.js', 'comet/org/cometd-json.js', 'comet/org/TransportRegistry.js', 'comet/org/TransportRegistry.js',
+    'comet/org/WebSocketTransport.js', 'comet/org/Transport.js', 'comet/org/LongPollingTransport.js', 'comet/org/RequestTransport.js', 'comet/org/CallbackPollingTransport.js',
+    'comet/org/Utils.js', 'comet/org/Cometd.js', 'comet/org/cometd/AckExtension.js', 'comet/jquery/jquery.kookie.js', 'comet/jquery/jquery.cometd.js', 'comet/jquery/jquery.cometd-reload.js',
+    'comet/app.js', 'social_button/button_auto_update.js'] %>  
 
   <script type="text/javascript">
     var button_update_app = null;
