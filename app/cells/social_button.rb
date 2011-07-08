@@ -1,5 +1,6 @@
 require 'net/http'
 require 'uri'
+require 'AESCrypt.rb'
 
 class SocialButton < Apotomo::Widget
   respond_to_event :button_press, :with => :button_press
@@ -20,6 +21,7 @@ class SocialButton < Apotomo::Widget
     @timeout = ButtonClick.time_left(user.id)
     @button_click_set = get_button_click_set()
     calc_today_clicks(user.id, user.email, @button_click_set)
+    set_push_authentication(user.email)
     render
   end
 
@@ -28,6 +30,7 @@ class SocialButton < Apotomo::Widget
     @status = ButtonClick.status(user.id)
     ButtonClick.create(:user_id => user.id) unless @status
     calc_today_clicks(user.id, user.email)
+    set_push_authentication(user.email)
     render
   end
 
@@ -37,6 +40,7 @@ class SocialButton < Apotomo::Widget
     user.update_attributes(params[:user])
     @button_click_set = get_button_click_set()
     calc_today_clicks(user.id, user.email, @button_click_set)
+    set_push_authentication(user.email)
     render
   end
 
@@ -45,6 +49,13 @@ class SocialButton < Apotomo::Widget
   end
   
   private
+  def set_push_authentication(username)
+    @push_username = username
+    @push_authentication = AESCrypt.encrypt(
+      username, ::Rails.configuration.comet_auth_key,
+      ::Rails.configuration.comet_auth_iv,"AES-128-CBC");
+  end
+  
   def calc_today_clicks(id, email, total = nil)
     @today_clicks = ButtonClick.today_clicks(id).count
     @today_total = total.blank? ? current_user.button_click_set : total

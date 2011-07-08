@@ -36,13 +36,13 @@
 			var cometdURL = "http://" + _contextPath + "/cometd";
 			
 			$.cometd.configure({
-                url: cometdURL,
-                logLevel: 'debug'//,
-                //Cross origin sharing problems in HTTP
-                //requestHeaders: {"username":config.username, "verify":config.verify}
-            });
+        url: cometdURL,
+        logLevel: 'debug'
+        //Cross origin sharing problems in HTTP
+        //requestHeaders: {"username":config.username, "verify":config.verify}
+      });
 
-            $.cometd.handshake(_auth);
+      $.cometd.handshake(_auth);
 		}
 
     this.connect = function()

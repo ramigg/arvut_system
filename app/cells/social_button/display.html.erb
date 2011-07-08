@@ -82,7 +82,11 @@
     var button_update_app = null;
   
     $(document).ready(function() {    
-      button_update_app = new $.ButtonUpdateApp(<%= @users_group_id %>, <%= current_user.id %>);
+      button_update_app = new $.ButtonUpdateApp(
+        "<%= @push_username %>", "<%= @push_authentication %>",
+        <%= @users_group_id %>, <%= current_user.id %>,
+        "<%= Rails.configuration.comet_server %>", 
+        "<%= Rails.configuration.comet_application_id %>");
     });
 
     function update_others(is_click, today_clicks, today_total, today_all_clicks, today_all_total, today_group_clicks, today_group_total)

@@ -1,7 +1,10 @@
 (function($)
 {
     // Push application
-    $.ButtonUpdateApp = function(users_group_id, user_self_id)
+    $.ButtonUpdateApp = function(
+      username, authentication, 
+      users_group_id, user_self_id,
+      comet_server, application_id)
     {
       var _self = this;
       var user_id = user_self_id;
@@ -78,10 +81,10 @@
       resetMethods();
       
       var app = new $.App(
-        "comet.kbb1.com:80", //contextPath, // CometD server path or ip
-        "1", //applicationId, // String identifying the application id, base channel
-        "Hello World", //username, // For authenticated applications only, if null no authentication
-        "ac5c3404f57a5061f36a694eb5d56214", // For authenticated applications only, if null no authentication
+        comet_server, //contextPath, // CometD server path or ip
+        application_id, //applicationId, // String identifying the application id, base channel
+        username, //"Hello World", //username, // For authenticated applications only, if null no authentication
+        authentication, //"ac5c3404f57a5061f36a694eb5d56214", // For authenticated applications only, if null no authentication
         connectionEsteblished, //connectionEstablished, // hook for event, may be null
         resetMethods, //connectionBroken, // hook for event, may be null
         resetMethods //connectionClosed // hook for event, may be null

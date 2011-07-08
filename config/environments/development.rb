@@ -44,4 +44,8 @@ Simulator::Application.configure do
   config.active_support.deprecation = :log
   
   config.enable_comet = false
+  config.comet_server = "comet.kbb1.com:80"
+  config.comet_application_id = "1"
+  config.comet_auth_key = "01234567890abcde01234567890abcde"
+  config.comet_auth_iv = "fedcba9876543210fedcba9876543210"
 end
