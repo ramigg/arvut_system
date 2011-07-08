@@ -59,7 +59,7 @@ Simulator::Application.configure do
   config.active_support.deprecation = :notify
   
   # enable push-engine (update web-page without refresh)
-  config.enable_comet = false
+  config.enable_comet = true
   config.comet_server = "comet.kbb1.com:80"
   config.comet_application_id = "1"
   config.comet_auth_key = "01234567890abcde01234567890abcde"
