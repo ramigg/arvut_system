@@ -68,7 +68,7 @@ class User < ActiveRecord::Base
   # and from the same group!
   scope :users_recent_button_click_set_for_group,
   lambda{|email|
-    select("SUM(CASE WHEN button_click_set is null THEN 1 WHEN button_click_set > 48 THEN 48 ELSE button_click_set END) as total").
+    select("SUM(CASE WHEN button_click_set is null THEN 1 WHEN button_click_set < 0 THEN 1 WHEN button_click_set > 48 THEN 48 ELSE button_click_set END) as total").
     where('id IN ('+ButtonClick.two_weeks_active_users_filter_by_scope(User.group_users_by_email(email)).to_sql+')')
   }
 
