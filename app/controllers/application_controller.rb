@@ -14,9 +14,10 @@ class ApplicationController < ActionController::Base
       root << widget(:blog_widget, 'blog', :display)
       root << widget(:profile_widget, 'profile', :display, :user => current_user)
       root << widget('tags/container', 'tags', :container)
+      root << widget(:banners_widget, 'banners', :display)
       root << widget(:social_button, 'social_button', :display, :user => current_user)
     end
-  
+
   def set_locale
     I18n.locale = @locale = params[:locale]
 #    cookies[:sviva_tova_locale] = {:value => @locale, :expires => 10.years.from_now, :domain => 'localhost' }
@@ -66,9 +67,9 @@ module Devise::Controllers::Helpers
     url = session.delete(:"#{scope}_return_to")
     url
   end
-  
+
   def adjust_format_for_ie8
     request.format = :js if request.xhr? && request.env['HTTP_ACCEPT'] == '*/*' # IE8 problems
   end
-  
+
 end
