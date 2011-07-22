@@ -2,7 +2,7 @@ require 'yaml'
 
 Simulator::Application.configure do
   # Settings specified here will take precedence over those in config/environment.rb
-  
+
   #site prefix
   config.site_prefix = ''
   config.open_stream_in_popup = false
@@ -42,10 +42,10 @@ Simulator::Application.configure do
   config.action_mailer.default_url_options = { :host => 'localhost:3000' }
 
   config.active_support.deprecation = :log
-  
+
   config.enable_comet = true
   config.comet_server = "comet.kbb1.com:80"
-  config.comet_application_id = "2"
+  config.comet_application_id = "1"
   config.comet_auth_key = "01234567890abcde01234567890abcde"
   config.comet_auth_iv = "fedcba9876543210fedcba9876543210"
 end
