@@ -44,4 +44,7 @@ Simulator::Application.configure do
   config.active_support.deprecation = :log
   
   config.enable_comet = false
+
+   # enables show button content  functionality
+  config.enable_button_content = false
 end

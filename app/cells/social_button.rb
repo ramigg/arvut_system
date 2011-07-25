@@ -28,6 +28,7 @@ class SocialButton < Apotomo::Widget
     @status = ButtonClick.status(user.id)
     ButtonClick.create(:user_id => user.id) unless @status
     calc_today_clicks(user.id, user.email)
+    determine_button_content
     render
   end
 
@@ -73,6 +74,32 @@ class SocialButton < Apotomo::Widget
 
     if @today_group_total < 1 || @today_group_total < @today_group_clicks
       @today_group_total = [1, @today_group_total.to_i].max
+    end
+  end
+
+
+UPPER_LIMIT_TO_SHOW_BUTTON_CONTENT = 4
+ def determine_button_content
+    @is_show_button_content = false
+
+    return unless ::Rails.configuration.enable_button_content
+
+    button_content_count = Page.get_button_content_count
+
+    if button_content_count > 0
+      loc_today_total = @today_total
+      loc_today_clicks = @today_clicks
+
+      loc_today_clicks = 1 if  loc_today_clicks <= 0
+      loc_today_total = 1 if loc_today_total <= 0
+
+      gen_step = loc_today_total / UPPER_LIMIT_TO_SHOW_BUTTON_CONTENT.to_f
+      prev_click_range_num  =  ((loc_today_clicks -1)  /  gen_step).to_int
+      cur_click_range_num  =  (loc_today_clicks  /  gen_step).to_int
+
+      if cur_click_range_num   >  prev_click_range_num
+            @is_show_button_content = true
+      end
     end
   end
 

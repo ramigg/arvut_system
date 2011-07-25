@@ -1,6 +1,10 @@
 <%= widget_div do %>
   <a href="#" id="we-button" class="<%= @button_class %>" onclick="<%= trigger_event(:button_press) %>; return false;"
      onmousedown="set_pressed()" onmouseup="set_released()" onmouseout="set_released()"></a>
+    <div id="div_show_button_content">
+      <br/>
+       <%= link_to 'button_content by path', show_button_content_path(28), :class => 'show_button_content', :id=> 'show_button_content_link' %>
+    </div>
   <div class="clicks-set-info">
     <%= I18n.t('social_button.i_commit_to') %> <span><%= get_button_click_set %></span> <%= I18n.t('social_button.clicks_a_day') %>. <a href="#" onclick="show_form(); return false;"><%= I18n.t('social_button.change') %></a>
   </div>
@@ -100,6 +104,15 @@
   <% end %>
 
   <script type="text/javascript">
+
+    function show_button_content(pageId)
+    {
+        var srcElm = $('#show_button_content_link');
+        if (srcElm != null)
+        {
+            colorbox_iframe(srcElm, '710px', '85%', false);
+        }
+    }
 
     function refresh_chart(id, clicks, total)
     {

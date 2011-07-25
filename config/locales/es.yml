@@ -55,6 +55,7 @@ es:
       arr_down: "&#9662;"
       arr_up: "&#9652;"
       article: Contenido
+      button_content: "Contenido de botón"
       as_draft: "Guardar como borrador"
       assignment: Asignación
       assignments: Asignaciones

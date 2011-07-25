@@ -8,6 +8,11 @@ class PagesController < ApplicationController
     stream << widget('pages_admin', 'comments', :display_comments, :current_user => current_user, :parent_id => params[:id])
   end
 
+
+  def show_button_content
+    @page = Page.get_random_button_content
+  end
+
   def show
     @page = Page.find(params[:id])
 
@@ -52,5 +57,6 @@ class PagesController < ApplicationController
     @page.toggle_flag(current_user, 'is_bookmark')
     render :template => 'shared/toggle_flag.js.erb'
   end
+
   
 end

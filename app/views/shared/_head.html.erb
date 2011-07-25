@@ -41,7 +41,7 @@
              'jquery.ba-bbq.min.js',
              #'countdown',
              'events']
-    list << 'jquery.colorbox-min.js' if Rails.configuration.open_stream_in_popup || Rails.configuration.open_blog_in_popup
+    list << 'jquery.colorbox-min.js' if Rails.configuration.open_stream_in_popup || Rails.configuration.open_blog_in_popup  || Rails.configuration.enable_button_content
     list << "jquery.ui.datepicker-#{I18n.locale}.js" if current_user && current_user.is_restricted?
 
     javascript_include_tag list

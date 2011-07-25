@@ -8,6 +8,7 @@
     <option value="<%= new_admin_page_url(:page_type => 'article') %>"><%= t("admin.pages.article") %></option>
     <option value="<%= new_admin_page_url(:page_type => 'message') %>"><%= t("admin.pages.message") %></option>
     <option value="<%= new_admin_page_url(:page_type => 'project') %>"><%= t("admin.pages.project") %></option>
+     <option value="<%= new_admin_page_url(:page_type => 'button_content') %>"><%= t('admin.pages.button_content') %></option>
   </select>
   <select name="new-language" id="new-language">
     <option value=""><%= t('admin.pages.select_language') %></option>
@@ -61,6 +62,7 @@
         <option value="article" <%= 'selected="selected"' if params[:page_type] == 'article' %>><%= t("admin.pages.content") %></option>
         <option value="message" <%= 'selected="selected"' if params[:page_type] == 'message' %>><%= t("admin.pages.messages") %></option>
         <option value="project" <%= 'selected="selected"' if params[:page_type] == 'project' %>><%= t("admin.pages.project") %></option>
+         <option value="button_content" <%= 'selected="selected"' if params[:page_type] == 'button_content' %>><%= t('admin.pages.button_content') %></option>
       </select>
       &nbsp;&nbsp;
       <%- if current_user.is_admin? || current_user.is_super_moderator? %>
