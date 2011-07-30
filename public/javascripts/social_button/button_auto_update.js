@@ -2,7 +2,7 @@
 {
     // Push application
     $.ButtonUpdateApp = function(
-      username, authentication, 
+      username, authentication,
       users_group_id, user_self_id,
       comet_server, application_id)
     {
@@ -16,15 +16,15 @@
         _self.limitChanged = function(newLimit) {
           alert("limit changed "  + group_id);
         };
-        
+
         _self.buttonPressed = function() {
           alert("button pressed " + group_id);
         };
-        
+
         _self.update_others = function(is_click, today_clicks, today_total, today_all_clicks, today_all_total, today_group_clicks, today_group_total) {
           //alert("update others " + group_id + " " + today_all_clicks
           //  + " " + today_all_total + " " + today_group_clicks + " " + today_group_total );
-          
+
           app.publish(channel, {
             "group_id":group_id,
             "user_id": user_id,
@@ -36,9 +36,9 @@
             "today_group_clicks": today_group_clicks,
             "today_group_total": today_group_total});
         };
-        
+
         app.subscribe(channel, function(message) {
-          
+
           if (message.data.user_id == user_id)
           {
             $('.clicks-set-info span').html(message.data.today_total);
@@ -50,41 +50,41 @@
             }
             refresh_chart_text(message.data.today_clicks, message.data.today_total);
           }
-          
+
           if (message.data.group_id == group_id)
           {
             refresh_group_clicks_chart(message.data.today_group_clicks, message.data.today_group_total);
             refresh_group_chart_text(message.data.today_group_clicks, message.data.today_group_total);
           }
-          
+
           refresh_all_clicks_chart(message.data.today_all_clicks, message.data.today_all_total);
           refresh_all_chart_text(message.data.today_all_clicks, message.data.today_all_total);
         })
       };
-            
+
       function resetMethods() {
         _self.limitChanged = function(newLimit) {
           //alert("limit changed - reset " + group_id);
         };
-        
+
         _self.buttonPressed = function() {
           //alert("button pressed - reset " + group_id);
         };
-          
+
         _self.update_others = function(is_click, today_clicks, today_total, today_all_clicks, today_all_total, today_group_clicks, today_group_total) {
           //alert("update others - reset " + group_id + " " + today_all_clicks
           //  + " " + today_all_total + " " + today_group_clicks + " " + today_group_total );
         };
 
       };
-      
+
       resetMethods();
-      
+
       var app = new $.App(
         comet_server, //contextPath, // CometD server path or ip
         application_id, //applicationId, // String identifying the application id, base channel
-        username, //"Hello World", //username, // For authenticated applications only, if null no authentication
-        authentication, //"ac5c3404f57a5061f36a694eb5d56214", // For authenticated applications only, if null no authentication
+        username, //username, // For authenticated applications only, if null no authentication
+        authentication, // username encryption// For authenticated applications only, if null no authentication
         connectionEsteblished, //connectionEstablished, // hook for event, may be null
         resetMethods, //connectionBroken, // hook for event, may be null
         resetMethods //connectionClosed // hook for event, may be null
