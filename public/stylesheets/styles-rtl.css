@@ -390,3 +390,4 @@ a#we-button.we_button_pressed{background:transparent url("../images/we_buttons.p
 a#we-button.me_button{background:transparent url("../images/we_buttons.png") no-repeat 0 0;}
 a#we-button.me_button:hover{background:transparent url("../images/we_buttons.png") no-repeat 0 -110px;}
 a#we-button.me_button_pressed{background:transparent url("../images/we_buttons.png") no-repeat 0 -220px;}
+#show_button_content_link{display:none;}

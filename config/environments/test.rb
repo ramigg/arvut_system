@@ -36,4 +36,7 @@ Simulator::Application.configure do
   config.comet_application_id = "1"
   config.comet_auth_key = "01234567890abcde01234567890abcde"
   config.comet_auth_iv = "fedcba9876543210fedcba9876543210"
+
+   # enables show button content  functionality
+  config.enable_button_content = false
 end

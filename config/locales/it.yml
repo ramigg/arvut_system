@@ -55,6 +55,7 @@ it:
       arr_down: "&#9662;"
       arr_up: "&#9652;"
       article: Contenuti
+      button_content: "contenuti per il pulsante"
       as_draft: "Salva come progetto"
       assignment: Compito
       assignments: Compiti

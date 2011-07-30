@@ -52,7 +52,7 @@ class Page < ActiveRecord::Base
 
   scope :by_page_type, lambda { |page_type, language_id, user_reg_date|
     (page_type == 'all' || page_type == 'tag' ?
-        where(:language_id => language_id) :
+        where(:language_id => language_id, :page_type.nin => 'button_content') :
         where(:language_id => language_id, :page_type => page_type.singularize)).
         no_parent.published
   }
@@ -202,5 +202,16 @@ class Page < ActiveRecord::Base
 
   def self.get_tag_for_rav(options)
     I18n.t('stream.rav', options)
+  end
+
+   def self.get_random_button_content
+      @button_content_count =    Page.where(:page_type => 'button_content').count
+      randNum = rand(@button_content_count)
+      res = Page.where(:page_type => 'button_content').
+      limit(randNum + 1).offset(randNum)[0]
+   end
+
+  def self.get_button_content_count
+      @button_content_count =    Page.where(:page_type => 'button_content').count
   end
 end

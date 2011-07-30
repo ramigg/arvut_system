@@ -129,7 +129,7 @@ class Admin::PagesController < ApplicationController
       'event'
     when 'message'
       'message'
-    when 'article', 'project'
+    when 'article', 'project' ,'button_content'
       'article'
     else
       session[:alert] = I18n.t 'admin.pages.unknown_page', :page_type => page_type

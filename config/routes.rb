@@ -87,6 +87,8 @@ Simulator::Application.routes.draw do
       put 'toggle_is_bookmark', :on => :member
     end
 
+    match 'pages/show_button_content/:id'  => 'pages#show_button_content', :as => 'show_button_content'
+
     resources :events
     
     namespace 'admin' do

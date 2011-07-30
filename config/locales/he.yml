@@ -56,6 +56,7 @@ he:
       arr_down: "&#9662;"
       arr_up: "&#9652;"
       article: תוכן
+      button_content: "תוכן כפתור"
       as_draft: "שמור כטיוטה"
       assignment: משימה
       assignments: משימות
@@ -93,7 +94,7 @@ he:
       label_from: "תווית מ-"
       label_to: "תווית עד-"
       language: שפה
-      leave_comment: "הסף תגובתך"
+      leave_comment: "הוסף תגובתך"
       list: List
       logout: יציאה
       message: הודעה
