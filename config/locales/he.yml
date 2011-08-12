@@ -468,7 +468,8 @@ he:
       submit: שמור
       submitting: "מעדכן שינויים..."
       successfully_saved: "נשמר בהצלחה"
-    kabtv: 
+    kabtv:
+      schedule_berlin: לוח שידורים מברלין
       ask_question: "שאל שאלה"
       awaiting_for_approval: "השאלה שלך ממתינה לאישור"
       cancel: ביטול
