@@ -105,5 +105,4 @@ class SocialButton < Apotomo::Widget
       @is_show_button_content = false
     end
   end
-
 end
