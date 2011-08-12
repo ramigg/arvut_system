@@ -56,38 +56,44 @@
       <span id="we-group-clicks-chart-span">
         <%= I18n.t('social_button.we_group_clicks_for_today', :clicks => @today_group_clicks, :total => @today_group_total) %>
       </span>
-      <% end %>
-    </center>
-  </div>
-  <br/>
-  <br/>
-  
-  <% if Rails.configuration.enable_comet %>
-  <%= javascript_include_tag ['comet/jquery/json2.js', 'comet/org/cometd-namespace.js', 'comet/org/cometd-json.js', 'comet/org/TransportRegistry.js', 'comet/org/TransportRegistry.js',
-    'comet/org/WebSocketTransport.js', 'comet/org/Transport.js', 'comet/org/LongPollingTransport.js', 'comet/org/RequestTransport.js', 'comet/org/CallbackPollingTransport.js',
-    'comet/org/Utils.js', 'comet/org/Cometd.js', 'comet/org/cometd/AckExtension.js', 'comet/jquery/jquery.kookie.js', 'comet/jquery/jquery.cometd.js', 'comet/jquery/jquery.cometd-reload.js',
-    'comet/app.js', 'social_button/button_auto_update.js'] %>  
+        <% end %>
+      </center>
+    </div>
+    <br/>
+    <br/>
 
-  <script type="text/javascript">
-    var button_update_app = null;
-  
-    $(document).ready(function() {    
-      button_update_app = new $.ButtonUpdateApp(
-        "<%= @push_username %>", "<%= @push_authentication %>",
-        <%= @users_group_id %>, <%= current_user.id %>,
-        "<%= Rails.configuration.comet_server %>", 
-        "<%= Rails.configuration.comet_application_id %>");
-    });
+    <% if Rails.configuration.enable_comet %>
+        <%= javascript_include_tag ['comet/jquery/json2.js', 'comet/org/cometd-namespace.js', 'comet/org/cometd-json.js', 'comet/org/TransportRegistry.js', 'comet/org/TransportRegistry.js',
+                                    'comet/org/WebSocketTransport.js', 'comet/org/Transport.js', 'comet/org/LongPollingTransport.js', 'comet/org/RequestTransport.js', 'comet/org/CallbackPollingTransport.js',
+                                    'comet/org/Utils.js', 'comet/org/Cometd.js', 'comet/org/cometd/AckExtension.js', 'comet/jquery/jquery.kookie.js', 'comet/jquery/jquery.cometd.js', 'comet/jquery/jquery.cometd-reload.js',
+                                    'comet/app.js', 'social_button/button_auto_update.js'] %>
 
-    function update_others(is_click, today_clicks, today_total, today_all_clicks, today_all_total, today_group_clicks, today_group_total)
-    {
-      if (button_update_app != null)
-        button_update_app.update_others(is_click, today_clicks, today_total, today_all_clicks, today_all_total, today_group_clicks, today_group_total);
-    };
-    
-  </script>
+        <script type="text/javascript">
+            var button_update_app = null;
 
-  <% else %>
+            $(document).ready(function() {
+                button_update_app = new $.ButtonUpdateApp(
+                        "<%= @push_username %>", "<%= @push_authentication %>",
+                        <%= @users_group_id %>, <%= current_user.id %>,
+                        "<%= Rails.configuration.comet_server %>",
+                        "<%= Rails.configuration.comet_application_id %>");
+            });
+
+            function update_others(is_click, today_clicks, today_total, today_all_clicks, today_all_total, today_group_clicks, today_group_total) {
+                if (button_update_app != null)
+                    button_update_app.update_others(is_click, today_clicks, today_total, today_all_clicks, today_all_total, today_group_clicks, today_group_total);
+            }
+            ;
+
+        </script>
+
+    <% else %>
+        <script type="text/javascript">
+            function update_others() {
+            }
+        </script>
+    <% end %>
+
     <script type="text/javascript">
 
         function show_button_content() {
@@ -207,6 +213,5 @@
         }
 
     </script>
-  <% end %>
 
 <% end %>
