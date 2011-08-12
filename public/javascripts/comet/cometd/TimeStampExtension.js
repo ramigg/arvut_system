@@ -14,7 +14,19 @@
  * limitations under the License.
  */
 
-(function($)
+if (typeof dojo != "undefined")
 {
-    $.cometd.registerExtension('ack', new org.cometd.AckExtension());
-})(jQuery);
+    dojo.provide("org.cometd.TimeStampExtension");
+}
+
+/**
+ * The timestamp extension adds the optional timestamp field to all outgoing messages.
+ */
+org.cometd.TimeStampExtension = function()
+{
+    this.outgoing = function(message)
+    {
+        message.timestamp = new Date().toUTCString();
+        return message;
+    };
+};

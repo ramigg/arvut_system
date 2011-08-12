@@ -1,6 +1,5 @@
 /**
  * Dual licensed under the Apache License 2.0 and the MIT license.
- * $Revision: 740 $ $Date: 2009-12-16 17:59:25 +0100 (Wed, 16 Dec 2009) $
  */
 (function($)
 {

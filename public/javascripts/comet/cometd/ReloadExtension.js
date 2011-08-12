@@ -1,6 +1,17 @@
-/**
- * Dual licensed under the Apache License 2.0 and the MIT license.
- * $Revision$ $Date: 2009-05-10 13:06:45 +1000 (Sun, 10 May 2009) $
+/*
+ * Copyright (c) 2010 the original author or authors.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
  */
 
 if (typeof dojo != 'undefined')
@@ -40,13 +51,15 @@ org.cometd.ReloadExtension = function(configuration)
     var _cometd;
     var _debug;
     var _state = null;
-    var _cookieMaxAge = configuration && configuration.cookieMaxAge || 5;
+    var _cookieMaxAge = 5;
     var _batch = false;
 
-    function _reload()
+    function _reload(config)
     {
         if (_state && _state.handshakeResponse !== null)
         {
+            _configure(config);
+
             var cookie = org.cometd.JSON.toJSON(_state);
             _debug('Reload extension saving cookie value', cookie);
             org.cometd.COOKIE.set('org.cometd.reload', cookie, {
@@ -66,6 +79,19 @@ org.cometd.ReloadExtension = function(configuration)
         // and other configuration parameters.
         return _state.url == oldState.url;
     }
+
+    function _configure(config)
+    {
+        if (config)
+        {
+            if (typeof config.cookieMaxAge === 'number')
+            {
+                _cookieMaxAge = config.cookieMaxAge;
+            }
+        }
+    }
+
+    this.configure = _configure;
 
     this.registered = function(name, cometd)
     {
@@ -117,11 +143,11 @@ org.cometd.ReloadExtension = function(configuration)
                             _cometd.receive(response);
                             _debug('Reload extension replayed handshake response', response);
                         }, 0);
-                        
+
                         // delay any sends until first connect is complete.
                         if (!_batch)
                         {
-                            _batch=true;
+                            _batch = true;
                             _cometd.startBatch();
                         }
                         // This handshake is aborted, as we will replay the prior handshake response
@@ -170,8 +196,10 @@ org.cometd.ReloadExtension = function(configuration)
                     break;
                 case '/meta/connect':
                     if (_batch)
+                    {
                         _cometd.endBatch();
-                    _batch=false;
+                        _batch = false;
+                    }
                     break;
                 default:
                     break;
@@ -179,4 +207,6 @@ org.cometd.ReloadExtension = function(configuration)
         }
         return message;
     };
+
+    _configure(configuration);
 };

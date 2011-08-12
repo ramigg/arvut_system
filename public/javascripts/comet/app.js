@@ -24,23 +24,23 @@
     var _connectionBroken = connectionBroken;
     var _connectionClosed = connectionClosed;
 
-		if (username != null && verify != null)
-       		_auth = {"username":username, "verify":verify, "appId":applicationId}
+		if (username != null && verify != null) {
+      _auth = {"username":username, "verify":verify, "appId":applicationId}
+    }
 
 		// End of initialization
 	
 		// Private member functions
 	
-		function handshake()
-		{
+		function handshake() {
 			var cometdURL = "http://" + _contextPath + "/cometd";
 			
 			$.cometd.configure({
-        url: cometdURL,
-        logLevel: 'debug'
-        //Cross origin sharing problems in HTTP
-        //requestHeaders: {"username":config.username, "verify":config.verify}
-      });
+        	url: cometdURL,
+        	logLevel: 'debug'
+        	//Cross origin sharing problems in HTTP
+          //requestHeaders: {"username":config.username, "verify":config.verify}
+      	});
 
       $.cometd.handshake(_auth);
 		}
@@ -80,7 +80,11 @@
 		
 			handshake();
     };
-        
+    
+    this.addListener = function(channel, listenerFunction) {
+      $.cometd.addListener(channel, listenerFunction);
+    }
+      
     this.disconnect = function() {
     	$.cometd.disconnect();
     };

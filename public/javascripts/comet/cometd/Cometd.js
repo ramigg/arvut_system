@@ -5,7 +5,13 @@
  * a new instance can be created via:
  * <pre>
  * var bayeuxUrl2 = ...;
- * var cometd2 = new $.Cometd();
+ *
+ * // Dojo style
+ * var cometd2 = new dojox.Cometd('another_optional_name');
+ *
+ * // jQuery style
+ * var cometd2 = new $.Cometd('another_optional_name');
+ *
  * cometd2.init({url: bayeuxUrl2});
  * </pre>
  * @param name the optional name of this cometd object
@@ -462,7 +468,7 @@ org.cometd.Cometd = function(name)
                     _debug('Exception during handling of messages', x);
                 }
             },
-            onFailure: function(conduit, reason, exception)
+            onFailure: function(conduit, messages, reason, exception)
             {
                 try
                 {
@@ -474,7 +480,7 @@ org.cometd.Cometd = function(name)
                 }
             }
         };
-        _debug('Send, sync =', sync, envelope);
+        _debug('Send', envelope);
         _transport.send(envelope, longpoll);
     }
 
@@ -573,7 +579,7 @@ org.cometd.Cometd = function(name)
             }
 
             _setStatus('connecting');
-            _debug('Connect sent', message, org.cometd.JSON.toJSON(message));
+            _debug('Connect sent', message);
             _send(false, [message], true, 'connect');
             _setStatus('connected');
         }
@@ -593,7 +599,27 @@ org.cometd.Cometd = function(name)
         if (newAdvice)
         {
             _advice = _mixin(false, {}, _config.advice, newAdvice);
-            _debug('New advice', _advice, org.cometd.JSON.toJSON(_advice));
+            _debug('New advice', _advice);
+        }
+    }
+
+    function _disconnect(abort)
+    {
+        _cancelDelayedSend();
+        if (abort)
+        {
+            _transport.abort();
+        }
+        _clientId = null;
+        _setStatus('disconnected');
+        _batch = 0;
+        _resetBackoff();
+
+        // Fail any existing queued message
+        if (_messageQueue.length > 0)
+        {
+            _handleFailure.call(_cometd, undefined, _messageQueue, 'error', 'Disconnected');
+            _messageQueue = [];
         }
     }
 
@@ -610,10 +636,6 @@ org.cometd.Cometd = function(name)
         if (_isDisconnected())
         {
             _transports.reset();
-        }
-
-        if (_isDisconnected())
-        {
             _updateAdvice(_config.advice);
         }
         else
@@ -643,7 +665,7 @@ org.cometd.Cometd = function(name)
         var version = '1.0';
 
         // Figure out the transports to send to the server
-        var transportTypes = _transports.findTransportTypes(version, _crossDomain);
+        var transportTypes = _transports.findTransportTypes(version, _crossDomain, _config.url);
 
         var bayeuxMessage = {
             version: version,
@@ -661,8 +683,8 @@ org.cometd.Cometd = function(name)
 
         // Pick up the first available transport as initial transport
         // since we don't know if the server supports it
-        _transport = _transports.negotiateTransport(transportTypes, version, _crossDomain);
-        _debug('Initial transport is', _transport.getType(), _transport);
+        _transport = _transports.negotiateTransport(transportTypes, version, _crossDomain, _config.url);
+        _debug('Initial transport is', _transport.getType());
 
         // We started a batch to hold the application messages,
         // so here we must bypass it and send immediately.
@@ -701,8 +723,7 @@ org.cometd.Cometd = function(name)
         }
         else
         {
-            _resetBackoff();
-            _setStatus('disconnected');
+            _disconnect(false);
         }
     }
 
@@ -713,11 +734,11 @@ org.cometd.Cometd = function(name)
             // Save clientId, figure out transport, then follow the advice to connect
             _clientId = message.clientId;
 
-            var newTransport = _transports.negotiateTransport(message.supportedConnectionTypes, message.version, _crossDomain);
+            var newTransport = _transports.negotiateTransport(message.supportedConnectionTypes, message.version, _crossDomain, _config.url);
             if (newTransport === null)
             {
                 throw 'Could not negotiate transport with server; client ' +
-                      _transports.findTransportTypes(message.version, _crossDomain) +
+                      _transports.findTransportTypes(message.version, _crossDomain, _config.url) +
                       ', server ' + message.supportedConnectionTypes;
             }
             else if (_transport != newTransport)
@@ -746,8 +767,7 @@ org.cometd.Cometd = function(name)
                     _delayedConnect();
                     break;
                 case 'none':
-                    _resetBackoff();
-                    _setStatus('disconnected');
+                    _disconnect(false);
                     break;
                 default:
                     throw 'Unrecognized advice action ' + action;
@@ -791,12 +811,14 @@ org.cometd.Cometd = function(name)
                 _delayedConnect();
                 break;
             case 'handshake':
+                // The current transport may be failed (e.g. network disconnection)
+                // Reset the transports so the new handshake picks up the right one
+                _transports.reset();
                 _resetBackoff();
                 _delayedHandshake();
                 break;
             case 'none':
-                _resetBackoff();
-                _setStatus('disconnected');
+                _disconnect(false);
                 break;
             default:
                 throw 'Unrecognized advice action' + action;
@@ -815,19 +837,18 @@ org.cometd.Cometd = function(name)
             // and the server will hold the request, so when a response returns
             // we immediately call the server again (long polling)
             // Listeners can call disconnect(), so check the state after they run
-            var action1 = _isDisconnected() ? 'none' : _advice.reconnect;
-            switch (action1)
+            var action = _isDisconnected() ? 'none' : _advice.reconnect;
+            switch (action)
             {
                 case 'retry':
                     _resetBackoff();
                     _delayedConnect();
                     break;
                 case 'none':
-                    _resetBackoff();
-                    _setStatus('disconnected');
+                    _disconnect(false);
                     break;
                 default:
-                    throw 'Unrecognized advice action ' + action1;
+                    throw 'Unrecognized advice action ' + action;
             }
         }
         else
@@ -850,20 +871,6 @@ org.cometd.Cometd = function(name)
                 interval: _backoff
             }
         });
-    }
-
-    function _disconnect(abort)
-    {
-        _cancelDelayedSend();
-        if (abort)
-        {
-            _transport.abort();
-        }
-        _clientId = null;
-        _setStatus('disconnected');
-        _batch = 0;
-        _messageQueue = [];
-        _resetBackoff();
     }
 
     function _failDisconnect(message)
@@ -1058,7 +1065,7 @@ org.cometd.Cometd = function(name)
 
     _handleMessages = function _handleMessages(rcvdMessages)
     {
-        _debug('Received', rcvdMessages, org.cometd.JSON.toJSON(rcvdMessages));
+        _debug('Received', rcvdMessages);
 
         for (var i = 0; i < rcvdMessages.length; ++i)
         {
@@ -1253,6 +1260,11 @@ org.cometd.Cometd = function(name)
             }
         }
         return transport;
+    };
+
+    this.findTransport = function(name)
+    {
+        return _transports.find(name);
     };
 
     /**
