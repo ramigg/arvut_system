@@ -60,7 +60,4 @@ Simulator::Application.configure do
   
   # enable push-engine (update web-page without refresh)
   config.enable_comet = false
-
-   # enables show button content  functionality
-  config.enable_button_content = false
 end

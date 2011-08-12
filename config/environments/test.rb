@@ -32,7 +32,4 @@ Simulator::Application.configure do
   # config.active_record.schema_format = :sql
   
   config.enable_comet = false
-
-   # enables show button content  functionality
-  config.enable_button_content = false
 end

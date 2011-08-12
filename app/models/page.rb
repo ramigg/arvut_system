@@ -52,7 +52,7 @@ class Page < ActiveRecord::Base
 
   scope :by_page_type, lambda { |page_type, language_id, user_reg_date|
     (page_type == 'all' || page_type == 'tag' ?
-        where(:language_id => language_id, :page_type.nin => 'button_content') :
+        where(:language_id => language_id, :page_type.nin => 'button_content') : # nin -> Not In
         where(:language_id => language_id, :page_type => page_type.singularize)).
         no_parent.published
   }
@@ -90,6 +90,8 @@ class Page < ActiveRecord::Base
   # def self.new_pages_by_page_type(page_type, language_id, user_reg_date, user_id)
   #   (by_page_type(page_type, language_id, user_reg_date) - read_pages_by_page_type(page_type, language_id, user_reg_date, user_id))
   # end
+
+  scope :button_content, lambda { where(:page_type => 'button_content', :status => 'PUBLISHED') }
 
   def self.search(search)
     unless search.empty?
@@ -204,14 +206,12 @@ class Page < ActiveRecord::Base
     I18n.t('stream.rav', options)
   end
 
-   def self.get_random_button_content
-      @button_content_count =    Page.where(:page_type => 'button_content').count
-      randNum = rand(@button_content_count)
-      res = Page.where(:page_type => 'button_content').
-      limit(randNum + 1).offset(randNum)[0]
-   end
+  def self.get_random_button_content
+    randNum = rand(Page.button_content.count)
+    res = Page.button_content.limit(randNum + 1).offset(randNum).first
+  end
 
   def self.get_button_content_count
-      @button_content_count =    Page.where(:page_type => 'button_content').count
+    Page.button_content.count
   end
 end

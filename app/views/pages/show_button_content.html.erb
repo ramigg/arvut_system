@@ -1,6 +1,5 @@
-
-  <% @page.assets.each_with_index do |asset, index|%>
+<% @page.assets.each_with_index do |asset, index| %>
     <div class="item">
-      <%= render :partial => "pages/assets/#{asset.resource_type.downcase}", :locals => {:question => asset.resource,  :index => index} %>
+      <%= render :partial => "pages/assets/#{asset.resource_type.downcase}", :locals => {:question => asset.resource, :index => index} %>
     </div>
-  <% end %>
+<% end %>

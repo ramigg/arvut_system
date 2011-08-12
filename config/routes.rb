@@ -85,9 +85,9 @@ Simulator::Application.routes.draw do
     resources :pages do
       put 'toggle_is_read', :on => :member
       put 'toggle_is_bookmark', :on => :member
+      get 'show_button_content', :on => :collection
     end
 
-    match 'pages/show_button_content/:id'  => 'pages#show_button_content', :as => 'show_button_content'
 
     resources :events
     

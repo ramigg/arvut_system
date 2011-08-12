@@ -1,233 +1,229 @@
 <%= widget_div do %>
-  <a href="#" id="we-button" class="<%= @button_class %>" onclick="<%= trigger_event(:button_press) %>; return false;"
-     onmousedown="set_pressed()" onmouseup="set_released()" onmouseout="set_released()"></a>
+    <a href="#" id="we-button" class="<%= @button_class %>" onclick="<%= trigger_event(:button_press) %>; return false;"
+       onmousedown="set_pressed()" onmouseup="set_released()" onmouseout="set_released()"></a>
     <div id="div_show_button_content">
       <br/>
-       <%= link_to 'button_content by path', show_button_content_path(28), :class => 'show_button_content', :id=> 'show_button_content_link' %>
+      <%= link_to 'button_content by path', show_button_content_pages_path, :class => 'show_button_content', :id => 'show_button_content_link' %>
     </div>
-  <div class="clicks-set-info">
-    <%= I18n.t('social_button.i_commit_to') %> <span><%= get_button_click_set %></span> <%= I18n.t('social_button.clicks_a_day') %>. <a href="#" onclick="show_form(); return false;"><%= I18n.t('social_button.change') %></a>
-  </div>
-  <div class="clicks-set-form" style="display:none;">
-    <%= form_for @user, :as => :user, :url => url_for_event(:button_clicks_edit), :remote => true do |f| -%>
-      <%= f.text_field :button_click_set, :style => 'width:20px;', :value => get_button_click_set %>
-      <%= f.submit I18n.t('kabtv.admin.submit'), :style => '', :class => 'button-small-main', :disable_with => I18n.t('kabtv.admin.submitting') %>
-      <a href="#" onclick="hide_form(); return false;"><%= I18n.t('social_button.cancel') %></a>
-    <% end %>
-  </div>
-  <div>
-    <% if current_user.is_admin? || current_user.is_reports? %>
-      <%= link_to I18n.t('social_button.generate_csv_report'), generate_report_admin_basic_reports_url %>
-    <% end %>
-  </div>
-  <div>
-    <center>
-      
-      <% if @today_clicks > @today_total %>
-        <img id="we-clicks-chart" src="https://chart.googleapis.com/chart?cht=p3&chs=200x100&chd=t:1,0&chco=19B743,FF0000&chdl=We|Me"
-          title="<%= I18n.t('social_button.we_clicks_for_today_assist', :clicks => @today_clicks, :total => @today_total, :assist => (@today_clicks-@today_total)) %>"/>
+    <div class="clicks-set-info">
+      <%= I18n.t('social_button.i_commit_to') %>
+      <span><%= get_button_click_set %></span> <%= I18n.t('social_button.clicks_a_day') %>.
+      <a href="#" onclick="show_form(); return false;"><%= I18n.t('social_button.change') %></a>
+    </div>
+    <div class="clicks-set-form" style="display:none;">
+      <%= form_for @user, :as => :user, :url => url_for_event(:button_clicks_edit), :remote => true do |f| -%>
+          <%= f.text_field :button_click_set, :style => 'width:20px;', :value => get_button_click_set %>
+          <%= f.submit I18n.t('kabtv.admin.submit'), :style => '', :class => 'button-small-main', :disable_with => I18n.t('kabtv.admin.submitting') %>
+          <a href="#" onclick="hide_form(); return false;"><%= I18n.t('social_button.cancel') %></a>
+      <% end %>
+    </div>
+    <div>
+      <% if current_user.is_admin? || current_user.is_reports? %>
+          <%= link_to I18n.t('social_button.generate_csv_report'), generate_report_admin_basic_reports_url %>
+      <% end %>
+    </div>
+    <div>
+      <center>
+
+        <% if @today_clicks > @today_total %>
+            <img id="we-clicks-chart" src="https://chart.googleapis.com/chart?cht=p3&chs=200x100&chd=t:1,0&chco=19B743,FF0000&chdl=We|Me"
+                 title="<%= I18n.t('social_button.we_clicks_for_today_assist', :clicks => @today_clicks, :total => @today_total, :assist => (@today_clicks-@today_total)) %>"/>
         <span id="we-clicks-chart-span">
           <%= I18n.t('social_button.we_clicks_for_today_assist', :clicks => @today_clicks, :total => @today_total, :assist => (@today_clicks-@today_total)) %>
         </span>
-      <% else %>
-        <img id="we-clicks-chart" src="https://chart.googleapis.com/chart?cht=p3&chs=200x100&chd=t:<%=@today_clicks%>,<%=(@today_total-@today_clicks)%>&chco=19B743,FF0000&chdl=We|Me"
-          title="<%= I18n.t('social_button.we_clicks_for_today', :clicks => @today_clicks, :total => @today_total) %>"/>
+        <% else %>
+            <img id="we-clicks-chart" src="https://chart.googleapis.com/chart?cht=p3&chs=200x100&chd=t:<%= @today_clicks %>,<%= (@today_total-@today_clicks) %>&chco=19B743,FF0000&chdl=We|Me"
+                 title="<%= I18n.t('social_button.we_clicks_for_today', :clicks => @today_clicks, :total => @today_total) %>"/>
         <span id="we-clicks-chart-span">
           <%= I18n.t('social_button.we_clicks_for_today', :clicks => @today_clicks, :total => @today_total) %>
         </span>
-      <% end %>
+        <% end %>
 
-      <br/>
-      <br/>
-      <img id="we-all-clicks-chart" src="https://chart.googleapis.com/chart?cht=p3&chs=200x100&chd=t:<%=(100*@today_all_clicks)/@today_all_total%>,<%=(100*(@today_all_total-@today_all_clicks))/@today_all_total%>&chco=19B743,FF0000&chdl=We|Me"
-        title="<%= I18n.t('social_button.we_all_clicks_for_today', :clicks => @today_all_clicks, :total => @today_all_total) %>"/>
+        <br/>
+        <br/>
+        <img id="we-all-clicks-chart" src="https://chart.googleapis.com/chart?cht=p3&chs=200x100&chd=t:<%= (100*@today_all_clicks)/@today_all_total %>,<%= (100*(@today_all_total-@today_all_clicks))/@today_all_total %>&chco=19B743,FF0000&chdl=We|Me"
+             title="<%= I18n.t('social_button.we_all_clicks_for_today', :clicks => @today_all_clicks, :total => @today_all_total) %>"/>
       <span id="we-all-clicks-chart-span">
         <%= I18n.t('social_button.we_all_clicks_for_today', :clicks => @today_all_clicks, :total => @today_all_total) %>
       </span>
 
-      <% if UserList.group_emails_by_email(current_user.email).length > 0 %>
+        <% if UserList.group_emails_by_email(current_user.email).length > 0 %>
 
-      <br/>
-      <br/>
-      <img id="we-group-clicks-chart" src="https://chart.googleapis.com/chart?cht=p3&chs=200x100&chd=t:<%=(100*@today_group_clicks)/@today_group_total%>,<%=(100*(@today_group_total-@today_group_clicks))/@today_group_total%>&chco=19B743,FF0000&chdl=We|Me"
-        title="<%= I18n.t('social_button.we_group_clicks_for_today', :clicks => @today_group_clicks, :total => @today_group_total) %>"/>
+            <br/>
+            <br/>
+            <img id="we-group-clicks-chart" src="https://chart.googleapis.com/chart?cht=p3&chs=200x100&chd=t:<%= (100*@today_group_clicks)/@today_group_total %>,<%= (100*(@today_group_total-@today_group_clicks))/@today_group_total %>&chco=19B743,FF0000&chdl=We|Me"
+                 title="<%= I18n.t('social_button.we_group_clicks_for_today', :clicks => @today_group_clicks, :total => @today_group_total) %>"/>
       <span id="we-group-clicks-chart-span">
         <%= I18n.t('social_button.we_group_clicks_for_today', :clicks => @today_group_clicks, :total => @today_group_total) %>
       </span>
-      <% end %>
-    </center>
-  </div>
-  <br/>
-  <br/>
-  
-  <% if Rails.configuration.enable_comet %>
-  <script type="text/javascript" src="/javascripts/comet/jquery/json2.js"></script>
-  <script type="text/javascript" src="/javascripts/comet/org/cometd-namespace.js"></script>
-  <script type="text/javascript" src="/javascripts/comet/org/cometd-json.js"></script>
-  <script type="text/javascript" src="/javascripts/comet/org/TransportRegistry.js"></script>
-  <script type="text/javascript" src="/javascripts/comet/org/WebSocketTransport.js"></script>
-  <script type="text/javascript" src="/javascripts/comet/org/Transport.js"></script>
-  <script type="text/javascript" src="/javascripts/comet/org/LongPollingTransport.js"></script>
-  <script type="text/javascript" src="/javascripts/comet/org/RequestTransport.js"></script>
-  <script type="text/javascript" src="/javascripts/comet/org/CallbackPollingTransport.js"></script>
-  <script type="text/javascript" src="/javascripts/comet/org/Utils.js"></script>
-  <script type="text/javascript" src="/javascripts/comet/org/Cometd.js"></script>
-  <script type="text/javascript" src="/javascripts/comet/org/cometd/AckExtension.js"></script>
-  <script type="text/javascript" src="/javascripts/comet/org/cometd/ReloadExtension.js"></script>
-  <script type="text/javascript" src="/javascripts/comet/jquery/jquery.kookie.js"></script>
-  <script type="text/javascript" src="/javascripts/comet/jquery/jquery.cometd.js"></script>
-  <script type="text/javascript" src="/javascripts/comet/jquery/jquery.cometd-reload.js"></script>
-  <script type="text/javascript" src="/javascripts/comet/app.js"></script>
-  
-  <script type="text/javascript" src="/javascripts/social_button/button_auto_update.js"></script>
-  
+        <% end %>
+      </center>
+    </div>
+    <br/>
+    <br/>
 
-  <script type="text/javascript">
-    var button_update_app = null;
-  
-    $(document).ready(function() {    
-      button_update_app = new $.ButtonUpdateApp(<%= @users_group_id %>, <%= current_user.id %>);
-    });
+    <% if Rails.configuration.enable_comet %>
+        <script type="text/javascript" src="/javascripts/comet/jquery/json2.js"></script>
+        <script type="text/javascript" src="/javascripts/comet/org/cometd-namespace.js"></script>
+        <script type="text/javascript" src="/javascripts/comet/org/cometd-json.js"></script>
+        <script type="text/javascript" src="/javascripts/comet/org/TransportRegistry.js"></script>
+        <script type="text/javascript" src="/javascripts/comet/org/WebSocketTransport.js"></script>
+        <script type="text/javascript" src="/javascripts/comet/org/Transport.js"></script>
+        <script type="text/javascript" src="/javascripts/comet/org/LongPollingTransport.js"></script>
+        <script type="text/javascript" src="/javascripts/comet/org/RequestTransport.js"></script>
+        <script type="text/javascript" src="/javascripts/comet/org/CallbackPollingTransport.js"></script>
+        <script type="text/javascript" src="/javascripts/comet/org/Utils.js"></script>
+        <script type="text/javascript" src="/javascripts/comet/org/Cometd.js"></script>
+        <script type="text/javascript" src="/javascripts/comet/org/cometd/AckExtension.js"></script>
+        <script type="text/javascript" src="/javascripts/comet/org/cometd/ReloadExtension.js"></script>
+        <script type="text/javascript" src="/javascripts/comet/jquery/jquery.kookie.js"></script>
+        <script type="text/javascript" src="/javascripts/comet/jquery/jquery.cometd.js"></script>
+        <script type="text/javascript" src="/javascripts/comet/jquery/jquery.cometd-reload.js"></script>
+        <script type="text/javascript" src="/javascripts/comet/app.js"></script>
 
-    function update_others(is_click, today_clicks, today_total, today_all_clicks, today_all_total, today_group_clicks, today_group_total)
-    {
-      if (button_update_app != null)
-        button_update_app.update_others(is_click, today_clicks, today_total, today_all_clicks, today_all_total, today_group_clicks, today_group_total);
-    };
-    
-  </script>
+        <script type="text/javascript" src="/javascripts/social_button/button_auto_update.js"></script>
 
-  <% else %>
-    <script type="text/javascript">
-      function update_others(){}
-    </script>
-  <% end %>
 
-  <script type="text/javascript">
+        <script type="text/javascript">
+            var button_update_app = null;
 
-    function show_button_content(pageId)
-    {
-        var srcElm = $('#show_button_content_link');
-        if (srcElm != null)
-        {
-            colorbox_iframe(srcElm, '710px', '85%', false);
-        }
-    }
+            $(document).ready(function() {
+                button_update_app = new $.ButtonUpdateApp(<%= @users_group_id %>, <%= current_user.id %>);
+            });
 
-    function refresh_chart(id, clicks, total)
-    {
-      if (clicks > total) {
-        clicks = total;
-      }
-      
-      if (total > 100) {
-        clicks = (clicks * 100) / total;
-        total = 100;
-      }
-      
-      $('#'+id).attr("src",
-        'https://chart.googleapis.com/chart?'+
-        'cht=p3&'+
-        'chs=200x100&'+
-        'chd=t:'+clicks+','+(total-clicks)+'&'+
-        'chco=19B743,FF0000&'+
-        'chdl=We|Me');
-    }
-    
-    function refresh_clicks_chart(clicks, total)
-    {
-      refresh_chart('we-clicks-chart', clicks, total);
-    }
+            function update_others(is_click, today_clicks, today_total, today_all_clicks, today_all_total, today_group_clicks, today_group_total) {
+                if (button_update_app != null)
+                    button_update_app.update_others(is_click, today_clicks, today_total, today_all_clicks, today_all_total, today_group_clicks, today_group_total);
+            }
+            ;
 
-    function refresh_chart_text(clicks, total)
-    {
-      var text = "";
-      if (clicks > total) {
-        text = "<%= I18n.t('social_button.we_clicks_for_today_assist', :clicks => "??clicks", :total => "??total", :assist => "??assist") %>";
-        text = text.replace("??assist", clicks - total);
-      } else {
-        text = "<%= I18n.t('social_button.we_clicks_for_today', :clicks => "??clicks", :total => "??total") %>";
-      }
-      
-      text = text.replace("??clicks", clicks);
-      text = text.replace("??total", total)
-      
-      $('#we-clicks-chart-span').text(text);
-      $('#we-clicks-chart').attr("title", text);
-    }
-    
-    function refresh_all_clicks_chart(clicks, total)
-    {
-      refresh_chart('we-all-clicks-chart', clicks, total);
-    }
+        </script>
 
-    function refresh_all_chart_text(clicks, total)
-    {
-      var text = "<%= I18n.t('social_button.we_all_clicks_for_today', :clicks => "??clicks", :total => "??total") %>";
-
-      text = text.replace("??clicks", clicks);
-      text = text.replace("??total", total);
-
-      $('#we-all-clicks-chart-span').text(text);
-      $('#we-all-clicks-chart').attr("title", text);
-    }
-    function refresh_group_clicks_chart(clicks, total)
-    {
-      refresh_chart('we-group-clicks-chart', clicks, total);
-    }
-
-    function refresh_group_chart_text(clicks, total)
-    {
-      var text = "<%= I18n.t('social_button.we_group_clicks_for_today', :clicks => "??clicks", :total => "??total") %>"
-      
-      text = text.replace("??clicks", clicks);
-      text = text.replace("??total", total)
-
-      $('#we-group-clicks-chart-span').text(text);
-      $('#we-group-clicks-chart').attr("title", text);
-    }
-    </script>
-
-  <script type="text/javascript">
-    var intervalid = 0;
-    var is_we = <%= @status %>;
-
-    <% if @status %>
-    intervalid = setTimeout("set_me()", <%= @timeout %>*1000);
+    <% else %>
+        <script type="text/javascript">
+            function update_others() {
+            }
+        </script>
     <% end %>
-    function set_we(){
-      if (intervalid) clearTimeout(intervalid);
-      intervalid = setTimeout("set_me()", 30*60*1000);
-      $('#we-button').removeClass('me_button').addClass('we_button');
-      is_we = true;
-    }
-    function set_me(){
-      $('#we-button').removeClass('we_button').addClass('me_button');
-      is_we = false;
-    }
-    function set_pressed(){
-      if (is_we) {
-        $('#we-button').removeClass('we_button').addClass('we_button_pressed');
-      } else {
-        $('#we-button').removeClass('me_button').addClass('me_button_pressed');
-      }
-    }
-    function set_released(){
-      if (is_we) {
-        $('#we-button').removeClass('we_button_pressed').addClass('we_button');
-      } else {
-        $('#we-button').removeClass('me_button_pressed').addClass('me_button');
-      }
-    }
-    function show_form(){
-      $('.clicks-set-info').hide();
-      $('.clicks-set-form').show();
-    }
-    function hide_form(){
-      $('.clicks-set-form').hide();
-      $('.clicks-set-info').show();
-    }
 
-  </script>
+    <script type="text/javascript">
+
+        function show_button_content() {
+            var srcElm = $('#show_button_content_link');
+            if (srcElm != null) {
+                colorbox_iframe(srcElm, '710px', '85%', false);
+            }
+        }
+
+        function refresh_chart(id, clicks, total) {
+            if (clicks > total) {
+                clicks = total;
+            }
+
+            if (total > 100) {
+                clicks = (clicks * 100) / total;
+                total = 100;
+            }
+
+            $('#' + id).attr("src",
+                    'https://chart.googleapis.com/chart?' +
+                            'cht=p3&' +
+                            'chs=200x100&' +
+                            'chd=t:' + clicks + ',' + (total - clicks) + '&' +
+                            'chco=19B743,FF0000&' +
+                            'chdl=We|Me');
+        }
+
+        function refresh_clicks_chart(clicks, total) {
+            refresh_chart('we-clicks-chart', clicks, total);
+        }
+
+        function refresh_chart_text(clicks, total) {
+            var text = "";
+            if (clicks > total) {
+                text = "<%= I18n.t('social_button.we_clicks_for_today_assist', :clicks => "??clicks", :total => "??total", :assist => "??assist") %>";
+                text = text.replace("??assist", clicks - total);
+            } else {
+                text = "<%= I18n.t('social_button.we_clicks_for_today', :clicks => "??clicks", :total => "??total") %>";
+            }
+
+            text = text.replace("??clicks", clicks);
+            text = text.replace("??total", total)
+
+            $('#we-clicks-chart-span').text(text);
+            $('#we-clicks-chart').attr("title", text);
+        }
+
+        function refresh_all_clicks_chart(clicks, total) {
+            refresh_chart('we-all-clicks-chart', clicks, total);
+        }
+
+        function refresh_all_chart_text(clicks, total) {
+            var text = "<%= I18n.t('social_button.we_all_clicks_for_today', :clicks => "??clicks", :total => "??total") %>";
+
+            text = text.replace("??clicks", clicks);
+            text = text.replace("??total", total);
+
+            $('#we-all-clicks-chart-span').text(text);
+            $('#we-all-clicks-chart').attr("title", text);
+        }
+        function refresh_group_clicks_chart(clicks, total) {
+            refresh_chart('we-group-clicks-chart', clicks, total);
+        }
+
+        function refresh_group_chart_text(clicks, total) {
+            var text = "<%= I18n.t('social_button.we_group_clicks_for_today', :clicks => "??clicks", :total => "??total") %>"
+
+            text = text.replace("??clicks", clicks);
+            text = text.replace("??total", total)
+
+            $('#we-group-clicks-chart-span').text(text);
+            $('#we-group-clicks-chart').attr("title", text);
+        }
+    </script>
+
+    <script type="text/javascript">
+        var intervalid = 0;
+        var is_we = <%= @status %>;
+
+        <% if @status %>
+        intervalid = setTimeout("set_me()", <%= @timeout %> * 1000
+        )
+        ;
+        <% end %>
+        function set_we() {
+            if (intervalid) clearTimeout(intervalid);
+            intervalid = setTimeout("set_me()", 30 * 60 * 1000);
+            $('#we-button').removeClass('me_button').addClass('we_button');
+            is_we = true;
+        }
+        function set_me() {
+            $('#we-button').removeClass('we_button').addClass('me_button');
+            is_we = false;
+        }
+        function set_pressed() {
+            if (is_we) {
+                $('#we-button').removeClass('we_button').addClass('we_button_pressed');
+            } else {
+                $('#we-button').removeClass('me_button').addClass('me_button_pressed');
+            }
+        }
+        function set_released() {
+            if (is_we) {
+                $('#we-button').removeClass('we_button_pressed').addClass('we_button');
+            } else {
+                $('#we-button').removeClass('me_button_pressed').addClass('me_button');
+            }
+        }
+        function show_form() {
+            $('.clicks-set-info').hide();
+            $('.clicks-set-form').show();
+        }
+        function hide_form() {
+            $('.clicks-set-form').hide();
+            $('.clicks-set-info').show();
+        }
+
+    </script>
 
 <% end %>

@@ -163,7 +163,7 @@ function new_item(){
 }
 
 $(function () {
-    if (document.location.href.match(/\/(show_button_content)\//) == null)
+    if (document.location.href.match(/\/(show_button_content)/) == null)
     {
         var update_link = document.location.href.match(/\/(stream|events|pages|profiles)\//);
         if (update_link != null) {
