@@ -56,6 +56,7 @@ pt:
       arr_down: "&#9662;"
       arr_up: "&#9652;"
       article: Conteúdo
+      button_content: "Conteúdo para botão"
       as_draft: "Salvar como rascunho"
       assignment: Tarefa
       assignments: Tarefas

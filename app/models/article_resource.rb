@@ -4,4 +4,5 @@ class ArticleResource < ActiveRecord::Base
   belongs_to :language
 
   validates :body, :presence => true
+  validates :name, :length => {:maximum => 255}
 end

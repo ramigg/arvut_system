@@ -251,6 +251,7 @@ en:
       remove: Remove
       add_new: Add new
       article: Content
+      button_content: Content for button
       message: Message
       audio: Audio
       video: Video
