@@ -29,17 +29,17 @@
     }
 
 		// End of initialization
-	
+
 		// Private member functions
-	
+
 		function handshake() {
 			var cometdURL = "http://" + _contextPath + "/cometd";
-			
+
 			$.cometd.configure({
-        	url: cometdURL,
-        	logLevel: 'debug'
+        	url: cometdURL
+        	//logLevel: 'debug'
         	//Cross origin sharing problems in HTTP
-          //requestHeaders: {"username":config.username, "verify":config.verify}
+            //requestHeaders: {"username":config.username, "verify":config.verify}
       	});
 
       $.cometd.handshake(_auth);
@@ -54,10 +54,10 @@
 			    	_connectionClosed();
 			        return;
 		    	}
-		    	
+
 		    	var wasConnected = _connected;
 		    	_connected = message.successful;
-		    	
+
 		    	if (!wasConnected && _connected)
 		    	{
 		    		if (_connectionEstablished != null)
@@ -69,7 +69,7 @@
 			        	_connectionBroken();
 		    	}
 			});
-			
+
 			$.cometd.addListener('/meta/disconnect', function(message)
 			{
 			    if (message.successful)
@@ -77,35 +77,35 @@
 			        _connected = false;
 			    }
 			});
-		
+
 			handshake();
     };
-    
+
     this.addListener = function(channel, listenerFunction) {
       $.cometd.addListener(channel, listenerFunction);
     }
-      
+
     this.disconnect = function() {
     	$.cometd.disconnect();
     };
-        
+
     this.subscribeToServiceChannel = function(channel, receiveFunction) {
             // TODO!!!
     }
-        
+
     this.publishToService = function(channel, message) {
             // TODO!!!
     }
-        
+
     this.subscribe = function(channel, receiveFunction) {
     	_channelHandlers[channel] = $.cometd.subscribe(channel, receiveFunction, _auth);
     };
-        
+
     this.unsubscribe = function(channel) {
       $.cometd.unsubscribe(_channelHandlers[channel], _auth);
       delete  _channelHandlers[channel];
     };
-        
+
     this.publish = function(channel, msg) {
     	$.cometd.publish(channel, msg, _auth)
     };
