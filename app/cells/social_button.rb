@@ -51,12 +51,14 @@ class SocialButton < Apotomo::Widget
 
   private
   def set_push_authentication(username)
-    @push_username = username
-    @push_authentication = AESCrypt.encrypt(
-      username, ::Rails.configuration.comet_auth_key,
-      ::Rails.configuration.comet_auth_iv,"AES-128-CBC");
+    @push_username = AESCrypt.encrypt(username,
+      ::Rails.configuration.comet_auth_key,
+      ::Rails.configuration.comet_auth_iv,"AES-128-CBC")
+    @push_authentication = AESCrypt.encrypt(@push_username,
+      ::Rails.configuration.comet_auth_key,
+      ::Rails.configuration.comet_auth_iv,"AES-128-CBC")
   end
-  
+
   def calc_today_clicks(id, email, total = nil)
     @today_clicks = ButtonClick.today_clicks(id).count
     @today_total = total.blank? ? current_user.button_click_set : total
