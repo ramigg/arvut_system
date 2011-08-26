@@ -35,7 +35,7 @@ p{font-size:13px;line-height:1.3em;margin:0;padding:0;margin-bottom:1em;}
 .rounded-corners{-webkit-border-radius:5px;-moz-border-radius:5px;border-radius:5px;behavior:url(PIE.htc);-moz-background-clip:padding;-webkit-background-clip:padding;position:relative;}
 .gradient{background:#00acc2;background:-webkit-gradient(linear, 0 0, 0 bottom, from(#00acc2), to(#2971a7));background:-moz-linear-gradient(#00acc2, #2971a7);background:linear-gradient(#00acc2, #2971a7);-pie-background:linear-gradient(top, #00acc2, #2971a7);behavior:url(PIE.htc);position:relative;}
 .drop-shadow{-webkit-box-shadow:#666666 0px 0px 10px;-moz-box-shadow:#666666 0px 0px 10px;box-shadow:#666666 0px 0px 10px;behavior:url(PIE.htc);position:relative;}
-form input,form textarea{border:1px solid #b3b3b3;padding:2px 5px 2px 10px;color:#666666;font-family:"Lucida Grande","Lucida Sans Unicode",Arial,Verdana,sans-serif;font-size:12px;}
+form input,form textarea{border:1px solid #b3b3b3;padding:2px 0px 2px 0px;color:#666666;font-family:"Lucida Grande","Lucida Sans Unicode",Arial,Verdana,sans-serif;font-size:12px;}
 form select{padding-right:18px !important;}
 form select.select-ltr{text-align:left;direction:ltr;}
 form option{background:white;}
