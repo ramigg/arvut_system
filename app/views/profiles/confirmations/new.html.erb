@@ -1,6 +1,7 @@
 <h2><%= t('devise.views.resend_confirmation_instructions') %></h2>
 
-<%= form_for(resource, :as => resource_name, :url => confirmation_path(resource_name)) do |f| %>
+<%= form_for(resource, :as => resource_name, :url => confirmation_path(resource_name),
+             :html=>{:onsubmit=>"return val_password_fields_on_submit();"}) do |f| %>
   <ul>
     <%= devise_error_messages! %>
 
@@ -14,4 +15,13 @@
   <hr/>
   <%= f.submit t('devise.views.resend_confirmation_instructions') %>
   <%= link_to t('views.cancel'), dashboard_url, :class => 'ui-button ui-widget ui-state-default ui-corner-all' %>
+
+    <script type="text/javascript">
+        function val_password_fields_on_submit() {
+            var arrElm = ["user_email"];
+            trim_val_of_elements(arrElm);
+            return true;
+        }
+    </script>
+
 <% end %>
