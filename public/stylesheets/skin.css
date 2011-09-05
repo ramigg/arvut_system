@@ -1,6 +1,5 @@
-/*
 body{
-	background: #fff url(../images/skin/bg.png) repeat-x 0 0;
+	background: #8dd4e6 url(../images/skin/bg.png) repeat-x 0 0;
 }
 .skin_bg {
 	background: url(../images/skin/bg_image.png) no-repeat center 18px;
@@ -8,5 +7,3 @@ body{
 .wrapper{
 	margin:230px auto 20px;
 }
-
-*/
