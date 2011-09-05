@@ -253,6 +253,18 @@ function colorbox_iframe(obj, width, height, innerHeight)
         }
     });
 }
+function trim_val_of_elements(arrElm) {
+    $.each(arrElm, function(indexInArray, valueOfElement) {
+        trim_val_of_element(valueOfElement);
+    });
+}
+function trim_val_of_element(idName) {
+    var trgElm = $('#' + idName);
+
+    if (trgElm != null && trgElm.val() != "") {
+        trgElm.val(jQuery.trim(trgElm.val()));
+    }
+}
 
 $(function () {
     // This kills PIE.htc with IE :(
