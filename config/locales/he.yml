@@ -469,7 +469,8 @@ he:
       submitting: "מעדכן שינויים..."
       successfully_saved: "נשמר בהצלחה"
     kabtv:
-      schedule_berlin: לוח שידורים מברלין
+      schedule_name: 'לו"ז האירועים'
+      schedule_link: https://docs.google.com/spreadsheet/ccc?key=0AvAzVeqlLTMEdEx0MFNzdFdmWWJNc1JaUUhmci0tMFE&hl=en_US
       ask_question: "שאל שאלה"
       awaiting_for_approval: "השאלה שלך ממתינה לאישור"
       cancel: ביטול

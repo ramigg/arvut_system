@@ -565,7 +565,8 @@ en:
       loading: Loading...
       questions: Questions
       schedule: Schedule
-      schedule_berlin: Schedule Berlin
+      schedule_name: Event Schedule
+      schedule_link: https://docs.google.com/spreadsheet/ccc?key=0AvAzVeqlLTMEdEx0MFNzdFdmWWJNc1JaUUhmci0tMFE&hl=en_US
       sketches: Sketches
       technical_support: Technical Support
       cancel: Cancel

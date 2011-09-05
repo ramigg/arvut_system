@@ -46,7 +46,7 @@
       <div class="content">
         <%= rendered_children.values.join("\n").html_safe %>
       </div>
-      <div><%= link_to I18n.t('kabtv.kabtv.schedule_berlin'), 'https://spreadsheets.google.com/spreadsheet/pub?hl=en_US&hl=en_US&key=0Ap_EBPYYVaW1dGZseWNhb1lFT3BQTzF3eUFLSG1Kb3c&output=html',
+      <div><%= link_to I18n.t('kabtv.kabtv.schedule_name'), t('kabtv.kabtv.schedule_link'),
         :target => '_blank', :style => "font-weight: bold; font-size: +1;color: red; position: absolute; bottom: 15px;" -%></div>
     </div>
   <%- end -%>
