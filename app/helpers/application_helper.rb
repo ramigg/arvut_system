@@ -20,6 +20,20 @@ module ApplicationHelper
   def is_rtl?
     I18n.locale == :he
   end
+
+  def get_I18n_skin_css
+    skinCSSName = case I18n.locale
+                    when :he then
+                      "skin_heb"
+                    when :ru then
+                      "skin_ru"
+                    when :fr then
+                      "skin_fr"
+                    else
+                      "skin_other"
+                  end
+    return skinCSSName
+  end
   
   def ckeditor_toolbar(klass = 'Min')
     is_rtl? ? "#{klass}_he" : klass

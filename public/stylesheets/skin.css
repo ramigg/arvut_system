@@ -2,8 +2,9 @@ body{
 	background: #8dd4e6 url(../images/skin/bg.png) repeat-x 0 0;
 }
 .skin_bg {
-	background: url(../images/skin/bg_image.png) no-repeat center 18px;
+	background: url(../images/skin/bg_image_en.png) no-repeat center 0px;
+    top:0px;
 }
 .wrapper{
-	margin:230px auto 20px;
+	margin:180px auto 20px;
 }
