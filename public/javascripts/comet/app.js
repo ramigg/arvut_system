@@ -1,7 +1,7 @@
 (function($)
 {
 	// Push application
-  $.App = function(
+  $.CometApp = function(
     contextPath, // CometD server path or ip
     applicationId, // String identifying the application id, base channel
     username, // For authenticated applications only, if null no authentication
@@ -11,11 +11,11 @@
     connectionClosed // hook for event, may be null
     )
 	{
-		// Initialization
-		var _self = this;
-		var _contextPath = contextPath;
-		var _applicationId = applicationId;
-		var _auth = {};
+	  // Initialization
+	  var _self = this;
+	  var _contextPath = contextPath;
+	  var _applicationId = applicationId;
+	  var _auth = {};
     var _connected = false;
     var _channelHandlers = {};
 
@@ -24,62 +24,77 @@
     var _connectionBroken = connectionBroken;
     var _connectionClosed = connectionClosed;
 
-		if (username != null && verify != null) {
+	  if (username != null && verify != null) {
       _auth = {"username":username, "verify":verify, "appId":applicationId}
     }
 
-		// End of initialization
+	  // End of initialization
 
-		// Private member functions
-
-		function handshake() {
-			var cometdURL = "http://" + _contextPath + "/cometd";
-
-			$.cometd.configure({
-        	url: cometdURL
-        	//logLevel: 'debug'
-        	//Cross origin sharing problems in HTTP
-            //requestHeaders: {"username":config.username, "verify":config.verify}
-      	});
+	  // Private member functions
+	  function handshake() {
+      var cometdURL = "http://" + _contextPath + "/cometd";
+		  $.cometd.configure({
+        url: cometdURL,
+        //logLevel: 'debug',
+        maxNetworkDelay: 30000
+        //Cross origin sharing problems in HTTP
+        //requestHeaders: {"username":config.username, "verify":config.verify}
+      });
 
       $.cometd.handshake(_auth);
-		}
+	  }
 
-    this.connect = function()
-    {
-      $.cometd.addListener('/meta/connect', function(message)
-		  {
-			    if ($.cometd.isDisconnected())
-			    {
-			    	_connectionClosed();
-			        return;
-		    	}
+    this.addHooks = function(connectionEstablished, connectionBroken, connectionClosed) {
+      if (_connectionEstablished == null)
+        _connectionEstablished = connectionEstablished;
+      else
+        _connectionEstablished = function() { _connectionEstablished(); connectionEstablished(); };
 
-		    	var wasConnected = _connected;
-		    	_connected = message.successful;
+      if (_connectionBroken == null)
+        _connectionBroken = connectionBroken;
+      else
+        _connectionBroken = function() { _connectionBroken(); connectionBroken(); };
 
-		    	if (!wasConnected && _connected)
-		    	{
-		    		if (_connectionEstablished != null)
-			        	_connectionEstablished();
-		    	}
-		    	else if (wasConnected && !_connected)
-		    	{
-		    		if (_connectionBroken != null)
-			        	_connectionBroken();
+      if (_connectionClosed == null)
+        _connectionClosed = connectionClosed;
+      else
+        _connectionClosed = function() { _connectionClosed(); connectionClosed(); };
+    }
+
+    this.isConnected = function() {
+      return _connected;
+    }
+
+    this.connect = function() {
+      $.cometd.addListener('/meta/connect',
+        function(message) {
+			    if ($.cometd.isDisconnected()) {
+			      _connectionClosed();
+			      return;
+		      }
+
+		      var wasConnected = _connected;
+		      _connected = message.successful;
+
+		      if (!wasConnected && _connected) {
+		        if (_connectionEstablished != null)
+			      _connectionEstablished();
+		      } else if (wasConnected && !_connected)	{
+		        if (_connectionBroken != null)
+			      	_connectionBroken();
 		    	}
 			});
 
-			$.cometd.addListener('/meta/disconnect', function(message)
-			{
+			$.cometd.addListener('/meta/disconnect',
+        function(message) {
 			    if (message.successful)
 			    {
 			        _connected = false;
 			    }
-			});
+			  });
 
 			handshake();
-    };
+    }
 
     this.addListener = function(channel, listenerFunction) {
       $.cometd.addListener(channel, listenerFunction);
@@ -90,20 +105,24 @@
     };
 
     this.subscribeToServiceChannel = function(channel, receiveFunction) {
-            // TODO!!!
+      // TODO!!!
     }
 
     this.publishToService = function(channel, message) {
-            // TODO!!!
+      // TODO!!!
     }
 
     this.subscribe = function(channel, receiveFunction) {
-    	_channelHandlers[channel] = $.cometd.subscribe(channel, receiveFunction, _auth);
+      if (channel in _channelHandlers)
+        unsubscribe(channel);
+   	  _channelHandlers[channel] = $.cometd.subscribe(channel, receiveFunction, _auth);
     };
 
     this.unsubscribe = function(channel) {
-      $.cometd.unsubscribe(_channelHandlers[channel], _auth);
-      delete  _channelHandlers[channel];
+      if (channel in _channelHandlers) {
+        $.cometd.unsubscribe(_channelHandlers[channel], _auth);
+        delete  _channelHandlers[channel];
+      }
     };
 
     this.publish = function(channel, msg) {
