@@ -50,9 +50,14 @@
   <%- end -%>
 <%- end -%>
 
+
+<% if Rails.configuration.enable_comet %>
+    <%= javascript_include_tag ['stream_widget/stream_comet_update.js'] %>
+<% end %>
+
 <script type="text/javascript">
   $(function (){
-		
+
     kabtv.tabs.poll_tabs = <%= @show_tabs %>;
     kabtv.tabs.poll_support = <%= @show_support %>;
     kabtv.tabs.url_for_presets_update = '<%= url_for_event(:update_presets) %>';

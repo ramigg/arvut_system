@@ -6,6 +6,10 @@ gem  'remail'
 # extension for  arel where
 gem "meta_where"
 
+gem 'rake', '0.8.7'
+gem 'pg'
+
+
 # Bundle edge Rails instead:
 #gem 'rails', :git => 'git://github.com/rails/rails.git', :branch => 'master'
 #gem 'railties' , :git => 'git://github.com/rails/rails.git', :branch => 'master'
@@ -50,10 +54,12 @@ group :production do
 end
 
 group :development do
-	gem 'ruby-debug', '0.10.3'
-  gem 'ruby-debug-base', '0.10.3'
+  gem 'ruby-debug', '0.10.4'
+  gem 'ruby-debug-base', '0.10.4'
   gem 'ruby-debug-ide', '0.4.7'
+  gem 'rails-dev-boost', :git => 'git://github.com/thedarkone/rails-dev-boost.git', :require => 'rails_development_boost'
 end
+
 
 #group :test do
 #  gem 'capybara'
@@ -69,8 +75,8 @@ end
 
 # CKEditor + Paperclip
 gem 'ckeditor', :git => 'git@github.com:Bnei-Baruch/rails-ckeditor.git', :branch => 'rails3'
-gem 'paperclip', :git => 'http://github.com/thoughtbot/paperclip.git', :platforms => :mri
-#gem 'paperclip' # For windows only , :git => 'http://github.com/benben/paperclip.git'
+#gem 'paperclip', :git => 'http://github.com/thoughtbot/paperclip.git', :platforms => :mri
+gem 'paperclip' # For windows only , :git => 'http://github.com/benben/paperclip.git'
 
 gem 'delayed_job', '2.1.0.pre2'
 
