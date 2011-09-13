@@ -56,10 +56,12 @@ function publish_stream_preset_4_comet() {
 
 }
 
-/var stream_comet_update_app = null;
+var stream_comet_update_app = null;
 $(document).ready(function() {
-    if (comet_app != null)
+    alert(typeof(comet_app) != "undefined");
+    if (typeof(comet_app) != "undefined" && comet_app != null) {    alert("comet_app != null");
         stream_comet_update_app = new $.SteamCometUpdateApp(comet_app);
         alert(" stream_comet_update_app is not null");
+    }
 });
 
