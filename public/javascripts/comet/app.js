@@ -41,7 +41,9 @@
         //requestHeaders: {"username":config.username, "verify":config.verify}
       });
 
+      _auth["page"] = document.location.href;
       $.cometd.handshake(_auth);
+      delete _auth["page"]
 	  }
 
     this.addHooks = function(connectionEstablished, connectionBroken, connectionClosed) {
@@ -115,7 +117,9 @@
     this.subscribe = function(channel, receiveFunction) {
       if (channel in _channelHandlers)
         unsubscribe(channel);
+      _auth["page"] = document.location.href;
    	  _channelHandlers[channel] = $.cometd.subscribe(channel, receiveFunction, _auth);
+      delete _auth["page"]
     };
 
     this.unsubscribe = function(channel) {
@@ -126,7 +130,9 @@
     };
 
     this.publish = function(channel, msg) {
+      _auth["page"] = document.location.href;
     	$.cometd.publish(channel, msg, _auth)
+      delete _auth["page"]
     };
 	};
 })(jQuery);
