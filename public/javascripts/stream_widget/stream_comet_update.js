@@ -36,30 +36,3 @@
             resetMethods();
     };
 })(jQuery);
-
-function publish_stream_preset_4_comet() {
-    function publish_data_to_comet(data) {
-        if (typeof(stream_comet_update_app) != "undefined"
-            && stream_comet_update_app != null) {
-            stream_comet_update_app.update_others(data);
-        }
-    }
-
-    $.ajax({
-        url: kabtv.tabs.url_for_presets_update,
-        data: {
-            timestamp: kabtv.tabs.timestamp,
-            stream_url: $("select#quality").val()
-        },
-        success: publish_data_to_comet
-    });
-
-}
-
-/var stream_comet_update_app = null;
-$(document).ready(function() {
-    if (comet_app != null)
-        stream_comet_update_app = new $.SteamCometUpdateApp(comet_app);
-        alert(" stream_comet_update_app is not null");
-});
-
