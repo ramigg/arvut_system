@@ -69,12 +69,19 @@
         <script type="text/javascript">
             var button_update_app = null;
 
+	          function delayedButtonUpdataAppInit() {
+		        	if (comet_app.isConnected()) {
+	            	button_update_app = new $.ButtonUpdateApp(
+              		comet_app,
+              		<%= @users_group_id %>,
+              		<%= current_user.id %>);
+	  					} else {
+	  						setTimeout(delayedButtonUpdataAppInit, 1000)
+	  					}
+						}
+
             $(document).ready(function() {
-            	if (comet_app != null)
-                button_update_app = new $.ButtonUpdateApp(
-                				comet_app,
-                        <%= @users_group_id %>,
-                        <%= current_user.id %>);
+            	delayedButtonUpdataAppInit();
             });
 
             function update_others(is_click, today_clicks, today_total, today_all_clicks, today_all_total, today_group_clicks, today_group_total) {
