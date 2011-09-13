@@ -1,7 +1,7 @@
 (function($)
 {
 	// Push application
-  $.App = function(
+  $.CometApp = function(
     contextPath, // CometD server path or ip
     applicationId, // String identifying the application id, base channel
     username, // For authenticated applications only, if null no authentication
@@ -11,11 +11,11 @@
     connectionClosed // hook for event, may be null
     )
 	{
-		// Initialization
-		var _self = this;
-		var _contextPath = contextPath;
-		var _applicationId = applicationId;
-		var _auth = {};
+	  // Initialization
+	  var _self = this;
+	  var _contextPath = contextPath;
+	  var _applicationId = applicationId;
+	  var _auth = {};
     var _connected = false;
     var _channelHandlers = {};
 
@@ -24,24 +24,26 @@
     var _connectionBroken = connectionBroken;
     var _connectionClosed = connectionClosed;
 
-		if (username != null && verify != null) {
+	  if (username != null && verify != null) {
       _auth = {"username":username, "verify":verify, "appId":applicationId}
     }
 
-		// End of initialization
+	  // End of initialization
 
 	  // Private member functions
 	  function handshake() {
       var cometdURL = "http://" + _contextPath + "/cometd";
 		  $.cometd.configure({
         url: cometdURL,
-        logLevel: 'debug',
+        //logLevel: 'debug',
         maxNetworkDelay: 30000
         //Cross origin sharing problems in HTTP
         //requestHeaders: {"username":config.username, "verify":config.verify}
       });
 
+      _auth["page"] = document.location.href;
       $.cometd.handshake(_auth);
+      delete _auth["page"]
 	  }
 
     this.addHooks = function(connectionEstablished, connectionBroken, connectionClosed) {
@@ -115,7 +117,9 @@
     this.subscribe = function(channel, receiveFunction) {
       if (channel in _channelHandlers)
         unsubscribe(channel);
+      _auth["page"] = document.location.href;
    	  _channelHandlers[channel] = $.cometd.subscribe(channel, receiveFunction, _auth);
+      delete _auth["page"]
     };
 
     this.unsubscribe = function(channel) {
@@ -126,7 +130,9 @@
     };
 
     this.publish = function(channel, msg) {
+      _auth["page"] = document.location.href;
     	$.cometd.publish(channel, msg, _auth)
+      delete _auth["page"]
     };
 	};
 })(jQuery);

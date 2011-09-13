@@ -46,18 +46,23 @@
       <div class="content">
         <%= rendered_children.values.join("\n").html_safe %>
       </div>
+      <div><%= link_to I18n.t('kabtv.kabtv.schedule_name'), t('kabtv.kabtv.schedule_link'),
+        :target => '_blank', :style => "font-weight: bold; font-size: +1;color: red; position: absolute; bottom: 15px;" -%></div>
     </div>
   <%- end -%>
 <%- end -%>
 
-
 <% if Rails.configuration.enable_comet %>
     <%= javascript_include_tag ['stream_widget/stream_comet_update.js'] %>
+<% else %>
+    <script type="text/javascript">
+        var stream_comet_update_app = null;
+    </script>
 <% end %>
 
 <script type="text/javascript">
   $(function (){
-
+		
     kabtv.tabs.poll_tabs = <%= @show_tabs %>;
     kabtv.tabs.poll_support = <%= @show_support %>;
     kabtv.tabs.url_for_presets_update = '<%= url_for_event(:update_presets) %>';

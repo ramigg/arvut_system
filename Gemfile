@@ -99,4 +99,4 @@ gem 'apotomo', :git => "git@github.com:Bnei-Baruch/apotomo.git", :branch => 'mas
 # gem 'dalli'
 gem 'memcache-client'
 gem 'tolk'
-gem 'rack', '1.2.2'
+gem 'rack'

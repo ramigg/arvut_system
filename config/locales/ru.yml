@@ -476,7 +476,9 @@ ru:
       submit: Отправить
       submitting: Ждите...
       successfully_saved: "Успешно сохранено!"
-    kabtv: 
+    kabtv:
+      schedule_name: Расписание событий
+      schedule_link: https://docs.google.com/spreadsheet/ccc?key=0AvAzVeqlLTMEdEx0MFNzdFdmWWJNc1JaUUhmci0tMFE&hl=en_US
       ask_question: "Задать вопрос"
       awaiting_for_approval: "Ваш вопрос ожидает одобрения модератором"
       cancel: Отменить
