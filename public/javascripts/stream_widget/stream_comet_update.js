@@ -2,27 +2,39 @@
     // Stream Comet Push application
     $.SteamCometUpdateApp = function(comet_app) {
         var _self = this;
-        var channel = "/auth/2";
+        var channel_2 = "/auth/2";
+        var channel_3 = "/auth/3";
 
         function connectionEsteblished() {
             _self.update_others = function(data) {
                 alert("COMET update_others: " + data);
-                comet_app.publish(channel, {
+                comet_app.publish(channel_2, {
                     "data":data});
             };
 
-            comet_app.subscribe(channel, function(data) {
-                alert("subscribe: " + data);
+            _self.update_others_label = function(data) {
+                alert("COMET update_others_label: " + data);
+                comet_app.publish(channel_3, {
+                    "data":data});
+            };
+
+            comet_app.subscribe(channel_2, function(data) {
+                alert("subscribe2: " + data);
                 kabtv.tabs.init(data);
-            })
-        } ;
+            });
+
+            comet_app.subscribe(channel_3, function(data) {
+                alert("subscribe3: " + data);
+                 $('.online-status').html(data.res);
+            });
+        };
 
         function resetMethods() {
-            comet_app.unsubscribe(channel);
-
-            _self.update_others = function(data) {
-            };
-        } ;
+            comet_app.unsubscribe(channel_2);
+            comet_app.unsubscribe(channel_3);
+            _self.update_others = function(data) {};
+            _self.update_others_label = function(data) {};
+        };
 
         comet_app.addHooks(
             connectionEsteblished, //connectionEstablished, // hook for event, may be null
@@ -52,6 +64,24 @@ function publish_stream_preset_4_comet() {
             stream_url: $("select#quality").val()
         },
         success: publish_data_to_comet
+    });
+
+     function publish_data_to_comet_label(data) {
+        if (typeof(stream_comet_update_app) != "undefined"
+            && stream_comet_update_app != null) {
+            stream_comet_update_app.update_others_label(data);
+        }
+    }
+
+     kabtv.tabs.poll_support && $.ajax({
+        url: 'http://live.kab.tv/button.php',
+        data: {
+            image: 'tech',
+            lang: 'ru',
+            no_image: 1
+        },
+        dataType: 'jsonp',
+        success: publish_data_to_comet_label
     });
 }
 
