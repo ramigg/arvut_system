@@ -28,7 +28,7 @@
         },
 
         startPollingSketches: function (){
-            kabtv.sketches.pollID = setInterval(kabtv.sketches.pollSketches, 30000);
+            kabtv.sketches.pollID = setInterval(kabtv.sketches.pollSketches, 60000);
         },
 
         stopPollingSketches: function (){
@@ -190,7 +190,7 @@
         },
 
         startPollingQuestions: function (){
-            kabtv.questions.pollID = setInterval(kabtv.questions.pollQuestions, 30000);
+            kabtv.questions.pollID = setInterval(kabtv.questions.pollQuestions, 90000);
         },
 
         stopPollingQuestions: function (){
@@ -296,7 +296,7 @@
             parent = $("#uniform-" + elem[0].id);
             if (parent.length == 0) elem.uniform();
 
-            kabtv.tabs.pollID = setInterval(kabtv.tabs.pollPresets, 30000);
+            kabtv.tabs.pollID = setInterval(kabtv.tabs.pollPresets, 45000);
         },
 
         stopPollingPresets: function (){
