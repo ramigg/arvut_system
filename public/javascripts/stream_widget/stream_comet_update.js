@@ -20,12 +20,12 @@
 
             comet_app.subscribe(channel_2, function(data) {
                 alert("subscribe2: " + data);
-                kabtv.tabs.init(data);
+                kabtv.tabs.init(data.data);
             });
 
             comet_app.subscribe(channel_3, function(data) {
                 alert("subscribe3: " + data);
-                 $('.online-status').html(data.res);
+                 $('.online-status').html(data.data.res);
             });
         };
 
