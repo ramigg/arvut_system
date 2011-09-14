@@ -37,36 +37,6 @@
   <%= javascript_include_tag ['stream_widget/stream_comet_update.js'] %>
 
 	<script type="text/javascript">
-	  function publish_stream_preset_4_comet() {
-	    function publish_data_to_comet(data) {
-	        if (typeof(stream_comet_update_app) != "undefined"
-	            && stream_comet_update_app != null) {
-	            stream_comet_update_app.update_others(data);
-	        }
-	    }
-
-	    $.ajax({
-	        url: kabtv.tabs.url_for_presets_update,
-	        data: {
-	            timestamp: kabtv.tabs.timestamp,
-	            stream_url: $("select#quality").val()
-	        },
-	        success: publish_data_to_comet
-	    });
-	}
-
-	var stream_comet_update_app = null;
-	function delayedUpdataAppInit() {
-		if (comet_app.isConnected()) {
-	    stream_comet_update_app = new $.SteamCometUpdateApp(comet_app);
-	  } else {
-	  	setTimeout(delayedUpdataAppInit, 1000)
-	  }
-	}
-
-	$(document).ready(function() {
-		delayedUpdataAppInit();
-	});
 <% else %>
     <script type="text/javascript">
         var stream_comet_update_app = null;

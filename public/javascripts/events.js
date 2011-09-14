@@ -226,19 +226,15 @@
         poll_tabs: true,
         poll_support: true,
         pollID: 0,
-        pollPresets: function() {
-            if (typeof(stream_comet_update_app) == "undefined"
-                || stream_comet_update_app == null) {
-                alert("OLD pollPresets");
-                $.ajax({
-                    url: kabtv.tabs.url_for_presets_update,
-                    data: {
-                        timestamp: kabtv.tabs.timestamp,
-                        stream_url: $("select#quality").val()
-                    },
-                    success: kabtv.tabs.init
-                });
-            }
+        pollPresets: function() {alert("OLD kabtv.tabs.pollPresets");
+            $.ajax({
+                url: kabtv.tabs.url_for_presets_update,
+                data: {
+                    timestamp: kabtv.tabs.timestamp,
+                    stream_url: $("select#quality").val()
+                },
+                success: kabtv.tabs.init
+            });
             kabtv.tabs.poll_support && $.ajax({
                 url: 'http://live.kab.tv/button.php',
                 data: {
@@ -251,6 +247,28 @@
                     $('.online-status').html(msg.res);
                 }
             });
+        },
+        pollPresetsByComet: function() {
+            if (typeof(stream_comet_update_app) == "undefined"
+                || stream_comet_update_app == null
+                || !comet_app.isConnected()) {
+                    kabtv.tabs.pollPresets();
+            }
+            else{ alert("NEW kabtv.tabs.pollPresetsByComet");
+                /*kabtv.tabs.poll_support && $.ajax({
+                    url: 'http://live.kab.tv/button.php',
+                    data: {
+                        image: 'tech',
+                        lang: 'ru',
+                        no_image: 1
+                    },
+                    dataType: 'jsonp',
+                    success: function(msg){
+                        $('.online-status').html(msg.res);
+                    }
+                });
+                */
+            }
         },
 
         // init
@@ -300,7 +318,7 @@
             parent = $("#uniform-" + elem[0].id);
             if (parent.length == 0) elem.uniform();
 
-            kabtv.tabs.pollID = setInterval(kabtv.tabs.pollPresets, 30000);
+            kabtv.tabs.pollID = setInterval(kabtv.tabs.pollPresetsByComet, 30000);
         },
 
         stopPollingPresets: function (){
