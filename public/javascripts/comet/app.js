@@ -35,8 +35,8 @@
       var cometdURL = "http://" + _contextPath + "/cometd";
 		  $.cometd.configure({
         url: cometdURL,
-        //logLevel: 'debug',
-        maxNetworkDelay: 30000
+        logLevel: 'debug',
+        maxNetworkDelay: 6*30000
         //Cross origin sharing problems in HTTP
         //requestHeaders: {"username":config.username, "verify":config.verify}
       });
@@ -79,8 +79,9 @@
 		      _connected = message.successful;
 
 		      if (!wasConnected && _connected) {
-		        if (_connectionEstablished != null)
-			      _connectionEstablished();
+		        if (_connectionEstablished != null) {
+  			      _connectionEstablished();
+            }
 		      } else if (wasConnected && !_connected)	{
 		        if (_connectionBroken != null)
 			      	_connectionBroken();
