@@ -226,7 +226,7 @@
         poll_tabs: true,
         poll_support: true,
         pollID: 0,
-        pollPresets: function() {alert("OLD kabtv.tabs.pollPresets");
+        pollPresets: function() {
             $.ajax({
                 url: kabtv.tabs.url_for_presets_update,
                 data: {
@@ -253,21 +253,6 @@
                 || stream_comet_update_app == null
                 || !comet_app.isConnected()) {
                     kabtv.tabs.pollPresets();
-            }
-            else{ alert("NEW kabtv.tabs.pollPresetsByComet");
-                /*kabtv.tabs.poll_support && $.ajax({
-                    url: 'http://live.kab.tv/button.php',
-                    data: {
-                        image: 'tech',
-                        lang: 'ru',
-                        no_image: 1
-                    },
-                    dataType: 'jsonp',
-                    success: function(msg){
-                        $('.online-status').html(msg.res);
-                    }
-                });
-                */
             }
         },
 

@@ -7,25 +7,21 @@
 
         function connectionEsteblished() {
             _self.update_others = function(data) {
-                alert("COMET update_others: " + data);
                 comet_app.publish(channel_2, {
                     "data":data});
             };
 
             _self.update_others_label = function(data) {
-                alert("COMET update_others_label: " + data);
                 comet_app.publish(channel_3, {
                     "data":data});
             };
 
             comet_app.subscribe(channel_2, function(data) {
-                alert("subscribe2: " + data);
-                kabtv.tabs.init(data.data);
+                kabtv.tabs.init(data.data.data);
             });
 
             comet_app.subscribe(channel_3, function(data) {
-                alert("subscribe3: " + data);
-                 $('.online-status').html(data.data.res);
+                 $('.online-status').html(data.data.data.res);
             });
         };
 
