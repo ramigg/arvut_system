@@ -182,7 +182,7 @@ function createUUID() {
         unsubscribe_multi_packet(channel);
       _auth["page"] = document.location.href;
       _multiPacketsCallbacks[channel] = receiveFunction;
-      _channelHandlers[channel] = $.cometd.subscribe(channel, receiveMultiPacket, _auth);
+      _multiPacketChannels[channel] = $.cometd.subscribe(channel, receiveMultiPacket, _auth);
       delete _auth["page"]
     }
 
@@ -200,6 +200,9 @@ function createUUID() {
       URI_MAX_LEN = 1900; // Actually 2083 but we leave span
       // for outer layers of abstraction (Comet stack).
       size = Math.ceil(encodeURI(msg).length / URI_MAX_LEN);
+      if (size == 0)
+        size++;
+
       PACKET_SIZE = Math.ceil(msg.length / size);
 
       uuid = createUUID();
