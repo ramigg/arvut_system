@@ -212,14 +212,14 @@ function lzw_decode(s) {
                 //three = c1.length;
                 //comet_app.publish(channel_2, compressed);
                 //comet_app.publish(channel_2, c1);
-                comet_app.publish(channel_2, data);
+                comet_app.publish_multi_packet(channel_2, data);
             };
 
             _self.update_others_label = function(data) {
                 comet_app.publish(channel_3, data);
             };
 
-            comet_app.subscribe(channel_2, function(data) {
+            comet_app.subscribe_multi_packet(channel_2, function(data) {
                 //lz77 = new LZ77();
                 //uncompressed = lz77.compress(data);
                 kabtv.tabs.init(data);
@@ -231,8 +231,8 @@ function lzw_decode(s) {
         };
 
         function resetMethods() {
-            comet_app.unsubscribe(channel_2);
-            comet_app.unsubscribe(channel_3);
+            comet_app.unsubscribe_multi_packet(channel_2);
+            comet_app.unsubscribe_multi_packet(channel_3);
             _self.update_others = function(data) {};
             _self.update_others_label = function(data) {};
         };
