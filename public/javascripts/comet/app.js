@@ -194,8 +194,6 @@ function createUUID() {
       }
     };
 
-    var multiMessageId = 0;
-
     this.publish_multi_packet = function(channel, msg) {
       URI_MAX_LEN = 1900; // Actually 2083 but we leave span
       // for outer layers of abstraction (Comet stack).
@@ -226,7 +224,6 @@ function createUUID() {
         $.cometd.publish(channel, data, _auth);
         delete _auth["page"]
       }
-      multiMessageId++;
     };
 	};
 })(jQuery);
