@@ -58,7 +58,7 @@ function createUUID() {
 		  $.cometd.configure({
         url: cometdURL,
         logLevel: 'debug',
-        maxNetworkDelay: 6*30000
+        maxNetworkDelay: 5000
         //Cross origin sharing problems in HTTP
         //requestHeaders: {"username":config.username, "verify":config.verify}
       });
@@ -71,18 +71,24 @@ function createUUID() {
     this.addHooks = function(connectionEstablished, connectionBroken, connectionClosed) {
       if (_connectionEstablished == null)
         _connectionEstablished = connectionEstablished;
-      else
-        _connectionEstablished = function() { _connectionEstablished(); connectionEstablished(); };
+      else {
+        var tmp = _connectionEstablished;
+        _connectionEstablished = function() { tmp(); connectionEstablished(); };
+      }
 
       if (_connectionBroken == null)
         _connectionBroken = connectionBroken;
-      else
-        _connectionBroken = function() { _connectionBroken(); connectionBroken(); };
+      else {
+        var tmp = _connectionBroken;
+        _connectionBroken = function() { tmp(); connectionBroken(); };
+      }
 
       if (_connectionClosed == null)
         _connectionClosed = connectionClosed;
-      else
-        _connectionClosed = function() { _connectionClosed(); connectionClosed(); };
+      else {
+        var tmp = _connectionClosed;
+        _connectionClosed = function() { tmp(); connectionClosed(); };
+      }
     }
 
     this.isConnected = function() {
