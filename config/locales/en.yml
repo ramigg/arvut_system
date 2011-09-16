@@ -572,6 +572,7 @@ en:
       cancel: Cancel
       open_in_default_viewer: Open in Default Viewer
       full_screen: Full Screen
+      publish_by_comet: Publish By Comet
 
   social_button:
     i_commit_to: I commit to
