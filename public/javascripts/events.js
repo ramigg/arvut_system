@@ -227,14 +227,18 @@
         poll_support: true,
         pollID: 0,
         pollPresets: function() {
-            $.ajax({
-                url: kabtv.tabs.url_for_presets_update,
-                data: {
-                    timestamp: kabtv.tabs.timestamp,
-                    stream_url: $("select#quality").val()
-                },
-                success: kabtv.tabs.init
-            });
+            if (typeof(stream_comet_update_app) == "undefined"
+                || stream_comet_update_app == null) {
+                alert("OLD pollPresets");
+                $.ajax({
+                    url: kabtv.tabs.url_for_presets_update,
+                    data: {
+                        timestamp: kabtv.tabs.timestamp,
+                        stream_url: $("select#quality").val()
+                    },
+                    success: kabtv.tabs.init
+                });
+            }
             kabtv.tabs.poll_support && $.ajax({
                 url: 'http://live.kab.tv/button.php',
                 data: {
