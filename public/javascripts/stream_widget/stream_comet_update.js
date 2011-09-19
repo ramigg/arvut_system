@@ -240,12 +240,20 @@ function lzw_decode(s) {
             });
         };
 
+
+        function sanityCheck() {
+          if (comet_app.isConnected()) {
+            connectionEsteblished();
+          }
+        };
+
         function resetMethods() {
-            comet_app.unsubscribe_multi_packet(channel_2);
-            comet_app.unsubscribe_multi_packet(channel_3);
-            _self.update_others = function(data) {};
-            _self.update_others_label = function(data) {};
-            _self.update_others_sketches = function(data) {};
+          comet_app.unsubscribe_multi_packet(channel_2);
+          comet_app.unsubscribe(channel_3);
+          comet_app.unsubscribe(channel_4);
+          _self.update_others = function(data) { sanityCheck(); };
+          _self.update_others_label = function(data) { sanityCheck(); };
+          _self.update_others_sketches = function(data) { sanityCheck(); };
         };
 
         comet_app.addHooks(

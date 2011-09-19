@@ -65,7 +65,7 @@ function createUUID() {
 
       _auth["page"] = document.location.href;
       $.cometd.handshake(_auth);
-      delete _auth["page"]
+      delete _auth["page"];
 	  }
 
     this.addHooks = function(connectionEstablished, connectionBroken, connectionClosed) {
@@ -148,7 +148,7 @@ function createUUID() {
         unsubscribe(channel);
       _auth["page"] = document.location.href;
    	  _channelHandlers[channel] = $.cometd.subscribe(channel, receiveFunction, _auth);
-      delete _auth["page"]
+      delete _auth["page"];
     };
 
     this.unsubscribe = function(channel) {
@@ -161,7 +161,7 @@ function createUUID() {
     this.publish = function(channel, msg) {
       _auth["page"] = document.location.href;
       $.cometd.publish(channel, msg, _auth);
-      delete _auth["page"]
+      delete _auth["page"];
     };
 
 
@@ -189,7 +189,7 @@ function createUUID() {
       _auth["page"] = document.location.href;
       _multiPacketsCallbacks[channel] = receiveFunction;
       _multiPacketChannels[channel] = $.cometd.subscribe(channel, receiveMultiPacket, _auth);
-      delete _auth["page"]
+      delete _auth["page"];
     }
 
     this.unsubscribe_multi_packet = function(channel) {
@@ -228,7 +228,7 @@ function createUUID() {
 
         _auth["page"] = document.location.href;
         $.cometd.publish(channel, data, _auth);
-        delete _auth["page"]
+        delete _auth["page"];
       }
     };
 	};
