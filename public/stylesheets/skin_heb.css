@@ -1,8 +1,8 @@
 body{
-	background: #8dd4e6 url(../images/skin/bg_heb.png) repeat-x 0 0;
+	background: #00aeef url(../images/skin/bg_he.png) repeat-x 0 0;
 }
 .skin_bg {
-	background: url(../images/skin/bg_image_heb.png) no-repeat center 0px;
+	background: url(../images/skin/bg_image_he.png) no-repeat center 0px;
     top:0px;
 }
 .wrapper{
