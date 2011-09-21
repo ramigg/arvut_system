@@ -52,14 +52,6 @@
   <%- end -%>
 <%- end -%>
 
-<% if Rails.configuration.enable_comet %>
-    <%= javascript_include_tag ['stream_widget/stream_comet_update.js'] %>
-<% else %>
-    <script type="text/javascript">
-        var stream_comet_update_app = null;
-    </script>
-<% end %>
-
 <script type="text/javascript">
   $(function (){
 		

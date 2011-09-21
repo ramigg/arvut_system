@@ -28,7 +28,7 @@
         },
 
         startPollingSketches: function (){
-            kabtv.sketches.pollID = setInterval(kabtv.sketches.pollSketches, 30000);
+            kabtv.sketches.pollID = setInterval(kabtv.sketches.pollSketches, 60000);
         },
 
         stopPollingSketches: function (){
@@ -190,7 +190,7 @@
         },
 
         startPollingQuestions: function (){
-            kabtv.questions.pollID = setInterval(kabtv.questions.pollQuestions, 30000);
+            kabtv.questions.pollID = setInterval(kabtv.questions.pollQuestions, 90000);
         },
 
         stopPollingQuestions: function (){
@@ -227,18 +227,14 @@
         poll_support: true,
         pollID: 0,
         pollPresets: function() {
-            if (typeof(stream_comet_update_app) == "undefined"
-                || stream_comet_update_app == null) {
-                alert("OLD pollPresets");
-                $.ajax({
-                    url: kabtv.tabs.url_for_presets_update,
-                    data: {
-                        timestamp: kabtv.tabs.timestamp,
-                        stream_url: $("select#quality").val()
-                    },
-                    success: kabtv.tabs.init
-                });
-            }
+            $.ajax({
+                url: kabtv.tabs.url_for_presets_update,
+                data: {
+                    timestamp: kabtv.tabs.timestamp,
+                    stream_url: $("select#quality").val()
+                },
+                success: kabtv.tabs.init
+            });
             kabtv.tabs.poll_support && $.ajax({
                 url: 'http://live.kab.tv/button.php',
                 data: {
@@ -300,7 +296,7 @@
             parent = $("#uniform-" + elem[0].id);
             if (parent.length == 0) elem.uniform();
 
-            kabtv.tabs.pollID = setInterval(kabtv.tabs.pollPresets, 30000);
+            kabtv.tabs.pollID = setInterval(kabtv.tabs.pollPresets, 45000);
         },
 
         stopPollingPresets: function (){
