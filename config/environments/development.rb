@@ -44,11 +44,11 @@ Simulator::Application.configure do
   config.active_support.deprecation = :log
 
   config.enable_comet = true
-  #config.comet_server = "kabbalahgroup.info:80"
+  config.comet_server = "kabbalahgroup.info"
   #config.comet_server = "localhost:8080"
   #config.comet_server = "192.168.2.101:8080"
   #config.comet_server = "localhost:8080"
-  config.comet_server = "red5-5.kbb1.com:8080"
+  #config.comet_server = "red5-5.kbb1.com:8080"
   #config.comet_server = "comet.kbb1.com:8080"
   config.comet_application_id = "2"
   config.comet_auth_key = "01234567890abcde01234567890abcde"
