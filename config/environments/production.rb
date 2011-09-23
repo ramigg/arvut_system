@@ -57,11 +57,11 @@ Simulator::Application.configure do
   # config.threadsafe!
 
   config.active_support.deprecation = :notify
-  
+
   # enable push-engine (update web-page without refresh)
   config.enable_comet = true
-  config.comet_server = "comet.kbb1.com:80"
+  config.comet_server = "kabbalahgroup.info"
   config.comet_application_id = "1"
   config.comet_auth_key = "01234567890abcde01234567890abcde"
-  config.comet_auth_iv = "fedcba9876543210fedcba9876543210"  
+  config.comet_auth_iv = "fedcba9876543210fedcba9876543210"
 end
