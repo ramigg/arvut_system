@@ -46,8 +46,8 @@
       <div class="content">
         <%= rendered_children.values.join("\n").html_safe %>
       </div>
-      <div><%= link_to I18n.t('kabtv.kabtv.schedule_name'), t('kabtv.kabtv.schedule_link'),
-        :target => '_blank', :style => "font-weight: bold; font-size: +1;color: red; position: absolute; bottom: 15px;" -%></div>
+      <!--<div><%= link_to I18n.t('kabtv.kabtv.schedule_name'), t('kabtv.kabtv.schedule_link'),
+        :target => '_blank', :style => "font-weight: bold; font-size: +1;color: red; position: absolute; bottom: 15px;" -%></div> -->
     </div>
   <%- end -%>
 <%- end -%>
@@ -68,6 +68,7 @@
       var stream_url = $("select#quality").val();
       kabtv.tabs.draw_player(stream_url);
     });
+
     $("select#quality").live('change', function(){
       var stream_url = $(this).val();
       kabtv.tabs.draw_player(stream_url);
