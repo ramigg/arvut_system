@@ -28,7 +28,7 @@
         },
 
         startPollingSketches: function (){
-            kabtv.sketches.pollID = setInterval(kabtv.sketches.pollSketchesByComet, 30000);
+            kabtv.sketches.pollID = setInterval(kabtv.sketches.pollSketches, 30000);
         },
 
         pollSketchesByComet: function() {
@@ -259,7 +259,7 @@
         pollPresetsByComet: function() {
             if (typeof(stream_comet_update_app) == "undefined"
                 || stream_comet_update_app == null
-                || !comet_app.isConnected()) {
+                || !comet_app.isConnected()) {      // || comet_app.isReconnected()
                     kabtv.tabs.pollPresets();
             }
         },
