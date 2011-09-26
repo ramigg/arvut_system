@@ -256,10 +256,16 @@ function lzw_decode(s) {
           _self.update_others_sketches = function(data) { sanityCheck(); };
         };
 
+        function resetMethodsAndTimestamp() {
+          resetMetods();
+          kabtv.tabs.timestamp = "";
+        };
+
+
         comet_app.addHooks(
             connectionEsteblished, //connectionEstablished, // hook for event, may be null
             resetMethods, //connectionBroken, // hook for event, may be null
-            resetMethods //connectionClosed // hook for event, may be null
+            resetMethodsAndTimestamp //connectionClosed // hook for event, may be null
         );
 
         if (comet_app.isConnected())
