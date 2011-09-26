@@ -120,7 +120,8 @@ function createUUID() {
         function(message) {
 			    if (message.successful)
 			    {
-			        _connected = false;
+              _connected = false;
+              _connectionClosed();
 			    }
 			  });
 

@@ -50,10 +50,16 @@ group :production do
 end
 
 group :development do
+<<<<<<< HEAD
 	gem 'ruby-debug', '0.10.3'
+=======
+  gem 'ruby-debug', '0.10.3'
+>>>>>>> origin/kolmanv
   gem 'ruby-debug-base', '0.10.3'
   gem 'ruby-debug-ide', '0.4.7'
+  gem 'rails-dev-boost', :git => 'git://github.com/thedarkone/rails-dev-boost.git', :require => 'rails_development_boost'
 end
+
 
 #group :test do
 #  gem 'capybara'
