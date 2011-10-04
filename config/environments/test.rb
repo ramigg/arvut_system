@@ -30,10 +30,11 @@ Simulator::Application.configure do
   # This is necessary if your schema can't be completely dumped by the schema dumper,
   # like if you have constraints or database-specific column types
   # config.active_record.schema_format = :sql
-  
+
   config.enable_comet = false
   config.comet_server = "comet.kbb1.com:80"
   config.comet_application_id = "1"
-  config.comet_auth_key = "01234567890abcde01234567890abcde"
-  config.comet_auth_iv = "fedcba9876543210fedcba9876543210"
+  comet_yml = YAML::load_file("#{::Rails.root}/config/comet.yml")
+  config.comet_auth_key = comet_yml["comet_auth_key"]
+  config.comet_auth_iv = comet_yml["comet_auth_iv"]
 end
