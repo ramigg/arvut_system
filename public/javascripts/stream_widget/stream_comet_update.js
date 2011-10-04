@@ -4,7 +4,6 @@ var LZ77 = function (settings) {
   settings = settings || {};
 
   // PRIVATE
-
   var referencePrefix = "`";
   var referenceIntBase = settings.referenceIntBase || 96;
   var referenceIntFloorCode = " ".charCodeAt(0);
