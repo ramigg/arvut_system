@@ -1,4 +1,3 @@
-
 var LZ77 = function (settings) {
 
   settings = settings || {};
