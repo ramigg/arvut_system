@@ -257,10 +257,9 @@ function lzw_decode(s) {
         };
 
         function resetMethodsAndTimestamp() {
-          resetMetods();
           kabtv.tabs.timestamp = "";
+          resetMethods();
         };
-
 
         comet_app.addHooks(
             connectionEsteblished, //connectionEstablished, // hook for event, may be null
