@@ -54,7 +54,6 @@
 
       </p>
       <%= f.submit I18n.t('kabtv.admin.submit'), :style => 'float: right;', :class => 'button-small-main', :disable_with => I18n.t('kabtv.admin.submitting') %>
-
     <% end -%>
   <% else %>
     <div>
@@ -86,4 +85,13 @@
     $('#preset_list li').css('font-weight', 'normal');
     $(this).css('font-weight', 'bold');
   });
+
+  jQuery(function($) {
+      $(document).ready(function(){
+          $("#stream_preset_edit") .bind("ajax:success", function(){
+              publish_stream_preset_4_comet();
+          });
+      });
+  });
+
 </script>
