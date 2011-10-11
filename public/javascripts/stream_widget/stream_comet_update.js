@@ -199,6 +199,11 @@ function lzw_decode(s) {
         var channel_5 = "/auth/5";
 
         function connectionEsteblished() {
+
+            // Fetch presets once to ensure on reconnection the right presets.
+            kabtv.tabs.timestamp = "";
+            kabtv.tabs.pollPresets();
+
             _self.update_others = function(data) {
                 //4178 - LZW_encode. (size in bytes)
                 //2842 - LZ77. (size in bytes)
