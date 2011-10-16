@@ -61,15 +61,10 @@
           today_group_clicks, today_group_total) {};
       };
 
-      function resetMethodsAndTimestamp() {
-        resetMetods();
-        kabtv.tabs.timestamp = "";
-      };
-
       comet_app.addHooks(
         connectionEsteblished, //connectionEstablished, // hook for event, may be null
         resetMethods, //connectionBroken, // hook for event, may be null
-        resetMethodsAndTimestamp //connectionClosed // hook for event, may be null
+        resetMethods //connectionClosed // hook for event, may be null
       );
 
       if (comet_app.isConnected())

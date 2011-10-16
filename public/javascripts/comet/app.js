@@ -180,7 +180,7 @@ function createUUID() {
         for(i=0; i < data.data.size; i++)
           val += _multiPackets[data.data.id][i];
         _multiPacketsCallbacks[data.channel](val);
-        delete _multiPackets[data.datd.id];
+        delete _multiPackets[data.data.id];
       }
     }
 
