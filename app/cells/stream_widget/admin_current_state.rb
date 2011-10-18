@@ -10,7 +10,6 @@ module StreamWidget
     end
     
     def redraw
-      @push_to_commet = true
       replace :view => :display
     end
     
