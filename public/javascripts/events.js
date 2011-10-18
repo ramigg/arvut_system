@@ -258,13 +258,14 @@
             //var reload_player = false; -- initialized in responce from server
 
             // If activity status was changed - reload player
-            // If not active and stream state was changed - reload player 
+            // If not active and stream state was changed - reload player
             if ((kabtv.tabs.presets_data == null) || (kabtv.tabs.presets_data.stream_preset.is_active != presets_data.stream_preset.is_active) ||
             (!presets_data.stream_preset.is_active && presets_data.stream_preset.stream_state_id != kabtv.tabs.presets_data.stream_preset.stream_state_id)) {
                 reload_player = true;
             }
 
             // If presets were changed...
+            // If presets are not defined, check where data comes from.
             if (kabtv.tabs.presets != presets || kabtv.tabs.presets_data != presets_data) {
                 kabtv.tabs.presets = presets;
                 kabtv.tabs.presets_data = presets_data;
@@ -281,13 +282,13 @@
             //                    reload_player = true;
             //                }
             }
-            
+
             // Sync presets and redraw player
             if (reload_player) {
                 kabtv.tabs.draw_player(stream_url);
             }
         },
-        
+
         startPollingPresets: function (){
             var elem = $("select#language_id");
             var parent = $("#uniform-" + elem[0].id);
