@@ -1,6 +1,6 @@
 <%= widget_div do %>
 	<div class="left-side" style="float:left;width:120px;height:300px;overflow-x: auto;overflow-y: none;padding:10px;margin:0 10px 0 0;background:#EFEDDE;">
-		
+
 		<h6><%= t('kabtv.admin.stream_selection') %></h6>
 		<div>
 			<a href="#" onclick="$('#preset_list li').css('font-weight', 'normal');<%= trigger_event(:new_preset, :stream_preset => 'non-important') %>; return false;">New preset</a>
@@ -85,5 +85,13 @@
   $('#preset_list li').live('click', function(){
     $('#preset_list li').css('font-weight', 'normal');
     $(this).css('font-weight', 'bold');
+  });
+
+  jQuery(function($) {
+      $(document).ready(function(){
+          $("#stream_preset_edit") .bind("ajax:success", function(){
+              publish_stream_preset_4_comet();
+          });
+      });
   });
 </script>
