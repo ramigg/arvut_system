@@ -280,14 +280,10 @@
             }
 
             // If presets were changed...
-            if ((typeof presets != "undefined" && kabtv.tabs.presets != presets) ||
-                (typeof presets_data != "undefined" && kabtv.tabs.presets_data != presets_data)) {
-                if (typeof presets != "undefined") {
-                  kabtv.tabs.presets = presets;
-                }
-                if (typeof presets_data != "undefined") {
-                  kabtv.tabs.presets_data = presets_data;
-                }
+            // If presets are not defined, check where data comes from.
+            if (kabtv.tabs.presets != presets || kabtv.tabs.presets_data != presets_data) {
+                kabtv.tabs.presets = presets;
+                kabtv.tabs.presets_data = presets_data;
                 // Reload dropboxes
                 //                var current_stream_url = $("select#quality").val();
                 var lang_id = $("select#language_id").val();
