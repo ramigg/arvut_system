@@ -202,7 +202,7 @@ function createUUID() {
     };
 
     this.publish_multi_packet = function(channel, msg) {
-      URI_MAX_LEN = 1900; // Actually 2083 but we leave span
+      URI_MAX_LEN = 1200; // Actually 2083 but we leave span
       // for outer layers of abstraction (Comet stack).
       size = Math.ceil(encodeURI(msg).length / URI_MAX_LEN);
       if (size == 0)
