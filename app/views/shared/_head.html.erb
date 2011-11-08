@@ -1,4 +1,5 @@
 <%= stylesheet_link_tag 'reset', 'jquery-ui-1.8.4.custom' %>
+<%= stylesheet_link_tag 'countdown' %>
 <%- if Rails.env == 'development' && !request.env['HTTP_USER_AGENT'].match(/MSIE/) -%>
     <%- if is_rtl? %>
         <%= stylesheet_link_tag 'styles-rtl.less', :rel => 'stylesheet/less' %>
@@ -41,6 +42,7 @@
              'jquery-validation',
              'jquery.ba-bbq.min.js',
              #'countdown',
+              'countdown_new',
              'events']
     list << 'jquery.colorbox-min.js' if Rails.configuration.open_stream_in_popup || Rails.configuration.open_blog_in_popup || Page.get_button_content_count > 0
     list << "jquery.ui.datepicker-#{I18n.locale}.js" if current_user && current_user.is_restricted?

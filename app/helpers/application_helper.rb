@@ -34,6 +34,18 @@ module ApplicationHelper
                   end
     return skinCSSName
   end
+
+  def get_skin_url
+    skinURL =  case I18n.locale
+                    when :he then
+                      "http://events.kabbalah.info/Type_1/register.php?ev=118&lang=HEB"
+                    when :ru then
+                      "http://events.kabbalah.info/Type_1/register.php?ev=118&lang=RUS"
+                    else
+                      "http://events.kabbalah.info/Type_1/register.php?ev=118&lang=ENG"
+                  end
+    return skinURL
+  end
   
   def ckeditor_toolbar(klass = 'Min')
     is_rtl? ? "#{klass}_he" : klass

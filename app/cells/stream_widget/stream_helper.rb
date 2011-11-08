@@ -51,6 +51,14 @@ module StreamWidget
     def current_user
       @current_user ||= param :current_user
     end
+
+    def set_push_to_commet_flag (flag)
+      session["is_push_to_commet"] = flag
+    end
+
+    def get_push_to_commet_flag
+       session["is_push_to_commet"]
+    end
     
   end
 end

@@ -1,6 +1,6 @@
 <%= widget_div do %>
 	<div class="left-side" style="float:left;width:120px;height:300px;overflow-x: auto;overflow-y: none;padding:10px;margin:0 10px 0 0;background:#EFEDDE;">
-		
+
 		<h6><%= t('kabtv.admin.stream_selection') %></h6>
 		<div>
 			<a href="#" onclick="$('#preset_list li').css('font-weight', 'normal');<%= trigger_event(:new_preset, :stream_preset => 'non-important') %>; return false;">New preset</a>
@@ -54,6 +54,7 @@
 
       </p>
       <%= f.submit I18n.t('kabtv.admin.submit'), :style => 'float: right;', :class => 'button-small-main', :disable_with => I18n.t('kabtv.admin.submitting') %>
+
     <% end -%>
   <% else %>
     <div>
@@ -93,5 +94,4 @@
           });
       });
   });
-
 </script>

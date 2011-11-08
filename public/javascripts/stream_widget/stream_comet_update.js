@@ -1,10 +1,8 @@
-
 var LZ77 = function (settings) {
 
   settings = settings || {};
 
   // PRIVATE
-
   var referencePrefix = "`";
   var referenceIntBase = settings.referenceIntBase || 96;
   var referenceIntFloorCode = " ".charCodeAt(0);
@@ -201,6 +199,14 @@ function lzw_decode(s) {
         var channel_5 = "/auth/5";
 
         function connectionEsteblished() {
+
+            // Fetch presets once to ensure on reconnection the right presets.
+            if (typeof kabtv.tabs.url_for_presets_update != "undefined" &&
+                kabtv.tabs.url_for_presets_update != "") {
+              kabtv.tabs.timestamp = "";
+              kabtv.tabs.pollPresets();
+            }
+
             _self.update_others = function(data) {
                 //4178 - LZW_encode. (size in bytes)
                 //2842 - LZ77. (size in bytes)
@@ -256,10 +262,15 @@ function lzw_decode(s) {
           _self.update_others_sketches = function(data) { sanityCheck(); };
         };
 
+        function resetMethodsAndTimestamp() {
+          kabtv.tabs.timestamp = "";
+          resetMethods();
+        };
+
         comet_app.addHooks(
             connectionEsteblished, //connectionEstablished, // hook for event, may be null
             resetMethods, //connectionBroken, // hook for event, may be null
-            resetMethods //connectionClosed // hook for event, may be null
+            resetMethodsAndTimestamp //connectionClosed // hook for event, may be null
         );
 
         if (comet_app.isConnected())

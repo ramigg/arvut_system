@@ -120,7 +120,8 @@ function createUUID() {
         function(message) {
 			    if (message.successful)
 			    {
-			        _connected = false;
+              _connected = false;
+              _connectionClosed();
 			    }
 			  });
 
@@ -179,7 +180,7 @@ function createUUID() {
         for(i=0; i < data.data.size; i++)
           val += _multiPackets[data.data.id][i];
         _multiPacketsCallbacks[data.channel](val);
-        delete _multiPackets[data.datd.id];
+        delete _multiPackets[data.data.id];
       }
     }
 
@@ -201,7 +202,7 @@ function createUUID() {
     };
 
     this.publish_multi_packet = function(channel, msg) {
-      URI_MAX_LEN = 1900; // Actually 2083 but we leave span
+      URI_MAX_LEN = 1200; // Actually 2083 but we leave span
       // for outer layers of abstraction (Comet stack).
       size = Math.ceil(encodeURI(msg).length / URI_MAX_LEN);
       if (size == 0)

@@ -9,6 +9,7 @@ module StreamWidget
     end
 
     def switch_stream
+      set_push_to_commet_flag(true)
       is_active = param :is_active
       if is_active
       current_preset.update_attribute(:is_active, true)
@@ -16,7 +17,8 @@ module StreamWidget
         stream_state_id = param :stream_state_id
         current_preset.update_attributes(:is_active => false, :stream_state_id => stream_state_id)
       end
-      trigger :update_current_state 
+      trigger :update_current_state
+      set_push_to_commet_flag(false)
     end
     
   end

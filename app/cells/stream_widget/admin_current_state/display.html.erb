@@ -2,7 +2,7 @@
     <div id="current_state" style="text-align:center;margin:20px 0;font-weight:bold;line-height:22px">
         Current state:<br/><span style="font-size:24px;<%= stream_state_css(current_preset) %>"><%= current_preset.stream_state_text.upcase %></span>
     </div>
-    <%- if @push_to_commet %>
+    <%- if get_push_to_commet_flag %>
         <script type="text/javascript">
             publish_stream_preset_4_comet();
         </script>
