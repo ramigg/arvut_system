@@ -16,9 +16,9 @@ gem "meta_where"
 #gem 'daemons', '~>1.1'
 gem 'mongrel'
 
-gem 'thin'
+gem 'thin', '1.2.7'
 #gem 'sqlite3-ruby', :require => 'sqlite3'
-gem 'pg'
+gem 'pg', '0.9.0'
 gem 'postgres-pr', :require => 'pg'
 gem 'responders'
 #gem 'i18n'
@@ -50,8 +50,8 @@ group :production do
 end
 
 group :development do
-	gem 'ruby-debug', '0.10.3'
-  gem 'ruby-debug-base', '0.10.3'
+	gem 'ruby-debug', '0.10.4'
+  gem 'ruby-debug-base', '0.10.4'
   gem 'ruby-debug-ide', '0.4.7'
 end
 
@@ -69,8 +69,8 @@ end
 
 # CKEditor + Paperclip
 gem 'ckeditor', :git => 'git@github.com:Bnei-Baruch/rails-ckeditor.git', :branch => 'rails3'
-gem 'paperclip', :git => 'http://github.com/thoughtbot/paperclip.git', :platforms => :mri
-#gem 'paperclip' # For windows only , :git => 'http://github.com/benben/paperclip.git'
+#gem 'paperclip', :git => 'http://github.com/thoughtbot/paperclip.git', :platforms => :mri
+gem 'paperclip' # For windows only , :git => 'http://github.com/benben/paperclip.git'
 
 gem 'delayed_job', '2.1.0.pre2'
 
@@ -94,4 +94,3 @@ gem 'apotomo', :git => "git@github.com:Bnei-Baruch/apotomo.git", :branch => 'mas
 gem 'memcache-client'
 gem 'tolk'
 gem 'rack'
-#gem 'rack', '1.2.2'
