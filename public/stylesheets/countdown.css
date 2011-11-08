@@ -1,0 +1,38 @@
+#countdown-placement{
+	position:relative;
+	top:0;
+	left:0;
+    width: 160px;
+    margin:38px 0 10px 22px;
+	float:left;
+}
+#countdown-placement ul{
+	list-style:none;
+	margin:0;
+	padding:0;
+}
+#countdown-placement ul li{
+	list-style:none;
+	display:block;
+	height:38px;
+	margin:0;
+	padding:0;
+	padding-left:38px;
+	background: url(images/counter_icons.png) no-repeat;
+}
+
+#countdown-placement ul li span, #countdown-placement p{
+	position:relative;
+	bottom:3%;
+	*bottom:0%;
+	color: #e8812e;
+	font-family: Arial;
+	font-size:20px;
+}
+#countdown-placement ul li.days{
+	background-position: 0 0;
+
+}
+#countdown-placement ul li.time{
+	background-position: 0 -37px;
+}
