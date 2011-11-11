@@ -24,7 +24,7 @@
 #countdown-placement ul li span, #countdown-placement p{
 	position:relative;
 	bottom:3%;
-	*bottom:0%;
+	bottom:-5px;
 	color: #e8812e;
 	font-family: Arial;
 	font-size:20px;
