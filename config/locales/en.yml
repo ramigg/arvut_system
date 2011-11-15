@@ -527,6 +527,8 @@ en:
       default: Default
       inactive_image: Inactive image
       stream_URL: Stream URL
+      quality: Quality
+      technology: Technology
       language: Language
       description: Description
       add_stream_item: Add stream item
@@ -572,6 +574,10 @@ en:
       cancel: Cancel
       open_in_default_viewer: Open in Default Viewer
       full_screen: Full Screen
+      thank_you: Thank you!
+      submit_problem: Unable to send message :(\nPlease try again later.
+      describe_problem: Describe your problem
+      empty_message: Please fill а message in
 
   social_button:
     i_commit_to: I commit to

@@ -1,89 +1,126 @@
 <%= widget_div do %>
-	<div class="left-side" style="float:left;width:120px;height:300px;overflow-x: auto;overflow-y: none;padding:10px;margin:0 10px 0 0;background:#EFEDDE;">
-		
-		<h6><%= t('kabtv.admin.stream_selection') %></h6>
-		<div>
-			<a href="#" onclick="$('#preset_list li').css('font-weight', 'normal');<%= trigger_event(:new_preset, :stream_preset => 'non-important') %>; return false;">New preset</a>
-		</div>
-		<hr style="border: 1px solid #999; margin: auto;" />
-		<%= render 'preset_list' %>
-	</div>
+    <div class="left-side" style="float:left;width:120px;height:300px;overflow-x: auto;overflow-y: none;padding:10px;margin:0 10px 0 0;background:#EFEDDE;">
 
-  <% if @stream_preset %>
-    <%= form_for @stream_preset, :as => :stream_preset, :url => url_for_event(:submit), :remote => true do |f| -%>
-      <%= f.hidden_field :id %>
-      <%= f.label :name, I18n.t('kabtv.admin.preset_name') %>
-      <%= f.text_field :name %>
-      <%= f.label I18n.t('kabtv.admin.is_active') %>
-      <%= f.check_box :is_active %>
-			<%= f.select :stream_state_id, StreamState.all.collect{|l|[ l.name.humanize, l.id]}, {}, :style => "font-size:11px;padding:0 !important;margin-right:4px;" %>
-      <fieldset class="show_tabs" style="padding:5px 5px 15px; margin:10px 0;">
-        <legend> <%= I18n.t('kabtv.admin.show') %> </legend>
-        <%= f.label I18n.t('kabtv.admin.show_questions') %>:
-        <%= f.check_box :show_questions %>
-        <%= f.label I18n.t('kabtv.admin.show_schedule') %>:
-        <%= f.check_box :show_schedule %>
-        <%= f.label I18n.t('kabtv.admin.show_sketches') %>:
-        <%= f.check_box :show_sketches %>
-        <%= f.label I18n.t('kabtv.admin.show_support') %>:
-        <%= f.check_box :show_support %>
-        <%= f.label I18n.t('kabtv.admin.show_separate_window') %>:
-        <%= f.check_box :show_separate_window %>
-        <br/>
-      </fieldset>
-      <div style="overflow: auto;height:260px;margin-bottom: 10px;border-bottom: 2px solid #aaa;">
-        <table id="presets-table" style="border-collapse: collapse;border-spacing: 0;font-size:10px;margin: 10px 0 0;">
-          <caption></caption>
-          <thead>
-            <tr>
-              <th style="font-weight:normal;"><%= I18n.t('kabtv.admin.description') %></th>
-              <th style="font-weight:normal;"><%= I18n.t('kabtv.admin.language') %></th>
-              <th style="font-weight:normal;"><%= I18n.t('kabtv.admin.stream_URL') %></th>
-              <th style="font-weight:normal;"><%= I18n.t('kabtv.admin.default') %></th>
-              <th style="font-weight:normal;">X</th>
-            </tr>
-          </thead>
+      <h6><%= t('kabtv.admin.stream_selection') %></h6>
 
-          <%= f.fields_for :stream_items do |stream_items| -%>
-            <%= render :partial => "stream_items", :locals => { :stream_items => stream_items } %>
-          <% end -%>
-        </table>
+      <div>
+        <a href="#" onclick="$('#preset_list li').css('font-weight', 'normal');<%= trigger_event(:new_preset, :stream_preset => 'non-important') %>; return false;">New
+          preset</a>
       </div>
-      <p style='float: left;margin-left: 150px;'><%= link_to_add_cell_fields I18n.t('kabtv.admin.add_stream_item'), f, :stream_items %></p>
-      <p id="stream_preset_messages" style='float: left;margin-left: 30px;'>
-
-      </p>
-      <%= f.submit I18n.t('kabtv.admin.submit'), :style => 'float: right;', :class => 'button-small-main', :disable_with => I18n.t('kabtv.admin.submitting') %>
-
-    <% end -%>
-  <% else %>
-    <div>
-      <%= I18n.t('kabtv.admin.select_preset_or_add') %>
+      <hr style="border: 1px solid #999; margin: auto;"/>
+      <%= render 'preset_list' %>
     </div>
-  <% end %>
-  <div class="clear"></div>
+
+    <% if @stream_preset %>
+        <%= form_for @stream_preset, :as => :stream_preset, :url => url_for_event(:submit), :remote => true do |f| -%>
+            <p>
+              <%= f.hidden_field :id %>
+              <%= f.label :name, I18n.t('kabtv.admin.preset_name') %>
+              <%= f.text_field :name %>
+              <%= f.label I18n.t('kabtv.admin.is_active') %>
+              <%= f.check_box :is_active %>
+              <%= f.select :stream_state_id, StreamState.all.collect { |l| [l.name.humanize, l.id] }, {}, :style => "font-size:11px;padding:0 !important;margin-right:4px;" %>
+            </p>
+            <fieldset>
+              <legend> <%= I18n.t('kabtv.admin.show') %> </legend>
+              <%= f.label I18n.t('kabtv.admin.show_questions') %>:
+              <%= f.check_box :show_questions %>
+              <%= f.label I18n.t('kabtv.admin.show_schedule') %>:
+              <%= f.check_box :show_schedule %>
+              <%= f.label I18n.t('kabtv.admin.show_sketches') %>:
+              <%= f.check_box :show_sketches %>
+              <%= f.label I18n.t('kabtv.admin.show_support') %>:
+              <%= f.check_box :show_support %>
+              <%= f.label I18n.t('kabtv.admin.show_separate_window') %>:
+              <%= f.check_box :show_separate_window %>
+              <br/>
+            </fieldset>
+
+            <%- default_lang_id = Language.default[0].id %>
+            <div>
+              <%= select_tag 'preset_languages', options_from_collection_for_select(Language.all, :id, :language, default_lang_id), :include_blank => 'Select language',
+                             :style => "font-size:11px;padding:0 !important;margin-right:4px;",
+                             :onchange => 'select_frame();'
+              %>
+            </div>
+            <div id="presets_languages_list">
+              <%- Language.all.each do |language| -%>
+                  <%- @preset_language = PresetLanguage.where(:stream_preset_id => @stream_preset.id, :language_id => language.id).first ||
+                          PresetLanguage.new(:stream_preset_id => @stream_preset.id, :language_id => language.id)
+                  %>
+                  <%= f.fields_for :preset_languages_attributes, @preset_language, :index => @preset_language.id do |pl| -%>
+                      <fieldset id="language_<%= language.id %>"
+                                style="<%- if default_lang_id != language.id %>display: none;<%- end %>float: left;"
+                      >
+                        <legend> <%= language.language %> </legend>
+                        <%= pl.hidden_field :id %>
+                        <%= pl.hidden_field :language_id %>
+                        <%= pl.hidden_field :stream_preset_id %>
+                        Default Technology: <%= pl.select :technology_id, options_from_collection_for_select(Technology.all, :id, :name, :selected => @preset_language.technology_id) %>
+                        <%= pl.hidden_field :quality_id %>
+                        <%#= pl.select :quality_id, options_from_collection_for_select(Quality.all, :id, :name, :selected => @preset_language.quality_id) %>
+
+                        <table style="border-collapse: collapse;border-spacing: 0;font-size:10px;margin: 10px 0 0;">
+                          <thead>
+                          <tr>
+                            <th style="font-weight:normal;"><%= I18n.t('kabtv.admin.technology') %></th>
+                            <th style="font-weight:normal;"><%= I18n.t('kabtv.admin.quality') %></th>
+                            <th style="font-weight:normal;"><%= I18n.t('kabtv.admin.stream_URL') %></th>
+                            <th style="font-weight:normal;"><%= I18n.t('kabtv.admin.default') %></th>
+                            <th style="font-weight:normal;">X</th>
+                          </tr>
+                          </thead>
+
+                          <%- @preset_language.stream_items.each do |item| %>
+                              <%= pl.fields_for :stream_items_attributes, item, :index => item.id do |si| %>
+                                  <%= render :partial => 'stream_items', :locals => {:form => si, :object => item} %>
+                              <% end -%>
+                          <% end -%>
+
+                          <tr>
+                            <td><%= link_to_add_cell_fields I18n.t('kabtv.admin.add_stream_item'), pl, StreamItem.new(
+                                            :quality_id => @preset_language.quality.try(:id),
+                                            :technology_id => @preset_language.technology.try(:id)
+                                    ), 'stream_items',
+                                            "#presets_languages_list #language_#{language.id} table tr:last" %></td>
+                          </tr>
+                        </table>
+                      </fieldset>
+                  <%- end -%>
+
+              <%- end -%>
+              <p id="stream_preset_messages" style='float: left;margin-left: 30px;'>
+            </div>
+            <%= f.submit I18n.t('kabtv.admin.submit'), :style => 'float: right;', :class => 'button-small-main', :disable_with => I18n.t('kabtv.admin.submitting') %>
+
+        <% end -%>
+    <% else %>
+        <div>
+          <%= I18n.t('kabtv.admin.select_preset_or_add') %>
+        </div>
+    <% end %>
+    <div class="clear"></div>
 <% end -%>
 
 <script type="text/javascript">
-  function add_field(link, association, content) {
-    var new_id = new Date().getTime();
-    var regexp = new RegExp("new_" + association, "g");
-    content = content.replace(regexp, new_id)
-    $('#presets-table').append(content);
-  }
+    function remove_field(link, is_new_record) {
+        $(link).closest("div.add_other").children("p.add_other").children("a").show();
+        if (is_new_record) {
+            $(link).parent().parent().remove();
+        }
+        else {
+            $(link).prev("input[type=hidden]").val("1");
+            $(link).parent().parent().hide();
+        }
+    }
+    $('#preset_list li').live('click', function() {
+        $('#preset_list li').css('font-weight', 'normal');
+        $(this).css('font-weight', 'bold');
+    });
 
-  function remove_field(link, is_new_record) {
-    $(link).closest("div.add_other").children("p.add_other").children("a").show();
-    if(is_new_record){
-      $(link).parent().parent().remove();
+    function select_frame() {
+        var language = $("#preset_languages").val();
+        $("#presets_languages_list fieldset").hide();
+        $("#presets_languages_list fieldset#language_" + language).show();
     }
-    else{
-      $(link).prev("input[type=hidden]").val("1");
-      $(link).parent().parent().hide();
-    }
-  }
-  $('#preset_list li').live('click', function(){
-    $('#preset_list li').css('font-weight', 'normal');
-    $(this).css('font-weight', 'bold');
-  });
 </script>

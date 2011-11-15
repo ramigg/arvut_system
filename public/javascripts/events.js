@@ -27,17 +27,17 @@
             });
         },
 
-        startPollingSketches: function (){
+        startPollingSketches: function () {
             kabtv.sketches.pollID = setInterval(kabtv.sketches.pollSketches, 60000);
         },
 
-        stopPollingSketches: function (){
+        stopPollingSketches: function () {
             if (kabtv.sketches.pollID == 0) return;
             clearInterval(kabtv.sketches.pollID);
             kabtv.sketches.pollID = 0;
         },
 
-        transit_init: function (data){
+        transit_init: function (data) {
             // Note: data is already inserted by JS received from server
             show_new_sketches = false;
             transition_to_last = false;
@@ -53,8 +53,8 @@
                     kabtv.sketches.$last.css('z-index', 10); // Become the upper for sure
                     $('#sketches .title').text(kabtv.sketches.total + '/' + kabtv.sketches.total);
                 } else {
-            // And still there are no images
-            }
+                    // And still there are no images
+                }
             } else {
                 // There were some images
                 if (kabtv.sketches.$images.length > 0) {
@@ -94,14 +94,14 @@
                 kabtv.sketches.last();
         },
 
-        first: function (){
+        first: function () {
             if (kabtv.sketches.total <= 1)
                 return;
             kabtv.sketches.$item = kabtv.sketches.$first;
             kabtv.sketches.transit_to();
         },
 
-        last: function (){
+        last: function () {
             if (kabtv.sketches.total <= 1)
                 return;
             kabtv.sketches.$item = kabtv.sketches.$last;
@@ -109,39 +109,39 @@
             $('#new_sketches').hide();
         },
 
-        prev: function (){
+        prev: function () {
             if (kabtv.sketches.total <= 1)
                 return;
             kabtv.sketches.$item = kabtv.sketches.$current.prev();
             kabtv.sketches.transit_to();
         },
 
-        next: function (){
+        next: function () {
             if (kabtv.sketches.total <= 1)
                 return;
             kabtv.sketches.$item = kabtv.sketches.$current.next();
             kabtv.sketches.transit_to();
         },
 
-        transit_to: function (){
+        transit_to: function () {
             if (kabtv.sketches.$item.length == 0 ||
                 kabtv.sketches.$current === kabtv.sketches.$item || kabtv.sketches.$in_transition) return;
             kabtv.sketches.$in_transition = true;
 
             kabtv.sketches.$item.css('z-index', 9); // Beneath the upper one
             kabtv.sketches.$current.animate({
-                opacity: 0
-            }, 1000, 'linear', // Hide the upper one
-            function(){
-                kabtv.sketches.$item.css('z-index', 10); // Become the upper
-                kabtv.sketches.$current.css({
-                    'z-index': 1,
-                    'opacity': 1
-                }); // Go back
-                kabtv.sketches.$current = kabtv.sketches.$item;
-                $('#sketches .title').text((kabtv.sketches.$current.index() + 1) + '/' + kabtv.sketches.total);
-                kabtv.sketches.$in_transition = false;
-            }
+                    opacity: 0
+                }, 1000, 'linear', // Hide the upper one
+                function() {
+                    kabtv.sketches.$item.css('z-index', 10); // Become the upper
+                    kabtv.sketches.$current.css({
+                        'z-index': 1,
+                        'opacity': 1
+                    }); // Go back
+                    kabtv.sketches.$current = kabtv.sketches.$item;
+                    $('#sketches .title').text((kabtv.sketches.$current.index() + 1) + '/' + kabtv.sketches.total);
+                    kabtv.sketches.$in_transition = false;
+                }
             );
         }
     });
@@ -157,7 +157,7 @@
     }
 
     $.extend(kabtv.schedule, {
-        show_day: function(me, day){
+        show_day: function(me, day) {
             var $me = $(me);
             $me.parent().children().removeClass('active');
             $me.addClass('active');
@@ -189,17 +189,17 @@
             });
         },
 
-        startPollingQuestions: function (){
+        startPollingQuestions: function () {
             kabtv.questions.pollID = setInterval(kabtv.questions.pollQuestions, 90000);
         },
 
-        stopPollingQuestions: function (){
+        stopPollingQuestions: function () {
             if (kabtv.questions.pollID == 0) return;
             clearInterval(kabtv.questions.pollID);
             kabtv.questions.pollID = 0;
         },
 
-        toggleAskAndQuestions: function (){
+        toggleAskAndQuestions: function () {
             $(".question-list").toggle();
             $(".question-ask").toggle();
         }
@@ -207,6 +207,15 @@
 
 })(jQuery);
 
+function create_flash_object(url) {
+    var p = new SWFObject('../javascripts/player.swf', 'player', '320', '305', '9', '#ffffff');
+    p.addParam('allowfullscreen', 'true');
+    p.addParam('allowscriptaccess', 'always');
+    p.addParam('wmode', 'opaque');
+    p.addParam('autostart', 'true');
+    p.addParam('flashvars', url);
+    p.write('object');
+}
 
 (function ($) {
 
@@ -220,6 +229,8 @@
     $.extend(kabtv.tabs, {
         presets : null,
         presets_data : null,
+        languages : null,
+        flash_technology: null,
         timestamp: 0,
 
         url_for_presets_update: '',
@@ -231,7 +242,9 @@
                 url: kabtv.tabs.url_for_presets_update,
                 data: {
                     timestamp: kabtv.tabs.timestamp,
-                    stream_url: $("select#quality").val()
+                    stream_url: $("select#quality_id").val(),
+                    flash: pluginlist.indexOf("Flash") != -1,
+                    wmv: pluginlist.indexOf("Windows Media Player") != -1
                 },
                 success: kabtv.tabs.init
             });
@@ -243,14 +256,14 @@
                     no_image: 1
                 },
                 dataType: 'jsonp',
-                success: function(msg){
+                success: function(msg) {
                     $('.online-status').html(msg.res);
                 }
             });
         },
 
         // init
-        init: function(data){
+        init: function(data) {
             if (data == "")
                 return;
             eval(data);
@@ -260,46 +273,44 @@
             // If activity status was changed - reload player
             // If not active and stream state was changed - reload player 
             if ((kabtv.tabs.presets_data == null) || (kabtv.tabs.presets_data.stream_preset.is_active != presets_data.stream_preset.is_active) ||
-            (!presets_data.stream_preset.is_active && presets_data.stream_preset.stream_state_id != kabtv.tabs.presets_data.stream_preset.stream_state_id)) {
+                (!presets_data.stream_preset.is_active && presets_data.stream_preset.stream_state_id != kabtv.tabs.presets_data.stream_preset.stream_state_id)) {
                 reload_player = true;
             }
 
             // If presets were changed...
-            if (kabtv.tabs.presets != presets || kabtv.tabs.presets_data != presets_data) {
+            if (kabtv.tabs.presets != presets || kabtv.tabs.presets_data != presets_data || kabtv.tabs.languages != languages) {
                 kabtv.tabs.presets = presets;
                 kabtv.tabs.presets_data = presets_data;
-                // Reload dropboxes
-                //                var current_stream_url = $("select#quality").val();
-                var lang_id = $("select#language_id").val();
-                $("select#quality option").remove();
-                $(kabtv.tabs.presets[lang_id].options).appendTo('#quality');
-                $("select#quality").prev().text( $("select#quality :selected").text() );
+                kabtv.tabs.languages = languages;
 
-                //                // To reload player?
-                var stream_url = $("select#quality").val();
-            //                if (current_stream_url != stream_url) {
-            //                    reload_player = true;
-            //                }
+                // Reset languages
+                $("select#language_id option").remove();
+                $(kabtv.tabs.languages).appendTo('select#language_id');
+                $("select#language_id").prev().text($("select#language_id :selected").text());
+
+                var lang_id = $("select#language_id :selected").val();
+                set_player_technology(lang_id);
             }
-            
+
             // Sync presets and redraw player
             if (reload_player) {
+                var stream_url = $("select#quality_id").val();
                 kabtv.tabs.draw_player(stream_url);
             }
         },
-        
-        startPollingPresets: function (){
+
+        startPollingPresets: function () {
             var elem = $("select#language_id");
             var parent = $("#uniform-" + elem[0].id);
             if (parent.length == 0) elem.uniform();
-            elem = $("select#quality");
+            elem = $("select#quality_id");
             parent = $("#uniform-" + elem[0].id);
             if (parent.length == 0) elem.uniform();
 
             kabtv.tabs.pollID = setInterval(kabtv.tabs.pollPresets, 45000);
         },
 
-        stopPollingPresets: function (){
+        stopPollingPresets: function () {
             if (kabtv.tabs.pollID == 0) return;
             clearInterval(kabtv.tabs.pollID);
             kabtv.tabs.pollID = 0;
@@ -346,29 +357,33 @@
         <param name="enableContextMenu" value="0" />\
         <param name="windowlessVideo" value="1" /><param name="balance" value="0" />',
 
-        draw_player: function(url){
+        draw_player: function(url) {
             if (url == null) return;
 
             var object;
             if (kabtv.tabs.presets_data.stream_preset.is_active) {
-                if ($.browser.msie)
-                    object = kabtv.tabs.objectMSIE.replace(/URL_PATTERN/g, url);
-                else
-                    object = kabtv.tabs.object.replace(/URL_PATTERN/g, url);
+                if (kabtv.tabs.flash_technology == current_technology) { // Flash
+                    create_flash_object(url);
+                } else { // WMV
+                    if ($.browser.msie)
+                        object = kabtv.tabs.objectMSIE.replace(/URL_PATTERN/g, url);
+                    else
+                        object = kabtv.tabs.object.replace(/URL_PATTERN/g, url);
+                    $('#object').html(object);
+                }
             } else {
                 var lang_id = $("select#language_id").val();
                 object = kabtv.tabs.presets[lang_id].image;
+                $('#object').html(object);
             }
-
-            $('#object').html(object);
         },
 
-        detach: function(){
+        detach: function() {
             var $obj = $('#player');
             if ($obj) {
                 var obj = $obj[0];
-                if (obj.URL){
-                    if (obj.controls && obj.controls.isAvailable('Stop')){
+                if (obj.URL) {
+                    if (obj.controls && obj.controls.isAvailable('Stop')) {
                         obj.controls.stop();
                     }
                     obj.openPlayer(obj.URL);
@@ -376,7 +391,7 @@
             }
         },
 
-        fs: function(){
+        fs: function() {
             var $obj = $('#player');
             if ($obj) {
                 var obj = $obj[0];
@@ -389,3 +404,26 @@
     });
 
 })(jQuery);
+
+var current_language, current_technology;
+
+function set_player_quality(lang_id, tech_id) {
+    current_language = lang_id;
+    current_technology = tech_id;
+    $("select#quality_id option").remove();
+    $(kabtv.tabs.presets[lang_id][tech_id]).appendTo('#quality_id');
+    $("select#quality_id").prev().text($("select#quality_id :selected").text());
+    var stream_url = $("select#quality_id").val();
+    kabtv.tabs.draw_player(stream_url);
+    $('#user_complain_language_id').val(current_language);
+    $('#user_complain_technology_id').val(current_technology);
+    $('#user_complain_quality_url').val(stream_url);
+}
+function set_player_technology(lang_id) {
+    current_language = lang_id;
+    $("#technologies *").remove();
+    $(kabtv.tabs.presets[current_language].options).appendTo('#technologies');
+    current_technology = $("#technologies input[@name=technology_id]:checked").val();
+    set_player_quality(current_language, current_technology);
+}
+

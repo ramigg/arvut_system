@@ -503,6 +503,10 @@ ru:
       somewhere: откуда-то
       technical_support: Техподдержка
       who: Кто
+      thank_you: Спасибо!
+      submit_problem: Невозможно послать сообщение :(\nПожалуйста попытайтесь еще раз позже.
+      describe_problem: Если у вас возникла проблема, опишите ее здесь
+      empty_message: Пожалуйста напишите сообщение
   layout: 
     search: Поиск
     search_screen_reader: Искать
