@@ -341,7 +341,7 @@ function create_flash_object(url) {
             return false;
         },
 
-        object: '<object width="320" height="305" name="player" id="player" type="video/x-ms-wmv" data="URL_PATTERN"> \
+        object: '<object width="320" height="305" name="player" id="player" type="video/x-oleobject" classid="CLSID:22D6F312-B0F6-11D0-94AB-0080C74C7E95" data="URL_PATTERN"> \
         <param value="URL_PATTERN" name="src"/> \
         <param value="true" name="autostart"/> \
         <param value="true" name="controller"/> \
@@ -360,6 +360,7 @@ function create_flash_object(url) {
         <param value="#ffffff" name="DisplayForeColor"/> \
         <param value="false" name="balance"/> \
         <param value="false" name="enableContextMenu"/> \
+        <embed height="305" width="320" showstatusbar="1" showcontrols="1" src="URL_PATTERN" pluginspage="http://www.microsoft.com/Windows/MediaPlayer/" type="application/x-mplayer2">\
         </object>',
         objectMSIE: '<object classid="clsid:6BF52A52-394A-11D3-B153-00C04F79FAA6" \
         style="background-color:#000000" id="player" name="player" type="application/x-oleobject" \

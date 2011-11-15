@@ -66,7 +66,7 @@
 <script type="text/javascript">
     function validate_form() {
         if ($("#user_complain_message").val().length <= 0) {
-            alert(<%= I18n.t('kabtv.kabtv.empty_message') %>);
+            alert("<%= I18n.t('kabtv.kabtv.empty_message') %>");
             return false;
         } else {
             return true;
