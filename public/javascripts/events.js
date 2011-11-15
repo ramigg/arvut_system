@@ -27,8 +27,16 @@
             });
         },
 
-        startPollingSketches: function () {
-            kabtv.sketches.pollID = setInterval(kabtv.sketches.pollSketches, 60000);
+        startPollingSketches: function (){
+            kabtv.sketches.pollID = setInterval(kabtv.sketches.pollSketches, 30000);
+        },
+
+        pollSketchesByComet: function() {
+            if (typeof(stream_comet_update_app) == "undefined"
+                || stream_comet_update_app == null
+                || !comet_app.isConnected()) {
+                    kabtv.sketches.pollSketches();
+            }
         },
 
         stopPollingSketches: function () {
@@ -189,8 +197,8 @@
             });
         },
 
-        startPollingQuestions: function () {
-            kabtv.questions.pollID = setInterval(kabtv.questions.pollQuestions, 90000);
+        startPollingQuestions: function (){
+            kabtv.questions.pollID = setInterval(kabtv.questions.pollQuestions, 30000);
         },
 
         stopPollingQuestions: function () {
@@ -261,6 +269,13 @@ function create_flash_object(url) {
                 }
             });
         },
+        pollPresetsByComet: function() {
+            if (typeof(stream_comet_update_app) == "undefined"
+                || stream_comet_update_app == null
+                || !comet_app.isConnected()) {      // || comet_app.isReconnected()
+                    kabtv.tabs.pollPresets();
+            }
+        },
 
         // init
         init: function(data) {
@@ -271,13 +286,14 @@ function create_flash_object(url) {
             //var reload_player = false; -- initialized in responce from server
 
             // If activity status was changed - reload player
-            // If not active and stream state was changed - reload player 
+            // If not active and stream state was changed - reload player
             if ((kabtv.tabs.presets_data == null) || (kabtv.tabs.presets_data.stream_preset.is_active != presets_data.stream_preset.is_active) ||
                 (!presets_data.stream_preset.is_active && presets_data.stream_preset.stream_state_id != kabtv.tabs.presets_data.stream_preset.stream_state_id)) {
                 reload_player = true;
             }
 
             // If presets were changed...
+            // If presets are not defined, check where data comes from.
             if (kabtv.tabs.presets != presets || kabtv.tabs.presets_data != presets_data || kabtv.tabs.languages != languages) {
                 kabtv.tabs.presets = presets;
                 kabtv.tabs.presets_data = presets_data;
@@ -307,7 +323,7 @@ function create_flash_object(url) {
             parent = $("#uniform-" + elem[0].id);
             if (parent.length == 0) elem.uniform();
 
-            kabtv.tabs.pollID = setInterval(kabtv.tabs.pollPresets, 45000);
+            kabtv.tabs.pollID = setInterval(kabtv.tabs.pollPresetsByComet, 30000);
         },
 
         stopPollingPresets: function () {

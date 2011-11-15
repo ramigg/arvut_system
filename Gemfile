@@ -94,3 +94,4 @@ gem 'apotomo', :git => "git@github.com:Bnei-Baruch/apotomo.git", :branch => 'mas
 gem 'memcache-client'
 gem 'tolk'
 gem 'rack'
+#gem 'rack', '1.2.2'
