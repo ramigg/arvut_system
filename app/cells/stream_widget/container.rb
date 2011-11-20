@@ -10,8 +10,8 @@ module StreamWidget
     end
 
     def display
-      set_current_preset
-      @stream_preset = current_preset
+      stream_preset_id = param :stream_preset_id
+      @stream_preset = current_preset(stream_preset_id)
       @show_tabs = @stream_preset.show_questions || @stream_preset.show_sketches || @stream_preset.show_schedule
       @show_support = @stream_preset.show_support
       @languages = @stream_preset.stream_items.map(&:language_id).uniq
@@ -19,21 +19,28 @@ module StreamWidget
       render
     end
 
+    #cache :process_request, Proc.new { {:locale => I18n.locale} }, :expires_in => 20.minutes
+
     def process_request
-      @stream_preset = current_preset
-      timestamp = param :timestamp
-      if @stream_preset.updated_at.to_s == timestamp
-        render :text => '', :content_type => Mime::JS
-        return
-      end
+      @stream_preset = current_preset(param :stream_preset_id)
+      #timestamp = param :timestamp
+      #if @stream_preset.updated_at.to_s == timestamp
+      #  render :text => '', :content_type => Mime::JS
+      #  return
+      #end
 
       # look for channel
-      @reload_player = ! @stream_preset.stream_items.map{|p| p.stream_url}.include?(params[:stream_url])
+      #@reload_player = ! @stream_preset.stream_items.map{|p| p.stream_url}.include?(params[:stream_url])
       current_item = @stream_preset.stream_items.select{|p| p.stream_url == params[:stream_url]}
 
       languages = @stream_preset.stream_items.map(&:language_id).uniq
       @presets = get_presets(@stream_preset, languages, current_item)
-      render
+      result = render_to_string
+      url = URI.parse url_for_event(:update_presets)
+
+      key = "#{url.path}?#{url.query}&timestamp=#{@stream_preset.updated_at.to_s}&stream_preset_id=#{@stream_preset.id}&stream_url=#{params[:stream_url]}"
+      Cache.write(key, result, :expires_in => 5.minutes)
+      render :text => result, :content_type => Mime::JS
     end
 
     def get_presets(stream_preset, languages, current_item)

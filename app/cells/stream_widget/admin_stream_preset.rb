@@ -33,6 +33,7 @@ module StreamWidget
       end
       @success = @stream_preset.update_attributes(param(:stream_preset))
       trigger :update_current_state
+      Cache.clear
       render
     end
     

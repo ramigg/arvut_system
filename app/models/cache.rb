@@ -16,6 +16,14 @@ class Cache
     Rails.cache.write(Cache.make_key(options), YAML.dump(content))
   end
 
+  def self.write(key, content, options)
+    Rails.cache.write(key, content, options)
+  end
+
+  def self.clear
+    Rails.cache.clear
+  end
+
   private
   def self.make_key(options)
     a = []

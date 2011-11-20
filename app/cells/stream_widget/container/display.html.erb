@@ -57,6 +57,7 @@
 		
     kabtv.tabs.poll_tabs = <%= @show_tabs %>;
     kabtv.tabs.poll_support = <%= @show_support %>;
+    kabtv.tabs.stream_preset_id = '<%= @stream_preset.id %>';
     kabtv.tabs.url_for_presets_update = '<%= url_for_event(:update_presets) %>';
     kabtv.tabs.pollPresets();
     kabtv.tabs.startPollingPresets();

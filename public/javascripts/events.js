@@ -227,6 +227,7 @@
 
     $.extend(kabtv.tabs, {
         presets : null,
+        stream_preset_id : 0,
         presets_data : null,
         timestamp: 0,
 
@@ -239,6 +240,7 @@
                 url: kabtv.tabs.url_for_presets_update,
                 data: {
                     timestamp: kabtv.tabs.timestamp,
+                    stream_preset_id: kabtv.tabs.stream_preset_id,
                     stream_url: $("select#quality").val()
                 },
                 success: kabtv.tabs.init
@@ -256,21 +258,20 @@
                 }
             });
         },
-        pollPresetsByComet: function() {
-            if (typeof(stream_comet_update_app) == "undefined"
-                || stream_comet_update_app == null
-                || !comet_app.isConnected()) {      // || comet_app.isReconnected()
-                    kabtv.tabs.pollPresets();
-            }
-        },
 
         // init
         init: function(data){
             if (data == "")
                 return;
             eval(data);
+
+            // Check for timestamp
+            if (kabtv.tabs.timestamp == timestamp)
+                return;
+            kabtv.tabs.timestamp = timestamp;
+
             // Now we have local presets_data (what to show; activity status) and presets themselves
-            //var reload_player = false; -- initialized in responce from server
+            var reload_player = false;
 
             // If activity status was changed - reload player
             // If not active and stream state was changed - reload player
@@ -285,17 +286,17 @@
                 kabtv.tabs.presets = presets;
                 kabtv.tabs.presets_data = presets_data;
                 // Reload dropboxes
-                //                var current_stream_url = $("select#quality").val();
+                var current_stream_url = $("select#quality").val();
                 var lang_id = $("select#language_id").val();
                 $("select#quality option").remove();
                 $(kabtv.tabs.presets[lang_id].options).appendTo('#quality');
                 $("select#quality").prev().text( $("select#quality :selected").text() );
 
-                //                // To reload player?
+                // To reload player?
                 var stream_url = $("select#quality").val();
-            //                if (current_stream_url != stream_url) {
-            //                    reload_player = true;
-            //                }
+                if (current_stream_url != stream_url) {
+                    reload_player = true;
+                }
             }
 
             // Sync presets and redraw player
@@ -312,7 +313,7 @@
             parent = $("#uniform-" + elem[0].id);
             if (parent.length == 0) elem.uniform();
 
-            kabtv.tabs.pollID = setInterval(kabtv.tabs.pollPresetsByComet, 30000);
+            kabtv.tabs.pollID = setInterval(kabtv.tabs.pollPresets, 5000);
         },
 
         stopPollingPresets: function (){

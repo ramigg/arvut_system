@@ -22,24 +22,28 @@ module StreamWidget
       fields = yield(new_object, association)
       link_to_function(func_name, "add_image_field(this, \"#{association}\", \"#{escape_javascript(fields)}\")")
     end
-    
+
     def set_current_preset
       session[:stream_preset_id] = param :stream_preset_id rescue nil
     end
-    
-    def current_preset
-      return nil unless session[:stream_preset_id]
-      @current_preset ||= StreamPreset.find(session[:stream_preset_id])
+
+    def current_preset(preset_id = 0)
+      if session[:stream_preset_id] and (preset_id == 0 || preset_id.nil?)
+        preset_id = session[:stream_preset_id]
+      elsif preset_id == 0
+        preset_id = 1
+      end
+      @current_preset ||= StreamPreset.find(preset_id)
     end
-    
+
     def set_admin_display_mode(mode)
       session[:admin_display_mode] = mode
     end
-    
+
     def admin_display_mode
       session[:admin_display_mode]
     end
-    
+
     def stream_state_css(stream_preset)
       if stream_preset.is_active?
         "color:green;"
@@ -47,7 +51,7 @@ module StreamWidget
         "color:red;"
       end
     end
-    
+
     def current_user
       @current_user ||= param :current_user
     end
@@ -57,8 +61,8 @@ module StreamWidget
     end
 
     def get_push_to_commet_flag
-       session["is_push_to_commet"]
+      session["is_push_to_commet"]
     end
-    
+
   end
 end
