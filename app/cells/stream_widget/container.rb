@@ -23,11 +23,6 @@ module StreamWidget
 
     def process_request
       @stream_preset = current_preset(param :stream_preset_id)
-      #timestamp = param :timestamp
-      #if @stream_preset.updated_at.to_s == timestamp
-      #  render :text => '', :content_type => Mime::JS
-      #  return
-      #end
 
       # look for channel
       #@reload_player = ! @stream_preset.stream_items.map{|p| p.stream_url}.include?(params[:stream_url])

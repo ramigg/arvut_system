@@ -239,7 +239,6 @@
             $.ajax({
                 url: kabtv.tabs.url_for_presets_update,
                 data: {
-                    timestamp: kabtv.tabs.timestamp,
                     stream_preset_id: kabtv.tabs.stream_preset_id,
                     stream_url: $("select#quality").val()
                 },
