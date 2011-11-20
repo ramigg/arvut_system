@@ -14,7 +14,7 @@ Simulator::Application.configure do
   # since you don't have to restart the webserver when you make code changes.
   config.cache_classes = false
 
-  config.cache_store = :mem_cache_store, { :namespace => 'Sviva-Tova' }#, :expires_in => 20.minutes}
+  config.cache_store = :mem_cache_store, { :namespace => 'Sviva-Tova', :compression => false }#, :expires_in => 20.minutes}
   # Log error messages when you accidentally call methods on nil.
   config.whiny_nils = true
 
