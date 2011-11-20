@@ -60,7 +60,8 @@ Simulator::Application.configure do
 
   # enable push-engine (update web-page without refresh)
   config.enable_comet = true
-  config.comet_server = "kabbalahgroup.info"
+  #config.comet_server = "kabbalahgroup.info"
+  config.comet_server = "red5-5.kbb1.com:80"
   config.comet_application_id = "1"
   comet_yml = YAML::load_file("#{::Rails.root}/config/comet.yml")
   config.comet_auth_key = comet_yml["comet_auth_key"]
