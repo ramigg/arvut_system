@@ -30,8 +30,8 @@ module StreamWidget
     def current_preset(preset_id = 0)
       if session[:stream_preset_id] and (preset_id == 0 || preset_id.nil?)
         preset_id = session[:stream_preset_id]
-      elsif preset_id == 0
-        preset_id = 1
+      elsif preset_id == 0 || preset_id.nil?
+        preset_id = 2
       end
       @current_preset ||= StreamPreset.find(preset_id)
     end

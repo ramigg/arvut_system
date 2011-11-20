@@ -237,6 +237,7 @@
         pollID: 0,
         pollPresets: function() {
             $.ajax({
+                timeout: 3000,
                 url: kabtv.tabs.url_for_presets_update,
                 data: {
                     stream_preset_id: kabtv.tabs.stream_preset_id,

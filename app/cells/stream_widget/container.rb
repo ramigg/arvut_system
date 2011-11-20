@@ -33,7 +33,7 @@ module StreamWidget
       result = render_to_string
       url = URI.parse url_for_event(:update_presets)
 
-      key = "#{url.path}?#{url.query}&timestamp=#{@stream_preset.updated_at.to_s}&stream_preset_id=#{@stream_preset.id}&stream_url=#{params[:stream_url]}"
+      key = "#{url.path}?#{url.query}&stream_preset_id=#{@stream_preset.id}&stream_url=#{params[:stream_url]}"
       Cache.write(key, result, :expires_in => 5.minutes)
       render :text => result, :content_type => Mime::JS
     end
