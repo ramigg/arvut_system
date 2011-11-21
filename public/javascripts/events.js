@@ -21,7 +21,8 @@
             $.ajax({
                 url: kabtv.sketches.url_for_classboard,
                 data: {
-                    total: kabtv.sketches.total
+                    total: kabtv.sketches.total,
+                    stream_preset_id: kabtv.tabs.stream_preset_id
                 },
                 success: kabtv.sketches.transit_init
             });
@@ -29,14 +30,6 @@
 
         startPollingSketches: function (){
             kabtv.sketches.pollID = setInterval(kabtv.sketches.pollSketches, 30000);
-        },
-
-        pollSketchesByComet: function() {
-            if (typeof(stream_comet_update_app) == "undefined"
-                || stream_comet_update_app == null
-                || !comet_app.isConnected()) {
-                    kabtv.sketches.pollSketches();
-            }
         },
 
         stopPollingSketches: function (){
@@ -192,7 +185,8 @@
             $.ajax({
                 url: kabtv.questions.url_for_more_questions,
                 data: {
-                    last_question_id: last_question_id
+                    last_question_id: last_question_id,
+                    stream_preset_id: kabtv.tabs.stream_preset_id
                 }
             });
         },

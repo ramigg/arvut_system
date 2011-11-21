@@ -4,9 +4,9 @@ module StreamWidget
     responds_to_event :update_presets, :with => :process_request
 
     has_widgets do |me|
-      me << widget('stream_widget/schedule', 'schedule', :display)
-      me << widget('stream_widget/sketches', 'sketches', :display)
-      me << widget('stream_widget/questions', 'questions', :display, :current_user => (param :current_user))
+      me << widget('stream_widget/schedule', 'schedule', :display, :stream_preset_id => ((param :stream_preset_id) || params[:stream_preset_id]))
+      me << widget('stream_widget/sketches', 'sketches', :display, :stream_preset_id => ((param :stream_preset_id) || params[:stream_preset_id]))
+      me << widget('stream_widget/questions', 'questions', :display, :current_user => (param :current_user), :stream_preset_id => ((param :stream_preset_id) || params[:stream_preset_id]))
     end
 
     def display
