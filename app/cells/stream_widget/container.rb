@@ -32,11 +32,9 @@ module StreamWidget
       @presets = get_presets(@stream_preset, languages, current_item)
       result = render_to_string
       url = URI.parse url_for_event(:update_presets)
-      query = "#{url.query}&stream_preset_id=#{@stream_preset.id}&stream_url=#{CGI::escape(params[:stream_url])}"
+      query = "#{url.query}&stream_preset_id=#{@stream_preset.id}&stream_url=q#{CGI::escape(params[:stream_url])}"
       key = "#{url.path}?#{query}"
-      if @stream_preset.id == 3
-        Cache.write(key, result, :expires_in => 5.minutes, :raw => true)
-      end
+      Cache.write(key, result, :expires_in => 5.minutes, :raw => true)
       render :text => result, :content_type => Mime::JS
     end
 
