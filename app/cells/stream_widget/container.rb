@@ -23,6 +23,10 @@ module StreamWidget
 
     def process_request
       @stream_preset = current_preset(param :stream_preset_id)
+      unless @current_preset
+        # Unable to find preset id (maybe due to old session)- try to reload page
+        render :text => 'window.location.reload();', :content_type => Mime::JS
+      end
 
       # look for channel
       #@reload_player = ! @stream_preset.stream_items.map{|p| p.stream_url}.include?(params[:stream_url])
