@@ -22,10 +22,11 @@ module StreamWidget
     #cache :process_request, Proc.new { {:locale => I18n.locale} }, :expires_in => 20.minutes
 
     def process_request
-      @stream_preset = current_preset(param :stream_preset_id)
+      @stream_preset = current_preset(params[:stream_preset_id])
       unless @current_preset
         # Unable to find preset id (maybe due to old session)- try to reload page
         render :text => 'window.location.reload();', :content_type => Mime::JS
+        return
       end
 
       # look for channel
