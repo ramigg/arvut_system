@@ -35,7 +35,7 @@ module StreamWidget
       query = "#{url.query}&stream_preset_id=#{@stream_preset.id}&stream_url=#{CGI::escape(params[:stream_url])}"
       key = "#{url.path}?#{query}"
       if @stream_preset.id == 3
-        Cache.write(key, result, :expires_in => 5.minutes)
+        Cache.write(key, result, :expires_in => 5.minutes, :raw => true)
       end
       render :text => result, :content_type => Mime::JS
     end
