@@ -26,27 +26,29 @@ module StreamWidget
 
       # look for channel
       #@reload_player = ! @stream_preset.stream_items.map{|p| p.stream_url}.include?(params[:stream_url])
-      current_item = @stream_preset.stream_items.select{|p| p.stream_url == params[:stream_url]}
+      current_item = @stream_preset.stream_items.select { |p| p.stream_url == params[:stream_url] }
 
       languages = @stream_preset.stream_items.map(&:language_id).uniq
       @presets = get_presets(@stream_preset, languages, current_item)
       result = render_to_string
       url = URI.parse url_for_event(:update_presets)
-      query = "#{url.query}&stream_preset_id=#{@stream_preset.id}&stream_url=#{params[:stream_url]}"
+      query = "#{url.query}&stream_preset_id=#{@stream_preset.id}&stream_url=#{CGI::escape(params[:stream_url])}"
       key = "#{url.path}?#{query}"
-      Cache.write(key, result, :expires_in => 5.minutes)
+      if @stream_preset.id == 3
+        Cache.write(key, result, :expires_in => 5.minutes)
+      end
       render :text => result, :content_type => Mime::JS
     end
 
     def get_presets(stream_preset, languages, current_item)
       presets = {}
-      languages.each{ |language_id|
-        items = stream_preset.stream_items.select{|item|
+      languages.each { |language_id|
+        items = stream_preset.stream_items.select { |item|
           item.language_id == language_id && !item.description.empty? && !item.stream_url.empty?
         }
         options_list = []
         image = ''
-        items.each {|item|
+        items.each { |item|
           if (!current_item.empty? && current_item[0].language_id == language_id)
             # this language
             is_default = current_item[0].stream_url == item.stream_url

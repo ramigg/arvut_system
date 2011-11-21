@@ -16,6 +16,10 @@ class Cache
     Rails.cache.write(Cache.make_key(options), YAML.dump(content))
   end
 
+  def self.read(key)
+    Rails.cache.read(key)
+  end
+
   def self.write(key, content, options)
     Rails.cache.write(key, content, options)
   end
