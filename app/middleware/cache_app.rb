@@ -12,10 +12,10 @@ class CacheApp
 
   def call(env)
     # /events/render_event_response?locale=ru&source=stream_container&type=update_presets&stream_preset_id=3
-    if env['PATH_INFO'] =~ /events\/render_event_response/ &&
+    if env['REQUEST_PATH'] =~ /events\/render_event_response/ &&
         env['QUERY_STRING'] =~ /type=update_presets/
       # Try to get info from cache
-      key = "Sviva-Tova:#{env['PATH_INFO']}?#{env['QUERY_STRING']}"
+      key = "Sviva-Tova:#{env['REQUEST_PATH']}?#{env['QUERY_STRING']}"
       value = @cache.get(key, true) || generate_presets(env, key)
       return [200, {'Content-Type' => 'application/x-javascript'}, [value]]
     end
