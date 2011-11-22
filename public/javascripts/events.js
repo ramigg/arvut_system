@@ -275,26 +275,37 @@
 
             // If presets were changed...
             // If presets are not defined, check where data comes from.
+            // Sync presets and redraw player
+
             if (kabtv.tabs.presets != presets || kabtv.tabs.presets_data != presets_data) {
                 kabtv.tabs.presets = presets;
                 kabtv.tabs.presets_data = presets_data;
                 // Reload dropboxes
                 var current_stream_url = $("select#quality").val();
+                var current_stream_quality = $("select#quality :selected").text();
                 var lang_id = $("select#language_id").val();
                 $("select#quality option").remove();
                 $(kabtv.tabs.presets[lang_id].options).appendTo('#quality');
-                $("select#quality").prev().text( $("select#quality :selected").text() );
 
                 // To reload player?
-                var stream_url = $("select#quality").val();
-                if (current_stream_url != stream_url) {
+                var url = new RegExp('[\'"]' + current_stream_url + '[\'"]');
+                var quality = new RegExp(current_stream_quality);
+                if (url.test(kabtv.tabs.presets[lang_id].options)) {
+                    $("select#quality").val(current_stream_url);
+                } else if (quality.test(kabtv.tabs.presets[lang_id].options)) {
+                    kabtv.tabs.presets[lang_id].options = kabtv.tabs.presets[lang_id].options.replace(/selected='selected'/, '');
+                    var reg = new RegExp('>' + current_stream_quality);
+                    kabtv.tabs.presets[lang_id].options = kabtv.tabs.presets[lang_id].options.replace(reg, ' selected="selected">' + current_stream_quality);
+                    $("select#quality option").remove();
+                    $(kabtv.tabs.presets[lang_id].options).appendTo('#quality');
+                    reload_player = true;
+                } else {
                     reload_player = true;
                 }
+                $("select#quality").prev().text( $("select#quality :selected").text() );
             }
-
-            // Sync presets and redraw player
             if (reload_player) {
-                kabtv.tabs.draw_player(stream_url);
+                kabtv.tabs.draw_player($("select#quality").val());
             }
         },
 
