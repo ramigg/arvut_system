@@ -231,11 +231,10 @@
         pollID: 0,
         pollPresets: function() {
             $.ajax({
-                timeout: 3000,
+                timeout: 5000,
                 url: kabtv.tabs.url_for_presets_update,
                 data: {
-                    stream_preset_id: kabtv.tabs.stream_preset_id,
-                    stream_url: $("select#quality").val()
+                    stream_preset_id: kabtv.tabs.stream_preset_id
                 },
                 success: kabtv.tabs.init
             });
@@ -307,7 +306,7 @@
             parent = $("#uniform-" + elem[0].id);
             if (parent.length == 0) elem.uniform();
 
-            kabtv.tabs.pollID = setInterval(kabtv.tabs.pollPresets, 5000);
+            kabtv.tabs.pollID = setInterval(kabtv.tabs.pollPresets, 10000);
         },
 
         stopPollingPresets: function (){

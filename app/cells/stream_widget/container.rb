@@ -19,31 +19,25 @@ module StreamWidget
       render
     end
 
-    #cache :process_request, Proc.new { {:locale => I18n.locale} }, :expires_in => 20.minutes
-
     def process_request
       @stream_preset = current_preset(params[:stream_preset_id])
-      unless @current_preset
+      unless @stream_preset
         # Unable to find preset id (maybe due to old session)- try to reload page
         render :text => 'window.location.reload();', :content_type => Mime::JS
         return
       end
 
-      # look for channel
-      #@reload_player = ! @stream_preset.stream_items.map{|p| p.stream_url}.include?(params[:stream_url])
-      current_item = @stream_preset.stream_items.select { |p| p.stream_url == params[:stream_url] }
-
       languages = @stream_preset.stream_items.map(&:language_id).uniq
-      @presets = get_presets(@stream_preset, languages, current_item)
+      @presets = get_presets(@stream_preset, languages)
       result = render_to_string
       url = URI.parse url_for_event(:update_presets)
-      query = "#{url.query}&stream_preset_id=#{@stream_preset.id}&stream_url=#{CGI::escape(params[:stream_url])}"
+      query = "#{url.query}&stream_preset_id=#{@stream_preset.id}"
       key = "#{url.path}?#{query}"
       Cache.write(key, result, :expires_in => 5.minutes, :raw => true)
       render :text => result, :content_type => Mime::JS
     end
 
-    def get_presets(stream_preset, languages, current_item)
+    def get_presets(stream_preset, languages)
       presets = {}
       languages.each { |language_id|
         items = stream_preset.stream_items.select { |item|
@@ -52,13 +46,7 @@ module StreamWidget
         options_list = []
         image = ''
         items.each { |item|
-          if (!current_item.empty? && current_item[0].language_id == language_id)
-            # this language
-            is_default = current_item[0].stream_url == item.stream_url
-          else
-            is_default = item.is_default
-          end
-          options_list << "<option #{"selected='selected'".html_safe if is_default} value='#{item.stream_url}'>#{item.description}</option>"
+          options_list << "<option #{"selected='selected'".html_safe if item.is_default} value='#{item.stream_url}'>#{item.description}</option>"
           image_path = item.stream_preset.inactive_image(item.language_id)
           image = "<img src='#{image_path.try(:filename)}' alt='#{I18n.t 'kabtv.kabtv.no_broadcast'}' />" if image_path
         }
