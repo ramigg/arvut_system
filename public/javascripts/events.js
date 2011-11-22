@@ -317,7 +317,7 @@
             parent = $("#uniform-" + elem[0].id);
             if (parent.length == 0) elem.uniform();
 
-            kabtv.tabs.pollID = setInterval(kabtv.tabs.pollPresets, 10000);
+            kabtv.tabs.pollID = setInterval(kabtv.tabs.pollPresets, 15000);
         },
 
         stopPollingPresets: function (){
