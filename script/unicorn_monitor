@@ -1,0 +1,15 @@
+#!/usr/bin/env /usr/bin/ruby
+ENV['RAILS_ENV'] ||= 'production'
+require File.expand_path(File.dirname(__FILE__) + "/../config/environment")
+require 'rubygems'
+require 'daemons'
+
+SHARED_DIR = "tmp"
+
+Daemons.run_proc('monitor_unicorn', :dir_mode => :normal, :dir =>     "#{SHARED_DIR}/pids", :log_output => true) do
+  begin
+    UnicornMonitor.start
+  rescue SignalException
+    # why this does not work?
+  end
+end
