@@ -31,7 +31,7 @@ class CacheApp
     elsif preset_id == 0 || preset_id.nil?
       return nil
     end
-    @current_preset ||= StreamPreset.find(preset_id)
+    StreamPreset.find(preset_id)
   end
 
   def generate_presets(env, key)
