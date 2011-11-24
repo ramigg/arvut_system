@@ -21,7 +21,8 @@
             $.ajax({
                 url: kabtv.sketches.url_for_classboard,
                 data: {
-                    total: kabtv.sketches.total
+                    total: kabtv.sketches.total,
+                    stream_preset_id: kabtv.tabs.stream_preset_id
                 },
                 success: kabtv.sketches.transit_init
             });
@@ -31,15 +32,7 @@
             kabtv.sketches.pollID = setInterval(kabtv.sketches.pollSketches, 30000);
         },
 
-        pollSketchesByComet: function() {
-            if (typeof(stream_comet_update_app) == "undefined"
-                || stream_comet_update_app == null
-                || !comet_app.isConnected()) {
-                    kabtv.sketches.pollSketches();
-            }
-        },
-
-        stopPollingSketches: function () {
+        stopPollingSketches: function (){
             if (kabtv.sketches.pollID == 0) return;
             clearInterval(kabtv.sketches.pollID);
             kabtv.sketches.pollID = 0;
@@ -192,7 +185,8 @@
             $.ajax({
                 url: kabtv.questions.url_for_more_questions,
                 data: {
-                    last_question_id: last_question_id
+                    last_question_id: last_question_id,
+                    stream_preset_id: kabtv.tabs.stream_preset_id
                 }
             });
         },
@@ -236,6 +230,7 @@ function create_flash_object(url) {
 
     $.extend(kabtv.tabs, {
         presets : null,
+        stream_preset_id : 0,
         presets_data : null,
         languages : null,
         flash_technology: null,
@@ -247,10 +242,11 @@ function create_flash_object(url) {
         pollID: 0,
         pollPresets: function() {
             $.ajax({
+                timeout: 5000,
                 url: kabtv.tabs.url_for_presets_update,
                 data: {
                     timestamp: kabtv.tabs.timestamp,
-                    stream_url: $("select#quality_id").val(),
+                    stream_preset_id: kabtv.tabs.stream_preset_id,
                     flash: pluginlist.indexOf("Flash") != -1,
                     wmv: pluginlist.indexOf("Windows Media Player") != -1
                 },
@@ -269,21 +265,20 @@ function create_flash_object(url) {
                 }
             });
         },
-        pollPresetsByComet: function() {
-            if (typeof(stream_comet_update_app) == "undefined"
-                || stream_comet_update_app == null
-                || !comet_app.isConnected()) {      // || comet_app.isReconnected()
-                    kabtv.tabs.pollPresets();
-            }
-        },
 
         // init
         init: function(data) {
             if (data == "")
                 return;
             eval(data);
+
+            // Check for timestamp
+            if (kabtv.tabs.timestamp == timestamp)
+                return;
+            kabtv.tabs.timestamp = timestamp;
+
             // Now we have local presets_data (what to show; activity status) and presets themselves
-            //var reload_player = false; -- initialized in responce from server
+            var reload_player = false;
 
             // If activity status was changed - reload player
             // If not active and stream state was changed - reload player
@@ -323,7 +318,7 @@ function create_flash_object(url) {
             parent = $("#uniform-" + elem[0].id);
             if (parent.length == 0) elem.uniform();
 
-            kabtv.tabs.pollID = setInterval(kabtv.tabs.pollPresetsByComet, 30000);
+            kabtv.tabs.pollID = setInterval(kabtv.tabs.pollPresets, 15000);
         },
 
         stopPollingPresets: function () {

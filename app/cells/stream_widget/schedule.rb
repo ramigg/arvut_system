@@ -4,7 +4,8 @@ module StreamWidget
     include ActionView::Helpers::JavaScriptHelper
 
     def display
-      return unless current_preset.show_schedule
+      @stream_preset = current_preset(param :stream_preset_id)
+      return if @stream_preset.nil? || ! @stream_preset.show_schedule
 
       @days = Date::DAYNAMES
       @schedules = {}

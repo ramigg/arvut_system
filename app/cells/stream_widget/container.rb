@@ -5,14 +5,14 @@ module StreamWidget
     responds_to_event :complain, :with => :store_complain
 
     has_widgets do |me|
-      me << widget('stream_widget/schedule', 'schedule', :display)
-      me << widget('stream_widget/sketches', 'sketches', :display)
-      me << widget('stream_widget/questions', 'questions', :display, :current_user => (param :current_user))
+      me << widget('stream_widget/schedule', 'schedule', :display, :stream_preset_id => ((param :stream_preset_id) || params[:stream_preset_id]))
+      me << widget('stream_widget/sketches', 'sketches', :display, :stream_preset_id => ((param :stream_preset_id) || params[:stream_preset_id]))
+      me << widget('stream_widget/questions', 'questions', :display, :current_user => (param :current_user), :stream_preset_id => ((param :stream_preset_id) || params[:stream_preset_id]))
     end
 
     def display
-      set_current_preset
-      @stream_preset = current_preset
+      stream_preset_id = param :stream_preset_id
+      @stream_preset = current_preset(stream_preset_id)
       @show_tabs = @stream_preset.show_questions || @stream_preset.show_sketches || @stream_preset.show_schedule
       @show_support = @stream_preset.show_support
       @current_user = param :current_user
@@ -32,10 +32,10 @@ module StreamWidget
     end
 
     def process_request
-      @stream_preset = current_preset
-      timestamp = param :timestamp
-      if @stream_preset.updated_at.to_s == timestamp
-        render :text => '', :content_type => Mime::JS
+      @stream_preset = current_preset(params[:stream_preset_id])
+      unless @stream_preset
+        # Unable to find preset id (maybe due to old session)- try to reload page
+        render :text => 'window.location.reload();', :content_type => Mime::JS
         return
       end
 
@@ -44,18 +44,23 @@ module StreamWidget
       # look for channel
       preset_languages = @stream_preset.preset_languages.select { |pl| pl.language.id = @language.id }
       stream_items = preset_languages.collect { |pl| pl.stream_items }.flatten
-      @reload_player = !stream_items.map(&:stream_url).include?(params[:stream_url])
-      current_item = stream_items.select { |p| p.stream_url == params[:stream_url] }
 
-      @presets, @languages = get_presets(current_item, params[:wmv] == 'true', params[:flash] == 'true')
-      render
+      @presets, @languages = get_presets(params[:wmv] == 'true', params[:flash] == 'true')
+
+      result = render_to_string
+      url = URI.parse url_for_event(:update_presets)
+      query = "#{url.query}&stream_preset_id=#{@stream_preset.id}"
+      key = "#{url.path}?#{query}"
+      Cache.write(key, result, :expires_in => 15.seconds, :raw => true)
+      render :text => result, :content_type => Mime::JS
+
     end
 
     # Returns:
     # - list of languages
     # - list of technologies per language
     # - list of qualities per technology per language
-    def get_presets(current_item, has_wmv, has_flash, has_cdn = false)
+    def get_presets(has_wmv, has_flash, has_cdn = false)
       presets = {}
       languages = []
       preset_languages = @stream_preset.preset_languages
@@ -74,12 +79,7 @@ module StreamWidget
           tech_id = item.technology.id
           next if (!has_wmv && tech_id == wmv_id) || (!has_flash && tech_id == flash_id)
           presets[language_id][tech_id] ||= ''
-          if (!current_item.empty? && current_item[0].preset_language.language_id == language_id)
-            # this language
-            is_default = current_item[0].stream_url == item.stream_url
-          else
-            is_default = item.is_default
-          end
+         is_default = item.is_default
           if technologies[tech_id].nil?
             options_list << "<input type='radio' name='technology_id' #{"checked='checked'".html_safe if is_default} value='#{tech_id}'/><span>#{item.technology.name}</span><br/>"
             technologies[tech_id] = 1

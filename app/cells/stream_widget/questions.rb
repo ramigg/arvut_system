@@ -11,7 +11,9 @@ module StreamWidget
     responds_to_event :submit_question, :with => :process_submit
 
     def display
-      return unless current_preset.show_questions
+      @stream_preset = current_preset(param :stream_preset_id)
+      return if @stream_preset.nil? || ! @stream_preset.show_questions
+
       current_user = param :current_user
       @ask = CopyQuestion.new
       @ask.qname = [current_user.first_name, current_user.last_name].join(' ') rescue ''

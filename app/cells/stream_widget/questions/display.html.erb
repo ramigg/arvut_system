@@ -34,6 +34,7 @@
 
   $(function (){
     kabtv.questions.url_for_more_questions = '<%= url_for_event(:more_questions) %>';
+    kabtv.tabs.stream_preset_id = '<%= @stream_preset.id %>';
 
     kabtv.questions.pollQuestions();
     kabtv.questions.startPollingQuestions();

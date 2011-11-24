@@ -32,7 +32,7 @@ Simulator::Application.configure do
   # config.logger = SyslogLogger.new
 
   # Use a different cache store in production
-  config.cache_store = :mem_cache_store, { :namespace => 'Sviva-Tova' }#, :expires_in => 20.minutes}
+  config.cache_store = :mem_cache_store, { :namespace => 'Sviva-Tova', :compression => false, :urlencode => false }#, :expires_in => 20.minutes}
 
   # Disable Rails's static asset server
   # In production, Apache or nginx will already do this
@@ -59,7 +59,7 @@ Simulator::Application.configure do
   config.active_support.deprecation = :notify
 
   # enable push-engine (update web-page without refresh)
-  config.enable_comet = true
+  config.enable_comet = false 
   config.comet_server = "kabbalahgroup.info"
   config.comet_application_id = "1"
   comet_yml = YAML::load_file("#{::Rails.root}/config/comet.yml")
