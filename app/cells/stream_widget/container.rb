@@ -79,13 +79,13 @@ module StreamWidget
           tech_id = item.technology.id
           next if (!has_wmv && tech_id == wmv_id) || (!has_flash && tech_id == flash_id)
           presets[language_id][tech_id] ||= ''
-         is_default = item.is_default
+          is_default = item.is_default
           if technologies[tech_id].nil?
             options_list << "<input type='radio' name='technology_id' #{"checked='checked'".html_safe if is_default} value='#{tech_id}'/><span>#{item.technology.name}</span><br/>"
             technologies[tech_id] = 1
           elsif is_default
             # reset technology to ensure it is default
-            options_list.delete_if {|x| /#{item.technology.name}/.match x}
+            options_list.delete_if { |x| /#{item.technology.name}/.match x }
             options_list << "<input type='radio' name='technology_id' #{"checked='checked'".html_safe if is_default} value='#{tech_id}'/><span>#{item.technology.name}</span><br/>"
           end
           image_path = item.preset_language.stream_preset.stream_state.inactive_image(language_id)
