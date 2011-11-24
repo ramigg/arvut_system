@@ -469,12 +469,12 @@ he:
       submitting: "מעדכן שינויים..."
       successfully_saved: "נשמר בהצלחה"
     kabtv:
-      thank_you: הודעתך נקלטה בהצלחה!
-      submit_problem: ארעה בעיה בשליחת ההודעה, אנא נסה שוב מאוחר יותר
-      describe_problem: במידה והנך נתקל בבעיה אנא עדכן אותנו כאן:
-      empty_message: שלחת טופס ללא תוכן. אנא הזן את הודעתך
+      thank_you: "הודעתך נקלטה בהצלחה!"
+      submit_problem: "ארעה בעיה בשליחת ההודעה, אנא נסה שוב מאוחר יותר"
+      describe_problem: "במידה והנך נתקל בבעיה אנא עדכן אותנו כאן:"
+      empty_message: "שלחת טופס ללא תוכן. אנא הזן את הודעתך"
       schedule_name: 'לו"ז האירועים'
-      schedule_link: https://docs.google.com/spreadsheet/ccc?key=0AvAzVeqlLTMEdEx0MFNzdFdmWWJNc1JaUUhmci0tMFE&hl=en_US
+      schedule_link: "https://docs.google.com/spreadsheet/ccc?key=0AvAzVeqlLTMEdEx0MFNzdFdmWWJNc1JaUUhmci0tMFE&hl=en_US"
       ask_question: "שאל שאלה"
       awaiting_for_approval: "השאלה שלך ממתינה לאישור"
       cancel: ביטול
