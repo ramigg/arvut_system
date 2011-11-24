@@ -210,7 +210,7 @@
 })(jQuery);
 
 function create_flash_object(url) {
-    var p = new SWFObject('../javascripts/player.swf', 'player', '320', '305', '9', '#ffffff');
+    var p = new SWFObject('player.swf', 'player', '320', '305', '9', '#ffffff');
     p.addParam('allowfullscreen', 'true');
     p.addParam('allowscriptaccess', 'always');
     p.addParam('wmode', 'opaque');
