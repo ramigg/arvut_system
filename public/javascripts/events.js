@@ -336,7 +336,7 @@ function create_flash_object(url) {
             return false;
         },
 
-        object: '<object width="320" height="305" name="player" id="player" type="video/x-oleobject" classid="CLSID:22D6F312-B0F6-11D0-94AB-0080C74C7E95" data="URL_PATTERN"> \
+        object: '<object width="320" height="305" name="player" id="player" type="video/x-ms-wmv" data="URL_PATTERN"> \
         <param value="URL_PATTERN" name="src"/> \
         <param value="true" name="autostart"/> \
         <param value="true" name="controller"/> \
@@ -356,6 +356,26 @@ function create_flash_object(url) {
         <param value="false" name="balance"/> \
         <param value="false" name="enableContextMenu"/> \
         <embed height="305" width="320" showstatusbar="1" showcontrols="1" src="URL_PATTERN" pluginspage="http://www.microsoft.com/Windows/MediaPlayer/" type="application/x-mplayer2">\
+        </object>',
+        objectFF7: '<object width="320" height="305" name="player" id="player" type="video/x-oleobject" classid="CLSID:22D6F312-B0F6-11D0-94AB-0080C74C7E95" data="URL_PATTERN"> \
+        <param value="URL_PATTERN" name="src"/> \
+        <param value="true" name="autostart"/> \
+        <param value="true" name="controller"/> \
+        <param value="50" name="volume"/> \
+        <param value="full" name="uiMode"/> \
+        <param value="true" name="animationAtStart"/> \
+        <param value="false" name="showDisplay"/> \
+        <param value="true" name="ShowAudioControls"/> \
+        <param value="false" name="ShowPositionControls"/> \
+        <param value="false" name="transparentAtStart"/> \
+        <param value="true" name="ShowControls"/> \
+        <param value="true" name="ShowStatusBar"/> \
+        <param value="false" name="ShowTracker"/> \
+        <param value="false" name="ClickToPlay"/> \
+        <param value="#000000" name="DisplayBackColor"/> \
+        <param value="#ffffff" name="DisplayForeColor"/> \
+        <param value="false" name="balance"/> \
+        <param value="false" name="enableContextMenu"/> \
         </object>',
         objectMSIE: '<object classid="clsid:6BF52A52-394A-11D3-B153-00C04F79FAA6" \
         style="background-color:#000000" id="player" name="player" type="application/x-oleobject" \
@@ -379,6 +399,8 @@ function create_flash_object(url) {
                 } else { // WMV
                     if ($.browser.msie)
                         object = kabtv.tabs.objectMSIE.replace(/URL_PATTERN/g, url);
+                    else if ($.browser.mozilla && $.browser.version.slice(0,3) == '7.0')
+                        object = kabtv.tabs.objectFF7.replace(/URL_PATTERN/g, url);
                     else
                         object = kabtv.tabs.object.replace(/URL_PATTERN/g, url);
                     $('#object').html(object);
