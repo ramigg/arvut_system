@@ -3,7 +3,7 @@
 RAILS_ROOT = ENV['RAILS_ROOT'] || '/sites/rails/prod/stimulator2'
 rails_env = ENV['RAILS_ENV'] || 'production'
 
-# 16 workers and 1 master
+# 12 workers and 1 master
 worker_processes (rails_env == 'production' ? 12 : 4)
 
 # Load rails+github.git into the master before forking workers
@@ -11,11 +11,15 @@ worker_processes (rails_env == 'production' ? 12 : 4)
 preload_app true
 
 # Restart any workers that haven't responded in 30 seconds
-timeout 30
+timeout 40
 
 # Listen on a Unix data socket
-listen 3000 #"#{RAILS_ROOT}/tmp/sockets/unicorn.sock", :backlog => 2048
+#"#{RAILS_ROOT}/tmp/sockets/unicorn.sock", :backlog => 2048
+listen 3000, :tcp_nodelay => true, :backlog => 2048 
 
+# Location of stderr/stdout logs
+stderr_path "#{RAILS_ROOT}/log/unicorn.stderr.log"
+stdout_path "#{RAILS_ROOT}/log/unicorn.stdout.log"
 
 ##
 # REE

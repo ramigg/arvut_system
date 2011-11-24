@@ -1,5 +1,5 @@
 SLEEP_TIME = 10
-WORKER_MEMORY_LIMIT = 78_000
+WORKER_MEMORY_LIMIT = 200_000
 
 class UnicornMonitor
   def self.start

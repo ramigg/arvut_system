@@ -51,7 +51,7 @@ class CacheApp
       var presets = #{presets.to_json.html_safe};
     VIEW
 
-    @cache.set(key, result, 15.seconds, true)
+    @cache.set(key, result, 12.seconds, true)
     result
   end
 
