@@ -34,7 +34,6 @@ module StreamWidget
           @stream_image.update_attributes(stream_image)
         end
       end
-      render
     end
   end
 end

@@ -28,11 +28,11 @@
             });
         },
 
-        startPollingSketches: function (){
+        startPollingSketches: function () {
             kabtv.sketches.pollID = setInterval(kabtv.sketches.pollSketches, 30000);
         },
 
-        stopPollingSketches: function (){
+        stopPollingSketches: function () {
             if (kabtv.sketches.pollID == 0) return;
             clearInterval(kabtv.sketches.pollID);
             kabtv.sketches.pollID = 0;
@@ -191,7 +191,7 @@
             });
         },
 
-        startPollingQuestions: function (){
+        startPollingQuestions: function () {
             kabtv.questions.pollID = setInterval(kabtv.questions.pollQuestions, 30000);
         },
 
@@ -209,14 +209,95 @@
 
 })(jQuery);
 
-function create_flash_object(url) {
-    var p = new SWFObject('player.swf', 'player', '320', '305', '9', '#ffffff');
-    p.addParam('allowfullscreen', 'true');
-    p.addParam('allowscriptaccess', 'always');
-    p.addParam('wmode', 'opaque');
-    p.addParam('autostart', 'true');
-    p.addParam('flashvars', url);
-    p.write('object');
+function create_flash_object(clip, url) {
+    $("#object").html('');
+    $f('object',
+        { src: 'flowplayer/flowplayer.commercial-3.2.7.swf', wmode: 'transparent' },
+        {
+            key: '#\@432d5aedb59612f8458',
+            clip: {
+                url: clip,
+                live: true,
+                bufferLength: 5,
+                provider: 'rtmp',
+                scaling: 'fit',
+                onBeforePause : function() {
+                    return false;
+                }
+            },
+            plugins: {
+                rtmp: {
+                    url: 'flowplayer.rtmp-3.2.3.swf',
+                    proxyType: 'HTTP',
+                    netConnectionUrl: url
+                },
+                controls: {
+                    "borderRadius":"0px",
+                    "timeColor":"#ffffff",
+                    "bufferGradient":"none",
+                    "backgroundColor":"rgba(0, 0, 0, 0)",
+                    "volumeSliderGradient":"none",
+                    "timeBorderRadius":20,
+                    "progressGradient":"none",
+                    "time":false,
+                    "height":26,
+                    "volumeColor":"#4599ff",
+                    "tooltips": {
+                        "marginBottom":5,
+                        "buttons":true,
+                        "fullscreen": 'Full Screen'
+                    },
+                    "opacity":1,
+                    "timeFontSize":12,
+                    "border":"0px",
+                    "bufferColor":"#a3a3a3",
+                    "volumeSliderColor":"#ffffff",
+                    "buttonColor":"#ffffff",
+                    "autoHide":{
+                        "enabled":true,
+                        "hideDelay":500,
+                        "mouseOutDelay":500,
+                        "hideStyle":"fade",
+                        "hideDuration":400,
+                        "fullscreenOnly":true
+                    },
+                    "backgroundGradient":"medium",
+                    "width":"100pct",
+                    "display":"block",
+                    "sliderBorder":"1px solid rgba(128, 128, 128, 0.7)",
+                    "buttonOverColor":"#ffffff",
+                    "url":"flowplayer.controls-3.2.5.swf",
+                    "timeBgColor":"rgb(0, 0, 0, 0)",
+                    "scrubberBarHeightRatio":0.2,
+                    "bottom":0,
+                    "buttonOffColor":"rgba(130,130,130,1)",
+                    "stop":true,
+                    "zIndex":1,
+                    "sliderColor":"#000000",
+                    "scrubberHeightRatio":0.6,
+                    "tooltipTextColor":"#ffffff",
+                    "spacing":{"time":6,"volume":8,"all":2},
+                    "sliderGradient":"none",
+                    "timeBgHeightRatio":0.8,
+                    "volumeSliderHeightRatio":0.6,
+                    "name":"controls",
+                    "timeSeparator":" ",
+                    "volumeBarHeightRatio":0.2,
+                    "left":"50pct",
+                    "tooltipColor":"rgba(0, 0, 0, 0)",
+                    "durationColor":"#b8d9ff",
+                    "play":true,
+                    "timeBorder":"0px solid rgba(0, 0, 0, 0.3)",
+                    "progressColor":"#4599ff",
+                    "scrubber":false,
+                    "volumeBorder":"1px solid rgba(128, 128, 128, 0.7)",
+                    "builtIn":false,
+                    "margins":[2,12,2,12]
+                }
+            }
+        }
+    );
+    $('#object').css('background-color', 'black');
 }
 
 (function ($) {
@@ -395,11 +476,12 @@ function create_flash_object(url) {
             var object;
             if (kabtv.tabs.presets_data.stream_preset.is_active) {
                 if (kabtv.tabs.flash_technology == current_technology) { // Flash
-                    create_flash_object(url);
+                    var match = url.match(/clip=(.*);stream=(.*)/);
+                    create_flash_object(match[1], match[2]);
                 } else { // WMV
                     if ($.browser.msie)
                         object = kabtv.tabs.objectMSIE.replace(/URL_PATTERN/g, url);
-                    else if ($.browser.mozilla && $.browser.version.slice(0,3) == '7.0')
+                    else if ($.browser.mozilla && $.browser.version.slice(0, 3) == '7.0')
                         object = kabtv.tabs.objectFF7.replace(/URL_PATTERN/g, url);
                     else
                         object = kabtv.tabs.object.replace(/URL_PATTERN/g, url);

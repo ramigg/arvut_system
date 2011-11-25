@@ -499,7 +499,6 @@ he:
       somewhere: "ממקום לא ידוע"
       technical_support: "תמיכה טכנית"
       who: שם
-      publish_by_comet: "פרסם על ידי Comet"
   layout: 
     search: חיפוש
     search_screen_reader: חפש

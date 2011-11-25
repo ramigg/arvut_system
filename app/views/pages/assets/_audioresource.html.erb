@@ -13,7 +13,7 @@ id = audio.object_id
        ></a>
     <script type="text/javascript">
       $(document).ready(function() {
-        $f("audio_<%= id %>",{src: '<%= Rails.configuration.site_prefix %>/flowplayer/flowplayer.commercial-3.2.5.swf', wmode: 'transparent'},{
+        $f("audio_<%= id %>",{src: '<%= Rails.configuration.site_prefix %>/flowplayer/flowplayer.commercial-3.2.7.swf', wmode: 'transparent'},{
           key:'#\@432d5aedb59612f8458',
           clip:{
             url: '<%= audio.url %>',
@@ -22,7 +22,7 @@ id = audio.object_id
           // show stop button so we can see stop events too
           plugins: {
             controls: {
-              url: 'flowplayer.controls-3.2.3.swf',
+              url: 'flowplayer.controls-3.2.5.swf',
               stop: true,
               fullscreen: false,
               height: 30,

@@ -526,7 +526,7 @@ en:
       is_active: Is active
       default: Default
       inactive_image: Inactive image
-      stream_URL: Stream URL
+      stream_URL: "Stream URL (Flash: clip=...;stream=...)"
       quality: Quality
       technology: Technology
       language: Language
@@ -578,7 +578,6 @@ en:
       submit_problem: Unable to send message :(\nPlease try again later.
       describe_problem: Describe your problem
       empty_message: Please fill а message in
-      publish_by_comet: Publish By Comet
 
   social_button:
     i_commit_to: I commit to

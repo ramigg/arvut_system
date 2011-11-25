@@ -8,7 +8,7 @@ module StreamWidget
       record_type = is_new_record ? 'true' : 'false'
       form.hidden_field(:_destroy, :value => '0') + link_to_function(name, "remove_field(this, #{record_type})")
     end
-
+ 
     def link_to_add_cell_fields(name, form, object, partial, where)
       html = form.fields_for "#{object.class.to_s.tableize}_attributes", object, :index => "index_to_replace_with_js" do |si|
         render :partial => partial, :locals => {:form => si}, :object => object
@@ -65,14 +65,6 @@ module StreamWidget
 
     def current_user
       @current_user ||= param :current_user
-    end
-
-    def set_push_to_commet_flag (flag)
-      session["is_push_to_commet"] = flag
-    end
-
-    def get_push_to_commet_flag
-      session["is_push_to_commet"]
     end
 
   end
