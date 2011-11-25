@@ -34,6 +34,12 @@ module StreamWidget
       link_to_function(func_name, "add_image_field(this, \"#{association}\", \"#{escape_javascript(fields)}\")")
     end
 
+    def link_to_add_qualities(func_name, association)
+      new_object = Quality.new
+      fields = yield(new_object, association)
+      link_to_function(func_name, "add_quality_field(this, \"#{association}\", \"#{escape_javascript(fields)}\")")
+    end
+
     def set_current_preset
       session[:stream_preset_id] = param :stream_preset_id rescue nil
     end

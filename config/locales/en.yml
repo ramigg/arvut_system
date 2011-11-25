@@ -540,6 +540,9 @@ en:
       stream_presets: Stream presets
       stream_state: Stream state
       problem_saving: There was a problem saving the record
+      name: Name
+      qualities: Stream qualities
+      add_quality: Add quality
       stream_switcher: Stream switcher
       stream_states:
         is_active: On air

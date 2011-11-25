@@ -1,10 +1,11 @@
 <%= widget_div do %>
 	<%- if current_user.is_stream_manager? || current_user.is_admin? -%>
 		<div id="stream_admin" style="margin-bottom:15px">
-			<a href="#" onclick="<%= trigger_event(:display_images) %>; return false;"><%= t('kabtv.admin.stream_images') %></a> | 	
+			<a href="#" onclick="<%= trigger_event(:display_images) %>; return false;"><%= t('kabtv.admin.stream_images') %></a> |
+			<a href="#" onclick="<%= trigger_event(:display_qualities) %>; return false;"><%= t('kabtv.admin.qualities') %></a> |
 			<a href="#" onclick="<%= trigger_event(:display_presets) %>; return false;"><%= t('kabtv.admin.stream_presets') %></a>
 			<% if current_preset %>
-			 | 	
+			 |
 			<a href="#" onclick="<%= trigger_event(:display_switcher) %>; return false;"><%= t('kabtv.admin.stream_switcher') %></a>
 			<% end %>
 		</div>
@@ -18,5 +19,5 @@
 function update_state(){
 	<%= trigger_event(:update_current_state).html_safe %>;
 }
-setInterval('update_state()', 45000);	
+setInterval('update_state()', 45000);
 </script>
