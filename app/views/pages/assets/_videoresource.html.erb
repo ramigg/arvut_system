@@ -17,7 +17,7 @@ url = video.url
     </a>
     <script type="text/javascript">
       $(document).ready(function() {
-        $f("video_<%= id %>",{src: '<%= Rails.configuration.site_prefix %>/flowplayer/flowplayer.commercial-3.2.7.swf', wmode: 'transparent'},{
+        $f("video_<%= id %>",{src: '<%= Rails.configuration.site_prefix %>/flowplayer/flowplayer.commercial-3.2.5.swf', wmode: 'transparent'},{
           key:'#\@432d5aedb59612f8458',
           playlist:[
             <%- unless image.empty? -%>
@@ -29,7 +29,7 @@ url = video.url
       // show stop button so we can see stop events too
       plugins: {
         controls: {
-          url: 'flowplayer.controls-3.2.5.swf',
+          url: 'flowplayer.controls-3.2.3.swf',
           stop: true
         }
       }
