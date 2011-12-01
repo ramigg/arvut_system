@@ -604,7 +604,7 @@ function set_player_technology(lang_obj, technology_id) {
         });
         if (f != 'undefined' && has_flash_stream) {
             var id = f[0].technology.id;
-            techs += '<input type="radio" name="technology_id" value="' + id + '"' + (lang_obj.tid == id && technology_id == kabtv.tabs.flash_technology ? 'checked="checked"' : '') + '>Flash</input>';
+            techs += '<input type="radio" name="technology_id" value="' + id + '"' + (lang_obj.tid == id ? 'checked="checked"' : '') + '>Flash</input>';
         }
     }
     if (kabtv.tabs.wmv) {
@@ -619,7 +619,8 @@ function set_player_technology(lang_obj, technology_id) {
         
         if (f != 'undefined' && has_wmv_stream) {
             var id = f[0].technology.id;
-            techs += '<input type="radio" name="technology_id" value="' + id + '"' + (lang_obj.tid == id && (technology_id != kabtv.tabs.flash_technology || !has_flash_stream) ? 'checked="checked"' : '') + '>WMV</input>';
+            var selected = lang_obj.tid == id && !has_flash_stream;
+             techs += '<input type="radio" name="technology_id" value="' + id + '"' + (selected ? 'checked="checked"' : '') + '>WMV</input>';
         }
     }
     $("#technologies").html(techs);
