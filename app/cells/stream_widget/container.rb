@@ -17,6 +17,7 @@ module StreamWidget
       @show_support = @stream_preset.show_support
       @current_user = param :current_user
       @user_complain = UserComplain.new(:user => @current_user)
+      @locale = params[:locale]
       render
     end
 

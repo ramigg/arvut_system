@@ -621,7 +621,9 @@ function set_player_technology(lang_obj, technology_id) {
             var id = f[0].technology.id;
             var selected = lang_obj.tid == id || !has_flash_stream;
             techs += '<input type="radio" name="technology_id" value="' + id + '"' + (selected ? 'checked="checked"' : '') + '>WMV</input>';
-            technology_id = id;
+            if (selected) {
+                technology_id = id;
+            }
         }
     }
     $("#technologies").html(techs);
