@@ -619,7 +619,7 @@ function set_player_technology(lang_obj, technology_id) {
         
         if (f != 'undefined' && has_wmv_stream) {
             var id = f[0].technology.id;
-            techs += '<input type="radio" name="technology_id" value="' + id + '"' + (lang_obj.tid == id && technology_id != kabtv.tabs.flash_technology || !has_flash_stream ? 'checked="checked"' : '') + '>WMV</input>';
+            techs += '<input type="radio" name="technology_id" value="' + id + '"' + (lang_obj.tid == id && (technology_id != kabtv.tabs.flash_technology || !has_flash_stream) ? 'checked="checked"' : '') + '>WMV</input>';
         }
     }
     $("#technologies").html(techs);
