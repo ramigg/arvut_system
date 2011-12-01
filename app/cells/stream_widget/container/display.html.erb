@@ -58,12 +58,14 @@
         <%= f.hidden_field :language_id %>
         <%= f.hidden_field :technology_id %>
         <%= f.hidden_field :quality_url %>
+        <div>
         <%= f.text_area :message, :cols => 88, :rows => 3 %>
-        <%= link_to image_tag('tightvideo.gif', :alt => 'Transcoded by TightVideo'), 'http://tightvideo.com',
+        <%= link_to image_tag('tightvideo.gif', :alt => 'Transcoded by TightVideo'), 'http://www.tightvideo.com/',
                     :title => 'Transcoded by TightVideo', :target => '_blank',
                     :style => "display:block; float: #{@locale == 'he' ? 'right' : 'left'}" %>
         <%= f.submit I18n.t('kabtv.admin.submit'), :style => "display:block; float: #{@locale == 'he' ? 'left' : 'right'}", :class => 'button-small-main',
                      :disable_with => I18n.t('kabtv.admin.submitting'), :onclick => 'return validate_form();' %>
+        </div>
     <% end %>
 <%- end -%>
 
