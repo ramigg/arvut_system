@@ -98,12 +98,23 @@
         $("select#language_id").live('change', function() {
             // Select technology
             current_language = $(this).val();
-            set_player_technology(current_language);
+            var lang_obj = current_language ? $.grep(kabtv.tabs.languages, function(n, i) {
+                return n.lid == current_language
+            })[0] : kabtv.tabs.languages[0];
+            var default_technology_id = lang_obj.tid;
+            set_player_technology(lang_obj, default_technology_id);
+
+            var stream_url = $("select#quality_id").val();
+            kabtv.tabs.draw_player(stream_url);
         });
         $("#technologies input[type=radio]").live('change', function() {
             // Select quality
-            current_technology = $(this).val();
-            set_player_quality(current_language, current_technology);
+            var current_language = $("select#language_id").val();
+            var default_technology_id = $(this).val();
+            set_player_quality(current_language, default_technology_id);
+
+            var stream_url = $("select#quality_id").val();
+            kabtv.tabs.draw_player(stream_url);
         });
         $("select#quality_id").live('change', function() {
             var stream_url = $(this).val();

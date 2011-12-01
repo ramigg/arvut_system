@@ -16,7 +16,7 @@ class CacheApp
         env['QUERY_STRING'] =~ /type=update_presets/
       # Try to get info from cache
       key = "Sviva-Tova:#{env['REQUEST_PATH']}?#{env['QUERY_STRING']}"
-      value = @cache.get(key, true) || generate_presets(env, key)
+      value = (Rails.env == 'production' && @cache.get(key, true)) || generate_presets(env, key)
       return [200, {'Content-Type' => 'application/x-javascript'}, [value]]
     end
 
@@ -43,12 +43,14 @@ class CacheApp
       return ['window.location.reload();']
     end
 
-    presets, languages = get_presets(stream_preset, params['locale'], params['wmv'] == 'true', params['flash'] == 'true')
+    presets, languages, lang_options = get_presets(stream_preset, params['locale'])
     result = <<-VIEW
       var timestamp = '#{stream_preset.updated_at.to_s}';
-      var presets_data = #{stream_preset.to_json.html_safe};
+      var preset_data = #{stream_preset.to_json.html_safe};
       var presets = #{presets.to_json.html_safe};
       var languages = #{languages.to_json.html_safe};
+      var lang_options = "#{lang_options.html_safe}";
+      var technologies = #{Technology.find_all_by_name(["WMV", "Flash"]).to_json.html_safe};
       kabtv.tabs.flash_technology = #{Technology.find_by_name('Flash').try(:id)};
     VIEW
 
@@ -56,49 +58,21 @@ class CacheApp
     result
   end
 
-  def get_presets(stream_preset, locale, has_wmv, has_flash, has_cdn = false)
-    language = Language.find_by_locale locale
-    lid = language.id
+  def get_presets(stream_preset, locale)
+    all_languages = Language.all
+    locale_id = all_languages.select {|al| al.locale == locale}.first.id
+    preset_languages = stream_preset.preset_languages.uniq
+    languages = preset_languages.map { |p| {:id => p.id, :tid => p.technology.id, :lid => p.language.id, :qid => p.quality.id} }
+    lang_options = languages.map { |l|
+      language_id = l[:lid]
+      "<option #{"selected='selected'".html_safe if language_id == locale_id} value='#{language_id}'>#{all_languages.select{|al| al.id == language_id}.first.language}</option>"
+    }.join
 
-    # look for channel
-    preset_languages = stream_preset.preset_languages.select { |pl| pl.language.id = lid }
-    stream_items = preset_languages.collect { |pl| pl.stream_items }.flatten
-
-    presets = {}
-    languages = []
-    preset_languages = stream_preset.preset_languages
-    language_ids = preset_languages.map(&:language_id).uniq
-    wmv_id = Technology.find_by_name('WMV').id
-    flash_id = Technology.find_by_name('Flash').id
-
-    # for each language create list of technologies
-    language_ids.each { |language_id|
-      languages << "<option #{"selected='selected'".html_safe if language_id == lid} value='#{language_id}'>#{Language.find(language_id).language}</option>"
-      options_list = []
-      image = ''
-      presets[language_id] ||= {}
-      technologies = {}
-      preset_languages.select { |pl| pl.language_id == language_id }.collect { |l| l.stream_items }.flatten.reject { |si| si.stream_url.empty? }.each { |item|
-        tech_id = item.technology.id
-        next if (!has_wmv && tech_id == wmv_id) || (!has_flash && tech_id == flash_id)
-        presets[language_id][tech_id] ||= ''
-        is_default = item.is_default
-        if technologies[tech_id].nil?
-          options_list << "<input type='radio' name='technology_id' #{"checked='checked'".html_safe if is_default} value='#{tech_id}'/><span>#{item.technology.name}</span><br/>"
-          technologies[tech_id] = 1
-        elsif is_default
-          # reset technology to ensure it is default
-          options_list.delete_if { |x| /#{item.technology.name}/.match x }
-          options_list << "<input type='radio' name='technology_id' #{"checked='checked'".html_safe if is_default} value='#{tech_id}'/><span>#{item.technology.name}</span><br/>"
-        end
-        image_path = item.preset_language.stream_preset.stream_state.inactive_image(language_id)
-        image = "<img src='#{image_path.try(:filename)}' alt='#{I18n.t 'kabtv.kabtv.no_broadcast'}' />" if image_path
-        presets[language_id][tech_id] += "<option #{"selected='selected'".html_safe if is_default} value='#{item.stream_url}'>#{item.quality.name}</option>"
+    stream_items = preset_languages.map { |pl|
+      pl.stream_items.flatten.reject { |si| si.stream_url.empty? }.map{|i|
+        { :id => i.id, :def => i.is_default, :tid => i.technology.id, :pid => pl.language.id, :plid => i.preset_language.id, :qd => i.quality.id, :qname => i.quality.name, :url => i.stream_url}
       }
-      presets[language_id][:options] = options_list.uniq.compact.join
-      presets[language_id][:image] = image
-    }
-
-    [presets, languages.join(',')]
+    }.flatten
+    [stream_items, languages, lang_options]
   end
 end
