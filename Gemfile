@@ -27,6 +27,8 @@ gem 'acts_as_list'
 gem 'gemcutter'
 gem 'state_machine'
 gem 'ruby-graphviz', :require => 'graphviz' # for visualizing state machines
+gem 'haml'
+gem 'sass'
 
 # MongoID
 # gem 'mongoid', '2.0.0.beta6'
