@@ -542,16 +542,16 @@ ru:
       please_select_one_of_the_options: "Выберите одну из возможностей"
   social_button:
     admiration_placeholder: Введите ваше восхищение
-    admiration_explain: Введите ваше восхищение, прежде чем нажать кнопку WE, в поле ввода ниже, а затем нажмите кнопку WE. Это позволит отправить сообщение всем людям, что в настоящее время на сайте
+    admiration_explain: Введите ваше восхищение, прежде чем нажать кнопку One, в поле ввода ниже, а затем нажмите кнопку One. Это позволит отправить сообщение всем людям, что в настоящее время на сайте
     cancel: Отменить
     change: Изменить
     clicks_a_day: "кликов в день"
     generate_csv_report: "Сгенерировать отчет"
     i_commit_to: "Я обязуюсь на"
-    we_all_clicks_for_today: "Все пользователи - %{clicks} We из %{total}"
-    we_clicks_for_today: "Ты - %{clicks} We из %{total}"
+    we_all_clicks_for_today: "Все пользователи - %{clicks} One из %{total}"
+    we_clicks_for_today: "Ты - %{clicks} One из %{total}"
     we_clicks_for_today_assist: "Ты сделал %{clicks} кликов, из которых %{assist} - для товарщей. Арвут!"
-    we_group_clicks_for_today: "Твоя группа - %{clicks} We из %{total}"
+    we_group_clicks_for_today: "Твоя группа - %{clicks} One из %{total}"
   stream: 
     add_to_favorites: "Добавить в избранное"
     all: "Все посты"

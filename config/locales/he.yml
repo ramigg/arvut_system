@@ -533,17 +533,17 @@ he:
       all_fields_are_required: "כל השדות הם שדות חובה!"
       please_select_one_of_the_options: "אנא בחר באחת מהאפשרויות"
   social_button:
-    admiration_placeholder: Enter your Admiration
-    admiration_explain: Enter your Admiration, before you press WE button, in the input field below  and then press WE button. This will send message to all people that currently are in the site
+    admiration_placeholder: "הכנס התפעלות פה"
+    admiration_explain: "הכנס התפעלות לפני לחיצה על כפתור One בשדה מלמטה, אחרכך לחץ עך כתפור On. פעולה זאת תשלח את ההתפעלות שלך לכל האנשים שגולשים באתר כרגע"
     cancel: ביטול
     change: שנה
     clicks_a_day: "לחיצות ביום"
     generate_csv_report: "חולל דוח"
     i_commit_to: "אני מתחייב ל- "
-    we_all_clicks_for_today: "%{clicks} לחיצות We להיום מתוך %{total} עבור כל המשתמשים"
-    we_clicks_for_today: "%{clicks} לחיצות We להיום מתוך %{total}"
-    we_clicks_for_today_assist: "%{clicks} לחיצות We להיום מתוכם %{assist} לחיצות לטובת החברים. ערבות!"
-    we_group_clicks_for_today: "%{clicks} לחיצות We להיום מתוך %{total} למשתמשים מקבוצה שלך"
+    we_all_clicks_for_today: "%{clicks} לחיצות One להיום מתוך %{total} עבור כל המשתמשים"
+    we_clicks_for_today: "%{clicks} לחיצות One להיום מתוך %{total}"
+    we_clicks_for_today_assist: "%{clicks} לחיצות One להיום מתוכם %{assist} לחיצות לטובת החברים. ערבות!"
+    we_group_clicks_for_today: "%{clicks} לחיצות One להיום מתוך %{total} למשתמשים מקבוצה שלך"
   stream: 
     add_to_favorites: "הוסף למועדפים"
     all: "כל הפוסטים"

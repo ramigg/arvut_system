@@ -16,7 +16,6 @@ class SocialButton < Apotomo::Widget
 
   def display
     user = param :user
-    @profile = user
     @status = ButtonClick.status(user.id)
     @button_class = @status ? 'we_button' : 'me_button'
     @timeout = ButtonClick.time_left(user.id)
@@ -38,7 +37,6 @@ class SocialButton < Apotomo::Widget
 
   def button_clicks_edit
     user = param :user
-#    if params[:user]
     user.update_attributes(params[:user])
     @button_click_set = get_button_click_set()
     calc_today_clicks(user.id, user.email, @button_click_set)

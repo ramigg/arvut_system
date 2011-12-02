@@ -10,4 +10,4 @@ refresh_all_clicks_chart(<%= @today_all_clicks %>, <%= @today_all_total %>);
 refresh_all_chart_text(<%= @today_all_clicks %>, <%= @today_all_total%>);
 refresh_group_clicks_chart(<%= @today_group_clicks %>, <%= @today_group_total %>);
 refresh_group_chart_text(<%= @today_group_clicks %>, <%= @today_group_total %>);
-update_others(false, <%= @today_clicks %>, <%= @today_total %>, <%= @today_all_clicks %>, <%= @today_all_total %>, <%= @today_group_clicks %>, <%= @today_group_total %>);
+update_others(false, <%= @today_clicks %>, <%= @today_total %>, <%= @today_all_clicks %>, <%= @today_all_total %>, <%= @today_group_clicks %>, <%= @today_group_total %>, '<%= current_user.first_name %>', '<%= params[:locale] %>');
