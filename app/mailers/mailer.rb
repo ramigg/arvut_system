@@ -28,7 +28,7 @@ class Mailer < ActionMailer::Base
     headers = {
       :from => 'Bnei Baruch <internet@kbb1.com>',
       :subject => 'New problem was reported',
-      :to => 'gshilin@gmail.com', # 'support@kab.tv',
+      :to => 'support@kab.tv',
       :date => Time.now.to_formatted_s(:rfc822)
     }
     @problem = problem
