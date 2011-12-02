@@ -5,7 +5,7 @@
     <% if Rails.configuration.enable_comet %>
         <div id="quote_div">
         <textarea class="quote_text" id="quote_text" rows="4" cols="" readonly="true" title="<%= I18n.t('social_button.admiration_explain') %>"></textarea>
-        <input  id="quote_input" class="quote_input" maxlength="128">
+        <input title="<%= I18n.t('social_button.admiration_placeholder') %>" placeholder="<%= I18n.t('social_button.admiration_placeholder') %>"   id="quote_input" class="quote_input" maxlength="128">
     </div>
     <% end %>
     <div id="div_show_button_content">

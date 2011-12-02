@@ -533,7 +533,8 @@ he:
       all_fields_are_required: "כל השדות הם שדות חובה!"
       please_select_one_of_the_options: "אנא בחר באחת מהאפשרויות"
   social_button:
-    admiration_explain: Enter your Admiration, before you press ME button, in the input field below  and then press ME button. This will send message to all people that currently are in the site
+    admiration_placeholder: Enter your Admiration
+    admiration_explain: Enter your Admiration, before you press WE button, in the input field below  and then press WE button. This will send message to all people that currently are in the site
     cancel: ביטול
     change: שנה
     clicks_a_day: "לחיצות ביום"
