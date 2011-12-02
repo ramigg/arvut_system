@@ -513,3 +513,15 @@ es:
     signout: Desconectar
     submit: Enviar
     update: Actualizar
+  social_button:
+    admiration_placeholder: Enter your Admiration
+    admiration_explain: Enter your Admiration, before you press One button, in the input field below and then press One button. This will send message to all people that currently are in the site
+    i_commit_to: I commit to
+    clicks_a_day: clicks a day
+    change: Change
+    cancel: Cancel
+    generate_csv_report: Generate report
+    we_clicks_for_today: %{clicks} One clicks from %{total} for today
+    we_clicks_for_today_assist: %{clicks} One clicks for today, %{assist} clicks from them are in favor of everybody. Arvut!
+    we_all_clicks_for_today: %{clicks} One clicks from %{total} for today for everybody
+    we_group_clicks_for_today: %{clicks} One clicks from %{total} for today for your group
