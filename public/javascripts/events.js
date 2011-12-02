@@ -1,3 +1,39 @@
+var pluginlist = "";
+
+var agt = navigator.userAgent.toLowerCase();
+var ie = (agt.indexOf("msie") != -1);
+var ns = (navigator.appName.indexOf("Netscape") != -1);
+var win = ((agt.indexOf("win") != -1) || (agt.indexOf("32bit") != -1));
+var mac = (agt.indexOf("mac") != -1);
+var nse = "";
+
+if (ie && win) {
+    pluginlist = detectIE("SWCtl.SWCtl.1", "Shockwave Director") + detectIE("ShockwaveFlash.ShockwaveFlash.1", "Shockwave Flash") + detectIE("MediaPlayer.MediaPlayer.1", "Windows Media Player");
+}
+if (ns || !win) {
+    for (var i = 0; i < navigator.mimeTypes.length; i++) nse += navigator.mimeTypes[i].type.toLowerCase();
+    pluginlist = detectNS("application/x-director", "Shockwave Director") + detectNS("application/x-shockwave-flash", "Shockwave Flash") + detectNS("application/x-mplayer2", "Windows Media Player");
+}
+
+function detectIE(ClassID, name) {
+    result = false;
+    document.write('<script type="text/javascript">\n on error resume next; \n result = IsObject(CreateObject("' + ClassID + '"));</script>\n');
+    if (result)
+        return name + ',';
+    else
+        return '';
+}
+function detectNS(ClassID, name) {
+    n = "";
+    if (nse.indexOf(ClassID) != -1)
+        if (navigator.mimeTypes[ClassID].enabledPlugin != null)
+            n = name + ",";
+    return n;
+}
+
+pluginlist += navigator.javaEnabled() ? "Java," : "";
+if (pluginlist.length > 0) pluginlist = pluginlist.substring(0, pluginlist.length - 1);
+
 (function ($) {
 
     if (!window.kabtv) {
@@ -315,6 +351,7 @@ function create_flash_object(clip, url) {
         preset_data : null,
         languages : null,
         lang_options: null,
+        images: null,
         flash_technology: null,
         timestamp: 0,
         flash: pluginlist.indexOf("Flash") != -1,
@@ -378,6 +415,7 @@ function create_flash_object(clip, url) {
                 kabtv.tabs.languages = languages;
                 kabtv.tabs.lang_options = lang_options;
                 kabtv.tabs.technologies = technologies;
+                kabtv.tabs.images = images;
 
                 reload_player = setup_player() || reload_player;
             }
@@ -492,7 +530,7 @@ function create_flash_object(clip, url) {
                 }
             } else {
                 var lang_id = $("select#language_id").val();
-                object = kabtv.tabs.presets[lang_id].image;
+                object = kabtv.tabs.images[lang_id];
                 $('#object').html(object);
             }
         },
@@ -616,7 +654,7 @@ function set_player_technology(lang_obj, technology_id) {
                 has_wmv_stream = true;
             }
         });
-        
+
         if (f != 'undefined' && has_wmv_stream) {
             var id = f[0].technology.id;
             var selected = lang_obj.tid == id || !has_flash_stream;
@@ -629,3 +667,4 @@ function set_player_technology(lang_obj, technology_id) {
     $("#technologies").html(techs);
     set_player_quality(current_language, technology_id);
 }
+

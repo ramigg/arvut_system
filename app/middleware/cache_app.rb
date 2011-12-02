@@ -43,13 +43,14 @@ class CacheApp
       return ['window.location.reload();']
     end
 
-    presets, languages, lang_options = get_presets(stream_preset, params['locale'])
+    presets, languages, lang_options, images = get_presets(stream_preset, params['locale'])
     result = <<-VIEW
       var timestamp = '#{stream_preset.updated_at.to_s}';
       var preset_data = #{stream_preset.to_json.html_safe};
       var presets = #{presets.to_json.html_safe};
       var languages = #{languages.to_json.html_safe};
       var lang_options = "#{lang_options.html_safe}";
+      var images = #{images.to_json.html_safe};
       var technologies = #{Technology.find_all_by_name(["WMV", "Flash"]).to_json.html_safe};
       kabtv.tabs.flash_technology = #{Technology.find_by_name('Flash').try(:id)};
     VIEW
@@ -67,12 +68,16 @@ class CacheApp
       language_id = l[:lid]
       "<option #{"selected='selected'".html_safe if language_id == locale_id} value='#{language_id}'>#{all_languages.select{|al| al.id == language_id}.first.language}</option>"
     }.join
+    images = preset_languages.map{|pl|
+      image_path = stream_preset.stream_state.inactive_image(pl.language_id)
+      "<img src='#{image_path.try(:filename)}' alt='#{I18n.t 'kabtv.kabtv.no_broadcast'}' />"
+    }
 
     stream_items = preset_languages.map { |pl|
       pl.stream_items.flatten.reject { |si| si.stream_url.empty? }.map{|i|
         { :id => i.id, :def => i.is_default, :tid => i.technology.id, :pid => pl.language.id, :plid => i.preset_language.id, :qd => i.quality.id, :qname => i.quality.name, :url => i.stream_url}
       }
     }.flatten
-    [stream_items, languages, lang_options]
+    [stream_items, languages, lang_options, images]
   end
 end
