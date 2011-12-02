@@ -583,6 +583,7 @@ en:
       empty_message: Please fill а message in
 
   social_button:
+    admiration_explain: Enter your Admiration, before you press ME button, in the input field below  and then press ME button. This will send message to all people that currently are in the site
     i_commit_to: I commit to
     clicks_a_day: clicks a day
     change: Change

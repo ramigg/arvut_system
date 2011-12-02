@@ -13,7 +13,8 @@
 
       function connectionEsteblished()
       {
-        _self.update_others = function(is_click, today_clicks, today_total, today_all_clicks, today_all_total, today_group_clicks, today_group_total) {
+        _self.update_others = function(is_click, today_clicks, today_total, today_all_clicks, today_all_total, today_group_clicks, today_group_total,
+            quote_text) {
           //alert("update others " + group_id + " " + today_all_clicks
           //  + " " + today_all_total + " " + today_group_clicks + " " + today_group_total );
 
@@ -26,10 +27,20 @@
             "today_all_clicks": today_all_clicks,
             "today_all_total": today_all_total,
             "today_group_clicks": today_group_clicks,
-            "today_group_total": today_group_total});
+            "today_group_total": today_group_total,
+            "quote_text": quote_text});
         };
 
         comet_app.subscribe(channel, function(message) {
+             if (message.data.quote_text != null && message.data.quote_text != "")
+            {
+                var prevText =    $("#quote_text") .attr("value");
+                var newText = message.data.quote_text;
+
+                if (prevText != "") newText = newText + "\n*******************\n" +  prevText;
+
+                $("#quote_text") .attr("value", newText);
+            }
           if (message.data.user_id == user_id)
           {
             $('.clicks-set-info span').html(message.data.today_total);

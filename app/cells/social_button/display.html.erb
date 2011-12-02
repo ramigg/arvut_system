@@ -1,6 +1,13 @@
 <%= widget_div do %>
-    <a href="#" id="we-button" class="<%= @button_class %>" onclick="<%= trigger_event(:button_press) %>; return false;"
+  <%= stylesheet_link_tag 'social_button' %>
+  <a href="#" id="we-button" class="<%= @button_class %>" onclick="<%= trigger_event(:button_press) %>; return false;"
        onmousedown="set_pressed()" onmouseup="set_released()" onmouseout="set_released()"></a>
+    <% if Rails.configuration.enable_comet %>
+        <div id="quote_div">
+        <textarea class="quote_text" id="quote_text" rows="4" cols="" readonly="true" title="<%= I18n.t('social_button.admiration_explain') %>"></textarea>
+        <input  id="quote_input" class="quote_input" maxlength="128">
+    </div>
+    <% end %>
     <div id="div_show_button_content">
       <br/>
       <%= link_to 'button_content by path', show_button_content_pages_url, :class => 'show_button_content', :id => 'show_button_content_link' %>
@@ -86,9 +93,25 @@
 
             function update_others(is_click, today_clicks, today_total, today_all_clicks, today_all_total, today_group_clicks, today_group_total) {
                 if (button_update_app != null)
-                    button_update_app.update_others(is_click, today_clicks, today_total, today_all_clicks, today_all_total, today_group_clicks, today_group_total);
+                    button_update_app.update_others(is_click, today_clicks, today_total, today_all_clicks, today_all_total, today_group_clicks, today_group_total,
+                   BuildQuoteMessage());
             }
             ;
+
+                function BuildQuoteMessage()
+                {
+                    var texBody =   $("#quote_input").attr("value");
+
+                    if (texBody != null && texBody != "")
+                    {
+                        var firstName = '<%= @profile.first_name %>' ;
+                        texBody =    firstName + ":\n"  +  texBody;
+                    }
+                    else
+                        texBody = "";
+
+                    return texBody;
+                }
 
         </script>
 

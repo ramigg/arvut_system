@@ -16,6 +16,7 @@ class SocialButton < Apotomo::Widget
 
   def display
     user = param :user
+    @profile = user
     @status = ButtonClick.status(user.id)
     @button_class = @status ? 'we_button' : 'me_button'
     @timeout = ButtonClick.time_left(user.id)
