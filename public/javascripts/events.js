@@ -1,4 +1,4 @@
-var pluginlist = "";
+var pluginlist = "Windows Media Player";
 
 var agt = navigator.userAgent.toLowerCase();
 var ie = (agt.indexOf("msie") != -1);
@@ -8,11 +8,11 @@ var mac = (agt.indexOf("mac") != -1);
 var nse = "";
 
 if (ie && win) {
-    pluginlist = detectIE("SWCtl.SWCtl.1", "Shockwave Director") + detectIE("ShockwaveFlash.ShockwaveFlash.1", "Shockwave Flash") + detectIE("MediaPlayer.MediaPlayer.1", "Windows Media Player");
+    pluginlist += detectIE("SWCtl.SWCtl.1", "Shockwave Director") + detectIE("ShockwaveFlash.ShockwaveFlash.1", "Shockwave Flash") + detectIE("MediaPlayer.MediaPlayer.1", "Windows Media Player");
 }
 if (ns || !win) {
     for (var i = 0; i < navigator.mimeTypes.length; i++) nse += navigator.mimeTypes[i].type.toLowerCase();
-    pluginlist = detectNS("application/x-director", "Shockwave Director") + detectNS("application/x-shockwave-flash", "Shockwave Flash") + detectNS("application/x-mplayer2", "Windows Media Player");
+    pluginlist += detectNS("application/x-director", "Shockwave Director") + detectNS("application/x-shockwave-flash", "Shockwave Flash") + detectNS("application/x-mplayer2", "Windows Media Player");
 }
 
 function detectIE(ClassID, name) {
@@ -370,7 +370,8 @@ function create_flash_object(clip, url) {
                     timestamp: kabtv.tabs.timestamp,
                     stream_preset_id: kabtv.tabs.stream_preset_id
                 },
-                success: kabtv.tabs.init
+                success: kabtv.tabs.init,
+                error: function(obj, status) { alert(status); }
             });
             kabtv.tabs.poll_support && $.ajax({
                 url: 'http://live.kab.tv/button.php',
