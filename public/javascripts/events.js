@@ -1,39 +1,3 @@
-var pluginlist = "Windows Media Player";
-
-var agt = navigator.userAgent.toLowerCase();
-var ie = (agt.indexOf("msie") != -1);
-var ns = (navigator.appName.indexOf("Netscape") != -1);
-var win = ((agt.indexOf("win") != -1) || (agt.indexOf("32bit") != -1));
-var mac = (agt.indexOf("mac") != -1);
-var nse = "";
-
-if (ie && win) {
-    pluginlist += detectIE("SWCtl.SWCtl.1", "Shockwave Director") + detectIE("ShockwaveFlash.ShockwaveFlash.1", "Shockwave Flash") + detectIE("MediaPlayer.MediaPlayer.1", "Windows Media Player");
-}
-if (ns || !win) {
-    for (var i = 0; i < navigator.mimeTypes.length; i++) nse += navigator.mimeTypes[i].type.toLowerCase();
-    pluginlist += detectNS("application/x-director", "Shockwave Director") + detectNS("application/x-shockwave-flash", "Shockwave Flash") + detectNS("application/x-mplayer2", "Windows Media Player");
-}
-
-function detectIE(ClassID, name) {
-    result = false;
-    document.write('<script type="text/javascript">\n on error resume next; \n result = IsObject(CreateObject("' + ClassID + '"));</script>\n');
-    if (result)
-        return name + ',';
-    else
-        return '';
-}
-function detectNS(ClassID, name) {
-    n = "";
-    if (nse.indexOf(ClassID) != -1)
-        if (navigator.mimeTypes[ClassID].enabledPlugin != null)
-            n = name + ",";
-    return n;
-}
-
-pluginlist += navigator.javaEnabled() ? "Java," : "";
-if (pluginlist.length > 0) pluginlist = pluginlist.substring(0, pluginlist.length - 1);
-
 (function ($) {
 
     if (!window.kabtv) {
@@ -354,8 +318,8 @@ function create_flash_object(clip, url) {
         images: null,
         flash_technology: null,
         timestamp: 0,
-        flash: pluginlist.indexOf("Flash") != -1,
-        wmv: pluginlist.indexOf("Windows Media Player") != -1,
+        flash: baps['flash'] != undefined,
+        wmv: baps['wmp'] != undefined,
         technologies: null,
 
         url_for_presets_update: '',
@@ -370,8 +334,7 @@ function create_flash_object(clip, url) {
                     timestamp: kabtv.tabs.timestamp,
                     stream_preset_id: kabtv.tabs.stream_preset_id
                 },
-                success: kabtv.tabs.init,
-                error: function(obj, status) { alert(status); }
+                success: kabtv.tabs.init
             });
             kabtv.tabs.poll_support && $.ajax({
                 url: 'http://live.kab.tv/button.php',
