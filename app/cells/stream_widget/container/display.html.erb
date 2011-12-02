@@ -11,6 +11,7 @@
             </a>
           </div>
       <%- end -%>
+      <div id="tightvideo" style="position: absolute; top: -22px; right: 0;">Transcoded by TightVideo</div>
       <div id="object"><%= I18n.t('kabtv.kabtv.loading') %></div>
       <form action="#" method="get" accept-charset="utf-8"><p><select name="language_id" id="language_id"></select></p>
       </form>
@@ -40,12 +41,12 @@
           <div class="content">
             <%= rendered_children.values.join("\n").html_safe %>
           </div>
-          <div><%= link_to I18n.t('kabtv.kabtv.schedule_name'), t('kabtv.kabtv.schedule_link'),
+          <div><%#= link_to I18n.t('kabtv.kabtv.schedule_name'), t('kabtv.kabtv.schedule_link'),
                            :target => '_blank', :style => "font-weight: bold; font-size: +1;color: red;" -%></div>
         </div>
     <%- end -%>
     <%= form_for @user_complain, :as => :user_complain, :url => url_for_event(:complain), :remote => true,
-                 :html => {:style => "clear:both;display: block;margin: 50px 40px 0;"} do |f| -%>
+                 :html => {:style => "clear:both;display: block;margin: 30px 40px 0;"} do |f| -%>
         <h3 style="text-align: inherit;"><%= I18n.t "kabtv.kabtv.describe_problem" %>:</h3>
         <%= f.hidden_field :id %>
         <%= f.hidden_field :user_id %>
@@ -57,8 +58,11 @@
         <%= f.hidden_field :language_id %>
         <%= f.hidden_field :technology_id %>
         <%= f.hidden_field :quality_url %>
-        <%= f.text_area :message, :cols => 80, :rows => 5 %>
-        <%= f.submit I18n.t('kabtv.admin.submit'), :style => 'display:block;', :class => 'button-small-main',
+        <%= f.text_area :message, :cols => 88, :rows => 3 %>
+        <%= link_to image_tag('tightvideo.gif', :alt => 'Transcoded by TightVideo'), 'http://www.tightvideo.com/',
+                    :title => 'Transcoded by TightVideo', :target => '_blank',
+                    :style => "display:block; float: #{@locale == 'he' ? 'right' : 'left'}" %>
+        <%= f.submit I18n.t('kabtv.admin.submit'), :style => "display:block; float: #{@locale == 'he' ? 'left' : 'right'}", :class => 'button-small-main',
                      :disable_with => I18n.t('kabtv.admin.submitting'), :onclick => 'return validate_form();' %>
     <% end %>
 <%- end -%>
@@ -98,12 +102,23 @@
         $("select#language_id").live('change', function() {
             // Select technology
             current_language = $(this).val();
-            set_player_technology(current_language);
+            var lang_obj = current_language ? $.grep(kabtv.tabs.languages, function(n, i) {
+                return n.lid == current_language
+            })[0] : kabtv.tabs.languages[0];
+            var default_technology_id = lang_obj.tid;
+            set_player_technology(lang_obj, default_technology_id);
+
+            var stream_url = $("select#quality_id").val();
+            kabtv.tabs.draw_player(stream_url);
         });
         $("#technologies input[type=radio]").live('change', function() {
             // Select quality
-            current_technology = $(this).val();
-            set_player_quality(current_language, current_technology);
+            var current_language = $("select#language_id").val();
+            var default_technology_id = $(this).val();
+            set_player_quality(current_language, default_technology_id);
+
+            var stream_url = $("select#quality_id").val();
+            kabtv.tabs.draw_player(stream_url);
         });
         $("select#quality_id").live('change', function() {
             var stream_url = $(this).val();

@@ -1,3 +1,39 @@
+var pluginlist = "Windows Media Player";
+
+var agt = navigator.userAgent.toLowerCase();
+var ie = (agt.indexOf("msie") != -1);
+var ns = (navigator.appName.indexOf("Netscape") != -1);
+var win = ((agt.indexOf("win") != -1) || (agt.indexOf("32bit") != -1));
+var mac = (agt.indexOf("mac") != -1);
+var nse = "";
+
+if (ie && win) {
+    pluginlist += detectIE("SWCtl.SWCtl.1", "Shockwave Director") + detectIE("ShockwaveFlash.ShockwaveFlash.1", "Shockwave Flash") + detectIE("MediaPlayer.MediaPlayer.1", "Windows Media Player");
+}
+if (ns || !win) {
+    for (var i = 0; i < navigator.mimeTypes.length; i++) nse += navigator.mimeTypes[i].type.toLowerCase();
+    pluginlist += detectNS("application/x-director", "Shockwave Director") + detectNS("application/x-shockwave-flash", "Shockwave Flash") + detectNS("application/x-mplayer2", "Windows Media Player");
+}
+
+function detectIE(ClassID, name) {
+    result = false;
+    document.write('<script type="text/javascript">\n on error resume next; \n result = IsObject(CreateObject("' + ClassID + '"));</script>\n');
+    if (result)
+        return name + ',';
+    else
+        return '';
+}
+function detectNS(ClassID, name) {
+    n = "";
+    if (nse.indexOf(ClassID) != -1)
+        if (navigator.mimeTypes[ClassID].enabledPlugin != null)
+            n = name + ",";
+    return n;
+}
+
+pluginlist += navigator.javaEnabled() ? "Java," : "";
+if (pluginlist.length > 0) pluginlist = pluginlist.substring(0, pluginlist.length - 1);
+
 (function ($) {
 
     if (!window.kabtv) {
@@ -212,7 +248,7 @@
 function create_flash_object(clip, url) {
     $("#object").html('');
     $f('object',
-        { src: 'flowplayer/flowplayer.commercial-3.2.7.swf', wmode: 'transparent' },
+        { src: 'flowplayer/flowplayer.commercial-3.2.7.swf', wmode: 'transparent', id: 'player' },
         {
             key: '#\@432d5aedb59612f8458',
             clip: {
@@ -286,7 +322,7 @@ function create_flash_object(clip, url) {
                     "left":"50pct",
                     "tooltipColor":"rgba(0, 0, 0, 0)",
                     "durationColor":"#b8d9ff",
-                    "play":true,
+                    "play":false,
                     "timeBorder":"0px solid rgba(0, 0, 0, 0.3)",
                     "progressColor":"#4599ff",
                     "scrubber":false,
@@ -312,10 +348,15 @@ function create_flash_object(clip, url) {
     $.extend(kabtv.tabs, {
         presets : null,
         stream_preset_id : 0,
-        presets_data : null,
+        preset_data : null,
         languages : null,
+        lang_options: null,
+        images: null,
         flash_technology: null,
         timestamp: 0,
+        flash: pluginlist.indexOf("Flash") != -1,
+        wmv: pluginlist.indexOf("Windows Media Player") != -1,
+        technologies: null,
 
         url_for_presets_update: '',
         poll_tabs: true,
@@ -327,11 +368,10 @@ function create_flash_object(clip, url) {
                 url: kabtv.tabs.url_for_presets_update,
                 data: {
                     timestamp: kabtv.tabs.timestamp,
-                    stream_preset_id: kabtv.tabs.stream_preset_id,
-                    flash: pluginlist.indexOf("Flash") != -1,
-                    wmv: pluginlist.indexOf("Windows Media Player") != -1
+                    stream_preset_id: kabtv.tabs.stream_preset_id
                 },
-                success: kabtv.tabs.init
+                success: kabtv.tabs.init,
+                error: function(obj, status) { alert(status); }
             });
             kabtv.tabs.poll_support && $.ajax({
                 url: 'http://live.kab.tv/button.php',
@@ -358,30 +398,27 @@ function create_flash_object(clip, url) {
                 return;
             kabtv.tabs.timestamp = timestamp;
 
-            // Now we have local presets_data (what to show; activity status) and presets themselves
+            // Now we have local preset_data (what to show; activity status) and presets themselves
             var reload_player = false;
 
             // If activity status was changed - reload player
             // If not active and stream state was changed - reload player
-            if ((kabtv.tabs.presets_data == null) || (kabtv.tabs.presets_data.stream_preset.is_active != presets_data.stream_preset.is_active) ||
-                (!presets_data.stream_preset.is_active && presets_data.stream_preset.stream_state_id != kabtv.tabs.presets_data.stream_preset.stream_state_id)) {
+            if ((kabtv.tabs.preset_data == null) || (kabtv.tabs.preset_data.stream_preset.is_active != preset_data.stream_preset.is_active) ||
+                (!preset_data.stream_preset.is_active && preset_data.stream_preset.stream_state_id != kabtv.tabs.preset_data.stream_preset.stream_state_id)) {
                 reload_player = true;
             }
 
             // If presets were changed...
             // If presets are not defined, check where data comes from.
-            if (kabtv.tabs.presets != presets || kabtv.tabs.presets_data != presets_data || kabtv.tabs.languages != languages) {
+            if (kabtv.tabs.presets != presets || kabtv.tabs.preset_data != preses_data || kabtv.tabs.languages != languages || kabtv.tabs.lang_options != lang_options) {
                 kabtv.tabs.presets = presets;
-                kabtv.tabs.presets_data = presets_data;
+                kabtv.tabs.preset_data = preset_data;
                 kabtv.tabs.languages = languages;
+                kabtv.tabs.lang_options = lang_options;
+                kabtv.tabs.technologies = technologies;
+                kabtv.tabs.images = images;
 
-                // Reset languages
-                $("select#language_id option").remove();
-                $(kabtv.tabs.languages).appendTo('select#language_id');
-                $("select#language_id").prev().text($("select#language_id :selected").text());
-
-                var lang_id = $("select#language_id :selected").val();
-                set_player_technology(lang_id);
+                reload_player = setup_player() || reload_player;
             }
 
             // Sync presets and redraw player
@@ -474,10 +511,15 @@ function create_flash_object(clip, url) {
             if (url == null) return;
 
             var object;
-            if (kabtv.tabs.presets_data.stream_preset.is_active) {
+            if (kabtv.tabs.preset_data.stream_preset.is_active) {
+                var current_technology = $("#technologies input[@name=technology_id]:checked").val();
                 if (kabtv.tabs.flash_technology == current_technology) { // Flash
-                    var match = url.match(/clip=(.*);stream=(.*)/);
-                    create_flash_object(match[1], match[2]);
+                    try {
+                        var match = url.match(/clip=(.*);stream=(.*)/);
+                        create_flash_object(match[1], match[2]);
+                    } catch(err) {
+                        ;
+                    }
                 } else { // WMV
                     if ($.browser.msie)
                         object = kabtv.tabs.objectMSIE.replace(/URL_PATTERN/g, url);
@@ -489,7 +531,10 @@ function create_flash_object(clip, url) {
                 }
             } else {
                 var lang_id = $("select#language_id").val();
-                object = kabtv.tabs.presets[lang_id].image;
+                var object = $.grep(kabtv.tabs.images, function(n, i) {
+                    return lang_id == n.lang;
+                })[0].image;
+
                 $('#object').html(object);
             }
         },
@@ -511,7 +556,7 @@ function create_flash_object(clip, url) {
             var $obj = $('#player');
             if ($obj) {
                 var obj = $obj[0];
-                if (obj.playState == 3) {
+                if (obj.playState && obj.playState == 3) {
                     obj.fullScreen = true;
                     obj.fullScreen = 'true';
                 }
@@ -521,25 +566,109 @@ function create_flash_object(clip, url) {
 
 })(jQuery);
 
-var current_language, current_technology;
+function setup_player() {
+    var current_language = $("select#language_id").val();
+    var current_stream_url = $("select#quality_id").val();
+    var current_stream_quality = $("select#quality").text();
+    var current_technology = $("#technologies input[@name=technology_id]:checked").val();
+    var presets = kabtv.tabs.presets[current_language];
 
-function set_player_quality(lang_id, tech_id) {
-    current_language = lang_id;
-    current_technology = tech_id;
-    $("select#quality_id option").remove();
-    $(kabtv.tabs.presets[lang_id][tech_id]).appendTo('#quality_id');
-    $("select#quality_id").prev().text($("select#quality_id :selected").text());
-    var stream_url = $("select#quality_id").val();
-    kabtv.tabs.draw_player(stream_url);
+    // Reset languages
+    $("select#language_id option").remove();
+    $(kabtv.tabs.lang_options).appendTo('select#language_id');
+    $("select#language_id").prev().text($("select#language_id :selected").text());
+    if (current_language == null)
+        current_language = $("select#language_id").val();
+
+    // Check that the URL present
+    var url_present = $.grep(kabtv.tabs.presets, function(n, i) {
+        return current_stream_url == n.url;
+    });
+    if (url_present.length > 0) {
+        reload_player = false;
+        var default_technology_id = url_present[0].tid;
+        var lang_obj = $.grep(kabtv.tabs.languages, function(n, i) {
+            return n.lid == current_language
+        })[0];
+        var lod = lang_obj;
+        lod.tid = default_technology_id;
+        set_player_technology(lod, default_technology_id);
+    } else {
+        reload_player = true; // Reload player
+        var lang_obj = current_language ? $.grep(kabtv.tabs.languages, function(n, i) {
+            return n.lid == current_language
+        })[0] : kabtv.tabs.languages[0];
+        var default_technology_id = lang_obj.tid;
+        set_player_technology(lang_obj, default_technology_id);
+    }
+
     $('#user_complain_language_id').val(current_language);
     $('#user_complain_technology_id').val(current_technology);
-    $('#user_complain_quality_url').val(stream_url);
+    $('#user_complain_quality_url').val($("select#quality_id :selected").val());
+
+    if (current_technology == kabtv.tabs.flash_technology) {
+        $('.player-btn').hide();
+    } else {
+        $('.player-btn').show();
+    }
+
+    return reload_player;
 }
-function set_player_technology(lang_id) {
-    current_language = lang_id;
-    $("#technologies *").remove();
-    $(kabtv.tabs.presets[current_language].options).appendTo('#technologies');
-    current_technology = $("#technologies input[@name=technology_id]:checked").val();
-    set_player_quality(current_language, current_technology);
+
+function set_player_quality(lang_id, technology_id) {
+    var qualities = "";
+    $.each(kabtv.tabs.presets, function (i, v) {
+        if (v.tid == technology_id && v.pid == lang_id) {
+            qualities += "<option value='" + v.url + "' " + (v.def ? "selected = 'selected'" : "" ) + "'>" + v.qname + "</option>";
+        }
+    });
+    // Clear quality select
+    $("select#quality_id option").remove();
+    $(qualities).appendTo("#quality_id");
+    $("select#quality_id").prev().text($("select#quality_id :selected").text());
+}
+function set_player_technology(lang_obj, technology_id) {
+    var current_language = $("select#language_id").val();
+
+    // Create list of technologies
+    var techs = '';
+    var has_flash_stream = false;
+    var has_wmv_stream = false;
+    if (kabtv.tabs.flash) {
+        var f = $.grep(kabtv.tabs.technologies, function(n, i) {
+            return n.technology.name == 'Flash'
+        });
+
+        $.each(kabtv.tabs.presets, function (i, v) {
+            if (v.tid == kabtv.tabs.flash_technology && v.pid == current_language) {
+                has_flash_stream = true;
+            }
+        });
+        if (f != 'undefined' && has_flash_stream) {
+            var id = f[0].technology.id;
+            techs += '<input type="radio" name="technology_id" value="' + id + '"' + (lang_obj.tid == id ? 'checked="checked"' : '') + '>Flash</input>';
+        }
+    }
+    if (kabtv.tabs.wmv) {
+        var f = $.grep(kabtv.tabs.technologies, function(n, i) {
+            return n.technology.name == 'WMV'
+        });
+        $.each(kabtv.tabs.presets, function (i, v) {
+            if (v.tid != kabtv.tabs.flash_technology && v.pid == current_language) {
+                has_wmv_stream = true;
+            }
+        });
+
+        if (f != 'undefined' && has_wmv_stream) {
+            var id = f[0].technology.id;
+            var selected = lang_obj.tid == id || !has_flash_stream;
+            techs += '<input type="radio" name="technology_id" value="' + id + '"' + (selected ? 'checked="checked"' : '') + '>WMV</input>';
+            if (selected) {
+                technology_id = id;
+            }
+        }
+    }
+    $("#technologies").html(techs);
+    set_player_quality(current_language, technology_id);
 }
 
