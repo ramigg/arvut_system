@@ -70,7 +70,7 @@ class CacheApp
     }.join
     images = preset_languages.map{|pl|
       image_path = stream_preset.stream_state.inactive_image(pl.language_id)
-      "<img src='#{image_path.try(:filename)}' alt='#{I18n.t 'kabtv.kabtv.no_broadcast'}' />"
+      {:lang => pl.language_id, :image => "<img src='#{image_path.try(:filename)}' alt='#{I18n.t 'kabtv.kabtv.no_broadcast'}' />"}
     }
 
     stream_items = preset_languages.map { |pl|

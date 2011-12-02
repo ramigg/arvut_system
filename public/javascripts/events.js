@@ -530,7 +530,10 @@ function create_flash_object(clip, url) {
                 }
             } else {
                 var lang_id = $("select#language_id").val();
-                object = kabtv.tabs.images[lang_id];
+                var object = $.grep(kabtv.tabs.images, function(n, i) {
+                    return lang_id == n.lang;
+                })[0].image;
+
                 $('#object').html(object);
             }
         },
