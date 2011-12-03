@@ -26,7 +26,7 @@
           <a class="player-btn" onclick="kabtv.tabs.detach(); return false;"><span class="detach"> </span></a>
       <%- end -%>
       <a class="player-btn" onclick="kabtv.tabs.fs(); return false;"><span class="full_screen"> </span></a>
-      <%= form_for @user_complain, :as => :user_complain, :url => url_for_event(:complain), :remote => true,
+      <%= form_for @user_complain, :as => :user_complain, :url => user_complains_url, :method => :post, :remote => true,
                    :html => {:style => "clear:both;width: 100%;display: block;margin: 50px 0 0;"} do |f| -%>
           <h3 style="text-align: inherit;"><%= I18n.t "kabtv.kabtv.describe_problem" %>:</h3>
           <%= f.hidden_field :id %>

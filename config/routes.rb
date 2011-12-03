@@ -77,7 +77,8 @@ Simulator::Application.routes.draw do
     end
 
     resources :statistics
-    
+    resources :user_complains
+
     # HOME
     match 'stream/all', :to => 'stream#index', :stream_filter => 'all', :as => 'home'
     match 'stream/:stream_filter(/:modifier)' => 'stream#index', :as => :stream

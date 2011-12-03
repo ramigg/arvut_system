@@ -2,7 +2,6 @@ module StreamWidget
   class Container < Apotomo::Widget
     include ActionView::Helpers::JavaScriptHelper
     responds_to_event :update_presets, :with => :process_request
-    responds_to_event :complain, :with => :store_complain
 
     has_widgets do |me|
       me << widget('stream_widget/schedule', 'schedule', :display, :stream_preset_id => ((param :stream_preset_id) || params[:stream_preset_id]))
@@ -19,19 +18,6 @@ module StreamWidget
       @user_complain = UserComplain.new(:user => @current_user)
       @locale = params[:locale]
       render
-    end
-
-    def store_complain
-      @complain = UserComplain.new(param :user_complain)
-      if @complain.save
-        email = Mailer.send_problem_notification @complain, request.remote_ip
-        begin
-          email.deliver
-        end
-        render :text => "alert('#{I18n.t "kabtv.kabtv.thank_you"}');$('#user_complain_message').val('')", :content_type => Mime::JS
-      else
-        render :text => "alert('#{I18n.t "kabtv.kabtv.submit_problem"}');", :content_type => Mime::JS
-      end
     end
 
     def process_request
