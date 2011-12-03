@@ -1,13 +1,6 @@
-- @problem.attributes.each do |key, val|
-  = key
-  \=
-  != val
-  %br
-Remote IP:
-= @remote_ip
+Message:
+= @problem['message']
 %br
-Locale:
-= @locale
 %br
 User:
 = @user.first_name
@@ -16,6 +9,13 @@ User:
 Email:
 = @user.email
 %br
+Remote IP:
+= @remote_ip
+%br
+Locale:
+= @locale
+%br
+%br
 Preferred Language:
 = @user.language.try(:language)
 %br
@@ -23,3 +23,10 @@ Location:
 = @user.country.try(:name)
 = @user.region.try(:name)
 = @user.location.try(:city)
+%br
+%br
+- @problem.attributes.each do |key, val|
+  = key
+  \=
+  != val
+  %br

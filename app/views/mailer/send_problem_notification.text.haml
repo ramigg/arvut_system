@@ -1,9 +1,7 @@
 Message:
 = @problem['message']
-%br
-%br
-- @problem.attributes.each do |key, val|
-  = "#{key} = #{val}\n"
+
+
 Remote IP:
 = @remote_ip
 Locale:
@@ -23,3 +21,6 @@ Location:
 = @user.country.try(:name)
 = @user.region.try(:name)
 = @user.location.try(:city)
+
+- @problem.attributes.each do |key, val|
+  = "#{key} = #{val}\n"
