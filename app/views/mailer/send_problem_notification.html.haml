@@ -14,7 +14,7 @@ Email:
 = @user.email
 %br
 Language:
-= @user.language.language
+= @user.language.try(:language)
 %br
 Location:
 = @user.country.try(:name)
