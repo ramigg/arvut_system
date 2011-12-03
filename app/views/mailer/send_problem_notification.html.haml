@@ -3,3 +3,20 @@
   \=
   != val
   %br
+Remote IP:
+= @remote_ip
+%br
+User:
+= @user.first_name
+= @user.last_name
+%br
+Email:
+= @user.email
+%br
+Language:
+= @user.language.language
+%br
+Location:
+= @user.country.try(:name)
+= @user.region.try(:name)
+= @user.location.try(:city)

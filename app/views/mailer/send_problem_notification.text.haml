@@ -1,2 +1,19 @@
 - @problem.attributes.each do |key, val|
   = "#{key} = #{val}\n"
+Remote IP:
+= @remote_ip
+
+User:
+= @user.first_name
+= @user.last_name
+
+Email:
+= @user.email
+
+Language:
+= @user.language.language
+
+Location:
+= @user.country.try(:name)
+= @user.region.try(:name)
+= @user.location.try(:city)
