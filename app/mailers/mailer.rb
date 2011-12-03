@@ -24,7 +24,7 @@ class Mailer < ActionMailer::Base
     end
   end
 
-  def send_problem_notification(problem, remote_ip)
+  def send_problem_notification(problem, remote_ip, locale)
     headers = {
       :from => 'Bnei Baruch <internet@kbb1.com>',
       :subject => 'New problem was reported',
@@ -33,6 +33,7 @@ class Mailer < ActionMailer::Base
     }
     @problem = problem
     @user = problem.user
+    @locale = locale
     @remote_ip = remote_ip
     mail(headers) do |format|
       format.text

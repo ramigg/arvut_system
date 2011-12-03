@@ -6,6 +6,8 @@ Message:
   = "#{key} = #{val}\n"
 Remote IP:
 = @remote_ip
+Locale:
+= @locale
 
 User:
 = @user.first_name
@@ -14,7 +16,7 @@ User:
 Email:
 = @user.email
 
-Language:
+Preferred Language:
 = @user.language.try(:language)
 
 Location:

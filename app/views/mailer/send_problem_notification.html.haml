@@ -6,6 +6,9 @@
 Remote IP:
 = @remote_ip
 %br
+Locale:
+= @locale
+%br
 User:
 = @user.first_name
 = @user.last_name
@@ -13,7 +16,7 @@ User:
 Email:
 = @user.email
 %br
-Language:
+Preferred Language:
 = @user.language.try(:language)
 %br
 Location:
