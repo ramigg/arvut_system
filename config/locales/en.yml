@@ -579,8 +579,10 @@ en:
       full_screen: Full Screen
       thank_you: Thank you!
       submit_problem: Unable to send message :(\nPlease try again later.
-      describe_problem: Describe your problem
+      describe_problem: Report your problem
       empty_message: Please fill а message in
+      flash: Flash
+      wmv: WMV
 
   social_button:
     i_commit_to: I commit to

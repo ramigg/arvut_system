@@ -320,6 +320,8 @@ function create_flash_object(clip, url) {
         timestamp: 0,
         flash: baps['flash'] != undefined,
         wmv: baps['wmp'] != undefined,
+        flash_text: 'Flash',
+        wmv_text: 'WMV',
         technologies: null,
 
         url_for_presets_update: '',
@@ -609,7 +611,7 @@ function set_player_technology(lang_obj, technology_id) {
         });
         if (f != 'undefined' && has_flash_stream) {
             var id = f[0].technology.id;
-            techs += '<input type="radio" name="technology_id" value="' + id + '"' + (lang_obj.tid == id ? 'checked="checked"' : '') + '>Flash</input>';
+            techs += '<input type="radio" name="technology_id" value="' + id + '"' + (lang_obj.tid == id ? 'checked="checked"' : '') + '>' + kabtv.tabs.flash_text + '</input>';
         }
     }
     if (kabtv.tabs.wmv) {
@@ -625,7 +627,7 @@ function set_player_technology(lang_obj, technology_id) {
         if (f != 'undefined' && has_wmv_stream) {
             var id = f[0].technology.id;
             var selected = lang_obj.tid == id || !has_flash_stream;
-            techs += '<input type="radio" name="technology_id" value="' + id + '"' + (selected ? 'checked="checked"' : '') + '>WMV</input>';
+            techs += '<input type="radio" name="technology_id" value="' + id + '"' + (selected ? 'checked="checked"' : '') + '>' + kabtv.tabs.wmv_text + '</input>';
             if (selected) {
                 technology_id = id;
             }

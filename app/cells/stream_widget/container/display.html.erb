@@ -11,12 +11,14 @@
             </a>
           </div>
       <%- end -%>
-      <div id="tightvideo" style="position: absolute; top: -22px; right: 0;">Transcoded by TightVideo</div>
+      <div id="tightvideo_img" style="position: absolute; top: -38px; font-size: 10px; <%= @locale == 'he' ? 'left' : 'right' %> : 0;">
+        <%= link_to image_tag('tightvideo.gif', :alt => 'Transcoded by TightVideo'), 'http://www.tightvideo.com/', :title => 'Transcoded by TightVideo', :target => '_blank' %>
+      </div>
       <div id="object"><%= I18n.t('kabtv.kabtv.loading') %></div>
       <form action="#" method="get" accept-charset="utf-8"><p><select name="language_id" id="language_id"></select></p>
       </form>
       <form action="#" method="get" accept-charset="utf-8">
-        <div name="technologies" id="technologies"></div>
+        <div name="technologies" id="technologies" style="font-size: 12px; color: black;"></div>
       </form>
       <form action="#" method="get" accept-charset="utf-8"><p><select name="quality_id" id="quality_id"></select></p>
       </form>
@@ -24,6 +26,23 @@
           <a class="player-btn" onclick="kabtv.tabs.detach(); return false;"><span class="detach"> </span></a>
       <%- end -%>
       <a class="player-btn" onclick="kabtv.tabs.fs(); return false;"><span class="full_screen"> </span></a>
+      <%= form_for @user_complain, :as => :user_complain, :url => url_for_event(:complain), :remote => true,
+                   :html => {:style => "clear:both;width: 100%;display: block;margin: 50px 0 0;"} do |f| -%>
+          <h3 style="text-align: inherit;"><%= I18n.t "kabtv.kabtv.describe_problem" %>:</h3>
+          <%= f.hidden_field :id %>
+          <%= f.hidden_field :user_id %>
+          <%= f.hidden_field :user_agent %>
+          <%= f.hidden_field :platform %>
+          <%= f.hidden_field :oscpu %>
+          <%= f.hidden_field :buildid %>
+          <%= f.hidden_field :plugins %>
+          <%= f.hidden_field :language_id %>
+          <%= f.hidden_field :technology_id %>
+          <%= f.hidden_field :quality_url %>
+          <%= f.text_area :message, :style => 'width: 100%; height: 4em;'  %>
+          <%= f.submit I18n.t('kabtv.admin.submit'), :style => "display:block; float: #{@locale == 'he' ? 'left' : 'right'}", :class => 'button-small-main',
+                       :disable_with => I18n.t('kabtv.admin.submitting'), :onclick => 'return validate_form();' %>
+      <% end %>
     </div>
     <%- if @show_tabs -%>
         <div class="services">
@@ -45,23 +64,6 @@
                            :target => '_blank', :style => "font-weight: bold; font-size: +1;color: red;" -%></div>
         </div>
     <%- end -%>
-    <%= form_for @user_complain, :as => :user_complain, :url => url_for_event(:complain), :remote => true,
-                 :html => {:style => "clear:both;display: block;margin: 30px 40px 0;"} do |f| -%>
-        <h3 style="text-align: inherit;"><%= I18n.t "kabtv.kabtv.describe_problem" %>:</h3>
-        <%= f.hidden_field :id %>
-        <%= f.hidden_field :user_id %>
-        <%= f.hidden_field :user_agent %>
-        <%= f.hidden_field :platform %>
-        <%= f.hidden_field :oscpu %>
-        <%= f.hidden_field :buildid %>
-        <%= f.hidden_field :plugins %>
-        <%= f.hidden_field :language_id %>
-        <%= f.hidden_field :technology_id %>
-        <%= f.hidden_field :quality_url %>
-        <%= f.text_area :message, :cols => 88, :rows => 3 %>
-        <%= f.submit I18n.t('kabtv.admin.submit'), :style => "display:block; float: #{@locale == 'he' ? 'left' : 'right'}", :class => 'button-small-main',
-                     :disable_with => I18n.t('kabtv.admin.submitting'), :onclick => 'return validate_form();' %>
-    <% end %>
 <%- end -%>
 
 <script type="text/javascript">
@@ -127,6 +129,8 @@
         kabtv.tabs.poll_tabs = <%= @show_tabs %>;
         kabtv.tabs.poll_support = <%= @show_support %>;
         kabtv.tabs.stream_preset_id = '<%= @stream_preset.id %>';
+        kabtv.tabs.flash_text = '<%= I18n.t "kabtv.kabtv.flash" %>';
+        kabtv.tabs.wmv_text = '<%= I18n.t "kabtv.kabtv.wmv" %>';
         kabtv.tabs.url_for_presets_update = '<%= url_for_event(:update_presets) %>'.replace(/&amp;/g, '&');
         kabtv.tabs.pollPresets();
         kabtv.tabs.startPollingPresets();
