@@ -25,7 +25,9 @@ module StreamWidget
       @complain = UserComplain.new(param :user_complain)
       if @complain.save
         email = Mailer.send_problem_notification @complain, request.remote_ip
-        email.deliver
+        begin
+          email.deliver
+        end
         render :text => "alert('#{I18n.t "kabtv.kabtv.thank_you"}');$('#user_complain_message').val('')", :content_type => Mime::JS
       else
         render :text => "alert('#{I18n.t "kabtv.kabtv.submit_problem"}');", :content_type => Mime::JS
