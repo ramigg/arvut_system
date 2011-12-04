@@ -567,6 +567,11 @@ function setup_player() {
         set_player_technology(lang_obj, default_technology_id);
     }
 
+    if (current_language == null)
+        current_language = $("select#language_id").val();
+    if (current_technology == null)
+        current_technology = $("#technologies input[@name=technology_id]:checked").val();
+
     $('#user_complain_language_id').val(current_language);
     $('#user_complain_technology_id').val(current_technology);
     $('#user_complain_quality_url').val($("select#quality_id :selected").val());
