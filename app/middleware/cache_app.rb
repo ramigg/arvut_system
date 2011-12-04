@@ -16,7 +16,7 @@ class CacheApp
         env['QUERY_STRING'] =~ /type=update_presets/
       # Try to get info from cache
       key = "Sviva-Tova:#{env['REQUEST_PATH']}?#{env['QUERY_STRING']}"
-      value = (Rails.env == 'production' && @cache.get(key, true)) || generate_presets(env, key)
+      value = @cache.get(key, true) || generate_presets(env, key)
       return [200, {'Content-Type' => 'application/x-javascript'}, [value]]
     end
 
