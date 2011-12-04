@@ -26,23 +26,6 @@
           <a class="player-btn" onclick="kabtv.tabs.detach(); return false;"><span class="detach"> </span></a>
       <%- end -%>
       <a class="player-btn" onclick="kabtv.tabs.fs(); return false;"><span class="full_screen"> </span></a>
-      <%= form_for @user_complain, :as => :user_complain, :url => user_complains_url, :method => :post, :remote => true,
-                   :html => {:style => "clear:both;width: 100%;display: block;margin: 50px 0 0;"} do |f| -%>
-          <h3 style="text-align: inherit;"><%= I18n.t "kabtv.kabtv.describe_problem" %>:</h3>
-          <%= f.hidden_field :id %>
-          <%= f.hidden_field :user_id %>
-          <%= f.hidden_field :user_agent %>
-          <%= f.hidden_field :platform %>
-          <%= f.hidden_field :oscpu %>
-          <%= f.hidden_field :buildid %>
-          <%= f.hidden_field :plugins %>
-          <%= f.hidden_field :language_id %>
-          <%= f.hidden_field :technology_id %>
-          <%= f.hidden_field :quality_url %>
-          <%= f.text_area :message, :style => 'width: 100%; height: 4em;'  %>
-          <%= f.submit I18n.t('kabtv.admin.submit'), :style => "display:block; float: #{@locale == 'he' ? 'left' : 'right'}", :class => 'button-small-main',
-                       :disable_with => I18n.t('kabtv.admin.submitting'), :onclick => 'return validate_form();' %>
-      <% end %>
     </div>
     <%- if @show_tabs -%>
         <div class="services">
@@ -64,6 +47,23 @@
                            :target => '_blank', :style => "font-weight: bold; font-size: +1;color: red;" -%></div>
         </div>
     <%- end -%>
+    <%= form_for @user_complain, :as => :user_complain, :url => user_complains_url, :method => :post, :remote => true,
+                 :html => {:style => "clear:both;width: 310px;display: block;margin: 50px auto 0;float: none;"} do |f| -%>
+        <h3 style="text-align: inherit;"><%= I18n.t "kabtv.kabtv.describe_problem" %>:</h3>
+        <%= f.hidden_field :id %>
+        <%= f.hidden_field :user_id %>
+        <%= f.hidden_field :user_agent %>
+        <%= f.hidden_field :platform %>
+        <%= f.hidden_field :oscpu %>
+        <%= f.hidden_field :buildid %>
+        <%= f.hidden_field :plugins %>
+        <%= f.hidden_field :language_id %>
+        <%= f.hidden_field :technology_id %>
+        <%= f.hidden_field :quality_url %>
+        <%= f.text_area :message, :style => 'width: 100%; height: 4em; padding:0;'  %>
+        <%= f.submit I18n.t('kabtv.admin.submit'), :style => "display:block; float: #{@locale == 'he' ? 'left' : 'right'}", :class => 'button-small-main',
+                     :disable_with => I18n.t('kabtv.admin.submitting'), :onclick => 'return validate_form();' %>
+    <% end %>
 <%- end -%>
 
 <script type="text/javascript">
