@@ -17,7 +17,7 @@ class CacheApp
       # Try to get info from cache
       key = "Sviva-Tova:#{env['REQUEST_PATH']}?#{env['QUERY_STRING']}"
       value = @cache.get(key, true) || generate_presets(env, key)
-      return [200, {'Content-Type' => 'application/x-javascript'}, [value]]
+      return [200, {'Content-Type' => 'application/x-javascript', 'X-Supplied-by' => 'Middlware'}, [value]]
     end
     if env['REQUEST_PATH'] =~ /events\/render_event_response/ &&
         env['QUERY_STRING'] =~ /type=classboard/
@@ -30,7 +30,7 @@ class CacheApp
           :urls => {:sketches => '', :thumbnails => ''},
           :thumbnails => []
       }
-      return [200, {'Content-Type' => 'application/x-javascript'}, [display_classboard(env, classboard)]]
+      return [200, {'Content-Type' => 'application/x-javascript', 'X-Supplied-by' => 'Middlware'}, [display_classboard(env, classboard)]]
     end
 
     @app.call(env)
