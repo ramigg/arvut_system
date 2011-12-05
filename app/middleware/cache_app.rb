@@ -32,11 +32,69 @@ class CacheApp
       }
       return [200, {'Content-Type' => 'application/x-javascript', 'X-Supplied-by' => 'Middlware'}, [display_classboard(env, classboard)]]
     end
+    if env['REQUEST_PATH'] =~ /events\/render_event_response/ &&
+        env['QUERY_STRING'] =~ /type=more_questions/
+      return [200, {'Content-Type' => 'application/x-javascript', 'X-Supplied-by' => 'Middlware'}, [more_questions(env)]]
+    end
 
     @app.call(env)
   end
 
   private
+
+  def more_questions(env)
+    params = parse_query(env['QUERY_STRING'])
+
+    last_question_id = params['last_question_id'].to_i
+
+    (@questions, @total_questions) = CopyQuestion.approved_questions(last_question_id)
+
+    if @questions.empty?
+      if last_question_id == 0 || @total_questions == 0
+        # questions => no new questions
+        text = "
+        $('dl#questions').html('#{escape_javascript "<dd class='even'>#{I18n.t 'kabtv.kabtv.no_questions_yet'}</dd>".html_safe}');
+        kabtv.questions.last_question_id = 0;
+        "
+      else
+        text = ''
+      end
+    else
+      content = ''
+      @questions.each_with_index {|q, idx|
+        klass = ((last_question_id + 1 + idx) & 1) == 0 ? 'odd' : 'even'
+        name = q.qname.empty? ? I18n.t('kabtv.kabtv.guest') : q.qname
+        from = q.qfrom.empty? ? I18n.t('kabtv.kabtv.somewhere') : q.qfrom
+        style = q.lang == 'Hebrew' ? 'style="direction:rtl"' : ''
+        if q.stimulator_id.to_i > 0
+          user = User.find(q.stimulator_id)
+          img = "<img src='/images/#{user.avatar_url(:thumb)}' />"
+        else
+          img = "<img src='/images/user.png' />"
+        end
+
+        content += <<-HTML
+        <dt class="#{klass}" #{style}>#{img}<span class="who">#{name}</span> @ <span class="where">#{from}</span></dt>
+        <dd class="#{klass}" #{style}>#{q.qquestion}</dd>
+        HTML
+      }
+      if last_question_id == 0
+        # no questions => questions
+        text = "
+        $('dl#questions').html('#{escape_javascript content.html_safe}');
+        kabtv.questions.last_question_id = #{@questions.last.id};
+        "
+      else
+        # questions => more questions
+        text = "
+        $('dl#questions').append('#{escape_javascript content.html_safe}');
+        kabtv.questions.last_question_id =+ #{@questions.last.id};
+        "
+      end
+    end
+
+    text
+  end
 
   def display_classboard(env, data)
     params = parse_query(env['QUERY_STRING'])
@@ -125,4 +183,23 @@ class CacheApp
     }.flatten
     [stream_items, languages, lang_options, images]
   end
+
+  JS_ESCAPE_MAP = {
+    '\\'    => '\\\\',
+    '</'    => '<\/',
+    "\r\n"  => '\n',
+    "\n"    => '\n',
+    "\r"    => '\n',
+    '"'     => '\\"',
+    "'"     => "\\'" }
+
+  # Escape carrier returns and single and double quotes for JavaScript segments.
+  def escape_javascript(javascript)
+    if javascript
+      javascript.gsub(/(\\|<\/|\r\n|[\n\r"'])/) { JS_ESCAPE_MAP[$1] }
+    else
+      ''
+    end
+  end
+
 end
