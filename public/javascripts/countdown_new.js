@@ -1,6 +1,6 @@
 // JavaScript Document
 /***********************************************
-* Universal Countdown script- © Dynamic Drive (http://www.dynamicdrive.com)
+* Universal Countdown script- ï¿½ Dynamic Drive (http://www.dynamicdrive.com)
 * This notice MUST stay intact for legal use
 * Visit http://www.dynamicdrive.com/ for this script and 100s more.
 ***********************************************/
@@ -148,7 +148,7 @@ jQuery(document).ready(function($) {
 	
 	var servertime = new Date();
        
-    var launchdate = new cdLocalTime('countdown', servertime, 0, 'December 07, 2011 09:00:00', 'Left', suffix);
+    var launchdate = new cdLocalTime('countdown', servertime, 0, 'December 06, 2011 09:00:00', 'Left', suffix);
     launchdate.displaycountdown('countdown', formatresults2);
     
 	
