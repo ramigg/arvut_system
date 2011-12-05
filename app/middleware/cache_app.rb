@@ -15,7 +15,7 @@ class CacheApp
     if env['REQUEST_PATH'] =~ /events\/render_event_response/ &&
         env['QUERY_STRING'] =~ /type=update_presets/
       # Try to get info from cache
-      key = "Sviva-Tova:#{env['REQUEST_PATH']}?#{env['QUERY_STRING']}"
+      key = "Sviva-Tova:#{env['REQUEST_PATH']}?#{env['QUERY_STRING'].gsub(/&_=\d+/, '')}"
       value = @cache.get(key, true) || generate_presets(env, key)
       return [200, {'Content-Type' => 'application/x-javascript', 'X-Supplied-by' => 'Middlware'}, [value]]
     end
