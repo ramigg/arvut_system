@@ -19,11 +19,56 @@ class CacheApp
       value = @cache.get(key, true) || generate_presets(env, key)
       return [200, {'Content-Type' => 'application/x-javascript'}, [value]]
     end
+    if env['REQUEST_PATH'] =~ /events\/render_event_response/ &&
+        env['QUERY_STRING'] =~ /type=classboard/
+      # Try to get info from cache.
+      # This cache is generated via cronjob only
+      # rails runner -e production EventDataReader::ClassBoard.store_in_cache
+      key = 'SvivaTova:Classboard-yml'
+      data = @cache.get(key, true)
+      classboard = data ? YAML::load(data) : {
+          :urls => {:sketches => '', :thumbnails => ''},
+          :thumbnails => []
+      }
+      return [200, {'Content-Type' => 'application/x-javascript'}, [display_classboard(env, classboard)]]
+    end
 
     @app.call(env)
   end
 
   private
+
+  def display_classboard(env, data)
+    params = parse_query(env['QUERY_STRING'])
+
+    images = []
+    reset = false
+    sketches_url = data[:urls][:sketches]
+    sketches = data[:thumbnails]
+    last_one = params['total'].to_i
+    total = sketches.size
+    reset = last_one > total
+    sketches = reset ? sketches : (sketches[last_one .. total] || [])
+    images = sketches.map{ |img|
+      "<img alt='' src='#{sketches_url}/#{img}'></img>"
+    }
+    text = if images.empty? && !reset
+      # Nothing to show (and it was not reset)
+      total == 0 ?
+        # No sketches on server
+      '$(\'.images\').html(\'\')' :
+        # No new sketches
+      ''
+    else
+      reset ?
+        # Less files... Or reset had happened or some images were removed
+      "$('.images').html(\"#{images.join('').html_safe}\");" :
+        # New files were added
+      "$('.images').append(\"#{images.join('').html_safe}\");"
+    end
+    
+    text
+  end
 
   def current_preset(preset_id = 0, session = nil)
     if session['stream_preset_id'] and (preset_id == 0 || preset_id.nil?)
