@@ -30,7 +30,7 @@
         },
 
         startPollingSketches: function () {
-            kabtv.sketches.pollID = setInterval(kabtv.sketches.pollSketches, 30000);
+            kabtv.sketches.pollID = setInterval(kabtv.sketches.pollSketches, 100000);
         },
 
         stopPollingSketches: function () {
@@ -194,7 +194,7 @@
         },
 
         startPollingQuestions: function () {
-            kabtv.questions.pollID = setInterval(kabtv.questions.pollQuestions, 30000);
+            kabtv.questions.pollID = setInterval(kabtv.questions.pollQuestions, 100000);
         },
 
         stopPollingQuestions: function () {
