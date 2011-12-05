@@ -20,6 +20,7 @@
         pollSketches: function() {
             $.ajax({
                 url: kabtv.sketches.url_for_classboard,
+                cache: false,
                 data: {
                     total: kabtv.sketches.total,
                     stream_preset_id: kabtv.tabs.stream_preset_id
@@ -184,6 +185,7 @@
         pollQuestions: function() {
             $.ajax({
                 url: kabtv.questions.url_for_more_questions,
+                cache: false,
                 data: {
                     last_question_id: last_question_id,
                     stream_preset_id: kabtv.tabs.stream_preset_id
@@ -261,7 +263,7 @@ function create_flash_object(clip, url) {
                         "hideDuration":400,
                         "fullscreenOnly":true
                     },
-                    "backgroundGradient":"medium",
+                    "backgroundGradient":"none",
                     "width":"100pct",
                     "display":"block",
                     "sliderBorder":"1px solid rgba(128, 128, 128, 0.7)",
@@ -332,6 +334,7 @@ function create_flash_object(clip, url) {
             $.ajax({
                 timeout: 5000,
                 url: kabtv.tabs.url_for_presets_update,
+                cache: false,
                 data: {
                     timestamp: kabtv.tabs.timestamp,
                     stream_preset_id: kabtv.tabs.stream_preset_id
@@ -340,6 +343,7 @@ function create_flash_object(clip, url) {
             });
             kabtv.tabs.poll_support && $.ajax({
                 url: 'http://live.kab.tv/button.php',
+                cache: false,
                 data: {
                     image: 'tech',
                     lang: 'ru',
