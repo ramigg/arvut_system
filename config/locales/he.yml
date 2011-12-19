@@ -534,7 +534,9 @@ he:
     views: 
       all_fields_are_required: "כל השדות הם שדות חובה!"
       please_select_one_of_the_options: "אנא בחר באחת מהאפשרויות"
-  social_button: 
+  social_button:
+    admiration_placeholder: "הכנס התפעלות פה"
+    admiration_explain: "הכנס התפעלות לפני לחיצה על כפתור בשדה מלמטה, אחרכך לחץ עך כתפור פעולה זאת תשלח את ההתפעלות שלך לכל האנשים שגולשים באתר כרגע"
     cancel: ביטול
     change: שנה
     clicks_a_day: "לחיצות ביום"

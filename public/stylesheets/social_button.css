@@ -1,0 +1,9 @@
+.quote_input{
+    width:220px;
+}
+.quote_text{
+   height:70px;
+   border:1px solid #ccc;
+   padding:6px;
+   overflow:auto;
+}
