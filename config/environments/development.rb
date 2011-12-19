@@ -43,7 +43,7 @@ Simulator::Application.configure do
 
   config.active_support.deprecation = :log
 
-  config.enable_comet = true
+  config.enable_comet = false
   #config.comet_server = "kabbalahgroup.info"
   #config.comet_server = "localhost:8080"
   #config.comet_server = "192.168.2.101:8080"

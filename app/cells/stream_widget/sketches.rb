@@ -3,7 +3,8 @@ module StreamWidget
     responds_to_event :classboard, :with => :display_classboard
 
     def display
-      return unless current_preset.show_sketches
+      @stream_preset = current_preset(param :stream_preset_id)
+      return if @stream_preset.nil? || ! @stream_preset.show_sketches
 
       render
     end

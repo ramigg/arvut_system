@@ -6,7 +6,8 @@ class Language < ActiveRecord::Base
   has_many :article_resources
   has_many :video_resources
   has_many :pages
-  has_many :stream_items
+
+  has_many :preset_languages
   
   scope :by_locale, lambda {|locale| where(:locale => locale) } rescue nil
 

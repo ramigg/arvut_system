@@ -8,13 +8,16 @@
     <%= yield(:head) %>
   </head>
   <body class="<%= I18n.locale %> layout-stream">
-  <a href="<%= get_skin_url %>"  target="_blank">
+  <%#*<a href="<%= get_skin_url %><%#*"  target="_blank">  %>
       <div class="skin_bg">
           <div id="countdown-placement">
               <p>Left:</p>
               <div id="countdown"></div>
           </div>
           <div class="skin_container">
+	            <%#*<div id="countdown-placement">
+		              <div id="countdown"></div>
+		          </div>%>
               <p></p>
           </div>
           <%#*<div class="skin_container">%>
@@ -26,7 +29,7 @@
           <%#*<a href="#" class="skinlink"></a>%>
           <%#*</div>%>
       </div>
-  </a>
+  <%#*</a>  %>
     <div class="clear"></div>
     <div class="wrapper">
       <%= render 'stream/header' %>

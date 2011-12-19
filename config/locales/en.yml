@@ -526,7 +526,9 @@ en:
       is_active: Is active
       default: Default
       inactive_image: Inactive image
-      stream_URL: Stream URL
+      stream_URL: "Stream URL (Flash: clip=...;stream=...)"
+      quality: Quality
+      technology: Technology
       language: Language
       description: Description
       add_stream_item: Add stream item
@@ -538,6 +540,9 @@ en:
       stream_presets: Stream presets
       stream_state: Stream state
       problem_saving: There was a problem saving the record
+      name: Name
+      qualities: Stream qualities
+      add_quality: Add quality
       stream_switcher: Stream switcher
       stream_states:
         is_active: On air
@@ -572,7 +577,12 @@ en:
       cancel: Cancel
       open_in_default_viewer: Open in Default Viewer
       full_screen: Full Screen
-      publish_by_comet: Publish By Comet
+      thank_you: Thank you!
+      submit_problem: Unable to send message :(\nPlease try again later.
+      describe_problem: Report your problem
+      empty_message: Please fill а message in
+      flash: Flash
+      wmv: WMV
 
   social_button:
     i_commit_to: I commit to

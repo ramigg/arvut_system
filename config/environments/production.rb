@@ -12,7 +12,7 @@ Simulator::Application.configure do
   config.cache_classes = true
 
   # Full error reports are disabled and caching is turned on
-  config.consider_all_requests_local       = false
+  config.consider_all_requests_local = false
   config.action_controller.perform_caching = true
 
   # Specifies the header that your server uses for sending files
@@ -32,7 +32,7 @@ Simulator::Application.configure do
   # config.logger = SyslogLogger.new
 
   # Use a different cache store in production
-  config.cache_store = :mem_cache_store, { :namespace => 'Sviva-Tova' }#, :expires_in => 20.minutes}
+  config.cache_store = :mem_cache_store, {:namespace => 'Sviva-Tova', :compression => false, :urlencode => false} #, :expires_in => 20.minutes}
 
   # Disable Rails's static asset server
   # In production, Apache or nginx will already do this
@@ -40,15 +40,15 @@ Simulator::Application.configure do
 
   # Enable serving of images, stylesheets, and javascripts from an asset server
   # config.action_controller.asset_host = "http://assets.example.com"
-  config.action_controller.asset_host = Proc.new{|source, request|
+  config.action_controller.asset_host = Proc.new { |source, request|
     "#{request.protocol}#{request.host_with_port}#{config.site_prefix}"
   }
 
-    config.action_mailer.delivery_method = :remail
-    config.action_mailer.remail_settings = {
-      :app_id  => "remail-bb",
-      :api_key => "a3bd9c1d-1ea5-4e27-92ae-def9754d943a"
-    }
+  config.action_mailer.delivery_method = :remail
+  config.action_mailer.remail_settings = {
+    :app_id => "remail-bb",
+    :api_key => "a3bd9c1d-1ea5-4e27-92ae-def9754d943a"
+  }
 
   # Disable delivery errors, bad email addresses will be ignored
   # config.action_mailer.raise_delivery_errors = false
@@ -59,7 +59,7 @@ Simulator::Application.configure do
   config.active_support.deprecation = :notify
 
   # enable push-engine (update web-page without refresh)
-  config.enable_comet = true
+  config.enable_comet = false
   config.comet_server = "kabbalahgroup.info"
   config.comet_application_id = "1"
   comet_yml = YAML::load_file("#{::Rails.root}/config/comet.yml")

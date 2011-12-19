@@ -1,0 +1,25 @@
+= @problem['message']
+
+
+Remote IP:
+= @remote_ip
+Locale:
+= @locale
+
+User:
+= @user.first_name
+= @user.last_name
+
+Email:
+= @user.email
+
+Preferred Language:
+= @user.language.try(:language)
+
+Location:
+= @user.country.try(:name)
+= @user.region.try(:name)
+= @user.location.try(:city)
+
+- @problem.attributes.each do |key, val|
+  = "#{key} = #{val}\n"

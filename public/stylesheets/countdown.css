@@ -2,9 +2,9 @@
 	position:relative;
 	top:0;
 	left:0;
-    width: 160px;
-    margin:38px 0 10px 22px;
-	float:left;
+  width: 160px;
+  margin:58px 0px 10px 22px;
+	float:right;
 }
 #countdown-placement ul{
 	list-style:none;
@@ -24,7 +24,7 @@
 #countdown-placement ul li span, #countdown-placement p{
 	position:relative;
 	bottom:3%;
-	*bottom:0%;
+	bottom:-5px;
 	color: #e8812e;
 	font-family: Arial;
 	font-size:20px;

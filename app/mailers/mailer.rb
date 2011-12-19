@@ -23,4 +23,21 @@ class Mailer < ActionMailer::Base
       format.html
     end
   end
+
+  def send_problem_notification(problem, remote_ip, locale)
+    headers = {
+      :from => 'Bnei Baruch <internet@kbb1.com>',
+      :subject => 'New problem was reported',
+      :to => 'support@kab.tv',
+      :date => Time.now.to_formatted_s(:rfc822)
+    }
+    @problem = problem
+    @user = problem.user
+    @locale = locale
+    @remote_ip = remote_ip
+    mail(headers) do |format|
+      format.text
+      format.html
+    end
+  end
 end

@@ -72,6 +72,6 @@ h.F.W(r)}p.Fa()}}function j(){p&&p.zc()&&k()}function k(w){if(!H)if(B){var D,F;v
 event.propertyName;if(w==="className"||w==="id")m()}function v(){p.Da();for(var w=E.length;w--;)E[w].Da()}function x(){for(var w=E.length;w--;)E[w].Fa();p.Fa()}function r(){if(y){if(C)for(var w=0,D=C.length,F;w<D;w++){F=C[w];F.detachEvent("onpropertychange",t);F.detachEvent("onmouseenter",n);F.detachEvent("onmouseleave",q)}f.detachEvent("onmove",k);f.detachEvent("onresize",k);f.detachEvent("onpropertychange",m);f.detachEvent("onmouseenter",n);f.detachEvent("onmouseleave",q);h.F.Ga(r);y=0}}function o(){if(!H){var w,
 D;r();H=1;if(s){w=0;for(D=s.length;w<D;w++)s[w].k()}h.Wa===8&&h.La.Ga(k);h.ta.Ga(k);s=p=z=E=C=f=null}}var s,p=new K(f),z,E,C,A,B,y,G,H;this.Dc=i;this.update=k;this.k=o;this.vc=f}var b={},c=h.I+"lazy-init",g=" "+h.Ja+"hover",e=new RegExp("\\b"+h.Ja+"hover\\b","g"),d={background:1,bgColor:1,display:1};a.xc=function(f){var i=h.n.oa(f);return b[i]||(b[i]=new a(f))};a.k=function(f){f=h.n.oa(f);var i=b[f];if(i){i.k();delete b[f]}};a.rc=function(){var f=[],i;if(b){for(var j in b)if(b.hasOwnProperty(j)){i=
 b[j];f.push(i.vc);i.k()}b={}}return f};return a}();h.attach=function(a){h.D<9&&h.Ka.xc(a).Dc()};h.detach=function(a){h.Ka.k(a)}};
-var L=window.PIE,N=element;function init(){doc.media!=="print"&&L.attach(N)}function cleanup(){L.detach(N);L=N=0}N.readyState==="complete"&&init();
+var L=window.PIE,N=element;function init(){doc.media!=="print"&&L.attach(N)}function cleanup(){if (L.detach)L.detach(N);L=N=0}N.readyState==="complete"&&init();
 </script>
 </PUBLIC:COMPONENT>

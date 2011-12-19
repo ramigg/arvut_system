@@ -6,13 +6,14 @@ module Statistics
     @@packages = ['corechart']
     
     def self.script
+      return '' # kills IE :(
       script = <<-SCRIPT
 <!-- Load the Google Visualization AJAX API
     In the case of IE load also HTML5 corrector -->
 <!--[if IE]>
-<script type="text/javascript" src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+<!--script type="text/javascript" src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script-->
 <![endif]-->
-<script type="text/javascript" src="http://www.google.com/jsapi?autoload=%7B%22modules%22%3A%5B%7B%22name%22%3A%22visualization%22%2C%22version%22%3A%221%22%2C%22packages%22%3A%5B%22areachart%22%2C%22corechart%22%5D%7D%5D%7D"></script>
+<!--script type="text/javascript" src="http://www.google.com/jsapi?autoload=%7B%22modules%22%3A%5B%7B%22name%22%3A%22visualization%22%2C%22version%22%3A%221%22%2C%22packages%22%3A%5B%22areachart%22%2C%22corechart%22%5D%7D%5D%7D"></script-->
       SCRIPT
       script.html_safe
     end

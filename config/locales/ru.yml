@@ -477,6 +477,10 @@ ru:
       submitting: Ждите...
       successfully_saved: "Успешно сохранено!"
     kabtv:
+      thank_you: Спасибо!
+      submit_problem: Невозможно послать сообщение :(\nПожалуйста попытайтесь еще раз позже.
+      describe_problem: Сообщите о проблемах в трансляции
+      empty_message: Пожалуйста напишите сообщение
       schedule_name: Расписание событий
       schedule_link: https://docs.google.com/spreadsheet/ccc?key=0AvAzVeqlLTMEdEx0MFNzdFdmWWJNc1JaUUhmci0tMFE&hl=en_US
       ask_question: "Задать вопрос"
@@ -503,8 +507,9 @@ ru:
       somewhere: откуда-то
       technical_support: Техподдержка
       who: Кто
-      publish_by_comet: Опубликовать через Comet
-  layout: 
+      flash: Flash
+      wmv: WMV
+  layout:
     search: Поиск
     search_screen_reader: Искать
   notification: 

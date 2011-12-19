@@ -36,13 +36,12 @@
              'application',
              'jquery-ui-1.8.4.custom.min',
              "jquery.ui.datepicker-#{I18n.locale}.js",
-             '/flowplayer/flowplayer-3.2.4.min.js',
+             '/flowplayer/flowplayer-3.2.6.min.js',
              'autocomplete-rails.js',
              'jquery.uniform.min.js',
              'jquery-validation',
              'jquery.ba-bbq.min.js',
-             #'countdown',
-              'countdown_new',
+              'BAPS',
              'events']
     list << 'jquery.colorbox-min.js' if Rails.configuration.open_stream_in_popup || Rails.configuration.open_blog_in_popup || Page.get_button_content_count > 0
     list << "jquery.ui.datepicker-#{I18n.locale}.js" if current_user && current_user.is_restricted?
@@ -52,49 +51,49 @@
 %>
 
 <% if Rails.configuration.enable_comet %>
-<%=
-javascript_include_tag [
-  'comet/cometd/cometd-namespace.js',
-  'comet/cometd/cometd-json.js',
-  'comet/cometd/Utils.js',
-  'comet/cometd/Transport.js',
-  'comet/cometd/TransportRegistry.js',
-  'comet/cometd/RequestTransport.js',
-  'comet/cometd/WebSocketTransport.js',
-  'comet/cometd/LongPollingTransport.js',
-  'comet/cometd/CallbackPollingTransport.js',
-  'comet/cometd/Cometd.js',
-  'comet/cometd/AckExtension.js',
-  'comet/cometd/ReloadExtension.js',
-  'comet/jquery/json2.js',
-  'comet/jquery/jquery.cookie.js',
-  'comet/jquery/jquery.cometd.js',
-  'comet/jquery/jquery.cometd-reload.js',
-  'comet/app.js' ]
-%>
-<script type="text/javascript">
-	var comet_app = null;
-	var user_hash = null;
-	var authentication = null;
-<% if current_user != nil %>
-	var user_hash = "<%=(current_user.id*1023).to_s()%>"
-  var authentication = "<%= AESCrypt.encrypt((current_user.id*1023).to_s(),
+    <%=
+        javascript_include_tag [
+                                       'comet/cometd/cometd-namespace.js',
+                                       'comet/cometd/cometd-json.js',
+                                       'comet/cometd/Utils.js',
+                                       'comet/cometd/Transport.js',
+                                       'comet/cometd/TransportRegistry.js',
+                                       'comet/cometd/RequestTransport.js',
+                                       'comet/cometd/WebSocketTransport.js',
+                                       'comet/cometd/LongPollingTransport.js',
+                                       'comet/cometd/CallbackPollingTransport.js',
+                                       'comet/cometd/Cometd.js',
+                                       'comet/cometd/AckExtension.js',
+                                       'comet/cometd/ReloadExtension.js',
+                                       'comet/jquery/json2.js',
+                                       'comet/jquery/jquery.cookie.js',
+                                       'comet/jquery/jquery.cometd.js',
+                                       'comet/jquery/jquery.cometd-reload.js',
+                                       'comet/app.js']
+    %>
+    <script type="text/javascript">
+        var comet_app = null;
+        var user_hash = null;
+        var authentication = null;
+        <% if current_user != nil %>
+        var user_hash = "<%=(current_user.id*1023).to_s()%>"
+        var authentication = "<%= AESCrypt.encrypt((current_user.id*1023).to_s(),
       ::Rails.configuration.comet_auth_key,
       ::Rails.configuration.comet_auth_iv,"AES-128-CBC") %>"
-<% end %>
-  $(document).ready(function() {
-    comet_app = new $.CometApp(
-      "<%= Rails.configuration.comet_server %>", //contextPath, // CometD server path or ip
-      "<%= Rails.configuration.comet_application_id %>", //applicationId, // String identifying the application id, base channel
-      user_hash, //username, // For authenticated applications only, if null no authentication
-      authentication, // username encryption// For authenticated applications only, if null no authentication
-      null, //connectionEstablished, // hook for event, may be null
-      null, //connectionBroken, // hook for event, may be null
-      null //connectionClosed // hook for event, may be null
-    );
-    comet_app.connect();
-  });
-</script>
+        <% end %>
+        $(document).ready(function() {
+            comet_app = new $.CometApp(
+                    "<%= Rails.configuration.comet_server %>", //contextPath, // CometD server path or ip
+                    "<%= Rails.configuration.comet_application_id %>", //applicationId, // String identifying the application id, base channel
+                    user_hash, //username, // For authenticated applications only, if null no authentication
+                    authentication, // username encryption// For authenticated applications only, if null no authentication
+                    null, //connectionEstablished, // hook for event, may be null
+                    null, //connectionBroken, // hook for event, may be null
+                    null //connectionClosed // hook for event, may be null
+            );
+            comet_app.connect();
+        });
+    </script>
 <% end %>
 
 <%= Statistics::Basic.script %>

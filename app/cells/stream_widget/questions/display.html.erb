@@ -33,7 +33,8 @@
   var last_question_id = 0;
 
   $(function (){
-    kabtv.questions.url_for_more_questions = '<%= url_for_event(:more_questions) %>';
+    kabtv.questions.url_for_more_questions = '<%= url_for_event(:more_questions) %>'.replace(/&amp;/g, '&');
+    kabtv.tabs.stream_preset_id = '<%= @stream_preset.id %>';
 
     kabtv.questions.pollQuestions();
     kabtv.questions.startPollingQuestions();

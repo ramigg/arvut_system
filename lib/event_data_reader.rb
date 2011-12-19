@@ -5,12 +5,12 @@ require 'open-uri'
 module EventDataReader
   class ClassBoard
     attr_reader :classboard
+    @@cache = MemCache.new 'localhost:11211'
     
     def initialize()
-      @classboard = Cache.fetch(:content_type => 'Classboard-yml', :content_uid => '', :language_id => 0)
-      unless @classboard
-        @classboard = EventDataReader::ClassBoard.store_in_cache
-      end
+      key = 'SvivaTova:Classboard-yml'
+      @classboard = @@cache.get(key, true) || EventDataReader::ClassBoard.store_in_cache
+      @classboard = YAML::load(@classboard)
     end
 
     def self.store_in_cache
@@ -18,12 +18,14 @@ module EventDataReader
         content =
           Timeout::timeout(25){
           open('http://www.kab.tv/classboard/thumbnails.yml') { |f|
-            YAML::load(f)
+            f.read
           }
         }
-        Cache.store(content, :content_type => 'Classboard-yml', :content_uid => '', :language_id => 0)
+        key = 'SvivaTova:Classboard-yml'
+        @@cache.set(key, content, 0, true)
       rescue Timeout::Error
       end
+
       content
     end
   end

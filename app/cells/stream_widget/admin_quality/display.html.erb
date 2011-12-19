@@ -1,0 +1,63 @@
+<%= widget_div do %>
+    <div class="left-side" style="float:left;width:120px;height:300px;overflow-x: auto;overflow-y: none;padding:10px;margin:0 10px 0 0;background:#EFEDDE;">
+    </div>
+    <% if @qualities %>
+        <%= form_tag url_for_event(:submit), :remote => true do -%>
+            <div style="overflow: auto;height:260px;margin-bottom: 10px;border-bottom: 2px solid #aaa;">
+              <table id="presets-table" style="border-collapse: collapse;border-spacing: 0;font-size:10px;margin: 10px 0 0;">
+                <caption></caption>
+                <thead>
+                <tr>
+                  <th style="font-weight:normal;"><%= I18n.t('kabtv.admin.name') %></th>
+                  <th style="font-weight:normal;">X</th>
+                </tr>
+                </thead>
+                <tbody>
+                <% @qualities.each_with_index do |quality, index| %>
+                    <%= fields_for "qualities[#{index}]", quality do |f| -%>
+                        <%= render :partial => "qualities", :locals => {:qualities => f} %>
+                    <% end %>
+                <% end %>
+                </tbody>
+              </table>
+            </div>
+            <p style='float: left;'>
+              <%= link_to_add_qualities(I18n.t('kabtv.admin.add_quality'), :quality) do |new_object, association| %>
+                  <% fields_for "qualities[new_#{association}]", new_object do |builder|
+                      render :view => "_qualities", :locals => {:qualities => builder}
+                  end %>
+              <% end %>
+            </p>
+            <%= submit_tag I18n.t('kabtv.admin.submit'), :style => 'float: right;', :class => 'button-small-main', :disable_with => I18n.t('kabtv.admin.submitting') %>
+        <% end -%>
+    <% else %>
+        <div>
+          <%= I18n.t('kabtv.admin.select_preset_or_add') %>
+        </div>
+    <% end %>
+    <div class="clear"></div>
+<% end -%>
+
+<script type="text/javascript">
+    function add_quality_field(link, association, content) {
+        var new_id = new Date().getTime();
+        var regexp = new RegExp("new_" + association, "g");
+        content = content.replace(regexp, new_id)
+        $('#presets-table').append(content);
+    }
+
+    function remove_field(link, is_new_record) {
+        $(link).closest("div.add_other").children("p.add_other").children("a").show();
+        if (is_new_record) {
+            $(link).parent().parent().remove();
+        }
+        else {
+            $(link).prev("input[type=hidden]").val("1");
+            $(link).parent().parent().hide();
+        }
+    }
+    $('#preset_list li').live('click', function () {
+        $('#preset_list li').css('font-weight', 'normal');
+        $(this).css('font-weight', 'bold');
+    });
+</script>
