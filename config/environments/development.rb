@@ -43,12 +43,12 @@ Simulator::Application.configure do
 
   config.active_support.deprecation = :log
 
-  config.enable_comet = false
+  config.enable_comet = true
   #config.comet_server = "kabbalahgroup.info"
   #config.comet_server = "localhost:8080"
   #config.comet_server = "192.168.2.101:8080"
-  config.comet_server = "localhost:8080"
-  #config.comet_server = "red5-5.kbb1.com:8080"
+  #config.comet_server = "localhost:8080"
+  config.comet_server = "red5-5.kbb1.com:8080"
   #config.comet_server = "comet.kbb1.com:8080"
   config.comet_application_id = "2"
   comet_yml = YAML::load_file("#{::Rails.root}/config/comet.yml")
