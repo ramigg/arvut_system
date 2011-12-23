@@ -548,10 +548,10 @@ ru:
     clicks_a_day: "кликов в день"
     generate_csv_report: "Сгенерировать отчет"
     i_commit_to: "Я обязуюсь на"
-    we_all_clicks_for_today: "Все пользователи - %{clicks} We из %{total}"
-    we_clicks_for_today: "Ты - %{clicks} We из %{total}"
+    we_all_clicks_for_today: "Все пользователи - %{clicks} 'ONE' из %{total}"
+    we_clicks_for_today: "Ты - %{clicks} 'ONE' из %{total}"
     we_clicks_for_today_assist: "Ты сделал %{clicks} кликов, из которых %{assist} - для товарщей. Арвут!"
-    we_group_clicks_for_today: "Твоя группа - %{clicks} We из %{total}"
+    we_group_clicks_for_today: "Твоя группа - %{clicks} 'ONE' из %{total}"
   stream: 
     add_to_favorites: "Добавить в избранное"
     all: "Все посты"
