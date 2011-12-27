@@ -63,7 +63,7 @@ Simulator::Application.routes.draw do
 
     devise_for :users,
       :path_names => {:sign_in => 'login', :sign_out => 'logout', :sign_up => 'register'},
-      :controllers => {:registrations => "profiles/registrations", :confirmations => "profiles/confirmations"}
+      :controllers => {:registrations => "profiles/registrations", :confirmations => "profiles/confirmations", :sessions => 'sessions'}
     match "users/confirmation/awaiting/:id/:confirmation_hash",
       :to => redirect("#{Rails.configuration.site_prefix}/%{locale}/users/confirmations/awaiting/%{id}/%{confirmation_hash}"), :as => "awaiting_confirmation"
 

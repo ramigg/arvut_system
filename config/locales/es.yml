@@ -387,6 +387,7 @@ es:
       send_reset_password: "Enviarme las instrucciones para restaurar mi contraseña"
       sign_in: Acceder
       sign_in_more: "Conectar&nbsp;&nbsp;&nbsp;&#9658;"
+      sign_in_more_mobile: "Conectar"
       sign_up: Regístrate
       sign_up_more: "Inscríbete&nbsp;&nbsp;&nbsp;&#9658;"
       sign_up_now: "¡Regístrese ahora!"

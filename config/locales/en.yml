@@ -67,6 +67,7 @@ en:
     views:
       sign_in: Sign in
       sign_in_more: Sign in&nbsp;&nbsp;&nbsp;&#9658;
+      sign_in_more_mobile: Sign in
       email: Email
       password: Password
       remember_me: Remember me

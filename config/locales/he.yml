@@ -401,6 +401,7 @@ he:
       send_reset_password: "שלח לי הוראות לאיפוס סיסמא"
       sign_in: כניסה
       sign_in_more: "כניסה למערכת&nbsp;&nbsp;&nbsp;&#9668;"
+      sign_in_more_mobile: "כניסה למערכת"
       sign_up: הרשמה
       sign_up_more: "הרשמה&nbsp;&nbsp;&nbsp;&#9668;"
       sign_up_now: "הרשם עכשיו!!!"

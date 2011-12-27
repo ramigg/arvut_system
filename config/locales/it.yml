@@ -379,6 +379,7 @@ it:
       send_reset_password: "Mandami le istruzioni per resettare la password"
       sign_in: entra
       sign_in_more: Scrivi
+      sign_in_more_mobile: Scrivi
       sign_up: iscriviti
       sign_up_more: scrivi…..
       sign_up_now: "Iscriviti ora"

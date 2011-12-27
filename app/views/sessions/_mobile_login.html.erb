@@ -1,0 +1,35 @@
+<%= form_for(resource, :as => resource_name, :url => session_path(resource_name), :html => {'data-ajax' => 'false'}) do |f| %>
+    <%#= devise_error_messages! %>
+    <h2><%= t 'devise.views.sign_in' %></h2>
+
+    <ul>
+      <%- unless flash[:alert].empty? -%>
+        <li><%= flash[:alert] %></li>
+      <%- end -%>
+      <%- unless session[:alert].empty? -%>
+        <li><%= session[:alert] %></li>
+      <%- end -%>
+    </ul>
+
+    <div data-role="fieldcontain">
+      <%= f.label :email, t('devise.views.email') %>
+      <%= f.text_field :email %>
+    </div>
+
+    <div data-role="fieldcontain">
+      <%= f.label :password, t('devise.views.password') %>
+      <%= f.password_field :password %>
+    </div>
+
+    <% if devise_mapping.rememberable? -%>
+        <div data-role="fieldcontain">
+          <%= f.label :remember_me, t('devise.views.remember_me') %>
+          <%= f.check_box :remember_me %>
+        </div>
+    <% end -%>
+    <div data-role="fieldcontain">
+      <%= f.submit t('devise.views.sign_in_more_mobile').html_safe, 'data-theme' => "b" %><br/>
+      <%= link_to t('devise.views.cannot_sign_in'), '/login_help/' %>
+    </div>
+
+<% end %>

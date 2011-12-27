@@ -419,6 +419,7 @@ ru:
       send_reset_password: "Выслать инструкцию по обновлению пароля"
       sign_in: Войти
       sign_in_more: "Войти&nbsp;&nbsp;&nbsp;&#9658;"
+      sign_in_more_mobile: "Войти"
       sign_up: Зарегистрироваться
       sign_up_more: "Согласен &nbsp;&nbsp;&nbsp;&#9658;"
       sign_up_now: "Зарегистрироваться сейчас!!!"
