@@ -356,6 +356,7 @@ pt:
       send_reset_password: "Envie-me instruções de redefinição de senha"
       sign_in: "Inscreva-se no"
       sign_in_more: "Logar&nbsp;&nbsp;&nbsp;&#9658;"
+      sign_in_more_mobile: "Logar"
       sign_up: Inscreva-se
       sign_up_more: "Logar&nbsp;&nbsp;&nbsp;&#9658;"
       sign_up_now: "Cadastre-se AGORA!"

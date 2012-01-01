@@ -1,0 +1,8 @@
+%footer.ui-bar{"data-role" => "footer"}
+  .ui-grid-b
+    .ui-block-a
+      - if current_user
+        = link_to t('views.signout'), destroy_user_session_url, 'data-theme' => "b", 'data-role' => "button"
+    .ui-block-b
+    .ui-block-c
+      = link_to @languages.select{|l| l.locale.to_sym == I18n.locale }.first.language, '#languages', 'data-theme' => "b", 'data-role' => "button", 'data-icon' => "arrow-r"
