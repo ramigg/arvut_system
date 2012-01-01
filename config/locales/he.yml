@@ -395,6 +395,11 @@ he:
       no_confirmation_instructions: "לחץ לקבלת הוראות לאישור חשבון באימייל"
       no_unlock_instructions: "לחץ לקבלת הוראות לשיחרור נעילת חשבון"
       password: סיסמא
+      version: צפה ב-
+      mobile: נייד
+      desktop: קלאסי
+      select_lang: בחר ספה
+      back: חזרה
       remember_me: "זכור אותי במחשב זה"
       resend_confirmation_instructions: "שלח מחדש הוראות אישור החשבון"
       resend_unlock_instructions: "שלח הוראות לשחרור נעילת חשבון"

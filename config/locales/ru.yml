@@ -414,6 +414,11 @@ ru:
       no_unlock_instructions: "Инструкция по разблокировке аккаунта"
       password: Пароль
       remember_me: Запомнить
+      version: Версия
+      mobile: мобильная
+      desktop: обычная
+      select_lang: Выбрать язык
+      back: Назад
       resend_confirmation_instructions: "Снова выслать инструкцию по подтверждению"
       resend_unlock_instructions: "Снова выслать инструкцию по разблокировке"
       send_reset_password: "Выслать инструкцию по обновлению пароля"

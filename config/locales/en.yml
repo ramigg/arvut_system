@@ -70,6 +70,11 @@ en:
       sign_in_more_mobile: Sign in
       email: Email
       password: Password
+      version: View
+      mobile: mobile
+      desktop: classic
+      select_lang: Select Language
+      back: Back
       remember_me: Remember me
       sign_up: Sign up
       sign_up_more: Sign up&nbsp;&nbsp;&nbsp;&#9658;
