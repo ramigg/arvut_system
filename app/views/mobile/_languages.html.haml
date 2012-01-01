@@ -1,0 +1,7 @@
+%section{"data-role" => "page", :id => 'languages', 'data-add-back-btn' => 'true'}
+  %header{"data-role" => "header"}
+    %h1 Select Language
+  %div{"data-role" => "content"}
+    %ul{'data-role' => 'listview', 'data-inset' => "true", 'data-theme' => 'b'}
+      - @languages.each do |l|
+        %li= link_to l.language, mobile_index_url(l.locale)

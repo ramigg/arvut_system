@@ -1,0 +1,28 @@
+%section{"data-role" => "page"}
+  %header{"data-role" => "header"}
+    %h1= t('home.views.site_name')
+  %div{"data-role" => "content"}
+    = form_for(resource, :as => resource_name, :url => session_path(resource_name), :html => {'data-ajax' => 'false'}) do |f|
+      %h2= t 'devise.views.sign_in'
+      - unless flash[:alert].empty? && session[:alert].empty?
+        %ul
+          - unless flash[:alert].empty?
+            %li= flash[:alert]
+          - unless session[:alert].empty?
+            %li= session[:alert]
+      %div{"data-role" => "fieldcontain"}
+        = f.label :email, t('devise.views.email')
+        = f.text_field :email
+      %div{"data-role" => "fieldcontain"}
+        = f.label :password, t('devise.views.password')
+        = f.password_field :password
+      - if devise_mapping.rememberable?
+        %div{"data-role" => "fieldcontain"}
+          = f.label :remember_me, t('devise.views.remember_me')
+          = f.check_box :remember_me
+      %div{"data-role" => "fieldcontain"}
+        = f.submit t('devise.views.sign_in_more_mobile').html_safe, 'data-theme' => "b"
+        %br/
+        = link_to t('devise.views.cannot_sign_in'), '#login_help'
+%section#login_help{"data-role" => "page"}
+  = render :file => 'home/login_help'

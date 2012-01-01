@@ -60,6 +60,7 @@ Simulator::Application.routes.draw do
 
     root :to => 'stream#index', :stream_filter => 'all'
     match 'dashboard', :to => 'home#dashboard', :as => 'dashboard'
+    resources :mobile
 
     devise_for :users,
       :path_names => {:sign_in => 'login', :sign_out => 'logout', :sign_up => 'register'},
