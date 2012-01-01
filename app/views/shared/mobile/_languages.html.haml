@@ -4,4 +4,4 @@
   %div{"data-role" => "content"}
     %ul{'data-role' => 'listview', 'data-inset' => "true", 'data-theme' => 'b'}
       - @languages.each do |l|
-        %li= link_to l.language, mobile_index_url(l.locale)
+        %li= link_to l.language, current_user ? mobile_index_url(l.locale) : new_user_session_url(l.locale)

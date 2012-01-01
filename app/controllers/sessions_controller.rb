@@ -3,6 +3,9 @@ class SessionsController < Devise::SessionsController
   layout :set_layout
 
   def new
+    @languages = Language.all
+    @no_logout = false
+
     # For help page
     @resource = User.new
     @resource_name = @resource.class.to_s.underscore
@@ -14,7 +17,7 @@ class SessionsController < Devise::SessionsController
     resource = warden.authenticate!(:scope => resource_name, :recall => "#{controller_path}#new")
     set_flash_message(:notice, :signed_in) if is_navigational_format?
     sign_in(resource_name, resource)
-    if is_mobile?
+    if is_mobile? && params[:mobile] == 'mobile'
       respond_with resource, :location => mobile_index_path
     else
       respond_with resource, :location => after_sign_in_path_for(resource)
@@ -24,11 +27,7 @@ class SessionsController < Devise::SessionsController
   private
 
   def set_layout
-    if is_mobile?
-      'mobile'
-    else
-      'application'
-    end
+    is_mobile? ? 'mobile' : 'application'
   end
 
 end

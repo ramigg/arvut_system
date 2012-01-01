@@ -16,13 +16,20 @@
       %div{"data-role" => "fieldcontain"}
         = f.label :password, t('devise.views.password')
         = f.password_field :password
-      - if devise_mapping.rememberable?
-        %div{"data-role" => "fieldcontain"}
-          = f.label :remember_me, t('devise.views.remember_me')
-          = f.check_box :remember_me
+      %div{"data-role" => "fieldcontain"}
+        = label_tag :mobile, 'Version'
+        = select_tag "mobile", '<option value="mobile">Mobile</option><option value="classic">Regular</option>'.html_safe, :id => "mobile", :name => 'mobile', 'data-role' => "slider"
+      -#- if devise_mapping.rememberable?
+      -#  %div{"data-role" => "fieldcontain"}
+      -#    = f.label :remember_me, t('devise.views.remember_me')
+      -#    = f.check_box :remember_me
       %div{"data-role" => "fieldcontain"}
         = f.submit t('devise.views.sign_in_more_mobile').html_safe, 'data-theme' => "b"
         %br/
         = link_to t('devise.views.cannot_sign_in'), '#login_help'
+  = render 'shared/mobile/footer'
+
+= render 'shared/mobile/languages'
+
 %section#login_help{"data-role" => "page"}
   = render :file => 'home/login_help'
