@@ -12,13 +12,8 @@
   </script>
 
   <script type="text/javascript" src="http://code.jquery.com/mobile/1.0/jquery.mobile-1.0.min.js"></script>
-  <style>
-      .he {
-          direction: rtl;
-      }
-  </style>
 </head>
-<body class=<%= @locale %>>
+<body <%= @locale == 'he' ? 'style="direction: rtl;"'.html_safe : ''%>>
 
 <%= yield %>
 
