@@ -585,6 +585,8 @@ en:
       wmv: WMV
 
   social_button:
+    admiration_placeholder: Enter your Admiration
+    admiration_explain: Enter your Admiration, before you press We button, in the input field and then press One button. This will send message to all people that currently are in the site
     i_commit_to: I commit to
     clicks_a_day: clicks a day
     change: Change

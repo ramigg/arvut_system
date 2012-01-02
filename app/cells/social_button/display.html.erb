@@ -1,6 +1,13 @@
 <%= widget_div do %>
-    <a href="#" id="we-button" class="<%= @button_class %>" onclick="<%= trigger_event(:button_press) %>; return false;"
+  <a href="#" id="we-button" class="<%= @button_class %>" onclick="<%= trigger_event(:button_press) %>; return false;"
        onmousedown="set_pressed()" onmouseup="set_released()" onmouseout="set_released()"></a>
+    <% if Rails.configuration.enable_comet %>
+        <div id="quote_div">
+            <input title="<%= I18n.t('social_button.admiration_placeholder') %>" placeholder="<%= I18n.t('social_button.admiration_placeholder') %>"   id="quote_input" class="quote_input" maxlength="128">
+            <span  title="<%= I18n.t('social_button.admiration_explain') %>" class="quote_help">&nbsp;&nbsp;&nbsp;&nbsp;</span>
+        <div class="quote_text" id="quote_text" title="<%= I18n.t('social_button.admiration_explain') %>"></div>
+    </div>
+    <% end %>
     <div id="div_show_button_content">
       <br/>
       <%= link_to 'button_content by path', show_button_content_pages_url, :class => 'show_button_content', :id => 'show_button_content_link' %>
@@ -84,12 +91,11 @@
             	delayedButtonUpdataAppInit();
             });
 
-            function update_others(is_click, today_clicks, today_total, today_all_clicks, today_all_total, today_group_clicks, today_group_total) {
-                if (button_update_app != null)
-                    button_update_app.update_others(is_click, today_clicks, today_total, today_all_clicks, today_all_total, today_group_clicks, today_group_total);
+            function update_others(is_click, today_clicks, today_total, today_all_clicks, today_all_total, today_group_clicks, today_group_total, name, locale) {
+                if (button_update_app != null) {
+                    button_update_app.update_others(is_click, today_clicks, today_total, today_all_clicks, today_all_total, today_group_clicks, today_group_total, name, locale, $("#quote_input").attr("value"));
+                }
             }
-            ;
-
         </script>
 
     <% else %>
@@ -105,6 +111,12 @@
             if (srcElm != null) {
                 colorbox_iframe(srcElm, '710px', '85%', false);
             }
+        }
+
+        function update_quotes(name, locale, quote) {
+            var dir = locale == "he" ? "rtl" : "ltr";
+            var newHTML = "<div dir=" + dir + ">" + name + ":" + quote + "</div>";
+            $("#quote_text").append(newHTML);
         }
 
         function refresh_chart(id, clicks, total) {

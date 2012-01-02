@@ -542,7 +542,9 @@ ru:
     views: 
       all_fields_are_required: "Следует заполнить все поля!"
       please_select_one_of_the_options: "Выберите одну из возможностей"
-  social_button: 
+  social_button:
+    admiration_placeholder: Введите ваше восхищение
+    admiration_explain: Введите ваше восхищение, прежде чем нажать кнопку We, в поле ввода , а затем нажмите кнопку We. Это позволит отправить сообщение всем людям, что в настоящее время на сайте
     cancel: Отменить
     change: Изменить
     clicks_a_day: "кликов в день"
