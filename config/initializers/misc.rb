@@ -1,3 +1,5 @@
+Sass::Plugin.options[:debug_info] = true if Rails.env == 'development'
+
 class String
   def to_boolean
     self == 'true' ? true : false
