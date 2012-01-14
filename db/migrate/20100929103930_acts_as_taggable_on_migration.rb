@@ -1,6 +1,6 @@
 class ActsAsTaggableOnMigration < ActiveRecord::Migration
   def self.up
-    create_table :tags do |t|
+    create_table :tags_widget do |t|
       t.string :name
     end
 
@@ -23,6 +23,6 @@ class ActsAsTaggableOnMigration < ActiveRecord::Migration
 
   def self.down
     drop_table :taggings
-    drop_table :tags
+    drop_table :tags_widget
   end
 end

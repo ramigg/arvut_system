@@ -14,8 +14,8 @@ class ApplicationController < ActionController::Base
     has_widgets do |root|
       root << widget(:blog_widget, 'blog', :display)
       root << widget(:profile_widget, 'profile', :display, :user => current_user)
-      root << widget('tags/container', 'tags', :container)
-      root << widget(:banners_widget, 'banners', :display)
+      root << widget(:tags_widget, 'tags', :display)
+      #root << widget(:banners_widget, 'banners', :display)
       root << widget(:social_button, 'social_button', :display, :user => current_user)
     end
 
