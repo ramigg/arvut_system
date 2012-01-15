@@ -5,7 +5,7 @@
       <%- @tags.each do |tag| %>
           <li id="menu-tag<%= tag %>" class="read">
             <h5>
-              <%= link_to tag, stream_path(:stream_filter => 'tag', :modifier => tag), :class => 'data-remote' %>
+              <%= link_to tag, stream_path(:stream_filter => 'tag', :modifier => tag.to_s), :class => 'data-remote' %>
             </h5>
           </li>
       <%- end %>
