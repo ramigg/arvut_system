@@ -1,46 +1,60 @@
 <%- unless @sticky_pages.empty? -%>
-  <% last_page = @sticky_pages.last %>
-  <div class="sticky_pages">
-    <%- @sticky_pages.each {|page| -%>
-      <div id="page-<%= page.id %>" class="item">
-        <h2 class="sticky-icon icon <%= is_read_css(page) %>"><span></span><%= link_to page.title, post_url(page), :class => post_link_class(page), :title => page.title %></h2>
-        <% if page.subtitle?%><p><strong><%= page[:subtitle].html_safe %></strong></p><% end %>
-        <%- unless page[:picture4preview].nil? || page[:picture4preview].empty? -%>
-          <%= image_tag  page[:picture4preview], :class => :preview_image %>
-        <%- end -%>
-        <%= page[:description].html_safe %>
-        <%= link_to t("stream.read_all").html_safe, post_url(page), :class => post_link_class(page) + ' more_link', :title => page.title , :'data-type' =>'script' %>
-        <p class="item-metadata"><%= t("stream.posted_ago", :when => time_ago_in_words(page.publish_at)) %></p>
-        <p class="tags">
-          <%= render :partial => 'tag', :collection => page.tags(I18n.locale) %>
-        </p>
-        <%- if last_page != page -%>
-          <hr />
-        <%- end -%>
-      </div>
-    <%- } -%>
-  </div>
+    <%- cache("sticky_page_stream-#{@language_id}-#{@sticky_pages.map(&:id).join(',')}", :expires_in => 2.minutes) do -%>
+        <% last_page = @sticky_pages.last %>
+        <div class="sticky_pages">
+          <%- @sticky_pages.each { |page| -%>
+              <div id="page-<%= page.id %>" class="item">
+                <h2 class="sticky-icon icon <%= is_read_css(page) %>">
+                  <span></span><%= link_to page.title, post_url(page), :class => post_link_class(page), :title => page.title %>
+                </h2>
+                <% if page.subtitle? %>
+                    <p><strong><%= page[:subtitle].html_safe %></strong></p>
+                <% end %>
+                <%- unless page[:picture4preview].nil? || page[:picture4preview].empty? -%>
+                    <%= image_tag page[:picture4preview], :class => :preview_image %>
+                <%- end -%>
+                <%= page[:description].html_safe %>
+                <%= link_to t("stream.read_all").html_safe, post_url(page), :class => post_link_class(page) + ' more_link', :title => page.title, :'data-type' =>'script' %>
+                <p class="item-metadata"><%= t("stream.posted_ago", :when => time_ago_in_words(page.publish_at)) %></p>
+
+                <p class="tags">
+                  <%= render :partial => 'tag', :collection => page.tags(I18n.locale) %>
+                </p>
+                <%- if last_page != page -%>
+                    <hr/>
+                <%- end -%>
+              </div>
+          <%- } -%>
+        </div>
+    <%- end -%>
 <%- end -%>
 
-<% last_page = @pages.last %>
-<%- @pages.each {|page| -%>
-  <div id="page-<%= page.id %>" class="item">
-    <h2 class="<%= "#{is_answered_css(page)} #{is_read_css(page)}" %> icon"><span></span><%= link_to page.title, post_url(page), :class => post_link_class(page), :title => page.title %></h2>
-    <% if page.subtitle?%><p><strong><%= page[:subtitle].html_safe %></strong></p><% end %>
-    <%- unless page[:picture4preview].nil? || page[:picture4preview].empty? -%>
-      <%= image_tag  page[:picture4preview], :class => :preview_image %>
-    <%- end -%>
-    <%= page[:description].html_safe %>
-    <%= link_to t("stream.read_all").html_safe, post_url(page), :class => post_link_class(page) + ' more_link', :title => page.title , :'data-type' =>'script' %>
-    <p class="item-metadata"><%= t("stream.posted_ago", :when => time_ago_in_words(page.publish_at)) %></p>
-    <p class="tags">
-      <%= render :partial => 'tag', :collection => page.tags(I18n.locale) %>
-    </p>
-    <%- if last_page != page -%>
-      <hr />
-    <%- end -%>
-  </div>
-<%- } -%>
+<%- cache("page_stream-#{@language_id}-#{@pages.map(&:id).join(',')}", :expires_in => 2.minutes) do -%>
+    <% last_page = @pages.last %>
+    <%- @pages.each { |page| -%>
+        <div id="page-<%= page.id %>" class="item">
+          <h2 class="<%= "#{is_answered_css(page)} #{is_read_css(page)}" %> icon">
+            <span></span><%= link_to page.title, post_url(page), :class => post_link_class(page), :title => page.title %>
+          </h2>
+          <% if page.subtitle? %>
+              <p><strong><%= page[:subtitle].html_safe %></strong></p>
+          <% end %>
+          <%- unless page[:picture4preview].nil? || page[:picture4preview].empty? -%>
+              <%= image_tag page[:picture4preview], :class => :preview_image %>
+          <%- end -%>
+          <%= page[:description].html_safe %>
+          <%= link_to t("stream.read_all").html_safe, post_url(page), :class => post_link_class(page) + ' more_link', :title => page.title, :'data-type' =>'script' %>
+          <p class="item-metadata"><%= t("stream.posted_ago", :when => time_ago_in_words(page.publish_at)) %></p>
+
+          <p class="tags">
+            <%= render :partial => 'tag', :collection => page.tags(I18n.locale) %>
+          </p>
+          <%- if last_page != page -%>
+              <hr/>
+          <%- end -%>
+        </div>
+    <%- } -%>
+<%- end -%>
 <%= link_to t("stream.more_items").html_safe,
-  stream_path(:stream_filter => @stream_filter, :modifier => @modifier, :skip_pages => @skip_pages),
-  :class => :more_items, :remote => true if @has_more_items%>
+            stream_path(:stream_filter => @stream_filter, :modifier => @modifier, :skip_pages => @skip_pages),
+            :class => :more_items, :remote => true if @has_more_items %>
