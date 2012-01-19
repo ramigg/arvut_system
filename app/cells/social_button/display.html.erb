@@ -3,8 +3,8 @@
        onmousedown="set_pressed()" onmouseup="set_released()" onmouseout="set_released()"></a>
     <% if Rails.configuration.enable_comet %>
         <div id="quote_div">
-            <input title="<%= I18n.t('social_button.admiration_placeholder') %>" placeholder="<%= I18n.t('social_button.admiration_placeholder') %>"   id="quote_input" class="quote_input" maxlength="128">
-            <span  title="<%= I18n.t('social_button.admiration_explain') %>" class="quote_help">&nbsp;&nbsp;&nbsp;&nbsp;</span>
+            <input title="<%= I18n.t('social_button.admiration_placeholder') %>" placeholder="<%= I18n.t('social_button.admiration_placeholder') %>"   id="quote_input" class="quote_input" maxlength="128" />
+            <span class="quote_help" id="quote_help">&nbsp;&nbsp;&nbsp;&nbsp;</span>
         <div class="quote_text" id="quote_text" title="<%= I18n.t('social_button.admiration_explain') %>"></div>
     </div>
     <% end %>
@@ -70,6 +70,20 @@
     <br/>
 
     <% if Rails.configuration.enable_comet %>
+        <%= javascript_include_tag ['jquery-tooltip/jquery.tooltip.js'] %>
+
+        <script type="text/javascript">
+          $(function() {
+            $("#quote_help").tooltip({
+              delay: 0,
+              showURL: false,
+              extraClass: 'quote_tooltip',
+              bodyHandler: function() {
+                return '<%= I18n.t('social_button.admiration_explain') %>';
+              }
+            });
+          });
+        </script>
 
         <%= javascript_include_tag ['social_button/button_auto_update.js'] %>
 
@@ -116,7 +130,9 @@
         function update_quotes(name, locale, quote) {
             var dir = locale == "he" ? "rtl" : "ltr";
             var newHTML = "<div dir=" + dir + ">" + name + ":" + quote + "</div>";
-            $("#quote_text").append(newHTML);
+            $("#quote_text").prepend(newHTML);
+            $("#quote_text").height("100px");
+            $("#quote_text").css("border", "2px ridge");
         }
 
         function refresh_chart(id, clicks, total) {

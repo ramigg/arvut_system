@@ -388,9 +388,3 @@ a#we-button.me_button{background:transparent url("../images/we_buttons.png") no-
 a#we-button.me_button:hover{background:transparent url("../images/we_buttons.png") no-repeat 0 -110px;}
 a#we-button.me_button_pressed{background:transparent url("../images/we_buttons.png") no-repeat 0 -220px;}
 #show_button_content_link {display:none;}
-.quote_text{width:100%;}
-.quote_input{width:70%;}
-. quote_help{width:21px;
-    display: inline;
-    background-image:url("../images/help.png");
-}

@@ -391,3 +391,9 @@ a#we-button.me_button{background:transparent url("../images/we_buttons.png") no-
 a#we-button.me_button:hover{background:transparent url("../images/we_buttons.png") no-repeat 0 -110px;}
 a#we-button.me_button_pressed{background:transparent url("../images/we_buttons.png") no-repeat 0 -220px;}
 #show_button_content_link{display:none;}
+.quote_help{width:21px;display:inline;
+    background-repeat: no-repeat;
+    background-position: 0 0;
+    background-image: url("../images/help.png");
+    background-color: transparent;
+}
