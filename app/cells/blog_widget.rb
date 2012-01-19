@@ -1,9 +1,13 @@
 class BlogWidget < Apotomo::Widget
 
-  cache :display, Proc.new { {:locale => I18n.locale} }, :expires_in => 20.minutes
+  cache :display, Proc.new { {:locale => I18n.locale} }#, :expires_in => 20.minutes
 
   def display
-    @feed = FeedReader::Basic.new(I18n.t('home.views.feed')).feed rescue nil
+    @feed = begin
+      FeedReader::Basic.retrieve(I18n.t('home.views.feed'))
+    rescue
+      nil
+    end
     @link_class = ::Rails.configuration.open_blog_in_popup ? 'in-wide-iframe' : ''
     render if @feed
   end

@@ -5,16 +5,12 @@ module FeedReader
   class Basic
     attr :feed
     
-    def initialize(url, lang_id = nil, force = false)
-      lang_id ||= Language.get_id_by_locale(I18n.locale)
+    def self.retrieve(url)
       begin
-        unless force
-          @feed = Cache.fetch(:content_type => 'FeedReader', :content_uid => "#{url}", :language_id => lang_id)
-        end
-        unless @feed
-          @feed = FeedTools::Feed.open(url)
-          Cache.store(@feed, :content_type => 'FeedReader', :content_uid => "#{url}", :language_id => lang_id)
-        end
+        lang_id = Language.get_id_by_locale(I18n.locale)
+        Cache.fetch(:content_type => 'FeedReader', :content_uid => "#{url}", :language_id => lang_id)
+      rescue
+        nil
       end
     end
 
@@ -23,9 +19,11 @@ module FeedReader
         locale = lang.locale.to_sym
         lang_id = Language.get_id_by_locale(locale)
         url = I18n.t('home.views.feed', :locale => locale)
-        @feed = FeedReader::Basic.new(url, lang_id, true).feed
-        Cache.store(@feed, :content_type => 'FeedReader', :content_uid => "#{url}", :language_id => lang_id)
-        puts "FeedReader: #{locale} - #{url} - stored"
+        puts "FeedReader: Loading #{url}..."
+        @feed = FeedTools::Feed.open(url) rescue nil
+        puts "FeedReader: Loaded #{@feed ? @feed.items.count : 0} items"
+        Cache.store(@feed, :content_type => 'FeedReader', :content_uid => "#{url}", :language_id => lang_id) if @feed
+        puts "FeedReader: #{locale} - #{url} - stored" if @feed
       }
     end
   end

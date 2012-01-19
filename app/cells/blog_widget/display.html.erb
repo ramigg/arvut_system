@@ -54,7 +54,7 @@
   <h4><%= link_to t('home.views.blog_title').html_safe, t('home.views.blog'), :class => 'in-wide-iframe' %></h4>
   <hr/>
   <ul>
-    <% @feed.items[0..10].each { |item| %>
+    <% @feed && @feed.items[0..10].each { |item| %>
         <li>
           <%= link_to item.title, item.link, :class => @link_class %>
           <span><%= t("stream.posted_ago", :when => time_ago_in_words(item.time)) %></span>
