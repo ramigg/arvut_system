@@ -414,11 +414,17 @@ ru:
       no_unlock_instructions: "Инструкция по разблокировке аккаунта"
       password: Пароль
       remember_me: Запомнить
+      version: Версия
+      mobile: мобильная
+      desktop: обычная
+      select_lang: Выбрать язык
+      back: Назад
       resend_confirmation_instructions: "Снова выслать инструкцию по подтверждению"
       resend_unlock_instructions: "Снова выслать инструкцию по разблокировке"
       send_reset_password: "Выслать инструкцию по обновлению пароля"
       sign_in: Войти
       sign_in_more: "Войти&nbsp;&nbsp;&nbsp;&#9658;"
+      sign_in_more_mobile: "Войти"
       sign_up: Зарегистрироваться
       sign_up_more: "Согласен &nbsp;&nbsp;&nbsp;&#9658;"
       sign_up_now: "Зарегистрироваться сейчас!!!"

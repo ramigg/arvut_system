@@ -1,0 +1,35 @@
+%section{"data-role" => "page"}
+  %header{"data-role" => "header", :style => "#{@locale == 'he' ? 'direction: rtl;'.html_safe : ''}"}
+    %h1= t('home.views.site_name')
+  %div{"data-role" => "content", :style => "#{@locale == 'he' ? 'style="direction: rtl;"'.html_safe : ''}"}
+    = form_for(resource, :as => resource_name, :url => session_path(resource_name), :html => {'data-ajax' => 'false'}) do |f|
+      %h2= t 'devise.views.sign_in'
+      - unless flash[:alert].empty? && session[:alert].empty?
+        %ul
+          - unless flash[:alert].empty?
+            %li= flash[:alert]
+          - unless session[:alert].empty?
+            %li= session[:alert]
+      %div{"data-role" => "fieldcontain"}
+        = f.label :email, t('devise.views.email')
+        = f.email_field :email, :pattern => "[^ @]*@[^ @]*".html_safe, :placeholder => 'Email Address'
+      %div{"data-role" => "fieldcontain"}
+        = f.label :password, t('devise.views.password')
+        = f.password_field :password, :placeholder => 'Password'
+      %div{"data-role" => "fieldcontain"}
+        = label_tag :mobile, t('devise.views.version')
+        = select_tag "mobile", "<option value='mobile'>#{t('devise.views.mobile')}</option><option value='classic'>#{t('devise.views.desktop')}</option>".html_safe, :id => "mobile", :name => 'mobile', 'data-role' => "slider"
+      -#- if devise_mapping.rememberable?
+      -#  %div{"data-role" => "fieldcontain"}
+      -#    = f.label :remember_me, t('devise.views.remember_me')
+      -#    = f.check_box :remember_me
+      %div{"data-role" => "fieldcontain"}
+        = f.submit t('devise.views.sign_in_more_mobile').html_safe, 'data-theme' => "b"
+        -#%br/
+        -#= link_to t('devise.views.cannot_sign_in'), '#login_help'
+  = render 'shared/mobile/footer'
+
+= render 'shared/mobile/languages'
+
+-#%section#login_help{"data-role" => "page"}
+-#  = render :file => 'home/login_help'

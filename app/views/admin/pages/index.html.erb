@@ -106,7 +106,8 @@
         <option value="-7" <%= 'selected="selected"' if params[:author] == '-7' %>><%= t("admin.pages.only_moderators") %></option>
         <optgroup label="--------">
           <%- @authors.all.each { |a| -%>
-              <option value="<%= a.author_id %>" <%= 'selected="selected"' if params[:author] == a.author_id.to_s && a.author_id != current_user.id %>><%= User.find(a.author_id).first_name %> <%= User.find(a.author_id).last_name %></option>
+              <%- begin user = User.find(a.author_id) rescue nil end -%>
+              <option value="<%= a.author_id %>" <%= 'selected="selected"' if params[:author] == a.author_id.to_s && a.author_id != current_user.id %>><%= user.try(:first_name) %> <%= user.try(:last_name) %></option>
           <%- } -%>
         </optgroup>
       </select>

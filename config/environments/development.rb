@@ -8,20 +8,20 @@ Simulator::Application.configure do
   config.open_stream_in_popup = false
   config.open_blog_in_popup = false
 
-  config.log_level = :info
+  config.log_level = :debug
   # In the development environment your application's code is reloaded on
   # every request.  This slows down response time but is perfect for development
   # since you don't have to restart the webserver when you make code changes.
   config.cache_classes = false
 
-  config.cache_store = :mem_cache_store, { :namespace => 'Sviva-Tova' }#, :expires_in => 20.minutes}
+  config.cache_store = :mem_cache_store, {:namespace => 'Sviva-Tova', :compression => false, :urlencode => false} #, :expires_in => 20.minutes}
   # Log error messages when you accidentally call methods on nil.
   config.whiny_nils = true
 
   # Show full error reports and disable caching
   config.consider_all_requests_local       = true
   config.action_view.debug_rjs             = true
-  config.action_controller.perform_caching = false
+  config.action_controller.perform_caching = true
 
   # Don't care if the mailer can't send
   email = Rails.root.join('tmp', 'email.yml').to_s

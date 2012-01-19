@@ -1,0 +1,17 @@
+%section{"data-role" => "page"}
+  %header{"data-role" => "header"}
+    %h1 List of events
+  %div{"data-role" => "content"}
+    - if @video || @audio
+      %ul{'data-role' => 'listview', 'data-inset' => "true", 'data-theme' => 'b'}
+        - if @video[:url]
+          %li=link_to 'Video', @video[:url]
+        - if @audio[:url]
+          %li=link_to 'Audio', @audio[:url]
+    - else
+      %h3 No mobile broadcast in #{@language.language}
+
+  = render 'shared/mobile/footer'
+
+= render 'shared/mobile/languages'
+

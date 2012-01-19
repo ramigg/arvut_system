@@ -73,7 +73,7 @@ class SocialButton < Apotomo::Widget
       @today_all_total = [1, @today_all_total.to_i].max
     end
 
-    @users_group_id = UserList.group_id_by_email(email);
+    @users_group_id = UserList.group_id_by_email(email)
     if (@users_group_id.count < 1 or @users_group_id[0].users_group_id.blank?)
       @users_group_id = "null"
     else

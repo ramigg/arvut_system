@@ -1,7 +1,6 @@
 <div class="widget-login">
   <div class="inner">
     <%= form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f| %>
-      <%= devise_error_messages! %>
       <%- unless flash[:alert].empty? && session[:alert].empty? -%>
         <div id="error_explanation">
           <ul>

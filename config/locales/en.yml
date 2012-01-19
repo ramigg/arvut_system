@@ -67,8 +67,14 @@ en:
     views:
       sign_in: Sign in
       sign_in_more: Sign in&nbsp;&nbsp;&nbsp;&#9658;
+      sign_in_more_mobile: Sign in
       email: Email
       password: Password
+      version: View
+      mobile: mobile
+      desktop: classic
+      select_lang: Select Language
+      back: Back
       remember_me: Remember me
       sign_up: Sign up
       sign_up_more: Sign up&nbsp;&nbsp;&nbsp;&#9658;

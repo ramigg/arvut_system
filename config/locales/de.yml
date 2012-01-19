@@ -388,6 +388,7 @@ de:
       send_reset_password: "Anleitung zum Zurücksetzen des Passwortes an mich senden"
       sign_in: Einloggen
       sign_in_more: Einloggen
+      sign_in_more_mobile: Einloggen
       sign_up: Anmelden
       sign_up_more: Bestätigen
       sign_up_now: "Melde Dich JETZT an!"
