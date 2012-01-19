@@ -6,6 +6,7 @@ module FeedReader
     attr :feed
     
     def self.retrieve(url)
+      return nil
       begin
         lang_id = Language.get_id_by_locale(I18n.locale)
         Cache.fetch(:content_type => 'FeedReader', :content_uid => "#{url}", :language_id => lang_id)
