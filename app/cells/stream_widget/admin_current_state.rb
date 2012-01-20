@@ -10,7 +10,7 @@ module StreamWidget
     end
     
     def redraw
-      replace :view => :display
+      render
     end
     
   end

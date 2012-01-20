@@ -1,1 +1,1 @@
-$("#pages_menu").replaceWith("<%= escape_javascript(render(:file => 'stream/_page_menu'))%>"); 
+$("#pages_menu").replaceWith("<%= escape_javascript(render(:file => 'stream/_page_menu')).html_safe%>");

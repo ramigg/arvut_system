@@ -31,24 +31,24 @@ module StreamWidget
     def display_images
       return unless current_user.is_stream_manager? || current_user.is_admin?
       set_admin_display_mode('admin_images_form')
-      replace :view  => :display
+      render :view => :display_generic
     end
 
     def display_qualities
       return unless current_user.is_stream_manager? || current_user.is_admin?
       set_admin_display_mode('admin_qualities')
-      replace :view  => :display
+      render :view => :display_generic
     end
 
     def display_presets
       return unless current_user.is_stream_manager? || current_user.is_admin?
       set_admin_display_mode('admin_form')
-      replace :view  => :display
+      render :view => :display_generic
     end
 
     def display_switcher
       set_admin_display_mode('admin_stream_switcher')
-      replace :view  => :display
+      render :view => :display_generic
     end
     
   end

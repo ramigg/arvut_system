@@ -3,4 +3,4 @@
 <% else %>
   $('#stream_preset_messages').html('<%= escape_javascript("<span style=\"color:red;font-weight:bold;\">#{I18n.t 'kabtv.admin.problem_saving'}</span>".html_safe) %>');
 <% end %>
-$('#preset_list').replaceWith('<%= escape_javascript(render('preset_list')) %>');
+$('#preset_list').replaceWith('<%= escape_javascript(render( :partial => 'preset_list')).html_safe %>');

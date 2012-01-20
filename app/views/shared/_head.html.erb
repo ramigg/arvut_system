@@ -41,8 +41,9 @@
              'jquery.uniform.min.js',
              'jquery-validation',
              'jquery.ba-bbq.min.js',
-              'BAPS',
-             'events']
+             'BAPS',
+             'events',
+             'apotomo_triggers']
     list << 'jquery.colorbox-min.js' if Rails.configuration.open_stream_in_popup || Rails.configuration.open_blog_in_popup || Page.get_button_content_count > 0
     list << "jquery.ui.datepicker-#{I18n.locale}.js" if current_user && current_user.is_restricted?
 
@@ -81,7 +82,7 @@
       ::Rails.configuration.comet_auth_key,
       ::Rails.configuration.comet_auth_iv,"AES-128-CBC") %>"
         <% end %>
-        $(document).ready(function() {
+        $(document).ready(function () {
             comet_app = new $.CometApp(
                     "<%= Rails.configuration.comet_server %>", //contextPath, // CometD server path or ip
                     "<%= Rails.configuration.comet_application_id %>", //applicationId, // String identifying the application id, base channel
