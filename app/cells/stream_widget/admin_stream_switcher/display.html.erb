@@ -1,9 +1,9 @@
 <%= widget_div do %>
 <div style="text-align:center;margin:20px 0;">  
-	<a href="#" class="button-small-second" onclick="<%= trigger_event(:switch_stream, :is_active => true) %>; return false;"><%= t('kabtv.admin.stream_states.is_active') %></a>
+	<a href="#" class="button-small-second apotomo-click" data-event-url="<%= url_for_event(:switch_stream, :is_active => true) %>"><%= t('kabtv.admin.stream_states.is_active') %></a>
 <!-- <input class="button-small-main" id="user_submit" name="commit" type="submit" value="Submit"> -->
   <% StreamState.all.each do |state| %>
-  <a href="#" class="button-small-main" onclick="<%= trigger_event(:switch_stream, :is_active => false, :stream_state_id => state.id) %>; return false;"><%= t("kabtv.admin.stream_states.#{state.name}") %></a>
+  <a href="#" class="button-small-main apotomo-click" data-event-url="<%= url_for_event(:switch_stream, :is_active => false, :stream_state_id => state.id) %>"><%= t("kabtv.admin.stream_states.#{state.name}") %></a>
 	<% end %>
 </div>
   <div class="clear"></div>

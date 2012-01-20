@@ -34,7 +34,7 @@ module StreamWidget
 
     def edit
       @stream_preset = StreamPreset.find(param(:stream_preset_id))
-      replace :view => :display
+      render
     end
 
     def process_form

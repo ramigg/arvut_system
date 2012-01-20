@@ -2,12 +2,10 @@ require 'rack/utils'
 
 class CacheApp
   include Rack::Utils
-  require "memcache"
 
   def initialize(app, message = "Response Time")
     @app = app
     @message = message
-    @cache = MemCache.new 'localhost:11211'
   end
 
   def call(env)
@@ -16,8 +14,16 @@ class CacheApp
         env['QUERY_STRING'] =~ /type=update_presets/
       # Try to get info from cache
       key = "Sviva-Tova:#{env['REQUEST_PATH']}?#{env['QUERY_STRING'].gsub(/&_=\d+/, '')}"
-      value = @cache.get(key, true) || generate_presets(env, key)
-      return [200, {'Content-Type' => 'application/x-javascript', 'X-Supplied-by' => 'Middlware'}, [value]]
+      value = Rails.cache.read(key)
+      supplied_by = 'MiddlwareCache'
+      unless value
+        value = generate_presets(env, key)
+        #@cache.set(key, result, 12.seconds, true) rescue nil
+        Rails.cache.write(key, value, :expires_in => 15.seconds) rescue nil
+        supplied_by = 'Middlware'
+      end
+
+      return [200, {'Content-Type' => 'application/x-javascript', 'X-Supplied-by' => supplied_by}, [value]]
     end
     if env['REQUEST_PATH'] =~ /events\/render_event_response/ &&
         env['QUERY_STRING'] =~ /type=classboard/
@@ -25,7 +31,7 @@ class CacheApp
       # This cache is generated via cronjob only
       # rails runner -e production EventDataReader::ClassBoard.store_in_cache
       key = 'SvivaTova:Classboard-yml'
-      data = @cache.get(key, true)
+      data = Rails.cache.read(key)
       classboard = data ? YAML::load(data) : {
           :urls => {:sketches => '', :thumbnails => ''},
           :thumbnails => []
@@ -61,7 +67,7 @@ class CacheApp
       end
     else
       content = ''
-      @questions.each_with_index {|q, idx|
+      @questions.each_with_index { |q, idx|
         klass = ((last_question_id + 1 + idx) & 1) == 0 ? 'odd' : 'even'
         name = q.qname.empty? ? I18n.t('kabtv.kabtv.guest') : q.qname
         from = q.qfrom.empty? ? I18n.t('kabtv.kabtv.somewhere') : q.qfrom
@@ -107,24 +113,24 @@ class CacheApp
     total = sketches.size
     reset = last_one > total
     sketches = reset ? sketches : (sketches[last_one .. total] || [])
-    images = sketches.map{ |img|
+    images = sketches.map { |img|
       "<img alt='' src='#{sketches_url}/#{img}'></img>"
     }
     text = if images.empty? && !reset
-      # Nothing to show (and it was not reset)
-      total == 0 ?
-        # No sketches on server
-      '$(\'.images\').html(\'\')' :
-        # No new sketches
-      ''
-    else
-      reset ?
-        # Less files... Or reset had happened or some images were removed
-      "$('.images').html(\"#{images.join('').html_safe}\");" :
-        # New files were added
-      "$('.images').append(\"#{images.join('').html_safe}\");"
-    end
-    
+             # Nothing to show (and it was not reset)
+             total == 0 ?
+                 # No sketches on server
+                 '$(\'.images\').html(\'\')' :
+                 # No new sketches
+                 ''
+           else
+             reset ?
+                 # Less files... Or reset had happened or some images were removed
+                 "$('.images').html(\"#{images.join('').html_safe}\");" :
+                 # New files were added
+                 "$('.images').append(\"#{images.join('').html_safe}\");"
+           end
+
     text
   end
 
@@ -147,7 +153,7 @@ class CacheApp
     end
 
     presets, languages, lang_options, images = get_presets(stream_preset, params['locale'])
-    result = <<-VIEW
+    <<-VIEW
       var timestamp = '#{stream_preset.updated_at.to_s}';
       var preset_data = #{stream_preset.to_json.html_safe};
       var presets = #{presets.to_json.html_safe};
@@ -157,41 +163,38 @@ class CacheApp
       var technologies = #{Technology.find_all_by_name(["WMV", "Flash"]).to_json.html_safe};
       kabtv.tabs.flash_technology = #{Technology.find_by_name('Flash').try(:id)};
     VIEW
-
-    @cache.set(key, result, 12.seconds, true)
-    result
   end
 
   def get_presets(stream_preset, locale)
     all_languages = Language.all
-    locale_id = all_languages.select {|al| al.locale == locale}.first.id
+    locale_id = all_languages.select { |al| al.locale == locale }.first.id
     preset_languages = stream_preset.preset_languages.uniq
     languages = preset_languages.map { |p| {:id => p.id, :tid => p.technology.id, :lid => p.language.id, :qid => p.quality.id} }
     lang_options = languages.map { |l|
       language_id = l[:lid]
-      "<option #{"selected='selected'".html_safe if language_id == locale_id} value='#{language_id}'>#{all_languages.select{|al| al.id == language_id}.first.language}</option>"
+      "<option #{"selected='selected'".html_safe if language_id == locale_id} value='#{language_id}'>#{all_languages.select { |al| al.id == language_id }.first.language}</option>"
     }.join
-    images = preset_languages.map{|pl|
+    images = preset_languages.map { |pl|
       image_path = stream_preset.stream_state.inactive_image(pl.language_id)
       {:lang => pl.language_id, :image => "<img src='#{image_path.try(:filename)}' alt='#{I18n.t 'kabtv.kabtv.no_broadcast'}' />"}
     }
 
     stream_items = preset_languages.map { |pl|
-      pl.stream_items.flatten.reject { |si| si.stream_url.empty? }.map{|i|
-        { :id => i.id, :def => i.is_default, :tid => i.technology.id, :pid => pl.language.id, :plid => i.preset_language.id, :qd => i.quality.id, :qname => i.quality.name, :url => i.stream_url}
+      pl.stream_items.flatten.reject { |si| si.stream_url.empty? }.map { |i|
+        {:id => i.id, :def => i.is_default, :tid => i.technology.id, :pid => pl.language.id, :plid => i.preset_language.id, :qd => i.quality.id, :qname => i.quality.name, :url => i.stream_url}
       }
     }.flatten
     [stream_items, languages, lang_options, images]
   end
 
   JS_ESCAPE_MAP = {
-    '\\'    => '\\\\',
-    '</'    => '<\/',
-    "\r\n"  => '\n',
-    "\n"    => '\n',
-    "\r"    => '\n',
-    '"'     => '\\"',
-    "'"     => "\\'" }
+      '\\' => '\\\\',
+      '</' => '<\/',
+      "\r\n" => '\n',
+      "\n" => '\n',
+      "\r" => '\n',
+      '"' => '\\"',
+      "'" => "\\'"}
 
   # Escape carrier returns and single and double quotes for JavaScript segments.
   def escape_javascript(javascript)
