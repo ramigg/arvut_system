@@ -5,11 +5,10 @@ require 'open-uri'
 module EventDataReader
   class ClassBoard
     attr_reader :classboard
-    @@cache = MemCache.new 'localhost:11211'
-    
+
     def initialize()
       key = 'SvivaTova:Classboard-yml'
-      @classboard = @@cache.get(key, true) || EventDataReader::ClassBoard.store_in_cache
+      @classboard = Rails.cache.read(key) || EventDataReader::ClassBoard.store_in_cache
       @classboard = YAML::load(@classboard)
     end
 
@@ -22,7 +21,7 @@ module EventDataReader
           }
         }
         key = 'SvivaTova:Classboard-yml'
-        @@cache.set(key, content, 0, true)
+        Rails.cache.write(key, content)
       rescue Timeout::Error
       end
 

@@ -4,15 +4,15 @@
       <h6><%= t('kabtv.admin.stream_selection') %></h6>
 
       <div>
-        <a href="#" onclick="$('#preset_list li').css('font-weight', 'normal');<%= trigger_event(:new_preset, :stream_preset => 'non-important') %>; return false;">New
+        <a href="#" class="apotomo-click" data-event-url="<%= url_for_event(:new_preset, :stream_preset => 'non-important') %>" onclick="$('#preset_list li').css('font-weight', 'normal'); return false;">New
           preset</a>
       </div>
       <hr style="border: 1px solid #999; margin: auto;"/>
-      <%= render 'preset_list' %>
+      <%= render :partial => 'preset_list' %>
     </div>
 
     <% if @stream_preset %>
-        <%= form_for @stream_preset, :as => :stream_preset, :url => url_for_event(:submit), :remote => true do |f| -%>
+        <%= form_for @stream_preset, :as => :stream_preset, :url => "#", :html => {'data-event-url' => url_for_event(:submit)} do |f| -%>
             <p>
               <%= f.hidden_field :id %>
               <%= f.label :name, I18n.t('kabtv.admin.preset_name') %>
@@ -44,11 +44,10 @@
               %>
             </div>
             <div id="presets_languages_list">
-              <%- Language.all.each do |language| -%>
-                  <%- @preset_language = PresetLanguage.where(:stream_preset_id => @stream_preset.id, :language_id => language.id).first ||
-                          PresetLanguage.new(:stream_preset_id => @stream_preset.id, :language_id => language.id)
+              <%- Language.all.each_with_index do |language, idx| -%>
+                  <%- @preset_language = PresetLanguage.where(:stream_preset_id => @stream_preset.id, :language_id => language.id).first || PresetLanguage.new(:stream_preset_id => @stream_preset.id, :language_id => language.id)
                   %>
-                  <%= f.fields_for :preset_languages_attributes, @preset_language, :index => @preset_language.id do |pl| -%>
+                  <%= f.fields_for :preset_languages_attributes, @preset_language, :index => idx do |pl| -%>
                       <fieldset id="language_<%= language.id %>"
                                 style="<%- if default_lang_id != language.id %>display: none;<%- end %>float: left;"
                       >

@@ -1,7 +1,7 @@
 source 'http://rubygems.org'
 
-gem 'rails', '3.0.3'
-gem 'railties', '3.0.3'
+gem 'rails', '~>3.0'
+#gem 'railties', '3.0.3'
 gem  'remail'
 # extension for  arel where
 gem "meta_where"
@@ -14,9 +14,6 @@ gem "meta_where"
 #gem 'cgi_multipart_eof_fix'
 #gem 'fastthread'
 #gem 'daemons', '~>1.1'
-gem 'mongrel'
-
-gem 'thin'
 #gem 'sqlite3-ruby', :require => 'sqlite3'
 gem 'pg'
 gem 'postgres-pr', :require => 'pg'
@@ -37,7 +34,7 @@ gem 'sass'
 
 # Devise
 #gem 'devise', :git => 'http://github.com/Bnei-Baruch/devise.git', :branch => 'master'
-gem 'devise', :git => 'http://github.com/plataformatec/devise.git', :branch => 'master'
+gem 'devise'#, :git => 'http://github.com/plataformatec/devise.git', :branch => 'master'
 
 
 # Bundle gems for certain environments:
@@ -52,9 +49,9 @@ group :production do
 end
 
 group :development do
-	gem 'ruby-debug', '0.10.3'
-  gem 'ruby-debug-base', '0.10.3'
-  gem 'ruby-debug-ide', '0.4.7'
+  gem "ruby-debug-base19x"
+  gem "ruby-debug-ide"
+  gem 'mongrel', '>= 1.2.0.pre2' #for ruby v1.9.2
 end
 
 #group :test do
@@ -74,26 +71,26 @@ gem 'ckeditor', :git => 'git@github.com:Bnei-Baruch/rails-ckeditor.git', :branch
 gem 'paperclip', :git => 'http://github.com/thoughtbot/paperclip.git', :platforms => :mri
 #gem 'paperclip' # For windows only , :git => 'http://github.com/benben/paperclip.git'
 
-gem 'delayed_job', '2.1.0.pre2'
-
+#gem 'delayed_job', '2.1.0.pre2'
 gem 'google_visualization'
-gem 'feedtools'
+gem 'feedtools', :git => 'git://github.com/tjl2/feedtools19.git'
 gem 'will_paginate', '~> 3.0.pre'
 gem 'acts-as-taggable-on', :git => 'http://github.com/Bnei-Baruch/acts-as-taggable-on.git', :branch => 'master'
 gem 'excel_exporter', :git => 'http://github.com/gshilin/excel_exporter.git'
 gem 'rubyzip'
-gem 'onfire', '0.1.0'
+gem 'onfire', '~>0.1.1'
 
 
 # Cells/Apotomo
-# gem 'apotomo', '~>1.0.0', :require => 'apotomo'
+gem 'apotomo', '1.0.4'#, :git => 'git@github.com:ramigg/apotomo.git', :branch => '1-0-stable'#, :require => 'apotomo'
 #gem 'apotomo', :git => "git://github.com/apotonick/apotomo.git", :branch => 'master'#, :tag => "v1.0.0.beta2"
-gem 'apotomo', :git => "git@github.com:Bnei-Baruch/apotomo.git", :branch => 'master'
-              
-         
+#gem 'apotomo', :git => "git@github.com:Bnei-Baruch/apotomo.git", :branch => 'master'
+#gem 'cells'
+
 # Cache store:
 # gem 'dalli'
-gem 'memcache-client'
+gem 'dalli'
+#gem 'memcache-client'
 gem 'tolk'
 gem 'rack'
 #gem 'rack', '1.2.2'
