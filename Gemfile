@@ -18,7 +18,6 @@ gem "meta_where"
 gem 'pg'
 gem 'postgres-pr', :require => 'pg'
 gem 'responders'
-#gem 'i18n'
 gem 'acts_as_list'
 
 gem 'gemcutter'
@@ -56,28 +55,16 @@ group :development do
   gem 'thin'
 end
 
-#group :test do
-#  gem 'capybara'
-#  gem 'database_cleaner'
-#  gem 'cucumber-rails'
-#  gem 'cucumber'
-#  gem 'rspec', '~>2.0.0.beta.19'
-#  gem 'rspec-rails', '~>2.0.0.beta.19'
-## gem 'spork'
-#  gem 'launchy'
-#  gem 'factory_girl_rails'
-#end
-
 # CKEditor + Paperclip
 gem 'ckeditor', :git => 'git@github.com:Bnei-Baruch/rails-ckeditor.git', :branch => 'rails3'
-gem 'paperclip', :git => 'http://github.com/thoughtbot/paperclip.git', :platforms => :mri
-#gem 'paperclip' # For windows only , :git => 'http://github.com/benben/paperclip.git'
+gem 'paperclip' # For windows only , :git => 'http://github.com/benben/paperclip.git'
 
 #gem 'delayed_job', '2.1.0.pre2'
 gem 'google_visualization'
-gem 'feedtools', :git => 'git://github.com/tjl2/feedtools19.git'
+#gem 'feedtools', :git => 'git://github.com/tjl2/feedtools19.git'
+gem 'feedzirra'
 gem 'will_paginate', '~> 3.0.pre'
-gem 'acts-as-taggable-on', :git => 'http://github.com/Bnei-Baruch/acts-as-taggable-on.git', :branch => 'master'
+gem 'acts-as-taggable-on' #, :git => 'http://github.com/Bnei-Baruch/acts-as-taggable-on.git', :branch => 'master'
 gem 'excel_exporter', :git => 'http://github.com/gshilin/excel_exporter.git'
 gem 'rubyzip'
 gem 'onfire', '~>0.1.1'

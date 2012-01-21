@@ -35,10 +35,10 @@
       <th class="ta-center red-mark"><%= raw t('home.views.blog') %></th>
     </tr>
 
-    <% @feed.items[0..10].each { |item| %>
+    <% @feed[0..10].each { |item| %>
       <tr>
-        <td class="date ta-center"><%= l item.time, :format => :short %></td>
-        <td class="ta-left"><a href="<%= item.link %>" class="poplight"><%= item.title %></a></td>
+        <td class="date ta-center"><%= l item.published, :format => :short %></td>
+        <td class="ta-left"><a href="<%= item.url %>" class="poplight"><%= item.title %></a></td>
       </tr>
     <% } %>
   </table>
