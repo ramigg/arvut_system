@@ -59,7 +59,8 @@ gem 'paperclip' # For windows only , :git => 'http://github.com/benben/paperclip
 
 #gem 'delayed_job', '2.1.0.pre2'
 gem 'google_visualization'
-gem 'feedtools', :git => 'git://github.com/tjl2/feedtools19.git'
+#gem 'feedtools', :git => 'git://github.com/tjl2/feedtools19.git'
+gem 'feedzirra'
 gem 'will_paginate', '~> 3.0.pre'
 gem 'acts-as-taggable-on' #, :git => 'http://github.com/Bnei-Baruch/acts-as-taggable-on.git', :branch => 'master'
 gem 'excel_exporter', :git => 'http://github.com/gshilin/excel_exporter.git'
