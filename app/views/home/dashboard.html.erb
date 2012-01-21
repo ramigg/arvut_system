@@ -29,6 +29,7 @@
 
   <div class="clear"></div>
 
+<%- if @feed -%>
   <table class="homepage-table blog-table">
     <tr class="green-mark">
       <th class="date ta-center"><%= t('home.views.date') %></th>
@@ -42,4 +43,5 @@
       </tr>
     <% } %>
   </table>
+<%- end -%>
 <% end %>
