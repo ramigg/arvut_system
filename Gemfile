@@ -50,8 +50,10 @@ end
 
 group :development do
   gem "ruby-debug-base19x"
+  gem "ruby-debug19"
   gem "ruby-debug-ide"
   gem 'mongrel', '>= 1.2.0.pre2' #for ruby v1.9.2
+  gem 'thin'
 end
 
 #group :test do
@@ -82,7 +84,8 @@ gem 'onfire', '~>0.1.1'
 
 
 # Cells/Apotomo
-gem 'apotomo', '1.0.4'#, :git => 'git@github.com:ramigg/apotomo.git', :branch => '1-0-stable'#, :require => 'apotomo'
+#gem 'apotomo', '1.0.4'#, :git => 'git://github.com/ramigg/apotomo.git', :branch => '1-0-stable'#, :require => 'apotomo'
+gem 'apotomo', :git => 'git://github.com/ramigg/apotomo.git', :branch => '1-0-stable'#, :require => 'apotomo'
 #gem 'apotomo', :git => "git://github.com/apotonick/apotomo.git", :branch => 'master'#, :tag => "v1.0.0.beta2"
 #gem 'apotomo', :git => "git@github.com:Bnei-Baruch/apotomo.git", :branch => 'master'
 #gem 'cells'

@@ -18,7 +18,7 @@ class CheckNotLoggedIn
 end
 
 Simulator::Application.routes.draw do
-  match ":controller/render_event_response", :to => "#render_event_response", :as => "apotomo_event"
+  #match ":controller/render_event_response", :to => "#render_event_response", :as => "apotomo_event"
   match "admin_tasks/render_event_response", :to => "admin/admin_tasks#render_event_response"
 
   match '*PIE.htc' => "static_files#get_htc"
