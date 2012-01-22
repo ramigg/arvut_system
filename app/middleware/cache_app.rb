@@ -59,7 +59,7 @@ class CacheApp
       if last_question_id == 0 || @total_questions == 0
         # questions => no new questions
         text = "
-        $('dl#questions').html('#{escape_javascript "<dd class='even'>#{I18n.t 'kabtv.kabtv.no_questions_yet'}</dd>".html_safe}');
+        $('dl#questions').html(\"<dd class='even'>#{I18n.t 'kabtv.kabtv.no_questions_yet'}</dd>\");
         kabtv.questions.last_question_id = 0;
         "
       else
