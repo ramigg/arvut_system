@@ -593,7 +593,7 @@ function set_player_quality(lang_id, technology_id) {
     var qualities = "";
     $.each(kabtv.tabs.presets, function (i, v) {
         if (v.tid == technology_id && v.pid == lang_id) {
-            qualities += "<option value='" + v.url + "' " + (v.def ? "selected = 'selected'" : "" ) + "'>" + v.qname + "</option>";
+            qualities += "<option value='" + v.url + "' " + (v.def ? "selected = 'selected'" : "" ) + ">" + v.qname + "</option>";
         }
     });
     // Clear quality select
