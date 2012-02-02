@@ -12,6 +12,7 @@ class ApplicationController < ActionController::Base
   # Include widgets
   include Apotomo::Rails::ControllerMethods
     has_widgets do |root|
+      root << widget(:info_widget, 'info', :display)
       root << widget(:blog_widget, 'blog', :display)
       root << widget(:profile_widget, 'profile', :display, :user => current_user)
       root << widget(:tags_widget, 'tags', :display)
