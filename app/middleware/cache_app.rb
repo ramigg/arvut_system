@@ -87,13 +87,13 @@ class CacheApp
       if last_question_id == 0
         # no questions => questions
         text = "
-        $('dl#questions').html('#{escape_javascript content.html_safe}');
+        $('dl#questions').html('#{escape_javascript content}');
         kabtv.questions.last_question_id = #{@questions.last.id};
         "
       else
         # questions => more questions
         text = "
-        $('dl#questions').append('#{escape_javascript content.html_safe}');
+        $('dl#questions').append('#{escape_javascript content}');
         kabtv.questions.last_question_id =+ #{@questions.last.id};
         "
       end
