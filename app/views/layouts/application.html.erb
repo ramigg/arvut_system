@@ -8,7 +8,7 @@
   </head>
   <% layout = controller.instance_of?(Profiles::RegistrationsController) ? 'layout-signup' : 'layout-login' %>
   <body class="<%= I18n.locale %> <%= layout %>">
-  <%#*<a href="<%= get_skin_url %><%#*" target="_blank">  %>
+    <a href="<%= get_skin_url %>" target="_blank">
       <div class="skin_bg">
           <div class="skin_container">
 	          <%#*<div id="countdown-placement">
@@ -25,7 +25,7 @@
           <%#*<a href="#" class="skinlink"></a>%>
           <%#*</div>%>
       </div>
- <%#* </a>   %>
+    </a>
     <div class="clear"></div>
     <div class="wrapper">
       <%= render 'stream/header' %>
