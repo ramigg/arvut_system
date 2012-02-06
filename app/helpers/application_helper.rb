@@ -38,11 +38,11 @@ module ApplicationHelper
   def get_skin_url
     skinURL =  case I18n.locale
                     when :he then
-                      "http://events.kabbalah.info/Type_1/register.php?ev=118&lang=HEB"
+                      "http://events.kabbalah.info/Type_1/register.php?ev=128&lang=HEB"
                     when :ru then
-                      "http://events.kabbalah.info/Type_1/register.php?ev=118&lang=RUS"
+                      "http://events.kabbalah.info/Type_1/register.php?ev=128&lang=RUS"
                     else
-                      "http://events.kabbalah.info/Type_1/register.php?ev=118&lang=ENG"
+                      "http://events.kabbalah.info/Type_1/register.php?ev=128&lang=ENG"
                   end
     return skinURL
   end

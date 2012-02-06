@@ -1,12 +1,9 @@
-  /*
 body{
-	background: #ffffff url(../images/skin/bg.png) repeat-x 0 0;
+	background: #4271ab url(../images/skin/bg.png) repeat-x 0 0;
 }
 .skin_bg {
 	background: url(../images/skin/bg_image.png) no-repeat center 0px;
-    top:-40px;
 }
 .wrapper{
-	margin:180px auto 20px;
+	margin:160px auto 0px;
 }
-*?
