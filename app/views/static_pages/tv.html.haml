@@ -2,7 +2,7 @@
   #tightvideo_img(style="position: absolute; top: 0; font-size: 10px; #{@locale == 'he' ? 'left' : 'right'} : 0;")
     = link_to image_tag('tightvideo.gif', :alt => 'Transcoded by TightVideo'), 'http://www.tightvideo.com/', :title => 'Transcoded by TightVideo', :target => '_blank'
   #object= I18n.t('kabtv.kabtv.loading')
-  <a class="player-btn" onclick="kabtv.tabs.fs(); return false;"><span class="full_screen"> </span></a>
+  <a alt='Full screen' title='Full screen' class="player-btn" onclick="fs(); return false;" style="background: url(/images/video-icons.gif) no-repeat 0 -37px; width: 23px; height: 23px; display: block; float: right;"><span class="full_screen"> </span></a>
   .clear
 :javascript
   function create_flash_object(clip, url) {
@@ -171,3 +171,14 @@
         ;
     }
   });
+
+  function fs() {
+      var $obj = $('#player');
+      if ($obj) {
+          var obj = $obj[0];
+          if (obj.playState && obj.playState == 3) {
+              obj.fullScreen = true;
+              obj.fullScreen = 'true';
+          }
+      }
+  }

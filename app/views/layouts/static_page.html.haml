@@ -14,7 +14,7 @@
 
     = javascript_include_tag list
 
-    = csrf_meta_tag
+    = csrf_meta_tag unless @page_caching
 
   %body(class="#{I18n.locale} layout-stream")
     =link_to get_skin_url, :target => '_blank' do
@@ -26,7 +26,7 @@
       .header
         .logo
           = link_to image_tag("/images/logo-#{I18n.locale}.png"), :root, :title => t('home.views.site_name') , :alt => nil
-          %h1<%= t('home.views.site_name')
+          %h1= t('home.views.site_name')
         %form(action="#" method="get" accept-charset="utf-8")
           %p
             %select(name="languages" id="languages" onchange="change_language()")

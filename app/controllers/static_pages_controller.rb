@@ -2,6 +2,9 @@ class StaticPagesController < ApplicationController
 
   layout 'static_page'
 
+  caches_page :tv
+  before_filter(:only => :tv) { @page_caching = true}
+
   def tv
     @preset = params[:preset]
     preset = StreamPreset.find_by_name params[:preset].humanize
