@@ -1,6 +1,6 @@
 source 'http://rubygems.org'
 
-gem 'rails', '~>3.0'
+gem 'rails', '3.0.11'
 #gem 'railties', '3.0.3'
 gem  'remail'
 # extension for  arel where
@@ -48,7 +48,8 @@ group :production do
 end
 
 group :development do
-  gem "ruby-debug-base19x"
+  gem 'linecache19', :git => 'git://github.com/mark-moseley/linecache'
+  gem "ruby-debug-base19x", '>= 0.11.30.pre7'
   gem "ruby-debug19"
   gem "ruby-debug-ide"
   gem 'mongrel', '>= 1.2.0.pre2' #for ruby v1.9.2

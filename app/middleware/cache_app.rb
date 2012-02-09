@@ -40,7 +40,12 @@ class CacheApp
     end
     if env['REQUEST_PATH'] =~ /events\/render_event_response/ &&
         env['QUERY_STRING'] =~ /type=more_questions/
-      return [200, {'Content-Type' => 'application/x-javascript', 'X-Supplied-by' => 'Middlware'}, [more_questions(env)]]
+      # Try to get info from cache
+      key = "Sviva-Tova:#{env['REQUEST_PATH']}?#{env['QUERY_STRING'].gsub(/&_=\d+/, '')}"
+      value = Rails.cache.fetch(key) do
+        more_questions(env)
+      end
+      return [200, {'Content-Type' => 'application/x-javascript', 'X-Supplied-by' => 'Middlware'}, [value]]
     end
 
     @app.call(env)
@@ -120,15 +125,15 @@ class CacheApp
              # Nothing to show (and it was not reset)
              total == 0 ?
                  # No sketches on server
-                 '$(\'.images\').html(\'\')' :
+                 "$('.images').html('')" :
                  # No new sketches
                  ''
            else
              reset ?
                  # Less files... Or reset had happened or some images were removed
-                 "$('.images').html(\"#{images.join('').html_safe}\");" :
+                 "$('.images').html('#{escape_javascript images.join('')}');" :
                  # New files were added
-                 "$('.images').append(\"#{images.join('').html_safe}\");"
+                 "$('.images').append('#{escape_javascript images.join('')}');"
            end
 
     text
