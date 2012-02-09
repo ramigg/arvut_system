@@ -53,6 +53,8 @@ Simulator::Application.routes.draw do
     match 'dashboard', :to => 'home#dashboard', :as => 'dashboard'
     resources :mobile
 
+    match 'tv/:preset', :to => "static_pages#tv", :as => :tv
+
     devise_for :users,
       :path_names => {:sign_in => 'login', :sign_out => 'logout', :sign_up => 'register'},
       :controllers => {:registrations => "profiles/registrations", :confirmations => "profiles/confirmations", :sessions => 'sessions'}
@@ -80,7 +82,6 @@ Simulator::Application.routes.draw do
       put 'toggle_is_bookmark', :on => :member
       get 'show_button_content', :on => :collection
     end
-
 
     resources :events
     

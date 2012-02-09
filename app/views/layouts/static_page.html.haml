@@ -1,0 +1,49 @@
+!!!
+%html(xmlns="http://www.w3.org/1999/xhtml")
+  %head
+    %title= t('home.views.site_name')
+    %meta(content="text/html;charset=utf-8" http-equiv="content-type")
+    = stylesheet_link_tag 'reset', 'styles', 'skin'
+    /[if IE]
+      = stylesheet_link_tag 'correct-ie'
+    - if I18n.locale == :he
+      :css
+        css3-container { direction: ltr !important; }
+
+    - list = ['jquery-1.6.1.min', 'rails', 'application', '/flowplayer/flowplayer-3.2.6.min.js']
+
+    = javascript_include_tag list
+
+    = csrf_meta_tag
+
+  %body(class="#{I18n.locale} layout-stream")
+    =link_to get_skin_url, :target => '_blank' do
+      .skin_bg
+        .skin_container
+          %p
+    .clear
+    .wrapper
+      .header
+        .logo
+          = link_to image_tag("/images/logo-#{I18n.locale}.png"), :root, :title => t('home.views.site_name') , :alt => nil
+          %h1<%= t('home.views.site_name')
+        %form(action="#" method="get" accept-charset="utf-8")
+          %p
+            %select(name="languages" id="languages" onchange="change_language()")
+              - locale = I18n.locale.to_s
+              - Language.all.each do |l|
+
+                - opt_params = {:value => "#{tv_path(l.locale, @preset)}"}
+                - opt_params[:selected] = "selected" if l.locale == locale
+                %option{opt_params}
+                  =l.language
+        .header-menu
+
+      .page_wrapper(style="background: #F9F7E8;" )
+        = yield
+      .clear
+
+      .footer
+        New internet project - We build it together
+
+    = render 'shared/ga'
