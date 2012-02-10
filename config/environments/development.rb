@@ -22,6 +22,7 @@ Simulator::Application.configure do
   config.consider_all_requests_local       = true
   config.action_view.debug_rjs             = true
   config.action_controller.perform_caching = true
+  config.action_controller.page_cache_directory = Rails.public_path + '/page_cache'
 
   # Don't care if the mailer can't send
   email = Rails.root.join('tmp', 'email.yml').to_s
