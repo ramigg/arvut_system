@@ -11,6 +11,14 @@ class KabtvQuestion < Kabtv
         l.save(:validate => false)
       }
     }
+    # clear cache
+    StreamPreset.all.each {|sp|
+      preset_id = sp.id
+      Language.all.each {|lang|
+        key = "Sviva-Tova:/internet/events/render_event_response?locale=#{lang.locale}&source=questions&type=more_questions&last_question_id=0&stream_preset_id=#{preset_id}"
+        Rails.cache.delete key
+      }
+    }
   end
 
 end
