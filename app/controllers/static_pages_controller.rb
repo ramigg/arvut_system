@@ -22,9 +22,9 @@ class StaticPagesController < ApplicationController
     def host_with_port; '' end
   end
 
-  def tv(preset = nil, locale = nil, do_render = false)
-    @preset = preset || params[:preset]
-    preset = StreamPreset.find_by_name @preset.humanize
+  def tv(preset_id = nil, locale = nil, do_render = false)
+    @preset = preset_id || params[:preset_id]
+    preset = StreamPreset.find @preset
     language = Language.find_by_locale(locale || params[:locale])
 
     pl = preset.preset_languages.where('language_id = ?', language.id).first
