@@ -34,7 +34,7 @@ class PagesAdmin < Apotomo::Widget
       @specific_message = 'Please write something'
     else
       @page = Page.new(params[:page])
-      @page.assets.sort! { |a, b| a.position <=> b.position } if @page.assets
+      @page.assets.sort! { |a, b| a.position <=> b.position } if @page.assets.present?
       @page.publish_at = Time.zone.now
       @success = @page.save :validate => false
     end
