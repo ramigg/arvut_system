@@ -25,7 +25,7 @@
     .wrapper
       .header
         .logo
-          = link_to image_tag("/images/logo-#{I18n.locale}.png"), :root, :title => t('home.views.site_name') , :alt => nil
+          = link_to image_tag("/images/logo-#{I18n.locale}.png"), "http://kabbalahgroup.info/internet/#{I18n.locale}", :title => t('home.views.site_name') , :alt => nil
           %h1= t('home.views.site_name')
         %form(action="#" method="get" accept-charset="utf-8")
           %p
