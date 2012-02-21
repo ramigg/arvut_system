@@ -33,7 +33,7 @@
               - locale = I18n.locale.to_s
               - Language.all.each do |l|
 
-                - opt_params = {:value => "#{tv_path(l.locale, @preset)}"}
+                - opt_params = {:value => "http://kabbalahgroup.info/internet/#{l.locale}"}
                 - opt_params[:selected] = "selected" if l.locale == locale
                 %option{opt_params}
                   =l.language
