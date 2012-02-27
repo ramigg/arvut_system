@@ -48,7 +48,15 @@ class CacheApp
       return [200, {'Content-Type' => 'application/x-javascript', 'X-Supplied-by' => 'Middlware'}, [value]]
     end
 
-    @app.call(env)
+     begin 
+       @status, @headers, @response = @app.call(env)
+     rescue => error
+       logger = Logger.new("log/middleware.log")
+       logger.info error.message 
+       logger.info error.backtrace.join("\n")        
+     end
+     return [@status, @headers, @response]
+
   end
 
   private
