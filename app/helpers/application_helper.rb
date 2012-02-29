@@ -36,7 +36,7 @@ module ApplicationHelper
   end
 
   def get_skin_url
-    "http://www.eurocongress.info/welcome/"
+    "http://www.eurocongress.info/en/registration/"
   end
   
   def ckeditor_toolbar(klass = 'Min')
