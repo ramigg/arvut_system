@@ -1,8 +1,8 @@
 body{
-	background: #4271ab url(../images/skin/bg.png) repeat-x 0 0;
+	background: white url(../images/skin/bg.png) repeat-x 0 0;
 }
 .skin_bg {
-	background: url(../images/skin/bg_image.jpg) no-repeat center 0px;
+	background: url(../images/skin/bg_image.png) no-repeat center 0px;
 }
 .wrapper{
 	margin:160px auto 0px;
