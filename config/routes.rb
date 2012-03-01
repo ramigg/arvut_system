@@ -18,6 +18,15 @@ class CheckNotLoggedIn
 end
 
 Simulator::Application.routes.draw do
+  resource :tolk do
+    root :to => 'tolk/locales#index'
+    resources :locales, :controller => "tolk/locales" do
+      get :all, :on => :member
+      get :updated, :on => :member
+    end
+    resource :search, :controller => "tolk/searches"
+  end
+
   #match ":controller/render_event_response", :to => "#render_event_response", :as => "apotomo_event"
   match "admin_tasks/render_event_response", :to => "admin/admin_tasks#render_event_response"
 
@@ -120,16 +129,6 @@ Simulator::Application.routes.draw do
     constraints(CheckNotLoggedIn) do
       match '*path', :to => 'redirector#to_login'
     end
-
-    resource :tolk do
-      root :to => 'tolk/locales#index'
-      resources :locales, :controller => "tolk/locales" do
-        get :all, :on => :member
-        get :updated, :on => :member
-      end
-      resource :search, :controller => "tolk/searches"
-    end
-
 
     # When no route found - redirect to English Home-page
     match '*path', :to => 'redirector#to_home'

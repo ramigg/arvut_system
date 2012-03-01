@@ -1,4 +1,5 @@
-en:
+tr:
+#  value, attribute, model
   activerecord:
     models:
       user: email
