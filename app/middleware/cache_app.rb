@@ -181,7 +181,7 @@ class CacheApp
   def get_presets(stream_preset, locale)
     all_languages = Language.all
     locale_id = all_languages.select { |al| al.locale == locale }.first.id
-    preset_languages = stream_preset.preset_languages.uniq
+    preset_languages = stream_preset.preset_languages.where("language_id is not null and quality_id is not null and technology_id is not null").uniq
     languages = preset_languages.map { |p| {:id => p.id, :tid => p.technology.id, :lid => p.language.id, :qid => p.quality.id} }
     lang_options = languages.map { |l|
       language_id = l[:lid]
