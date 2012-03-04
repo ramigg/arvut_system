@@ -49,6 +49,7 @@ class CacheApp
     end
 
     @status, @headers, @response = @app.call(env)
+
     #begin
     #rescue => error
     #   logger = Logger.new("log/middleware.log")
@@ -57,6 +58,10 @@ class CacheApp
     # end
      return [@status, @headers, @response]
 
+  end
+
+  def method_missing(method, *args, &block)
+     [200, {'Content-Type' => 'text/html'}, ["Undefined method #{method}"]]
   end
 
   private
