@@ -50,7 +50,7 @@ class CacheApp
 
     @status, @headers, @response = @app.call(env)
     rescue NoMethodError
-     return [200, {'Content-Type' => 'text/html'}, ["Undefined method #{method}"]]
+     return [200, {'Content-Type' => 'text/html'}, ["Undefined method"]]
 
     #begin
     #rescue => error
@@ -63,6 +63,7 @@ class CacheApp
   end
 
   def method_missing(method, *args, &block)
+    @@method = method.to_s
   end
 
   private
