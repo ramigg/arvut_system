@@ -34,18 +34,18 @@
 <div class="widget-blog">
   <ul>
     <%- if params[:locale] == 'he' -%>
-        <li><%= link_to 'לוח אירועים מרכזיים שנתי', 'https://spreadsheets.google.com/ccc?hl=ru&key=tnfWTye98fPiWt1JDXl50NQ&authkey=CIy-qroK&hl=ru#gid=0', :target => '_blank' %></li>
+        <li><%= link_to 'לוח אירועים מרכזיים שנתי', 'https://www.google.com/calendar/b/0/embed?height=600&wkst=1&hl=iw&bgcolor=%23FFFFFF&src=dmvo7gvnod2006qg69mkbkbql4@group.calendar.google.com&color=%23875509&ctz=Asia/Jerusalem', :target => '_blank' %></li>
         <li><%= link_to 'לוח דרושים - השתתפות בהפצה', 'http://www.kab.co.il/kabbalah/%D7%94%D7%A9%D7%AA%D7%AA%D7%A4%D7%95%D7%AA-%D7%91%D7%94%D7%A4%D7%A6%D7%AA-%D7%97%D7%9B%D7%9E%D7%AA-%D7%94%D7%A7%D7%91%D7%9C%D7%94?utm_source=sviva-tova&utm_medium=link&utm_campaign=hafaza', :target => '_blank' %></li>
     <%- elsif params[:locale] == 'ru' -%>
         <li><%= link_to 'Cтажировка в Бней Барух', "https://sites.google.com/site/internshipsinthebneibaruch/", :target => '_blank' %></li>
-        <li><%= link_to 'Календарь мероприятий', "https://spreadsheets.google.com/ccc?hl=ru&key=tnfWTye98fPiWt1JDXl50NQ&authkey=CIy-qroK&hl=ru#gid=2", :target => '_blank' %></li>
+        <li><%= link_to 'Календарь мероприятий', "https://www.google.com/calendar/b/0/embed?height=600&wkst=1&hl=ru&bgcolor=%239999ff&src=5m474sujthkbiu2jps175gjvf4@group.calendar.google.com&color=%23B1440E&ctz=Asia/Jerusalem", :target => '_blank' %></li>
         <li><%= link_to 'Держим курс', "http://www.kabbalahgroup.info/rus/new/", :target => '_blank' %></li>
         <li><%= link_to 'Читаем каббалистические тексты', "http://www.kabhebrew.info/", :target => '_blank' %></li>
     <%- elsif params[:locale] == 'es' -%>
         <li><%= link_to 'Seguimos navegando', "http://www.kabbalahgroup.info/spa/new/", :target => '_blank' %></li>
         <li><%= link_to 'La lectura de los textos cabalísticos', "http://www.kabhebrew.info/spanish_1.htm", :target => '_blank' %></li>
     <%- else #params[:locale] == 'en' -%>
-        <li><%= link_to 'Calendar of Major Events', "https://spreadsheets.google.com/ccc?hl=en&key=tnfWTye98fPiWt1JDXl50NQ&authkey=CIy-qroK&hl=en#gid=6", :target => '_blank' %></li>
+        <li><%= link_to 'Calendar of Major Events', "https://www.google.com/calendar/b/0/embed?height=600&wkst=1&hl=en&bgcolor=%23ffcc33&src=1fpj3egag84ttkn9nobnbiu4qo@group.calendar.google.com&color=%232F6309&ctz=Asia/Jerusalem", :target => '_blank' %></li>
         <li><%= link_to 'We read the kabbalistic texts', "http://www.kabhebrew.info/english_1.htm", :target => '_blank' %></li>
   <%- end -%>
   </ul>
