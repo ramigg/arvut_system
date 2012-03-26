@@ -49,8 +49,8 @@ class CacheApp
     end
 
     @status, @headers, @response = @app.call(env)
-    rescue NoMethodError
-     return [200, {'Content-Type' => 'text/html'}, ["Undefined method"]]
+    #rescue NoMethodError
+     #return [200, {'Content-Type' => 'text/html'}, ["Undefined method"]]
 
     #begin
     #rescue => error
