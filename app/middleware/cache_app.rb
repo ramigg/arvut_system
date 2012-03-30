@@ -189,7 +189,7 @@ class CacheApp
     all_languages = Language.all
     locale_id = all_languages.select { |al| al.locale == locale }.first.id
     preset_languages = stream_preset.preset_languages.where("language_id is not null and quality_id is not null and technology_id is not null").uniq
-    languages = preset_languages.map { |p| {:id => p.id, :tid => p.technology.id, :lid => p.language.id, :qid => p.quality.id} }
+    languages = preset_languages.map { |p| {:id => p.id, :tid => p.technology.try(:id), :lid => p.language.try(:id), :qid => p.quality.try(:id)} }
     lang_options = languages.map { |l|
       language_id = l[:lid]
       "<option #{"selected='selected'".html_safe if language_id == locale_id} value='#{language_id}'>#{all_languages.select { |al| al.id == language_id }.first.language}</option>"
