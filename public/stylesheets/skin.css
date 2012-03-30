@@ -1,9 +1,30 @@
+/*body{*/
+	/*background: white url(../images/skin/bg.png) repeat-x 0 0;*/
+/*}*/
+/*.skin_bg {*/
+	/*background: url(../images/skin/bg_image.png) no-repeat center 0px;*/
+/*}*/
+/*.wrapper{*/
+	/*margin:160px auto 0px;*/
+/*}*/
+/* for multiple banners: */
 body{
-	background: white url(../images/skin/bg.png) repeat-x 0 0;
+    background-color: white;
+    background-image: none;
 }
 .skin_bg {
-	background: url(../images/skin/bg_image.png) no-repeat center 0px;
+    background-color: white;
+    background-image: none;
+    margin-top: 5px;
+}
+.skin_container {
+    height: 205px;
+    width: 960px;
+}
+.skin_container img {
+    border-radius: 10px 10px 10px 10px;
+    box-shadow: 0 0 3px #666666;
 }
 .wrapper{
-	margin:160px auto 0px;
+    margin:220px auto 0px;
 }

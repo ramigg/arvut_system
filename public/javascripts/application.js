@@ -179,11 +179,11 @@ $(function () {
             return;
         $(this).addClass('throbber');
     });
-		
+
     $("#throbber").ajaxComplete(function(){
         $(this).removeClass('throbber');
     });
-		
+
     // link parser for ajax pages history
     $('a.data-remote')
     .live('click', function (e) {
@@ -276,3 +276,31 @@ $(function () {
     //        }
     //    });
     });
+
+var banners_img = new Array();
+var banners_url = new Array();
+var banners_alt = new Array();
+var banner_current = 0;
+banners_img[0] = "/images/banners/congresso_latino_americano_sviva.jpg";
+banners_img[1] = "/images/banners/one_convention_sviva.jpg";
+banners_url[0] = "http://latinamericancongress.info/?lang=pt";
+banners_url[1] = "http://www.kabbalah.info/conventions/";
+banners_alt[0] = "Congresso Latino Americano";
+banners_alt[1] = "The One Convention";
+
+$(function (){
+    var image = $('body .skin_container img');
+    if (image.length == 0) {
+        // First time here
+        $('body .skin_container').html('<img />');
+    }
+    rotate_banners();
+    setInterval(rotate_banners, 10000);
+});
+
+function rotate_banners() {
+    var image = $('body .skin_container img');
+    banner_current = (banner_current + 1) % 2;
+    $('body > a').attr('href', banners_url[banner_current]).attr('title', banners_alt[banner_current]);
+    image.attr('src', banners_img[banner_current]).attr('alt', banners_alt[banner_current]);
+}
