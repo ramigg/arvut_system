@@ -6,6 +6,8 @@ gem  'remail'
 # extension for  arel where
 gem "meta_where"
 
+gem 'c2dm_on_rails'
+
 # Bundle edge Rails instead:
 #gem 'rails', :git => 'git://github.com/rails/rails.git', :branch => 'master'
 #gem 'railties' , :git => 'git://github.com/rails/rails.git', :branch => 'master'
@@ -48,9 +50,9 @@ group :production do
 end
 
 group :development do
-  gem 'linecache19', :git => 'git://github.com/mark-moseley/linecache'
+  #gem 'linecache19', :git => 'git://github.com/mark-moseley/linecache'
   gem "ruby-debug-base19x", '>= 0.11.30.pre7'
-  gem "ruby-debug19"
+  #gem "ruby-debug19"
   gem "ruby-debug-ide"
   gem 'mongrel', '>= 1.2.0.pre2' #for ruby v1.9.2
   gem 'thin'

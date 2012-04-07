@@ -121,7 +121,7 @@ Devise.setup do |config|
 
   # If true, authentication through token does not store user in session and needs
   # to be supplied on each request. Useful if you are using the token as API token.
-  # config.stateless_token = false
+  #config.stateless_token = true
 
   # ==> Scopes configuration
   # Turn scoped views on. Before rendering "sessions/new", it will first check for
@@ -162,16 +162,29 @@ Devise.setup do |config|
   # If you want to use other strategies, that are not supported by Devise, or
   # change the failure app, you can configure them inside the config.warden block.
   #
-  # config.warden do |manager|
+   config.warden do |manager|
+     manager.failure_app   = CustomFailureApp
   #   manager.oauth(:twitter) do |twitter|
   #     twitter.consumer_secret = <YOUR CONSUMER SECRET>
   #     twitter.consumer_key  = <YOUR CONSUMER KEY>
   #     twitter.options :site => 'http://twitter.com'
   #   end
   #   manager.default_strategies(:scope => :user).unshift :twitter_oauth
-  # end
-
+   end
+  class CustomFailureApp < Devise::FailureApp
+    def respond
+      if warden.message == :invalid_token
+        http_auth
+      else
+        super
+      end
+    end
+  end
 end
+
+
+
+
 
 # To register login event
 Warden::Manager.after_authentication do |user,auth,opts|

@@ -3,7 +3,10 @@ require "application_responder"
 class ApplicationController < ActionController::Base
   self.responder = ApplicationResponder
 
-  before_filter :set_locale, :authenticate_user!
+  before_filter :set_locale
+  before_filter do |controller|
+    :authenticate_user! unless controller.is_a? TokensController #, :except => [:some_action_without_auth]
+  end
   protect_from_forgery
   layout 'application'
   helper :layout
