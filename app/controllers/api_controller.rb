@@ -1,21 +1,46 @@
 class ApiController < AdminApplicationController
-  skip_before_filter :verify_authenticity_token
+  #skip_before_filter :verify_authenticity_token
 
   def update_mobile_token
+
+
+    auth_token = [:auth_token]
+    if auth_token?
+    render :status=>401, :json=>{:message=>"missing authentication token."}
+    return
+    end
+
+    user = User.find_by_authentication_token(auth_token)
+    if user?
+      render :status=>401, :json=>{:message=>"you must login first"}
+      return
+    end
       #update table of devices with the registration id
     registration = params[:registration_id]
     user_id = current_user.id
     device = C2dm::Device.create(:registration_id => registration)
 
-    device.update_attribute(:user_id=> user_id)
+    device.update_attribute(:user_id=> user.id)
+
 
     # device id will be the unique device id of the user
     # registartion id is what the client got from registarion of the notifiaction server
 
   end
   def push_notification_message
+    auth_token = [:auth_token]
+    if auth_token?
+      render :status=>401, :json=>{:message=>"missing authentication token."}
+      return
+    end
+
+    user = User.find_by_authentication_token(auth_token)
+    if user?
+      render :status=>401, :json=>{:message=>"you must login first"}
+      return
+    end
     #need to get out the registartion id from the device table per user
-    user_id = current_user.id
+    user_id = user.id
      device = C2dm::Device.find_by_name(user_id)
 
 
