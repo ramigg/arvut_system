@@ -42,8 +42,13 @@ Simulator::Application.routes.draw do
   match 'ckeditor/create/:kind', :to => 'ckeditor#create'
 
   resources :tokens, :only => [:create, :destroy]
-  match 'api/update_mobile_token', :to => 'api#update_mobile_token'
-  match 'api/push_notification_message', :to => 'api#push_notification_message'
+  resources :api, :only => [] do
+          collection do
+            post :update_mobile_token, :push_notification_message
+          end
+        end
+  #match 'api/update_mobile_token', :to => 'api#update_mobile_token'
+  #match 'api/push_notification_message', :to => 'api#push_notification_message'
 
 
   langs = Language.all.map{|e|e.locale} rescue []

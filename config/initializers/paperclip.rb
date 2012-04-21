@@ -1,7 +1,7 @@
 require "paperclip"
 
 if defined? ActionDispatch::Http::UploadedFile
-  ActionDispatch::Http::UploadedFile.send(:include, Paperclip::Upfile)
+  #ActionDispatch::Http::UploadedFile.send(:include, Paperclip::Upfile)
 end
 
 if File.exist?('c:/ImageMagick/identify.exe')
