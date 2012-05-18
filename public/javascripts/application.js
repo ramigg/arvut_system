@@ -288,15 +288,16 @@ banners_url[1] = "http://www.kabbalah.info/conventions/";
 banners_alt[0] = "Congresso Latino Americano";
 banners_alt[1] = "The One Convention";
 
-$(function (){
-    var image = $('body .skin_container img');
-    if (image.length == 0) {
-        // First time here
-        $('body .skin_container').html('<img />');
-    }
-    rotate_banners();
-    setInterval(rotate_banners, 10000);
-});
+// Disable rotating banners - using old skin.
+//$(function (){
+//    var image = $('body .skin_container img');
+//    if (image.length == 0) {
+//        // First time here
+//        $('body .skin_container').html('<img />');
+//    }
+//    rotate_banners();
+//    setInterval(rotate_banners, 10000);
+//});
 
 function rotate_banners() {
     var image = $('body .skin_container img');

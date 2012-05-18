@@ -1,5 +1,5 @@
 module ApplicationHelper
-  
+
   def link_to_remove_fields(name, f)
     is_new_record = f.object.new_record?
     record_type = is_new_record ? 'true' : 'false'
@@ -27,8 +27,6 @@ module ApplicationHelper
                       "skin_heb"
                     when :ru then
                       "skin_ru"
-                    when :fr then
-                      "skin_fr"
                     else
                       "skin_other"
                   end
@@ -36,9 +34,16 @@ module ApplicationHelper
   end
 
   def get_skin_url
-    "http://latinamericancongress.info/?lang=pt"
+    skinURL = case I18n.locale
+                when :he then
+                  'https://www.kabbalah.info/donate/he/projects/new_building'
+                when :ru then
+                  'https://www.kabbalah.info/donate/ru/projects/new_building'
+                else
+                  'https://www.kabbalah.info/donate/en/projects/new_building'
+              end
   end
-  
+
   def ckeditor_toolbar(klass = 'Min')
     is_rtl? ? "#{klass}_he" : klass
   end
@@ -110,14 +115,14 @@ module ApplicationHelper
         collection.first.class.name.underscore.gsub('_', ' '))
 
     plural_name = if options[:plural_name]
-      options[:plural_name]
-    elsif entry_name == 'entry'
-      plural_name = 'entries'
-    elsif entry_name.respond_to? :pluralize
-      plural_name = entry_name.pluralize
-    else
-      entry_name + 's'
-    end
+                    options[:plural_name]
+                  elsif entry_name == 'entry'
+                    plural_name = 'entries'
+                  elsif entry_name.respond_to? :pluralize
+                    plural_name = entry_name.pluralize
+                  else
+                    entry_name + 's'
+                  end
 
     unless options[:html] == false
       b  = '<b>'
@@ -130,19 +135,19 @@ module ApplicationHelper
 
     if collection.total_pages < 2
       case collection.size
-      when 0; "No #{plural_name} found"
-      when 1; "Displaying #{b}1#{eb} #{entry_name}"
-      else;   "Displaying #{b}all #{collection.size}#{eb} #{plural_name}"
+        when 0; "No #{plural_name} found"
+        when 1; "Displaying #{b}1#{eb} #{entry_name}"
+        else;   "Displaying #{b}all #{collection.size}#{eb} #{plural_name}"
       end
     else
       %{Displaying #{plural_name} #{b}%d#{sp}-#{sp}%d#{eb} of #{b}%d#{eb} in total} % [
-        collection.offset + 1,
-        collection.offset + collection.length,
-        collection.total_entries
+          collection.offset + 1,
+          collection.offset + collection.length,
+          collection.total_entries
       ]
     end.html_safe
   end
-  
+
 # *objectTags* - Array of tags already available for the page
 # *allTagsUrl* - URL to the all available tags that can be added to the page
   def page_tags(objectTags, allTagsUrl, locale = 'en')
@@ -159,7 +164,7 @@ module ApplicationHelper
         </script>
     }.html_safe
   end
-  
+
   def post_url(page)
     if page.page_type == 'event'
       event_url(page)
@@ -167,7 +172,7 @@ module ApplicationHelper
       page_url(page)
     end
   end
-  
+
   def post_link_class(page)
     if Rails.configuration.open_stream_in_popup && page.page_type != 'event'
       'in-iframe'
@@ -186,17 +191,17 @@ module ApplicationHelper
 
   def pages_menu_count_and_style(stream_filter)
     case stream_filter
-    when 'rav'
-      rav = Page.get_tag_for_rav(:locale => I18n.locale)
-      count = Page.new_pages_by_page_type('tag', Language.get_id_by_locale(I18n.locale), current_user.date_to_show_pages_from, current_user.id).tagged_with(rav).count
-    when 'bookmarks'
-      count = Page.favorite_pages(Language.get_id_by_locale(I18n.locale), current_user.date_to_show_pages_from, current_user).count
-    else
-      count = Page.new_pages_by_page_type(stream_filter, Language.get_id_by_locale(I18n.locale), current_user.date_to_show_pages_from, current_user.id).count
+      when 'rav'
+        rav = Page.get_tag_for_rav(:locale => I18n.locale)
+        count = Page.new_pages_by_page_type('tag', Language.get_id_by_locale(I18n.locale), current_user.date_to_show_pages_from, current_user.id).tagged_with(rav).count
+      when 'bookmarks'
+        count = Page.favorite_pages(Language.get_id_by_locale(I18n.locale), current_user.date_to_show_pages_from, current_user).count
+      else
+        count = Page.new_pages_by_page_type(stream_filter, Language.get_id_by_locale(I18n.locale), current_user.date_to_show_pages_from, current_user.id).count
     end
     count > 0 ? [" (#{count})", ''] : ['', 'read']
   end
-  
+
   def is_answered_css(page)
     return '' unless page.page_type == 'assignment'
     if page.is_answered?(current_user)
@@ -233,5 +238,5 @@ module ApplicationHelper
       "#{I18n.t("stream.add_to_favorites")}"
     end
   end
-  
+
 end

@@ -1,5 +1,10 @@
-/*
-.skin_bg {
-	background: url(../images/skin/bg_image_ru.png) no-repeat center 0px;
+body{
+    background: #ffffff repeat-x 0 0;
 }
-*/
+.skin_bg {
+    background: url(../images/skin/bg_image_ru.jpg) no-repeat center 0px;
+    top:0px;
+}
+.wrapper{
+    margin:180px auto 20px;
+}

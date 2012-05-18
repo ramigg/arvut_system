@@ -1,13 +1,15 @@
-/*body{*/
-	/*background: white url(../images/skin/bg.png) repeat-x 0 0;*/
-/*}*/
-/*.skin_bg {*/
-	/*background: url(../images/skin/bg_image.png) no-repeat center 0px;*/
-/*}*/
-/*.wrapper{*/
-	/*margin:160px auto 0px;*/
-/*}*/
+body{
+	background: white url(../images/skin/bg.png) repeat-x 0 0;
+}
+.skin_bg {
+	background: url(../images/skin/bg_image.png) no-repeat center 0px;
+}
+.wrapper{
+	margin:160px auto 0px;
+}
+/* Disable rotating banners */
 /* for multiple banners: */
+/*
 body{
     background-color: white;
     background-image: none;
@@ -28,3 +30,4 @@ body{
 .wrapper{
     margin:220px auto 0px;
 }
+*/
