@@ -34,6 +34,11 @@
               <%= f.label I18n.t('kabtv.admin.show_separate_window') %>:
               <%= f.check_box :show_separate_window %>
               <br/>
+              <%= f.label I18n.t('kabtv.admin.show_coveritlive') %>:
+              <%= f.check_box :show_coveritlive %>
+              <%= f.label I18n.t('kabtv.admin.coveritlive_code') %>:
+              <%= f.text_area :coveritlive, :cols => 70, :rows => 3 %>
+
             </fieldset>
 
             <%- default_lang_id = Language.default[0].id %>

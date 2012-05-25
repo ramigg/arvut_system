@@ -1,0 +1,4 @@
+<%- the_only_widget = (!@stream_preset.show_questions && !@stream_preset.show_schedule && !@stream_preset.show_sketches) ? 'display: block;' : '' -%>
+<%= widget_div(:style => the_only_widget) do -%>
+    <%= @stream_preset.coveritlive.html_safe %>
+<%- end -%>

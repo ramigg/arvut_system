@@ -28,7 +28,7 @@
       <a class="player-btn" onclick="kabtv.tabs.fs(); return false;"><span class="full_screen"> </span></a>
     </div>
     <%- if @show_tabs -%>
-        <div class="services">
+        <div class="services" <%= "style='height: 355px;'" if @stream_preset.show_coveritlive %>>
           <div class="tabs">
             <%- if @stream_preset.show_questions -%>
                 <span><%= link_to I18n.t('kabtv.kabtv.questions'), '#', :onclick => 'return kabtv.tabs.select_me(this, "questions")' %></span>
@@ -38,6 +38,9 @@
             <%- end -%>
             <%- if @stream_preset.show_sketches -%>
                 <span><%= link_to I18n.t('kabtv.kabtv.sketches'), '#', :onclick => 'return kabtv.tabs.select_me(this, "sketches")' %></span>
+            <%- end -%>
+            <%- if @stream_preset.show_coveritlive -%>
+                <span><%= link_to I18n.t('kabtv.kabtv.coveritlive'), '#', :onclick => 'return kabtv.tabs.select_me(this, "coveritlive")' %></span>
             <%- end -%>
           </div>
           <div class="content">
