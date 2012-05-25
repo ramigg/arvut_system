@@ -58,7 +58,7 @@ end
 
 # CKEditor + Paperclip
 gem 'ckeditor', :git => 'git@github.com:Bnei-Baruch/rails-ckeditor.git', :branch => 'rails3'
-gem 'paperclip' # For windows only , :git => 'http://github.com/benben/paperclip.git'
+gem 'paperclip', '2.5.0'
 
 #gem 'delayed_job', '2.1.0.pre2'
 gem 'google_visualization'
@@ -82,6 +82,6 @@ gem 'apotomo', :git => 'git://github.com/ramigg/apotomo.git', :branch => '1-0-st
 # gem 'dalli'
 gem 'dalli'
 #gem 'memcache-client'
-gem 'tolk'
+gem 'tolk', '1.0'
 gem 'rack'
 #gem 'rack', '1.2.2'
