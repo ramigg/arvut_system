@@ -55,7 +55,6 @@ it:
       arr_down: "&#9662;"
       arr_up: "&#9652;"
       article: Contenuti
-      button_content: "contenuti per il pulsante"
       as_draft: "Salva come progetto"
       assignment: Compito
       assignments: Compiti
@@ -63,6 +62,7 @@ it:
       big_banner: "Banner Grande"
       bottom_side_banner: "Bunner lato inferiore"
       bulk_action: "Azione in blocco"
+      button_content: "contenuti per il pulsante"
       checkbox: "Riquadro di controllo"
       comments_enabled: "Comments enabled"
       content: Contenuto

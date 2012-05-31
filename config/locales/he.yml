@@ -56,7 +56,6 @@ he:
       arr_down: "&#9662;"
       arr_up: "&#9652;"
       article: תוכן
-      button_content: "תוכן כפתור"
       as_draft: "שמור כטיוטה"
       assignment: משימה
       assignments: משימות
@@ -64,6 +63,7 @@ he:
       big_banner: "באנר גדול"
       bottom_side_banner: "באנר צידי תחתון"
       bulk_action: "פעולה גורפת"
+      button_content: "תוכן כפתור"
       by_author: "By author"
       checkbox: Checkbox
       comments_enabled: "אפשר הערות"
@@ -384,25 +384,24 @@ he:
       send_instructions: "בעוד מספר דקות תקבל לחשבון האימייל הוראות לשיחרור נעילת חשבון"
       unlocked: "החשבון שלך שוחרר מנעילה בהצלחה, כעת הנך מחובר למערכת"
     views: 
+      back: חזרה
       cannot_sign_in: "לא מצליח להכנס? לחץ כאן לעזרה!"
       change_my_password: "לשנות סיסמא"
       confirm_new_password: "הזן שנית את הסיסמא החדשה"
       current_password: "הסיסמא הנוכחית (יש בה צורך לאישור הפעולה)"
+      desktop: קלאסי
       email: אימייל
       forgot_password: "שכחת את הסיסמא, לחץ כאן"
+      mobile: נייד
       new_password: "הסיסמא החדשה (לפחות 6 תווים)"
       new_user: "משתמש חדש?"
       no_confirmation_instructions: "לחץ לקבלת הוראות לאישור חשבון באימייל"
       no_unlock_instructions: "לחץ לקבלת הוראות לשיחרור נעילת חשבון"
       password: סיסמא
-      version: צפה ב-
-      mobile: נייד
-      desktop: קלאסי
-      select_lang: בחר ספה
-      back: חזרה
       remember_me: "זכור אותי במחשב זה"
       resend_confirmation_instructions: "שלח מחדש הוראות אישור החשבון"
       resend_unlock_instructions: "שלח הוראות לשחרור נעילת חשבון"
+      select_lang: "בחר ספה"
       send_reset_password: "שלח לי הוראות לאיפוס סיסמא"
       sign_in: כניסה
       sign_in_more: "כניסה למערכת&nbsp;&nbsp;&nbsp;&#9668;"
@@ -410,6 +409,7 @@ he:
       sign_up: הרשמה
       sign_up_more: "הרשמה&nbsp;&nbsp;&nbsp;&#9668;"
       sign_up_now: "הרשם עכשיו!!!"
+      version: "צפה ב-"
   errors: 
     messages: 
       already_confirmed: "כבר עבר אישור"
@@ -474,19 +474,14 @@ he:
       submit: שמור
       submitting: "מעדכן שינויים..."
       successfully_saved: "נשמר בהצלחה"
-    kabtv:
-      flash: פלאש
-      wmv: מדיה פלייר
-      thank_you: "הודעתך נקלטה בהצלחה!"
-      submit_problem: "ארעה בעיה בשליחת ההודעה, אנא נסה שוב מאוחר יותר"
-      describe_problem: "דווח על תקלה בדף השידור‬"
-      empty_message: "שלחת טופס ללא תוכן. אנא הזן את הודעתך"
-      schedule_name: 'לו"ז האירועים'
-      schedule_link: "https://docs.google.com/spreadsheet/ccc?key=0AvAzVeqlLTMEdEx0MFNzdFdmWWJNc1JaUUhmci0tMFE&hl=en_US"
+    kabtv: 
       ask_question: "שאל שאלה"
       awaiting_for_approval: "השאלה שלך ממתינה לאישור"
       cancel: ביטול
+      describe_problem: "דווח על תקלה בדף השידור‬"
+      empty_message: "שלחת טופס ללא תוכן. אנא הזן את הודעתך"
       first: ראשון
+      flash: פלאש
       from: מהיכן
       full_screen: "למסך מלא"
       guest: אורח
@@ -503,10 +498,15 @@ he:
       question: שאלה
       questions: שאלות
       schedule: "לוח שידורים"
+      schedule_link: "https://docs.google.com/spreadsheet/ccc?key=0AvAzVeqlLTMEdEx0MFNzdFdmWWJNc1JaUUhmci0tMFE&hl=en_US"
+      schedule_name: "לו\"ז האירועים"
       sketches: שרטוטים
       somewhere: "ממקום לא ידוע"
+      submit_problem: "ארעה בעיה בשליחת ההודעה, אנא נסה שוב מאוחר יותר"
       technical_support: "תמיכה טכנית"
+      thank_you: "הודעתך נקלטה בהצלחה!"
       who: שם
+      wmv: "מדיה פלייר"
   layout: 
     search: חיפוש
     search_screen_reader: חפש

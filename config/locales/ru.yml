@@ -56,7 +56,6 @@ ru:
       arr_down: "&#9662;"
       arr_up: "&#9652;"
       article: Материал
-      button_content: Контент для кнопки
       as_draft: "Сохранить как черновик"
       assignment: Задание
       assignments: Задания
@@ -64,6 +63,7 @@ ru:
       big_banner: "Большой баннер"
       bottom_side_banner: "Нижняя часть баннера"
       bulk_action: "Массовое действие"
+      button_content: "Контент для кнопки"
       by_author: "По автору"
       checkbox: Чек-бокс
       comments_enabled: "можно комментировать"
@@ -402,32 +402,32 @@ ru:
       send_instructions: "В течении нескольких минут Вы получите е-мейл, содержащий инструкции по разблокировке Вашего аккаунта."
       unlocked: "Ваш аккаунт успешно разблокирован. Вы вошли в систему"
     views: 
+      back: Назад
       cannot_sign_in: "Проблемы? Для получения помощи нажмите здесь!"
       change_my_password: "Изменить мой пароль"
       confirm_new_password: "Подтверждение пароля"
       current_password: "Нынешний пароль (это нужно для подтверждения изменений)"
+      desktop: обычная
       email: Е-мейл
       forgot_password: "Забыли пароль?"
+      mobile: мобильная
       new_password: "Новый пароль (не менее 6 символов)"
       new_user: "Новый пользователь?"
       no_confirmation_instructions: "Инструкция по подтверждению аккаунта"
       no_unlock_instructions: "Инструкция по разблокировке аккаунта"
       password: Пароль
       remember_me: Запомнить
-      version: Версия
-      mobile: мобильная
-      desktop: обычная
-      select_lang: Выбрать язык
-      back: Назад
       resend_confirmation_instructions: "Снова выслать инструкцию по подтверждению"
       resend_unlock_instructions: "Снова выслать инструкцию по разблокировке"
+      select_lang: "Выбрать язык"
       send_reset_password: "Выслать инструкцию по обновлению пароля"
       sign_in: Войти
       sign_in_more: "Войти&nbsp;&nbsp;&nbsp;&#9658;"
-      sign_in_more_mobile: "Войти"
+      sign_in_more_mobile: Войти
       sign_up: Зарегистрироваться
       sign_up_more: "Согласен &nbsp;&nbsp;&nbsp;&#9658;"
       sign_up_now: "Зарегистрироваться сейчас!!!"
+      version: Версия
   errors: 
     messages: 
       already_confirmed: "уже подтвержден"
@@ -482,17 +482,14 @@ ru:
       submit: Отправить
       submitting: Ждите...
       successfully_saved: "Успешно сохранено!"
-    kabtv:
-      thank_you: Спасибо!
-      submit_problem: Невозможно послать сообщение :(\nПожалуйста попытайтесь еще раз позже.
-      describe_problem: Сообщите о проблемах в трансляции
-      empty_message: Пожалуйста напишите сообщение
-      schedule_name: Расписание событий
-      schedule_link: https://docs.google.com/spreadsheet/ccc?key=0AvAzVeqlLTMEdEx0MFNzdFdmWWJNc1JaUUhmci0tMFE&hl=en_US
+    kabtv: 
       ask_question: "Задать вопрос"
       awaiting_for_approval: "Ваш вопрос ожидает одобрения модератором"
       cancel: Отменить
+      describe_problem: "Сообщите о проблемах в трансляции"
+      empty_message: "Пожалуйста напишите сообщение"
       first: начало
+      flash: Flash
       from: Откуда
       full_screen: "На весь экран"
       guest: Гость
@@ -509,13 +506,16 @@ ru:
       question: Вопрос
       questions: Вопросы
       schedule: Расписание
+      schedule_link: "https://docs.google.com/spreadsheet/ccc?key=0AvAzVeqlLTMEdEx0MFNzdFdmWWJNc1JaUUhmci0tMFE&hl=en_US"
+      schedule_name: "Расписание событий"
       sketches: Чертежи
       somewhere: откуда-то
+      submit_problem: "Невозможно послать сообщение :(\\nПожалуйста попытайтесь еще раз позже."
       technical_support: Техподдержка
+      thank_you: Спасибо!
       who: Кто
-      flash: Flash
       wmv: WMV
-  layout:
+  layout: 
     search: Поиск
     search_screen_reader: Искать
   notification: 

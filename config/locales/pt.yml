@@ -56,7 +56,6 @@ pt:
       arr_down: "&#9662;"
       arr_up: "&#9652;"
       article: Conteúdo
-      button_content: "Conteúdo para botão"
       as_draft: "Salvar como rascunho"
       assignment: Tarefa
       assignments: Tarefas
@@ -64,6 +63,7 @@ pt:
       big_banner: "Grande Banner"
       bottom_side_banner: "Banner lateral inferior"
       bulk_action: "Ação em bloco"
+      button_content: "Conteúdo para botão"
       by_author: "Por Author"
       checkbox: Checkbox
       comments_enabled: "Comentários habilitados"
@@ -356,7 +356,7 @@ pt:
       send_reset_password: "Envie-me instruções de redefinição de senha"
       sign_in: "Inscreva-se no"
       sign_in_more: "Logar&nbsp;&nbsp;&nbsp;&#9658;"
-      sign_in_more_mobile: "Logar"
+      sign_in_more_mobile: Logar
       sign_up: Inscreva-se
       sign_up_more: "Logar&nbsp;&nbsp;&nbsp;&#9658;"
       sign_up_now: "Cadastre-se AGORA!"

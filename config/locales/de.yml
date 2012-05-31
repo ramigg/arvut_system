@@ -55,7 +55,6 @@ de:
       arr_down: "&#9662;"
       arr_up: "&#9652;"
       article: Material
-      button_content: "Inhalte für Button"
       as_draft: "Als Entwurf speichern"
       assignment: Aufgabe
       assignments: Aufgaben
@@ -63,6 +62,7 @@ de:
       big_banner: "Großer Banner"
       bottom_side_banner: "Unterer Seitenbanner"
       bulk_action: Massenaktion
+      button_content: "Inhalte für Button"
       checkbox: Kontrollkästchen
       comments_enabled: "Comments enabled"
       content: Inhalt

@@ -55,7 +55,6 @@ es:
       arr_down: "&#9662;"
       arr_up: "&#9652;"
       article: Contenido
-      button_content: "Contenido de botón"
       as_draft: "Guardar como borrador"
       assignment: Asignación
       assignments: Asignaciones
@@ -63,6 +62,7 @@ es:
       big_banner: "Gran Banner"
       bottom_side_banner: "Banner lateral inferior"
       bulk_action: "Acción en bloque"
+      button_content: "Contenido de botón"
       checkbox: "Casilla de verificación"
       comments_enabled: "Comments enabled"
       content: Contenido
@@ -387,7 +387,7 @@ es:
       send_reset_password: "Enviarme las instrucciones para restaurar mi contraseña"
       sign_in: Acceder
       sign_in_more: "Conectar&nbsp;&nbsp;&nbsp;&#9658;"
-      sign_in_more_mobile: "Conectar"
+      sign_in_more_mobile: Conectar
       sign_up: Regístrate
       sign_up_more: "Inscríbete&nbsp;&nbsp;&nbsp;&#9658;"
       sign_up_now: "¡Regístrese ahora!"
