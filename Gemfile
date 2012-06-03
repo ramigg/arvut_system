@@ -1,6 +1,6 @@
 source 'http://rubygems.org'
 
-gem 'rails', '3.0.11'
+gem 'rails', '3.0.13'
 #gem 'railties', '3.0.3'
 gem  'remail'
 # extension for  arel where
