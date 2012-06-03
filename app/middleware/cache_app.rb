@@ -3,9 +3,8 @@ require 'rack/utils'
 class CacheApp
   include Rack::Utils
 
-  def initialize(app, message = "Response Time")
+  def initialize(app)
     @app = app
-    @message = message
   end
 
   def call(env)
