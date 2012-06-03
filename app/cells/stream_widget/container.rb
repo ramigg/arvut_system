@@ -13,7 +13,7 @@ module StreamWidget
     def display
       stream_preset_id = param :stream_preset_id
       @stream_preset = current_preset(stream_preset_id)
-      @show_tabs = @stream_preset.show_questions || @stream_preset.show_sketches || @stream_preset.show_schedule || @stream_preset.show_coveritlive
+      @show_tabs = !!(@stream_preset.show_questions || @stream_preset.show_sketches || @stream_preset.show_schedule || @stream_preset.show_coveritlive)
       @show_support = @stream_preset.show_support
       @current_user = param :current_user
       @user_complain = UserComplain.new(:user => @current_user)
