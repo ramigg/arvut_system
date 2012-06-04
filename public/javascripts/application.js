@@ -280,28 +280,37 @@ $(function () {
 var banners_img = new Array();
 var banners_url = new Array();
 var banners_alt = new Array();
-var banner_current = 0;
-banners_img[0] = "http://kabbalahgroup.info/internet/images/banners/congresso_latino_americano_sviva.jpg";
-banners_img[1] = "http://kabbalahgroup.info/internet/images/banners/one_convention_sviva.jpg";
-banners_url[0] = "http://latinamericancongress.info/?lang=pt";
-banners_url[1] = "http://www.kabbalah.info/conventions/";
-banners_alt[0] = "Congresso Latino Americano";
-banners_alt[1] = "The One Convention";
+var banner_current = 1;
+banners_img[0] = "http://localhost:3000/images/banners/world_dissemination_congress.png";
+banners_img[1] = "http://kabbalahgroup.info/internet/images/skin/bg_image_!lang!.jpg";
+banners_url[0] = "http://kabbalahgroup.info/internet";
+banners_url[1] = "https://www.kabbalah.info/donate/!lang!/projects/new_building";
+banners_alt[0] = "World Dissemination Congress";
+banners_alt[1] = "Our New Home";
 
-// Disable rotating banners - using old skin.
-//$(function (){
-//    var image = $('body .skin_container img');
-//    if (image.length == 0) {
-//        // First time here
-//        $('body .skin_container').html('<img />');
-//    }
-//    rotate_banners();
-//    setInterval(rotate_banners, 10000);
-//});
+$(function (){
+    var image = $('body .skin_container img');
+    if (image.length == 0) {
+        // First time here
+        $('body .skin_container').html('<img />');
+    }
+    rotate_banners();
+    setInterval(rotate_banners, 10000);
+});
+
+// Hack to enable different languages in rotating banners
+function get_selected_language() {
+    var idx = $('#languages').get(0).selectedIndex;
+    var lang = $('#languages').get(0).options[idx].value.substring(1,3);
+    if (lang != "ru" && lang != "he") {
+        return "en";
+    }
+    return lang;
+}
 
 function rotate_banners() {
     var image = $('body .skin_container img');
     banner_current = (banner_current + 1) % 2;
-    $('body > a').attr('href', banners_url[banner_current]).attr('title', banners_alt[banner_current]);
-    image.attr('src', banners_img[banner_current]).attr('alt', banners_alt[banner_current]);
+    $('body > a').attr('href', banners_url[banner_current].replace("!lang!", get_selected_language())).attr('title', banners_alt[banner_current]);
+    image.attr('src', banners_img[banner_current].replace("!lang!", get_selected_language())).attr('alt', banners_alt[banner_current]);
 }

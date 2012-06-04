@@ -1,3 +1,5 @@
+/* Disable single banner */
+/* For single banner
 body{
 	background: white url(../images/skin/bg.png) repeat-x 0 0;
 }
@@ -6,10 +8,9 @@ body{
 }
 .wrapper{
 	margin:160px auto 0px;
-}
-/* Disable rotating banners */
-/* for multiple banners: */
-/*
+}*/
+
+/* For multiple banners: */
 body{
     background-color: white;
     background-image: none;
@@ -30,4 +31,3 @@ body{
 .wrapper{
     margin:220px auto 0px;
 }
-*/
