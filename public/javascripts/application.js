@@ -300,12 +300,17 @@ $(function (){
 
 // Hack to enable different languages in rotating banners
 function get_selected_language() {
+    // Make sure not to fail Javascript if id does not exists.
+    if ($('#languages').length == 0) return "en";
+
     var idx = $('#languages').get(0).selectedIndex;
-    var lang = $('#languages').get(0).options[idx].value.substring(1,3);
-    if (lang != "ru" && lang != "he") {
-        return "en";
+    var value = $('#languages').get(0).options[idx].value;
+    if (value.indexOf("ru") != -1) {
+        return "ru";
+    } else if (value.indexOf("he") != -1) {
+        return "he";
     }
-    return lang;
+    return "en";
 }
 
 function rotate_banners() {
