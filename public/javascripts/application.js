@@ -281,12 +281,31 @@ var banners_img = new Array();
 var banners_url = new Array();
 var banners_alt = new Array();
 var banner_current = 1;
-banners_img[0] = "http://kabbalahgroup.info/internet/images/banners/world_dissemination_congress.png";
-banners_img[1] = "http://kabbalahgroup.info/internet/images/skin/bg_image_!lang!.jpg";
-banners_url[0] = "http://kabbalahgroup.info/internet";
-banners_url[1] = "https://www.kabbalah.info/donate/!lang!/projects/new_building";
-banners_alt[0] = "World Dissemination Congress";
-banners_alt[1] = "Our New Home";
+
+banners_img[0] = new Object();
+banners_img[0].default = "http://kabbalahgroup.info/internet/images/banners/world_dissemination_congress.png";
+
+banners_img[1] = new Object();
+banners_img[1].default = "http://kabbalahgroup.info/internet/images/skin/bg_image_en.jpg";
+banners_img[1].en = "http://kabbalahgroup.info/internet/images/skin/bg_image_en.jpg";
+banners_img[1].he = "http://kabbalahgroup.info/internet/images/skin/bg_image_he.jpg";
+banners_img[1].ru = "http://kabbalahgroup.info/internet/images/skin/bg_image_ru.jpg";
+
+banners_url[0] = new Object();
+banners_url[0].default = "http://kabbalahgroup.info/internet";
+banners_url[0].en = "http://www.kabbalahgroup.info/internet/en#pages/12368";
+
+banners_url[1] = new Object();
+banners_url[1].default = "https://www.kabbalah.info/donate/en/projects/new_building";
+banners_url[1].en = "https://www.kabbalah.info/donate/en/projects/new_building";
+banners_url[1].he = "https://www.kabbalah.info/donate/he/projects/new_building";
+banners_url[1].ru = "https://www.kabbalah.info/donate/ru/projects/new_building";
+
+banners_alt[0] = new Object();
+banners_alt[0].default = "World Dissemination Congress";
+
+banners_alt[1] = new Object();
+banners_alt[1].default = "Our New Home";
 
 $(function (){
     var image = $('body .skin_container img');
@@ -313,9 +332,15 @@ function get_selected_language() {
     return "en";
 }
 
+function get_value_by_language(i18n_map) {
+    var lang = get_selected_language();
+    if (lang in i18n_map) return i18n_map[lang];
+    return i18n_map.default;
+}
+
 function rotate_banners() {
     var image = $('body .skin_container img');
     banner_current = (banner_current + 1) % 2;
-    $('body > a').attr('href', banners_url[banner_current].replace("!lang!", get_selected_language())).attr('title', banners_alt[banner_current]);
-    image.attr('src', banners_img[banner_current].replace("!lang!", get_selected_language())).attr('alt', banners_alt[banner_current]);
+    $('body > a').attr('href', get_value_by_language(banners_url[banner_current])).attr('title', get_value_by_language(banners_alt[banner_current]));
+    image.attr('src', get_value_by_language(banners_img[banner_current])).attr('alt', get_value_by_language(banners_alt[banner_current]));
 }
