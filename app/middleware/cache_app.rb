@@ -1,28 +1,102 @@
 require 'rack/utils'
+begin
+  require 'json'
+rescue LoadError => e
+  require 'json/pure'
+end
 
 class CacheApp
   include Rack::Utils
+
+  CONTENT_TYPE = 'CONTENT_TYPE'.freeze
+  POST_BODY = 'rack.input'.freeze
+  FORM_INPUT = 'rack.request.form_input'.freeze
+  FORM_HASH = 'rack.request.form_hash'.freeze
+
+  # Supported Content-Types
+  #
+  APPLICATION_JSON = 'application/json'.freeze
 
   def initialize(app)
     @app = app
   end
 
   def call(env)
+    # POST /events/render_event_response?type=set_audio_presets
+    # Input:
+    # {"preset_name": "Morning Lessons",
+    #    "settings": [
+    #       {"locale": "ru", "tech": "WMV",  "url": "mms://wms1.nl.kab.tv/radiorus"},
+    #       {"locale": "en", "tech": "Flash",  "url": "mms://wms1.nl.kab.tv/radioeng"}
+    #    ]
+    # }
+    #
+    # Output:
+    # {"status": 200, "message": "message"}
+
+
+
+    if env['REQUEST_PATH'] =~ /events\/render_event_response/ &&
+        env['QUERY_STRING'] =~ /type=set_audio_presets/
+
+      headers = { 'Content-Type' => 'application/json', 'X-Supplied-by' => 'Middleware Preset Manager' }
+
+      if Rack::Request.new(env).media_type == APPLICATION_JSON && (body = env[POST_BODY].read).length != 0
+        params = JSON.parse(body)
+      end
+
+      stream_preset = StreamPreset.find_by_name(params['preset_name'])
+      message = "StreamPreset '#{params['preset_name']}' not found"
+      return [200, headers, [{ :status => 404, :message => message }.to_json]] unless stream_preset
+
+      # Only audio stream settings are supported, so no quality is requested
+      audio = Quality.find_by_name('Audio')
+      preset_items = stream_preset.preset_languages.map(&:stream_items).flatten.select{|si| si.quality == audio}
+      message = "No Audio items in StreamPreset '#{params['preset_name']}'"
+      return [200, headers, [{ :status => 301, :message => message }.to_json]] if preset_items.count == 0
+
+      channels = params['settings']
+      return [200, headers, [{ :status => 200, :message => 'No data to update' }.to_json]] unless channels
+
+      channels.each {|channel|
+        technology = Technology.find_by_name(channel['tech'])
+        message = "No Technology found: tech #{channel['tech']}"
+        return [200, headers, [{ :status => 404, :message => message }.to_json]] unless technology
+
+        language = Language.find_by_locale(channel['locale'])
+        message = "No Language found: #{channel['locale']}"
+        return [200, headers, [{ :status => 404, :message => message }.to_json]] unless language
+
+        st = stream_preset.preset_languages.select{|pl| pl.language == language }.map(&:stream_items).flatten.select{|si| si.quality == audio && si.technology == technology}
+
+        message = "No Stream Items found: tech #{technology.name}, lang #{language.locale}"
+        return [200, headers, [{ :status => 404, :message => message }.to_json]] if st.empty?
+        message = "Found too much Stream Items: tech #{technology.name}, lang #{language.locale}"
+        return [200, headers, [{ :status => 404, :message => message }.to_json]] if st.count > 1
+
+        st[0].stream_url = channel['url']
+        st[0].save
+      }
+
+      result = { :status => 200, :message => "Stream #{stream_preset.name} was successfully updated." }
+      return [200, headers, [result.to_json]]
+    end
+
     # /events/render_event_response?locale=ru&source=stream_container&type=update_presets&stream_preset_id=3
     if env['REQUEST_PATH'] =~ /events\/render_event_response/ &&
         env['QUERY_STRING'] =~ /type=update_presets/
       # Try to get info from cache
       key = "Sviva-Tova:#{env['REQUEST_PATH']}?#{env['QUERY_STRING'].gsub(/&_=\d+/, '')}"
       value = Rails.cache.read(key)
-      supplied_by = 'MiddlwareCache'
+      supplied_by = 'MiddlewareCache'
       unless value
         value = generate_presets(env, key)
         #@cache.set(key, result, 12.seconds, true) rescue nil
         Rails.cache.write(key, value, :expires_in => 15.seconds) rescue nil
-        supplied_by = 'Middlware'
+        supplied_by = 'Middleware'
       end
 
-      return [200, {'Content-Type' => 'application/x-javascript', 'X-Supplied-by' => supplied_by}, [value]]
+      return [200, { 'Content-Type' => 'application/x-javascript', 'X-Supplied-by' => supplied_by }, [value]]
     end
     if env['REQUEST_PATH'] =~ /events\/render_event_response/ &&
         env['QUERY_STRING'] =~ /type=classboard/
@@ -32,10 +106,10 @@ class CacheApp
       key = 'SvivaTova:Classboard-yml'
       data = Rails.cache.read(key)
       classboard = data ? YAML::load(data) : {
-          :urls => {:sketches => '', :thumbnails => ''},
+          :urls => { :sketches => '', :thumbnails => '' },
           :thumbnails => []
       }
-      return [200, {'Content-Type' => 'application/x-javascript', 'X-Supplied-by' => 'Middlware'}, [display_classboard(env, classboard)]]
+      return [200, { 'Content-Type' => 'application/x-javascript', 'X-Supplied-by' => 'Middleware' }, [display_classboard(env, classboard)]]
     end
     if env['REQUEST_PATH'] =~ /events\/render_event_response/ &&
         env['QUERY_STRING'] =~ /type=more_questions/
@@ -44,12 +118,12 @@ class CacheApp
       value = Rails.cache.fetch(key) do
         more_questions(env)
       end
-      return [200, {'Content-Type' => 'application/x-javascript', 'X-Supplied-by' => 'Middlware'}, [value]]
+      return [200, { 'Content-Type' => 'application/x-javascript', 'X-Supplied-by' => 'Middleware' }, [value]]
     end
 
     @status, @headers, @response = @app.call(env)
     #rescue NoMethodError
-     #return [200, {'Content-Type' => 'text/html'}, ["Undefined method"]]
+    #return [200, {'Content-Type' => 'text/html'}, ["Undefined method"]]
 
     #begin
     #rescue => error
@@ -57,7 +131,7 @@ class CacheApp
     #   logger.info error.message
     #   logger.info error.backtrace.join("\n")
     # end
-     return [@status, @headers, @response]
+    return [@status, @headers, @response]
 
   end
 
@@ -188,19 +262,19 @@ class CacheApp
     all_languages = Language.all
     locale_id = all_languages.select { |al| al.locale == locale }.first.id
     preset_languages = stream_preset.preset_languages.where("language_id is not null and quality_id is not null and technology_id is not null").uniq
-    languages = preset_languages.map { |p| {:id => p.id, :tid => p.technology.try(:id), :lid => p.language.try(:id), :qid => p.quality.try(:id)} }
+    languages = preset_languages.map { |p| { :id => p.id, :tid => p.technology.try(:id), :lid => p.language.try(:id), :qid => p.quality.try(:id) } }
     lang_options = languages.map { |l|
       language_id = l[:lid]
       "<option #{"selected='selected'".html_safe if language_id == locale_id} value='#{language_id}'>#{all_languages.select { |al| al.id == language_id }.first.language}</option>"
     }.join
     images = preset_languages.map { |pl|
       image_path = stream_preset.stream_state.inactive_image(pl.language_id)
-      {:lang => pl.language_id, :image => "<img src='#{image_path.try(:filename)}' alt='#{I18n.t 'kabtv.kabtv.no_broadcast'}' />"}
+      { :lang => pl.language_id, :image => "<img src='#{image_path.try(:filename)}' alt='#{I18n.t 'kabtv.kabtv.no_broadcast'}' />" }
     }
 
     stream_items = preset_languages.map { |pl|
       pl.stream_items.flatten.reject { |si| si.stream_url.empty? }.map { |i|
-        {:id => i.id, :def => i.is_default, :tid => i.technology.id, :pid => pl.language.id, :plid => i.preset_language.id, :qd => i.quality.id, :qname => i.quality.name, :url => i.stream_url}
+        { :id => i.id, :def => i.is_default, :tid => i.technology.id, :pid => pl.language.id, :plid => i.preset_language.id, :qd => i.quality.id, :qname => i.quality.name, :url => i.stream_url }
       }
     }.flatten
     [stream_items, languages, lang_options, images]
@@ -213,7 +287,7 @@ class CacheApp
       "\n" => '\n',
       "\r" => '\n',
       '"' => '\\"',
-      "'" => "\\'"}
+      "'" => "\\'" }
 
   # Escape carrier returns and single and double quotes for JavaScript segments.
   def escape_javascript(javascript)
