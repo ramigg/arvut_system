@@ -43,16 +43,4 @@ Simulator::Application.configure do
   config.action_mailer.default_url_options = { :host => 'localhost:3000' }
 
   config.active_support.deprecation = :log
-
-  config.enable_comet = false
-  #config.comet_server = "kabbalahgroup.info"
-  #config.comet_server = "localhost:8080"
-  #config.comet_server = "192.168.2.101:8080"
-  config.comet_server = "localhost:8080"
-  #config.comet_server = "red5-5.kbb1.com:8080"
-  #config.comet_server = "comet.kbb1.com:8080"
-  config.comet_application_id = "2"
-  comet_yml = YAML::load_file("#{::Rails.root}/config/comet.yml")
-  config.comet_auth_key = comet_yml["comet_auth_key"]
-  config.comet_auth_iv = comet_yml["comet_auth_iv"]
 end

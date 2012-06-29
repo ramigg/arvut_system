@@ -59,11 +59,4 @@ Simulator::Application.configure do
 
   config.active_support.deprecation = :notify
 
-  # enable push-engine (update web-page without refresh)
-  config.enable_comet = false
-  config.comet_server = "kabbalahgroup.info"
-  config.comet_application_id = "1"
-  comet_yml = YAML::load_file("#{::Rails.root}/config/comet.yml")
-  config.comet_auth_key = comet_yml["comet_auth_key"]
-  config.comet_auth_iv = comet_yml["comet_auth_iv"]
 end
