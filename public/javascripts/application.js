@@ -283,7 +283,7 @@ var banners_alt = new Array();
 var banner_current = 1;
 
 banners_img[0] = new Object();
-banners_img[0].default = "http://kabbalahgroup.info/internet/images/banners/world_dissemination_congress.png";
+banners_img[0].default = "http://kabbalahgroup.info/internet/images/skin/bg_image2.jpg";
 
 banners_img[1] = new Object();
 banners_img[1].default = "http://kabbalahgroup.info/internet/images/skin/bg_image_en.jpg";
@@ -293,7 +293,9 @@ banners_img[1].ru = "http://kabbalahgroup.info/internet/images/skin/bg_image_ru.
 
 banners_url[0] = new Object();
 banners_url[0].default = "http://kabbalahgroup.info/internet";
-banners_url[0].en = "http://www.kabbalahgroup.info/internet/en#pages/12368";
+banners_url[0].en = "http://events.kabbalah.info/Type_1/register.php?ev=134&lang=ENG";
+banners_url[0].he = "http://events.kabbalah.info/Type_1/register.php?ev=134&lang=HEB";
+banners_url[0].ru = "http://events.kabbalah.info/Type_1/register.php?ev=134&lang=RUS";
 
 banners_url[1] = new Object();
 banners_url[1].default = "https://www.kabbalah.info/donate/en/projects/new_building";
@@ -302,7 +304,7 @@ banners_url[1].he = "https://www.kabbalah.info/donate/he/projects/new_building";
 banners_url[1].ru = "https://www.kabbalah.info/donate/ru/projects/new_building";
 
 banners_alt[0] = new Object();
-banners_alt[0].default = "World Dissemination Congress";
+banners_alt[0].default = "North Convention";
 
 banners_alt[1] = new Object();
 banners_alt[1].default = "Our New Home";
