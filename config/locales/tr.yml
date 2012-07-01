@@ -362,10 +362,10 @@ tr:
       change_my_password: "Change my password"
       confirm_new_password: "Password confirmation"
       current_password: "Current password (we need it to confirm your changes)"
-      desktop: classic
+      desktop: Classic Site
       email: Email
       forgot_password: "Forgot your password?"
-      mobile: mobile
+      mobile: Mobile Audio Broadcast
       new_password: "New password (at least 6 characters)"
       new_user: "New User?"
       no_confirmation_instructions: "Did not receive confirmation instructions?"
@@ -382,7 +382,7 @@ tr:
       sign_up: "Sign up"
       sign_up_more: "Sign up&nbsp;&nbsp;&nbsp;&#9658;"
       sign_up_now: "Sign up NOW!!!"
-      version: View
+      version: Please select
   errors: 
     messages: 
       accepted: "kabul edilmesi gerek"
