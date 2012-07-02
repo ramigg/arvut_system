@@ -10,6 +10,11 @@ class SessionsController < Devise::SessionsController
     @resource = User.new
     @resource_name = @resource.class.to_s.underscore
 
+    if user_signed_in? && is_mobile?
+      redirect_to mobile_index_path
+      return
+    end
+
     super
   end
 
