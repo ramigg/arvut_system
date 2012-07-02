@@ -65,7 +65,7 @@ Simulator::Application.routes.draw do
 
   constraints(CheckMobileLoggedIn) do
     langs.each {|l|
-      match "/#{l}" => redirect("/#{l}/mobile")
+      match "/#{l}", :to => 'mobile#index', :locale => l
     }
   end
 
