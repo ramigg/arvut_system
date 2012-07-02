@@ -17,6 +17,12 @@ class CheckNotLoggedIn
   end
 end
 
+class CheckLoggedIn
+  def self.matches?(request)
+    request.env['warden'].authenticated? :user
+  end
+end
+
 class CheckMobileLoggedIn
   def self.is_mobile?(request)
     # All mobiles
@@ -26,7 +32,7 @@ class CheckMobileLoggedIn
   end
 
   def self.matches?(request)
-    is_mobile?(request) && request.env['warden'].authenticated?(:user)
+    is_mobile?(request) && request.env['warden'].authenticated?(:user) && request.cookies['mobile'] == 'true'
   end
 end
 
@@ -59,7 +65,13 @@ Simulator::Application.routes.draw do
 
   constraints(CheckMobileLoggedIn) do
     langs.each {|l|
-      match "/#{l}" => "mobile#index", :locale => l
+      match "/#{l}" => redirect("/#{l}/mobile")
+    }
+  end
+
+  constraints(CheckLoggedIn) do
+    langs.each {|l|
+      match "/#{l}" => "stream#index", :locale => l, :stream_filter => 'all'
     }
   end
 
