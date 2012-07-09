@@ -2,8 +2,6 @@ class Page < ActiveRecord::Base
 
   #  *Associations*
 
-  attr_accessible :tag_list
-
   Language.all.each do |l|
     acts_as_taggable_on "#{l.locale}_tags"
   end
