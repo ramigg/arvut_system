@@ -5,11 +5,11 @@
     = form_for(resource, :as => resource_name, :url => session_path(resource_name), :html => {'data-ajax' => 'false'}) do |f|
       %h2= t 'devise.views.sign_in'
       - unless flash[:alert].empty? && session[:alert].empty?
-        %ul
+        %ul{:style => 'background: none repeat scroll 0 0 #FFE1E1; border: 1px solid #FF838C; color: #FF1D25; margin-bottom: 10px; padding: 5px; list-style: none outside none;'}
           - unless flash[:alert].empty?
-            %li= flash[:alert]
+            %li{:style => 'color: #666666 !important; margin-bottom: 1.3em;'}= flash[:alert]
           - unless session[:alert].empty?
-            %li= session[:alert]
+            %li{:style => 'color: #666666 !important; margin-bottom: 1.3em;'}= session[:alert]
       %div{"data-role" => "fieldcontain"}
         = f.label :email, t('devise.views.email')
         = f.email_field :email, :pattern => "[^ @]*@[^ @]*".html_safe, :placeholder => 'Email Address'
