@@ -285,8 +285,6 @@ var banner_current = 1;
 banners_img[0] = new Object();
 banners_img[0].default = "http://kabbalahgroup.info/internet/images/skin/bg_image_en.jpg";
 banners_img[0].en = "http://kabbalahgroup.info/internet/images/skin/bg_image_en.jpg";
-banners_img[0].he = "http://kabbalahgroup.info/internet/images/skin/bg_image_he.jpg";
-banners_img[0].ru = "http://kabbalahgroup.info/internet/images/skin/bg_image_ru.jpg";
 
 banners_img[1] = new Object();
 banners_img[1].default = "http://kabbalahgroup.info/internet/images/skin/ban-h-960x206.jpg";
