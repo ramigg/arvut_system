@@ -22,6 +22,9 @@
                     return false;
                 }
             },
+            canvas: {
+        	backgroundGradient: 'none'
+    	    },
             plugins: {
                 rtmp: {
                     url: 'flowplayer.rtmp-3.2.3.swf',
@@ -29,67 +32,11 @@
                     netConnectionUrl: url
                 },
                 controls: {
-                    "borderRadius":"0px",
-                    "timeColor":"#ffffff",
-                    "bufferGradient":"none",
-                    "backgroundColor":"rgba(0, 0, 0, 0)",
-                    "volumeSliderGradient":"none",
-                    "timeBorderRadius":20,
-                    "progressGradient":"none",
-                    "time":false,
-                    "height":26,
-                    "volumeColor":"#4599ff",
-                    "tooltips": {
-                        "marginBottom":5,
-                        "buttons":true,
-                        "fullscreen": 'Full Screen'
-                    },
-                    "opacity":1,
-                    "timeFontSize":12,
-                    "border":"0px",
-                    "bufferColor":"#a3a3a3",
-                    "volumeSliderColor":"#ffffff",
-                    "buttonColor":"#ffffff",
-                    "autoHide":{
-                        "enabled":true,
-                        "hideDelay":500,
-                        "mouseOutDelay":500,
-                        "hideStyle":"fade",
-                        "hideDuration":400,
-                        "fullscreenOnly":true
-                    },
-                    "backgroundGradient":"none",
-                    "width":"100pct",
-                    "display":"block",
-                    "sliderBorder":"1px solid rgba(128, 128, 128, 0.7)",
-                    "buttonOverColor":"#ffffff",
-                    "url":"flowplayer.controls-3.2.5.swf",
-                    "timeBgColor":"rgb(0, 0, 0, 0)",
-                    "scrubberBarHeightRatio":0.2,
-                    "bottom":0,
-                    "buttonOffColor":"rgba(130,130,130,1)",
-                    "stop":true,
-                    "zIndex":1,
-                    "sliderColor":"#000000",
-                    "scrubberHeightRatio":0.6,
-                    "tooltipTextColor":"#ffffff",
-                    "spacing":{"time":6,"volume":8,"all":2},
-                    "sliderGradient":"none",
-                    "timeBgHeightRatio":0.8,
-                    "volumeSliderHeightRatio":0.6,
-                    "name":"controls",
-                    "timeSeparator":" ",
-                    "volumeBarHeightRatio":0.2,
-                    "left":"50pct",
-                    "tooltipColor":"rgba(0, 0, 0, 0)",
-                    "durationColor":"#b8d9ff",
-                    "play":false,
-                    "timeBorder":"0px solid rgba(0, 0, 0, 0.3)",
-                    "progressColor":"#4599ff",
-                    "scrubber":false,
-                    "volumeBorder":"1px solid rgba(128, 128, 128, 0.7)",
-                    "builtIn":false,
-                    "margins":[2,12,2,12]
+            	    autoHide: 'fullscreen',
+            	    play: false,
+            	    stop: true,
+            	    time: false,
+            	    scrubber: false
                 }
             }
         }
@@ -97,28 +44,7 @@
     $('#object').css('background-color', 'black');
   }
 
-  var object = '<object width="320" height="305" name="player" id="player" type="video/x-ms-wmv" data="URL_PATTERN"> \
-    <param value="URL_PATTERN" name="src"/> \
-    <param value="true" name="autostart"/> \
-    <param value="true" name="controller"/> \
-    <param value="50" name="volume"/> \
-    <param value="full" name="uiMode"/> \
-    <param value="true" name="animationAtStart"/> \
-    <param value="false" name="showDisplay"/> \
-    <param value="true" name="ShowAudioControls"/> \
-    <param value="false" name="ShowPositionControls"/> \
-    <param value="false" name="transparentAtStart"/> \
-    <param value="true" name="ShowControls"/> \
-    <param value="true" name="ShowStatusBar"/> \
-    <param value="false" name="ShowTracker"/> \
-    <param value="false" name="ClickToPlay"/> \
-    <param value="#000000" name="DisplayBackColor"/> \
-    <param value="#ffffff" name="DisplayForeColor"/> \
-    <param value="false" name="balance"/> \
-    <param value="false" name="enableContextMenu"/> \
-    <embed height="305" width="320" showstatusbar="1" showcontrols="1" src="URL_PATTERN" pluginspage="http://www.microsoft.com/Windows/MediaPlayer/" type="application/x-mplayer2">\
-    </object>';
-  var objectFF7 = '<object width="320" height="305" name="player" id="player" type="video/x-oleobject" classid="CLSID:22D6F312-B0F6-11D0-94AB-0080C74C7E95" data="URL_PATTERN"> \
+  var object = '<object width="320" height="305" name="player" id="player" type="application/x-ms-wmp" data="URL_PATTERN"> \
     <param value="URL_PATTERN" name="src"/> \
     <param value="true" name="autostart"/> \
     <param value="true" name="controller"/> \
@@ -138,6 +64,7 @@
     <param value="false" name="balance"/> \
     <param value="false" name="enableContextMenu"/> \
     </object>';
+
   var objectMSIE = '<object classid="clsid:6BF52A52-394A-11D3-B153-00C04F79FAA6" \
     style="background-color:#000000" id="player" name="player" type="application/x-oleobject" \
     width="320" height="288" standby="Loading Windows Media Player components...">\
@@ -153,8 +80,6 @@
   function create_wmv_object(url) {
     if ($.browser.msie)
         object = objectMSIE.replace(/URL_PATTERN/g, url);
-    else if ($.browser.mozilla && $.browser.version.slice(0, 3) == '7.0')
-        object = objectFF7.replace(/URL_PATTERN/g, url);
     else
         object = object.replace(/URL_PATTERN/g, url);
     $('#object').html(object);

@@ -17,8 +17,7 @@
 <div class="clear"></div>
 <script type="text/javascript" charset="utf-8">
 function update_state(){
-    $.ajax({url:<%= url_for_event(:update_current_state) %>})
-	<%#= trigger_event(:update_current_state).html_safe %>;
+    $.ajax({url:"<%= url_for_event(:update_current_state) %>"});
 }
 setInterval('update_state()', 45000);
 </script>

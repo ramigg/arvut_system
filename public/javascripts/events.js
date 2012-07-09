@@ -227,6 +227,9 @@ function create_flash_object(clip, url) {
                     return false;
                 }
             },
+            canvas: {
+        	backgroundGradient: 'none'
+    	    },
             plugins: {
                 rtmp: {
                     url: 'flowplayer.rtmp-3.2.3.swf',
@@ -234,67 +237,11 @@ function create_flash_object(clip, url) {
                     netConnectionUrl: url
                 },
                 controls: {
-                    "borderRadius":"0px",
-                    "timeColor":"#ffffff",
-                    "bufferGradient":"none",
-                    "backgroundColor":"rgba(0, 0, 0, 0)",
-                    "volumeSliderGradient":"none",
-                    "timeBorderRadius":20,
-                    "progressGradient":"none",
-                    "time":false,
-                    "height":26,
-                    "volumeColor":"#4599ff",
-                    "tooltips": {
-                        "marginBottom":5,
-                        "buttons":true,
-                        "fullscreen": 'Full Screen'
-                    },
-                    "opacity":1,
-                    "timeFontSize":12,
-                    "border":"0px",
-                    "bufferColor":"#a3a3a3",
-                    "volumeSliderColor":"#ffffff",
-                    "buttonColor":"#ffffff",
-                    "autoHide":{
-                        "enabled":true,
-                        "hideDelay":500,
-                        "mouseOutDelay":500,
-                        "hideStyle":"fade",
-                        "hideDuration":400,
-                        "fullscreenOnly":true
-                    },
-                    "backgroundGradient":"none",
-                    "width":"100pct",
-                    "display":"block",
-                    "sliderBorder":"1px solid rgba(128, 128, 128, 0.7)",
-                    "buttonOverColor":"#ffffff",
-                    "url":"flowplayer.controls-3.2.5.swf",
-                    "timeBgColor":"rgb(0, 0, 0, 0)",
-                    "scrubberBarHeightRatio":0.2,
-                    "bottom":0,
-                    "buttonOffColor":"rgba(130,130,130,1)",
-                    "stop":true,
-                    "zIndex":1,
-                    "sliderColor":"#000000",
-                    "scrubberHeightRatio":0.6,
-                    "tooltipTextColor":"#ffffff",
-                    "spacing":{"time":6,"volume":8,"all":2},
-                    "sliderGradient":"none",
-                    "timeBgHeightRatio":0.8,
-                    "volumeSliderHeightRatio":0.6,
-                    "name":"controls",
-                    "timeSeparator":" ",
-                    "volumeBarHeightRatio":0.2,
-                    "left":"50pct",
-                    "tooltipColor":"rgba(0, 0, 0, 0)",
-                    "durationColor":"#b8d9ff",
-                    "play":false,
-                    "timeBorder":"0px solid rgba(0, 0, 0, 0.3)",
-                    "progressColor":"#4599ff",
-                    "scrubber":false,
-                    "volumeBorder":"1px solid rgba(128, 128, 128, 0.7)",
-                    "builtIn":false,
-                    "margins":[2,12,2,12]
+            	    autoHide: 'fullscreen',
+            	    play: false,
+            	    stop: true,
+            	    time: false,
+            	    scrubber: false
                 }
             }
         }
@@ -341,6 +288,7 @@ function create_flash_object(clip, url) {
                 },
                 success: kabtv.tabs.init
             });
+/***
             kabtv.tabs.poll_support && $.ajax({
                 url: 'http://live.kab.tv/button.php',
                 cache: false,
@@ -354,6 +302,7 @@ function create_flash_object(clip, url) {
                     $('.online-status').html(msg.res);
                 }
             });
+***/
         },
 
         // init
@@ -404,8 +353,11 @@ function create_flash_object(clip, url) {
             elem = $("select#quality_id");
             parent = $("#uniform-" + elem[0].id);
             if (parent.length == 0) elem.uniform();
+            elem = $("select#technology_id");
+            parent = $("#uniform-" + elem[0].id);
+            if (parent.length == 0) elem.uniform();
 
-            kabtv.tabs.pollID = setInterval(kabtv.tabs.pollPresets, 15000);
+            kabtv.tabs.pollID = setInterval(kabtv.tabs.pollPresets, 10000);
         },
 
         stopPollingPresets: function () {
@@ -423,29 +375,8 @@ function create_flash_object(clip, url) {
             return false;
         },
 
-        object: '<object width="320" height="305" name="player" id="player" type="video/x-ms-wmv" data="URL_PATTERN"> \
-        <param value="URL_PATTERN" name="src"/> \
-        <param value="true" name="autostart"/> \
-        <param value="true" name="controller"/> \
-        <param value="50" name="volume"/> \
-        <param value="full" name="uiMode"/> \
-        <param value="true" name="animationAtStart"/> \
-        <param value="false" name="showDisplay"/> \
-        <param value="true" name="ShowAudioControls"/> \
-        <param value="false" name="ShowPositionControls"/> \
-        <param value="false" name="transparentAtStart"/> \
-        <param value="true" name="ShowControls"/> \
-        <param value="true" name="ShowStatusBar"/> \
-        <param value="false" name="ShowTracker"/> \
-        <param value="false" name="ClickToPlay"/> \
-        <param value="#000000" name="DisplayBackColor"/> \
-        <param value="#ffffff" name="DisplayForeColor"/> \
-        <param value="false" name="balance"/> \
-        <param value="false" name="enableContextMenu"/> \
-        <embed height="305" width="320" showstatusbar="1" showcontrols="1" src="URL_PATTERN" pluginspage="http://www.microsoft.com/Windows/MediaPlayer/" type="application/x-mplayer2">\
-        </object>',
-        objectFF7: '<object width="320" height="305" name="player" id="player" type="video/x-oleobject" classid="CLSID:22D6F312-B0F6-11D0-94AB-0080C74C7E95" data="URL_PATTERN"> \
-        <param value="URL_PATTERN" name="src"/> \
+        object: '<object width="320" height="305" name="player" id="player" type="application/x-ms-wmp"> \
+        <param value="URL_PATTERN" name="url"/> \
         <param value="true" name="autostart"/> \
         <param value="true" name="controller"/> \
         <param value="50" name="volume"/> \
@@ -465,9 +396,9 @@ function create_flash_object(clip, url) {
         <param value="false" name="enableContextMenu"/> \
         </object>',
         objectMSIE: '<object classid="clsid:6BF52A52-394A-11D3-B153-00C04F79FAA6" \
-        style="background-color:#000000" id="player" name="player" type="application/x-oleobject" \
-        width="320" height="288" standby="Loading Windows Media Player components...">\
-        <param name="URL" value="URL_PATTERN" /><param name="AutoStart" value="1" />\
+        style="background-color:#000000" id="player" name="player" \
+        width="320" height="305" standby="Loading Windows Media Player components...">\
+        <param name="url" value="URL_PATTERN" /><param name="autostart" value="1" />\
         <param name="AutoPlay" value="1" /><param name="volume" value="50" />\
         <param name="uiMode" value="full" /><param name="animationAtStart" value="1" />\
         <param name="showDisplay" value="1" /><param name="transparentAtStart" value="0" />\
@@ -481,8 +412,9 @@ function create_flash_object(clip, url) {
 
             var object;
             if (kabtv.tabs.preset_data.stream_preset.is_active) {
-                var current_technology = $("#technologies input[@name=technology_id]:checked").val();
+                var current_technology = $("#technology_id").val();
                 if (kabtv.tabs.flash_technology == current_technology) { // Flash
+            	    $("#tightvideo_img").show();
                     try {
                         var match = url.match(/clip=(.*);stream=(.*)/);
                         create_flash_object(match[1], match[2]);
@@ -490,15 +422,15 @@ function create_flash_object(clip, url) {
                         ;
                     }
                 } else { // WMV
+            	    $("#tightvideo_img").hide();
                     if ($.browser.msie)
                         object = kabtv.tabs.objectMSIE.replace(/URL_PATTERN/g, url);
-                    else if ($.browser.mozilla && $.browser.version.slice(0, 3) == '7.0')
-                        object = kabtv.tabs.objectFF7.replace(/URL_PATTERN/g, url);
                     else
                         object = kabtv.tabs.object.replace(/URL_PATTERN/g, url);
                     $('#object').html(object);
                 }
             } else {
+		$("#tightvideo_img").hide();
                 var lang_id = $("select#language_id").val();
                 var object = $.grep(kabtv.tabs.images, function(n, i) {
                     return lang_id == n.lang;
@@ -539,7 +471,7 @@ function setup_player() {
     var current_language = $("select#language_id").val();
     var current_stream_url = $("select#quality_id").val();
     var current_stream_quality = $("select#quality").text();
-    var current_technology = $("#technologies input[@name=technology_id]:checked").val();
+    var current_technology = $("#technology_id").val();
     var presets = kabtv.tabs.presets[current_language];
 
     // Reset languages
@@ -574,11 +506,10 @@ function setup_player() {
     if (current_language == null)
         current_language = $("select#language_id").val();
     if (current_technology == null)
-        current_technology = $("#technologies input[@name=technology_id]:checked").val();
+        current_technology = $("#technology_id").val();
 
     $('#user_complain_language_id').val(current_language);
     $('#user_complain_technology_id').val(current_technology);
-    $('#user_complain_quality_url').val($("select#quality_id :selected").val());
 
     if (current_technology == kabtv.tabs.flash_technology) {
         $('.player-btn').hide();
@@ -599,8 +530,9 @@ function set_player_quality(lang_id, technology_id) {
     // Clear quality select
     $("select#quality_id option").remove();
     $(qualities).appendTo("#quality_id");
-    $("select#quality_id").prev().text($("select#quality_id :selected").text());
+    $.uniform.update('#quality_id');
 }
+
 function set_player_technology(lang_obj, technology_id) {
     var current_language = $("select#language_id").val();
 
@@ -620,7 +552,7 @@ function set_player_technology(lang_obj, technology_id) {
         });
         if (f != 'undefined' && has_flash_stream) {
             var id = f[0].technology.id;
-            techs += '<input type="radio" name="technology_id" value="' + id + '"' + (lang_obj.tid == id ? 'checked="checked"' : '') + '>' + kabtv.tabs.flash_text + '</input>';
+            techs += '<option value="' + id + '"' + (lang_obj.tid == id ? 'selected="selected"' : '') + '>' + kabtv.tabs.flash_text + '</option>';
         }
     }
     if (kabtv.tabs.wmv) {
@@ -636,13 +568,15 @@ function set_player_technology(lang_obj, technology_id) {
         if (f != 'undefined' && has_wmv_stream) {
             var id = f[0].technology.id;
             var selected = lang_obj.tid == id || !has_flash_stream;
-            techs += '<input type="radio" name="technology_id" value="' + id + '"' + (selected ? 'checked="checked"' : '') + '>' + kabtv.tabs.wmv_text + '</input>';
+            techs += '<option value="' + id + '"' + (selected ? 'selected="selected"' : '') + '>' + kabtv.tabs.wmv_text + '</option>';
             if (selected) {
                 technology_id = id;
             }
         }
     }
-    $("#technologies").html(techs);
+    $("select#technology_id option").remove();
+    $(techs).appendTo('#technology_id');
+    $.uniform.update('#technology_id');
     set_player_quality(current_language, technology_id);
 }
 
