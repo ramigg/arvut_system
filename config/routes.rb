@@ -44,7 +44,7 @@ Simulator::Application.routes.draw do
   resources :tokens, :only => [:create, :destroy]
   resources :api, :only => [] do
           collection do
-            post :update_mobile_token, :push_notification_message
+            post :update_mobile_token, :push_notification_message , :get_stream
           end
         end
   #match 'api/update_mobile_token', :to => 'api#update_mobile_token'

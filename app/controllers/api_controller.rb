@@ -1,26 +1,14 @@
 class ApiController < AdminApplicationController
-  #skip_before_filter :verify_authenticity_token
+
 
   def update_mobile_token
 
-
-    auth_token = [:auth_token]
-    if auth_token?
-    render :status=>401, :json=>{:message=>"missing authentication token."}
-    return
-    end
-
-    user = User.find_by_authentication_token(auth_token)
-    if user?
-      render :status=>401, :json=>{:message=>"you must login first"}
-      return
-    end
       #update table of devices with the registration id
     registration = params[:registration_id]
-    user_id = current_user.id
-    device = C2dm::Device.create(:registration_id => registration)
 
-    device.update_attribute(:user_id=> user.id)
+    device = C2dm::Device.create(:registration_id => registration,:user_id=> @user.id)
+
+   # device.update_attribute(:user_id=> @user.id)
 
 
     # device id will be the unique device id of the user
@@ -28,19 +16,8 @@ class ApiController < AdminApplicationController
 
   end
   def push_notification_message
-    auth_token = [:auth_token]
-    if auth_token?
-      render :status=>401, :json=>{:message=>"missing authentication token."}
-      return
-    end
-
-    user = User.find_by_authentication_token(auth_token)
-    if user?
-      render :status=>401, :json=>{:message=>"you must login first"}
-      return
-    end
     #need to get out the registartion id from the device table per user
-    user_id = user.id
+    user_id = @user.id
      device = C2dm::Device.find_by_name(user_id)
 
 
@@ -51,6 +28,38 @@ class ApiController < AdminApplicationController
      notification.data = {"sender_id" => "420", "message_text" => "Wanna go for a ride?"}
      notification.save
      C2dm::Notification.send_notifications(notification)
+
+  end
+
+  def getStreams
+    #@locale = params[:locale]
+
+    #@language_id = Language.get_id_by_locale(@locale)
+    #page = Page.by_page_type("event", @language_id, current_user.date_to_show_pages_from)
+    response = Hash.new
+    #{
+    #    "locale":{
+    #    "language":null,
+    #"pages":{
+    #    "state":null,
+    #    "description":null,
+    #    "title":null,
+    #    "urls":[
+    #     {
+    #       "url_quality":null,
+    #        "url_title":null,
+    #        "url_value":null
+    #     }
+    #
+    #    ]
+    #}
+    #}
+    #}
+    #return {"locale"=> {"language"=>"null","pages"=>{"state"=>"null","description"=>"null"
+    #,"title"=>"null","urls"=>{"url_quality"=>"null","url_title"=>"null","url_value"=>"null"}}}}
+
+
+
 
   end
 end

@@ -63,7 +63,7 @@ gem 'ckeditor', :git => 'git@github.com:Bnei-Baruch/rails-ckeditor.git', :branch
 gem 'paperclip' # For windows only , :git => 'http://github.com/benben/paperclip.git'
 
 #gem 'delayed_job', '2.1.0.pre2'
-gem 'google_visualization'
+#gem 'google_visualization'
 #gem 'feedtools', :git => 'git://github.com/tjl2/feedtools19.git'
 gem 'feedzirra'
 gem 'will_paginate', '~> 3.0.pre'
