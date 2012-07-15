@@ -407,10 +407,10 @@ ru:
       change_my_password: "Изменить мой пароль"
       confirm_new_password: "Подтверждение пароля"
       current_password: "Нынешний пароль (это нужно для подтверждения изменений)"
-      desktop: "Обычный сайт"
+      desktop: обычная
       email: Е-мейл
       forgot_password: "Забыли пароль?"
-      mobile: "Аудио для мобильного телефона"
+      mobile: мобильная
       new_password: "Новый пароль (не менее 6 символов)"
       new_user: "Новый пользователь?"
       no_confirmation_instructions: "Инструкция по подтверждению аккаунта"
@@ -427,7 +427,7 @@ ru:
       sign_up: Зарегистрироваться
       sign_up_more: "Согласен &nbsp;&nbsp;&nbsp;&#9658;"
       sign_up_now: "Зарегистрироваться сейчас!!!"
-      version: "Выберите сайт"
+      version: Версия
   errors: 
     messages: 
       already_confirmed: "уже подтвержден"

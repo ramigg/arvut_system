@@ -25,12 +25,13 @@ tr:
         inclusion: "is not included in the list"
         invalid: Geçersiz
         invalid_event: "bağlanamaz eğer %{durum}"
+        invalid_transition: "bağlantı kuramıyor &quot;%{olay}&quot; "
         less_than: "must be less than %{count}"
         less_than_or_equal_to: "must be less than or equal to %{count}"
         not_a_number: "is not a number"
         odd: "must be odd"
         record_invalid: "Onay geçersizdir: %{hatalar}  "
-        taken: "is already taken"
+        taken: "önceden alınmış"
         too_long: "is too long (maximum is %{count} characters)"
         too_short: "is too short (minimum is %{count} characters)"
         wrong_length: "is the wrong length (should be %{count} characters)"
@@ -322,14 +323,16 @@ tr:
         subject: "Konfirmasyon talimatları"
         user_subject: "Confirmation instructions"
       reset_password_instructions: 
+        subject: "Şifreyi baştaki konumuna getirme talimatları"
         user_subject: "Reset password instructions"
       unlock_instructions: 
+        subject: "Kilidi açma talimatları"
         user_subject: "Unlock Instructions"
     mails: 
       change_my_password: "Change my password"
       confirm_my_account: "Confirm my account"
       confirm_through_link: "Please click the link below to confirm your account. If you click the link and it appears to be broken, please copy and paste it into a new browser window."
-      hello: Hello
+      hello: Hello!
       reset_password_line1: "Someone has requested a link to change your password, and you can do this through the link below"
       reset_password_line2: "If you didn't request this, please ignore this email"
       reset_password_line3: "Your password won't change until you access the link above and create a new one"
@@ -339,6 +342,7 @@ tr:
       welcome: Welcome
     passwords: 
       send_instructions: "You will receive an email with instructions about how to reset your password in a few minutes."
+      send_paranoid_instructions: "Eğer  e-posta adresiniz veritabanımızda kayıtlı ise, nasıl hesabınızı teyit edebileceğinize dair  talimatları e-posta ile birkaç dakika içinde alacaksınız. "
       updated: "Your password was changed successfully. You are now signed in."
       updated_not_active: "Şifreniz başarılı bir şekilde değiştirilmiştir. "
     registrations: 
@@ -362,10 +366,10 @@ tr:
       change_my_password: "Change my password"
       confirm_new_password: "Password confirmation"
       current_password: "Current password (we need it to confirm your changes)"
-      desktop: Classic Site
+      desktop: classic
       email: Email
       forgot_password: "Forgot your password?"
-      mobile: Mobile Audio Broadcast
+      mobile: mobile
       new_password: "New password (at least 6 characters)"
       new_user: "New User?"
       no_confirmation_instructions: "Did not receive confirmation instructions?"
@@ -382,7 +386,7 @@ tr:
       sign_up: "Sign up"
       sign_up_more: "Sign up&nbsp;&nbsp;&nbsp;&#9658;"
       sign_up_now: "Sign up NOW!!!"
-      version: Please select
+      version: View
   errors: 
     messages: 
       accepted: "kabul edilmesi gerek"

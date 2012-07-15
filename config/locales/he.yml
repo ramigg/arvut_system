@@ -389,10 +389,10 @@ he:
       change_my_password: "לשנות סיסמא"
       confirm_new_password: "הזן שנית את הסיסמא החדשה"
       current_password: "הסיסמא הנוכחית (יש בה צורך לאישור הפעולה)"
-      desktop: "לאתר הרגיל"
+      desktop: קלאסי
       email: אימייל
       forgot_password: "שכחת את הסיסמא, לחץ כאן"
-      mobile: "שידורי אודיו למובייל"
+      mobile: נייד
       new_password: "הסיסמא החדשה (לפחות 6 תווים)"
       new_user: "משתמש חדש?"
       no_confirmation_instructions: "לחץ לקבלת הוראות לאישור חשבון באימייל"
@@ -409,7 +409,7 @@ he:
       sign_up: הרשמה
       sign_up_more: "הרשמה&nbsp;&nbsp;&nbsp;&#9668;"
       sign_up_now: "הרשם עכשיו!!!"
-      version: "אנא בחר"
+      version: "צפה ב-"
   errors: 
     messages: 
       already_confirmed: "כבר עבר אישור"
