@@ -392,6 +392,7 @@ pt:
       title: Título
       title_registered_vs_active: "Registrado vs Ativo"
       view_reports: "Ver relatórios"
+      new_internet_project_we_build_it_together: "New internet project - We build it together"
   kabtv: 
     admin: 
       add_stream_item: "Adicionar ao item de fluxo"
