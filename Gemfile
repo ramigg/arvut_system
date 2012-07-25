@@ -48,10 +48,10 @@ group :production do
 end
 
 group :development do
-  gem 'linecache19', :git => 'git://github.com/mark-moseley/linecache'
   gem "ruby-debug-base19x", '>= 0.11.30.pre7'
-  gem "ruby-debug19"
-  gem "ruby-debug-ide"
+  gem "ruby-debug-ide", '>= 0.4.17.beta14'
+  gem 'linecache19', :git => 'git://github.com/mark-moseley/linecache'
+  #gem "ruby-debug19"
   gem 'mongrel', '>= 1.2.0.pre2' #for ruby v1.9.2
   gem 'thin'
 end
