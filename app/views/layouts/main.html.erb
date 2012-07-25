@@ -1,49 +1,49 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
-  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
-  <head>
-    <title><%= t('home.views.site_name') %></title>
-    <meta content="text/html;charset=utf-8" http-equiv="content-type" />
-    <%= render 'shared/head' %>
-    <%= yield(:head) %>
-  </head>
-  <body class="<%= I18n.locale %> layout-stream">
-    <a href="<%= get_skin_url %>"  target="_blank">
-      <div class="skin_bg">
-          <div class="skin_container">
-	            <%#*<div id="countdown-placement">
+<head>
+  <title><%= t('home.views.site_name') %></title>
+  <meta content="text/html;charset=utf-8" http-equiv="content-type"/>
+  <%= render 'shared/head' %>
+  <%= yield(:head) %>
+</head>
+<body class="<%= I18n.locale %> layout-stream">
+<div class="skin_bg">
+  <a href="<%= get_skin_url %>" target="_blank">
+    <div class="skin_container">
+      <%#*<div id="countdown-placement">
 		              <div id="countdown"></div>
 		          </div>%>
-              <p></p>
-          </div>
-          <%#*<div class="skin_container">%>
-          <%#*<div id="cdcontainer">time container</div>%>
-          <%#*<script type="text/javascript">%>
-          <%#*var launchdate = new cdLocalTime("cdcontainer", '<%= Time.new.strftime('%B %d, %Y %H:%M:%S') % >', 0, "November 9, 2010 09:00:00");%>
-          <%#*launchdate.displaycountdown("days", formatresults2);%>
-          <%#*</script>%>
-          <%#*<a href="#" class="skinlink"></a>%>
-          <%#*</div>%>
-      </div>
-    </a>
-    <div class="clear"></div>
-    <div class="wrapper">
-      <%= render 'stream/header' %>
-      <div class="column-menu">
-        <div class="content-submenu"></div>
-        <div><%= render 'stream/page_menu' %></div>
-        <div><%= render_widget 'tags' %></div>
-        <div><%= render 'stream/search_menu' %></div>
-      </div>
-
-      <%= yield(:content) %>
-
-      <div class="clear"></div>
-
-      <div class="footer">
-        <%= t('home.views.new_internet_project_we_build_it_together') %>
-      </div>
+      <p></p>
     </div>
-    <%= render 'shared/ga' %>
-  </body>
+    <%#*<div class="skin_container">%>
+    <%#*<div id="cdcontainer">time container</div>%>
+    <%#*<script type="text/javascript">%>
+    <%#*var launchdate = new cdLocalTime("cdcontainer", '<%= Time.new.strftime('%B %d, %Y %H:%M:%S') % >', 0, "November 9, 2010 09:00:00");%>
+    <%#*launchdate.displaycountdown("days", formatresults2);%>
+    <%#*</script>%>
+    <%#*<a href="#" class="skinlink"></a>%>
+    <%#*</div>%>
+  </a>
+</div>
+<div class="clear"></div>
+<div class="wrapper">
+  <%= render 'stream/header' %>
+  <div class="column-menu">
+    <div class="content-submenu"></div>
+    <div><%= render 'stream/page_menu' %></div>
+    <div><%= render_widget 'tags' %></div>
+    <div><%= render 'stream/search_menu' %></div>
+  </div>
+
+  <%= yield(:content) %>
+
+  <div class="clear"></div>
+
+  <div class="footer">
+    <%= t('home.views.new_internet_project_we_build_it_together') %>
+  </div>
+</div>
+<%= render 'shared/ga' %>
+</body>
 </html>
