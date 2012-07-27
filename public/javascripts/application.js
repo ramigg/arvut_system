@@ -339,6 +339,6 @@ function get_value_by_language(i18n_map) {
 function rotate_banners() {
     var image = $('body .skin_container img');
     banner_current = (banner_current + 1) % 2;
-    $('body > a').attr('href', get_value_by_language(banners_url[banner_current])).attr('title', get_value_by_language(banners_alt[banner_current]));
+    $('body .skin_bg > a').attr('href', get_value_by_language(banners_url[banner_current])).attr('title', get_value_by_language(banners_alt[banner_current]));
     image.attr('src', get_value_by_language(banners_img[banner_current])).attr('alt', get_value_by_language(banners_alt[banner_current]));
 }
