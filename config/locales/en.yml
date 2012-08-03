@@ -218,6 +218,7 @@ en:
       no_answer: ' No'
       preferred_language: Message Language
       first_name: First name
+      user: User
       last_name: Last name
       avatar: Avatar
       remove_avatar: Remove Avatar
@@ -396,6 +397,7 @@ en:
       display_also_profile: Display also profile
       generate_report: Generate report
       basic_report: User Activities report
+      questionnaire_report: Users Answered Questionnaires report
       attendance_report: Attendance report
       export_to_excel: Export to Excel
       date: Select a month

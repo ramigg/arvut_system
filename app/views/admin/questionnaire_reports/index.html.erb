@@ -1,0 +1,25 @@
+<h2><%= t('admin.reports.questionnaire_report') %></h2>
+<%= form_for(@report, :as => :report, :url => admin_questionnaire_reports_url, :html => {:method => :post}) do |form| %>
+    <ul>
+      <li><%= form.label :when_start, t('admin.reports.date_range') %></li>
+      <li>
+        <%= t('admin.reports.from') %>
+        <ul>
+          <li><%= form.text_field :when_start, :class => 'datepicker text-input short-input' %></li>
+        </ul>
+      </li>
+      <li>
+        <%= t('admin.reports.to') %>
+        <ul>
+          <li><%= form.text_field :when_end, :class => 'datepicker text-input short-input' %></li>
+        </ul>
+      </li>
+    </ul>
+    <hr class="sub-hr"/>
+    <%= form.submit t('admin.reports.generate_report'), :disable_with => t('admin.reports.generating'), :class => 'button-small-main' %>
+    <%= link_to t('admin.reports.export_to_excel'), '', :onclick => 'excel(); return false;', :class => 'button-small-main' %>
+<%- end %>
+
+<hr class="sub-hr"/>
+<div id="users"><%= render 'questionnaire_report_for_users' %></div>
+<hr class="sub-hr"/>

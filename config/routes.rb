@@ -142,6 +142,9 @@ Simulator::Application.routes.draw do
         get :generate_report, :on => :collection
       end
       resources :attendance_reports
+      resources :questionnaire_reports do
+        get :generate_report, :on => :collection
+      end
 
       resources :questionnaires do
         put :approve, :on => :member
