@@ -282,29 +282,18 @@ var banners_url = new Array();
 var banners_alt = new Array();
 var banner_current = 0;
 
-//banners_img[0] = new Object();
-//banners_img[0].default = "http://kabbalahgroup.info/internet/images/skin/bg_image_en.jpg";
-//banners_img[0].en = "http://kabbalahgroup.info/internet/images/skin/bg_image_en.jpg";
-
 banners_img[0] = new Object();
-banners_img[0].default = "http://kabbalahgroup.info/internet/images/skin/ban-h-960_206_ENG.jpeg";
-banners_img[0].ru = "http://kabbalahgroup.info/internet/images/skin/ban-h-960x206.jpg";
-
-//banners_url[0] = new Object();
-//banners_url[0].default = "https://www.kabbalah.info/donate/en/projects/new_building";
-//banners_url[0].en = "https://www.kabbalah.info/donate/en/projects/new_building";
-//banners_url[0].he = "https://www.kabbalah.info/donate/he/projects/new_building";
-//banners_url[0].ru = "https://www.kabbalah.info/donate/ru/projects/new_building";
+banners_img[0].default = "http://kabbalahgroup.info/internet/images/skin/bg_image_en.jpg";
+banners_img[0].en = "http://kabbalahgroup.info/internet/images/skin/bg_image_en.jpg";
 
 banners_url[0] = new Object();
-banners_url[0].default = "http://www.kabbalah.info/conventions/rus/en/";
-banners_url[0].ru = "http://www.kabbalah.info/conventions/rus/";
-
-//banners_alt[0] = new Object();
-//banners_alt[0].default = "Our New Home";
+banners_url[0].default = "https://www.kabbalah.info/donate/en/projects/new_building";
+banners_url[0].en = "https://www.kabbalah.info/donate/en/projects/new_building";
+banners_url[0].he = "https://www.kabbalah.info/donate/he/projects/new_building";
+banners_url[0].ru = "https://www.kabbalah.info/donate/ru/projects/new_building";
 
 banners_alt[0] = new Object();
-banners_alt[0].default = "Kharkov Convention";
+banners_alt[0].default = "Our New Home";
 
 $(function (){
     var image = $('body .skin_container img');
