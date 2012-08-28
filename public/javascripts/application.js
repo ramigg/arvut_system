@@ -317,6 +317,8 @@ function get_selected_language() {
         return "ru";
     } else if (value.indexOf("he") != -1) {
         return "he";
+    } else if (value.indexOf("es") != -1) {
+        return "es";
     }
     return "en";
 }
