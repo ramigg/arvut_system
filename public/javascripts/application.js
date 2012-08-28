@@ -291,6 +291,7 @@ banners_url[0].default = "https://www.kabbalah.info/donate/en/projects/new_build
 banners_url[0].en = "https://www.kabbalah.info/donate/en/projects/new_building";
 banners_url[0].he = "https://www.kabbalah.info/donate/he/projects/new_building";
 banners_url[0].ru = "https://www.kabbalah.info/donate/ru/projects/new_building";
+banners_url[0].es = "https://www.kabbalah.info/donate/es/projects/new_building";
 
 banners_alt[0] = new Object();
 banners_alt[0].default = "Our New Home";
