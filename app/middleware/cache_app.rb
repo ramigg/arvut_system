@@ -121,18 +121,7 @@ class CacheApp
       return [200, { 'Content-Type' => 'application/x-javascript', 'X-Supplied-by' => 'Middleware' }, [value]]
     end
 
-    @status, @headers, @response = @app.call(env)
-    #rescue NoMethodError
-    #return [200, {'Content-Type' => 'text/html'}, ["Undefined method"]]
-
-    #begin
-    #rescue => error
-    #   logger = Logger.new("log/middleware.log")
-    #   logger.info error.message
-    #   logger.info error.backtrace.join("\n")
-    # end
-    return [@status, @headers, @response]
-
+    @app.call(env)
   end
 
   def method_missing(method, *args, &block)
