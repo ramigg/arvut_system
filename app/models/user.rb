@@ -37,7 +37,7 @@ class User < ActiveRecord::Base
   # :token_authenticatable, :confirmable, :lockable and :timeoutable
   devise :database_authenticatable, :registerable,
     :recoverable, :rememberable, :trackable,
-    :validatable, :confirmable, :lockable, :encryptable, :encryptor => :sha1
+    :validatable, :confirmable, :lockable,:token_authenticatable, :encryptable, :encryptor => :sha1
 
   scope :wanted_noitification, Proc.new { |locale|
     lang = Language.get_id_by_locale(locale)
@@ -245,8 +245,10 @@ class User < ActiveRecord::Base
 
   # Make login email case insensitive
   def self.find_for_authentication(conditions)
-    conditions[:email].strip!
-    conditions[:email].downcase!
+    if conditions[:email]
+      conditions[:email].strip!
+      conditions[:email].downcase!
+    end
     super(conditions)
   end
 

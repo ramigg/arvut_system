@@ -2,7 +2,9 @@
 es: 
   activerecord: 
     attributes: 
-      user: 
+      page:
+        message_body: Mensaje
+      user:
         email: "Dirección electrónica"
         password: Contraseña
     errors: 

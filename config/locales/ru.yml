@@ -2,7 +2,9 @@
 ru: 
   activerecord: 
     attributes: 
-      user: 
+      page:
+        message_body: Сообщение
+      user:
         email: Е-мейл
         password: Пароль
     errors: 

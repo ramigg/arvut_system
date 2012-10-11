@@ -16,7 +16,10 @@ Bundler.require(:default, Rails.env) if defined?(Bundler)
 
 module Simulator
   class Application < Rails::Application
-    config.middleware.insert_before Rack::Sendfile, :CacheApp
+
+    config.general_settings = YAML.load(IO.read(Rails.root.join("config", "settings.yml")))
+
+    config.middleware.insert_before ActionDispatch::Callbacks, :CacheApp
 
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration should go into files in config/initializers

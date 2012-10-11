@@ -1,10 +1,11 @@
 source 'http://rubygems.org'
 
-gem 'rails', '3.0.13'
+gem 'rails', '3.1.8'
 #gem 'railties', '3.0.3'
-gem  'remail'
+gem  'sendgrid'
 # extension for  arel where
-gem "meta_where"
+#gem "meta_where"
+gem "squeel"
 
 # Bundle edge Rails instead:
 #gem 'rails', :git => 'git://github.com/rails/rails.git', :branch => 'master'
@@ -34,7 +35,7 @@ gem 'sass'
 # Devise
 #gem 'devise', :git => 'http://github.com/Bnei-Baruch/devise.git', :branch => 'master'
 gem 'devise'#, :git => 'http://github.com/plataformatec/devise.git', :branch => 'master'
-
+gem 'devise-encryptable'
 
 # Bundle gems for certain environments:
 # gem 'rspec', :group => :test
@@ -48,12 +49,12 @@ group :production do
 end
 
 group :development do
-  gem 'linecache19', :git => 'git://github.com/mark-moseley/linecache'
+  #gem 'linecache19', :git => 'git://github.com/mark-moseley/linecache'
   gem "ruby-debug-base19x", '>= 0.11.30.pre7'
-  gem "ruby-debug19"
+  gem "debugger"
   gem "ruby-debug-ide"
   gem 'mongrel', '>= 1.2.0.pre2' #for ruby v1.9.2
-  gem 'thin'
+  #gem 'thin'
 end
 
 # CKEditor + Paperclip
@@ -69,11 +70,11 @@ gem 'acts-as-taggable-on', :git => 'https://github.com/mbleigh/acts-as-taggable-
 gem 'excel_exporter', :git => 'http://github.com/gshilin/excel_exporter.git'
 gem 'rubyzip'
 gem 'onfire', '~>0.1.1'
-
+gem 'yajl-ruby', :require => 'yajl'
 
 # Cells/Apotomo
 #gem 'apotomo', '1.0.4'#, :git => 'git://github.com/ramigg/apotomo.git', :branch => '1-0-stable'#, :require => 'apotomo'
-gem 'apotomo', :git => 'git://github.com/ramigg/apotomo.git', :branch => '1-0-stable'#, :require => 'apotomo'
+gem 'apotomo', '~>1.0.4'#:git => 'git://github.com/ramigg/apotomo.git', :branch => '1-0-stable'#, :require => 'apotomo'
 #gem 'apotomo', :git => "git://github.com/apotonick/apotomo.git", :branch => 'master'#, :tag => "v1.0.0.beta2"
 #gem 'apotomo', :git => "git@github.com:Bnei-Baruch/apotomo.git", :branch => 'master'
 #gem 'cells'
@@ -82,6 +83,6 @@ gem 'apotomo', :git => 'git://github.com/ramigg/apotomo.git', :branch => '1-0-st
 # gem 'dalli'
 gem 'dalli'
 #gem 'memcache-client'
-gem 'tolk', '1.0'
+gem 'tolk'
 gem 'rack'
 #gem 'rack', '1.2.2'

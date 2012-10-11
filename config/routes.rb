@@ -1,7 +1,7 @@
 class CheckPath
   def self.set_pattern
-    langs = Language.all.map{|e|e.locale} rescue []
-    prefix = Rails.configuration.site_prefix.sub(/^\//,'')
+    langs = Language.all.map { |e| e.locale } rescue []
+    prefix = Rails.configuration.site_prefix.sub(/^\//, '')
     /#{prefix}\/(#{langs.join('|')})(\/|)|render_event_response/
   end
 
@@ -18,6 +18,19 @@ class CheckNotLoggedIn
 end
 
 Simulator::Application.routes.draw do
+
+  namespace :api do
+    namespace :v1 do
+      resources :tokens, :only => [:create, :destroy]
+      resource :streams, :except => %w(new edit show update create destroy) do
+        post 'set_stream_items'
+        get 'get_lookup_table'
+        post 'test'
+        post 'set_mobile_audio_streams'
+      end
+    end
+  end
+
   resource :tolk do
     root :to => 'tolk/locales#index'
     resources :locales, :controller => "tolk/locales" do
@@ -38,15 +51,15 @@ Simulator::Application.routes.draw do
   match '/' => "redirector#to_login"
 
   match 'ckeditor/images', :to => 'ckeditor#images'
-  match 'ckeditor/files',  :to => 'ckeditor#files'
+  match 'ckeditor/files', :to => 'ckeditor#files'
   match 'ckeditor/create/:kind', :to => 'ckeditor#create'
 
-  langs = Language.all.map{|e|e.locale} rescue []
+  langs = Language.all.map { |e| e.locale } rescue []
   pattern = langs.join('|')
 
   # Redirect to /<locale>/users/login if only /<locale> was supplied and user is not logged in
   constraints(CheckNotLoggedIn) do
-    langs.each {|l|
+    langs.each { |l|
       match "/#{l}" => "redirector#to_login"
     }
   end
@@ -55,6 +68,7 @@ Simulator::Application.routes.draw do
   constraints(CheckPath) do
     match '*path' => "redirector#to_locale"
   end
+
 
   scope '/(:locale)', :constraints => {:locale => /#{pattern}/} do
 
@@ -65,15 +79,15 @@ Simulator::Application.routes.draw do
     match 'tv/:preset_id', :to => "static_pages#tv", :as => :tv
 
     devise_for :users,
-      :path_names => {:sign_in => 'login', :sign_out => 'logout', :sign_up => 'register'},
-      :controllers => {:registrations => "profiles/registrations", :confirmations => "profiles/confirmations", :sessions => 'sessions'}
+               :path_names => {:sign_in => 'login', :sign_out => 'logout', :sign_up => 'register'},
+               :controllers => {:registrations => "profiles/registrations", :confirmations => "profiles/confirmations", :sessions => 'sessions'}
     match "users/confirmation/awaiting/:id/:confirmation_hash",
-      :to => redirect("#{Rails.configuration.site_prefix}/%{locale}/users/confirmations/awaiting/%{id}/%{confirmation_hash}"), :as => "awaiting_confirmation"
+          :to => redirect("#{Rails.configuration.site_prefix}/%{locale}/users/confirmations/awaiting/%{id}/%{confirmation_hash}"), :as => "awaiting_confirmation"
 
     match 'login_help', :to => 'home#login_help', :as => 'login_help'
-    
+
     resources :questionnaire_answers
-    
+
     resources :profiles do
       get 'region_ids/:region_id', :on => :collection, :to => :region_ids, :format => :js
       get 'location_ids/:country_id/:location_id', :on => :collection, :to => :location_ids, :format => :js
@@ -92,8 +106,10 @@ Simulator::Application.routes.draw do
       get 'show_button_content', :on => :collection
     end
 
+    resources :comments, :only => [:index, :create]
+
     resources :events
-    
+
     namespace 'admin' do
 
       resources :pages do
@@ -101,7 +117,7 @@ Simulator::Application.routes.draw do
       end
       resources :reports
       resources :user_lists do
-        post 'filtered(.:format)', :to => :index, :as=> 'filtered', :on => :collection
+        post 'filtered(.:format)', :to => :index, :as => 'filtered', :on => :collection
       end
       resources :users_groups
       resources :roles do
@@ -117,11 +133,11 @@ Simulator::Application.routes.draw do
         put :draft, :on => :member
       end
 
-      get  'panel', :to => 'admin_tasks#index'
-      get  'clear_cache', :to => 'admin_tasks#clear_cache'
-      get  'autocomplete_user_email', :to => 'admin_tasks#autocomplete_user_email', :as => 'autocomplete_user_email_admin_tasks'
-      get  'remove_user', :to => 'admin_tasks#remove_user', :as => 'remove_user'
-      get  'stream_management', :to => 'admin_tasks#stream_management', :as => 'stream_management'
+      get 'panel', :to => 'admin_tasks#index'
+      get 'clear_cache', :to => 'admin_tasks#clear_cache'
+      get 'autocomplete_user_email', :to => 'admin_tasks#autocomplete_user_email', :as => 'autocomplete_user_email_admin_tasks'
+      get 'remove_user', :to => 'admin_tasks#remove_user', :as => 'remove_user'
+      get 'stream_management', :to => 'admin_tasks#stream_management', :as => 'stream_management'
 
       delete 'remove_user_action', :to => 'admin_tasks#remove_user_action', :as => 'remove_user_action'
     end

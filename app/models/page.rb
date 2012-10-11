@@ -27,8 +27,8 @@ class Page < ActiveRecord::Base
 
   #  *Validations*
 
-  validates :title, :presence => true, :length => {:maximum => 255}
-  validates :subtitle, :length => {:maximum => 255}
+  validates :title, :presence => true, :length => {:maximum => 255}, :if => lambda { |e| e.page_type != 'message' }
+  validates :subtitle, :length => {:maximum => 255}, :if => lambda { |e| e.page_type != 'message' }
   validates :message_body, :presence => true, :if => lambda { |e| e.page_type == 'message' }
 
   delegate :locale, :to => :language
@@ -52,7 +52,7 @@ class Page < ActiveRecord::Base
 
   scope :by_page_type, lambda { |page_type, language_id, user_reg_date|
     (page_type == 'all' || page_type == 'tag' ?
-        where(:language_id => language_id, :page_type.nin => 'button_content') : # nin -> Not In
+        where(:language_id => language_id, :page_type.not_in => 'button_content') : # nin -> Not In
         where(:language_id => language_id, :page_type => page_type.singularize)).
         no_parent.published
   }

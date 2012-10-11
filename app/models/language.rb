@@ -16,7 +16,7 @@ class Language < ActiveRecord::Base
   #  Returns Language id by locale (i.e. locale='en')
   def self.get_id_by_locale(locale)
     result = by_locale(locale.to_s)
-    result.empty? ? default.first.id : result.first.id
+    result.try(:first).try(:id) || default.first.id
   end
 
   def self.default_locale

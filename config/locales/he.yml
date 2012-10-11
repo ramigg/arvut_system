@@ -2,7 +2,9 @@
 he: 
   activerecord: 
     attributes: 
-      user: 
+      page:
+        message_body: "שדה תוכן ההודעה"
+      user:
         email: "כתובת האימייל"
         password: סיסמא
     errors: 

@@ -1,6 +1,9 @@
 class Mailer < ActionMailer::Base
+  include SendGrid
 
-  default :from => "internet@kbb1.com"
+  sendgrid_enable :ganalytics, :opentrack, :clicktrack, :gravatar
+
+  default :from => "internet@kabbalahgroup.info"
   default_url_options[:host] = "kabbalahgroup.info#{Rails.configuration.site_prefix}" if Rails.env == 'production'
 
   # Subject can be set in your I18n file at config/locales/en.yml

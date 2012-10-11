@@ -1,0 +1,4 @@
+body form #errorExplanation li {
+    color: red !important;
+    list-style-type: none;
+}

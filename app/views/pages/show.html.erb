@@ -29,11 +29,10 @@
       <%- end %>
     <%- end %>
 
-    <%= render_widget 'comments' %>
-
-    <%- if @page.comments_enabled? -%>
-      <%= render_widget 'comments_form' %>
-    <% end %>
+    <div id="comments"></div>
+    <script type="text/javascript" charset="utf-8">
+        $.getScript('<%= comments_path(:parent_id => @page.id) %>');
+    </script>
 
   </div>
   <div class="clear"></div>

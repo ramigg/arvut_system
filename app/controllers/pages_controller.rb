@@ -1,4 +1,5 @@
 class PagesController < ApplicationController
+  protect_from_forgery :except => [:toggle_is_bookmark, :toggle_is_read]
 
   respond_to :html, :js
   before_filter :adjust_format_for_ie8

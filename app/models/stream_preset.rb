@@ -1,6 +1,6 @@
 class StreamPreset < ActiveRecord::Base
   has_many :pages
-  has_many :stream_items
+  has_many :stream_items, :through => :preset_languages
   belongs_to :stream_state
   
   has_many :preset_languages

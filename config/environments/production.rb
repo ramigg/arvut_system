@@ -45,12 +45,6 @@ Simulator::Application.configure do
     "#{request.protocol}#{request.host_with_port}#{config.site_prefix}"
   }
 
-  config.action_mailer.delivery_method = :remail
-  config.action_mailer.remail_settings = {
-    :app_id => "remail-bb",
-    :api_key => "a3bd9c1d-1ea5-4e27-92ae-def9754d943a"
-  }
-
   # Disable delivery errors, bad email addresses will be ignored
   # config.action_mailer.raise_delivery_errors = false
 

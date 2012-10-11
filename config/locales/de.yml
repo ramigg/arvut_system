@@ -2,7 +2,9 @@
 de: 
   activerecord: 
     attributes: 
-      user: 
+      page:
+        message_body: Nachricht
+      user:
         email: Emailadresse
         password: Passwort
     errors: 

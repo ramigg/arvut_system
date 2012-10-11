@@ -3,6 +3,8 @@ en:
     models:
       user: email
     attributes:
+      page:
+        message_body: Message body
       user:
         email: E-mail address
         password: Password
