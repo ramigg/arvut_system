@@ -25,12 +25,13 @@ tr:
         inclusion: "is not included in the list"
         invalid: Geçersiz
         invalid_event: "bağlanamaz eğer %{durum}"
+        invalid_transition: "bağlantı kuramıyor &quot;%{olay}&quot; "
         less_than: "must be less than %{count}"
         less_than_or_equal_to: "must be less than or equal to %{count}"
         not_a_number: "is not a number"
         odd: "must be odd"
         record_invalid: "Onay geçersizdir: %{hatalar}  "
-        taken: "is already taken"
+        taken: "önceden alınmış"
         too_long: "is too long (maximum is %{count} characters)"
         too_short: "is too short (minimum is %{count} characters)"
         wrong_length: "is the wrong length (should be %{count} characters)"
@@ -58,15 +59,15 @@ tr:
       add_new: "Add new"
       add_other: "Add Other"
       all: All
-      all_posts: "All Posts"
+      all_posts: "Tüm Mesajları"
       any_language: "Any Language"
       are_you_sure: "Are you sure?"
       arr_down: "&#9662;"
       arr_up: "&#9652;"
-      article: Content
+      article: İçerik
       as_draft: "Save as Draft"
       assignment: Assignment
-      assignments: Assignments
+      assignments: Atamalar
       audio: Audio
       big_banner: "Big Banner"
       bottom_side_banner: "Bottom Side Banner"
@@ -75,7 +76,7 @@ tr:
       by_author: "By author"
       checkbox: Checkbox
       comments_enabled: "Comments enabled"
-      content: Content
+      content: İçerik
       create: Create
       create_new: "Create New"
       delete: Delete
@@ -86,7 +87,7 @@ tr:
       edit: Edit
       embed_string: "String to embed"
       event: Event
-      events: Events
+      events: Etkinlikler
       featured_settings: "Featured Settings"
       filter: Filter
       freetext: "Free Text"
@@ -107,17 +108,17 @@ tr:
       logout: logout
       message: Message
       message_body: Message
-      messages: Messages
+      messages: Mesajlar
       metadata: Metadata
       metadata_and_content: "Metadata & Content"
       name: Name
-      new_article: "New Content"
+      new_article: "Yeni İçerik"
       new_assignment: "New Assignment"
       new_message: "New Message"
       only_moderators: "Only moderators"
       only_you: "Only you"
       other: Other
-      page_administration: "Page Administration"
+      page_administration: "Sayfa Yönetimi"
       permissions: Permissions
       picture4preview: "Picture for preview"
       preview: Preview
@@ -240,7 +241,7 @@ tr:
       destroy: "Successfully destroyed user list"
       destroy_failure: "Page was NOT destroyed"
       edit: Edit
-      email: Email
+      email: E-posta
       first_name: "First Name"
       group: Group
       has_user: "Has user?"
@@ -311,7 +312,7 @@ tr:
     failure: 
       already_authenticated: "Girişiniz zaten yapılmıştır. "
       inactive: "Your account was not activated yet."
-      invalid: "Invalid email or password."
+      invalid: "Geçersiz e-posta veya şifre."
       invalid_token: "Invalid authentication token."
       locked: "Your account is locked."
       timeout: "Your session expired, please sign in again to continue."
@@ -322,14 +323,16 @@ tr:
         subject: "Konfirmasyon talimatları"
         user_subject: "Confirmation instructions"
       reset_password_instructions: 
+        subject: "Şifreyi baştaki konumuna getirme talimatları"
         user_subject: "Reset password instructions"
       unlock_instructions: 
+        subject: "Kilidi açma talimatları"
         user_subject: "Unlock Instructions"
     mails: 
       change_my_password: "Change my password"
       confirm_my_account: "Confirm my account"
       confirm_through_link: "Please click the link below to confirm your account. If you click the link and it appears to be broken, please copy and paste it into a new browser window."
-      hello: Hello
+      hello: Hello!
       reset_password_line1: "Someone has requested a link to change your password, and you can do this through the link below"
       reset_password_line2: "If you didn't request this, please ignore this email"
       reset_password_line3: "Your password won't change until you access the link above and create a new one"
@@ -339,6 +342,7 @@ tr:
       welcome: Welcome
     passwords: 
       send_instructions: "You will receive an email with instructions about how to reset your password in a few minutes."
+      send_paranoid_instructions: "Eğer  e-posta adresiniz veritabanımızda kayıtlı ise, nasıl hesabınızı teyit edebileceğinize dair  talimatları e-posta ile birkaç dakika içinde alacaksınız. "
       updated: "Your password was changed successfully. You are now signed in."
       updated_not_active: "Şifreniz başarılı bir şekilde değiştirilmiştir. "
     registrations: 
@@ -352,36 +356,36 @@ tr:
       updated: "You updated your account successfully."
     sessions: 
       signed_in: "Signed in successfully."
-      signed_out: "Signed out successfully."
+      signed_out: "Başarılı bir şekilde çıkış."
     unlocks: 
       send_instructions: "You will receive an email with instructions about how to unlock your account in a few minutes."
       unlocked: "Your account was successfully unlocked. You are now signed in."
     views: 
       back: Back
-      cannot_sign_in: "Cannot sign in? Click here for help!"
+      cannot_sign_in: "Bağlantı kurulamadı mı? Yardım için buraya tıklayın!"
       change_my_password: "Change my password"
-      confirm_new_password: "Password confirmation"
+      confirm_new_password: "Şifre doğrulama"
       current_password: "Current password (we need it to confirm your changes)"
       desktop: classic
-      email: Email
-      forgot_password: "Forgot your password?"
+      email: E-posta
+      forgot_password: "Şifreni mi unuttun?"
       mobile: mobile
       new_password: "New password (at least 6 characters)"
-      new_user: "New User?"
-      no_confirmation_instructions: "Did not receive confirmation instructions?"
-      no_unlock_instructions: "Did not receive unlock instructions?"
-      password: Password
-      remember_me: "Remember me"
-      resend_confirmation_instructions: "Resend confirmation instructions"
-      resend_unlock_instructions: "Resend unlock instructions"
+      new_user: "Yeni Kullanıcı"
+      no_confirmation_instructions: "Onay talimatları almadınız mı?"
+      no_unlock_instructions: "Kilitlenmiş hesap talimatlarını tekrar gönder"
+      password: Şifre
+      remember_me: "Beni hatırla"
+      resend_confirmation_instructions: "Onay talimatlarını tekrar gönder"
+      resend_unlock_instructions: "Kilitlenmiş hesap talimatlarını tekrar gönder"
       select_lang: "Select Language"
-      send_reset_password: "Send me reset password instructions"
-      sign_in: "Sign in"
-      sign_in_more: "Sign in&nbsp;&nbsp;&nbsp;&#9658;"
-      sign_in_more_mobile: "Sign in"
+      send_reset_password: "Bana şifremi sıfırlayarak gönder"
+      sign_in: "Oturum aç"
+      sign_in_more: "Oturum aç&nbsp;&nbsp;&nbsp;&#9658;"
+      sign_in_more_mobile: "Oturum aç"
       sign_up: "Sign up"
       sign_up_more: "Sign up&nbsp;&nbsp;&nbsp;&#9658;"
-      sign_up_now: "Sign up NOW!!!"
+      sign_up_now: "Hemen üye olun!"
       version: View
   errors: 
     messages: 
@@ -419,22 +423,22 @@ tr:
       submit: "Sakla %{model} "
   home: 
     faq: 
-      confirmation: "You have already registered, but the system still doesn't permit you to enter? Please check your mailbox for the confirmation email. If there isn't one, please use the following link to send you another one."
-      email: "If you've tried everything above and still have a problem, then please send an email to"
-      faq: "Frequently Asked Questions"
-      forgot_password: "You have already registered, but the system still doesn't permit you to enter? Did you check the confirmation instructions above? Maybe you forgot your password? Try the following link to reset it."
-      unlock: "You've been locked by the system. Please check your mailbox for the unlock email. If there isn't one, please use the following link to send it again."
+      confirmation: "Üye olmak için girişinizi yaptınız fakat sistem siteye girişinize onay mı vermiyor? Üyeliğinizin kabul edildiğine dair gönderilmiş e-posta onayı için kendi e-posta kutunuza bakınız. Eğer e-posta gelmemiş ise lütfen aşağıdaki linki başka bir tane daha gönderilmesi için tıklayınız."
+      email: "Yukarıda anlatılanların hepsini denediyseniz ve hala probleminiz var ise o zaman bu adrese e-posta gönderiniz: "
+      faq: "Sıkça Sorulanlar"
+      forgot_password: "Girişinizi yaptınız fakat sistem sizin hala girişinizi engelliyor mu? Yukarıdaki doğrulama talimatlarını kontrol ettiniz mi? Belki şifrenizi mi unuttunuz? Şifreniz ile ilgili yeniden başa dönmek için aşağıdaki linki tıklayınız."
+      unlock: "Sistem tarafından bloke edildiniz. Lütfen kilidi veya blokeyi kaldırmanız için gelen e-postanız hususunda e-posta kutunuzu kontrol ediniz. Eğer e-posta gelmemiş ise lütfen gönderilmesi için aşağıdaki linki kullanınız."
     views: 
       active: Active
-      admin: Admin
+      admin: Yönetici
       answered: answered
       blog: "http://www.laitman.com/"
-      blog_title: "Blog of Dr. Laitman"
+      blog_title: "Michael Laitman’ın Kişisel Blog Sayfası"
       button: We!
       check_for_new_questionnaire: "Check for new questionnaire"
       dashboard: "My page"
       date: Date
-      edit_profile: "Edit profile"
+      edit_profile: "Profilinizi düzenleyin"
       feed: "http://www.laitman.com/feed/"
       last_10_questionnaires: "The last 10 questionnaires"
       loading: Loading...
@@ -446,6 +450,7 @@ tr:
       title_registered_vs_active: "Registered vs. Active"
       title_registered_vs_button: "Registered vs. We!"
       view_reports: "View Reports"
+      new_internet_project_we_build_it_together: "Yeni internet projesi- Beraber inşa ediyoruz"
   kabtv: 
     admin: 
       add_quality: "Add quality"
@@ -486,7 +491,7 @@ tr:
     kabtv: 
       ask_question: "Ask Question"
       awaiting_for_approval: "Your question is awaiting for approval"
-      cancel: Cancel
+      cancel: İptal
       describe_problem: "Report your problem"
       empty_message: "Please fill а message in"
       first: First
@@ -565,7 +570,7 @@ tr:
       all_fields_are_required: "All fields are required!"
       please_select_one_of_the_options: "Please select one of the options"
   social_button: 
-    cancel: Cancel
+    cancel: İptal
     change: Change
     clicks_a_day: "clicks a day"
     generate_csv_report: "Generate report"
@@ -576,28 +581,28 @@ tr:
     we_group_clicks_for_today: "%{clicks} 'ONE' clicks from %{total} for today for your group"
   stream: 
     add_to_favorites: "Add to favorites"
-    all: "All posts"
+    all: "Tüm mesajlar"
     all_items: "All Items"
-    articles: Content
-    assignments: Assignments
+    articles: İçerik
+    assignments: Atamalar
     back: "« Back"
-    bookmarks: "My favorites"
-    events: Events
+    bookmarks: Favorilerim
+    events: Etkinlikler
     filter: "Filter by"
-    home: Home
+    home: "Ana sayfa"
     mark_as: "Mark as"
-    messages: Messages
-    more_items: "More items »"
+    messages: Mesajlar
+    more_items: "Daha fazla öğe »"
     new_internet: "New internet"
     new_items: "New posts"
     posted_ago: "Posted %{when} ago"
-    projects: Projects
+    projects: Projeler
     projects_discussion: Discussions
     rav: "From Rav"
     read: read
-    read_all: "Read more »"
+    read_all: "Daha fazla bilgi"
     remove_from_favorites: "Remove from favorites"
-    tags_menu: Topics
+    tags_menu: Başlıklar
     unread: unread
   support: 
     array: 
@@ -631,9 +636,9 @@ tr:
       yes_answer: " Yes"
   views: 
     back: Back
-    cancel: Cancel
+    cancel: İptal
     load: Load
     please_wait: "Please wait..."
-    signout: "Sign out"
+    signout: "Çıkış yapın"
     submit: Submit
     update: Update

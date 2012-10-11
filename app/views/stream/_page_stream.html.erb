@@ -15,8 +15,9 @@
                 <%- end -%>
                 <%= page[:description].html_safe %>
                 <%= link_to t("stream.read_all").html_safe, post_url(page), :class => post_link_class(page) + ' more_link', :title => page.title, :'data-type' =>'script' %>
-                <p class="item-metadata"><%= t("stream.posted_ago", :when => time_ago_in_words(page.publish_at)) %></p>
-
+                <%- if page.publish_at > 7.days.ago -%>
+                    <p class="item-metadata"><%= t("stream.posted_ago", :when => time_ago_in_words(page.publish_at)) %></p>
+                <%- end -%>
                 <p class="tags">
                   <%= render :partial => 'tag', :collection => page.tags(I18n.locale) %>
                 </p>
@@ -44,7 +45,9 @@
           <%- end -%>
           <%= page[:description].html_safe %>
           <%= link_to t("stream.read_all").html_safe, post_url(page), :class => post_link_class(page) + ' more_link', :title => page.title, :'data-type' =>'script' %>
-          <p class="item-metadata"><%= t("stream.posted_ago", :when => time_ago_in_words(page.publish_at)) %></p>
+          <%- if page.publish_at > 7.days.ago -%>
+              <p class="item-metadata"><%= t("stream.posted_ago", :when => time_ago_in_words(page.publish_at)) %></p>
+          <%- end -%>
 
           <p class="tags">
             <%= render :partial => 'tag', :collection => page.tags(I18n.locale) %>

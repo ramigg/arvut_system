@@ -96,7 +96,7 @@ class Page < ActiveRecord::Base
   def self.search(search)
     unless search.empty?
       search = "%#{search.strip}%"
-      joins(:article_resources).
+      includes(:article_resources).
           where(
           (:title.matches % search) | (:description.matches % search) |
               (:message_body.matches % search) | (:subtitle.matches % search) |
@@ -133,7 +133,7 @@ class Page < ActiveRecord::Base
   # Returns pages for the given user
   def self.get_my_pages(options)
     user = options[:user]
-    sort = options[:sort] || 'updated_at DESC, publish_at DESC'
+    sort = options[:sort] || '"pages".updated_at DESC, "pages".publish_at DESC'
     locale = options[:locale] || :en
     page = options[:page_no] || 1
 

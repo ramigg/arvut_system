@@ -2,14 +2,17 @@
   %div{"data-role" => "header"}
     %h1 List of events
   %div{"data-role" => "content"}
-    - if @video || @audio
+    -#- if @video || @audio
+    -#  %ul{'data-role' => 'listview', 'data-inset' => "true", 'data-theme' => 'b'}
+    -#    - if @video[:url]
+    -#      %li=link_to 'Video', @video[:url]
+    -#    - if @audio[:url]
+    -#      %li=link_to 'Audio', @audio[:url]
+    -#- else
+    -#  %h3 No mobile broadcast in #{@language.language}
+    - @streams.each do |stream|
       %ul{'data-role' => 'listview', 'data-inset' => "true", 'data-theme' => 'b'}
-        - if @video[:url]
-          %li=link_to 'Video', @video[:url]
-        - if @audio[:url]
-          %li=link_to 'Audio', @audio[:url]
-    - else
-      %h3 No mobile broadcast in #{@language.language}
+        %li=link_to stream[1][:title], stream[1][:stream]
 
   = render 'shared/mobile/footer'
 

@@ -2,7 +2,7 @@ body{
 	background: #ffffff repeat-x 0 0;
 }
 .skin_bg {
-	background: url(../images/skin/bg_image_he.jpg) no-repeat center 0px;
+ /* background: url(../images/skin/bg_image_he.jpg) no-repeat center 0px;*/
     top:0px;
 }
 .wrapper{

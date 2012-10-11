@@ -4,31 +4,25 @@ module ReportsGenerator
   # user - user
   # attendance - array reflects attendance
   # total_attended - number of attended days
-  class Person < Struct.new("User", :user, :attendance, :total_attended, :status); end
+  class Person < Struct.new("User", :user, :attendance, :total_attended, :status);
+  end
 
-  class BasicReport
+  class QuestionnaireReport
     #    include ActiveModel::Validations
     extend ActiveModel::Naming
     include ActiveModel::Conversion
 
-    # Generator of basic report.
-    attr_accessor :when_start, :when_end, :login, :not_logged_in, :only_confirmed, :display_profile, :answered
-    
+    # Generator of Questionnaire report.
+    attr_accessor :when_start, :when_end
+
     def initialize(attributes = {})
       attributes.each do |name, value|
         send("#{name}=", value)
       end
     end
 
-    # Setters for accessors
-    [:login, :not_logged_in, :only_confirmed, :display_profile, :answered].each{|f|
-      define_method("#{f}=") {|data|
-        instance_variable_set("@#{f}", data.to_boolean)
-      }
-    }
-
-    [:when_start, :when_end].each{|f|
-      define_method("#{f}=") {|data|
+    [:when_start, :when_end].each { |f|
+      define_method("#{f}=") { |data|
         instance_variable_set("@#{f}", data.empty? ? Time.now.midnight.utc : Time.parse(data))
       }
     }
@@ -38,61 +32,48 @@ module ReportsGenerator
     # logged_in - Display logged in
     # not_logged_in - Display _NOT_ logged in
     # answered - Display those who answered questionnaire
-    def basic_report_by_users
-      result = []
+    def questionnaire_report_by_users
 
       range = @when_start .. @when_end
+      activity_id = Activity.get_activity('submit questionnaire_answer').id
 
-      all_users = User.all(:include => :activities)
-      all_users = all_users.select{|u| u.confirmed?} if @only_confirmed
-
-      return all_users.uniq.sort_by { |u| u.email } if @login && @not_logged_in
-
-      if @login
-        result += all_users.select{|u| !
-          u.user_activities.map{|ua|{ua.activity.title => ua.created_at}}.
-            select{|e| range.include?(e.values.first.to_time) && e.has_key?('login')}.
-            empty?}
-      end
-      if @not_logged_in
-        result += all_users.select{|u|
-          u.user_activities.map{|ua|{ua.activity.title => ua.created_at}}.
-            select{|e| range.include?(e.values.first.to_time)}.
-            empty?}
-      end
-      if @answered
-        result += all_users.select{|u| !
-          u.user_activities.map{|ua|{ua.activity.title => ua.created_at}}.
-            select{|e| range.include?(e.values.first.to_time) && e.has_key?('submit questionnaire_answer')}.
-            empty?}
+      user_activities = UserActivity.where(:activity_id => activity_id).where(:created_at => range).joins(:user).all
+      users = {}
+      user_activities.each do |au|
+        unless users[au.user.email]
+          users[au.user.email] = {:user => "#{au.user.email} #{au.user.first_name} #{au.user.last_name}", attendance: {}}
+        end
+        users[au.user.email][:attendance][au.created_at.to_date] = true
       end
 
-      result.uniq.sort_by { |u| u.email }
+      users
     end
 
     # It means that this class is not DB based (Not ActiveRecord)
     def persisted?
       false
     end
+
   end
 
-  # Generator of attendance report
+
+# Generator of attendance report
   class AttendanceReport
     #    include ActiveModel::Validations
     extend ActiveModel::Naming
     include ActiveModel::Conversion
 
     # Setters for accessors
-    [:when_start, :when_end].each{|f|
+    [:when_start, :when_end].each { |f|
       attr_accessor f
-      define_method("#{f}=") {|value|
+      define_method("#{f}=") { |value|
         instance_variable_set("@#{f}", value.empty? ? Time.now.midnight.utc : Time.parse(value))
       }
     }
 
-    [:users_group_id, :include_email, :order_by_total].each{|f|
+    [:users_group_id, :include_email, :order_by_total].each { |f|
       attr_accessor f
-      define_method("#{f}=") {|value|
+      define_method("#{f}=") { |value|
         instance_variable_set("@#{f}", value.to_i)
       }
     }
@@ -114,11 +95,11 @@ module ReportsGenerator
       activity = Activity.get_activity 'submit questionnaire_answer'
 
       result = []
-      
+
       if @users_group_id != 0
         # :include => [:user, {:user => :activities}]
         userlist = UserList.where(:users_group_id => @users_group_id).includes([:user, {:user => :activities}])
-        userlist.all().each{|ul|
+        userlist.all().each { |ul|
           unless ul.user.nil?
             ul.user.first_name = ul.first_name
             ul.user.last_name = ul.last_name
@@ -132,19 +113,19 @@ module ReportsGenerator
         }
       else
         # All users
-        User.all(:include => :user_activities).each{|user|
+        User.all(:include => :user_activities).each { |user|
           result << fill_in_months_4user(user, range, activity.id)
         }
       end
 
       result.sort_by { |u|
         [
-          order_by_total == 1 ? 100-u.total_attended : u.status,
-          u.status,
-          u.user[:last_name] ? u.user[:last_name] : '',
-          u.user[:first_name] ? u.user[:first_name] : '',
-          u.user[:email] ? u.user[:email] : '',
-          100-u.total_attended,
+            order_by_total == 1 ? 100-u.total_attended : u.status,
+            u.status,
+            u.user[:last_name] ? u.user[:last_name] : '',
+            u.user[:first_name] ? u.user[:first_name] : '',
+            u.user[:email] ? u.user[:email] : '',
+            100-u.total_attended,
         ]
       }
     end
@@ -160,10 +141,10 @@ module ReportsGenerator
       total_attended = 0
       activities_in_range = user.user_activities.select { |act|
         (act.activity_id == activity_id) &&
-          (range.include?(act.created_at.time))
+            (range.include?(act.created_at.time))
       }
 
-      activities_in_range.each {|a|
+      activities_in_range.each { |a|
         day = "#{a.created_at.day}/#{a.created_at.month}"
         attendance[day] = '+'
       }
@@ -174,12 +155,12 @@ module ReportsGenerator
 
   end
 
-  # Example
-  # Delayed::Job.enqueue ReportWorker.new(user)
+# Example
+# Delayed::Job.enqueue ReportWorker.new(user)
   class ReportWorker < Struct.new(:user)
     def perform
       puts user
     end
   end
-  
+
 end

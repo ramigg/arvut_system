@@ -101,7 +101,7 @@ class Admin::PagesController < ApplicationController
   private
 
   def sort_column
-    Page.column_names.include?(params[:sort]) ?  params[:sort] : 'updated_at DESC, publish_at DESC'
+    Page.column_names.include?(params[:sort]) ?  params[:sort] : '"pages".updated_at DESC, "pages".publish_at DESC'
   end
 
   def sort_direction

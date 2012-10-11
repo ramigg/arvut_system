@@ -1,0 +1,25 @@
+---
+0:
+  :title: English
+  :stream: http://icecast.kab.tv/live1-eng-574bcfd5.mp3
+1:
+  :title: Español
+  :stream: http://icecast.kab.tv/live1-spa-574bcfd5.mp3
+2:
+  :title: Français
+  :stream: http://icecast.kab.tv/live1-fre-574bcfd5.mp3
+3:
+  :title: Русский
+  :stream: http://icecast.kab.tv/live1-rus-574bcfd5.mp3
+4:
+  :title: Italiano
+  :stream: http://icecast.kab.tv/live1-ita-574bcfd5.mp3
+5:
+  :title: Deutsch
+  :stream: http://icecast.kab.tv/live1-ger-574bcfd5.mp3
+6:
+  :title: עברית
+  :stream: http://icecast.kab.tv/live1-heb-574bcfd5.mp3
+7:
+  :title: Türkçe
+  :stream: http://icecast.kab.tv/live1-trk-574bcfd5.mp3

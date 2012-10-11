@@ -9,6 +9,7 @@
       <dt><%= t('admin.reports.reports') %>:</dt>
       <dd><%= link_to t('admin.reports.attendance_report'), admin_attendance_reports_url %></dd>
       <dd><%= link_to t('admin.reports.basic_report'), admin_basic_reports_url %></dd>
+      <dd><%= link_to t('admin.reports.questionnaire_report'), admin_questionnaire_reports_url %></dd>
     <% end %>
     <% if current_user.is_admin? %>
       <dt><%= t('admin.reports.user_management') %>:</dt>

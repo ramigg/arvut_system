@@ -280,34 +280,21 @@ $(function () {
 var banners_img = new Array();
 var banners_url = new Array();
 var banners_alt = new Array();
-var banner_current = 1;
+var banner_current = 0;
 
 banners_img[0] = new Object();
-banners_img[0].default = "http://kabbalahgroup.info/internet/images/skin/bg_image2.jpg";
-
-banners_img[1] = new Object();
-banners_img[1].default = "http://kabbalahgroup.info/internet/images/skin/bg_image_en.jpg";
-banners_img[1].en = "http://kabbalahgroup.info/internet/images/skin/bg_image_en.jpg";
-banners_img[1].he = "http://kabbalahgroup.info/internet/images/skin/bg_image_he.jpg";
-banners_img[1].ru = "http://kabbalahgroup.info/internet/images/skin/bg_image_ru.jpg";
+banners_img[0].default = "http://kabbalahgroup.info/internet/images/skin/bg_image_en.jpg";
+banners_img[0].en = "http://kabbalahgroup.info/internet/images/skin/bg_image_en.jpg";
 
 banners_url[0] = new Object();
-banners_url[0].default = "http://kabbalahgroup.info/internet";
-banners_url[0].en = "http://events.kabbalah.info/Type_1/register.php?ev=134&lang=ENG";
-banners_url[0].he = "http://events.kabbalah.info/Type_1/register.php?ev=134&lang=HEB";
-banners_url[0].ru = "http://events.kabbalah.info/Type_1/register.php?ev=134&lang=RUS";
-
-banners_url[1] = new Object();
-banners_url[1].default = "https://www.kabbalah.info/donate/en/projects/new_building";
-banners_url[1].en = "https://www.kabbalah.info/donate/en/projects/new_building";
-banners_url[1].he = "https://www.kabbalah.info/donate/he/projects/new_building";
-banners_url[1].ru = "https://www.kabbalah.info/donate/ru/projects/new_building";
+banners_url[0].default = "https://www.kabbalah.info/donate/en/projects/new_building";
+banners_url[0].en = "https://www.kabbalah.info/donate/en/projects/new_building";
+banners_url[0].he = "https://www.kabbalah.info/donate/he/projects/new_building";
+banners_url[0].ru = "https://www.kabbalah.info/donate/ru/projects/new_building";
+banners_url[0].es = "https://www.kabbalah.info/donate/es/projects/new_building";
 
 banners_alt[0] = new Object();
-banners_alt[0].default = "North Convention";
-
-banners_alt[1] = new Object();
-banners_alt[1].default = "Our New Home";
+banners_alt[0].default = "Our New Home";
 
 $(function (){
     var image = $('body .skin_container img');
@@ -330,6 +317,8 @@ function get_selected_language() {
         return "ru";
     } else if (value.indexOf("he") != -1) {
         return "he";
+    } else if (value.indexOf("es") != -1) {
+        return "es";
     }
     return "en";
 }
@@ -342,7 +331,7 @@ function get_value_by_language(i18n_map) {
 
 function rotate_banners() {
     var image = $('body .skin_container img');
-    banner_current = (banner_current + 1) % 2;
-    $('body > a').attr('href', get_value_by_language(banners_url[banner_current])).attr('title', get_value_by_language(banners_alt[banner_current]));
+    banner_current = (banner_current + 1) % banners_url.length;
+    $('body .skin_bg > a').attr('href', get_value_by_language(banners_url[banner_current])).attr('title', get_value_by_language(banners_alt[banner_current]));
     image.attr('src', get_value_by_language(banners_img[banner_current])).attr('alt', get_value_by_language(banners_alt[banner_current]));
 }

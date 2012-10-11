@@ -5,20 +5,22 @@
     = form_for(resource, :as => resource_name, :url => session_path(resource_name), :html => {'data-ajax' => 'false'}) do |f|
       %h2= t 'devise.views.sign_in'
       - unless flash[:alert].empty? && session[:alert].empty?
-        %ul
+        %ul{:style => 'background: none repeat scroll 0 0 #FFE1E1; border: 1px solid #FF838C; color: #FF1D25; margin-bottom: 10px; padding: 5px; list-style: none outside none;'}
           - unless flash[:alert].empty?
-            %li= flash[:alert]
+            %li{:style => 'color: #666666 !important; margin-bottom: 1.3em;'}= flash[:alert]
           - unless session[:alert].empty?
-            %li= session[:alert]
+            %li{:style => 'color: #666666 !important; margin-bottom: 1.3em;'}= session[:alert]
       %div{"data-role" => "fieldcontain"}
         = f.label :email, t('devise.views.email')
         = f.email_field :email, :pattern => "[^ @]*@[^ @]*".html_safe, :placeholder => 'Email Address'
       %div{"data-role" => "fieldcontain"}
         = f.label :password, t('devise.views.password')
         = f.password_field :password, :placeholder => 'Password'
-      %div{"data-role" => "fieldcontain"}
-        = label_tag :mobile, t('devise.views.version')
-        = select_tag "mobile", "<option value='mobile'>#{t('devise.views.mobile')}</option><option value='classic'>#{t('devise.views.desktop')}</option>".html_safe, :id => "mobile", :name => 'mobile', 'data-role' => "slider"
+      = field_set_tag t('devise.views.version'), "data-role" => "controlgroup" do
+        = radio_button_tag :mobile, :mobile, true
+        = label_tag :mobile_mobile, t('devise.views.mobile')
+        = radio_button_tag :mobile, :classic
+        = label_tag :mobile_classic, t('devise.views.desktop')
       -#- if devise_mapping.rememberable?
       -#  %div{"data-role" => "fieldcontain"}
       -#    = f.label :remember_me, t('devise.views.remember_me')

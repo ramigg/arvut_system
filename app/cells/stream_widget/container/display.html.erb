@@ -11,17 +11,13 @@
             </a>
           </div>
       <%- end -%>
-      <div id="tightvideo_img" style="position: absolute; top: -38px; font-size: 10px; <%= @locale == 'he' ? 'left' : 'right' %> : 0;">
+      <div id="tightvideo_img" style="display: none; position: absolute; top: -38px; font-size: 10px; <%= @locale == 'he' ? 'left' : 'right' %> : 0;">
         <%= link_to image_tag('tightvideo.gif', :alt => 'Transcoded by TightVideo'), 'http://www.tightvideo.com/', :title => 'Transcoded by TightVideo', :target => '_blank' %>
       </div>
       <div id="object"><%= I18n.t('kabtv.kabtv.loading') %></div>
-      <form action="#" method="get" accept-charset="utf-8"><p><select name="language_id" id="language_id"></select></p>
-      </form>
-      <form action="#" method="get" accept-charset="utf-8">
-        <div name="technologies" id="technologies" style="font-size: 12px; color: black;"></div>
-      </form>
-      <form action="#" method="get" accept-charset="utf-8"><p><select name="quality_id" id="quality_id"></select></p>
-      </form>
+      <form action="#" method="get" accept-charset="utf-8"><p><select name="language_id" id="language_id"></select></p></form>
+      <form action="#" method="get" accept-charset="utf-8"><p><select name="technology_id" id="technology_id"></select></p></form>
+      <form action="#" method="get" accept-charset="utf-8"><p><select name="quality_id" id="quality_id"></select></p></form>
       <%- if @stream_preset.show_separate_window -%>
           <a class="player-btn" onclick="kabtv.tabs.detach(); return false;"><span class="detach"> </span></a>
       <%- end -%>
@@ -98,7 +94,18 @@
         }
         try {
             var pluginlist = '';
-            for (var i in baps) pluginlist += ' ' + i + ': ' + baps[i];
+            // for (var i in baps) pluginlist += ' ' + i + ': ' + baps[i];
+            for (var index=0; index < navigator.plugins.length; index++) {
+        	pluginlist += navigator.plugins[index].name + ' / ' + navigator.plugins[index].filename + '<br>\n';
+            }
+            var mime_types = ['application/x-ms-wmp', 'application/x-mplayer2', 'video/x-ms-asf', 'video/x-ms-wmv'];
+            for (var index=0; index < mime_types.length; index++) {
+        	var mime = mime_types[index];
+        	var plugin = navigator.mimeTypes[mime].enabledPlugin;
+        	if (plugin) {
+        	    pluginlist += mime + ' handled with ' + plugin['name'] + '<br>\n';
+        	}
+    	    }
             $('#user_complain_plugins').val(pluginlist);
         } catch(err) {
         }
@@ -115,7 +122,7 @@
             var stream_url = $("select#quality_id").val();
             kabtv.tabs.draw_player(stream_url);
         });
-        $("#technologies input[type=radio]").live('change', function() {
+        $("#technology_id").live('change', function() {
             // Select quality
             var current_language = $("select#language_id").val();
             var default_technology_id = $(this).val();

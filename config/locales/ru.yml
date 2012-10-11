@@ -462,6 +462,7 @@ ru:
       title: Заголовок
       title_registered_vs_active: "Все vs. Активные"
       view_reports: "Показать отчеты"
+      new_internet_project_we_build_it_together: "Новый интернет проект - Мы строем его вместе"
   kabtv: 
     admin: 
       add_stream_item: "Добавить канал"

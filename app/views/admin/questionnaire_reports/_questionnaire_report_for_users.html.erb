@@ -1,0 +1,30 @@
+<% unless @users.nil? || @users.empty? %>
+    <h3><%= t('admin.reports.questionnaire_report') %></h3>
+    <%= t('admin.reports.total') %>: <%= @users.count %>
+    <table id='report' style=" border-collapse: collapse;">
+      <thead>
+      <% @table_headers.each { |pf| %>
+          <td style=" border: 1px solid black;"><%= pf %></td>
+      <% } %>
+      <td style=" border: 1px solid black;"><%= t('admin.reports.total') %></td>
+      <% (@report.when_start.to_i .. @report.when_end.to_i).step(24 * 60 * 60) { |d| day = Time.at(d) %>
+          <td style=" border: 1px solid black;"><%= day.day %>/<%= day.month %></td>
+      <% } %>
+      </thead>
+      <% @users.values.each do |user| %>
+          <tr>
+            <% @only.each do |pf| %>
+                <td style=" border: 1px solid black;"><%= user[pf] %></td>
+            <% end %>
+            <td style=" border: 1px solid black;"><%= user[:attendance].size %></td>
+            <%
+               (@report.when_start.to_i .. @report.when_end.to_i).step(24 * 60 * 60) do |d|
+                 day = Time.at(d)
+                 content = user[:attendance][day.to_date] ? '+' : '&nbsp;'
+            %>
+                <td style=" border: 1px solid black;"><%= content.html_safe %></td>
+            <% end %>
+          </tr>
+      <% end %>
+    </table>
+<% end %>

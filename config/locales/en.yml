@@ -71,9 +71,9 @@ en:
       sign_in_more_mobile: Sign in
       email: Email
       password: Password
-      version: View
-      mobile: mobile
-      desktop: classic
+      version: Please select
+      mobile: Mobile Audio Broadcast
+      desktop: Regular Site
       select_lang: Select Language
       back: Back
       remember_me: Remember me
@@ -178,6 +178,7 @@ en:
       title_registered_vs_active: Registered vs. Active
       title_registered_vs_button: Registered vs. We!
       loading: Loading...
+      new_internet_project_we_build_it_together: New internet project - We build it together
     faq:
       faq: Frequently Asked Questions
       confirmation:
@@ -219,6 +220,7 @@ en:
       no_answer: ' No'
       preferred_language: Message Language
       first_name: First name
+      user: User
       last_name: Last name
       avatar: Avatar
       remove_avatar: Remove Avatar
@@ -397,6 +399,7 @@ en:
       display_also_profile: Display also profile
       generate_report: Generate report
       basic_report: User Activities report
+      questionnaire_report: Users Answered Questionnaires report
       attendance_report: Attendance report
       export_to_excel: Export to Excel
       date: Select a month
