@@ -46,6 +46,7 @@ gem 'devise'#, :git => 'http://github.com/plataformatec/devise.git', :branch => 
 group :production do
   gem 'exceptional'
   gem 'newrelic_rpm'
+  gem 'unicorn'
 end
 
 group :development do
@@ -74,7 +75,7 @@ gem 'yajl-ruby', :require => 'yajl'
 
 # Cells/Apotomo
 #gem 'apotomo', '1.0.4'#, :git => 'git://github.com/ramigg/apotomo.git', :branch => '1-0-stable'#, :require => 'apotomo'
-gem 'apotomo', '~>1.0.4'#:git => 'git://github.com/ramigg/apotomo.git', :branch => '1-0-stable'#, :require => 'apotomo'
+gem 'apotomo', '1.0.4', :git => 'git://github.com/ramigg/apotomo.git', :branch => '1-0-stable'#, :require => 'apotomo'
 #gem 'apotomo', :git => "git://github.com/apotonick/apotomo.git", :branch => 'master'#, :tag => "v1.0.0.beta2"
 #gem 'apotomo', :git => "git@github.com:Bnei-Baruch/apotomo.git", :branch => 'master'
 #gem 'cells'
