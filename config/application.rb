@@ -19,7 +19,7 @@ module Simulator
 
     config.general_settings = YAML.load(IO.read(Rails.root.join("config", "settings.yml")))
 
-    config.middleware.insert_before ActionDispatch::Callbacks, :CacheApp
+    config.middleware.insert_before Rack::Sendfile, :CacheApp
 
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration should go into files in config/initializers
