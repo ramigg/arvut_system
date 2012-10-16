@@ -1,6 +1,6 @@
 source 'http://rubygems.org'
 
-gem 'rails', '3.1.8'
+gem 'rails', '3.0.17'
 #gem 'railties', '3.0.3'
 gem  'sendgrid'
 # extension for  arel where
@@ -35,7 +35,7 @@ gem 'sass'
 # Devise
 #gem 'devise', :git => 'http://github.com/Bnei-Baruch/devise.git', :branch => 'master'
 gem 'devise'#, :git => 'http://github.com/plataformatec/devise.git', :branch => 'master'
-gem 'devise-encryptable'
+#gem 'devise-encryptable'
 
 # Bundle gems for certain environments:
 # gem 'rspec', :group => :test
@@ -83,6 +83,6 @@ gem 'apotomo', '~>1.0.4'#:git => 'git://github.com/ramigg/apotomo.git', :branch 
 # gem 'dalli'
 gem 'dalli'
 #gem 'memcache-client'
-gem 'tolk'
+#gem 'tolk'
 gem 'rack'
 #gem 'rack', '1.2.2'
