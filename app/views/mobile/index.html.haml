@@ -12,7 +12,7 @@
     -#  %h3 No mobile broadcast in #{@language.language}
     - @streams.each do |stream|
       %ul{'data-role' => 'listview', 'data-inset' => "true", 'data-theme' => 'b'}
-        %li=link_to stream[1][:title], stream[1][:stream]
+        %li=link_to stream[:title], stream[:stream]
 
   = render 'shared/mobile/footer'
 

@@ -335,7 +335,7 @@ SET client_encoding to "ISO-8859-15";
   #@locations = {}
   CSV::Reader.parse(File.open('GeoLiteCity-Location.csv', 'rb')) do |row|
     next if row[3] == ''
-  
+
     country = row[1]
     region = row[2]
     city = row[3]
@@ -359,4 +359,13 @@ CREATE INDEX index_names_on_country ON countries
 
   Location.find_by_sql sql
   puts '--> Locations done'
+end
+
+# Mobile presets.
+puts '--> Mobile presets.'
+
+YAML::load( File.open( File.join(Rails.root, 'config', 'mobile-audio-streams.yml') ) ).each do |preset|
+  language_id = Language.get_id_by_name(preset[1][:title])
+  mobile_preset = { :language_id => language_id, :stream => preset[1][:stream], :position => preset[0] }
+  MobilePreset.find_or_create_by_language_id(mobile_preset)
 end
