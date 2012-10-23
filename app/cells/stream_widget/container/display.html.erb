@@ -63,6 +63,15 @@
         <%= f.submit I18n.t('kabtv.admin.submit'), :style => "display:block; float: #{@locale == 'he' ? 'left' : 'right'}", :class => 'button-small-main',
                      :disable_with => I18n.t('kabtv.admin.submitting'), :onclick => 'return validate_form();' %>
     <% end %>
+    <%- if current_user.is_admin? -%>
+    <br><br>
+    <div align="middle">
+      <iframe height="350" width="90%" frameborder="0" scrolling="no"
+              marginheight="0" marginwidth="0" allowtransparency="true"
+              src="http://chatroll.com/embed/chat/bbtalk?id=7Xr_NCoBulQ&platform=html&w=$0">
+      </iframe>
+    </div>
+    <%- end -%>
 <%- end -%>
 
 <script type="text/javascript">
