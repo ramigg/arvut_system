@@ -3,9 +3,6 @@ source 'http://rubygems.org'
 gem 'rails', '3.0.17'
 #gem 'railties', '3.0.3'
 gem  'sendgrid'
-# extension for  arel where
-#gem "meta_where"
-gem "squeel"
 
 # Bundle edge Rails instead:
 #gem 'rails', :git => 'git://github.com/rails/rails.git', :branch => 'master'
@@ -66,7 +63,7 @@ gem 'paperclip', '2.5.0'
 gem 'google_visualization'
 #gem 'feedtools', :git => 'git://github.com/tjl2/feedtools19.git'
 gem 'feedzirra'
-gem 'will_paginate', '~> 3.0.pre'
+gem 'will_paginate'
 gem 'acts-as-taggable-on', :git => 'https://github.com/mbleigh/acts-as-taggable-on.git'
 gem 'excel_exporter', :git => 'http://github.com/gshilin/excel_exporter.git'
 gem 'rubyzip'
