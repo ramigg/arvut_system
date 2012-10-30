@@ -9,17 +9,64 @@
   </div>
   <div class="bgnd">
     <%= render_widget 'stream_container' %>
-    <div class="clear"></div>
+
+    <%- if @page.chat_enabled? -%>
+      <div align="middle">
+        <!-- Button to toggle chat. -->
+        <br>
+        <br>
+        <div id="page_chat_button_toggle" class="page_chat_open"></div>
+        <br>
+        <span id="page_chat_text_open" class="page_chat_show">לחץ בשביל לפתוח צ'אט</span>
+        <span id="page_chat_text_close" class="page_chat_hide">לחץ בשביל לסגור צ'אט</span>
+      </div>
+      <!-- Parent node to insert/remove chat. -->
+      <div id="page_chat_iframe_root" align="middle"></div>
+      <style>
+        .page_chat_open {
+          width:128px;
+          height:75px;
+          background-position: 0 -26px;
+          background-image: url(images/chat.png);
+          display: inline-block;
+          cursor: pointer;
+        }
+        .page_chat_close {
+          width:128px;
+          height:75px;
+          background-position: 0 -26px;
+          background-image: url(images/chat_wb.png);
+          display: inline-block;
+          cursor: pointer;
+        }
+        .page_chat_show {
+          display: inline;
+        }
+        .page_chat_hide {
+          display: none;
+        }
+      </style>
+      <script type="text/javascript">
+        $(document).ready(function() {
+          var frame_code = "<iframe height='350' width='100%' frameborder='0' scrolling='no' marginheight='0' marginwidth='0' allowtransparency='true' src='http://chatroll.com/embed/chat/bbtalk?id=7Xr_NCoBulQ&platform=html&w=$0'></iframe>";
+          $('#page_chat_button_toggle').bind("click", function() {
+            if ($(this).attr("class") == "page_chat_open") {
+              $(this).attr("class", "page_chat_close");
+              $('#page_chat_iframe_root').append($(frame_code))
+              $('#page_chat_text_open').attr("class", "page_chat_hide");
+              $('#page_chat_text_close').attr("class", "page_chat_show");
+            } else {
+              $(this).attr("class", "page_chat_open");
+              $('#page_chat_iframe_root').empty()
+              $('#page_chat_text_open').attr("class", "page_chat_show");
+              $('#page_chat_text_close').attr("class", "page_chat_hide");
+            }
+          });
+        });
+      </script>
+    <%- end -%>
   </div>
-  <%- if @page.chat_enabled? -%>
-    <div align="middle">
-      <iframe height="350" width="100%" frameborder="0" scrolling="no"
-              marginheight="0" marginwidth="0" allowtransparency="true"
-              src="http://chatroll.com/embed/chat/bbtalk?id=7Xr_NCoBulQ&platform=html&w=$0">
-      </iframe>
-    </div>
-    <div class="clear"></div>
-  <%- end -%>
+  <div class="clear"></div>
   <%- if current_user.is_stream_manager? || current_user.is_admin? || current_user.is_stream_operator? -%>
       <span style="float:right;margin-left:30px;"><%= link_to 'Manage', '#', :onclick => "$('.admin').toggle(); return false;" %></span>
     <div class="admin">
