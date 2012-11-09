@@ -297,12 +297,12 @@ banners_url[0].es = "https://checkout.kabbalah.info/es/projects/new_building";
 banners_url[1] = new Object();
 banners_url[1].he = "http://www.kab.co.il/kabbalah/%D7%9C%D7%A7%D7%A8%D7%90%D7%AA-%D7%97%D7%A0%D7%95%D7%9B%D7%94-%D7%9E%D7%93%D7%9C%D7%99%D7%A7%D7%99%D7%9D-%D7%90%D7%AA-%D7%94%D7%90%D7%95%D7%A8-%D7%91%D7%99%D7%97%D7%93"
 
-banners_url[2] = new Object();
-banners_url[2].default = "https://www.kabbalah.info/donate/en/projects/new_building";
-banners_url[2].en = "https://www.kabbalah.info/donate/en/projects/new_building";
-banners_url[2].he = "https://www.kabbalah.info/donate/he/projects/new_building";
-banners_url[2].ru = "https://www.kabbalah.info/donate/ru/projects/new_building";
-banners_url[2].es = "https://www.kabbalah.info/donate/es/projects/new_building";
+//banners_url[2] = new Object();
+//banners_url[2].default = "https://www.kabbalah.info/donate/en/projects/new_building";
+//banners_url[2].en = "https://www.kabbalah.info/donate/en/projects/new_building";
+//banners_url[2].he = "https://www.kabbalah.info/donate/he/projects/new_building";
+//banners_url[2].ru = "https://www.kabbalah.info/donate/ru/projects/new_building";
+//banners_url[2].es = "https://www.kabbalah.info/donate/es/projects/new_building";
 
 banners_img[0] = new Object();
 banners_img[0].default = "http://kabbalahgroup.info/internet/images/banners/unithon.jpeg";
@@ -310,9 +310,9 @@ banners_img[0].default = "http://kabbalahgroup.info/internet/images/banners/unit
 banners_img[1] = new Object();
 banners_img[1].he = "http://kabbalahgroup.info/internet/images/banners/4_12_12_b_960x206.jpeg"
 
-banners_img[2] = new Object();
-banners_img[2].default = "http://kabbalahgroup.info/internet/images/skin/bg_image_en.jpg";
-banners_img[2].en = "http://kabbalahgroup.info/internet/images/skin/bg_image_en.jpg";
+//banners_img[2] = new Object();
+//banners_img[2].default = "http://kabbalahgroup.info/internet/images/skin/bg_image_en.jpg";
+//banners_img[2].en = "http://kabbalahgroup.info/internet/images/skin/bg_image_en.jpg";
 
 banners_alt[0] = new Object();
 banners_alt[0].default = "Unithon, one kli - one home";
@@ -320,8 +320,8 @@ banners_alt[0].default = "Unithon, one kli - one home";
 banners_alt[1] = new Object();
 banners_alt[1].he = "לקראת-חנוכה-מדליקים-את-האור-ביחד";
 
-banners_alt[2] = new Object();
-banners_alt[2].default = "Our New Home";
+//banners_alt[2] = new Object();
+//banners_alt[2].default = "Our New Home";
 
 $(function (){
     var image = $('body .skin_container img');
