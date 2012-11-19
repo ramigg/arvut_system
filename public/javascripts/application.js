@@ -288,7 +288,7 @@ var banner_current = -1; // -1 for starting with index 0.
 
 // Not setting default, will be shown only in he.
 banners_url[0] = new Object();
-banners_url[0].he = "http://www.kab.co.il/kabbalah/%D7%9C%D7%A7%D7%A8%D7%90%D7%AA-%D7%97%D7%A0%D7%95%D7%9B%D7%94-%D7%9E%D7%93%D7%9C%D7%99%D7%A7%D7%99%D7%9D-%D7%90%D7%AA-%D7%94%D7%90%D7%95%D7%A8-%D7%91%D7%99%D7%97%D7%93"
+banners_url[0].he = "http://www.kab.co.il/kabbalah/%D7%9C%D7%A7%D7%A8%D7%90%D7%AA-%D7%97%D7%A0%D7%95%D7%9B%D7%94-%D7%9E%D7%93%D7%9C%D7%99%D7%A7%D7%99%D7%9D-%D7%90%D7%AA-%D7%94%D7%90%D7%95%D7%A8-%D7%91%D7%99%D7%97%D7%93";
 
 banners_url[1] = new Object();
 banners_url[1].default = "http://www.kabbalah.info/conventions/rus/en";
@@ -304,7 +304,7 @@ banners_url[2].ru = "https://checkout.kabbalah.info/ru/projects/new_building";
 banners_url[2].es = "https://checkout.kabbalah.info/es/projects/new_building";
 
 banners_img[0] = new Object();
-banners_img[0].he = "http://kabbalahgroup.info/internet/images/banners/4_12_12_b_960x206.jpeg"
+banners_img[0].he = "http://kabbalahgroup.info/internet/images/banners/4_12_12_b_960x206.jpeg";
 
 banners_img[1] = new Object();
 banners_img[1].default = "http://kabbalahgroup.info/internet/images/banners/NovoS_eng-960x206.jpg";
