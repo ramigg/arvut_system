@@ -424,22 +424,22 @@ tr:
   home: 
     faq: 
       confirmation: "Üye olmak için girişinizi yaptınız fakat sistem siteye girişinize onay mı vermiyor? Üyeliğinizin kabul edildiğine dair gönderilmiş e-posta onayı için kendi e-posta kutunuza bakınız. Eğer e-posta gelmemiş ise lütfen aşağıdaki linki başka bir tane daha gönderilmesi için tıklayınız."
-      email: "Yukarıda anlatılanların hepsini denediyseniz ve hala probleminiz var ise o zaman bu adrese e-posta gönderiniz: "
-      faq: "Sıkça Sorulanlar"
+      email: "Yukarıda anlatılanların hepsini denediyseniz ve hala probleminiz var ise o zaman bu adrese e-posta gönderiniz:"
+      faq: "Sıkça Sorulan Sorular"
       forgot_password: "Girişinizi yaptınız fakat sistem sizin hala girişinizi engelliyor mu? Yukarıdaki doğrulama talimatlarını kontrol ettiniz mi? Belki şifrenizi mi unuttunuz? Şifreniz ile ilgili yeniden başa dönmek için aşağıdaki linki tıklayınız."
       unlock: "Sistem tarafından bloke edildiniz. Lütfen kilidi veya blokeyi kaldırmanız için gelen e-postanız hususunda e-posta kutunuzu kontrol ediniz. Eğer e-posta gelmemiş ise lütfen gönderilmesi için aşağıdaki linki kullanınız."
     views: 
       active: Active
       admin: Yönetici
       answered: answered
-      blog: "http://www.laitman.com/"
-      blog_title: "Michael Laitman’ın Kişisel Blog Sayfası"
+      blog: "http://laitman.info.tr"
+      blog_title: "Blog of Dr. Laitman"
       button: We!
       check_for_new_questionnaire: "Check for new questionnaire"
       dashboard: "My page"
       date: Date
       edit_profile: "Profilinizi düzenleyin"
-      feed: "http://www.laitman.com/feed/"
+      feed: "http://laitman.info.tr/feed/"
       last_10_questionnaires: "The last 10 questionnaires"
       loading: Loading...
       not_answered: "not answered"
@@ -450,7 +450,6 @@ tr:
       title_registered_vs_active: "Registered vs. Active"
       title_registered_vs_button: "Registered vs. We!"
       view_reports: "View Reports"
-      new_internet_project_we_build_it_together: "Yeni internet projesi- Beraber inşa ediyoruz"
   kabtv: 
     admin: 
       add_quality: "Add quality"

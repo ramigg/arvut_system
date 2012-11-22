@@ -3,6 +3,9 @@ source 'http://rubygems.org'
 gem 'rails', '3.0.17'
 #gem 'railties', '3.0.3'
 gem  'sendgrid'
+# extension for  arel where
+#gem "meta_where"
+gem "squeel"
 
 # Bundle edge Rails instead:
 #gem 'rails', :git => 'git://github.com/rails/rails.git', :branch => 'master'
@@ -43,11 +46,10 @@ gem 'devise'#, :git => 'http://github.com/plataformatec/devise.git', :branch => 
 group :production do
   gem 'exceptional'
   gem 'newrelic_rpm'
-  gem 'unicorn'
 end
 
 group :development do
-  #gem 'linecache19', :git => 'git://github.com/mark-moseley/linecache'
+  gem 'linecache19', :git => 'git://github.com/mark-moseley/linecache'
   gem "ruby-debug-base19x", '>= 0.11.30.pre7'
   gem "debugger"
   gem "ruby-debug-ide"
@@ -63,7 +65,7 @@ gem 'paperclip', '2.5.0'
 gem 'google_visualization'
 #gem 'feedtools', :git => 'git://github.com/tjl2/feedtools19.git'
 gem 'feedzirra'
-gem 'will_paginate'
+gem 'will_paginate', '~> 3.0.pre'
 gem 'acts-as-taggable-on', :git => 'https://github.com/mbleigh/acts-as-taggable-on.git'
 gem 'excel_exporter', :git => 'http://github.com/gshilin/excel_exporter.git'
 gem 'rubyzip'
@@ -72,7 +74,7 @@ gem 'yajl-ruby', :require => 'yajl'
 
 # Cells/Apotomo
 #gem 'apotomo', '1.0.4'#, :git => 'git://github.com/ramigg/apotomo.git', :branch => '1-0-stable'#, :require => 'apotomo'
-gem 'apotomo', '1.0.4', :git => 'git://github.com/ramigg/apotomo.git', :branch => '1-0-stable'#, :require => 'apotomo'
+gem 'apotomo', '~>1.0.4'#:git => 'git://github.com/ramigg/apotomo.git', :branch => '1-0-stable'#, :require => 'apotomo'
 #gem 'apotomo', :git => "git://github.com/apotonick/apotomo.git", :branch => 'master'#, :tag => "v1.0.0.beta2"
 #gem 'apotomo', :git => "git@github.com:Bnei-Baruch/apotomo.git", :branch => 'master'
 #gem 'cells'
