@@ -415,7 +415,6 @@ it:
       title: Titolo
       title_registered_vs_active: "Registrato vs. Attivo"
       view_reports: "vedi i reports"
-      new_internet_project_we_build_it_together: "New internet project - We build it together"
   layout: 
     search: ricerca
     search_screen_reader: "ricerca per"

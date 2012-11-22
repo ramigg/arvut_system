@@ -386,10 +386,10 @@ div.uploader input{opacity:0;position:absolute;top:0;right:0;bottom:0;float:righ
 #cdcontainer .dots,#cdcontainer .line{width:5px;background-position:-280px 0;}
 #cdcontainer .line{background-position:-307px 0;}
 .skinlink{display:block;width:360px;height:200px;margin:0 auto;position:relative;}
-a#we-button{background:transparent url("../images/snowflake_buttons.png") no-repeat 0 -330px;display:block;height:110px;margin:-20px auto 10px;width:107px;}
-a#we-button.we_button:hover{background:transparent url("../images/snowflake_buttons.png") no-repeat 0 -440px;}
-a#we-button.we_button_pressed{background:transparent url("../images/snowflake_buttons.png") no-repeat 0 -550px;}
-a#we-button.me_button{background:transparent url("../images/snowflake_buttons.png") no-repeat 0 0;}
-a#we-button.me_button:hover{background:transparent url("../images/snowflake_buttons.png") no-repeat 0 -110px;}
-a#we-button.me_button_pressed{background:transparent url("../images/snowflake_buttons.png") no-repeat 0 -220px;}
+a#we-button{background:transparent url("../images/we_buttons.png") no-repeat 0 -330px;display:block;height:110px;margin:-20px auto 10px;width:107px;}
+a#we-button.we_button:hover{background:transparent url("../images/we_buttons.png") no-repeat 0 -440px;}
+a#we-button.we_button_pressed{background:transparent url("../images/we_buttons.png") no-repeat 0 -550px;}
+a#we-button.me_button{background:transparent url("../images/we_buttons.png") no-repeat 0 0;}
+a#we-button.me_button:hover{background:transparent url("../images/we_buttons.png") no-repeat 0 -110px;}
+a#we-button.me_button_pressed{background:transparent url("../images/we_buttons.png") no-repeat 0 -220px;}
 #show_button_content_link{display:none;}

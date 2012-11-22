@@ -425,7 +425,6 @@ es:
       title: Título
       title_registered_vs_active: "Registrado vs. Activo"
       view_reports: "Ver informes"
-      new_internet_project_we_build_it_together: "New internet project - We build it together"
   layout: 
     search: Buscar
     search_screen_reader: Buscar

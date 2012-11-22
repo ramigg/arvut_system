@@ -45,14 +45,14 @@ class Page < ActiveRecord::Base
 
   #  *Scopes*
 
-  scope :published, lambda { where("publish_at < ?", Time.zone.now).where(:status => 'PUBLISHED') }
+  scope :published, lambda { where(:publish_at.lt => Time.zone.now, :status => 'PUBLISHED') }
   scope :no_parent, where(:parent_id => nil)
 
   #  scope :by_conf_date, lambda {|user_reg_date| where(:publish_at.gt => user_reg_date)}
 
   scope :by_page_type, lambda { |page_type, language_id, user_reg_date|
     (page_type == 'all' || page_type == 'tag' ?
-        where(:language_id => language_id).where("page_type != 'button_content'") :
+        where(:language_id => language_id, :page_type.not_in => 'button_content') : # nin -> Not In
         where(:language_id => language_id, :page_type => page_type.singularize)).
         no_parent.published
   }
@@ -97,7 +97,11 @@ class Page < ActiveRecord::Base
     unless search.empty?
       search = "%#{search.strip}%"
       includes(:article_resources).
-          where("title ilike '%#{search}%' or description ilike '%#{search}%' or message_body ilike '%#{search}%' or subtitle ilike '%#{search}%' or article_resources.body ilike '%#{search}%'")
+          where(
+          (:title.matches % search) | (:description.matches % search) |
+              (:message_body.matches % search) | (:subtitle.matches % search) |
+              {:article_resources => [:body.matches % search]}
+      )
     else
       scoped
     end
