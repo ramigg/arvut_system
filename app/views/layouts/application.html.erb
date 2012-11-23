@@ -51,13 +51,13 @@
         </a>
     <%- end %>
     <%- if c2.length > 1000 %>
-        <a id="ad1" href="http://pubads.g.doubleclick.net/gampad/jump?iu=/1212472/<%=slot2%>&sz=960x206&c=<%=time%>" style="display: none;">
+        <a id="ad1" href="http://pubads.g.doubleclick.net/gampad/jump?iu=/1212472/<%=slot2%>&sz=960x206&c=<%=time%>" target="_blank" style="display: none;">
           <%- content = c2.read %>
           <img src="data:image/jpeg;base64,<%= Base64.encode64(content) %>" />
         </a>
     <%- end %>
     <%- if c3.length > 1000 %>
-        <a id="ad2" href="http://pubads.g.doubleclick.net/gampad/jump?iu=/1212472/<%=slot3%>&sz=960x206&c=<%=time%>" style="display: none;">
+        <a id="ad2" href="http://pubads.g.doubleclick.net/gampad/jump?iu=/1212472/<%=slot3%>&sz=960x206&c=<%=time%>" target="_blank" style="display: none;">
           <%- content = c3.read %>
           <img src="data:image/jpeg;base64,<%= Base64.encode64(content) %>" />
         </a>
