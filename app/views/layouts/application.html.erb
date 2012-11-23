@@ -4,29 +4,66 @@
 <head>
   <title><%= t('home.views.site_name') %></title>
   <meta content="text/html;charset=utf-8" http-equiv="content-type"/>
+
   <%= render 'shared/head' %>
+
+  <script type='text/javascript'>
+      <%-
+      require 'open-uri'
+      require 'base64'
+      time = Time.now.to_i.to_s
+      locale = I18n.locale.to_s
+      if locale == 'he'
+          slot1 = "sviva-tova-heb-1"
+          slot2 = "sviva-tova-heb-2"
+          slot3 = "sviva-tova-heb-3"
+      elsif locale == 'ru'
+          slot1 = "sviva-tova-rus-1"
+          slot2 = "sviva-tova-rus-2"
+          slot3 = "sviva-tova-rus-3"
+      elsif locale == 'es'
+          slot1 = "sviva-tova-spa-1"
+          slot2 = "sviva-tova-spa-2"
+          slot3 = "sviva-tova-spa-3"
+      else
+          slot1 = "sviva-tova-eng-top"
+          slot2 = "sviva-tova-eng-top-2"
+          slot3 = "sviva-tova-eng-top-3"
+      end %>
+      var total_ads = 0;
+      var current_ad = 0;
+      <%- c1 = open("http://pubads.g.doubleclick.net/gampad/ad?iu=/1212472/#{slot1}&sz=960x206&c=#{time}")  %>
+      <%- c2 = open("http://pubads.g.doubleclick.net/gampad/ad?iu=/1212472/#{slot2}&sz=960x207&c=#{time}")  %>
+      <%- c3 = open("http://pubads.g.doubleclick.net/gampad/ad?iu=/1212472/#{slot3}&sz=960x208&c=#{time}")  %>
+      <%- if c1.length > 1000 %> total_ads += 1; <%- end %>
+      <%- if c2.length > 1000 %> total_ads += 1; <%- end %>
+      <%- if c3.length > 1000 %> total_ads += 1; <%- end %>
+  </script>
 </head>
 <% layout = controller.instance_of?(Profiles::RegistrationsController) ? 'layout-signup' : 'layout-login' %>
 <body class="<%= I18n.locale %> <%= layout %>">
 <div class="skin_bg">
-  <a href="<%= get_skin_url %>" target="_blank">
-    <div class="skin_container">
-      <%#*<div id="countdown-placement">
-	              <div id="countdown"></div>
-	          </div>%>
-      <p></p>
-    </div>
-    <%#*<div class="skin_container">%>
-    <%#*<div id="cdcontainer">time container</div>%>
-    <%#*<script type="text/javascript">%>
-    <%#*var launchdate = new cdLocalTime("cdcontainer", '<%= Time.new.strftime('%B %d, %Y %H:%M:%S') % >', 0, "November 9, 2010 09:00:00");%>
-    <%#*launchdate.displaycountdown("days", formatresults2);%>
-    <%#*</script>%>
-    <%#*<a href="#" class="skinlink"></a>%>
-    <%#*</div>%>
-  </a>
+  <div class="skin_container">
+    <%- if c1.length > 1000 %>
+        <a id="ad0" href="http://pubads.g.doubleclick.net/gampad/jump?iu=/1212472/<%=slot1%>&sz=960x206&c=<%=time%>">
+          <%- content = c1.read %>
+          <img src="data:image/jpeg;base64,<%= Base64.encode64(content) %>" />
+        </a>
+    <%- end %>
+    <%- if c2.length > 1000 %>
+        <a id="ad1" href="http://pubads.g.doubleclick.net/gampad/jump?iu=/1212472/<%=slot2%>&sz=960x206&c=<%=time%>" style="display: none;">
+          <%- content = c2.read %>
+          <img src="data:image/jpeg;base64,<%= Base64.encode64(content) %>" />
+        </a>
+    <%- end %>
+    <%- if c3.length > 1000 %>
+        <a id="ad2" href="http://pubads.g.doubleclick.net/gampad/jump?iu=/1212472/<%=slot3%>&sz=960x206&c=<%=time%>" style="display: none;">
+          <%- content = c3.read %>
+          <img src="data:image/jpeg;base64,<%= Base64.encode64(content) %>" />
+        </a>
+    <%- end %>
+  </div>
 </div>
-<div class="clear"></div>
 <div class="wrapper">
   <%= render 'stream/header' %>
   <%= yield %>

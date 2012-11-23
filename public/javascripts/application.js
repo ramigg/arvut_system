@@ -1,4 +1,4 @@
-$(function (){
+$(function () {
     if (typeof $.fn.uniform == 'function') {
         $("select, input:checkbox, input:radio, input:file").uniform();
     }
@@ -10,12 +10,12 @@ $(function (){
         });
 
         // Attendance report generator
-        $('.xdatepicker').datepicker( {
+        $('.xdatepicker').datepicker({
             changeMonth: true,
             changeYear: true,
             showButtonPanel: true,
             dateFormat: 'dd.mm.yy',
-            onClose: function(dateText, inst) {
+            onClose: function (dateText, inst) {
                 var month = $("#ui-datepicker-div .ui-datepicker-month :selected").val();
                 month = parseInt(month) + 1;
                 var year = $("#ui-datepicker-div .ui-datepicker-year :selected").val();
@@ -25,15 +25,15 @@ $(function (){
     }
 });
 // AJAX Report generators
-$(function (){
+$(function () {
     $("#report_new")
-    .bind("ajax:success", function(data, status){
-        $("#users").html(status);
-    });
+        .bind("ajax:success", function (data, status) {
+            $("#users").html(status);
+        });
 });
 
 // Export report to Excel
-function excel(){
+function excel() {
     var $report = $('#report_new');
     var action = $report.attr('action');
     $report.attr('action', action + '.xls').removeAttr('data-remote');
@@ -43,10 +43,10 @@ function excel(){
 // Used in Questionnaire editor
 function remove_fields(link, is_new_record) {
     $(link).closest("div.add_other").children("p.add_other").children("a").show();
-    if(is_new_record){
+    if (is_new_record) {
         $(link).closest(".fields").remove();
     }
-    else{
+    else {
         $(link).prev("input[type=hidden]").val("1");
         $(link).closest(".fields").hide();
     }
@@ -57,14 +57,14 @@ function add_fields(link, association, content, hide_onclick) {
     var new_id = new Date().getTime();
     var regexp = new RegExp("new_" + association, "g");
     $(link).parent().before(content.replace(regexp, new_id));
-    if(hide_onclick){
+    if (hide_onclick) {
         $(link).hide();
     }
 }
 
-$(document).ready(function(){
+$(document).ready(function () {
     var def_row = "<option value=\"" + "" + "\">" + "Please select" + "</option>";
-    $("select#user_country_id").live('change', function(){
+    $("select#user_country_id").live('change', function () {
         var id_value_string = $(this).val();
         $("select#user_region_id").attr('disabled', 'disabled');
         $("select#user_region_id").parent().addClass('disabled');
@@ -72,14 +72,14 @@ $(document).ready(function(){
         $(def_row).appendTo("select#user_region_id");
         $("select#user_region_id").prev().text(
             $("select#user_region_id :selected").text()
-            );
+        );
         $("select#user_location_id").attr('disabled', 'disabled');
         $("select#user_location_id").parent().addClass('disabled');
         $("select#user_location_id option").remove();
         $(def_row).appendTo("select#user_location_id");
         $("select#user_location_id").prev().text(
             $("select#user_location_id :selected").text()
-            );
+        );
         if (id_value_string == "") {
             // if the id is empty remove all the sub_selection options from being selectable and do not do any ajax
             return;
@@ -90,25 +90,25 @@ $(document).ready(function(){
                 cache: false,
                 url: SITE_URL + '/en/profiles/region_ids/' + id_value_string,
                 timeout: 4000,
-                error: function(XMLHttpRequest, errorTextStatus, error){
-                    alert("Failed to submit : " + errorTextStatus+" ;" + error);
+                error: function (XMLHttpRequest, errorTextStatus, error) {
+                    alert("Failed to submit : " + errorTextStatus + " ;" + error);
                 },
-                success: function(data){
+                success: function (data) {
                     // Fill sub category select
-                    $.each(data, function(i, j){
+                    $.each(data, function (i, j) {
                         var row = "<option value=\"" + j[1] + "\">" + j[0] + "</option>";
                         $(row).appendTo("select#user_region_id");
                     });
                     $("select#user_region_id").prev().text(
                         $("select#user_region_id :selected").text()
-                        );
+                    );
                     $("select#user_region_id").removeAttr('disabled');
                     $("select#user_region_id").parent().removeClass('disabled');
                 }
             });
         }
     });
-    $("select#user_region_id").live('change', function(){
+    $("select#user_region_id").live('change', function () {
         var id_value_string = $(this).val();
         $("select#user_location_id").attr('disabled', 'disabled');
         $("select#user_location_id").parent().addClass('disabled');
@@ -116,24 +116,24 @@ $(document).ready(function(){
         $(def_row).appendTo("select#user_location_id");
         $("select#user_location_id").prev().text(
             $("select#user_location_id :selected").text()
-            );
+        );
         if (id_value_string == "") {
             // if the id is empty remove all the sub_selection options from being selectable and do not do any ajax
             return;
         } else {
             // Send the request and update sub category dropdown
-            var country_id =  $("select#user_country_id").val();
+            var country_id = $("select#user_country_id").val();
             $.ajax({
                 dataType: "json",
                 cache: false,
                 url: SITE_URL + '/en/profiles/location_ids/' + country_id + '/' + id_value_string,
                 timeout: 4000,
-                error: function(XMLHttpRequest, errorTextStatus, error){
-                    alert("Failed to submit : " + errorTextStatus+" ;" + error);
+                error: function (XMLHttpRequest, errorTextStatus, error) {
+                    alert("Failed to submit : " + errorTextStatus + " ;" + error);
                 },
-                success: function(data){
+                success: function (data) {
                     // Fill sub category select
-                    $.each(data, function(i, j){
+                    $.each(data, function (i, j) {
                         var row = "<option value=\"" + j[1] + "\">" + j[0] + "</option>";
                         $(row).appendTo("select#user_location_id");
                     });
@@ -141,21 +141,21 @@ $(document).ready(function(){
                     $("select#user_location_id").parent().removeClass('disabled');
                     $("select#user_location_id").prev().text(
                         $("select#user_location_id :selected").text()
-                        );
+                    );
                 }
             });
         }
     });
 });
 
-function change_language(){
+function change_language() {
     var idx = $('#languages').get(0).selectedIndex;
     var href = $('#languages').get(0).options[idx].value;
 
     location = href;
 }
 
-function new_item(){
+function new_item() {
     var idx = $('#new-item').get(0).selectedIndex;
     var href = $('#new-item').get(0).options[idx].value;
 
@@ -163,8 +163,7 @@ function new_item(){
 }
 
 $(function () {
-    if (document.location.href.match(/\/(show_button_content)/) == null)
-    {
+    if (document.location.href.match(/\/(show_button_content)/) == null) {
         var update_link = document.location.href.match(/\/(stream|events|pages|profiles)\//);
         if (update_link != null) {
             var pattern = new RegExp('http://(.+)/(' + LANGS + ')/([^#]+)');
@@ -174,30 +173,30 @@ $(function () {
             }
         }
     }
-    $("#throbber").ajaxSend(function(evt, request, settings){
+    $("#throbber").ajaxSend(function (evt, request, settings) {
         if (document.location.href.match(/\#events\//) && settings.url.match(/source=(stream_container|questions|sketches)|type=(update_current_state)/))
             return;
         $(this).addClass('throbber');
     });
 
-    $("#throbber").ajaxComplete(function(){
+    $("#throbber").ajaxComplete(function () {
         $(this).removeClass('throbber');
     });
 
     // link parser for ajax pages history
     $('a.data-remote')
-    .live('click', function (e) {
-        e.preventDefault();
-        var pattern = new RegExp('/(' + LANGS + ')/(.+)');
-        var href = this.href.match(pattern);
-        if (href != null) {
-            $.bbq.pushState('#' + href[2]);
-        }
-        return false;
-    });
+        .live('click', function (e) {
+            e.preventDefault();
+            var pattern = new RegExp('/(' + LANGS + ')/(.+)');
+            var href = this.href.match(pattern);
+            if (href != null) {
+                $.bbq.pushState('#' + href[2]);
+            }
+            return false;
+        });
     $(window).bind("hashchange", function (e) {
         var hash_str = e.fragment;
-        if (hash_str != null){
+        if (hash_str != null) {
             // Keep only http://.../<lang> part from href
             var pattern = new RegExp('(.+)/(' + LANGS + ')/([^#]+)');
             var tail = document.location.href.match(pattern);
@@ -215,11 +214,11 @@ $(function () {
     }
 
     if (typeof $.fn.colorbox == 'function') {
-        $('a.in-iframe').live('click', function(){
+        $('a.in-iframe').live('click', function () {
             colorbox_iframe(this, '710px', '85%', false);
             return false;
         });
-        $('a.in-wide-iframe').live('click', function(){
+        $('a.in-wide-iframe').live('click', function () {
             colorbox_iframe(this, '80%', false, '80%');
             return false;
         });
@@ -230,8 +229,7 @@ $(function () {
         });
     }
 });
-function colorbox_iframe(obj, width, height, innerHeight)
-{
+function colorbox_iframe(obj, width, height, innerHeight) {
     $.fn.colorbox({
         href: $(obj).attr('href'),
         iframe: true,
@@ -242,19 +240,19 @@ function colorbox_iframe(obj, width, height, innerHeight)
         arrowKey: false,
         opacity: 0.6,
         close: '',
-        onComplete:function(){
+        onComplete: function () {
             $("body").css("overflow", "hidden");
             $("#colorbox").css("display", "block");
-        //                alert('document will be marked as read');
+            //                alert('document will be marked as read');
         },
-        onCleanup:function(){
+        onCleanup: function () {
             $("body").css("overflow", "auto");
-        //                alert('refresh the stream and menu');
+            //                alert('refresh the stream and menu');
         }
     });
 }
 function trim_val_of_elements(arrElm) {
-    $.each(arrElm, function(indexInArray, valueOfElement) {
+    $.each(arrElm, function (indexInArray, valueOfElement) {
         trim_val_of_element(valueOfElement);
     });
 }
@@ -275,63 +273,21 @@ $(function () {
     //            $(this).removeClass('shadow-class');
     //        }
     //    });
-    });
-
-var banners_img = new Array();
-var banners_url = new Array();
-var banners_alt = new Array();
-var banner_current = 0;
-
-banners_img[0] = new Object();
-banners_img[0].default = "http://kabbalahgroup.info/internet/images/skin/bg_image_en.jpg";
-banners_img[0].en = "http://kabbalahgroup.info/internet/images/skin/bg_image_en.jpg";
-
-banners_url[0] = new Object();
-banners_url[0].default = "https://www.kabbalah.info/donate/en/projects/new_building";
-banners_url[0].en = "https://www.kabbalah.info/donate/en/projects/new_building";
-banners_url[0].he = "https://www.kabbalah.info/donate/he/projects/new_building";
-banners_url[0].ru = "https://www.kabbalah.info/donate/ru/projects/new_building";
-banners_url[0].es = "https://www.kabbalah.info/donate/es/projects/new_building";
-
-banners_alt[0] = new Object();
-banners_alt[0].default = "Our New Home";
-
-$(function (){
-    var image = $('body .skin_container img');
-    if (image.length == 0) {
-        // First time here
-        $('body .skin_container').html('<img />');
-    }
-    rotate_banners();
-    setInterval(rotate_banners, 10000);
 });
 
-// Hack to enable different languages in rotating banners
-function get_selected_language() {
-    // Make sure not to fail Javascript if id does not exists.
-    if ($('#languages').length == 0) return "en";
+function rotate_banner() {
+    $('#ad' + current_ad).hide();
+    current_ad = (current_ad + 1) % total_ads;
+    $('#ad' + current_ad).show();
+}
 
-    var idx = $('#languages').get(0).selectedIndex;
-    var value = $('#languages').get(0).options[idx].value;
-    if (value.indexOf("ru") != -1) {
-        return "ru";
-    } else if (value.indexOf("he") != -1) {
-        return "he";
-    } else if (value.indexOf("es") != -1) {
-        return "es";
+$(function () {
+    if (total_ads == 0) {
+        $('.skin_bg').hide();
+        $('.wrapper').css('margin-top', 20);
+    } else if (total_ads > 1) {
+        // init rotation
+        setInterval(rotate_banner, 10000);
     }
-    return "en";
-}
 
-function get_value_by_language(i18n_map) {
-    var lang = get_selected_language();
-    if (lang in i18n_map) return i18n_map[lang];
-    return i18n_map.default;
-}
-
-function rotate_banners() {
-    var image = $('body .skin_container img');
-    banner_current = (banner_current + 1) % banners_url.length;
-    $('body .skin_bg > a').attr('href', get_value_by_language(banners_url[banner_current])).attr('title', get_value_by_language(banners_alt[banner_current]));
-    image.attr('src', get_value_by_language(banners_img[banner_current])).attr('alt', get_value_by_language(banners_alt[banner_current]));
-}
+});
