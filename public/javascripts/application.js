@@ -275,13 +275,17 @@ $(function () {
     //    });
 });
 
+var total_ads = 0;
+
 function rotate_banner() {
-    $('#ad' + current_ad).hide();
+    $('#' + ads[current_ad]).hide();
     current_ad = (current_ad + 1) % total_ads;
-    $('#ad' + current_ad).show();
+    $('#' + ads[current_ad]).show();
 }
 
 $(function () {
+    total_ads = ads.length;
+    rotate_banner();// show something
     if (total_ads == 0) {
         $('.skin_bg').hide();
         $('.wrapper').css('margin-top', 20);
@@ -289,6 +293,4 @@ $(function () {
         // init rotation
         setInterval(rotate_banner, 10000);
     }
-
 });
-
