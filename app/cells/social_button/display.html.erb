@@ -110,7 +110,7 @@
             text = text.replace("??clicks", clicks);
             text = text.replace("??total", total)
 
-            $('#we-clicks-chart-span').text(text);
+            $('#we-clicks-chart-span').html(text);
             $('#we-clicks-chart').attr("title", text);
         }
 
@@ -124,7 +124,7 @@
             text = text.replace("??clicks", clicks);
             text = text.replace("??total", total);
 
-            $('#we-all-clicks-chart-span').text(text);
+            $('#we-all-clicks-chart-span').html(text);
             $('#we-all-clicks-chart').attr("title", text);
         }
         function refresh_group_clicks_chart(clicks, total) {
@@ -137,7 +137,7 @@
             text = text.replace("??clicks", clicks);
             text = text.replace("??total", total)
 
-            $('#we-group-clicks-chart-span').text(text);
+            $('#we-group-clicks-chart-span').html(text);
             $('#we-group-clicks-chart').attr("title", text);
         }
         function refresh_chart(id, clicks, total) {
@@ -175,7 +175,7 @@
             text = text.replace("??clicks", clicks);
             text = text.replace("??total", total)
 
-            $('#we-clicks-chart-span').text(text);
+            $('#we-clicks-chart-span').html(text);
             $('#we-clicks-chart').attr("title", text);
         }
 
@@ -189,7 +189,7 @@
             text = text.replace("??clicks", clicks);
             text = text.replace("??total", total);
 
-            $('#we-all-clicks-chart-span').text(text);
+            $('#we-all-clicks-chart-span').html(text);
             $('#we-all-clicks-chart').attr("title", text);
         }
         function refresh_group_clicks_chart(clicks, total) {
@@ -202,7 +202,7 @@
             text = text.replace("??clicks", clicks);
             text = text.replace("??total", total)
 
-            $('#we-group-clicks-chart-span').text(text);
+            $('#we-group-clicks-chart-span').html(text);
             $('#we-group-clicks-chart').attr("title", text);
         }
     </script>
