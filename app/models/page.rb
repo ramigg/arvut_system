@@ -61,8 +61,8 @@ class Page < ActiveRecord::Base
   scope :ordered_all, order('is_sticky DESC', 'publish_at DESC')
   scope :ordered, order('publish_at DESC')
 
-  # scope :read_pages, lambda {|user_id| 
-  #   joins(:page_userflags).where(:page_userflags => {:user_id => user_id, :is_read => true}) 
+  # scope :read_pages, lambda {|user_id|
+  #   joins(:page_userflags).where(:page_userflags => {:user_id => user_id, :is_read => true})
   # }
 
   scope :comments, lambda { |parent_id, language_id|
@@ -97,11 +97,7 @@ class Page < ActiveRecord::Base
     unless search.empty?
       search = "%#{search.strip}%"
       includes(:article_resources).
-          where(
-          (:title.matches % search) | (:description.matches % search) |
-              (:message_body.matches % search) | (:subtitle.matches % search) |
-              {:article_resources => [:body.matches % search]}
-      )
+          where("title ilike '#{search}' or description ilike '#{search}' or message_body ilike '#{search}' or subtitle ilike '#{search}' or article_resources.body ilike '#{search}'")
     else
       scoped
     end
