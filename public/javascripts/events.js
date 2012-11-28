@@ -279,7 +279,7 @@ function create_flash_object(clip, url) {
         pollID: 0,
         pollPresets: function() {
             $.ajax({
-                timeout: 5000,
+                timeout: 10000,
                 url: kabtv.tabs.url_for_presets_update,
                 cache: false,
                 data: {
