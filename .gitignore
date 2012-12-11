@@ -10,6 +10,7 @@ nbproject/*
 nbproject/**/*
 config/database.yml
 config/exceptional.yml
+config/settings.yml
 public/ckeditor_assets/**/*
 .idea/*
 public/system/**/*
@@ -24,3 +25,4 @@ vendor/cache
 .redcar
 arvut_system.iml
 public/page_cache
+.rvmrc
