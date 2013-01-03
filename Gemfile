@@ -1,6 +1,6 @@
 source 'http://rubygems.org'
 
-gem 'rails', '3.0.17'
+gem 'rails', '3.0.18'
 #gem 'railties', '3.0.3'
 gem  'sendgrid'
 # extension for  arel where
