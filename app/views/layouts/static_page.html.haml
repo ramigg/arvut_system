@@ -17,10 +17,10 @@
     = csrf_meta_tag unless @page_caching
 
   %body(class="#{I18n.locale} layout-stream")
-      .skin_bg
-        =link_to get_skin_url, :target => '_blank' do
-          .skin_container
-            %p
+  .skin_bg
+    =link_to get_skin_url, :target => '_blank' do
+      .skin_container
+        %p
     .clear
     .wrapper
       .header
