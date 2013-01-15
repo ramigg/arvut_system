@@ -4,11 +4,10 @@ class Region < ActiveRecord::Base
   has_many :users
 
   def self.options_for_select(country_id)
-    regions = where(:country_id => country_id, :region.ne => '00').order(:name).all.map{|c| [c.name, c.id]} rescue []
     if country_id.empty?
-      regions = where(:country_id => country_id, :region => '00').order(:name).all.map{|c| [c.name, c.id]} rescue []
+      where(:country_id => country_id, :region => '00').order(:name).all.map { |c| [c.name, c.id] } rescue []
+    else
+      where(:country_id => country_id, :region.not_eq => '00').order(:name).all.map { |c| [c.name, c.id] } rescue []
     end
-
-    regions
   end
 end
