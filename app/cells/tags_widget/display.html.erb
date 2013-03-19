@@ -3,9 +3,15 @@
     <h4><%= t('stream.tags_menu') %>:</h4>
     <ul class="side_menu side_tags">
       <%- @tags.each do |tag| %>
+          <% special_tag_style = ''
+          assignment_tags = ['ASSIGNMENTS', 'משימות', 'ЗАДАНИЯ', 'ASIGNACIONES', 'AUFGABE', 'AGENDAMENTOS', 'ATAMALAR']
+          if assignment_tags.include?(tag.to_s.upcase)
+            special_tag_style = 'font-weight:bold; color: red;'
+          end %>
           <li id="menu-tag<%= tag.id %>" class="read">
             <h5>
-              <%= link_to tag, stream_path(:stream_filter => 'tag', :modifier => tag.to_s), :class => 'data-remote' %>
+              <%= link_to tag, stream_path(:stream_filter => 'tag', :modifier => tag.to_s), :class => 'data-remote',
+                          :style => special_tag_style %>
             </h5>
           </li>
       <%- end %>
