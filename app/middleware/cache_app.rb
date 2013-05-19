@@ -18,7 +18,7 @@ class CacheApp
       unless value
         value = generate_presets(env, key)
         #@cache.set(key, result, 12.seconds, true) rescue nil
-        Rails.cache.write(key, value, :expires_in => 15.seconds) rescue nil
+        Rails.cache.write(key, value, :expires_in => 30.seconds) rescue nil
         supplied_by = 'Middleware'
       end
 

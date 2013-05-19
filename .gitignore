@@ -10,6 +10,7 @@ nbproject/*
 nbproject/**/*
 config/database.yml
 config/exceptional.yml
+config/settings.yml
 public/ckeditor_assets/**/*
 .idea/*
 public/system/**/*
@@ -27,3 +28,4 @@ arvut_system.iml
 .ruby-gemset
 public/page_cache/**/*
 config/settings.yml
+.rvmrc
