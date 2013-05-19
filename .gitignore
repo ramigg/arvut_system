@@ -24,5 +24,8 @@ lib/yaml2csv/**
 vendor/cache
 .redcar
 arvut_system.iml
-public/page_cache
+.ruby-version
+.ruby-gemset
+public/page_cache/**/*
+config/settings.yml
 .rvmrc
