@@ -6,7 +6,11 @@
           <% special_tag_style = ''
           assignment_tags = ['ASSIGNMENTS', 'משימות', 'ЗАДАНИЯ', 'ASIGNACIONES', 'AUFGABE', 'AGENDAMENTOS', 'ATAMALAR']
           if assignment_tags.include?(tag.to_s.upcase)
-            special_tag_style = 'font-weight:bold; color: red;'
+            special_tag_style = 'color: red;'
+          end
+          tens_tags = ['TENS', 'עשיריות', 'ДЕСЯТКИ', 'DECENAS', 'Ten']
+          if tens_tags.include?(tag.to_s.upcase)
+            special_tag_style = 'color: blue;'
           end %>
           <li id="menu-tag<%= tag.id %>" class="read">
             <h5>
