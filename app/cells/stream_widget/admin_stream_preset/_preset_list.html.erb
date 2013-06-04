@@ -1,7 +1,7 @@
 <% unless @stream_presets.blank? %>
   <ul id="preset_list" style="margin-top:7px;">
     <% for stream_preset in @stream_presets %>
-      <li class="apotomo-click" style="font-size:11px;padding:2px 0px;margin-bottom:5px;cursor:pointer;<% if stream_preset == current_preset %>color:green;font-weight:bold;<% end %>" data-event-url="<%= url_for_event(:edit_preset, :stream_preset_id => stream_preset.id) %>"><%= stream_preset.name %></li>
+      <li class="apotomo-click" style="font-size:11px;padding:2px 0px;margin-bottom:2px;cursor:pointer;<% if stream_preset == current_preset %>color:green;font-weight:bold;<% end %>" data-event-url="<%= url_for_event(:edit_preset, :stream_preset_id => stream_preset.id) %>"><%= stream_preset.name %></li>
     <% end %>
   </ul>
 <% end %>

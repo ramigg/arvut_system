@@ -2,12 +2,12 @@
 <tr style="border-bottom:3px solid white" onmouseover="$(this).css('background-color', '#f2f2f2').find('input').css('background-color', '#f2f2f2');" onmouseout="$(this).css('background-color', 'transparent').find('input').css('background-color', 'transparent');">
 	<td>
       <%= form.hidden_field :id %>
-      <%= form.select :technology_id, options_from_collection_for_select(Technology.all, :id, :name, :selected => object ? object.technology_id : 0) %>
+      <%= form.select :technology_id, options_from_collection_for_select(Technology.order(:name).all, :id, :name, :selected => object ? object.technology_id : 0) %>
     </td>
     <td>
-      <%= form.select :quality_id, options_from_collection_for_select(Quality.all, :id, :name, :selected => object ? object.quality_id : 0) %>
+      <%= form.select :quality_id, options_from_collection_for_select(Quality.order(:name).all, :id, :name, :selected => object ? object.quality_id : 0) %>
     </td>
-	<td><%= form.text_field :stream_url, :style => "width:320px;font-size:11px;margin-right:4px;direction:ltr;" %></td>
+	<td><%= form.text_field :stream_url, :style => "width:530px;font-size:11px;margin-right:4px;direction:ltr;", :class => 'stream-url'%></td>
 	<td><%= form.check_box :is_default, :style => "width:30px;font-size:11px;" %></td>
 	<td style="width:20px;vertical-align:middle;"><%= link_to_remove_fields image_tag('icons/remove_icon.png', :style => 'width:16px; margin:0 auto;'), form %></td>
 </tr>

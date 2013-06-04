@@ -57,7 +57,7 @@ module StreamWidget
     end
 
     def set_presets
-      @stream_presets = StreamPreset.all
+      @stream_presets = StreamPreset.where(StreamPreset.arel_table[:name].not_eq(nil)).order(:name).all
     end
   end
 end
