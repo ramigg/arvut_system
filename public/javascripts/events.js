@@ -214,7 +214,7 @@
 function create_flash_object(streamName, netUrl) {
     $("#object").html('');
     $f('object',
-        { src: 'flowplayer/flowplayer.commercial-3.2.7.swf', wmode: 'transparent', id: 'player' },
+        { src: 'flowplayer/flowplayer.commercial-3.2.16.swf', wmode: 'transparent', id: 'player' },
         {
             key: '#\@432d5aedb59612f8458',
             clip: {
@@ -232,7 +232,7 @@ function create_flash_object(streamName, netUrl) {
             },
             plugins: {
                 rtmp: {
-                    url: 'flowplayer.rtmp-3.2.3.swf',
+                    url: 'flowplayer.rtmp-3.2.12.swf',
                     proxyType: 'HTTP',
                     netConnectionUrl: netUrl
                 },
@@ -423,9 +423,9 @@ function create_flash_object(streamName, netUrl) {
                                 dataType: 'jsonp',
                                 jsonp: false,
                                 jsonpCallback: 'DynamicGeoStreamLocator'
-                            }).success(function (data, textStatus) {
+                            }).success(function (data) {
                                 create_flash_object(data.streamName, data.netUrl);
-                            })
+                            });
                         } else {
                             var match = url.match(/clip=(.*);stream=(.*)/);
                             streamName = match[1];
