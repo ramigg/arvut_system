@@ -17,7 +17,7 @@
         url_for_classboard: '',
 
         pollID: 0,
-        pollSketches: function() {
+        pollSketches: function () {
             $.ajax({
                 url: kabtv.sketches.url_for_classboard,
                 cache: false,
@@ -134,7 +134,7 @@
             kabtv.sketches.$current.animate({
                     opacity: 0
                 }, 1000, 'linear', // Hide the upper one
-                function() {
+                function () {
                     kabtv.sketches.$item.css('z-index', 10); // Become the upper
                     kabtv.sketches.$current.css({
                         'z-index': 1,
@@ -159,7 +159,7 @@
     }
 
     $.extend(kabtv.schedule, {
-        show_day: function(me, day) {
+        show_day: function (me, day) {
             var $me = $(me);
             $me.parent().children().removeClass('active');
             $me.addClass('active');
@@ -182,7 +182,7 @@
     $.extend(kabtv.questions, {
         url_for_more_questions: '',
         pollID: 0,
-        pollQuestions: function() {
+        pollQuestions: function () {
             $.ajax({
                 url: kabtv.questions.url_for_more_questions,
                 cache: false,
@@ -211,37 +211,37 @@
 
 })(jQuery);
 
-function create_flash_object(clip, url) {
+function create_flash_object(streamName, netUrl) {
     $("#object").html('');
     $f('object',
         { src: 'flowplayer/flowplayer.commercial-3.2.7.swf', wmode: 'transparent', id: 'player' },
         {
             key: '#\@432d5aedb59612f8458',
             clip: {
-                url: clip,
+                url: streamName,
                 live: true,
                 bufferLength: 5,
                 provider: 'rtmp',
                 scaling: 'fit',
-                onBeforePause : function() {
+                onBeforePause: function () {
                     return false;
                 }
             },
             canvas: {
-        	backgroundGradient: 'none'
-    	    },
+                backgroundGradient: 'none'
+            },
             plugins: {
                 rtmp: {
                     url: 'flowplayer.rtmp-3.2.3.swf',
                     proxyType: 'HTTP',
-                    netConnectionUrl: url
+                    netConnectionUrl: netUrl
                 },
                 controls: {
-            	    autoHide: 'fullscreen',
-            	    play: false,
-            	    stop: true,
-            	    time: false,
-            	    scrubber: false
+                    autoHide: 'fullscreen',
+                    play: false,
+                    stop: true,
+                    time: false,
+                    scrubber: false
                 }
             }
         }
@@ -259,10 +259,10 @@ function create_flash_object(clip, url) {
     }
 
     $.extend(kabtv.tabs, {
-        presets : null,
-        stream_preset_id : 0,
-        preset_data : null,
-        languages : null,
+        presets: null,
+        stream_preset_id: 0,
+        preset_data: null,
+        languages: null,
         lang_options: null,
         images: null,
         flash_technology: null,
@@ -277,7 +277,7 @@ function create_flash_object(clip, url) {
         poll_tabs: true,
         poll_support: true,
         pollID: 0,
-        pollPresets: function() {
+        pollPresets: function () {
             $.ajax({
                 timeout: 10000,
                 url: kabtv.tabs.url_for_presets_update,
@@ -288,8 +288,8 @@ function create_flash_object(clip, url) {
                 },
                 success: kabtv.tabs.init
             });
-/***
-            kabtv.tabs.poll_support && $.ajax({
+            /***
+             kabtv.tabs.poll_support && $.ajax({
                 url: 'http://live.kab.tv/button.php',
                 cache: false,
                 data: {
@@ -302,11 +302,11 @@ function create_flash_object(clip, url) {
                     $('.online-status').html(msg.res);
                 }
             });
-***/
+             ***/
         },
 
         // init
-        init: function(data) {
+        init: function (data) {
             if (data == "")
                 return;
             eval(data);
@@ -367,7 +367,7 @@ function create_flash_object(clip, url) {
             kabtv.tabs.timestamp = 0;
         },
 
-        select_me: function(me, name) {
+        select_me: function (me, name) {
             $('.tabs span').removeClass('active');
             $(me).parent().addClass('active');
             $('.content>div').hide();
@@ -407,22 +407,36 @@ function create_flash_object(clip, url) {
         <param name="enableContextMenu" value="0" />\
         <param name="windowlessVideo" value="1" /><param name="balance" value="0" />',
 
-        draw_player: function(url) {
+        draw_player: function (url) {
             if (url == null) return;
 
             var object;
             if (kabtv.tabs.preset_data.stream_preset.is_active) {
                 var current_technology = $("#technology_id").val();
                 if (kabtv.tabs.flash_technology == current_technology) { // Flash
-            	    $("#tightvideo_img").show();
+                    $("#tightvideo_img").show();
                     try {
-                        var match = url.match(/clip=(.*);stream=(.*)/);
-                        create_flash_object(match[1], match[2]);
-                    } catch(err) {
+                        var netUrl, streamName;
+                        if (url.match(/^http:/)) {
+                            $.ajax({
+                                url: url,
+                                dataType: 'jsonp',
+                                jsonp: false,
+                                jsonpCallback: 'DynamicGeoStreamLocator'
+                            }).success(function (data, textStatus) {
+                                create_flash_object(data.streamName, data.netUrl);
+                            })
+                        } else {
+                            var match = url.match(/clip=(.*);stream=(.*)/);
+                            streamName = match[1];
+                            netUrl = match[2];
+                            create_flash_object(streamName, netUrl);
+                        }
+                    } catch (err) {
                         ;
                     }
                 } else { // WMV
-            	    $("#tightvideo_img").hide();
+                    $("#tightvideo_img").hide();
                     if ($.browser.msie)
                         object = kabtv.tabs.objectMSIE.replace(/URL_PATTERN/g, url);
                     else
@@ -430,9 +444,9 @@ function create_flash_object(clip, url) {
                     $('#object').html(object);
                 }
             } else {
-		$("#tightvideo_img").hide();
+                $("#tightvideo_img").hide();
                 var lang_id = $("select#language_id").val();
-                var object = $.grep(kabtv.tabs.images, function(n, i) {
+                var object = $.grep(kabtv.tabs.images, function (n, i) {
                     return lang_id == n.lang;
                 })[0].image;
 
@@ -440,7 +454,7 @@ function create_flash_object(clip, url) {
             }
         },
 
-        detach: function() {
+        detach: function () {
             var $obj = $('#player');
             if ($obj) {
                 var obj = $obj[0];
@@ -453,7 +467,7 @@ function create_flash_object(clip, url) {
             }
         },
 
-        fs: function() {
+        fs: function () {
             var $obj = $('#player');
             if ($obj) {
                 var obj = $obj[0];
@@ -482,13 +496,13 @@ function setup_player() {
         current_language = $("select#language_id").val();
 
     // Check that the URL present
-    var url_present = $.grep(kabtv.tabs.presets, function(n, i) {
+    var url_present = $.grep(kabtv.tabs.presets, function (n, i) {
         return current_stream_url == n.url;
     });
     if (url_present.length > 0) {
         reload_player = false;
         var default_technology_id = url_present[0].tid;
-        var lang_obj = $.grep(kabtv.tabs.languages, function(n, i) {
+        var lang_obj = $.grep(kabtv.tabs.languages, function (n, i) {
             return n.lid == current_language
         })[0];
         var lod = lang_obj;
@@ -496,7 +510,7 @@ function setup_player() {
         set_player_technology(lod, default_technology_id);
     } else {
         reload_player = true; // Reload player
-        var lang_obj = current_language ? $.grep(kabtv.tabs.languages, function(n, i) {
+        var lang_obj = current_language ? $.grep(kabtv.tabs.languages, function (n, i) {
             return n.lid == current_language
         })[0] : kabtv.tabs.languages[0];
         var default_technology_id = lang_obj.tid;
@@ -541,7 +555,7 @@ function set_player_technology(lang_obj, technology_id) {
     var has_flash_stream = false;
     var has_wmv_stream = false;
     if (kabtv.tabs.flash) {
-        var f = $.grep(kabtv.tabs.technologies, function(n, i) {
+        var f = $.grep(kabtv.tabs.technologies, function (n, i) {
             return n.technology.name == 'Flash'
         });
 
@@ -556,7 +570,7 @@ function set_player_technology(lang_obj, technology_id) {
         }
     }
     if (kabtv.tabs.wmv) {
-        var f = $.grep(kabtv.tabs.technologies, function(n, i) {
+        var f = $.grep(kabtv.tabs.technologies, function (n, i) {
             return n.technology.name == 'WMV'
         });
         $.each(kabtv.tabs.presets, function (i, v) {
