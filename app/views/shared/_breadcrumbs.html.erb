@@ -1,4 +1,7 @@
 <div class="content-submenu">
+  <script>
+    simulator_breadcrumb = '<em><%= I18n.t("stream.#{page.page_type}s") %></em> &gt; <%= page.title %>';
+  </script>
   <em><%= I18n.t("stream.#{page.page_type}s") %></em> &gt; <%= page.title %>
 	<span class="back"><%= link_to I18n.t("stream.back"), {}, :onclick => "javascript:history.back(); return false;" %></span>
 </div>

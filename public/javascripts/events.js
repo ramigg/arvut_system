@@ -411,10 +411,19 @@ function create_flash_object(streamName, netUrl) {
             if (url == null) return;
 
             var object;
+            var current_technology = $("#technology_id").val();
+            var current_language = $("select#language_id").val();
+
+            // For complains
+            $('#user_complain_language_id').val(current_language);
+            $('#user_complain_technology_id').val(current_technology);
+            $('#user_complain_quality_url').val(url);
+            $('#user_complain_simulator_breadcrumb').val(simulator_breadcrumb);
+
             if (kabtv.tabs.preset_data.stream_preset.is_active) {
-                var current_technology = $("#technology_id").val();
                 if (kabtv.tabs.flash_technology == current_technology) { // Flash
                     $("#tightvideo_img").show();
+
                     try {
                         var netUrl, streamName;
                         if (url.match(/^http:/)) {
@@ -522,9 +531,6 @@ function setup_player() {
     if (current_technology == null)
         current_technology = $("#technology_id").val();
 
-    $('#user_complain_language_id').val(current_language);
-    $('#user_complain_technology_id').val(current_technology);
-
     if (current_technology == kabtv.tabs.flash_technology) {
         $('.player-btn').hide();
     } else {
@@ -541,10 +547,14 @@ function set_player_quality(lang_id, technology_id) {
             qualities += "<option value='" + v.url + "' " + (v.def ? "selected = 'selected'" : "" ) + ">" + v.qname + "</option>";
         }
     });
+
     // Clear quality select
     $("select#quality_id option").remove();
     $(qualities).appendTo("#quality_id");
     $.uniform.update('#quality_id');
+
+    // For complains
+    $('#user_complain_quality_url').val($('#quality_id').val());
 }
 
 function set_player_technology(lang_obj, technology_id) {
@@ -594,6 +604,10 @@ function set_player_technology(lang_obj, technology_id) {
             technology_id = id;
         }
     }
+
+    // For complains
+    $('#user_complain_language_id').val(current_language);
+    $('#user_complain_technology_id').val(technology_id);
 
     $("select#technology_id option").remove();
     $(techs).appendTo('#technology_id');

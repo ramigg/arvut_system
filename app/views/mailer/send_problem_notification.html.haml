@@ -15,6 +15,24 @@ Locale:
 = @locale
 %br
 %br
+Watching:
+%br
+Event:
+!= @problem.simulator_breadcrumb
+%br
+Language:
+= @problem.language.language
+(
+= @problem.language.locale
+)
+%br
+Technology:
+= @problem.technology.name
+%br
+Stream:
+= @problem.quality_url
+%br
+%br
 Preferred Language:
 = @user.language.try(:language)
 %br

@@ -7,11 +7,11 @@ Locale:
 = @locale
 
 User:
-= @user.first_name
-= @user.last_name
+= @problem.user.first_name
+= @problem.user.last_name
 
 Email:
-= @user.email
+= @problem.user.email
 
 Preferred Language:
 = @user.language.try(:language)
@@ -21,5 +21,16 @@ Location:
 = @user.region.try(:name)
 = @user.location.try(:city)
 
+Watching:
+Event:
+= @problem.simulator_breadcrumb
+Language:
+= @problem.language
+Technology:
+= @problem.technology
+Stream:
+= @problem.quality
+
+Preferred Language:
 - @problem.attributes.each do |key, val|
   = "#{key} = #{val}\n"
