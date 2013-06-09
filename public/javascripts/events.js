@@ -424,8 +424,8 @@ function create_flash_object(streamName, netUrl) {
                                 jsonp: false,
                                 jsonpCallback: 'DynamicGeoStreamLocator'
                             }).success(function (data) {
-                                create_flash_object(data.streamName, data.netUrl);
-                            });
+                                    create_flash_object(data.streamName, data.netUrl);
+                                });
                         } else {
                             var match = url.match(/clip=(.*);stream=(.*)/);
                             streamName = match[1];
@@ -552,42 +552,49 @@ function set_player_technology(lang_obj, technology_id) {
 
     // Create list of technologies
     var techs = '';
-    var has_flash_stream = false;
-    var has_wmv_stream = false;
-    if (kabtv.tabs.flash) {
-        var f = $.grep(kabtv.tabs.technologies, function (n, i) {
-            return n.technology.name == 'Flash'
-        });
+    var has_flash_stream = false, has_default_flash_stream = false;
+    var has_wmv_stream = false, has_default_wmv_stream = false
 
-        $.each(kabtv.tabs.presets, function (i, v) {
-            if (v.tid == kabtv.tabs.flash_technology && v.pid == current_language) {
-                has_flash_stream = true;
-            }
-        });
-        if (f != 'undefined' && has_flash_stream) {
-            var id = f[0].technology.id;
-            techs += '<option value="' + id + '"' + (lang_obj.tid == id ? 'selected="selected"' : '') + '>' + kabtv.tabs.flash_text + '</option>';
+    var f = $.grep(kabtv.tabs.technologies, function (n, i) {
+        return n.technology.name == 'Flash'
+    });
+
+    $.each(kabtv.tabs.presets, function (i, v) {
+        if (v.tid == kabtv.tabs.flash_technology && v.pid == current_language) {
+            kabtv.tabs.flash = true;
+            has_flash_stream = true;
+            has_default_flash_stream = has_default_flash_stream || v.def;
+        }
+    });
+    if (f != 'undefined' && has_flash_stream) {
+        var id = f[0].technology.id;
+        has_default_flash_stream = (id == lang_obj.tid) && has_default_flash_stream;
+        techs += '<option value="' + id + '"' + (has_default_flash_stream ? 'selected="selected"' : '') + '>' + kabtv.tabs.flash_text + '</option>';
+        if (has_default_flash_stream) {
+            technology_id = id;
         }
     }
-    if (kabtv.tabs.wmv) {
-        var f = $.grep(kabtv.tabs.technologies, function (n, i) {
-            return n.technology.name == 'WMV'
-        });
-        $.each(kabtv.tabs.presets, function (i, v) {
-            if (v.tid != kabtv.tabs.flash_technology && v.pid == current_language) {
-                has_wmv_stream = true;
-            }
-        });
 
-        if (f != 'undefined' && has_wmv_stream) {
-            var id = f[0].technology.id;
-            var selected = lang_obj.tid == id || !has_flash_stream;
-            techs += '<option value="' + id + '"' + (selected ? 'selected="selected"' : '') + '>' + kabtv.tabs.wmv_text + '</option>';
-            if (selected) {
-                technology_id = id;
-            }
+    var wmv = $.grep(kabtv.tabs.technologies, function (n, i) {
+        return n.technology.name == 'WMV'
+    });
+    $.each(kabtv.tabs.presets, function (i, v) {
+        if (v.tid != kabtv.tabs.flash_technology && v.pid == current_language) {
+            kabtv.tabs.wmv = true;
+            has_wmv_stream = true;
+            has_default_wmv_stream = has_default_wmv_stream || v.def;
+        }
+    });
+
+    if (wmv != 'undefined' && has_wmv_stream) {
+        var id = wmv[0].technology.id;
+        var selected = ((id == lang_obj.tid) && has_default_wmv_stream) || !has_flash_stream;
+        techs += '<option value="' + id + '"' + (selected ? 'selected="selected"' : '') + '>' + kabtv.tabs.wmv_text + '</option>';
+        if (selected) {
+            technology_id = id;
         }
     }
+
     $("select#technology_id option").remove();
     $(techs).appendTo('#technology_id');
     $.uniform.update('#technology_id');
