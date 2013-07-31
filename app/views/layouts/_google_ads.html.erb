@@ -1,3 +1,4 @@
+<% cache "google-ad-#{I18n.locale.to_s}", :expires_in => 60.minutes, :race_condition_ttl => 15.seconds do %>
 <%-
     require 'open-uri'
     time = Time.now.to_i.to_s
@@ -107,3 +108,4 @@
     <%- end %>
   </div>
 </div>
+<% end %>
