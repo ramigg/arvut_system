@@ -4,6 +4,7 @@ class StaticPagesController < ApplicationController
 
   caches_page :tv
   before_filter(:only => :tv) { @page_caching = true}
+  skip_before_filter :authenticate_user!
 
   class Request
     attr_accessor :parameters
