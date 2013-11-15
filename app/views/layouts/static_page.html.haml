@@ -18,11 +18,7 @@
 
   %body(class="#{I18n.locale} layout-stream")
   .skin_bg
-    =link_to get_skin_url, :target => '_blank' do
-      .skin_container
-        %p
-    .clear
-    .wrapper
+    .wrapper(style="margin: 20px auto;")
       .header
         .logo
           = link_to image_tag("/images/logo-#{I18n.locale}.png"), "http://kabbalahgroup.info/internet/#{I18n.locale}", :title => t('home.views.site_name') , :alt => nil

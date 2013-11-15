@@ -87,15 +87,14 @@
 
   $(function() {
     var url = '#{@stream_url}';
-    try {
-        var match = url.match(/clip=(.*);stream=(.*)/);
-        if (match != null)
-          create_flash_object(match[1], match[2]);
-        else
-          create_wmv_object(url);
-    } catch(err) {
-        ;
-    }
+    $.ajax({
+      url: url,
+      dataType: 'jsonp',
+      jsonp: false,
+      jsonpCallback: 'DynamicGeoStreamLocator'
+    }).success(function (data) {
+      create_flash_object(data.streamName, data.netUrl);
+    });
   });
 
   function fs() {
