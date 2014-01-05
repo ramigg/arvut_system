@@ -1,10 +1,19 @@
 body{
-    background: #ffffff repeat-x 0 0;
+    background: #00092d;
 }
 .skin_bg {
- /* background: url(../images/skin/bg_image_en.jpg) no-repeat center 0px;*/
-    top:0px;
+    margin-top: 0;
+    background: url(../images/skin/zohar/2000x1200.png) no-repeat center 0px;
 }
 .wrapper{
-    margin:200px auto 20px;
+    margin:205px auto 0px;
+}
+
+.skin_container {
+    background: url(../images/skin/zohar/960x205.png) no-repeat center 0px;
+}
+
+.skin_container iframe {
+    border-radius: 0;
+    box-shadow: none;
 }
