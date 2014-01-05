@@ -9,10 +9,6 @@ body{
     margin:205px auto 0px;
 }
 
-.skin_container {
-    background: url(../images/skin/zohar/960x205.png) no-repeat center 0px;
-}
-
 .skin_container iframe {
     border-radius: 0;
     box-shadow: none;
