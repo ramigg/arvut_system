@@ -1,5 +1,8 @@
 <%
-   red_tags = ['Convention', 'Desert Convention', 'כנס במדבר', 'כנסים', 'Конгресс в пустыне', 'КОНГРЕСС', 'CONGRESO', 'Convención en el Desierto', 'KONGRESS', 'CONGRESSO', 'Congresso no Deserto'].map(&:upcase)
+   red_tags = [
+           'Convention', 'Desert Convention', 'כנס במדבר', 'כנסים', 'Конгресс в пустыне', 'КОНГРЕСС', 'CONGRESO', 'Convención en el Desierto',
+           'KONGRESS', 'CONGRESSO', 'Congresso no Deserto', 'подготовка к конгрессу', 'הכנה לכנס', 'convention preparation', 'Preparación para el congreso'
+   ].map(&:upcase)
    blue_tags = [].map(&:upcase)
 %>
 <%- if @tags %>
