@@ -28,11 +28,12 @@ group :production do
 end
 
 group :development do
-  #gem 'linecache19', :git => 'git://github.com/mark-moseley/linecache'
-  #gem "ruby-debug-base19x", '>= 0.11.30.pre7'
-  #gem "debugger"
-  #gem "ruby-debug-ide"
+  gem "debugger"
+  gem "debugger-xml"
+  gem 'better_errors'
+  gem 'binding_of_caller'
   gem 'mongrel', '>= 1.2.0.pre2' #for ruby v1.9.2
+  gem 'thin'
 end
 
 # CKEditor + Paperclip
@@ -53,5 +54,4 @@ gem 'apotomo', '1.0.4', :git => 'git://github.com/ramigg/apotomo.git', :branch =
 
 # Cache store:
 gem 'dalli'
-#gem 'tolk'
 gem 'rack'
