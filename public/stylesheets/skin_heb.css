@@ -1,15 +1,23 @@
 body{
+    /*
     background: #00092d;
+     */
 }
 .skin_bg {
+    /*
     margin-top: 0;
     background: url(../images/skin/zohar/2000x1200.jpg) no-repeat center 0px;
+     */
 }
 .wrapper{
+  /*
     margin:205px auto 0px;
+    */
 }
 
 .skin_container iframe {
+  /*
     border-radius: 0;
     box-shadow: none;
+    */
 }
