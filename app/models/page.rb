@@ -27,8 +27,8 @@ class Page < ActiveRecord::Base
 
   #  *Validations*
 
-  validates :title, :presence => true, :length => {:maximum => 255}, :if => lambda { |e| e.page_type != 'message' }
-  validates :subtitle, :length => {:maximum => 255}, :if => lambda { |e| e.page_type != 'message' }
+  validates :title, :presence => true, :length => { :maximum => 255 }, :if => lambda { |e| e.page_type != 'message' }
+  validates :subtitle, :length => { :maximum => 255 }, :if => lambda { |e| e.page_type != 'message' }
   validates :message_body, :presence => true, :if => lambda { |e| e.page_type == 'message' }
 
   delegate :locale, :to => :language
@@ -41,7 +41,7 @@ class Page < ActiveRecord::Base
   @@show_on_page = [[3, 3], [10, 10], [20, 20], [50, 50], [100, 100]]
 
   WillPaginate::ViewHelpers.pagination_options[:previous_label] = '&larr;'
-  WillPaginate::ViewHelpers.pagination_options[:next_label] = '&rarr;'
+  WillPaginate::ViewHelpers.pagination_options[:next_label]     = '&rarr;'
 
   #  *Scopes*
 
@@ -71,15 +71,15 @@ class Page < ActiveRecord::Base
   }
 
   scope :completed_assignments, lambda { |language_id, user_reg_date, user_id|
-    by_page_type('assignment', language_id, user_reg_date).joins(:page_userflags).where(:page_userflags => {:user_id => user_id, :is_answered => true})
+    by_page_type('assignment', language_id, user_reg_date).joins(:page_userflags).where(:page_userflags => { :user_id => user_id, :is_answered => true })
   }
 
   scope :favorite_pages, lambda { |language_id, user_reg_date, user_id|
-    by_page_type('all', language_id, user_reg_date).joins(:page_userflags).where(:page_userflags => {:user_id => user_id, :is_bookmark => true})
+    by_page_type('all', language_id, user_reg_date).joins(:page_userflags).where(:page_userflags => { :user_id => user_id, :is_bookmark => true })
   }
 
   scope :read_pages_by_page_type, lambda { |page_type, language_id, user_reg_date, user_id|
-    by_page_type(page_type, language_id, user_reg_date).joins(:page_userflags).where(:page_userflags => {:user_id => user_id, :is_read => true})
+    by_page_type(page_type, language_id, user_reg_date).joins(:page_userflags).where(:page_userflags => { :user_id => user_id, :is_read => true })
   }
 
   # .where(:id - PageUserflag.select(:id).where({:user_id => u.id} & {:is_read => true}))
@@ -108,10 +108,10 @@ class Page < ActiveRecord::Base
 
     if filter[:status] && filter[:status] != ''
       page = case filter[:status]
-               when 'FUTURE'
-                 page.where(:status => 'PUBLISHED', :publish_at.gt => Time.zone.now)
-               else
-                 page.where(:status => filter[:status])
+             when 'FUTURE'
+               page.where(:status => 'PUBLISHED', :publish_at.gt => Time.zone.now)
+             else
+               page.where(:status => filter[:status])
              end
     end
     page = page.where(:page_type => filter[:page_type]) if filter[:page_type] && filter[:page_type] != ''
@@ -128,10 +128,10 @@ class Page < ActiveRecord::Base
 
   # Returns pages for the given user
   def self.get_my_pages(options)
-    user = options[:user]
-    sort = options[:sort] || '"pages".updated_at DESC, "pages".publish_at DESC'
+    user   = options[:user]
+    sort   = options[:sort] || '"pages".updated_at DESC, "pages".publish_at DESC'
     locale = options[:locale] || :en
-    page = options[:page_no] || 1
+    page   = options[:page_no] || 1
 
     p = Page
     p = p.where(:language_id => Language.get_id_by_locale(locale)) unless user.is_admin? || user.is_super_moderator?
@@ -159,7 +159,7 @@ class Page < ActiveRecord::Base
     result = tag_counts_on(:"#{locale}_tags").all
     if result && result.size > 0
       result = result.select { |r| Page.published.tagged_with(r.name).count > 0 }
-      result.empty? ? nil : result
+      result.empty? ? nil : result.sort { |a, b| a.name <=> b.name }
     else
       nil
     end
@@ -204,7 +204,7 @@ class Page < ActiveRecord::Base
 
   def self.get_random_button_content
     randNum = rand(Page.button_content.count)
-    res = Page.button_content.limit(randNum + 1).offset(randNum).first
+    res     = Page.button_content.limit(randNum + 1).offset(randNum).first
   end
 
   def self.get_button_content_count
