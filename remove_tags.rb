@@ -15,7 +15,9 @@ tags2remove.each do |tag_name|
   tag.destroy
 end
 
-tag = Tag.where(name: 'עשיריות').first
-tag.name = 'חמשיות' 
+tag = Tag.where(name: 'חמשיות').first
+tag.name = 'חמישיות'
 tag.save
+
+Rails.cache.clear
 
