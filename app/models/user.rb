@@ -46,7 +46,7 @@ class User < ActiveRecord::Base
 
   # Selects users with their clicks count to generate report.
   # The report is for 1 week
-  scope :users_clicks,
+  scope :users_clicks, Proc.new {
     find_by_sql("
       SELECT email, user_id, button_click_set, (last_name || ' ' || first_name) as name,
       date(button_clicks.created_at) as sdate, count(*) as clicks
@@ -55,6 +55,7 @@ class User < ActiveRecord::Base
       GROUP BY sdate, user_id, email, button_click_set, first_name, last_name
       ORDER BY sdate DESC, clicks DESC
     ")
+  }
   #joins(:button_clicks).
   #select("email, user_id, button_click_set, (last_name || ' ' || first_name) as name, date(button_clicks.created_at) as sdate, count(*) as clicks").
   #where("date(button_clicks.created_at) > ?", -1.weeks.from_now.to_date).

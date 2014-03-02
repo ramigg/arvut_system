@@ -23,11 +23,15 @@ gem 'devise'#, :git => 'http://github.com/plataformatec/devise.git', :branch => 
 group :production do
   gem 'exceptional'
   gem 'newrelic_rpm'
+  gem 'god'
+  gem 'unicorn'
 end
 
 group :development do
-  gem 'debugger'
-  gem 'debugger-xml'
+  gem "debugger"
+  gem "debugger-xml"
+  gem 'better_errors'
+  gem 'binding_of_caller'
   gem 'mongrel', '>= 1.2.0.pre2' #for ruby v1.9.2
   gem 'thin'
 end
@@ -40,7 +44,7 @@ gem 'google_visualization'
 gem 'feedzirra'
 gem 'will_paginate', '~> 3.0.pre'
 gem 'acts-as-taggable-on', :git => 'https://github.com/mbleigh/acts-as-taggable-on.git'
-gem 'excel_exporter', :git => 'http://github.com/gshilin/excel_exporter.git'
+gem 'excel_exporter', :git => 'https://github.com/gshilin/excel_exporter.git'
 gem 'rubyzip'
 gem 'onfire', '~>0.1.1'
 gem 'yajl-ruby', :require => 'yajl'
