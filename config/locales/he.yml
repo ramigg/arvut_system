@@ -1,14 +1,14 @@
---- 
-he: 
-  activerecord: 
-    attributes: 
+---
+he:
+  activerecord:
+    attributes:
       page:
         message_body: "שדה תוכן ההודעה"
       user:
         email: "כתובת האימייל"
         password: סיסמא
-    errors: 
-      messages: 
+    errors:
+      messages:
         accepted: "חייב אישור"
         blank: "לא יכול להיות ריק"
         confirmation: "לא מתאימה לאימות סיסמא"
@@ -28,25 +28,25 @@ he:
         too_long: "is too long (maximum is %{count} characters)"
         too_short: "אורך קצר מידי (המינימום הוא %{count} תווים)"
         wrong_length: "אורך שגוי (חייב להיות %{count} תווים)"
-      models: 
-        user: 
-          attributes: 
-            email: 
+      models:
+        user:
+          attributes:
+            email:
               blank: "-- חסר ערך"
               invalid: "-- ערך שגוי"
-            password: 
+            password:
               blank: "-- לא יכול להיות ריק"
               confirmation: "לא מתאימה לאימות סיסמא"
               too_short: "קצר מידי (המינימום זה %{count} תווים)"
           blank: "שדה ריק"
-      user: 
-        header: 
+      user:
+        header:
           one: "התהליך נכשל עקב השגיאות הבאות"
           other: "התהליך נכשל עקב %{count} השגיאות הבאות"
-    models: 
+    models:
       user: אימייל
-  admin: 
-    pages: 
+  admin:
+    pages:
       actions: פעולות
       add_answer: "הוסף תשובה"
       add_new: "הוסף חדש"
@@ -152,7 +152,7 @@ he:
       video: וידיאו
       video_player: "נגן וידיאו"
       youtube: YouTube
-    questionnaires: 
+    questionnaires:
       add: הוסף
       add_answer: "הוסף תשובה"
       add_other: "הוסף תשובה אחרת"
@@ -182,7 +182,7 @@ he:
       status: סטאטוס
       title: כותרת
       update_questionnaire: "עדכן שאלון"
-    reports: 
+    reports:
       all_groups: כולם
       attendance_report: "דו\"ח נוכחות חודשי"
       basic_report: "דו\"ח פעילות כללי"
@@ -223,7 +223,7 @@ he:
       users_who_not_signed_in: "משתמשים שלא נכנסו למערכת"
       users_who_signed_in: "משתמשים שנכנסו למערכת"
       x: "לא רשום"
-    user_list: 
+    user_list:
       are_you_sure: "האם אתה בטוח?"
       create: "משתמש חדש נוצר ברשימה"
       create_new_user: "צור חבר קבוצה"
@@ -241,14 +241,14 @@ he:
       select_group: "בחר קבוצה"
       update: "המשתמש עודכן ברשימה"
       update_user_list: "עדכן חבר קבוצה"
-  answer: 
-    model: 
+  answer:
+    model:
       answer_too_short: "התשובה שלך קצרה מידי, המינימום הוא 10 תווים"
       select_at_least_one: "עליך לבחור לפחות באפשרות אחת"
       select_one_option: "עליך לבחור באחת מהאפשרויות"
       write_an_answer: "עליך לכתוב תשובה"
-  date: 
-    abbr_day_names: 
+  date:
+    abbr_day_names:
       - א
       - ב
       - ג
@@ -256,7 +256,7 @@ he:
       - ה
       - ו
       - ש
-    abbr_month_names: 
+    abbr_month_names:
       - ~
       - יאנ
       - פב
@@ -270,7 +270,7 @@ he:
       - אוק
       - נוב
       - דצ
-    day_names: 
+    day_names:
       - ראשון
       - שני
       - שלישי
@@ -278,10 +278,10 @@ he:
       - חמישי
       - שישי
       - שבת
-    formats: 
+    formats:
       graph: "%d %B"
       short: "%d %B %Y"
-    month_names: 
+    month_names:
       - ~
       - ינואר
       - פברואר
@@ -295,57 +295,57 @@ he:
       - אוקטובר
       - נובמבר
       - דצמבר
-    order: 
+    order:
       - !ruby/symbol day
       - !ruby/symbol month
       - !ruby/symbol year
-  datetime: 
-    distance_in_words: 
-      about_x_hours: 
+  datetime:
+    distance_in_words:
+      about_x_hours:
         one: "בערך שעה אחת"
         other: "בערך %{count} שעות"
-      about_x_months: 
+      about_x_months:
         one: "בערך חודש אחד"
         other: "בערך %{count} חודשים"
-      about_x_years: 
+      about_x_years:
         one: "בערך שנה אחת"
         other: "בערך %{count} שנים"
       half_a_minute: "חצי דקה"
-      less_than_x_minutes: 
+      less_than_x_minutes:
         one: "פחות מדקה אחת"
         other: "פחות מ- %{count} דקות"
         zero: "פחות מדקה אחת"
-      less_than_x_seconds: 
+      less_than_x_seconds:
         one: "פחות משניה אחת"
         other: "פחות מ- %{count} שניות"
         zero: "פחות משניה אחת"
-      over_x_years: 
+      over_x_years:
         one: "מעל שנה אחת"
         other: "מעל %{count} שנים"
-      x_days: 
+      x_days:
         one: "יום אחד"
         other: "%{count} ימים"
-      x_minutes: 
+      x_minutes:
         one: "דקה אחת"
         other: "%{count} דקות"
-      x_months: 
+      x_months:
         one: "חודש אחד"
         other: "%{count} חודשים"
-      x_seconds: 
+      x_seconds:
         one: "שניה אחת"
         other: "%{count} שניות"
-    prompts: 
+    prompts:
       day: יום
       hour: שעה
       minute: דקה
       month: חודש
       second: שניה
       year: שנה
-  devise: 
-    confirmations: 
+  devise:
+    confirmations:
       confirmed: "החשבון שלך אושר בהצלחה, כעת הינך מחובר למערכת"
       send_instructions: "נרשמת בהצלחה. בכדי להכנס למערכת עליך ללחוץ על הלינק לאישור באימייל שתקבל בדקות הקרובות!"
-    failure: 
+    failure:
       inactive: "החשבון שלך עדיין לא עבר אקטיבציה"
       invalid: "אימייל או סיסמא שגויים"
       invalid_token: "קוד אימות שגוי"
@@ -353,14 +353,14 @@ he:
       timeout: "היית במצב לא פעיל זמן ממושך ולכן עליך להכנס שוב"
       unauthenticated: "עליך להזין אימייל וסיסמא או להרשם לפני שתוכל להמשיך"
       unconfirmed: "עליך לאשר את החשבון שלך (הוראות באימייל שקיבלת) לפני שתוכל להמשיך"
-    mailer: 
-      confirmation_instructions: 
+    mailer:
+      confirmation_instructions:
         user_subject: "הוראות לאישור חשבון"
-      reset_password_instructions: 
+      reset_password_instructions:
         user_subject: "הוראות לאיפוס סיסמא"
-      unlock_instructions: 
+      unlock_instructions:
         user_subject: "הוראות לשיחרור נעילת חשבון"
-    mails: 
+    mails:
       change_my_password: "שנה את הסיסמא שלי"
       confirm_my_account: "אשר את החשבון שלי"
       confirm_through_link: "אנא לחץ על הקישור למטה כדי לאשר את חשבונך. במידה והנך לוחץ על הקישור והוא מופיע כלא פעיל, אנא העתק והדבק לחלון גלישה חדש"
@@ -372,20 +372,20 @@ he:
       unlock_line2: "לחץ על הלינר הבא לשיחרור החשבון שלך מנעילה"
       unlock_my_account: "שחרר את החשבון שלי מנעילה"
       welcome: שלום
-    passwords: 
+    passwords:
       send_instructions: "בעוד מספר דקות תקבל אימייל עם הוראות לאיפוס הסיסמא"
       updated: "הסיסמא שונתה בהצלחה, הנך מחובר למערכת"
-    registrations: 
+    registrations:
       destroyed: "החשבון שלך בוטל!"
       signed_up: "נרשמת בהצלחה. בכדי להכנס למערכת עליך ללחוץ על הלינק לאישור באימייל שתקבל בדקות הקרובות!"
       updated: "עדכון החשבון עבר בהצלחה"
-    sessions: 
+    sessions:
       signed_in: "נכנסת למערכת בהצלחה!"
       signed_out: "יצאת מהמערכת בהצלחה!"
-    unlocks: 
+    unlocks:
       send_instructions: "בעוד מספר דקות תקבל לחשבון האימייל הוראות לשיחרור נעילת חשבון"
       unlocked: "החשבון שלך שוחרר מנעילה בהצלחה, כעת הנך מחובר למערכת"
-    views: 
+    views:
       back: חזרה
       cannot_sign_in: "לא מצליח להכנס? לחץ כאן לעזרה!"
       change_my_password: "לשנות סיסמא"
@@ -412,19 +412,19 @@ he:
       sign_up_more: "הרשמה&nbsp;&nbsp;&nbsp;&#9668;"
       sign_up_now: "הרשם עכשיו!!!"
       version: "צפה ב-"
-  errors: 
-    messages: 
+  errors:
+    messages:
       already_confirmed: "כבר עבר אישור"
       not_found: "לא נמצאה"
       not_locked: "לא נעולה"
-  home: 
-    faq: 
+  home:
+    faq:
       confirmation: "נרשמת לאתר ובכל זאת אינך מצליח להכנס? לאחר ההרשמה המערכת שולחת הודעה לאישור חשבון לכתובת האימייל (שאיתו נרשמת). בגוף ההודעה ישנו לינק שבלחיצה עליו החשבון שלך במערכת הופך לפעיל. אם אינך מצליח למצוא את ההודעה הנ\"ל"
       email: "אם אתה נתקל בקשיים להכנס למערכת והסעיפים הקודמים לא עזרו, שלח לנו אימייל ל-"
       faq: "שאלות נפוצות"
       forgot_password: "נרשמת לאתר, קיבלת הודעה באימייל ואישרת את החשבון. בכל זאת אינך מצליח להכנס? יתכן ששכחת את הסיסמא שאיתה נרשמת."
       unlock: "ניסית להכנס למערכת עם סיסמא שגוייה מס' פעמים רב. יתכן והמערכת נעלה את החשבון שלך כתוצאה מהנסיונות הרבים"
-    views: 
+    views:
       active: "פעילים "
       admin: ניהול
       answered: עניתי
@@ -445,8 +445,8 @@ he:
       title_registered_vs_active: "רשומים לעומת פעילים"
       view_reports: "הצג דוחות"
       new_internet_project_we_build_it_together: "פרויקט אינטרנט חדש - אנחנו בונים אותו ביחד"
-  kabtv: 
-    admin: 
+  kabtv:
+    admin:
       add_stream_item: "הוסף stream item"
       default: "ברירת מחדל"
       description: תאור
@@ -468,7 +468,7 @@ he:
       stream_presets: "ניהול סטרימים"
       stream_selection: "בחירת Stream"
       stream_state: "Stream state"
-      stream_states: 
+      stream_states:
         is_active: בשידור
         not_active: "שידור לא פעיל"
         preparing_to_broadcast: "הכנה לשידור"
@@ -477,7 +477,7 @@ he:
       submit: שמור
       submitting: "מעדכן שינויים..."
       successfully_saved: "נשמר בהצלחה"
-    kabtv: 
+    kabtv:
       ask_question: "שאל שאלה"
       awaiting_for_approval: "השאלה שלך ממתינה לאישור"
       cancel: ביטול
@@ -510,23 +510,23 @@ he:
       thank_you: "הודעתך נקלטה בהצלחה!"
       who: שם
       wmv: "מדיה פלייר"
-  layout: 
+  layout:
     search: חיפוש
     search_screen_reader: חפש
-  notification: 
-    mailer: 
+  notification:
+    mailer:
       new_questionnaire_for_you: "יש לך שאלון חדש במערכת"
-    views: 
+    views:
       click_above_link_to_answer: "לחץ על הלינק בכדי לענות על השאלון"
       hi: שלום
       you_got_new_questionnaire: "קיבלת שאלון חדש"
-  pages: 
+  pages:
     update: "הפוסט עודכן בהצלחה"
-    views: 
+    views:
       content_required: "נא להכניס טקסט"
       required: "שדה חובה"
-  profile: 
-    views: 
+  profile:
+    views:
       change_password: "שנה סיסמא"
       dear: "שלום,"
       edit: ערוך
@@ -534,26 +534,26 @@ he:
       profile: פרופיל
       required: "שדה חובה"
       updated: "הפרופיל עודכן בהצלחה"
-  questionnaire_answer: 
-    controller: 
+  questionnaire_answer:
+    controller:
       already_answered: "כבר ענית על השאלון שביקשת"
       no_questionnaire: "השאלון שביקשת אינו קיים"
       no_success: "מענה על השאלון נכשל"
       was_success: "מענה על השאלון הסתיים בהצלחה"
-    views: 
+    views:
       all_fields_are_required: "כל השדות הם שדות חובה!"
       please_select_one_of_the_options: "אנא בחר באחת מהאפשרויות"
-  social_button: 
+  social_button:
     cancel: ביטול
     change: שנה
     clicks_a_day: "לחיצות ביום"
     generate_csv_report: "חולל דוח"
-    i_commit_to: "אני מתחייב ל- "
+    i_commit_to: ""
     we_all_clicks_for_today: "%{clicks} לחיצות 'ONE' להיום מתוך %{total} עבור כל המשתמשים"
     we_clicks_for_today: "%{clicks} לחיצות 'ONE' להיום מתוך %{total}"
     we_clicks_for_today_assist: "%{clicks} לחיצות 'ONE' להיום מתוכם %{assist} לחיצות לטובת החברים. ערבות!"
     we_group_clicks_for_today: "%{clicks} לחיצות 'ONE' להיום מתוך %{total} למשתמשים מקבוצה שלך"
-  stream: 
+  stream:
     add_to_favorites: "הוסף למועדפים"
     all: "כל הפוסטים"
     all_items: המשך
@@ -578,14 +578,14 @@ he:
     remove_from_favorites: "הסר מהמועדפים"
     tags_menu: נושאים
     unread: "לא נקרא"
-  time: 
-    formats: 
+  time:
+    formats:
       attendance_report: "%d ל%B %Y"
       graph: "%d %B"
       short: "%d-%m-%Y"
       timestamp: "%m-%d-%Y %H:%M"
-  user: 
-    model: 
+  user:
+    model:
       avatar: תמונה
       birthday: "שנת לידה"
       choose_image: "בחר תמונה"
@@ -603,7 +603,7 @@ he:
       region: איזור
       remove_avatar: "מחק תמונה"
       yes_answer: כן
-  views: 
+  views:
     back: חזרה
     cancel: ביטול
     load: טען
