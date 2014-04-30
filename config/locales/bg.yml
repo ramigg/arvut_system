@@ -1,0 +1,617 @@
+﻿bg:
+  activerecord:
+    models:
+      user: имейл
+    attributes:
+      page:
+        message_body: Съобщение
+      user:
+        email: Имейл адрес
+        password: Парола
+    errors:
+      user:
+        header:
+          one: Неуспешна операция поради следната грешка
+          other: Неуспешна операция поради следните %{count} грешки
+      messages:
+        inclusion: не е включен в този лист
+        exclusion: е заето
+        invalid: е невалидно
+        confirmation: не съвпада с потвърждението 
+        accepted: трябва да бъде прието
+        empty: не може да бъде незапълнено
+        blank: не може да бъде празно
+        too_long: е прекалено дълго (максимум %{count} знака)
+        too_short: е прекалено късо (минимум %{count} знака)
+        wrong_length: е неправилна дължина (трябва да бъде %{count} знака)
+        not_a_number: не е цифра
+        greater_than: трябва да бъде повече от %{count}
+        greater_than_or_equal_to: трябва да бъде повече или равно на %{count}
+        equal_to: трябва да бъде равно на %{count}
+        less_than: трябва да бъде по-малко от %{count}
+        less_than_or_equal_to: трябва да бъде по-малко или равно на %{count}
+        odd: трябва да бъде нечетно
+        even: трябва да бъде четно
+        taken: е вече заето
+      models:
+        user:
+          blank: празно поле
+          attributes:
+            email:
+              blank: -- липсваща стойност
+              invalid: е невалидно
+            password:
+              blank: -- не може да бъде празно
+              too_short: е прекалено късо (минимум  %{count}знака)
+              confirmation: не съвпада с потвърждението
+  views:
+    submit: Подай
+    load: Зареждане
+    cancel: Отказ
+    signout: Изход
+    back: Обратно
+    update: Актуализация
+    please_wait: Моля изчакайте...
+
+
+  layout:
+    search: Търсене
+    search_screen_reader: Търсене на
+
+
+  errors:
+    messages:
+      not_found: не е намерено
+      already_confirmed: вече е потвърдено
+      not_locked: не беше заключено
+
+
+  devise:
+    views:
+      sign_in: Вписване
+      sign_in_more: Вписване&nbsp;&nbsp;&nbsp;&#9658;
+      sign_in_more_mobile: Вход
+      email: Eмейл
+      password: Парола
+      version: Моля изберете
+      mobile: Мобилен Звуково Излъчване
+      desktop: Главен сайт
+      select_lang: Избери език
+      back: Обратно
+      remember_me: Запомни ме
+      sign_up: Отписване
+      sign_up_more: Отписване&nbsp;&nbsp;&nbsp;&#9658;
+      forgot_password: 'Забравена парола?'
+      no_confirmation_instructions: 'Не сте получили инструкции по потвърждение? '
+      no_unlock_instructions: 'Не сте получили отключени инструкции?'
+      new_password: Нова парола (най-малко 6 знака)
+      confirm_new_password: Потвърждение на паролата
+      current_password: Текуща парола (трябва да потвърдите вашите изменения)
+      send_reset_password: Изпрати ми инструкции за възстановяване на паролата
+      resend_confirmation_instructions: Изпрати отново потвържденията на инструкциите
+      resend_unlock_instructions: Изпрати отново инструкциите за отключване
+      change_my_password: Промени паролата ми
+      sign_up_now: Впиши се СЕГА!!!
+      new_user: Нов потребител?
+      cannot_sign_in: Не можете да се подпишете? Кликнете тук за помощ!
+    mails:
+      welcome: Добре дошли
+      confirm_through_link: Моля натиснете на линка по-долу, за да потвърдите вашия акаунт. Ако натиснете на линка и той се окаже повреден, моля копирайте и поставете адреса в нов прозорец на браузера.
+      confirm_my_account: Потвърди моя акаунт
+      hello: Здравейте
+      reset_password_line1: Някой е поискал линк за смяна на паролата ви и можете да го направите чрез линка, която виждате по-долу.
+      reset_password_line2: Ако не сте вие този, който е искал смяна на паролата, моля игнорирайте този емейл
+      reset_password_line3: Паролата ви няма да бъде сменена, докато не влезете в по-горния линк и не създадете нова парола
+      change_my_password: Смени паролата ми
+      unlock_line1: Акаунта ви беше заключен поради прекалено много неуспешни опити да влезете
+      unlock_line2: Кликнете на линка по-долу, за да отключите акаунта си
+      unlock_my_account: Отключете акаунта ми
+    failure:
+      unauthenticated: Трябва да се впишете или отпишете преди да продължите.
+      unconfirmed: Трябва да потвърдите вашия акаунт преди да продължите.
+      locked: Вашият акаунт е заключен.
+      invalid: Невалиден имейл или парола.
+      invalid_token: Невалиден код за разпознаване.
+      timeout: Сесията ви изтече, моля подпишете се отново, за да продължите.
+      inactive: Акаунтът ви все още не е активиран.
+    sessions:
+      signed_in: Успешно вписване.
+      signed_out: Успешно отписване.
+    passwords:
+      send_instructions: Ще получите след няколко минути имейл с инструкции как да подновите паролата си.
+      updated: Паролата ви беше успешно сменена. Влез сега.
+    confirmations:
+      send_instructions: След няколко минути ще получите имейл с инструкции как да потвърдите акаунта си.
+      confirmed:  Акаунта ви беше потвърден успешно. Влезте сега.
+    registrations:
+      signed_up: Вие влязохте успешно. Моля проверете имейл си за съобщение за потвърждение за активиране на акаунта ви!
+      updated: Вие актуализирахте вашия акаунт успешно.
+      destroyed: Довиждане! Вашият акаунт беше закрит успешно. Надяваме се скоро да ви видим отново.
+    unlocks:
+      send_instructions: След няколко минути ще получите имейл с инструкции как да отключите акаунта си. 
+      unlocked: Вашият акаунт беше успешно отключен. Влезте сега.
+    mailer:
+      confirmation_instructions: Инструкции за потвърждение
+      reset_password_instructions: Инструкции за възстановяване на паролата
+      unlock_instructions: Инструкции за отключване
+      confirmation_instructions:
+        user_subject: Инструкции за потвърждение
+      reset_password_instructions:
+        user_subject: Инструкции за възстановяване на паролата
+      unlock_instructions:
+        user_subject: Инструкции за отключване
+  answer:
+    model:
+      select_at_least_one: Трябва да изберете поне една опция.
+      write_an_answer: Трябва да напишете отговор.
+      select_one_option: Трябва да изберете една от опциите.
+      answer_too_short: Отговорът ви е твърде кратък. Минималният дължина на отговор е 10 знака. 
+  questionnaire_answer:
+    controller:
+      no_success: Въпросникът не беше отговорен успешно.
+      was_success: Въпросникът беше отговорен успешно.
+      no_questionnaire: Няма такъв Въпросник
+      already_answered: Вече отговорихте на този Въпросник
+    views:
+      all_fields_are_required: Запълването на всички полета е задължително!
+      please_select_one_of_the_options: Моля, изберете поне една от опциите
+
+
+  home:
+    views:
+      site_name: Свива това
+      edit_profile: Редактиране на профила
+      check_for_new_questionnaire: Проверете за нов въпросник
+      view_reports: Вижте Отчетите
+      date: Дата
+      title: Заглавие
+      status: Статус
+      answered: отговорено
+      not_answered: не е отговорено
+      last_10_questionnaires:  Последните 10 въпросника
+      dashboard: Моята страница
+      admin: Администратор
+      blog_title: Блог на проф. Лайтман
+      blog: http://www.laitman.bg/
+      feed: http://www.laitman.bg/feed/
+      active: Активен
+      button: Ние!
+      registered: Регистриран
+      title_registered_vs_active: Регистрирани срещу Активни
+      title_registered_vs_button: Регистрирани срещу Ние!
+      loading: Зареждане...
+      new_internet_project_we_build_it_together: Нов интернет проект – Изграждаме го заедно!
+    faq:
+      faq: Често Задавани Въпроси
+      confirmation:
+        Вече се регистрирахте, но системата все още не ви позволява да влезете?
+        Моля проверете имейла си за съобщение за потвърждение.
+        Ако няма съобщение, моля използвайте следния линк, за да ви изпратим друго.
+      forgot_password:
+        Вече се регистрирахте, но системата все още не ви позволява да влезете?
+        Проверихте ли горните инструкции за потвърждение?
+        Може би сте си забравили паролата си? Опитайте се да я подновите на следния линк.
+      unlock:
+       Вие сте заключен от системата. Моля проверете имейла си за съобщение за отключване.
+        Ако не сте получили, използвайте следния линк, за да ви изпратим отново.
+      email:
+        Ако опитахте всичко описано по-горе и все още имате проблем, тогава ни изпратете имейл на
+  pages:
+    comments_enabled: Коментариите са позволени
+    update: Страницата беше успешно допълнена
+    views:
+      required: задължително поле
+      content_required: задължително съдържание на текст
+  profile:
+    views:
+      edit: редактирай
+      dear: Здравейте,
+      please_update_profile: моля допълнете вашия профил
+      change_password: смяна на паролата
+      profile: профил
+      required: задължително поле
+      updated: Профилът ви беше успешно обновен
+  user:
+    model:
+      gender: Пол
+      male: Мъжки
+      female: Женски
+      birthday: Година на раждане
+      receive_notifications: 'Бихте ли искали да получавате известия на имейла си?'
+      yes_answer: ' Да'
+      no_answer: ' Не'
+      preferred_language: Съобщение на език
+      first_name: Лично име
+      user: Потребител
+      last_name: Фамилия
+      avatar: Аватар
+      remove_avatar: Изтрийте аватара
+      country: Страна
+      city: Град
+      region: Област
+      no_file_selected: Не е избрана снимка
+      choose_image: Избери снимка
+
+
+  admin:
+    pages:
+      language: Език
+      any_language: Който и да е език
+      comments_enabled: Коментарите са позволени
+      leave_comment: Тук можете да оставите коментар.
+      project: Проект
+      create: Създай
+      by_author: От автора
+      all: Всички
+      only_you: Само ти
+      only_moderators: Само модератори
+      reset: Изчисти формата
+      success: Страницата е успешно създадена
+      update: Страницата е успешно обновена
+      destroy: Страницата е успешно унищожена
+      destroy_failure: Страницата НЕ е унищожена
+      unknown_type: Непознат вид страница %{вид страница}
+      is_bonus: Е бонус?
+      preview_show: Покажи в предварителен вид
+      new_article: Ново съдържание
+      new_assignment: Ново задание
+      assignment: Задание
+      event: Събитие
+      metadata: Мета данни
+      content: Съдържание
+      name: Име
+      remove: Премахни
+      add_new: Добави нов
+      article: Съдържание
+      button_content: Съдържание на бутона
+      message: Съобщение
+      audio: Аудио
+      video: Видео
+      question: Въпрос
+      radio: Радио
+      checkbox: Поле за отметка
+      select: избери
+      list: Лист
+      scale: Скала
+      freetext: Свободен текст
+      title_and_description: Заглавие и Описание
+      metadata_and_content: Метаданни и Съдържание
+      sorting_and_deleting: Сортиране и Изтриване
+      save_and_publish: Съхрани и Публикувай
+      as_draft: Съхрани като чернова
+      publish_at: Публикувай на
+      publish: Публикувай
+      title: Заглавие
+      subtitle: Подзаглавие
+      description: Описание
+      embed_string:  Нишка за вхраждане
+      url: URL
+      is_autoplay: Автоматично включване
+      is_visible: Видим
+      featured_settings: Препоръчани настройки
+      is_sticky: Закачено съобщение
+      top_header: Горен хедър
+      big_banner: Голям Банер
+      top_side_banner: Страничен Банер
+      bottom_side_banner: Долен Банер
+      new_message: Ново съобщение
+      message_body: Съобщение
+      edit: Редактирай
+      delete: Изтрий
+      permissions: Разрешения
+      tags: Етикети
+      video_player: Видео плейър
+      image: Изображение
+      youtube: YouTube
+      page_administration: Страница на Администратора
+      statistics: Статистика
+      help: Помощ
+      logout: изход
+      create_new: Създай Нов
+      search: Търси
+      status: Статус
+      all_posts: Всички постинги
+      drafts: Чернови
+      published: Публикувано
+      future_posts: Бъдещи постинги
+      type: Вид
+      assignments: Задания
+      events: Събития
+      messages: Съобщения
+      filter: Филтър
+      bulk_action: В кошчето за отпадъци
+      set_as_draft: Съхрани като чернова
+      show_on_page: Покажи %{count} точки
+      items: елементи
+      arr_up: '&#9652;'
+      arr_down: '&#9662;'
+      updated_at: Обновена на
+      publish_date: Дата на публикуване
+      actions: Действия
+      are_you_sure: Сигурен ли си?
+      add_answer: Добави отговор
+      other: Друго
+      add_other: Добави друг
+      label_from: Етикет от
+      label_to: Етикет за
+      scale_from: Скала от
+      scale_to: Скала за
+      is_multiline: Много редов ли е?
+      unknown_page: Непозната страница
+      preview: Предварителен преглед
+      select_language: Избери език
+      picture4preview: Изображение за предварителен преглед
+    user_list:
+      create_new_user: Създай нов потребител
+      create_user_list: Създай потребителски списък
+      update_user_list: Обнови потребителския списък
+      create: Успешно създаден потребител в списъка
+      update: Успешно обновен потребителски списък
+      destroy: Успешно унищожен потребителски списък
+      destroy_failure: Страницата НЕ е унищожена
+      last_name: Фамилно име
+      first_name: Собствено име
+      email: Имейл
+      has_user: Съществуващ потребител?
+      edit: Редактирай
+      delete: Изтрий
+      are_you_sure: Сигурен ли сте?
+      please_select_one_of_the_options: Моля изберете една от опциите
+      select_group: Изберете Група
+      group: Група
+    questionnaires:
+      create_new_questionnaire: Създайте нов въпросник
+      created_at: Създаден на
+      created_by: Създаден от
+      title: Тема
+      status: Статус
+      edit: Редактирай
+      approve: Потвърди
+      set_draft: Чернова
+      delete: Изтрий
+      are_you_sure: Сигурен ли сте?
+      questionnaire_editor: Редактор за Въпросника
+      questionnaire_title: Заглавие на Въпросника
+      questionnaire_description: Описание на Въпросника
+      questionnaire_related_links: Линкове отнасящи се до Въпросника
+      questionnaire_excerpt: Експерт по Въпросника от Източник
+      remove: премахни
+      title: Заглавие
+      description: Описание
+      add_answer: Добави отговор
+      add_other: Добави друго
+      other: Друг
+      add: Доабви
+      label_from: Етикет от
+      label_to: Етикет към
+      scale_from: Скала от
+      scale_to: Скала към
+      is_multiline: Много редов ли е?
+      update_questionnaire: Обновен Въпросник
+      create_questionnaire: Създай Въпросник
+      fields_marked_in_red_are_required: Полетата обозначени в червено са задължителни
+    reports:
+      user_activities: Отчет по Дейността на Потребителя 
+      date_range: Моля изберете период
+      from: От
+      to: Дo
+      users_who_signed_in: Потребители, които са се вписали
+      users_who_not_signed_in: Потребители, които не са се вписали
+      users_who_answered_questionnaires: Потребители, които са отговорили на въпросите
+      show_only_confirmed_users: Покажи само потвърдилите потребители
+      display_also_profile: Покажи също и профила
+      generate_report: Създай Отчет
+      basic_report: Отчет на активността на потребителя
+      questionnaire_report: Отчет на отговорите на потребителя на Въпросника
+      attendance_report: Отчет за участие
+      export_to_excel: Изнеси в Excel
+      date: Избери месец
+      report: Отчет
+      reports: Отчети
+      user: Потребител
+      total: Общо
+      upload: Качи
+      file: Файл
+      group_name: Име на Групата
+      all_groups: Всички
+      include_email: Включи имейла в отчета
+      order_by_total: Подреди по „Общо“ вместо по „Фамилно име“
+      pages_list: Редактирай страниците
+      translations: Преводи
+      plus: активен
+      minus: неактивен
+      x: нерегистриран
+      status: Статус
+      generating: Създава…
+      for_month: за
+      print: Разпечатай
+      manage_questionnaires: Организирай въпросниците
+      questionnaires_list: Списък на въпросниците
+      user_management: Потребителско управление
+      group_management: Групово управление
+      manage_user_roles: Управление на ролите на потребителя
+      remove_user: Отстрани потребителя
+      load_group_list: Зареди списъка на групата
+      manage_user_lists: Управление на потребителския списък
+  notification:
+    views:
+      hi: Здравей
+      you_got_new_questionnaire: Вие получихте нов въпросник
+      click_above_link_to_answer: Кликнете на линка по-горе, за да отговорите
+    mailer:
+      new_questionnaire_for_you: Имате нов въпросник...
+
+
+  time:
+    formats:
+      attendance_report: '%B %d, %Y'
+      short: '%m-%d-%Y'
+      graph: '%b %d'
+      timestamp: '%m-%d-%Y %H:%M'
+  date:
+    formats:
+      attendance_report: '%B %d, %Y'
+      short: '%m-%d-%Y'
+      graph: '%b %d'
+
+
+  # Used in distance_of_time_in_words(), distance_of_time_in_words_to_now(), time_ago_in_words()
+  datetime:
+    distance_in_words:
+      half_a_minute: "половин минута"
+      less_than_x_seconds:
+        one:   "по-малко от 1 секунда"
+        other: "по-малко от  %{count} секунди"
+      x_seconds:
+        one:   "1 секунда"
+        other: "%{count} секунди"
+      less_than_x_minutes:
+        one:   "по-малко от минута"
+        other: "по-малко от %{count} минути"
+      x_minutes:
+        one:   "1 минута"
+        other: "%{count} минути"
+      about_x_hours:
+        one:   "около 1 час"
+        other: "около %{count} часа"
+      x_days:
+        one:   "1 ден"
+        other: "%{count} дни"
+      about_x_months:
+        one:   "около 1 месец"
+        other: "около %{count} месеца"
+      x_months:
+        one:   "1 месец"
+        other: "%{count} месеца"
+      about_x_years:
+        one:   "около 1 годиан"
+        other: "около %{count} години"
+      over_x_years:
+        one:   "повече от 1 година"
+        other: "над %{count} години"
+      almost_x_years:
+        one:   "почти 1 година"
+        other: "почти %{count} години"
+    prompts:
+      year:   "Година"
+      month:  "Месец"
+      day:    "Ден"
+      hour:   "Час"
+      minute: "Минута"
+      second: "Секунди"
+
+
+  stream:
+    new_internet: Нов интернет
+    projects_discussion: Дискусии
+    rav: „От Рав“
+    projects: Проекти
+    posted_ago: Публикувано %{when} 
+    read_all: Прочети повече »
+    home: Главна страница
+    all: Всички постинги
+    assignments: Задания
+    articles: Съдържание
+    messages: Съобщения
+    events: Събития
+    new_items: Нови публикации
+    all_items: Всички публикации
+    more_items: Още артикули »
+    tags_menu: Теми
+    back: « Обратно        
+    filter: Филтър от
+    mark_as: Отбележи като
+    read: прочетено
+    unread: непрочетено
+    bookmarks: Моите предпочитания
+    add_to_favorites: Добави към предпочитанията
+    remove_from_favorites: Махни от предпочитанията
+
+
+  kabtv:
+    admin:
+      show: Покажи
+      show_questions: въпроси
+      show_schedule: разписание
+      show_sketches: чертежи
+      show_coveritlive: Включи го на живо
+      coveritlive_code: Код (максимален размер 300x385)
+      show_support: подръжка
+      show_separate_window: Разреши отделен прозорец
+      successfully_saved: Успешно съхранено!
+      stream_management: Управление на потока
+      preset_name: Предварително име
+      is_active: Активен 
+      default: Постоянен
+      inactive_image: Неактивна картина
+      stream_URL: "Stream URL (Flash: clip=...;stream=...)"
+      quality: Качество
+      technology: Технология
+      language: Език
+      description: Описание
+      add_stream_item: Добави обект към потока 
+      submit: Приеми
+      submitting: Приема...
+      select_preset_or_add: Моля избери предварително зададеното за редактиране или добави ново предварително зададено
+      stream_selection: Избор на поток
+      stream_images: Поток изображения
+      stream_presets: Поток на предварително зададени
+      stream_state: Състояние на потока
+      problem_saving: Имаше проблем в съхраняването на записа
+      name: Име
+      qualities: Качество на потока
+      add_quality: Добави качество
+      stream_switcher: Превключвател на поток
+      stream_states:
+        is_active: Излъчване
+        not_active: Неактивен
+        preparing_to_broadcast: Подготовка за излъчване
+        technical_problem: Технически проблем
+
+
+    kabtv:
+      no_broadcast: Няма излъчване
+      no_broadcast_on: Няма излъчване на
+      no_questions_yet: Няма още въпроси.
+      guest: Гост
+      somewhere: Някъде
+      awaiting_for_approval: Въпросът ви очаква одобрение
+      no_question: Моля запълнете полето „Въпрос“ в
+      first: Първи
+      prev: Предишен
+      last: Последен
+      next: Следващ
+      new_sketches: Има нови чертежи
+      ask_question: Задай въпрос
+      question: Въпрос
+      who: Кой
+      from: От къде
+      loading: Зарежда...
+      coveritlive: Жив Блог
+      questions: Въпроси
+      schedule: Разписание
+      schedule_name: Разписание на събитията
+      schedule_link: https://docs.google.com/spreadsheet/ccc?key=0AvAzVeqlLTMEdEx0MFNzdFdmWWJNc1JaUUhmci0tMFE&hl=en_US
+      sketches: Чертежи
+      technical_support: Техническа подръжка
+      cancel: Отмени
+      open_in_default_viewer: Отвори в скрит прозорец
+      full_screen: На цял екран 
+      thank_you: Благодарим ви!
+      submit_problem: Не може да изпрати съобщение :(\n Моля опитайте отново по-късно.
+      describe_problem: Докладвай проблема
+      empty_message: Моля, запълнете съобщението в
+      flash: Flash
+      wmv: WMV
+
+
+  social_button:
+    i_commit_to: Обещавам да
+    clicks_a_day: натискания за ден
+    change: Измени
+    cancel: Откажи
+    generate_csv_report: Създай отчет
+    we_clicks_for_today: "%{clicks} 'Едно' кликване от %{total} за днес"
+    we_clicks_for_today_assist: "%{clicks} 'Едно‘ кликване за днес, %{assist} кликвания от тях са в полза на всички. Arvut!"
+    we_all_clicks_for_today: "%{clicks} 'Едно' кликване от %{total} за днес за всички"
+    we_group_clicks_for_today: "%{clicks} 'Едно' кликване от %{total} за днес за твоята група"
