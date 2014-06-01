@@ -4,440 +4,440 @@ ro:
       user: email
     attributes:
       page:
-        message_body: Message body
+        message_body: textul mesajului
       user:
-        email: E-mail address
-        password: Password
+        email: Adres de e-mail
+        password: Parola
     errors:
       user:
         header:
-          one: The operation failed due to the following error
-          other: The operation failed due to the following %{count} errors
+          one: Operatia a esuat datorita urmatoarei erori
+          other: Operatia a esuat datorita urmatoarei %{count} erori
       messages:
-        inclusion: is not included in the list
-        exclusion: is reserved
-        invalid: is invalid
-        confirmation: doesn't match confirmation
-        accepted: must be accepted
-        empty: can't be empty
-        blank: can't be blank
-        too_long: is too long (maximum is %{count} characters)
-        too_short: is too short (minimum is %{count} characters)
-        wrong_length: is the wrong length (should be %{count} characters)
-        not_a_number: is not a number
-        greater_than: must be greater than %{count}
-        greater_than_or_equal_to: must be greater than or equal to %{count}
-        equal_to: must be equal to %{count}
-        less_than: must be less than %{count}
-        less_than_or_equal_to: must be less than or equal to %{count}
-        odd: must be odd
-        even: must be even
-        taken: is already taken
+        inclusion: nu este inclus in lista
+        exclusion: este rezervat
+        invalid: este invalid
+        confirmation: nu se potriveste confirmarea
+        accepted: trebuie acceptat
+        empty: nu poate fi gol
+        blank: nu poate fi liber
+        too_long: este prea lung (maximum este %{count} caractere)
+        too_short: este prea scurt (minimum este %{count} caractere)
+        wrong_length: lungimea este gresita (ar trebui sa fie %{count} caractere)
+        not_a_number: nu este un numar
+        greater_than: trebuie sa fie mai mare decat %{count}
+        greater_than_or_equal_to: trebuie sa fie mai mare sau egal cu %{count}
+        equal_to: trebuie sa fie egal cu %{count}
+        less_than: trebuie sa fie mai mic decat %{count}
+        less_than_or_equal_to: trebuie sa fie mai mic sau egal cu %{count}
+        odd: trebuie sa fie impar
+        even: trebuie sa fie par
+        taken: este deja luat
       models:
         user:
-          blank: blank field
+          blank: camp liber
           attributes:
             email:
-              blank: -- missing value
-              invalid: is invalid
+              blank: -- valoare lipsa
+              invalid: este invalid
             password:
-              blank: -- cannot be blank
-              too_short: is too short (minimum is %{count} characters)
-              confirmation: doesn't match confirmation
+              blank: -- nu poate fi gol
+              too_short: este prea scurt (minimum este %{count} caractere)
+              confirmation: nu se potriveste confirmarea
 
   views:
-    submit: Submit
-    load: Load
-    cancel: Cancel
-    signout: Sign out
-    back: Back
-    update: Update
-    please_wait: Please wait...
+    submit: Trimite
+    load: Incarca
+    cancel: Anulare
+    signout: Deconectare
+    back: Inapoi
+    update: Actualizare
+    please_wait: Va rog asteptati...
 
   layout:
-    search: Search
-    search_screen_reader: Search for
+    search: Cautare
+    search_screen_reader: Cauta
 
   errors:
     messages:
-      not_found: not found
-      already_confirmed: was already confirmed
-      not_locked: was not locked
+      not_found: nu s-a gasit
+      already_confirmed: a fost deja confirmat
+      not_locked: nu a fost blocat
 
   devise:
     views:
-      sign_in: Sign in
-      sign_in_more: Sign in&nbsp;&nbsp;&nbsp;&#9658;
-      sign_in_more_mobile: Sign in
+      sign_in: Logare
+      sign_in_more: Logare&nbsp;&nbsp;&nbsp;&#9658;
+      sign_in_more_mobile: Logare
       email: Email
-      password: Password
-      version: Please select
-      mobile: Mobile Audio Broadcast
-      desktop: Regular Site
-      select_lang: Select Language
-      back: Back
-      remember_me: Remember me
-      sign_up: Sign up
-      sign_up_more: Sign up&nbsp;&nbsp;&nbsp;&#9658;
-      forgot_password: 'Forgot your password?'
-      no_confirmation_instructions: 'Did not receive confirmation instructions?'
-      no_unlock_instructions: 'Did not receive unlock instructions?'
-      new_password: New password (at least 6 characters)
-      confirm_new_password: Password confirmation
-      current_password: Current password (we need it to confirm your changes)
-      send_reset_password: Send me reset password instructions
-      resend_confirmation_instructions: Resend confirmation instructions
-      resend_unlock_instructions: Resend unlock instructions
-      change_my_password: Change my password
-      sign_up_now: Sign up NOW!!!
-      new_user: New User?
-      cannot_sign_in: Cannot sign in? Click here for help!
+      password: Parola
+      version: Va rog sa selectati
+      mobile: Transmisie audio pe mobil
+      desktop: Site-ul normal
+      select_lang: Selectati limba
+      back: Inapoi
+      remember_me: Tine-ma minte
+      sign_up: Inregistrare
+      sign_up_more: Inregistrare&nbsp;&nbsp;&nbsp;&#9658;
+      forgot_password: 'Ati uitat parola?'
+      no_confirmation_instructions: 'Nu ati primit instructiunile de confirmare?'
+      no_unlock_instructions: 'Nu ati primit instructiunile pentru deblocare?'
+      new_password: Parola noua (cel putin 6 caractere)
+      confirm_new_password: Confirmarea parolei
+      current_password: Parola curenta (ne trebuie pentru a confirma schimbarea)
+      send_reset_password: Trimiteti-mi instructiunile pentru resetarea parolei
+      resend_confirmation_instructions: Retrimite instructiunile pentru confirmare
+      resend_unlock_instructions: retrimite instructiunile pentru deblocare
+      change_my_password: Schimba parola
+      sign_up_now: Deconectati-va ACUM!!!
+      new_user: Utilizator nou?
+      cannot_sign_in: Nu puteti sa va logati? Apasati aici pentru ajutor!
     mails:
-      welcome: Welcome
-      confirm_through_link: Please click the link below to confirm your account. If you click the link and it appears to be broken, please copy and paste it into a new browser window.
-      confirm_my_account: Confirm my account
-      hello: Hello
-      reset_password_line1: Someone has requested a link to change your password, and you can do this through the link below
-      reset_password_line2: If you didn't request this, please ignore this email
-      reset_password_line3: Your password won't change until you access the link above and create a new one
-      change_my_password: Change my password
-      unlock_line1: Your account has been locked due to an excessive amount of unsuccessful sign in attempts
-      unlock_line2: Click the link below to unlock your account
-      unlock_my_account: Unlock my account
+      welcome: Bine ati venit
+      confirm_through_link: Va rog apasati pe link-ul de mai jos pentru a va confirma contul. Daca apasati pe link si apare ca incorect, va rog sa il copiati si sa il scrieti intr-o noua fereastra a browser-ului dvs.
+      confirm_my_account: Confirm contul
+      hello: Buna
+      reset_password_line1: Cineva a solicitat schimbarea parolei si o puteti face prin linkul de mai jos.
+      reset_password_line2: Daca nu ati solicitat asta, va rog sa ignorati acest mail
+      reset_password_line3: Parola dvs. nu se va schimba pana cand nu veti accesa linkul de mai sus si nu veti crea o noua parola
+      change_my_password: Schimba-mi parola
+      unlock_line1: Contul dvs. a fost blocat datorita numarului mare de incercari nereusite de logare
+      unlock_line2: Apasati pe linkul de mai jos pentru deblocarea contului
+      unlock_my_account: Deblocheaza contul
     failure:
-      unauthenticated: You need to sign in or sign up before continuing.
-      unconfirmed: You have to confirm your account before continuing.
-      locked: Your account is locked.
-      invalid: Invalid email or password.
-      invalid_token: Invalid authentication token.
-      timeout: Your session expired, please sign in again to continue.
-      inactive: Your account was not activated yet.
+      unauthenticated: Trebuie sa va logati sau sa va deconectati inainte de a continua.
+      unconfirmed: Trebuie sa confirmati contul inainte de a continua.
+      locked: Contul este blocat.
+      invalid: Email sau parola invalide.
+      invalid_token: Token de autentificare invalid.
+      timeout: Sesiunea dvs. a expirat, va rog sa va logati din nou.
+      inactive: Contul dvs. nu este activat inca.
     sessions:
-      signed_in: Signed in successfully.
-      signed_out: Signed out successfully.
+      signed_in: Logare reusita.
+      signed_out: Deconectare reusita.
     passwords:
-      send_instructions: You will receive an email with instructions about how to reset your password in a few minutes.
-      updated: Your password was changed successfully. You are now signed in.
+      send_instructions: Veti primi in cateva minute un email cu instructiuni despre cum sa va resetati parola.
+      updated: Parola dvs. a fost schimbata cu succes. Sunteti acum logat.
     confirmations:
-      send_instructions: You will receive an email with instructions about how to confirm your account in a few minutes.
-      confirmed: Your account was successfully confirmed. You are now signed in.
+      send_instructions: Veti primi in cateva minute un email cu instructiuni despre cum sa va confirmati contul.
+      confirmed: Contul dvs. a fost confirmat cu succes. Sunteti acum logat.
     registrations:
-      signed_up: You have signed up successfully. Please check your email for a confirmation message to activate your account!
-      updated: You updated your account successfully.
-      destroyed: Bye! Your account was successfully cancelled. We hope to see you again soon.
+      signed_up: V-ati inregistrat cu succes. Va rog sa va verificati mail-ul pentru mesajul de confirmare si pentru a va activa contul!
+      updated: V-ati actualizat contul cu succees.
+      destroyed: La revedere! Contul dvs. a fost anulat cu succes. Speram sa va revedem curand.
     unlocks:
-      send_instructions: You will receive an email with instructions about how to unlock your account in a few minutes.
-      unlocked: Your account was successfully unlocked. You are now signed in.
+      send_instructions: Veti primi in cateva minute un email cu instruciuni despre cum sa va deblocati contul.
+      unlocked: Contul dvs. a fost deblocat cu succes. Sunteti acum logat.
     mailer:
-      confirmation_instructions: Confirmation instructions
-      reset_password_instructions: Reset password instructions
-      unlock_instructions: Unlock Instructions
+      confirmation_instructions: Instructiuni de confirmare
+      reset_password_instructions: Instructiuni de resetare parola
+      unlock_instructions: Instructiuni pentru deblocare
       confirmation_instructions:
-        user_subject: Confirmation instructions
+        user_subject: Instructiuni de confirmare
       reset_password_instructions:
-        user_subject: Reset password instructions
+        user_subject: Instructiuni de resetare parola
       unlock_instructions:
-        user_subject: Unlock Instructions
+        user_subject: Instructiuni pentru deblocare
   answer:
     model:
-      select_at_least_one: You have to select at least one option.
-      write_an_answer: You have to write an answer.
-      select_one_option: You have to select one of the options.
-      answer_too_short: Your answer is too short. The minimum length of an answer is 10 characters.
+      select_at_least_one: Trebuie sa selectati cel putin o optiune.
+      write_an_answer: Trebuie sa scrieti un raspsuns.
+      select_one_option: Trebuie sa selectati una dintre optiuni.
+      answer_too_short: Raspsunsul dvs. este prea scurt. Lungimea minima a raspunsului este de 10 caractere.
 
   questionnaire_answer:
     controller:
-      no_success: Questionnaire was not successfuly answered.
-      was_success: Questionnaire was successfuly answered.
-      no_questionnaire: There is no such Questionnaire
-      already_answered: You have already answered this Questionnaire
+      no_success: Chestionarul nu a fost trecut cu succes.
+      was_success: Ati raspuns cu succes la Chestionar.
+      no_questionnaire: Nu exista un asemenea Chestionar
+      already_answered: Ati raspuns deja la acest Chestionar
     views:
-      all_fields_are_required: All fields are required!
-      please_select_one_of_the_options: Please select one of the options
+      all_fields_are_required: Toate campurile sunt obligatorii!
+      please_select_one_of_the_options: Va rog selectati una dintre optiuni
 
   home:
     views:
       site_name: Sviva Tova
-      edit_profile: Edit profile
-      check_for_new_questionnaire: Check for new questionnaire
-      view_reports: View Reports
-      date: Date
-      title: Title
+      edit_profile: Editati profilul
+      check_for_new_questionnaire: Verificati pentru un nou chestionar
+      view_reports: Vedeti rapoartele
+      date: Data
+      title: Titlul
       status: Status
-      answered: answered
-      not_answered: not answered
-      last_10_questionnaires: The last 10 questionnaires
-      dashboard: My page
+      answered: Raspuns
+      not_answered: Nu s-a raspuns
+      last_10_questionnaires: Ultimele 10 chestionare
+      dashboard: Pagina mea
       admin: Admin
-      blog_title: Blog of Dr. Laitman
-      blog: http://www.laitman.com/
-      feed: http://www.laitman.com/feed/
-      active: Active
-      button: We!
-      registered: Registered
-      title_registered_vs_active: Registered vs. Active
-      title_registered_vs_button: Registered vs. We!
+      blog_title: Blogul lui Dr. Laitman
+      blog: http://www.laitman.ro/
+      feed: http://www.laitman.ro/feed/
+      active: Activ
+      button: Noi!
+      registered: Inregistrat
+      title_registered_vs_active: Inregistrat vs. Activ
+      title_registered_vs_button: Inregistrat vs. Noi!
       loading: Loading...
-      new_internet_project_we_build_it_together: New internet project - We build it together
+      new_internet_project_we_build_it_together: Un nou proiect pe internet - Il construim impreuna
     faq:
-      faq: Frequently Asked Questions
+      faq: Intrebari frecvente
       confirmation:
-        You have already registered, but the system still doesn't permit you to enter?
-        Please check your mailbox for the confirmation email.
-        If there isn't one, please use the following link to send you another one.
+        V-ati inregistrat deja dar sistemul nu va permite sa intrati?
+        Va rog sa va verificati casuta de email pentru emailul de confirmare.
+        Daca nu exista unul, va rog sa folositi urmatorul link pentru a va trimite un altul.
       forgot_password:
-        You have already registered, but the system still doesn't permit you to enter?
-        Did you check the confirmation instructions above?
-        Maybe you forgot your password? Try the following link to reset it.
+        V-ati inregistrat deja dar sistemul tot nu va permite sa intrati?
+        Ati verificat instructiunile de confirmare de mai sus?
+        Poate ati uitat parola? Incercati urmatorul link pentru a o reseta.
       unlock:
-        You've been locked by the system. Please check your mailbox for the unlock email.
-        If there isn't one, please use the following link to send it again.
+        Ati fost blocat de sistem. Va rog sa va verificati casuta de email pentru mail-ul deblocare.
+        Daca nu exista unul, va rog sa folositi urmatorul link pentru a vi-l trimite din nou.
       email:
-        If you've tried everything above and still have a problem, then please send an email to
+        Daca ati incercat tot ceea ce scrie mai sus si inca aveti probleme, va rog sa trimiteti un mail la
   pages:
-    comments_enabled: Comments enabled
-    update: Page was successfully updated
+    comments_enabled: Comentarii permise
+    update: Pagina a fost actualizata cu succes
     views:
-      required: required field
-      content_required: required text content
+      required: camp necesar
+      content_required: trebuie sa existe un text
   profile:
     views:
-      edit: edit
-      dear: Hello,
-      please_update_profile: please update your profile
-      change_password: change password
-      profile: profile
-      required: required field
-      updated: Profile was successfully updated
+      edit: editare
+      dear: Buna,
+      please_update_profile: va rog sa va actualizati profilul
+      change_password: schimba parola
+      profile: profil
+      required: camp necesar
+      updated: Profilul a fost actualizat cu succes
   user:
     model:
-      gender: Gender
-      male: Male
-      female: Female
-      birthday: Year of Birthday
-      receive_notifications: 'Do you want to receive notifications to your email?'
-      yes_answer: ' Yes'
-      no_answer: ' No'
-      preferred_language: Message Language
-      first_name: First name
-      user: User
-      last_name: Last name
+      gender: Gen
+      male: Barbat
+      female: Femeie
+      birthday: Anul nasterii
+      receive_notifications: Doriti sa primiti notificare pe email?'
+      yes_answer: ' Da'
+      no_answer: ' Nu'
+      preferred_language: Limba mesajului
+      first_name: Prenumele
+      user: Utilizator
+      last_name: Numele de familie
       avatar: Avatar
-      remove_avatar: Remove Avatar
-      country: Country
-      city: City
-      region: Region
-      no_file_selected: No image selected
-      choose_image: Choose Image
+      remove_avatar: Indeparteaza Avatar
+      country: Tara
+      city: Oras
+      region: Judet
+      no_file_selected: Nicio imagine selectata
+      choose_image: Alege imaginea
 
   admin:
     pages:
-      language: Language
-      any_language: Any Language
-      comments_enabled: Comments enabled
-      leave_comment: Here you can leave a comment.
-      project: Project
-      create: Create
-      by_author: By author
-      all: All
-      only_you: Only you
-      only_moderators: Only moderators
-      reset: Clear form
-      success: Page was successfully created
-      update: Page was successfully updated
-      destroy: Page was successfully destroyed
-      destroy_failure: Page was NOT destroyed
-      unknown_type: Unknown type of page %{page_type}
-      is_bonus: Is bonus?
-      preview_show: Display in preview
-      new_article: New Content
-      new_assignment: New Assignment
-      assignment: Assignment
-      event: Event
+      language: Limba
+      any_language: Orice limba
+      comments_enabled: Comentarii permise
+      leave_comment: Aici puteti sa lasati un comentariu.
+      project: Proiect
+      create: Creat
+      by_author: De autorul
+      all: Toti
+      only_you: Numai dvs.
+      only_moderators: Numai moderatorii
+      reset: Sterge forma
+      success: Pagina a fost creata cu succes
+      update: Pagina a fost actualizata cu succes
+      destroy: Pagina a fost distrusa cu succes
+      destroy_failure: Pagina NU a fost distrusa
+      unknown_type: Tip necunoscut de pagina %{page_type}
+      is_bonus: Este bonus?
+      preview_show: Afisare in previzualizare
+      new_article: Continut nou
+      new_assignment: Sarcina nou
+      assignment: Sarcina
+      event: Eveniment
       metadata: Metadata
-      content: Content
-      name: Name
-      remove: Remove
-      add_new: Add new
-      article: Content
-      button_content: Content for button
-      message: Message
+      content: Continut
+      name: Nume
+      remove: Sterge
+      add_new: Adauga unul nou
+      article: Continut
+      button_content: Continut pentru buton
+      message: Mesaj
       audio: Audio
       video: Video
-      question: Question
+      question: Intrebare
       radio: Radio
-      checkbox: Checkbox
-      select: select
-      list: List
-      scale: Scale
-      freetext: Free Text
-      title_and_description: Title & Description
-      metadata_and_content: Metadata & Content
-      sorting_and_deleting: Sorting & Deleting
-      save_and_publish: Save & Publish
-      as_draft: Save as Draft
-      publish_at: Publish at
-      publish: Publish
-      title: Title
-      subtitle: Subtitle
-      description: Description
+      checkbox: Casuta de verificare
+      select: Selecteaza
+      list: Lista
+      scale: Scala
+      freetext: Text liber
+      title_and_description: Titlu & Decriere
+      metadata_and_content: Metadata & Continut
+      sorting_and_deleting: Sortare & Stergere
+      save_and_publish: Salvarea & Publicare
+      as_draft: Salvati ca ciorna
+      publish_at: Publicat la
+      publish: Publicare
+      title: Titlu
+      subtitle: Subtitlu
+      description: Descriere
       embed_string: String to embed
       url: URL
       is_autoplay: Autoplay
-      is_visible: Visible
-      featured_settings: Featured Settings
+      is_visible: Vizibil
+      featured_settings: Setari de aparitie
       is_sticky: Sticky Item
       top_header: Top Header
-      big_banner: Big Banner
-      top_side_banner: Top Side Banner
-      bottom_side_banner: Bottom Side Banner
-      new_message: New Message
-      message_body: Message
-      edit: Edit
-      delete: Delete
-      permissions: Permissions
-      tags: Tags
+      big_banner: Banner mare
+      top_side_banner: Banner sus pe o parte
+      bottom_side_banner: Banner jos pe o parte
+      new_message: Mesaj nou
+      message_body: Mesaj
+      edit: Editeaza
+      delete: Sterge
+      permissions: Permisiuni
+      tags: Taguri
       video_player: Video Player
-      image: Image
+      image: Imagine
       youtube: YouTube
-      page_administration: Page Administration
-      statistics: Statistics
-      help: Help
-      logout: logout
-      create_new: Create New
-      search: Search
+      page_administration: Administrarea paginii
+      statistics: Statistici
+      help: Ajutor
+      logout: Deconectare
+      create_new: Creati unul nou
+      search: Cautare
       status: Status
-      all_posts: All Posts
-      drafts: Drafts
-      published: Published
-      future_posts: Future Posts
-      type: Type
-      assignments: Assignments
-      events: Events
-      messages: Messages
-      filter: Filter
+      all_posts: Toate postarile
+      drafts: Ciorne
+      published: Publicate
+      future_posts: Postari viitoare
+      type: Tipul
+      assignments: Sarcini
+      events: Evenimente
+      messages: Mesaje
+      filter: Filtru
       bulk_action: Bulk Action
-      set_as_draft: Set as Draft
-      show_on_page: Show %{count} items
-      items: items
+      set_as_draft: Setati ca ciorna
+      show_on_page: Arata %{count} elementele
+      items: element
       arr_up: '&#9652;'
       arr_down: '&#9662;'
-      updated_at: Updated at
-      publish_date: Publish Date
-      actions: Actions
-      are_you_sure: Are you sure?
-      add_answer: Add Answer
-      other: Other
-      add_other: Add Other
-      label_from: Label From
-      label_to: Label To
-      scale_from: Scale from
-      scale_to: Scale to
-      is_multiline: Is multiline?
-      unknown_page: Unknown Page
-      preview: Preview
-      select_language: Select Language
-      picture4preview: Picture for preview
+      updated_at: Actualizat la
+      publish_date: Data publicarii
+      actions: Actiunii
+      are_you_sure: Sunteti sigur?
+      add_answer: Adaugati raspuns
+      other: Altul
+      add_other: Adaugati altul
+      label_from: Eticheta de la
+      label_to: Eticheta catre
+      scale_from: Scala de la
+      scale_to: Scala catre
+      is_multiline: Este multiliniu?
+      unknown_page: Pagina necunoscuta
+      preview: Previzualizare
+      select_language: Selectati limba
+      picture4preview: Imagine pentru previzualizare
     user_list:
-      create_new_user: Create New User
-      create_user_list: Create User List
-      update_user_list: Update User List
-      create: Successfully created user in list
-      update: Successfully updated user list
-      destroy: Successfully destroyed user list
-      destroy_failure: Page was NOT destroyed
-      last_name: Last Name
-      first_name: First Name
+      create_new_user: Creaza utilizator nou
+      create_user_list: Creaza lista utilizatorului
+      update_user_list: Actualizeaza lista utilizatorului
+      create: A fost creat cu succes utilizatorul in lista
+      update: A fost actualizata cu succes lista utilizatorilor
+      destroy: Lista cu utilizatori a fost distrusa cu succes
+      destroy_failure: Pagina NU a fost distrusa
+      last_name: Numele de familie
+      first_name: Prenumele
       email: Email
-      has_user: Has user?
-      edit: Edit
-      delete: Delete
-      are_you_sure: Are you sure?
-      please_select_one_of_the_options: Please select one of the options
-      select_group: Select Group
-      group: Group
+      has_user: Are utilizator?
+      edit: Editare
+      delete: Stergere
+      are_you_sure: Sunteti sigur?
+      please_select_one_of_the_options: Va rog sa selectati una dintre optiuni
+      select_group: Selectati grup
+      group: Grup
     questionnaires:
-      create_new_questionnaire: Create new questionnaire
-      created_at: Created at
-      created_by: Created by
-      title: Title
+      create_new_questionnaire: Creati un nou chestionar
+      created_at: Creat la
+      created_by: Creat de
+      title: Titlu
       status: Status
-      edit: Edit
-      approve: Approve
-      set_draft: Draft
-      delete: Delete
-      are_you_sure: Are you sure?
-      questionnaire_editor: Questionnaire Editor
-      questionnaire_title: Questionnaire Title
-      questionnaire_description: Questionnaire Description
-      questionnaire_related_links: Questionnaire Related Links
-      questionnaire_excerpt: Questionnaire Excerpt from Source
-      remove: remove
-      title: Title
-      description: Description
-      add_answer: Add Answer
-      add_other: Add Other
-      other: Other
-      add: Add
-      label_from: Label from
-      label_to: Label to
-      scale_from: Scale from
-      scale_to: Scale to
-      is_multiline: is multiline?
-      update_questionnaire: Update Questionnaire
-      create_questionnaire: Create Questionnaire
-      fields_marked_in_red_are_required: Fields marked in red are required
+      edit: Editare
+      approve: Aprobare
+      set_draft: Ciorna
+      delete: Stergere
+      are_you_sure: Sunteti sigur?
+      questionnaire_editor: Editare chestionar
+      questionnaire_title: Titlul chestionarului
+      questionnaire_description: Descrierea chestionarului
+      questionnaire_related_links: Linkuri referitoare la chestionar
+      questionnaire_excerpt: Questionnaire Excerpt de la sursa
+      remove: indeparteaza
+      title: Titlu
+      description: Descriere
+      add_answer: Adauga raspuns
+      add_other: Adauga altul
+      other: Altul
+      add: Adauga
+      label_from: Eticheta de la
+      label_to: Eticheta catre
+      scale_from: Scala de la
+      scale_to: Scala catre
+      is_multiline: este multilnie?
+      update_questionnaire: Actualizeaza chestionarul
+      create_questionnaire: Creaza chestionarul
+      fields_marked_in_red_are_required: Campurile markate in rosu sunt obligatorii
     reports:
-      user_activities: User Activities' Report
-      date_range: Please select a date range
-      from: From
-      to: To
-      users_who_signed_in: Users who signed in
-      users_who_not_signed_in: Users who didnt sign in
-      users_who_answered_questionnaires: Users who answered questionnaires
+      user_activities: Raportul activitatii utilizatoruli
+      date_range: Va rog selectati o perioada
+      from: De la
+      to: Catre
+      users_who_signed_in: Utilizator care s-a logat
+      users_who_not_signed_in: Utilizator care nu s-a logat
+      users_who_answered_questionnaires: Utilizator care a raspuns la chestionar
       show_only_confirmed_users: Show only confirmed users
-      display_also_profile: Display also profile
-      generate_report: Generate report
-      basic_report: User Activities report
-      questionnaire_report: Users Answered Questionnaires report
-      attendance_report: Attendance report
-      export_to_excel: Export to Excel
-      date: Select a month
-      report: Report
-      reports: Reports
-      user: User
+      basic_report: Raportul activitatii utilizatorului
+      questionnaire_report: Raporu -- Arata numai utilizatorii confirmati
+      display_also_profile: Afisati si profilul
+      generate_report: Genereaza raportl raspunurilor la chestionar ale utilizatorului
+      attendance_report: Raport de asistenta
+      export_to_excel: Exporta in Excel
+      date: Selecteaza o luna
+      report: Raport
+      reports: Rapoarte
+      user: Utilizator
       total: Total
-      upload: Upload
-      file: File
-      group_name: Group Name
-      all_groups: Everyone
-      include_email: Include Email in report
-      order_by_total: Order by 'Total' instead of 'Last Name'
-      pages_list: Edit Pages
-      translations: Translations
-      plus: active
-      minus: not active
-      x: not registered
+      upload: Incarca
+      file: Fisier
+      group_name: Numele grupului
+      all_groups: Toata lumea
+      include_email: Include Email in raport
+      order_by_total: ordoneaza prin 'Total' in loc de 'Numele de familie'
+      pages_list: Editeaza paginile
+      translations: Traduceri
+      plus: activ
+      minus: inactiv
+      x: neinregistrat
       status: Status
-      generating: Generating...
-      for_month: for
-      print: Print
-      manage_questionnaires: Manage questionnaires
-      questionnaires_list: Questionnaires list
-      user_management: User management
-      group_management: Group management
-      manage_user_roles: Manage user roles
-      remove_user: Remove user
-      load_group_list: Load Group List
-      manage_user_lists: Manage User Lists
+      generating: Genereaza...
+      for_month: pentru
+      print: Imprima
+      manage_questionnaires: Administreaza chestionarele
+      questionnaires_list: Lista chestionarelor
+      user_management: Management utilizator 
+      group_management: Management Grup 
+      manage_user_roles: Administreaza rolurile utilizatorului
+      remove_user: Sterge utilizator
+      load_group_list: Incarca lista grupului
+      manage_user_lists: Administreaza listele utilizatorilor
 
   notification:
     views:
-      hi: Hi
-      you_got_new_questionnaire: You've got a new questionnaire
-      click_above_link_to_answer: Click the above link to answer it
+      hi: Buna
+      you_got_new_questionnaire: Aveti un nou chestionar
+      click_above_link_to_answer: Apasati linkul de mai jos pentru a raspunde la el
     mailer:
-      new_questionnaire_for_you: There is a new questionnaire for you...
+      new_questionnaire_for_you: Exista un nou chestionar pentru dvs. ...
 
   time:
     formats:
@@ -454,156 +454,156 @@ ro:
   # Used in distance_of_time_in_words(), distance_of_time_in_words_to_now(), time_ago_in_words()
   datetime:
     distance_in_words:
-      half_a_minute: "half a minute"
+      half_a_minute: "jumatate de minut"
       less_than_x_seconds:
-        one:   "less than 1 second"
-        other: "less than %{count} seconds"
+        one:   "mai putin de 1 secunda"
+        other: "mai putin %{count} secunde"
       x_seconds:
-        one:   "1 second"
-        other: "%{count} seconds"
+        one:   "1 secunda"
+        other: "%{count} secunde"
       less_than_x_minutes:
-        one:   "less than a minute"
-        other: "less than %{count} minutes"
+        one:   "mai putin de un minute"
+        other: "mai putin %{count} minute"
       x_minutes:
-        one:   "1 minute"
-        other: "%{count} minutes"
+        one:   "1 minut"
+        other: "%{count} minute"
       about_x_hours:
-        one:   "about 1 hour"
-        other: "about %{count} hours"
+        one:   "aproximativ 1 ora"
+        other: "aproximativ %{count} ore"
       x_days:
-        one:   "1 day"
-        other: "%{count} days"
+        one:   "1 zi"
+        other: "%{count} zile"
       about_x_months:
-        one:   "about 1 month"
-        other: "about %{count} months"
+        one:   "aproximativ 1 luna"
+        other: "aproximativ %{count} luni"
       x_months:
-        one:   "1 month"
-        other: "%{count} months"
+        one:   "1 luna"
+        other: "%{count} luni"
       about_x_years:
-        one:   "about 1 year"
-        other: "about %{count} years"
+        one:   "aproximativ 1 an"
+        other: "aproximativ %{count} ani"
       over_x_years:
-        one:   "over 1 year"
-        other: "over %{count} years"
+        one:   "peste 1 an"
+        other: "peste %{count} ani"
       almost_x_years:
-        one:   "almost 1 year"
-        other: "almost %{count} years"
+        one:   "aproape 1 an"
+        other: "aproape %{count} ani"
     prompts:
-      year:   "Year"
-      month:  "Month"
-      day:    "Day"
-      hour:   "Hour"
-      minute: "Minute"
-      second: "Seconds"
+      year:   "An"
+      month:  "Luna"
+      day:    "Zi"
+      hour:   "Ora"
+      minute: "Minut"
+      second: "Secunda"
 
   stream:
-    new_internet: New internet
-    projects_discussion: Discussions
-    rav: "From Rav"
-    projects: Projects
-    posted_ago: Posted %{when} ago
-    read_all: Read more »
-    home: Home
-    all: All posts
-    assignments: Assignments
-    articles: Content
-    messages: Messages
-    events: Events
-    new_items: New posts
-    all_items: All Items
-    more_items: More items »
-    tags_menu: Topics
-    back: « Back        
-    filter: Filter by
-    mark_as: Mark as
-    read: read
-    unread: unread
-    bookmarks: My favorites
-    add_to_favorites: Add to favorites
-    remove_from_favorites: Remove from favorites
+    new_internet: Internet nou
+    projects_discussion: Dicutii
+    rav: "De la Rav"
+    projects: Proiecte
+    posted_ago: Postat %{when} in urma
+    read_all: Citeste mai mult »
+    home: Acasa
+    all: Toate postarile
+    assignments: Sarcini
+    articles: Continut
+    messages: Mesaje
+    events: Evenimente
+    new_items: Postari noi
+    all_items: Toate articolele
+    more_items: Mai multe articole »
+    tags_menu: Subiecte
+    back: « Inapoi        
+    filter: Filtrare prin
+    mark_as: Marcheaza ca
+    read: citit
+    unread: necitit
+    bookmarks: Favorite
+    add_to_favorites: Adauga la favorite
+    remove_from_favorites: Scoate de la favorite
 
   kabtv:
     admin:
-      show: Show
-      show_questions: questions
-      show_schedule: schedule
-      show_sketches: sketches
-      show_coveritlive: Cover it Live
+      show: Arata
+      show_questions: Intrebari
+      show_schedule: Program
+      show_sketches: Scheme
+      show_coveritlive: Acoperit Live
       coveritlive_code: Code (max size 300x385)
-      show_support: support
-      show_separate_window: Enable separate window
-      successfully_saved: Succesfully saved!
-      stream_management: Stream Management
-      preset_name: Preset name
-      is_active: Is active
-      default: Default
-      inactive_image: Inactive image
+      show_support: sprijin
+      show_separate_window: Permite fereastra separat
+      successfully_saved: Salvat cu succes!
+      stream_management: Administrarea transmisiei
+      preset_name: Timp presetat
+      is_active: Este activ
+      default: Implicit
+      inactive_image: Imagine inactiva
       stream_URL: "Stream URL (Flash: clip=...;stream=...)"
-      quality: Quality
-      technology: Technology
-      language: Language
-      description: Description
-      add_stream_item: Add stream item
-      submit: Submit
-      submitting: Submitting...
-      select_preset_or_add: Please select preset to edit or add new preset
-      stream_selection: Stream selection
-      stream_images: Stream images
-      stream_presets: Stream presets
-      stream_state: Stream state
-      problem_saving: There was a problem saving the record
-      name: Name
-      qualities: Stream qualities
-      add_quality: Add quality
-      stream_switcher: Stream switcher
+      quality: Calitate
+      technology: Tehnologie
+      language: Limba
+      description: Descriere
+      add_stream_item: Adauga stream item
+      submit: Trimite
+      submitting: Se trimite...
+      select_preset_or_add: Va rog selectati preset pentru a edita sau aduga preset nou
+      stream_selection: Selectare stream selection
+      stream_images: Stream imagini
+      stream_presets: Presetari stream 
+      stream_state: Status stream
+      problem_saving: Exista o problema in salvarea inregistrarii
+      name: Nume
+      qualities: Calitate stream
+      add_quality: Adauga calitate
+      stream_switcher: Comutator stream
       stream_states:
-        is_active: On air
+        is_active: In direct
         not_active: Offline
-        preparing_to_broadcast: Preparing to broadcast
-        technical_problem: Technical problem
+        preparing_to_broadcast: Pregatire pentru transmisie
+        technical_problem: Probleme tehnice
 
     kabtv:
-      no_broadcast: No broadcast
-      no_broadcast_on: No broadcast on
-      no_questions_yet: No questions yet.
-      guest: Guest
-      somewhere: Somewhere
-      awaiting_for_approval: Your question is awaiting for approval
-      no_question: Please fill "Question" field in
-      first: First
-      prev: Prev
-      last: Last
-      next: Next
-      new_sketches: There are new sketches
-      ask_question: Ask Question
-      question: Question
-      who: Who
-      from: From
-      loading: Loading...
-      coveritlive: Live Blog
-      questions: Questions
-      schedule: Schedule
-      schedule_name: Event Schedule
+      no_broadcast: Nu exista transmisie
+      no_broadcast_on: Transmisia nu este activa
+      no_questions_yet: Nicio intrebare inca.
+      guest: Oaspete
+      somewhere: Undeva
+      awaiting_for_approval: Intrebarea dvs. asteapta aprobare
+      no_question: Va rog sa completati campul "Intrebare"
+      first: Primul
+      prev: Anterior
+      last: Ultimul
+      next: Urmator
+      new_sketches: Nu exista scheme noi
+      ask_question: Pune intrebare
+      question: Intrebare
+      who: Cine
+      from: De unde
+      loading: Se incarca...
+      coveritlive: Blog in direct
+      questions: Intrebari
+      schedule: Program
+      schedule_name: Programul evenimentelor
       schedule_link: https://docs.google.com/spreadsheet/ccc?key=0AvAzVeqlLTMEdEx0MFNzdFdmWWJNc1JaUUhmci0tMFE&hl=en_US
-      sketches: Sketches
-      technical_support: Technical Support
-      cancel: Cancel
-      open_in_default_viewer: Open in Default Viewer
-      full_screen: Full Screen
-      thank_you: Thank you!
-      submit_problem: Unable to send message :(\nPlease try again later.
-      describe_problem: Report your problem
-      empty_message: Please fill а message in
+      sketches: Scheme
+      technical_support: Sprijin tehnic
+      cancel: Anulare
+      open_in_default_viewer: Dechide in Default Viewer
+      full_screen: Ecran total
+      thank_you: Multumim!
+      submit_problem: Nu se poate trimite mesajul :(\nVa rog sa incercati mai tarziu.
+      describe_problem: Raportati problema dvs.
+      empty_message: Va rog completati а mesaj in
       flash: Flash
       wmv: WMV
 
   social_button:
-    i_commit_to: I commit to
-    clicks_a_day: clicks a day
-    change: Change
-    cancel: Cancel
-    generate_csv_report: Generate report
-    we_clicks_for_today: "%{clicks} 'ONE' clicks from %{total} for today"
-    we_clicks_for_today_assist: "%{clicks} 'ONE' clicks for today, %{assist} clicks from them are in favor of everybody. Arvut!"
-    we_all_clicks_for_today: "%{clicks} 'ONE' clicks from %{total} for today for everybody"
-    we_group_clicks_for_today: "%{clicks} 'ONE' clicks from %{total} for today for your group"
+    i_commit_to: Ma angajez sa
+    clicks_a_day: clik-uri pe zi
+    change: Schimba
+    cancel: Anuleaza
+    generate_csv_report: Genereaza raport
+    we_clicks_for_today: "%{clicks} 'UN' click din %{total} pentru astazi"
+    we_clicks_for_today_assist: "%{clicks} 'UN' click pentru azi, %{assist} clik-uri pentru ei sunt in favoarea tuturor. Arvut!"
+    we_all_clicks_for_today: "%{clicks} 'UN' click din %{total} pentru azi pentru toata lumea"
+    we_group_clicks_for_today: "%{clicks} 'UN' click din %{total} penru azi pentru grupul dvs."
