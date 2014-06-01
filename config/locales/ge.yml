@@ -1,0 +1,619 @@
+--- 
+ge: 
+  activerecord: 
+    attributes: 
+      page:
+        message_body: Сообщение
+      user:
+        email: Е-мейл
+        password: Пароль
+    errors: 
+      messages: 
+        accepted: "must be accepted"
+        blank: "-- поле не может быть пустым"
+        confirmation: "не соответствует подтверждению"
+        empty: "-- поле не может быть пустым"
+        equal_to: "должно быть равно %{count}"
+        even: "дожно быть четно"
+        exclusion: "не может использоваться"
+        greater_than: "должно быть больше чем %{count}"
+        greater_than_or_equal_to: "должно быть больше или равно %{count}"
+        inclusion: "не содержится в списке"
+        invalid: неверно
+        less_than: "должно быть меньше чем %{count}"
+        less_than_or_equal_to: "должно быть меньше или равно %{count}"
+        not_a_number: "не является числом"
+        odd: "должно быть нечетно"
+        taken: "уже зарегистрирован"
+        too_long: "слишком длинное (максимум %{count} символов)"
+        too_short: "слишком короткое (минимум %{count} символов)"
+        wrong_length: "неправильная длина (должна быть %{count} символов)"
+      models: 
+        user: 
+          attributes: 
+            email: 
+              blank: "-- пропущено значение"
+              invalid: "-- неверное значение"
+            password: 
+              blank: "-- не может быть пустым"
+              confirmation: "не соответствует подтверждению"
+              too_short: "слишком короткий (минимум %{count} символов)"
+          blank: "-- поле не может быть пустым"
+      user: 
+        header: 
+          one: "Операция не была выполнена из-за следующей проблемы"
+          other: "Операция не была выполнена из-за следующих %{count} проблем"
+    models: 
+      user: Е-мейл
+  admin: 
+    pages: 
+      actions: Действия
+      add_answer: "Добавить ответ"
+      add_new: "Добавить новое"
+      add_other: "Добавить другое"
+      all: Все
+      all_posts: "Все Посты"
+      any_language: "Любой язык"
+      are_you_sure: "Вы уверены?"
+      arr_down: "&#9662;"
+      arr_up: "&#9652;"
+      article: Материал
+      as_draft: "Сохранить как черновик"
+      assignment: Задание
+      assignments: Задания
+      audio: Аудио
+      big_banner: "Большой баннер"
+      bottom_side_banner: "Нижняя часть баннера"
+      bulk_action: "Массовое действие"
+      button_content: "Контент для кнопки"
+      by_author: "По автору"
+      checkbox: Чек-бокс
+      comments_enabled: "можно комментировать"
+      content: Содержание
+      create: Создать
+      create_new: "Создать новое"
+      delete: Удалить
+      description: Описание
+      destroy: "Страница была успешно уничтожена"
+      destroy_failure: "Страница НЕ была уничтожена"
+      drafts: Черновики
+      edit: Редактировать
+      embed_string: "Вставить строку"
+      event: Событие
+      events: События
+      featured_settings: "Используемые настройки"
+      filter: Фильтровать
+      freetext: "Свободный текст"
+      future_posts: "Будущие посты"
+      help: Помощь
+      image: Изображение
+      is_autoplay: Автовоспроизведение
+      is_bonus: Бонус?
+      is_multiline: "Многострочное поле?"
+      is_sticky: "Прикрепленный пост"
+      is_visible: Видимое
+      items: посты
+      label_from: "Метка из"
+      label_to: "Метка "
+      language: Язык
+      leave_comment: "Здесь можно оставить комментарий"
+      list: Список
+      logout: выйти
+      message: Сообщение
+      message_body: Сообщение
+      messages: Сообщения
+      metadata: Метаданные
+      metadata_and_content: "Метаданные и Содержание"
+      name: Имя
+      new_article: "Новый материал"
+      new_assignment: "Новое Задание"
+      new_message: "Новое сообщение"
+      only_moderators: "Только модераторы"
+      only_you: "Только вы"
+      other: Другое
+      page_administration: "Администрация Страницы"
+      permissions: Полномочия
+      preview: Просмотр
+      preview_show: "Показать в режиме предварительного просмотра"
+      project: Проект
+      publish: Опубликовать
+      publish_at: "Опубликовать в"
+      publish_date: "Дата публикации"
+      published: Опубликованные
+      question: Вопрос
+      radio: Радио
+      remove: Удалить
+      reset: "Очистить форму"
+      save_and_publish: "Сохранить и Опубликовать"
+      scale: Шкала
+      scale_from: "От числа"
+      scale_to: "До числа"
+      search: Искать
+      select: выбрать
+      select_language: "Выбрать язык"
+      set_as_draft: "Определить как черновик"
+      show_on_page: "Показать постов &#58; %{count}"
+      sorting_and_deleting: "Сортировка и Удаление"
+      statistics: Статистика
+      status: Статус
+      subtitle: Подзаголовок
+      success: "Страница была успешно создана"
+      tags: Теги
+      title: Заголовок
+      title_and_description: "Заголовок  & Описание"
+      top_header: "Верхний заголовок"
+      top_side_banner: "Верхняя часть баннера"
+      type: Тип
+      unknown_page: "Неизвестная страница"
+      unknown_type: "Неизвестный вид страницы %{page_type}"
+      update: "Страница была успешно обновлена"
+      updated_at: "Обновлено "
+      url: URL
+      video: Видео
+      video_player: Видеоплейер
+      youtube: YouTube
+    questionnaires: 
+      add: Добавить
+      add_answer: "Добавить ответ"
+      add_other: "Добавить \"другое\""
+      approve: Утвердить
+      are_you_sure: "Вы уверены?"
+      create_new_questionnaire: "Создать новый вопросник"
+      create_questionnaire: "Создать вопросник"
+      created_at: "Дата создания"
+      created_by: Автор
+      delete: Удалить
+      description: Описание
+      edit: Редактировать
+      fields_marked_in_red_are_required: "Обязательные поля выделены красным цветом"
+      is_multiline: "многострочное поле?"
+      label_from: "Метка от"
+      label_to: "Метка до"
+      other: другое
+      questionnaire_description: "Описание вопросника"
+      questionnaire_editor: "Редактор вопросников"
+      questionnaire_excerpt: "Отрывок из первоисточника"
+      questionnaire_related_links: "Дополнительные ссылки вопросника"
+      questionnaire_title: "Заголовок вопросника"
+      remove: удалить
+      scale_from: "От числа"
+      scale_to: "До числа"
+      set_draft: "Сохранить как черновик"
+      status: Состояние
+      title: Заголовок
+      update_questionnaire: "Обновить вопросник"
+    reports: 
+      all_groups: Все
+      attendance_report: "Отчет посещаемости"
+      basic_report: "Базисный отчет посещаемости"
+      date: "Выберите месяц"
+      date_range: "Просьба выбрать даты"
+      display_also_profile: "Также показать и профиль"
+      export_to_excel: "Скачать в формате Excel"
+      file: Файл
+      for_month: за
+      from: От
+      generate_report: "Создать отчет"
+      generating: Ждите...
+      group_management: "Управление группами"
+      group_name: "Имя группы"
+      include_email: "Включить мейл в отчет"
+      load_group_list: "Загрузить список группы"
+      manage_questionnaires: "Создание/редакция вопросников"
+      manage_user_lists: "Управление списком группы"
+      manage_user_roles: "Управление пользователями"
+      minus: неактивен
+      order_by_total: "Сортировать по активности"
+      pages_list: "Редактировать посты"
+      plus: активен
+      print: Распечатать
+      questionnaires_list: "Список вопросников"
+      remove_user: "Удалить пользователя"
+      report: Отчет
+      reports: Отчеты
+      show_only_confirmed_users: "Показать только подтвержденных пользователей"
+      status: Состояние
+      to: До
+      total: Итого
+      upload: Загрузить
+      user: Пользователь
+      user_activities: "Отчет о деятельности пользователя"
+      user_management: "Управление пользователями"
+      users_who_answered_questionnaires: "Пользователи, ответившие на вопросники"
+      users_who_not_signed_in: "Пользователи, не вошедшие в систему"
+      users_who_signed_in: "Пользователи, вошедшие в систему"
+      x: неизвестен
+    user_list: 
+      are_you_sure: "Вы уверены?"
+      create: "Пользователь успешно создан в списке"
+      create_new_user: "Создать члена группы"
+      create_user_list: "Создать члена группы"
+      delete: Удалить
+      destroy: "Пользователь успешно удален из списка"
+      destroy_failure: "Страница НЕ была уничтожена"
+      edit: Редактировать
+      email: Е-мейл
+      first_name: Имя
+      group: Группа
+      has_user: Зарегистрирован?
+      last_name: Фамилия
+      please_select_one_of_the_options: "Выберите одну из возможностей"
+      select_group: "Выберите группу"
+      update: "Список пользователей успешно обновлен"
+      update_user_list: "Обновить члена группы"
+  answer: 
+    model: 
+      answer_too_short: "Ответ слишком короткий. Минимальная длина ответа - 10 символов"
+      select_at_least_one: "Вы должны выбрать не менее одной возможности"
+      select_one_option: "Вы должны выбрать одну из возможностей"
+      write_an_answer: "Вы должны написать ответ"
+  date: 
+    abbr_day_names: 
+      - Вс
+      - Пн
+      - Вт
+      - Ср
+      - Чт
+      - Пт
+      - Сб
+    abbr_month_names: 
+      - ~
+      - янв
+      - фев
+      - мар
+      - апр
+      - май
+      - июн
+      - июл
+      - авг
+      - сен
+      - окт
+      - ноя
+      - дек
+    day_names: 
+      - воскресенье
+      - понедельник
+      - вторник
+      - среда
+      - четверг
+      - пятница
+      - суббота
+    formats: 
+      graph: "%d %b"
+      short: "%d %B %Y"
+    month_names: 
+      - ~
+      - января
+      - февраля
+      - марта
+      - апреля
+      - мая
+      - июня
+      - июля
+      - августа
+      - сентября
+      - октября
+      - ноября
+      - декабря
+    order: 
+      - !ruby/symbol day
+      - !ruby/symbol month
+      - !ruby/symbol year
+  datetime: 
+    distance_in_words: 
+      about_x_hours: 
+        few: "около %{count} час."
+        many: "около %{count} час."
+        one: "около %{count} час."
+        other: "около %{count} час."
+      about_x_months: 
+        few: "около %{count} мес."
+        many: "около %{count} мес."
+        one: "около %{count} мес."
+        other: "около %{count} мес."
+      about_x_years: 
+        few: "около %{count} г."
+        many: "около %{count} г."
+        one: "около %{count} г."
+        other: "около %{count} г."
+      half_a_minute: "меньше минуты"
+      less_than_x_minutes: 
+        few: "меньше %{count} мин."
+        many: "меньше %{count} мин."
+        one: "меньше %{count} мин."
+        other: "меньше %{count} мин."
+      less_than_x_seconds: 
+        few: "меньше %{count} сек."
+        many: "меньше %{count} сек."
+        one: "меньше %{count} сек."
+        other: "меньше %{count} сек."
+      over_x_years: 
+        few: "больше %{count} г."
+        many: "больше %{count} г."
+        one: "больше %{count} г."
+        other: "больше %{count} г."
+      x_days: 
+        few: "%{count} дн."
+        many: "%{count} дн."
+        one: "%{count} дн."
+        other: "%{count} дн."
+      x_minutes: 
+        few: "%{count} мин."
+        many: "%{count} мин."
+        one: "%{count} мин."
+        other: "%{count} мин."
+      x_months: 
+        few: "%{count} мес."
+        many: "%{count} мес."
+        one: "%{count} мес."
+        other: "%{count} мес."
+      x_seconds: 
+        few: "%{count} сек."
+        many: "%{count} сек."
+        one: "%{count} сек."
+        other: "%{count} сек."
+    prompts: 
+      day: День
+      hour: Часов
+      minute: Минут
+      month: Месяц
+      second: Секунд
+      year: Год
+  devise: 
+    confirmations: 
+      confirmed: "Ваш аккаунт успешно подтвержден. Вы вошли в систему"
+      send_instructions: "В течение нескольких минут Вы получите е-мейл, содержащий инструкции по подтверждению Вашего аккаунта."
+    failure: 
+      inactive: "Ваш аккаунт еще не был активизирован"
+      invalid: "Неправильный е-мейл адрес или пароль"
+      invalid_token: "Неправильный токен"
+      locked: "Ваш аккаунт заблокирован"
+      timeout: "Время существования сессии истекло. Просьба снова войти в систему"
+      unauthenticated: "Перед тем, как продолжить, следует войти в систему или зарегистрироваться"
+      unconfirmed: "Вы должны подтвердить свой аккаунт."
+    mailer: 
+      confirmation_instructions: 
+        user_subject: "Инструкция по подтверждению аккаунта"
+      reset_password_instructions: 
+        user_subject: "Инструкция по обновлению пароля"
+      unlock_instructions: 
+        user_subject: "Инструкция по разблокировке"
+    mails: 
+      change_my_password: "Изменить мой пароль"
+      confirm_my_account: "Подтвердить мой аккаунт"
+      confirm_through_link: "Нажмите на нижеследующую ссылку для подтверждения аккаунта. Если ссылка не работает, пожалуйста, скопируйте ее и вставьте в строку адреса в вашем браузере."
+      hello: Здравствуйте
+      reset_password_line1: "Кто-то запросил ссылку для изменения Вашего пароля. Этот линк находится ниже"
+      reset_password_line2: "Если это были не Вы, то, пожалуйста, проигнорируйте этот мейл"
+      reset_password_line3: "Ваш пароль не будет изменен пока Вы не нажмете на нижеследующий линк и не создадите новый пароль"
+      unlock_line1: "Ваш аккаунт был заблокирован из-за большого количества неудачных попыток войти в систему"
+      unlock_line2: "Для разблокировки аккаунта, пожалуйста, нажмите на нижеследующий линк"
+      unlock_my_account: "Разблокировать мой аккаунт"
+      welcome: Здравствуйте
+    passwords: 
+      send_instructions: "В течение нескольких минут Вы получите е-мейл, содержащий инструкции по обновлению Вашего пароля."
+      updated: "Ваш пароль успешно заменен. Вы вошли в систему."
+    registrations: 
+      destroyed: "До свидания! Ваш аккаунт был успешно удален. Надеемся увидеть Вас снова в скором времени."
+      signed_up: "Вы зарегистрированы. На Ваш мейл послан линк для активизации аккаунта."
+      updated: "Вы успешно изменили свой аккаунт."
+    sessions: 
+      signed_in: "Вы успешно вошли в систему"
+      signed_out: "Вы успешно вышли из системы"
+    unlocks: 
+      send_instructions: "В течении нескольких минут Вы получите е-мейл, содержащий инструкции по разблокировке Вашего аккаунта."
+      unlocked: "Ваш аккаунт успешно разблокирован. Вы вошли в систему"
+    views: 
+      back: Назад
+      cannot_sign_in: "Проблемы? Для получения помощи нажмите здесь!"
+      change_my_password: "Изменить мой пароль"
+      confirm_new_password: "Подтверждение пароля"
+      current_password: "Нынешний пароль (это нужно для подтверждения изменений)"
+      desktop: обычная
+      email: Е-мейл
+      forgot_password: "Забыли пароль?"
+      mobile: мобильная
+      new_password: "Новый пароль (не менее 6 символов)"
+      new_user: "Новый пользователь?"
+      no_confirmation_instructions: "Инструкция по подтверждению аккаунта"
+      no_unlock_instructions: "Инструкция по разблокировке аккаунта"
+      password: Пароль
+      remember_me: Запомнить
+      resend_confirmation_instructions: "Снова выслать инструкцию по подтверждению"
+      resend_unlock_instructions: "Снова выслать инструкцию по разблокировке"
+      select_lang: "Выбрать язык"
+      send_reset_password: "Выслать инструкцию по обновлению пароля"
+      sign_in: Войти
+      sign_in_more: "Войти&nbsp;&nbsp;&nbsp;&#9658;"
+      sign_in_more_mobile: Войти
+      sign_up: Зарегистрироваться
+      sign_up_more: "Согласен &nbsp;&nbsp;&nbsp;&#9658;"
+      sign_up_now: "Зарегистрироваться сейчас!!!"
+      version: Версия
+  errors: 
+    messages: 
+      already_confirmed: "уже подтвержден"
+      not_found: "не найдено"
+      not_locked: "не был заблокирован"
+  home: 
+    faq: 
+      confirmation: "Вы уже зарегистрировались, но система не дает войти? Пожалуйста проверьте Ваш емайл, там должно быть письмо с инструкцией для подтверждения регистрации. Если такого письма нет, то воспользуйтесь линком, чтобы послать это письмо еще раз."
+      email: "Если вы попробовали всё вышеописаное, а проблема всё ещё не решена, пожалуйста напишите на"
+      faq: "Часто задаваемые вопросы"
+      forgot_password: "Вы уже зарегистрировались, но система не дает войти? Вы проверили наличие письма с инструкцией для подтверждения регистрации как описано выше? Может быть Вы неправильно вводите свой пароль? Воспользуйтесь следующим линком для смены пароля."
+      unlock: "Система заблокировала Ваш счет? Пожалуйста проверьте Ваш емайл, там должно быть письмо с инструкцией для разблокировки. Если такого письма нет, то воспользуйтесь линком, чтобы послать это письмо еще раз."
+    views: 
+      active: "Активные "
+      admin: Администрация
+      answered: отвечен
+      blog: "http://www.laitman.ru/"
+      blog_title: "Блог М. Лайтмана"
+      check_for_new_questionnaire: "Проверить наличие новых вопросников"
+      dashboard: "Моя страница"
+      date: Дата
+      edit_profile: "Изменить профиль"
+      feed: "http://www.laitman.ru/feed"
+      last_10_questionnaires: "Последние 10 вопросников"
+      loading: Загрузка...
+      not_answered: "не отвечен"
+      registered: "Все "
+      site_name: "Sviva Tova"
+      status: Состояние
+      title: Заголовок
+      title_registered_vs_active: "Все vs. Активные"
+      view_reports: "Показать отчеты"
+  kabtv: 
+    admin: 
+      add_stream_item: "Добавить канал"
+      default: default
+      description: описание
+      inactive_image: "картинка для неактивного канала"
+      is_active: активный
+      language: язык
+      preset_name: "Preset name"
+      select_preset_or_add: "Выберите preset или добавьте новый"
+      show: Показывать
+      show_questions: вопросы
+      show_schedule: расписание
+      show_separate_window: "Разрешить \"Отдельное окно\""
+      show_sketches: чертежи
+      show_support: техподдержку
+      stream_URL: "URL вещания"
+      stream_management: "Управление вещанием"
+      stream_selection: "Выбор канала"
+      submit: Отправить
+      submitting: Ждите...
+      successfully_saved: "Успешно сохранено!"
+    kabtv: 
+      ask_question: "Задать вопрос"
+      awaiting_for_approval: "Ваш вопрос ожидает одобрения модератором"
+      cancel: Отменить
+      describe_problem: "Сообщите о проблемах в трансляции"
+      empty_message: "Пожалуйста напишите сообщение"
+      first: начало
+      flash: Flash
+      from: Откуда
+      full_screen: "На весь экран"
+      guest: Гость
+      last: конец
+      loading: Загрузка...
+      new_sketches: "Есть новые чертежи"
+      next: след.
+      no_broadcast: "Нет вещания"
+      no_broadcast_on: "Нет вещания в"
+      no_question: "Пожалуйста заполните поле \"Вопрос\""
+      no_questions_yet: "Еще нет вопросов."
+      open_in_default_viewer: "Отдельное окно"
+      prev: пред.
+      question: Вопрос
+      questions: Вопросы
+      schedule: Расписание
+      schedule_link: "https://docs.google.com/spreadsheet/ccc?key=0AvAzVeqlLTMEdEx0MFNzdFdmWWJNc1JaUUhmci0tMFE&hl=en_US"
+      schedule_name: "Расписание событий"
+      sketches: Чертежи
+      somewhere: откуда-то
+      submit_problem: "Невозможно послать сообщение :(\\nПожалуйста попытайтесь еще раз позже."
+      technical_support: Техподдержка
+      thank_you: Спасибо!
+      who: Кто
+      wmv: WMV
+  layout: 
+    search: Поиск
+    search_screen_reader: Искать
+  notification: 
+    mailer: 
+      new_questionnaire_for_you: "Вас ожидает новый вопросник..."
+    views: 
+      click_above_link_to_answer: "Чтобы ответить, пройдите по ссылке"
+      hi: Здравствуйте
+      you_got_new_questionnaire: "Вы получили новый вопросник"
+  pages: 
+    update: "Страница была успешно обновлена"
+    views: 
+      content_required: "текст обязателен"
+      required: "обязательные поля"
+  profile: 
+    views: 
+      change_password: "изменить пароль"
+      dear: "Здравствуйте,"
+      edit: редактировать
+      please_update_profile: "просьба обновить профиль"
+      profile: Профиль
+      required: "обязательные поля"
+      updated: "Профиль был успешно обновлен"
+  questionnaire_answer: 
+    controller: 
+      already_answered: "Вы уже ответили на этот вопросник"
+      no_questionnaire: "Такого вопросника не существует."
+      no_success: "Заполнение вопросника завершилось с ошибкой"
+      was_success: "Заполнение вопросника успешно завершено"
+    views: 
+      all_fields_are_required: "Следует заполнить все поля!"
+      please_select_one_of_the_options: "Выберите одну из возможностей"
+  social_button: 
+    cancel: Отменить
+    change: Изменить
+    clicks_a_day: "кликов в день"
+    generate_csv_report: "Сгенерировать отчет"
+    i_commit_to: "Я обязуюсь на"
+    we_all_clicks_for_today: "Все пользователи - %{clicks} 'ONE' из %{total}"
+    we_clicks_for_today: "Ты - %{clicks} 'ONE' из %{total}"
+    we_clicks_for_today_assist: "Ты сделал %{clicks} кликов, из которых %{assist} - для товарщей. Арвут!"
+    we_group_clicks_for_today: "Твоя группа - %{clicks} 'ONE' из %{total}"
+  stream: 
+    add_to_favorites: "Добавить в избранное"
+    all: "Все посты"
+    all_items: "Все посты"
+    articles: Материалы
+    assignments: Задания
+    back: "« Назад"
+    bookmarks: Закладки
+    events: События
+    filter: "Фильтр по"
+    home: Главная
+    mark_as: "Отметить как"
+    messages: Сообщения
+    more_items: "Еще посты »"
+    new_internet: "Новый интернет"
+    new_items: "Новые посты"
+    posted_ago: "Размещено %{when} назад"
+    projects: Проекты
+    projects_discussion: Обсуждение
+    rav: "От Рава"
+    read: прочитанное
+    read_all: "Читать все »"
+    remove_from_favorites: "Удалить из избранного"
+    tags_menu: Темы
+    unread: непрочитанное
+  time: 
+    formats: 
+      attendance_report: "%d %B %Y"
+      short: "%d-%m-%Y"
+      timestamp: "%m-%d-%Y %H:%M"
+  user: 
+    model: 
+      avatar: Аватар
+      birthday: "Год рождения"
+      choose_image: "Выбрать фото"
+      city: Город
+      country: Страна
+      female: Женский
+      first_name: Имя
+      gender: Пол
+      last_name: Фамилия
+      male: Мужской
+      no_answer: Нет
+      no_file_selected: "Нет файла"
+      preferred_language: "Язык сообщений"
+      receive_notifications: "Хотите ли Вы получать уведомления на свой е-мейл?"
+      region: Регион
+      remove_avatar: "Удалить Аватар"
+      yes_answer: Да
+  views: 
+    back: Назад
+    cancel: Отменить
+    load: Загрузить
+    please_wait: Ждите...
+    signout: Выйти
+    submit: Отправить
+    update: Обновить
