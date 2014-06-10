@@ -1,0 +1,609 @@
+sv:
+  activerecord:
+    models:
+      user: email
+    attributes:
+      page:
+        message_body: Meddelandetext
+      user:
+        email: E-mailadress
+        password: Lösenord
+    errors:
+      user:
+        header:
+          one: Operationen misslyckades på grund av följande fel
+          other: Operationen misslyckades på grund av %{count} fel
+      messages:
+        inclusion: är inte inkluderad i listan
+        exclusion: är reserverad
+        invalid: är ogiltig
+        confirmation: matchar inte bekräftelsen
+        accepted: måste accepteras
+        empty: kan inte vara tom
+        blank: kan inte vara tom
+        too_long: är för lång (max %{count} tecken)
+        too_short: är för kort (min %{count} tecken)
+        wrong_length: har fel längd (bör vara %{count} tecken)
+        not_a_number: är inte en siffra
+        greater_than: måste vara större än %{count}
+        greater_than_or_equal_to: måste vara större än eller lika med %{count}
+        equal_to: måste vara lika med %{count}
+        less_than: måste vara mindre än %{count}
+        less_than_or_equal_to: måste vara mindre än eller lika med %{count}
+        odd: måste vara udda
+        even: måste vara jämn
+        taken: är redan upptagen
+      models:
+        user:
+          blank: blankt fält
+          attributes:
+            email:
+              blank: -- saknar värde
+              invalid: är ogiltig
+            password:
+              blank: -- får inte vara blank
+              too_short: är för kort (min %{count} tecken)
+              confirmation: stämmer ej överens med bekräftelse
+
+  views:
+    submit: Skicka
+    load: Ladda
+    cancel: Avbryt
+    signout: Logga ut
+    back: Tillbaka
+    update: Uppdatera
+    please_wait: Vänligen vänta...
+
+  layout:
+    search: Sök
+    search_screen_reader: Sök efter
+
+  errors:
+    messages:
+      not_found: ej funnen
+      already_confirmed: har redan bekräftats
+      not_locked: var inte låst
+
+  devise:
+    views:
+      sign_in: Logga in
+      sign_in_more: Logga in&nbsp;&nbsp;&nbsp;&#9658;
+      sign_in_more_mobile: Logga in
+      email: Email
+      password: Lösenord
+      version: Vänligen välj
+      mobile: Mobil Ljudsändning
+      desktop: Fulla sidan
+      select_lang: Välj språk
+      back: Tillbaka
+      remember_me: Kom ihåg mig
+      sign_up: Registrera
+      sign_up_more: Registrera&nbsp;&nbsp;&nbsp;&#9658;
+      forgot_password: 'Glömt ditt lösenord?'
+      no_confirmation_instructions: 'Har inte fått bekräftelseinstruktioner?'
+      no_unlock_instructions: 'Har inte fått instruktioner för att låsa upp?'
+      new_password: Nytt lösenord (minst 6 tecken)
+      confirm_new_password: Bekräfta lösenord
+      current_password: Nuvarande lösenord (vi behöver det för att bekräfta dina förändringar)
+      send_reset_password: Skicka mig instruktioner för att återställa lösenordet
+      resend_confirmation_instructions: Skicka bekräftelseinstruktioner igen
+      resend_unlock_instructions: Skicka instruktioner föra att låsa upp igen
+      change_my_password: Ändra mitt lösenord
+      sign_up_now: Registrera mig NU!!!
+      new_user: Ny användare?
+      cannot_sign_in: Kan du inte logga in? Klicka här för hjälp!
+    mails:
+      welcome: Välkommen
+      confirm_through_link: Klicka på länken nedan för att bekräfta ditt konto. Om du klickar på länken och den verkar vara bruten, kopiera den då och klistra in den i ett nytt fönster i din webbläsare.
+      confirm_my_account: Bekräfta mitt konto
+      hello: Hej
+      reset_password_line1: Någon har begärt en länk för att byta ditt lösenord, och du kan göra det genom att följa länken nedan
+      reset_password_line2: Om du inte begärde detta, ignorera då detta mail
+      reset_password_line3: Ditt lösenord kommer inte att bytas förrän du går till länken ovan och skapar ett nytt
+      change_my_password: Ändra mitt lösenord
+      unlock_line1: Ditt konto har låsts på grund av ett högt antal misslyckade inloggningsförsök
+      unlock_line2: Klicka på länken nedan för att låsa upp ditt konto
+      unlock_my_account: Lås upp mitt konto
+    failure:
+      unauthenticated: Du måste logga in eller registrera dig innan du fortsätter.
+      unconfirmed: Du måste bekräfta ditt konto innan du fortsätter.
+      locked: Ditt konto är låst.
+      invalid: Ogiltig emailadress eller lösenord.
+      invalid_token: Ogiltig autentiseringstoken.
+      timeout: Din session har gått ut, vänligen logga in igen för att fortsätta.
+      inactive: Ditt konto har ännu inte aktiverats.
+    sessions:
+      signed_in: Inloggad.
+      signed_out: Utloggad.
+    passwords:
+      send_instructions: Du kommer inom några minuter att få ett e-brev med instruktioner om hur du återställer ditt lösenord.
+      updated: Ditt lösenord har ändrats. Du är nu inloggad.
+    confirmations:
+      send_instructions: Du kommer inom några minuter att få ett e-brev med instruktioner om hur du bekräftar ditt konto.
+      confirmed: Ditt konto har bekräftats. Du är nu inloggad.
+    registrations:
+      signed_up: Du har registrerat dig. Leta efter ett mail till dig med ett meddelande om bekräftelse för att aktivera ditt konto!
+      updated: Du har uppdaterat ditt konto.
+      destroyed: Hej då! Ditt konto har raderats. Välkommen åter snart igen.
+    unlocks:
+      send_instructions: Du kommer inom några minuter att få ett e-brev med instruktioner om hur du låser upp ditt konto.
+      unlocked: Ditt konto har låsts upp. Du är nu inloggad.
+    mailer:
+      confirmation_instructions: Bekräftelseinstruktioner
+      reset_password_instructions: Instruktioner för att återställa lösenord
+      unlock_instructions: Instruktioner för att låsa upp
+      confirmation_instructions:
+        user_subject: Bekräftelseinstruktioner
+      reset_password_instructions:
+        user_subject: Instruktioner för att återställa lösenord
+      unlock_instructions:
+        user_subject: Instruktioner för att låsa upp
+  answer:
+    model:
+      select_at_least_one: Du måste välja minst ett alternativ.
+      write_an_answer: Du måste skriva ett svar.
+      select_one_option: Du måste välja ett av valen.
+      answer_too_short: Ditt svar är för kort. Minsta längden för ett svar är 10 tecken.
+
+  questionnaire_answer:
+    controller:
+      no_success: Formuläret har inte besvarats.
+      was_success: Formuläret har besvarats.
+      no_questionnaire: Det finns inget sådant formulär
+      already_answered: Du har redan fyllt i detta formulär
+    views:
+      all_fields_are_required: Alla fält krävs!
+      please_select_one_of_the_options: Välj ett av alternativen
+
+  home:
+    views:
+      site_name: Sviva Tova
+      edit_profile: Ändra profil
+      check_for_new_questionnaire: Kolla efter nytt formulär
+      view_reports: Visa rapporter
+      date: Datum
+      title: Titel
+      status: Status
+      answered: besvarad
+      not_answered: ej besvarad
+      last_10_questionnaires: De 10 senaste formulären
+      dashboard: Min sida
+      admin: Admin
+      blog_title: Dr Laitmans blogg
+      blog: http://www.laitman.se/
+      feed: http://www.laitman.se/feed/
+      active: Aktiv
+      button: Vi!
+      registered: Registrerade
+      title_registered_vs_active: Registrerade vs. Aktiva
+      title_registered_vs_button: Registrerade vs. Vi!
+      loading: Laddar...
+      new_internet_project_we_build_it_together: Nytt internetprojekt - Vi bygger det tillsammans
+    faq:
+      faq: Ofta ställda frågor
+      confirmation:
+        Du har redan registrerat dig, men systemet låter dig inte att logga in?
+        Kolla din inkorg efter bekräftelsemailet.
+        Om det inte finns något, använd följande länk så skickar vi ett nytt till dig.
+      forgot_password:
+        Du har redan registrerat dig, men systemet låter dig ändå inte logga in?
+        Följde du bekräftelseinstruktionerna ovan?
+        Kanske har du glömt ditt lösenord? Testa följande länk för att återställa det.
+      unlock:
+        Ditt konto har blivit låst av systemet. Kolla din inkorg efter ett e-brev för att låsa upp ditt konto.
+        Om där inte finns något, använd följande länk för att skika om det.
+      email:
+        Om du har försökt allt det ovanstående och fortfarande har problem, skicka då ett e-brev till
+  pages:
+    comments_enabled: Kommentarer på
+    update: Sidan har uppdaterats
+    views:
+      required: obligatoriskt fält
+      content_required: obligatoriskt textinnehåll
+  profile:
+    views:
+      edit: editera
+      dear: Hej,
+      please_update_profile: vänligen uppdatera din profil
+      change_password: byt lösenord
+      profile: profil
+      required: obligatoriskt fält
+      updated: Profilen har uppdaterats
+  user:
+    model:
+      gender: Kön
+      male: Man
+      female: Kvinna
+      birthday: Födelseår
+      receive_notifications: 'Vill du ta emot påminnelser via e-post?'
+      yes_answer: ' Ja'
+      no_answer: ' Nej'
+      preferred_language: Språk för meddelanden
+      first_name: Förnamn
+      user: Användare
+      last_name: Efternamn
+      avatar: Avatar
+      remove_avatar: Ta bort avatar
+      country: Land
+      city: Stad
+      region: Region
+      no_file_selected: Ingen bild vald
+      choose_image: Välj bild
+
+  admin:
+    pages:
+      language: Språk
+      any_language: Alla språk
+      comments_enabled: Kommentarer på
+      leave_comment: Här kan du skriva en kommentar.
+      project: Projekt
+      create: Skapa
+      by_author: Av författare
+      all: Alla
+      only_you: Bara du
+      only_moderators: Bara moderatorer
+      reset: Rensa formulär
+      success: Sidan har skapats
+      update: Sidan har uppdaterats
+      destroy: Sidan har raderats
+      destroy_failure: Sidan har INTE raderats
+      unknown_type: Okänd sidtyp %{page_type}
+      is_bonus: Är bonus?
+      preview_show: Visa förhandsgranskning
+      new_article: Nytt innehåll
+      new_assignment: Ny tilldelning
+      assignment: Tilldelning
+      event: Händelse
+      metadata: Metadata
+      content: Innehåll
+      name: Namn
+      remove: Ta bort
+      add_new: Lägg till ny
+      article: Innehåll
+      button_content: Innehåll för knappar
+      message: Meddelande
+      audio: Audio
+      video: Video
+      question: Fråga
+      radio: Radio
+      checkbox: Checkbox
+      select: välj
+      list: Lista
+      scale: Skala
+      freetext: Fritext
+      title_and_description: Titel & Beskrivning
+      metadata_and_content: Metadata & Innehåll
+      sorting_and_deleting: Sortering & Borttagning
+      save_and_publish: Spara & Publicera
+      as_draft: Spara som utkast
+      publish_at: Publicera tid
+      publish: Publicera
+      title: Titel
+      subtitle: Undertitel
+      description: Beskrivning
+      embed_string: Sträng att bädda in
+      url: URL
+      is_autoplay: Autoplay
+      is_visible: Synlig
+      featured_settings: Utvalda inställningar
+      is_sticky: Klistrat ämne
+      top_header: Huvudrubrik
+      big_banner: Stor Banner
+      top_side_banner: Top Side Banner
+      bottom_side_banner: Bottom Side Banner
+      new_message: Nytt meddelande
+      message_body: Meddelande
+      edit: Ändra
+      delete: Ta bort
+      permissions: Behörigheter
+      tags: Taggar
+      video_player: Videospelare
+      image: Bild
+      youtube: YouTube
+      page_administration: Sidoadministration
+      statistics: Statistik
+      help: Hjälp
+      logout: logga ut
+      create_new: Skapa ny
+      search: Sök
+      status: Status
+      all_posts: Alla poster
+      drafts: Utkast
+      published: Opublicerade
+      future_posts: Framtida poster
+      type: Typ
+      assignments: Tilldelningar
+      events: Händelser
+      messages: Meddelanden
+      filter: Filter
+      bulk_action: Gruppåtgärd
+      set_as_draft: Ställ in som utkast
+      show_on_page: Visa %{count} artiklar
+      items: artiklar
+      arr_up: '&#9652;'
+      arr_down: '&#9662;'
+      updated_at: Uppdaterat
+      publish_date: Publikationsdatum
+      actions: Åtgärder
+      are_you_sure: Är du säker?
+      add_answer: Lägg till svar
+      other: Andra
+      add_other: Lägg till andra
+      label_from: Etikett från
+      label_to: Etikett till
+      scale_from: Skala från
+      scale_to: Skala till
+      is_multiline: Har flera rader?
+      unknown_page: Okänd sida
+      preview: Förhandsgranskning
+      select_language: Välj språk
+      picture4preview: Bild för förhandsgranskning
+    user_list:
+      create_new_user: Skapa ny användare
+      create_user_list: Skapa användarlista
+      update_user_list: Uppdatera användarlista
+      create: Användare skapad i lista
+      update: Användarlista uppdaterad
+      destroy: Användarlista borttagen
+      destroy_failure: Sidan har INTE raderats
+      last_name: Efternamn
+      first_name: Förnamn
+      email: Email
+      has_user: Har användare?
+      edit: Ändra
+      delete: Ta bort
+      are_you_sure: Är du säker?
+      please_select_one_of_the_options: Välj ett av alternativen
+      select_group: Välj grupp
+      group: Grupp
+    questionnaires:
+      create_new_questionnaire: Skapa nytt formulär
+      created_at: Skapat
+      created_by: Skapat av
+      title: Titel
+      status: Status
+      edit: Ändra
+      approve: Godkänn
+      set_draft: Utkast
+      delete: Ta bort
+      are_you_sure: Är du säker?
+      questionnaire_editor: Formulärseditor
+      questionnaire_title: Fomulärstitel
+      questionnaire_description: Formulärsbeskrivning
+      questionnaire_related_links: Relaterade länkar för formuläret
+      questionnaire_excerpt: Formulär utdrag ur källa
+      remove: ta bort
+      title: Titel
+      description: Beskrivning
+      add_answer: Lägg till svar
+      add_other: Lägg till annat
+      other: Annat
+      add: Lägg till
+      label_from: Etikett från
+      label_to: Etikett till
+      scale_from: Skala från
+      scale_to: Skala till
+      is_multiline: har flera rader?
+      update_questionnaire: Uppdatera formulär
+      create_questionnaire: Skapa formulär
+      fields_marked_in_red_are_required: Fält markerade med rött är obligatoriska
+    reports:
+      user_activities: Rapport för användaraktiviteter
+      date_range: Välj ett datumintervall
+      from: Från
+      to: Till
+      users_who_signed_in: Användare som loggat in
+      users_who_not_signed_in: Användare som inte loggat in
+      users_who_answered_questionnaires: Användare som besvarat formulär
+      show_only_confirmed_users: Visa bara bekräftade användare
+      display_also_profile: Visa även profil
+      generate_report: Generera rapport
+      basic_report: Rapport över användaraktiviteter
+      questionnaire_report: Rapport över användare som besvarat formulär
+      attendance_report: Närvarorapport
+      export_to_excel: Exportera till Excel
+      date: Välj en månad
+      report: Rapport
+      reports: Rapporter
+      user: Användare
+      total: Totalt
+      upload: Ladda upp
+      file: Fil
+      group_name: Gruppnamn
+      all_groups: Alla
+      include_email: Inkludera Email i rapporten
+      order_by_total: Sortera efter 'Totalt' istället för 'Efternamn'
+      pages_list: Ändra sidor
+      translations: Översättningar
+      plus: aktiv
+      minus: inaktiv
+      x: oregistrerad
+      status: Status
+      generating: Genererar...
+      for_month: för
+      print: Skriv ut
+      manage_questionnaires: Hantera formulär
+      questionnaires_list: Formulärlista
+      user_management: Hantera användare
+      group_management: Hantera grupper
+      manage_user_roles: Hantera användarroller
+      remove_user: Ta bort användare
+      load_group_list: Ladda grupplista
+      manage_user_lists: Hantera användarlistor
+
+  notification:
+    views:
+      hi: Hej
+      you_got_new_questionnaire: Du har ett nytt formulär
+      click_above_link_to_answer: Klicka på länken ovan för att besvara det
+    mailer:
+      new_questionnaire_for_you: Det finns ett nytt formulär för dig ...
+
+  time:
+    formats:
+      attendance_report: '%B %d, %Y'
+      short: '%Y-%m-%d'
+      graph: '%b %d'
+      timestamp: '%Y-%m-%d %H:%M'
+  date:
+    formats:
+      attendance_report: '%B %d, %Y'
+      short: '%Y-%m-%d'
+      graph: '%b %d'
+
+  # Used in distance_of_time_in_words(), distance_of_time_in_words_to_now(), time_ago_in_words()
+  datetime:
+    distance_in_words:
+      half_a_minute: "en halv minut"
+      less_than_x_seconds:
+        one:   "mindre än 1 sekund"
+        other: "mindre än %{count} sekunder"
+      x_seconds:
+        one:   "1 sekund"
+        other: "%{count} sekunder"
+      less_than_x_minutes:
+        one:   "mindre än en minut"
+        other: "mindre än %{count} minuter"
+      x_minutes:
+        one:   "1 minut"
+        other: "%{count} minuter"
+      about_x_hours:
+        one:   "ungefär 1 timma"
+        other: "ungefär %{count} timmar"
+      x_days:
+        one:   "1 dag"
+        other: "%{count} dagar"
+      about_x_months:
+        one:   "ungefär 1 månad"
+        other: "ungefär %{count} månader"
+      x_months:
+        one:   "1 månad"
+        other: "%{count} månader"
+      about_x_years:
+        one:   "ungefär 1 år"
+        other: "ungefär %{count} år"
+      over_x_years:
+        one:   "över 1 år"
+        other: "över %{count} år"
+      almost_x_years:
+        one:   "nästan 1 år"
+        other: "nästan %{count} år"
+    prompts:
+      year:   "År"
+      month:  "Månad"
+      day:    "Dag"
+      hour:   "Timma"
+      minute: "Minut"
+      second: "Sekunder"
+
+  stream:
+    new_internet: Nya internet
+    projects_discussion: Diskussioner
+    rav: "Från Rav"
+    projects: Projekt
+    posted_ago: Posted %{when} sedan
+    read_all: Läs mer »
+    home: Hem
+    all: Alla poster
+    assignments: Tilldelningar
+    articles: Innehåll
+    messages: Meddelanden
+    events: Händelser
+    new_items: Nya poster
+    all_items: Alla inlägg
+    more_items: Fler inlägg »
+    tags_menu: Ämnen
+    back: « Tillbaka        
+    filter: Filtrera efter
+    mark_as: Markera som
+    read: läst
+    unread: oläst
+    bookmarks: Mina favoriter
+    add_to_favorites: Lägg till favoriter
+    remove_from_favorites: Ta bort från favoriter
+
+  kabtv:
+    admin:
+      show: Visa
+      show_questions: frågor
+      show_schedule: schema
+      show_sketches: ritningar
+      show_coveritlive: Täck den Live
+      coveritlive_code: Kod (max storlek 300x385)
+      show_support: support
+      show_separate_window: Tillåt separat fönster
+      successfully_saved: Sparad!
+      stream_management: Strömhanterare
+      preset_name: Förinställningsnamn
+      is_active: Är aktiv
+      default: Grundinställning
+      inactive_image: Inaktiv bild
+      stream_URL: "URL till ström (Flash: clip=...;stream=...)"
+      quality: Kvalitet
+      technology: Teknologi
+      language: Språk
+      description: Beskrivning
+      add_stream_item: Lägg till objekt till strömmen
+      submit: Skicka
+      submitting: Skickar...
+      select_preset_or_add: Välj en förinställning att ändra eller lägg till ny förinställning
+      stream_selection: Välj ström
+      stream_images: Strömbilder
+      stream_presets: Strömförinställningar
+      stream_state: Strömtillstånd
+      problem_saving: Ett problem uppstod vid sparandet av posten
+      name: Namn
+      qualities: Strömegenskaper
+      add_quality: Lägg till egenskap
+      stream_switcher: Strömswitcher
+      stream_states:
+        is_active: On air
+        not_active: Offline
+        preparing_to_broadcast: Förbereder för sändning
+        technical_problem: Tekniska problem
+
+    kabtv:
+      no_broadcast: Ingen sändning
+      no_broadcast_on: Ingen sändning på
+      no_questions_yet: Ännu inga frågor.
+      guest: Gäst
+      somewhere: Någonstans
+      awaiting_for_approval: Din fråga väntar på godkännande
+      no_question: Vänligen fyll i fältet "Fråga"
+      first: Första
+      prev: Föregående
+      last: Sista
+      next: Nästa
+      new_sketches: Det finns nya ritningar
+      ask_question: Ställ fråga
+      question: Fråga
+      who: Vem
+      from: Från
+      loading: Laddar...
+      coveritlive: Live Blog
+      questions: Frågor
+      schedule: Schema
+      schedule_name: Händelseschema
+      schedule_link: https://docs.google.com/spreadsheet/ccc?key=0AvAzVeqlLTMEdEx0MFNzdFdmWWJNc1JaUUhmci0tMFE&hl=en_US
+      sketches: Ritningar
+      technical_support: Teknisk support
+      cancel: Avbryt
+      open_in_default_viewer: Öppna i förinställd visare
+      full_screen: Fullskärm
+      thank_you: Tack!
+      submit_problem: Kunde inte skicka meddelande :(\nVänligen försök igen senare.
+      describe_problem: Rapportera ditt problem
+      empty_message: Vänligen fyll i ett meddelande
+      flash: Flash
+      wmv: WMV
+
+  social_button:
+    i_commit_to: Jag förbinder mig till
+    clicks_a_day: klick om dagen
+    change: Ändra
+    cancel: Avbryt
+    generate_csv_report: Generera rapport
+    we_clicks_for_today: "%{clicks} 'ONE'-klick av %{total} för idag"
+    we_clicks_for_today_assist: "%{clicks} 'ONE'-klick för idag , %{assist} av dem är för alla. Arvut!"
+    we_all_clicks_for_today: "%{clicks} 'ONE'-klick av %{total} för idag av alla"
+    we_group_clicks_for_today: "%{clicks} 'ONE'-klick av %{total} för idag av din grupp"

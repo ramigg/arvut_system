@@ -28,6 +28,7 @@ puts '--> Languages'
   {:locale => 'bg',:language => 'Български'},
   {:locale => 'ro',:language => 'Român'},
   {:locale => 'ge',:language => 'ქართული'},
+  {:locale => 'sv',:language => 'Swedish'},
 ].each{|e| Language.find_or_create_by_locale_and_language(e)}
 
 puts '--> Stream States'
@@ -338,7 +339,7 @@ SET client_encoding to "ISO-8859-15";
   #@locations = {}
   CSV::Reader.parse(File.open('GeoLiteCity-Location.csv', 'rb')) do |row|
     next if row[3] == ''
-  
+
     country = row[1]
     region = row[2]
     city = row[3]
