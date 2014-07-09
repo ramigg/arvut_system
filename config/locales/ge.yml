@@ -1,14 +1,14 @@
---- 
-ge: 
-  activerecord: 
-    attributes: 
+---
+ge:
+  activerecord:
+    attributes:
       page:
         message_body: Сообщение
       user:
         email: Е-мейл
         password: Пароль
-    errors: 
-      messages: 
+    errors:
+      messages:
         accepted: "must be accepted"
         blank: "-- поле не может быть пустым"
         confirmation: "не соответствует подтверждению"
@@ -28,25 +28,25 @@ ge:
         too_long: "слишком длинное (максимум %{count} символов)"
         too_short: "слишком короткое (минимум %{count} символов)"
         wrong_length: "неправильная длина (должна быть %{count} символов)"
-      models: 
-        user: 
-          attributes: 
-            email: 
+      models:
+        user:
+          attributes:
+            email:
               blank: "-- пропущено значение"
               invalid: "-- неверное значение"
-            password: 
+            password:
               blank: "-- не может быть пустым"
               confirmation: "не соответствует подтверждению"
               too_short: "слишком короткий (минимум %{count} символов)"
           blank: "-- поле не может быть пустым"
-      user: 
-        header: 
+      user:
+        header:
           one: "Операция не была выполнена из-за следующей проблемы"
           other: "Операция не была выполнена из-за следующих %{count} проблем"
-    models: 
+    models:
       user: Е-мейл
-  admin: 
-    pages: 
+  admin:
+    pages:
       actions: Действия
       add_answer: "Добавить ответ"
       add_new: "Добавить новое"
@@ -152,7 +152,7 @@ ge:
       video: Видео
       video_player: Видеоплейер
       youtube: YouTube
-    questionnaires: 
+    questionnaires:
       add: Добавить
       add_answer: "Добавить ответ"
       add_other: "Добавить \"другое\""
@@ -182,7 +182,7 @@ ge:
       status: Состояние
       title: Заголовок
       update_questionnaire: "Обновить вопросник"
-    reports: 
+    reports:
       all_groups: Все
       attendance_report: "Отчет посещаемости"
       basic_report: "Базисный отчет посещаемости"
@@ -223,7 +223,7 @@ ge:
       users_who_not_signed_in: "Пользователи, не вошедшие в систему"
       users_who_signed_in: "Пользователи, вошедшие в систему"
       x: неизвестен
-    user_list: 
+    user_list:
       are_you_sure: "Вы уверены?"
       create: "Пользователь успешно создан в списке"
       create_new_user: "Создать члена группы"
@@ -241,14 +241,14 @@ ge:
       select_group: "Выберите группу"
       update: "Список пользователей успешно обновлен"
       update_user_list: "Обновить члена группы"
-  answer: 
-    model: 
+  answer:
+    model:
       answer_too_short: "Ответ слишком короткий. Минимальная длина ответа - 10 символов"
       select_at_least_one: "Вы должны выбрать не менее одной возможности"
       select_one_option: "Вы должны выбрать одну из возможностей"
       write_an_answer: "Вы должны написать ответ"
-  date: 
-    abbr_day_names: 
+  date:
+    abbr_day_names:
       - Вс
       - Пн
       - Вт
@@ -256,7 +256,7 @@ ge:
       - Чт
       - Пт
       - Сб
-    abbr_month_names: 
+    abbr_month_names:
       - ~
       - янв
       - фев
@@ -270,7 +270,7 @@ ge:
       - окт
       - ноя
       - дек
-    day_names: 
+    day_names:
       - воскресенье
       - понедельник
       - вторник
@@ -278,10 +278,10 @@ ge:
       - четверг
       - пятница
       - суббота
-    formats: 
+    formats:
       graph: "%d %b"
       short: "%d %B %Y"
-    month_names: 
+    month_names:
       - ~
       - января
       - февраля
@@ -295,75 +295,75 @@ ge:
       - октября
       - ноября
       - декабря
-    order: 
+    order:
       - !ruby/symbol day
       - !ruby/symbol month
       - !ruby/symbol year
-  datetime: 
-    distance_in_words: 
-      about_x_hours: 
+  datetime:
+    distance_in_words:
+      about_x_hours:
         few: "около %{count} час."
         many: "около %{count} час."
         one: "около %{count} час."
         other: "около %{count} час."
-      about_x_months: 
+      about_x_months:
         few: "около %{count} мес."
         many: "около %{count} мес."
         one: "около %{count} мес."
         other: "около %{count} мес."
-      about_x_years: 
+      about_x_years:
         few: "около %{count} г."
         many: "около %{count} г."
         one: "около %{count} г."
         other: "около %{count} г."
       half_a_minute: "меньше минуты"
-      less_than_x_minutes: 
+      less_than_x_minutes:
         few: "меньше %{count} мин."
         many: "меньше %{count} мин."
         one: "меньше %{count} мин."
         other: "меньше %{count} мин."
-      less_than_x_seconds: 
+      less_than_x_seconds:
         few: "меньше %{count} сек."
         many: "меньше %{count} сек."
         one: "меньше %{count} сек."
         other: "меньше %{count} сек."
-      over_x_years: 
+      over_x_years:
         few: "больше %{count} г."
         many: "больше %{count} г."
         one: "больше %{count} г."
         other: "больше %{count} г."
-      x_days: 
+      x_days:
         few: "%{count} дн."
         many: "%{count} дн."
         one: "%{count} дн."
         other: "%{count} дн."
-      x_minutes: 
+      x_minutes:
         few: "%{count} мин."
         many: "%{count} мин."
         one: "%{count} мин."
         other: "%{count} мин."
-      x_months: 
+      x_months:
         few: "%{count} мес."
         many: "%{count} мес."
         one: "%{count} мес."
         other: "%{count} мес."
-      x_seconds: 
+      x_seconds:
         few: "%{count} сек."
         many: "%{count} сек."
         one: "%{count} сек."
         other: "%{count} сек."
-    prompts: 
+    prompts:
       day: День
       hour: Часов
       minute: Минут
       month: Месяц
       second: Секунд
       year: Год
-  devise: 
-    confirmations: 
+  devise:
+    confirmations:
       confirmed: "Ваш аккаунт успешно подтвержден. Вы вошли в систему"
       send_instructions: "В течение нескольких минут Вы получите е-мейл, содержащий инструкции по подтверждению Вашего аккаунта."
-    failure: 
+    failure:
       inactive: "Ваш аккаунт еще не был активизирован"
       invalid: "Неправильный е-мейл адрес или пароль"
       invalid_token: "Неправильный токен"
@@ -371,14 +371,14 @@ ge:
       timeout: "Время существования сессии истекло. Просьба снова войти в систему"
       unauthenticated: "Перед тем, как продолжить, следует войти в систему или зарегистрироваться"
       unconfirmed: "Вы должны подтвердить свой аккаунт."
-    mailer: 
-      confirmation_instructions: 
+    mailer:
+      confirmation_instructions:
         user_subject: "Инструкция по подтверждению аккаунта"
-      reset_password_instructions: 
+      reset_password_instructions:
         user_subject: "Инструкция по обновлению пароля"
-      unlock_instructions: 
+      unlock_instructions:
         user_subject: "Инструкция по разблокировке"
-    mails: 
+    mails:
       change_my_password: "Изменить мой пароль"
       confirm_my_account: "Подтвердить мой аккаунт"
       confirm_through_link: "Нажмите на нижеследующую ссылку для подтверждения аккаунта. Если ссылка не работает, пожалуйста, скопируйте ее и вставьте в строку адреса в вашем браузере."
@@ -390,20 +390,20 @@ ge:
       unlock_line2: "Для разблокировки аккаунта, пожалуйста, нажмите на нижеследующий линк"
       unlock_my_account: "Разблокировать мой аккаунт"
       welcome: Здравствуйте
-    passwords: 
+    passwords:
       send_instructions: "В течение нескольких минут Вы получите е-мейл, содержащий инструкции по обновлению Вашего пароля."
       updated: "Ваш пароль успешно заменен. Вы вошли в систему."
-    registrations: 
+    registrations:
       destroyed: "До свидания! Ваш аккаунт был успешно удален. Надеемся увидеть Вас снова в скором времени."
       signed_up: "Вы зарегистрированы. На Ваш мейл послан линк для активизации аккаунта."
       updated: "Вы успешно изменили свой аккаунт."
-    sessions: 
+    sessions:
       signed_in: "Вы успешно вошли в систему"
       signed_out: "Вы успешно вышли из системы"
-    unlocks: 
+    unlocks:
       send_instructions: "В течении нескольких минут Вы получите е-мейл, содержащий инструкции по разблокировке Вашего аккаунта."
       unlocked: "Ваш аккаунт успешно разблокирован. Вы вошли в систему"
-    views: 
+    views:
       back: Назад
       cannot_sign_in: "Проблемы? Для получения помощи нажмите здесь!"
       change_my_password: "Изменить мой пароль"
@@ -430,19 +430,19 @@ ge:
       sign_up_more: "Согласен &nbsp;&nbsp;&nbsp;&#9658;"
       sign_up_now: "Зарегистрироваться сейчас!!!"
       version: Версия
-  errors: 
-    messages: 
+  errors:
+    messages:
       already_confirmed: "уже подтвержден"
       not_found: "не найдено"
       not_locked: "не был заблокирован"
-  home: 
-    faq: 
+  home:
+    faq:
       confirmation: "Вы уже зарегистрировались, но система не дает войти? Пожалуйста проверьте Ваш емайл, там должно быть письмо с инструкцией для подтверждения регистрации. Если такого письма нет, то воспользуйтесь линком, чтобы послать это письмо еще раз."
       email: "Если вы попробовали всё вышеописаное, а проблема всё ещё не решена, пожалуйста напишите на"
       faq: "Часто задаваемые вопросы"
       forgot_password: "Вы уже зарегистрировались, но система не дает войти? Вы проверили наличие письма с инструкцией для подтверждения регистрации как описано выше? Может быть Вы неправильно вводите свой пароль? Воспользуйтесь следующим линком для смены пароля."
       unlock: "Система заблокировала Ваш счет? Пожалуйста проверьте Ваш емайл, там должно быть письмо с инструкцией для разблокировки. Если такого письма нет, то воспользуйтесь линком, чтобы послать это письмо еще раз."
-    views: 
+    views:
       active: "Активные "
       admin: Администрация
       answered: отвечен
@@ -462,8 +462,8 @@ ge:
       title: Заголовок
       title_registered_vs_active: "Все vs. Активные"
       view_reports: "Показать отчеты"
-  kabtv: 
-    admin: 
+  kabtv:
+    admin:
       add_stream_item: "Добавить канал"
       default: default
       description: описание
@@ -484,11 +484,12 @@ ge:
       submit: Отправить
       submitting: Ждите...
       successfully_saved: "Успешно сохранено!"
-    kabtv: 
+    kabtv:
       ask_question: "Задать вопрос"
       awaiting_for_approval: "Ваш вопрос ожидает одобрения модератором"
       cancel: Отменить
       describe_problem: "Сообщите о проблемах в трансляции"
+      wmv_dead_end: 'Please note that starting August 1st, 2014 the broadcast via Windows Media Player on Sviva Tova will be stopped. Broadcast via Flash will continue as usual. If you experience issue with Flash please write us in the box "Report your problem:" located below the player.'
       empty_message: "Пожалуйста напишите сообщение"
       first: начало
       flash: Flash
@@ -517,23 +518,23 @@ ge:
       thank_you: Спасибо!
       who: Кто
       wmv: WMV
-  layout: 
+  layout:
     search: Поиск
     search_screen_reader: Искать
-  notification: 
-    mailer: 
+  notification:
+    mailer:
       new_questionnaire_for_you: "Вас ожидает новый вопросник..."
-    views: 
+    views:
       click_above_link_to_answer: "Чтобы ответить, пройдите по ссылке"
       hi: Здравствуйте
       you_got_new_questionnaire: "Вы получили новый вопросник"
-  pages: 
+  pages:
     update: "Страница была успешно обновлена"
-    views: 
+    views:
       content_required: "текст обязателен"
       required: "обязательные поля"
-  profile: 
-    views: 
+  profile:
+    views:
       change_password: "изменить пароль"
       dear: "Здравствуйте,"
       edit: редактировать
@@ -541,16 +542,16 @@ ge:
       profile: Профиль
       required: "обязательные поля"
       updated: "Профиль был успешно обновлен"
-  questionnaire_answer: 
-    controller: 
+  questionnaire_answer:
+    controller:
       already_answered: "Вы уже ответили на этот вопросник"
       no_questionnaire: "Такого вопросника не существует."
       no_success: "Заполнение вопросника завершилось с ошибкой"
       was_success: "Заполнение вопросника успешно завершено"
-    views: 
+    views:
       all_fields_are_required: "Следует заполнить все поля!"
       please_select_one_of_the_options: "Выберите одну из возможностей"
-  social_button: 
+  social_button:
     cancel: Отменить
     change: Изменить
     clicks_a_day: "кликов в день"
@@ -560,7 +561,7 @@ ge:
     we_clicks_for_today: "Ты - %{clicks} 'ONE' из %{total}"
     we_clicks_for_today_assist: "Ты сделал %{clicks} кликов, из которых %{assist} - для товарщей. Арвут!"
     we_group_clicks_for_today: "Твоя группа - %{clicks} 'ONE' из %{total}"
-  stream: 
+  stream:
     add_to_favorites: "Добавить в избранное"
     all: "Все посты"
     all_items: "Все посты"
@@ -585,13 +586,13 @@ ge:
     remove_from_favorites: "Удалить из избранного"
     tags_menu: Темы
     unread: непрочитанное
-  time: 
-    formats: 
+  time:
+    formats:
       attendance_report: "%d %B %Y"
       short: "%d-%m-%Y"
       timestamp: "%m-%d-%Y %H:%M"
-  user: 
-    model: 
+  user:
+    model:
       avatar: Аватар
       birthday: "Год рождения"
       choose_image: "Выбрать фото"
@@ -609,7 +610,7 @@ ge:
       region: Регион
       remove_avatar: "Удалить Аватар"
       yes_answer: Да
-  views: 
+  views:
     back: Назад
     cancel: Отменить
     load: Загрузить

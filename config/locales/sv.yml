@@ -513,7 +513,7 @@ sv:
     all_items: Alla inlägg
     more_items: Fler inlägg »
     tags_menu: Ämnen
-    back: « Tillbaka        
+    back: « Tillbaka
     filter: Filtrera efter
     mark_as: Markera som
     read: läst
@@ -593,6 +593,7 @@ sv:
       thank_you: Tack!
       submit_problem: Kunde inte skicka meddelande :(\nVänligen försök igen senare.
       describe_problem: Rapportera ditt problem
+      wmv_dead_end: 'Please note that starting August 1st, 2014 the broadcast via Windows Media Player on Sviva Tova will be stopped. Broadcast via Flash will continue as usual. If you experience issue with Flash please write us in the box "Report your problem:" located below the player.'
       empty_message: Vänligen fyll i ett meddelande
       flash: Flash
       wmv: WMV

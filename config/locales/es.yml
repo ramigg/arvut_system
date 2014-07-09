@@ -1,14 +1,14 @@
---- 
-es: 
-  activerecord: 
-    attributes: 
+---
+es:
+  activerecord:
+    attributes:
       page:
         message_body: Mensaje
       user:
         email: "Dirección electrónica"
         password: Contraseña
-    errors: 
-      messages: 
+    errors:
+      messages:
         accepted: "debe ser aceptado"
         blank: "no puede estar en blanco"
         confirmation: "la confirmación no coincide"
@@ -28,25 +28,28 @@ es:
         too_long: "es demasiado larga (el máximo es de %{count} caracteres)"
         too_short: "es demasiado corta (el mínimo es de %{count} caracteres)"
         wrong_length: "tiene una longitud errónea (debería ser de %{count} caracteres)"
-      models: 
-        user: 
-          attributes: 
-            email: 
+      models:
+        user:
+          attributes:
+            email:
               blank: "-- valor en blanco"
               invalid: "no es válido"
-            password: 
+            password:
               blank: "-- no puede estar en blanco"
               confirmation: "la confirmación no coincide"
               too_short: "demasiado corta (el mínimo es de %{count} caracteres)"
           blank: "Campo en blanco"
-      user: 
-        header: 
+      user:
+        header:
           one: "La operación falló debido al siguiente error"
           other: "La operación falló debido a los siguientes %{count} errores"
-    models: 
+    models:
       user: correo-e
-  admin: 
-    pages: 
+  kabtv:
+    kabtv:
+      wmv_dead_end: 'A partir de la fecha de 1//8/2014 se terminaran las transmisiones en la tecnología de windows media player en sviva tova, las transmisiones en la tecnología de flash continuaran como siempre. Si todavía tienen problemas por favor escribe nos en: REPORT YOUR PROBLEM'
+  admin:
+    pages:
       actions: Acciones
       add_answer: "Añadir respuesta"
       add_new: "Añadir nuevo"
@@ -148,7 +151,7 @@ es:
       video: Video
       video_player: "Reproductor de vídeo"
       youtube: YouTube
-    questionnaires: 
+    questionnaires:
       add: Add
       add_answer: "Add Answer"
       add_other: "Add Other"
@@ -178,7 +181,7 @@ es:
       status: Status
       title: Title
       update_questionnaire: "Update Questionnaire"
-    reports: 
+    reports:
       all_groups: Everyone
       attendance_report: "Attendance report"
       basic_report: "User Activities report"
@@ -217,7 +220,7 @@ es:
       users_who_not_signed_in: "Usuarios no conectados"
       users_who_signed_in: "Usuarios conectados"
       x: "not registered"
-    user_list: 
+    user_list:
       are_you_sure: "Are you sure?"
       create: "El usuario se ha creado correctamente en la lista"
       create_new_user: "Create New User"
@@ -234,14 +237,14 @@ es:
       please_select_one_of_the_options: "Please select one of the options"
       update: "Actualizada correctamente la lista de usuarios"
       update_user_list: "Update User List"
-  answer: 
-    model: 
+  answer:
+    model:
       answer_too_short: "Tu respuesta es demasiado corta. La longitud mínima de la respuesta es de 10 caracteres."
       select_at_least_one: "Tienes que seleccionar al menos una opción."
       select_one_option: "Tienes que seleccionar una de las opciones."
       write_an_answer: "Tienes que escribir una respuesta"
-  date: 
-    abbr_month_names: 
+  date:
+    abbr_month_names:
       - ~
       - Ene
       - Feb
@@ -255,7 +258,7 @@ es:
       - Oct
       - Nov
       - Dic
-    day_names: 
+    day_names:
       - Domingo
       - Lunes
       - Martes
@@ -263,10 +266,10 @@ es:
       - Jueves
       - Viernes
       - Sábado
-    formats: 
+    formats:
       graph: "%d %B"
       short: "%d %B %Y"
-    month_names: 
+    month_names:
       - ~
       - Enero
       - Febrero
@@ -280,58 +283,58 @@ es:
       - Octubre
       - Noviembre
       - Diciembre
-    order: 
+    order:
       - !ruby/symbol day
       - !ruby/symbol month
       - !ruby/symbol year
-  datetime: 
-    distance_in_words: 
-      about_x_hours: 
+  datetime:
+    distance_in_words:
+      about_x_hours:
         one: "alrededor de 1 hora"
         other: "alrededor de %{count} horas"
-      about_x_months: 
+      about_x_months:
         one: "alrededor de 1 mes"
         other: "alrededor de %{count} meses"
-      about_x_years: 
+      about_x_years:
         one: "alrededor de 1 año"
         other: "alrededor de %{count} años"
-      almost_x_years: 
+      almost_x_years:
         one: "casi 1 año"
         other: "casi %{count} años"
       half_a_minute: "medio minuto"
-      less_than_x_minutes: 
+      less_than_x_minutes:
         one: "menos de 1 minuto"
         other: "menos de %{count} minutos"
-      less_than_x_seconds: 
+      less_than_x_seconds:
         one: "menos de 1 segundo"
         other: "menos de %{count} segundos"
-      over_x_years: 
+      over_x_years:
         one: "más de 1 año"
         other: "más de %{count} años"
-      x_days: 
+      x_days:
         one: "1 día"
         other: "%{count} días"
-      x_minutes: 
+      x_minutes:
         one: "1 minuto"
         other: "%{count} minutos"
-      x_months: 
+      x_months:
         one: "1 mes"
         other: "%{count} meses"
-      x_seconds: 
+      x_seconds:
         one: "1 segundo"
         other: "%{count} segundos"
-    prompts: 
+    prompts:
       day: Día
       hour: Hora
       minute: Minutos
       month: Mes
       second: Segundos
       year: Año
-  devise: 
-    confirmations: 
+  devise:
+    confirmations:
       confirmed: "Tu cuenta ha sido confirmada con éxito. Ahora estás conectado."
       send_instructions: "En unos minutos recibirás un correo electrónico con instrucciones sobre cómo confirmar tu cuenta."
-    failure: 
+    failure:
       inactive: "Tu cuenta no ha sido activada aún."
       invalid: "Dirección electrónica o contraseña inválido."
       invalid_token: "Documento de autenticación inválido."
@@ -339,14 +342,14 @@ es:
       timeout: "Tu sesión ha expirado, por favor conéctate de nuevo para continuar."
       unauthenticated: "Tienes que conectarte o actualizar tu conexión para continuar."
       unconfirmed: "Tienes que confirmar tu cuenta antes de continuar."
-    mailer: 
-      confirmation_instructions: 
+    mailer:
+      confirmation_instructions:
         user_subject: "Instrucciones para la confirmación"
-      reset_password_instructions: 
+      reset_password_instructions:
         user_subject: "Instrucciones para restaurar la contraseña"
-      unlock_instructions: 
+      unlock_instructions:
         user_subject: "Instrucciones de desbloqueo"
-    mails: 
+    mails:
       change_my_password: "Cambiar mi contraseña"
       confirm_my_account: "Confirmar mi cuenta"
       confirm_through_link: "Cliquear el enlace abajo para confirmar su cuenta. Si el enlace aparece corrupto, por favor copiar y pegar la información en una nueva página."
@@ -358,20 +361,20 @@ es:
       unlock_line2: "Haz clic sobre el enlace siguiente para desbloquear tu cuenta"
       unlock_my_account: "Desbloquear mi cuenta"
       welcome: Bienvenido
-    passwords: 
+    passwords:
       send_instructions: "En unos minutos, recibirás un email con instrucciones sobre cómo cambiar tu contraseña."
       updated: "Tu contraseña fue cambiada con éxito. Ahora estás conectado."
-    registrations: 
+    registrations:
       destroyed: "¡Adios! Tu cuenta ha sido cancelada con éxito. Esperamos volver a verte pronto."
       signed_up: "Te has registrado con éxito. ¡Por favor, revisa tu email en busca de un mensaje de confirmación para activar tu cuenta!"
       updated: "Has actualizado tu cuenta con éxito."
-    sessions: 
+    sessions:
       signed_in: Conectado.
       signed_out: Desconectado.
-    unlocks: 
+    unlocks:
       send_instructions: "En unos minutos, recibirás un email con instrucciones sobre cómo desbloquear tu cuenta."
       unlocked: "Tu cuenta ha sido desbloqueada con éxito. Ahora estás conectado."
-    views: 
+    views:
       cannot_sign_in: "¿No puede entrar? Haga click aquí para ayudarle"
       change_my_password: "Cambiar mi contraseña"
       confirm_new_password: "Confirmación de la contraseña"
@@ -393,19 +396,19 @@ es:
       sign_up: Regístrate
       sign_up_more: "Inscríbete&nbsp;&nbsp;&nbsp;&#9658;"
       sign_up_now: "¡Regístrese ahora!"
-  errors: 
-    messages: 
+  errors:
+    messages:
       already_confirmed: "ya fue confirmado"
       not_found: "no encontrado"
       not_locked: "no estaba bloqueado"
-  home: 
-    faq: 
+  home:
+    faq:
       confirmation: "You have already registered, but the system still doesn't permit you to enter? Please check your mailbox for the confirmation email. If there isn't one, please use the following link to send you another one."
       email: "If you've tried everything above and still have a problem, then please send an email to"
       faq: "Frequently Asked Questions"
       forgot_password: "You have already registered, but the system still doesn't permit you to enter? Did you check the confirmation instructions above? Maybe you forgot your password? Try the following link to reset it."
       unlock: "You've been locked by the system. Please check your mailbox for the unlock email. If there isn't one, please use the following link to send it again."
-    views: 
+    views:
       active: Activo
       admin: Admin
       answered: respondido
@@ -425,23 +428,23 @@ es:
       title: Título
       title_registered_vs_active: "Registrado vs. Activo"
       view_reports: "Ver informes"
-  layout: 
+  layout:
     search: Buscar
     search_screen_reader: Buscar
-  notification: 
-    mailer: 
+  notification:
+    mailer:
       new_questionnaire_for_you: "Hay un nuevo cuestionario para ti…"
-    views: 
+    views:
       click_above_link_to_answer: "Haz clic sobre el enlace para contestarlo"
       hi: Hola
       you_got_new_questionnaire: "Tienes un nuevo cuestionario"
-  pages: 
+  pages:
     update: "La página fue actualizada correctamente"
-    views: 
+    views:
       content_required: "rellene el texto"
       required: "campo requerido"
-  profile: 
-    views: 
+  profile:
+    views:
       change_password: "cambiar contraseña"
       dear: "Hola,"
       edit: editar
@@ -449,16 +452,16 @@ es:
       profile: perfil
       required: "campo requerido"
       updated: "El perfil se ha actualizado correctamente"
-  questionnaire_answer: 
-    controller: 
+  questionnaire_answer:
+    controller:
       already_answered: "Ya has contestado este cuestionario"
       no_questionnaire: "No existe ese cuestionario"
       no_success: "El cuestionario no ha sido respondido con éxito."
       was_success: "El cuestionario ha sido respondido con éxito."
-    views: 
+    views:
       all_fields_are_required: "¡Todos los campos son obligatorios!"
       please_select_one_of_the_options: "Por favor selecciona una de las acciones"
-  stream: 
+  stream:
     add_to_favorites: "Añadir a Favoritos"
     all: "Todos "
     all_items: "Todos los artículos"
@@ -483,14 +486,14 @@ es:
     remove_from_favorites: "Eliminar de mis favoritos"
     tags_menu: Temas
     unread: "no leído"
-  time: 
-    formats: 
+  time:
+    formats:
       attendance_report: "%d ל%B %Y"
       graph: "%d %B"
       short: "%d-%m-%Y"
       timestamp: "%m-%d-%Y %H:%M"
-  user: 
-    model: 
+  user:
+    model:
       avatar: Avatar
       birthday: "Año de nacimiento"
       choose_image: "Seleccione Imagen"
@@ -508,7 +511,7 @@ es:
       region: Región
       remove_avatar: "Remover Avatar"
       yes_answer: Sí
-  views: 
+  views:
     back: Volver
     cancel: Cancelar
     load: Load

@@ -513,7 +513,7 @@ en:
     all_items: All Items
     more_items: More items »
     tags_menu: Topics
-    back: « Back        
+    back: « Back
     filter: Filter by
     mark_as: Mark as
     read: read
@@ -593,6 +593,7 @@ en:
       thank_you: Thank you!
       submit_problem: Unable to send message :(\nPlease try again later.
       describe_problem: Report your problem
+      wmv_dead_end: 'Please note that starting August 1st, 2014 the broadcast via Windows Media Player on Sviva Tova will be stopped. Broadcast via Flash will continue as usual. If you experience issue with Flash please write us in the box "Report your problem:" located below the player.'
       empty_message: Please fill а message in
       flash: Flash
       wmv: WMV

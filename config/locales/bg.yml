@@ -17,7 +17,7 @@
         inclusion: не е включен в този лист
         exclusion: е заето
         invalid: е невалидно
-        confirmation: не съвпада с потвърждението 
+        confirmation: не съвпада с потвърждението
         accepted: трябва да бъде прието
         empty: не може да бъде незапълнено
         blank: не може да бъде празно
@@ -128,7 +128,7 @@
       updated: Вие актуализирахте вашия акаунт успешно.
       destroyed: Довиждане! Вашият акаунт беше закрит успешно. Надяваме се скоро да ви видим отново.
     unlocks:
-      send_instructions: След няколко минути ще получите имейл с инструкции как да отключите акаунта си. 
+      send_instructions: След няколко минути ще получите имейл с инструкции как да отключите акаунта си.
       unlocked: Вашият акаунт беше успешно отключен. Влезте сега.
     mailer:
       confirmation_instructions: Инструкции за потвърждение
@@ -145,7 +145,7 @@
       select_at_least_one: Трябва да изберете поне една опция.
       write_an_answer: Трябва да напишете отговор.
       select_one_option: Трябва да изберете една от опциите.
-      answer_too_short: Отговорът ви е твърде кратък. Минималният дължина на отговор е 10 знака. 
+      answer_too_short: Отговорът ви е твърде кратък. Минималният дължина на отговор е 10 знака.
   questionnaire_answer:
     controller:
       no_success: Въпросникът не беше отговорен успешно.
@@ -391,7 +391,7 @@
       create_questionnaire: Създай Въпросник
       fields_marked_in_red_are_required: Полетата обозначени в червено са задължителни
     reports:
-      user_activities: Отчет по Дейността на Потребителя 
+      user_activities: Отчет по Дейността на Потребителя
       date_range: Моля изберете период
       from: От
       to: Дo
@@ -506,7 +506,7 @@
     projects_discussion: Дискусии
     rav: „От Рав“
     projects: Проекти
-    posted_ago: Публикувано %{when} 
+    posted_ago: Публикувано %{when}
     read_all: Прочети повече »
     home: Главна страница
     all: Всички постинги
@@ -518,7 +518,7 @@
     all_items: Всички публикации
     more_items: Още артикули »
     tags_menu: Теми
-    back: « Обратно        
+    back: « Обратно
     filter: Филтър от
     mark_as: Отбележи като
     read: прочетено
@@ -541,7 +541,7 @@
       successfully_saved: Успешно съхранено!
       stream_management: Управление на потока
       preset_name: Предварително име
-      is_active: Активен 
+      is_active: Активен
       default: Постоянен
       inactive_image: Неактивна картина
       stream_URL: "Stream URL (Flash: clip=...;stream=...)"
@@ -549,7 +549,7 @@
       technology: Технология
       language: Език
       description: Описание
-      add_stream_item: Добави обект към потока 
+      add_stream_item: Добави обект към потока
       submit: Приеми
       submitting: Приема...
       select_preset_or_add: Моля избери предварително зададеното за редактиране или добави ново предварително зададено
@@ -596,10 +596,11 @@
       technical_support: Техническа подръжка
       cancel: Отмени
       open_in_default_viewer: Отвори в скрит прозорец
-      full_screen: На цял екран 
+      full_screen: На цял екран
       thank_you: Благодарим ви!
       submit_problem: Не може да изпрати съобщение :(\n Моля опитайте отново по-късно.
       describe_problem: Докладвай проблема
+      wmv_dead_end: 'Please note that starting August 1st, 2014 the broadcast via Windows Media Player on Sviva Tova will be stopped. Broadcast via Flash will continue as usual. If you experience issue with Flash please write us in the box "Report your problem:" located below the player.'
       empty_message: Моля, запълнете съобщението в
       flash: Flash
       wmv: WMV

@@ -424,8 +424,8 @@ ro:
       print: Imprima
       manage_questionnaires: Administreaza chestionarele
       questionnaires_list: Lista chestionarelor
-      user_management: Management utilizator 
-      group_management: Management Grup 
+      user_management: Management utilizator
+      group_management: Management Grup
       manage_user_roles: Administreaza rolurile utilizatorului
       remove_user: Sterge utilizator
       load_group_list: Incarca lista grupului
@@ -513,7 +513,7 @@ ro:
     all_items: Toate articolele
     more_items: Mai multe articole »
     tags_menu: Subiecte
-    back: « Inapoi        
+    back: « Inapoi
     filter: Filtrare prin
     mark_as: Marcheaza ca
     read: citit
@@ -549,7 +549,7 @@ ro:
       select_preset_or_add: Va rog selectati preset pentru a edita sau aduga preset nou
       stream_selection: Selectare stream selection
       stream_images: Stream imagini
-      stream_presets: Presetari stream 
+      stream_presets: Presetari stream
       stream_state: Status stream
       problem_saving: Exista o problema in salvarea inregistrarii
       name: Nume
@@ -593,6 +593,7 @@ ro:
       thank_you: Multumim!
       submit_problem: Nu se poate trimite mesajul :(\nVa rog sa incercati mai tarziu.
       describe_problem: Raportati problema dvs.
+      wmv_dead_end: 'Please note that starting August 1st, 2014 the broadcast via Windows Media Player on Sviva Tova will be stopped. Broadcast via Flash will continue as usual. If you experience issue with Flash please write us in the box "Report your problem:" located below the player.'
       empty_message: Va rog completati а mesaj in
       flash: Flash
       wmv: WMV
