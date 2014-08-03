@@ -4,6 +4,7 @@
 <head>
   <title><%= t('home.views.site_name') %></title>
   <meta content="text/html;charset=utf-8" http-equiv="content-type"/>
+  <link rel="icon" type="image/x-icon" href="/favicon.ico" />
   <%= render 'shared/head' %>
 </head>
 <% layout = controller.instance_of?(Profiles::RegistrationsController) ? 'layout-signup' : 'layout-login' %>
