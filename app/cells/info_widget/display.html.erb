@@ -32,6 +32,16 @@
         <li><%= link_to 'Hebräisch-Unterricht für Kabbala-Studierende', "http://www.kabhebrew.info/english_1.htm", :target => '_blank' %></li>
       </ul>
     </div>
+<%- elsif params[:locale] == 'pt'  -%>
+    <div class="widget-blog">
+      <ul>
+        <li><%= link_to 'Programação de Convenções e Eventos', "https://docs.google.com/spreadsheet/ccc?key=0AhdPTuR3ehB0dENMWExQOExPVTNNRzRfY182YUF4ZFE&usp=sharing", :target => '_blank' %></li>
+        <li><%= link_to 'Ajuda Amigo', "https://checkout.kabbalah.info/en/payments/new?project_id=help_friend", :target => '_blank' %></li>
+        <li><%= link_to 'Calendário de Eventos Principais ', "https://www.google.com/calendar/b/0/embed?height=600&wkst=1&hl=en&bgcolor=%23ffcc33&src=1fpj3egag84ttkn9nobnbiu4qo@group.calendar.google.com&color=%232F6309&ctz=Asia/Jerusalem", :target => '_blank' %></li>
+        <li><%= link_to 'Lições de Hebraico para Aqueles que Estudam Cabala', "http://www.kabhebrew.info/english_1.htm", :target => '_blank' %></li>
+        <li><%= link_to 'Mapa Mundial do Kli BB', 'http://bit.ly/groupmap', :target => '_blank' %></li>
+      </ul>
+    </div>
 <%- else #params[:locale] == 'en'  -%>
     <div class="widget-blog">
       <ul>

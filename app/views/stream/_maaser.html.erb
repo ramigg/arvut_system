@@ -1,25 +1,25 @@
 <style>
-  .radiozohar-button {
-      display: block;
-      height: 60px;
-      width: 220px;
-      background: transparent url(images/radio1.jpg) no-repeat 0 0;
-  }
+    .radiozohar-button {
+        display    : block;
+        height     : 60px;
+        width      : 220px;
+        background : transparent url(images/radio1.jpg) no-repeat 0 0;
+    }
 </style>
 <div align="center" width="100%">
-<% if I18n.locale == :ru %>
+  <% if I18n.locale == :ru %>
       <a href="http://www.kabbalah.info/maaser/rus/" target="_blank">
         <button class="button-middle-second arial" style="width:100%;background-color:#81b253;cursor:pointer;color:#ffffff;font-size:120%">
           Внести Маасер
         </button>
       </a>
-<% elsif I18n.locale == :es %>
+  <% elsif I18n.locale == :es %>
       <a href="http://www.kabbalah.info/maaser/spa/" target="_blank">
         <button class="button-middle-second arial" style="width:100%;background-color:#81b253;cursor:pointer;color:#ffffff;font-size:120%">
           Pagar Maaser
         </button>
       </a>
-<% elsif I18n.locale == :he %>
+  <% elsif I18n.locale == :he %>
       <%# a href="http://www.kabbalah.info/maaser/heb/" target="_blank">
         <button class="button-middle-second arial" style="width:100%;background-color:#81b253;cursor:pointer;color:#ffffff;font-size:120%">
           לתת מעשר
@@ -31,12 +31,18 @@
         </button>
       </a%>
       <a href=" http://icecast.kab.tv/radiozohar2014.mp3" target="_blank" class="radiozohar-button"></a><br>
-<% else %>
-    <!-- English and other languages -->
-    <a href="http://www.kabbalah.info/maaser/eng/" target="_blank">
-      <button class="button-middle-second arial" style="width:100%;background-color:#81b253;cursor:pointer;color:#ffffff;font-size:120%">
-        Give Maaser
-      </button>
-    </a>
-<% end %>
+  <% elsif I18n.locale == :es %>
+      <a href="http://www.kabbalah.info/maaser/pt/" target="_blank">
+        <button class="button-middle-second arial" style="width:100%;background-color:#81b253;cursor:pointer;color:#ffffff;font-size:120%">
+          Dar Maaser
+        </button>
+      </a>
+  <% else %>
+      <!-- English and other languages -->
+      <a href="http://www.kabbalah.info/maaser/eng/" target="_blank">
+        <button class="button-middle-second arial" style="width:100%;background-color:#81b253;cursor:pointer;color:#ffffff;font-size:120%">
+          Give Maaser
+        </button>
+      </a>
+  <% end %>
 </div>
