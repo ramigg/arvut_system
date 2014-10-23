@@ -499,14 +499,14 @@ pt:
     all_items: "Todos os items"
     articles: Conteúdo
     assignments: Agendamentos
-    back: "Â« Voltar"
+    back: "« Voltar"
     bookmarks: "Meus favoritos"
     events: Eventos
     filter: "Filtrar por"
     home: Principal
     mark_as: "Marcar como"
     messages: Mensagens
-    more_items: "Mais Items Â»"
+    more_items: "Mais Items »"
     new_internet: "Nova internet"
     new_items: "Novos posts"
     posted_ago: "Postado %{when} dias atrás"
@@ -514,7 +514,7 @@ pt:
     projects_discussion: Discussões
     rav: "Do Rav"
     read: Lido
-    read_all: "Ler mais Â»"
+    read_all: "Ler mais »"
     remove_from_favorites: "Remover dos favoritos"
     tags_menu: tópicos
     unread: "Não lidos"
