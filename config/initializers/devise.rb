@@ -1,3 +1,12 @@
+module SocialNetworks
+  CONFIG          = YAML.load_file(Rails.root.join("config/social_networks.yml"))[Rails.env]
+  FACEBOOK_APP_ID = CONFIG['facebook']['app_id']
+  FACEBOOK_SECRET = CONFIG['facebook']['secret_key']
+  ODNOKLASSNIKI_APP_ID = CONFIG['odnoklassniki']['app_id']
+  ODNOKLASSNIKI_SECRET_KEY = CONFIG['odnoklassniki']['secret_key']
+  ODNOKLASSNIKI_PUBLIC_KEY = CONFIG['odnoklassniki']['public_key']
+end
+
 # Use this hook to configure devise mailer, warden hooks and so forth. The first
 # four configuration values can also be set straight in your models.
 Devise.setup do |config|
@@ -171,6 +180,13 @@ Devise.setup do |config|
   #   manager.default_strategies(:scope => :user).unshift :twitter_oauth
   # end
 
+  config.omniauth :odnoklassniki, SocialNetworks::ODNOKLASSNIKI_APP_ID, SocialNetworks::ODNOKLASSNIKI_SECRET_KEY,
+                  public_key: SocialNetworks::ODNOKLASSNIKI_PUBLIC_KEY, scope: 'VALUABLE_ACCESS'
+  # use OmniAuth::Builder do
+  #   provider :odnoklassniki, SocialNetworks::ODNOKLASSNIKI_APP_ID, SocialNetworks::ODNOKLASSNIKI_SECRET_KEY,
+  #            public_key: SocialNetworks::ODNOKLASSNIKI_PUBLIC_KEY,
+  #            scope: 'VALUABLE_ACCESS'
+  # end
 end
 
 # To register login event

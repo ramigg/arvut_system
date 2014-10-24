@@ -1,10 +1,24 @@
 class Mailer < ActionMailer::Base
   include SendGrid
 
-  sendgrid_enable :ganalytics, :opentrack, :clicktrack, :gravatar
+  sendgrid_enable :gravatar
 
   default :from => "internet@kabbalahgroup.info"
   default_url_options[:host] = "kabbalahgroup.info#{Rails.configuration.site_prefix}" if Rails.env == 'production'
+
+  def new_user_to_security(user)
+    ActionMailer::Base.default_content_type = 'text/plain'
+    headers = {
+        :from => 'Bnei Baruch <internet@kbb1.com>',
+        :subject => "New user registration: #{user.email}",
+        :to => 'gshilin@gmail.com',
+        :date => Time.now.to_formatted_s(:rfc822),
+        :content_type => 'text/plain'
+    }
+    @user = user
+    @data = JSON.parse(@user.sn_data || {}).to_yaml.gsub(/\n/, '<br/>')
+    mail(headers)
+  end
 
   # Subject can be set in your I18n file at config/locales/en.yml
   # with the following lookup:

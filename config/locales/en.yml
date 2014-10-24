@@ -92,6 +92,7 @@ en:
       sign_up_now: Sign up NOW!!!
       new_user: New User?
       cannot_sign_in: Cannot sign in? Click here for help!
+      or: 'or sign in with'
     mails:
       welcome: Welcome
       confirm_through_link: Please click the link below to confirm your account. If you click the link and it appears to be broken, please copy and paste it into a new browser window.

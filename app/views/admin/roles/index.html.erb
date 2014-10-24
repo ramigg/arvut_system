@@ -13,6 +13,7 @@
         </ul>
       </li>
       <li>ID: <%= @user.try(:id) %></li>
+      <li style="float: right; text-align: left; width: 700px;">Full Info<br/><pre><%= JSON.parse(@user.sn_data || '{}').to_yaml.html_safe -%></pre></li>
       <li>
         Roles:
         <ul>

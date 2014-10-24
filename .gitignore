@@ -11,6 +11,8 @@ nbproject/**/*
 config/database.yml
 config/exceptional.yml
 config/settings.yml
+config/social_networks.yml
+config/secret_broadcast.yml
 public/ckeditor_assets/**/*
 .idea/*
 public/system/**/*

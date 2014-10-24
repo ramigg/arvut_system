@@ -412,6 +412,7 @@ he:
       sign_up_more: "הרשמה&nbsp;&nbsp;&nbsp;&#9668;"
       sign_up_now: "הרשם עכשיו!!!"
       version: "צפה ב-"
+      or: 'או הכנס עם'
   errors:
     messages:
       already_confirmed: "כבר עבר אישור"

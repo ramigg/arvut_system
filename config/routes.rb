@@ -38,6 +38,11 @@ end
 
 Simulator::Application.routes.draw do
 
+  devise_for :users, :controllers => {
+      :registrations      => 'profiles/registrations',
+      :omniauth_callbacks => "users/omniauth_callbacks"
+  }
+
   namespace :api do
     namespace :v1 do
       resources :tokens, :only => [:create, :destroy]
@@ -77,13 +82,13 @@ Simulator::Application.routes.draw do
   pattern = langs.join('|')
 
   constraints(CheckMobileLoggedIn) do
-    langs.each {|l|
+    langs.each { |l|
       match "/#{l}", :to => 'mobile#index', :locale => l
     }
   end
 
   constraints(CheckLoggedIn) do
-    langs.each {|l|
+    langs.each { |l|
       match "/#{l}" => "stream#index", :locale => l, :stream_filter => 'all'
     }
   end
@@ -100,8 +105,7 @@ Simulator::Application.routes.draw do
     match '*path' => "redirector#to_locale"
   end
 
-
-  scope '/(:locale)', :constraints => {:locale => /#{pattern}/} do
+  scope '/(:locale)', :constraints => { :locale => /#{pattern}/ } do
 
     root :to => 'stream#index', :stream_filter => 'all'
     match 'dashboard', :to => 'home#dashboard', :as => 'dashboard'
@@ -110,10 +114,14 @@ Simulator::Application.routes.draw do
     match 'tv/:preset_id', :to => "static_pages#tv", :as => :tv
 
     devise_for :users,
-               :path_names => {:sign_in => 'login', :sign_out => 'logout', :sign_up => 'register'},
-               :controllers => {:registrations => "profiles/registrations", :confirmations => "profiles/confirmations", :sessions => 'sessions'}
+               :path_names  => { :sign_in => 'login', :sign_out => 'logout', :sign_up => 'register' },
+               :controllers => {
+                   :confirmations      => 'profiles/confirmations',
+                   :sessions           => 'sessions'
+               }
     match "users/confirmation/awaiting/:id/:confirmation_hash",
           :to => redirect("#{Rails.configuration.site_prefix}/%{locale}/users/confirmations/awaiting/%{id}/%{confirmation_hash}"), :as => "awaiting_confirmation"
+    match 'oauth_redirect', to: 'oauth#redirect', as: 'oauth_redirect'
 
     match 'login_help', :to => 'home#login_help', :as => 'login_help'
 
