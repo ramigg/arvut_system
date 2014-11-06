@@ -11,7 +11,7 @@ class Mailer < ActionMailer::Base
     headers = {
         :from => 'Bnei Baruch <internet@kbb1.com>',
         :subject => "New user registration: #{user.email}",
-        :to => 'gshilin@gmail.com',
+        :to => ['kola.ish@gmail.com', 'gshilin@gmail.com', 'ramigg@gmail.com'],
         :date => Time.now.to_formatted_s(:rfc822),
         :content_type => 'text/plain'
     }

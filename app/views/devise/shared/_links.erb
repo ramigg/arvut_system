@@ -1,7 +1,8 @@
 <%#- if devise_mapping.confirmable? && controller_name != 'confirmations' %>
-  <%= link_to t('devise.views.no_confirmation_instructions'), new_confirmation_path(@resource_name), :class => [:fleft, :'small-text'] %><br />
+  <%#= link_to t('devise.views.no_confirmation_instructions'), new_confirmation_path(@resource_name), :class => [:fleft, :'small-text'] %><br />
 <%# end -%>
 
 <%#- if devise_mapping.lockable? && resource_class.unlock_strategy_enabled?(:email) && controller_name != 'unlocks' %>
+<%- if @resource_name %>
   <%= link_to t('devise.views.no_unlock_instructions'), new_unlock_path(@resource_name), :class => [:fleft, :'small-text'] %><br />
-<%# end -%>
+<% end -%>
