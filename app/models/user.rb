@@ -1,3 +1,5 @@
+require 'open-uri'
+
 class UserLocationValidator < ActiveModel::EachValidator
   def validate_each(object, attribute, value)
     return true unless value
@@ -35,7 +37,7 @@ class User < ActiveRecord::Base
 
   # Include default devise modules. Others available are:
   # :token_authenticatable, :confirmable, :lockable and :timeoutable
-  devise :database_authenticatable, :registerable,
+  devise :database_authenticatable, :registerable, :omniauthable,
          :recoverable, :rememberable, :trackable,
          :validatable, :confirmable, :lockable, :token_authenticatable, :encryptable, :encryptor => :sha1
 
@@ -85,10 +87,10 @@ class User < ActiveRecord::Base
   after_destroy :roles_cleanup
 
   has_attached_file :avatar,
-                    :styles          => { :original => ['170x170>', :png], :thumb => ['40x40#', :png] },
-                    :convert_options => { :all => "-strip" },
-                    :default_url     => '/images/user.png'
-  #  validates_attachment_size :avatar, :less_than => 4.megabytes
+                    styles:          { original: ['170x170>', :png], thumb: ['40x40#', :png] },
+                    convert_options: { all: "-strip" },
+                    default_url:     '/images/user.png'
+  validates_attachment :avatar, content_type: { content_type: ['image/jpg', 'image/jpeg', 'image/png', 'image/gif'] }
 
   def delete_avatar=(value)
     @delete_avatar = !value.to_i.zero?
@@ -288,7 +290,7 @@ class User < ActiveRecord::Base
   end
 
   def date_to_show_pages_from
-    confirmed_at - 10.day # Give new users something to see...
+    Date.today - 10.days #confirmed_at - 10.day # Give new users something to see...
   end
 
 

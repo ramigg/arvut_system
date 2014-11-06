@@ -197,6 +197,9 @@ $(function () {
     $(window).bind("hashchange", function (e) {
         var hash_str = e.fragment;
         if (hash_str != null) {
+            if (document.location.href.match(/register/)) {
+                return;
+            }
             // Keep only http://.../<lang> part from href
             var pattern = new RegExp('(.+)/(' + LANGS + ')/([^#]+)');
             var tail = document.location.href.match(pattern);

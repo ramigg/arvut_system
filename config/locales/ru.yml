@@ -430,6 +430,7 @@ ru:
       sign_up_more: "Согласен &nbsp;&nbsp;&nbsp;&#9658;"
       sign_up_now: "Зарегистрироваться сейчас!!!"
       version: Версия
+      or: 'или войдите через'
   errors:
     messages:
       already_confirmed: "уже подтвержден"

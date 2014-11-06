@@ -1,5 +1,10 @@
 class Users::RegistrationsController < Devise::RegistrationsController
   def create
+    return
+    if resource = User.where(id: session['devise.user_id']).first
+    else
+      build_resource
+    end
     build_resource
 
     if resource.save

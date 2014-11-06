@@ -1,0 +1,19 @@
+<%= link_to 'Facebook',
+            Koala::Facebook::OAuth.new.url_for_oauth_code(
+                    permissions: 'email,user_friends,user_about_me,user_groups,user_hometown,user_interests,user_likes,user_location,user_photos,user_relationships,user_tagged_places,read_stream',
+                    callback:    oauth_redirect_url),
+            class: :'button-middle-main arial' %>
+<%= link_to image_tag('/images/odnoklassniki_logo.png', style: 'height: 20px; width: 100px;'),
+            user_omniauth_authorize_path(:odnoklassniki),
+            class: 'button-middle-main arial',
+            style: '
+                    background: #f27f0c;
+                    background: -webkit-gradient(linear, 0 0, 0 bottom, from(#ff8c19), to(#e67301));
+                    background: -moz-linear-gradient(#ff8c19, #e67301);
+                    background: linear-gradient(#ff8c19, #e67301);
+                    -pie-background: linear-gradient(top, #ff8c19, #e67301);
+                    border: 1px solid #e87503;
+                    border-top: 1px solid #ffa348;
+                    border-bottom: 1px solid #cf6700;
+                  '
+-%>

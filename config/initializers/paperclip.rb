@@ -1,9 +1,5 @@
 require "paperclip"
 
-if defined? ActionDispatch::Http::UploadedFile
-  ActionDispatch::Http::UploadedFile.send(:include, Paperclip::Upfile)
-end
-
 if File.exist?('c:/ImageMagick/identify.exe')
   Paperclip.options[:command_path] = 'c:ImageMagick'
 elsif File.exist?('/opt/local/bin/identify')

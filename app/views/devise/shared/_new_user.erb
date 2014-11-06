@@ -1,9 +1,9 @@
 <div class="widget-login">
   <div class="inner">
     <h2><%= t 'devise.views.new_user' %></h2>
+
     <div class="submission">
-      <%= link_to t('devise.views.sign_up_now'), new_user_registration_path,
-        :class => :'button-middle-main arial' -%>
+      <%= render :partial => '/devise/shared/social_buttons' -%>
     </div>
     <div class="clear-div"></div>
   </div>

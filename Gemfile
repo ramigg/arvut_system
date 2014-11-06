@@ -19,6 +19,9 @@ gem 'haml'
 gem 'sass'
 
 gem 'devise'#, :git => 'http://github.com/plataformatec/devise.git', :branch => 'master'
+gem 'koala', '~> 1.10.0rc'
+gem 'omniauth'
+gem 'omniauth-odnoklassniki'
 
 group :production do
   gem 'exceptional'
@@ -38,7 +41,7 @@ end
 
 # CKEditor + Paperclip
 gem 'ckeditor', :git => 'git@github.com:Bnei-Baruch/rails-ckeditor.git', :branch => 'rails3'
-gem 'paperclip', '2.5.0'
+gem 'paperclip'
 
 gem 'google_visualization'
 gem 'feedzirra'
