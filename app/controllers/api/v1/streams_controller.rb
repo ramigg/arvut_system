@@ -1,5 +1,5 @@
 class Api::V1::StreamsController < Api::V1::ApiController
-
+  skip_before_filter :authenticate_user!, :only => [:test, :set_stream_state, :get_stream_state]
   def set_stream_items
     result = update_preset_languages(params)
 
@@ -21,14 +21,14 @@ class Api::V1::StreamsController < Api::V1::ApiController
         lang = Language.by_locale(stream[:language]).first
         raise "Language '#{stream[:language]}' doesn't exist. Please use 'get_lookup_table' api method to retrieve available languages." unless lang
         item = {
-            technology_id: 2,
-            language_id: lang.id,
-            stream_items: [{
-                               url: stream[:stream_url],
-                               quality_id: 1,
-                               technology_id: 2,
-                               is_default: true
-                           }]
+          technology_id: 2,
+          language_id: lang.id,
+          stream_items: [{
+          url: stream[:stream_url],
+          quality_id: 1,
+          technology_id: 2,
+          is_default: true
+        }]
         }
         request_hash[:preset_languages] << item
 
@@ -65,6 +65,57 @@ class Api::V1::StreamsController < Api::V1::ApiController
     end
   end
 
+  def set_stream_state
+    stream_preset = StreamPreset.find(params[:stream_preset_id]) rescue nil
+
+    states = ["active", "not_active", "technical_problem", "preparing_to_broadcast"]
+    error_messages = []
+    if !states.include?(params[:state])
+      error_messages << "the state: '#{params[:state]}' is not valid"
+    end
+
+    if stream_preset.blank?
+      error_messages << "stream preset No# #{params[:stream_preset_id]} is not valid"
+    end
+
+
+    if error_messages.present?
+      render :json => {message: error_messages.join(". ") }, :status => 412
+      return
+    end
+
+    if params[:state] == 'active'
+      stream_preset.update_attribute(:is_active, true)
+    else
+      state = StreamState.find_by_name(params[:state])
+      stream_preset.update_attributes(:is_active => false, :stream_state_id => state.id)
+    end
+
+    render :json => {message: 'ok' }
+
+  end
+
+  def get_stream_state
+    stream_preset = StreamPreset.find(params[:stream_preset_id]) rescue nil
+    error_messages = []
+    if stream_preset.blank?
+      error_messages << "stream preset No# #{params[:stream_preset_id]} is not valid"
+    end
+
+
+    if error_messages.present?
+      render :json => {message: error_messages.join(". ") }.merge(params), :status => 412
+      return
+    end
+
+    status = if stream_preset.is_active
+               'active'
+             else
+               stream_preset.stream_state.name
+             end
+    render :json => { status: status }
+  end
+
   private
 
   def update_preset_languages(opts)
@@ -72,17 +123,17 @@ class Api::V1::StreamsController < Api::V1::ApiController
 
     opts[:preset_languages].each do |preset_language|
       PresetLanguage.find_or_create_by_stream_preset_id_and_language_id(
-          stream_preset_id: preset.id,
-          language_id: preset_language[:language_id]
+        stream_preset_id: preset.id,
+        language_id: preset_language[:language_id]
       ).tap do |pl|
         pl.stream_items.each { |e| e.delete }
         preset_language[:stream_items].each do |stream_item|
           StreamItem.create(
-              stream_url: stream_item[:url],
-              is_default: stream_item[:is_default],
-              technology_id: stream_item[:technology_id],
-              quality_id: stream_item[:quality_id],
-              preset_language_id: pl.id,
+            stream_url: stream_item[:url],
+            is_default: stream_item[:is_default],
+            technology_id: stream_item[:technology_id],
+            quality_id: stream_item[:quality_id],
+            preset_language_id: pl.id,
           )
         end
       end

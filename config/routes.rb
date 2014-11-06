@@ -44,7 +44,9 @@ Simulator::Application.routes.draw do
       resource :streams, :except => %w(new edit show update create destroy) do
         post 'set_stream_items'
         get 'get_lookup_table'
-        post 'test'
+        get 'test'
+        post 'set_stream_state'
+        get 'get_stream_state'
         post 'set_mobile_audio_streams'
       end
     end
