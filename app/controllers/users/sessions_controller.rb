@@ -1,5 +1,5 @@
 # /c/Users/gshilin/AppData/Local/Google/Chrome/Application/chrome.exe --user-agent="Mozilla/5.0 (Linux; U; Android 1.0; en-us; dream) AppleWebKit/525.10+ (KHTML, like Gecko) Version/3.0.4 Mobile Safari/523.12.2"
-class SessionsController < Devise::SessionsController
+class Users::SessionsController < Devise::SessionsController
   layout :set_layout
 
   def new

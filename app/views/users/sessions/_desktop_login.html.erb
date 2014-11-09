@@ -1,0 +1,15 @@
+<div class="column-content">
+  <%= render 'static_content' %>
+  <div class="clear"></div>
+</div>
+<div class="column-widgets">
+  <%= render :partial => "devise/shared/signin" %>
+  <%= render :partial => "devise/shared/new_user" %>
+  <div class="clear"></div>
+</div>
+<div class="clear"></div>
+
+<%
+session[:notice] = session[:alert] = ''
+flash[:notice] = flash[:alert] = ''
+-%>
