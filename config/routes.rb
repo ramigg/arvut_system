@@ -40,7 +40,8 @@ Simulator::Application.routes.draw do
 
   devise_for :users, :controllers => {
       :registrations      => 'profiles/registrations',
-      :omniauth_callbacks => "users/omniauth_callbacks"
+      :omniauth_callbacks => 'users/omniauth_callbacks',
+      :sessions           => 'users/sessions'
   }
 
   namespace :api do
@@ -119,7 +120,7 @@ Simulator::Application.routes.draw do
                :path_names  => { :sign_in => 'login', :sign_out => 'logout', :sign_up => 'register' },
                :controllers => {
                    :confirmations      => 'profiles/confirmations',
-                   :sessions           => 'sessions'
+                   :sessions           => 'users/sessions'
                }
     match "users/confirmation/awaiting/:id/:confirmation_hash",
           :to => redirect("#{Rails.configuration.site_prefix}/%{locale}/users/confirmations/awaiting/%{id}/%{confirmation_hash}"), :as => "awaiting_confirmation"
