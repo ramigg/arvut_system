@@ -8,6 +8,7 @@
   <%= yield(:head) %>
 </head>
 <body class="<%= I18n.locale %> layout-stream">
+<div id="<%= current_user.is_archived_broadcasts? ? 'internet' : 'video' -%>"></div>
 <%= render 'layouts/google_ads' %>
 <div class="clear"></div>
 <div class="wrapper">
