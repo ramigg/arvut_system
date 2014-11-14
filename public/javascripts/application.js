@@ -284,6 +284,8 @@ function init_banner() {
         $('.wrapper').css('margin-top', 20);
         setTimeout(init_banner, 1000);
     } else if (total_ads > 1) {
+        $('.skin_bg').show();
+        $('.wrapper').css('margin-top', 210);
         rotate_banner();// show something
         setInterval(rotate_banner, 10000);
     }
