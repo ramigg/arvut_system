@@ -267,33 +267,35 @@ function trim_val_of_element(idName) {
     }
 }
 
-$(function () {
-    // This kills PIE.htc with IE :(
-    //    $('input:text,textarea,div.uploader span.filename').live('hover', function(event){
-    //        if (event.type == 'mouseover') {
-    //            $(this).addClass('shadow-class');
-    //        } else {
-    //            $(this).removeClass('shadow-class');
-    //        }
-    //    });
-});
-
+var current_ad = -1;
+var ads = [];
 var total_ads = 0;
 
+function init_banner() {
+    if (total_ads > 0) return;
+
+    if ($('.gt1 iframe').contents().find('img').length > 0) { ads.push('gt1'); }
+    if ($('.gt2 iframe').contents().find('img').length > 0) { ads.push('gt2'); }
+    if ($('.gt3 iframe').contents().find('img').length > 0) { ads.push('gt3'); }
+
+    total_ads = ads.length;
+    if (total_ads == 0) {
+        //$('.skin_bg').hide();
+        //$('.wrapper').css('margin-top', 20);
+        setTimeout(init_banner, 1000);
+    } else if (total_ads > 1) {
+        rotate_banner();// show something
+        setInterval(rotate_banner, 10000);
+    }
+}
+
 function rotate_banner() {
-    $('#' + ads[current_ad]).hide();
+    $('.' + ads[current_ad]).hide();
     current_ad = (current_ad + 1) % total_ads;
-    $('#' + ads[current_ad]).show();
+    $('.' + ads[current_ad]).show();
 }
 
 $(function () {
-    total_ads = ads.length;
-    rotate_banner();// show something
-    if (total_ads == 0) {
-        $('.skin_bg').hide();
-        $('.wrapper').css('margin-top', 20);
-    } else if (total_ads > 1) {
-        // init rotation
-        setInterval(rotate_banner, 10000);
-    }
+    init_banner();// show something
+    setTimeout(init_banner, 1000);
 });
