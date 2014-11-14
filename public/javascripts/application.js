@@ -280,8 +280,8 @@ function init_banner() {
 
     total_ads = ads.length;
     if (total_ads == 0) {
-        //$('.skin_bg').hide();
-        //$('.wrapper').css('margin-top', 20);
+        $('.skin_bg').hide();
+        $('.wrapper').css('margin-top', 20);
         setTimeout(init_banner, 1000);
     } else if (total_ads > 1) {
         rotate_banner();// show something
