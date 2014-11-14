@@ -1,111 +1,170 @@
-<% cache "google-ad-#{I18n.locale.to_s}", :expires_in => 60.minutes, :race_condition_ttl => 15.seconds do %>
-<%-
-    require 'open-uri'
-    time = Time.now.to_i.to_s
-    locale = I18n.locale.to_s
-    if locale == 'he'
-      slot1 = "/1212472/sviva-tova-heb-1"
-      slot2 = "/1212472/sviva-tova-heb-2"
-      slot3 = "/1212472/sviva-tova-heb-3"
-      div1 = 'div-gpt-ad-1353582088588-3'
-      div2 = 'div-gpt-ad-1353582088588-4'
-      div3 = 'div-gpt-ad-1353582088588-5'
-    elsif locale == 'ru'
-      slot1 = "/1212472/sviva-tova-rus-1"
-      slot2 = "/1212472/sviva-tova-rus-2"
-      slot3 = "/1212472/sviva-tova-rus-3"
-      div1 = 'div-gpt-ad-1353582088588-6'
-      div2 = 'div-gpt-ad-1353582088588-7'
-      div3 = 'div-gpt-ad-1353582088588-8'
-    elsif locale == 'es'
-      slot1 = "/1212472/sviva-tova-spa-1"
-      slot2 = "/1212472/sviva-tova-spa-2"
-      slot3 = "/1212472/sviva-tova-spa-3"
-      div1 = 'div-gpt-ad-1353582088588-9'
-      div2 = 'div-gpt-ad-1353582088588-10'
-      div3 = 'div-gpt-ad-1353582088588-11'
-    else
-      slot1 = "/1212472/sviva-tova-eng-top"
-      slot2 = "/1212472/sviva-tova-eng-top-2"
-      slot3 = "/1212472/sviva-tova-eng-top-3"
-      div1 = 'div-gpt-ad-1353582088588-0'
-      div2 = 'div-gpt-ad-1353582088588-1'
-      div3 = 'div-gpt-ad-1353582088588-2'
-    end
-    c1 = open("http://pubads.g.doubleclick.net/gampad/ad?iu=#{slot1}&sz=960x206&c=#{time}")
-    c2 = open("http://pubads.g.doubleclick.net/gampad/ad?iu=#{slot2}&sz=960x207&c=#{time}")
-    c3 = open("http://pubads.g.doubleclick.net/gampad/ad?iu=#{slot3}&sz=960x208&c=#{time}")
--%>
-<script type='text/javascript'>
-    var googletag = googletag || {};
-    googletag.cmd = googletag.cmd || [];
-    (function () {
-        var gads = document.createElement('script');
-        gads.async = true;
-        gads.type = 'text/javascript';
-        var useSSL = 'https:' == document.location.protocol;
-        gads.src = (useSSL ? 'https:' : 'http:') +
-                '//www.googletagservices.com/tag/js/gpt.js';
-        var node = document.getElementsByTagName('script')[0];
-        node.parentNode.insertBefore(gads, node);
-    })();
-</script>
-<script type='text/javascript'>
-    googletag.cmd.push(function () {
-        <%- if c1.length > 1000 %>googletag.defineSlot('<%= slot1 %>', [960, 206], '<%= div1 %>').addService(googletag.pubads());
-        <%- end -%>
-        <%- if c2.length > 1000 %>googletag.defineSlot('<%= slot2 %>', [960, 207], '<%= div2 %>').addService(googletag.pubads());
-        <%- end -%>
-        <%- if c3.length > 1000 %>googletag.defineSlot('<%= slot3 %>', [960, 208], '<%= div3 %>').addService(googletag.pubads());
-        <%- end -%>
-        googletag.pubads().enableSingleRequest();
-        googletag.enableServices();
-    });
-</script>
-<script type='text/javascript'>
-    var current_ad = -1;
-    var ads = new Array;
-    <%- if c1.length > 1000   %>
-    ads.push('<%= div1 %>');
-    <%- end %>
-    <%- if c2.length > 1000 %>
-    ads.push('<%= div2 %>');
-    <%- end %>
-    <%- if c3.length > 1000 %>
-    ads.push('<%= div3 %>');
-    <%- end %>
-</script>
 <div class="skin_bg">
   <div class="skin_container">
-    <%- if c1.length > 1000 %>
+    <script type='text/javascript'>
+        var googletag = googletag || {};
+        googletag.cmd = googletag.cmd || [];
+        (function () {
+            var gads = document.createElement('script');
+            gads.async = true;
+            gads.type = 'text/javascript';
+            var useSSL = 'https:' == document.location.protocol;
+            gads.src = (useSSL ? 'https:' : 'http:') +
+            '//www.googletagservices.com/tag/js/gpt.js';
+            var node = document.getElementsByTagName('script')[0];
+            node.parentNode.insertBefore(gads, node);
+        })();
+    </script>
+    <%- locale = I18n.locale.to_s -%>
+    <%- if locale == 'he' -%>
+        <script type='text/javascript'>
+            googletag.cmd.push(function () {
+                googletag.defineSlot('/1212472/sviva-tova-heb-1', [960, 206], 'div-gpt-ad-1415885678942-3').addService(googletag.pubads());
+                googletag.defineSlot('/1212472/sviva-tova-heb-2', [960, 207], 'div-gpt-ad-1415885678942-4').addService(googletag.pubads());
+                googletag.defineSlot('/1212472/sviva-tova-heb-3', [960, 208], 'div-gpt-ad-1415885678942-5').addService(googletag.pubads());
+                googletag.pubads().enableSingleRequest();
+                googletag.enableServices();
+            });
+        </script>
+    <%- elsif locale == 'ru' -%>
+        <script type='text/javascript'>
+            googletag.cmd.push(function () {
+                googletag.defineSlot('/1212472/sviva-tova-rus-1', [960, 206], 'div-gpt-ad-1415885678942-6').addService(googletag.pubads());
+                googletag.defineSlot('/1212472/sviva-tova-rus-2', [960, 207], 'div-gpt-ad-1415885678942-7').addService(googletag.pubads());
+                googletag.defineSlot('/1212472/sviva-tova-rus-3', [960, 208], 'div-gpt-ad-1415885678942-8').addService(googletag.pubads());
+                googletag.pubads().enableSingleRequest();
+                googletag.enableServices();
+            });
+        </script>
+    <%- elsif locale == 'es' -%>
+        <script type='text/javascript'>
+            googletag.cmd.push(function () {
+                googletag.defineSlot('/1212472/sviva-tova-spa-1', [960, 206], 'div-gpt-ad-1415885678942-9').addService(googletag.pubads());
+                googletag.defineSlot('/1212472/sviva-tova-spa-2', [960, 207], 'div-gpt-ad-1415885678942-10').addService(googletag.pubads());
+                googletag.defineSlot('/1212472/sviva-tova-spa-3', [960, 208], 'div-gpt-ad-1415885678942-11').addService(googletag.pubads());
+                googletag.pubads().enableSingleRequest();
+                googletag.enableServices();
+            });
+        </script>
+    <%- else -%>
+        <script type='text/javascript'>
+            googletag.cmd.push(function () {
+                googletag.defineSlot('/1212472/sviva-tova-eng-top', [960, 206], 'div-gpt-ad-1415885678942-0').addService(googletag.pubads());
+                googletag.defineSlot('/1212472/sviva-tova-eng-top-2', [960, 207], 'div-gpt-ad-1415885678942-1').addService(googletag.pubads());
+                googletag.defineSlot('/1212472/sviva-tova-eng-top-3', [960, 208], 'div-gpt-ad-1415885678942-2').addService(googletag.pubads());
+                googletag.pubads().enableSingleRequest();
+                googletag.enableServices();
+            });
+        </script>
+    <%- end -%>
+
+    <%- if locale == 'he' -%>
+        <!-- sviva-tova-heb-1 -->
+        <div id='div-gpt-ad-1415885678942-3' class='gt1' style='width:960px; height:206px;'>
+          <script type='text/javascript'>
+              googletag.cmd.push(function () {
+                  googletag.display('div-gpt-ad-1415885678942-3');
+              });
+          </script>
+        </div>
+
+        <!-- sviva-tova-heb-2 -->
+        <div id='div-gpt-ad-1415885678942-4' class='gt2' style='width:960px; height:207px;'>
+          <script type='text/javascript'>
+              googletag.cmd.push(function () {
+                  googletag.display('div-gpt-ad-1415885678942-4');
+              });
+          </script>
+        </div>
+
+        <!-- sviva-tova-heb-3 -->
+        <div id='div-gpt-ad-1415885678942-5' class='gt3' style='width:960px; height:208px;'>
+          <script type='text/javascript'>
+              googletag.cmd.push(function () {
+                  googletag.display('div-gpt-ad-1415885678942-5');
+              });
+          </script>
+        </div>
+    <%- elsif locale == 'ru' -%>
+        <!-- sviva-tova-rus-1 -->
+        <div id='div-gpt-ad-1415885678942-6' class='gt1' style='width:960px; height:206px;'>
+          <script type='text/javascript'>
+              googletag.cmd.push(function () {
+                  googletag.display('div-gpt-ad-1415885678942-6');
+              });
+          </script>
+        </div>
+
+        <!-- sviva-tova-rus-2 -->
+        <div id='div-gpt-ad-1415885678942-7' class='gt2' style='width:960px; height:207px;'>
+          <script type='text/javascript'>
+              googletag.cmd.push(function () {
+                  googletag.display('div-gpt-ad-1415885678942-7');
+              });
+          </script>
+        </div>
+
+        <!-- sviva-tova-rus-3 -->
+        <div id='div-gpt-ad-1415885678942-8' class='gt3' style='width:960px; height:208px;'>
+          <script type='text/javascript'>
+              googletag.cmd.push(function () {
+                  googletag.display('div-gpt-ad-1415885678942-8');
+              });
+          </script>
+        </div>
+    <%- elsif locale == 'es' -%>
+        <!-- sviva-tova-spa-1 -->
+        <div id='div-gpt-ad-1415885678942-9' class='gt1' style='width:960px; height:206px;'>
+          <script type='text/javascript'>
+              googletag.cmd.push(function () {
+                  googletag.display('div-gpt-ad-1415885678942-9');
+              });
+          </script>
+        </div>
+
+        <!-- sviva-tova-spa-2 -->
+        <div id='div-gpt-ad-1415885678942-10' class='gt2' style='width:960px; height:207px;'>
+          <script type='text/javascript'>
+              googletag.cmd.push(function () {
+                  googletag.display('div-gpt-ad-1415885678942-10');
+              });
+          </script>
+        </div>
+
+        <!-- sviva-tova-spa-3 -->
+        <div id='div-gpt-ad-1415885678942-11' class='gt3' style='width:960px; height:208px;'>
+          <script type='text/javascript'>
+              googletag.cmd.push(function () {
+                  googletag.display('div-gpt-ad-1415885678942-11');
+              });
+          </script>
+        </div>
+    <%- else -%>
         <!-- sviva-tova-eng-top -->
-        <div id='<%= div1 %>' style='width:960px; height:206px;'>
+        <div id='div-gpt-ad-1415885678942-0' class='gt1' style='width:960px; height:206px;'>
           <script type='text/javascript'>
               googletag.cmd.push(function () {
-                  googletag.display('<%= div1 %>');
+                  googletag.display('div-gpt-ad-1415885678942-0');
               });
           </script>
         </div>
-    <%- end %>
-    <%- if c2.length > 1000 %>
+
         <!-- sviva-tova-eng-top-2 -->
-        <div id='<%= div2 %>' style='width:960px; height:207px;'>
+        <div id='div-gpt-ad-1415885678942-1' class='gt2' style='width:960px; height:207px;'>
           <script type='text/javascript'>
               googletag.cmd.push(function () {
-                  googletag.display('<%= div2 %>');
+                  googletag.display('div-gpt-ad-1415885678942-1');
               });
           </script>
         </div>
-    <%- end %>
-    <%- if c3.length > 1000 %>
-        <div id='<%= div3 %>' style='width:960px; height:208px;'>
+
+        <!-- sviva-tova-eng-top-3 -->
+        <div id='div-gpt-ad-1415885678942-2' class='gt3' style='width:960px; height:208px;'>
           <script type='text/javascript'>
               googletag.cmd.push(function () {
-                  googletag.display('<%= div3 %>');
+                  googletag.display('div-gpt-ad-1415885678942-2');
               });
           </script>
         </div>
-    <%- end %>
+    <%- end -%>
   </div>
 </div>
-<% end %>
