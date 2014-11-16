@@ -296,6 +296,7 @@ div.uploader input{opacity:0;position:absolute;top:0;right:0;bottom:0;float:righ
 .layout-stream .event-stream .bgnd .services .content #questions .question-ask form .buttons{margin:10px 0 0;text-align:left;}
 .layout-stream .event-stream .bgnd .services .content #sketches{display:none;}
 .layout-stream .event-stream .bgnd .services .content #coveritlive{display:none;}
+.layout-stream .event-stream .bgnd .services .content #special_schedule{display:none;}
 .layout-stream .event-stream .bgnd .services .content #schedule .days{padding-bottom:10px;height:20px;}.layout-stream .event-stream .bgnd .services .content #schedule .days a{font-size:16px;padding:0 5px;text-decoration:underline;}
 .layout-stream .event-stream .bgnd .services .content #schedule .days a.active,.layout-stream .event-stream .bgnd .services .content #schedule .days a:hover{color:#f15a24;text-decoration:none;}
 .layout-stream .event-stream .bgnd .services .content #schedule .weekdays{position:relative;height:280px;overflow:auto;}.layout-stream .event-stream .bgnd .services .content #schedule .weekdays .weekday{position:absolute;top:0;left:0;background:#efedde;height:280px;width:100%;}.layout-stream .event-stream .bgnd .services .content #schedule .weekdays .weekday .hdr{font-weight:bold;border-bottom:2px solid #999999;}

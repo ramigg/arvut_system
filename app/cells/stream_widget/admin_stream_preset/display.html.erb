@@ -37,6 +37,11 @@
               <%= f.check_box :show_coveritlive %>
               <%= f.label I18n.t('kabtv.admin.coveritlive_code') %>:
               <%= f.text_area :coveritlive, :cols => 70, :rows => 3 %>
+              <br/>
+              <%= f.label I18n.t('kabtv.admin.show_special_schedule') %>:
+              <%= f.check_box :show_special_schedule %>
+              <%= f.label I18n.t('kabtv.admin.special_schedule_code') %>:
+              <%= f.text_area :special_schedule, :cols => 70, :rows => 3 %>
 
             </fieldset>
 
