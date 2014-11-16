@@ -531,6 +531,8 @@ en:
       show_sketches: sketches
       show_coveritlive: Cover it Live
       coveritlive_code: Code (max size 300x385)
+      show_special_schedule: Special Schedule
+      special_schedule_code: Code (max size 300x385)
       show_support: support
       show_separate_window: Enable separate window
       successfully_saved: Succesfully saved!
@@ -581,7 +583,8 @@ en:
       who: Who
       from: From
       loading: Loading...
-      coveritlive: Live Blog
+      coveritlive: Chat
+      special_schedule: Program Schedule
       questions: Questions
       schedule: Schedule
       schedule_name: Event Schedule

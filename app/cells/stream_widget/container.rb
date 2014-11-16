@@ -8,12 +8,13 @@ module StreamWidget
       me << widget('stream_widget/sketches', 'sketches', :display, :stream_preset_id => ((param :stream_preset_id) || params[:stream_preset_id]))
       me << widget('stream_widget/questions', 'questions', :display, :current_user => (param :current_user), :stream_preset_id => ((param :stream_preset_id) || params[:stream_preset_id]))
       me << widget('stream_widget/coveritlive', 'coveritlive', :display, :stream_preset_id => ((param :stream_preset_id) || params[:stream_preset_id]))
+      me << widget('stream_widget/special_schedule', 'special_schedule', :display, :stream_preset_id => ((param :stream_preset_id) || params[:stream_preset_id]))
     end
 
     def display
       stream_preset_id = param :stream_preset_id
       @stream_preset = current_preset(stream_preset_id)
-      @show_tabs = !!(@stream_preset.show_questions || @stream_preset.show_sketches || @stream_preset.show_schedule || @stream_preset.show_coveritlive)
+      @show_tabs = !!(@stream_preset.show_questions || @stream_preset.show_sketches || @stream_preset.show_schedule || @stream_preset.show_coveritlive || @stream_preset.show_special_schedule)
       @show_support = @stream_preset.show_support
       @current_user = param :current_user
       @user_complain = UserComplain.new(:user => @current_user)
