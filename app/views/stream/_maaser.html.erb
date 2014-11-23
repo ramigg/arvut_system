@@ -5,6 +5,12 @@
         width      : 220px;
         background : transparent url(images/radio1.jpg) no-repeat 0 0;
     }
+    .music-button {
+        display    : block;
+        height     : 56px;
+        width      : 220px;
+        background : transparent url(images/music.jpg) no-repeat 0 0;
+    }
 </style>
 <div align="center" width="100%">
   <% if I18n.locale == :ru %>
@@ -30,7 +36,8 @@
           נגן חברתי
         </button>
       </a%>
-      <a href=" http://icecast.kab.tv/radiozohar2014.mp3" target="_blank" class="radiozohar-button"></a><br>
+      <a href="http://icecast.kab.tv/radiozohar2014.mp3" target="_blank" class="radiozohar-button"></a><br>
+      <a href="https://soundcloud.com/kabbalah-laam-music" target="_blank" class="music-button"></a><br>
   <% elsif I18n.locale == :pt %>
       <a href="http://www.kabbalah.info/maaser/pt/" target="_blank">
         <button class="button-middle-second arial" style="width:100%;background-color:#81b253;cursor:pointer;color:#ffffff;font-size:120%">
