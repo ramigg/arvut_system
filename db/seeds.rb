@@ -29,6 +29,7 @@ puts '--> Languages'
   {:locale => 'ro',:language => 'Român'},
   {:locale => 'ge',:language => 'ქართული'},
   {:locale => 'sv',:language => 'Svenska'},
+  {:locale => 'hr',:language => 'Hrvatski'},
 ].each{|e| Language.find_or_create_by_locale_and_language(e)}
 
 puts '--> Stream States'
