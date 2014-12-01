@@ -7,11 +7,10 @@
     <meta name="keywords" content="" />
 
     <%- if is_rtl? %>
-      <%= stylesheet_link_tag 'styles-rtl.less', :rel => 'stylesheet/less' %>
+      <%= stylesheet_link_tag 'styles-rtl' %>
     <%- else -%>
-      <%= stylesheet_link_tag 'styles.less', :rel => 'stylesheet/less' %>
+      <%= stylesheet_link_tag 'styles' %>
     <%- end -%>
-    <%= javascript_include_tag 'less-1.0.36.min.js' %>
 
     <%= stylesheet_link_tag 'admin_pages', 'jquery-ui-1.8.4.custom', 'tag-it', 'anytime' %>
     <!--[if lt IE 8]>
