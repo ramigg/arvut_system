@@ -489,7 +489,6 @@ ge:
       awaiting_for_approval: "Ваш вопрос ожидает одобрения модератором"
       cancel: Отменить
       describe_problem: "Сообщите о проблемах в трансляции"
-      wmv_dead_end: 'Please note that starting August 1st, 2014 the broadcast via Windows Media Player on Sviva Tova will be stopped. Broadcast via Flash will continue as usual. If you experience issue with Flash please write us in the box "Report your problem:" located below the player.'
       empty_message: "Пожалуйста напишите сообщение"
       first: начало
       flash: Flash
