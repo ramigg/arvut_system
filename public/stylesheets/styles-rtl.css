@@ -1998,10 +1998,10 @@ div.uploader input {
 .layout-stream .event-stream .bgnd .player {
   border: 1px solid #808080;
   float: right;
-  margin: 0 40px 0 0;
+  margin: 0 20px 0 0;
   padding: 4px;
-  width: 320px;
-  height: 245px;
+  width: 354px;
+  height: 226px;
   background-color: white;
   position: relative;
 }
@@ -2014,8 +2014,8 @@ div.uploader input {
   color: inherit;
 }
 .layout-stream .event-stream .bgnd #object {
-  width: 320px;
-  height: 245px;
+  width: 354px;
+  height: 226px;
 }
 .layout-stream .event-stream .bgnd form {
   float: right;
