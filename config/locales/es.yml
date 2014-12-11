@@ -395,6 +395,8 @@ es:
       sign_up: Regístrate
       sign_up_more: "Inscríbete&nbsp;&nbsp;&nbsp;&#9658;"
       sign_up_now: "¡Regístrese ahora!"
+      email_registration: 'Puede igualmente registrarse escribiendo a <a href="mailto:spanish@kabbalah.info">spanish@kabbalah.info</a>'
+
   errors:
     messages:
       already_confirmed: "ya fue confirmado"

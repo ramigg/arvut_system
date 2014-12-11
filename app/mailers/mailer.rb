@@ -11,12 +11,27 @@ class Mailer < ActionMailer::Base
     headers = {
         :from => 'Bnei Baruch <internet@kbb1.com>',
         :subject => "New user registration: #{user.email}",
-        :to => ['kola.ish@gmail.com', 'gshilin@gmail.com', 'ramigg@gmail.com'],
+        :to => 'kola.ish@gmail.com',
         :date => Time.now.to_formatted_s(:rfc822),
         :content_type => 'text/plain'
     }
     @user = user
     @data = JSON.parse(@user.sn_data || {}).to_yaml.gsub(/\n/, '<br/>')
+    mail(headers)
+  end
+
+  def new_user_to_user(user, password)
+    ActionMailer::Base.default_content_type = 'text/plain'
+    headers = {
+        :from => 'Bnei Baruch <internet@kbb1.com>',
+        :subject => "New user registration: #{user.email}",
+        :to => user.email,
+        :bcc => 'kola.ish@gmail.com',
+        :date => Time.now.to_formatted_s(:rfc822),
+        :content_type => 'text/plain'
+    }
+    @user = user
+    @password = password
     mail(headers)
   end
 
