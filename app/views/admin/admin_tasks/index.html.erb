@@ -14,6 +14,7 @@
     <% if current_user.is_admin? || current_user.is_groupmanager? %>
       <dt><%= t('admin.reports.user_management') %>:</dt>
       <dd><%= link_to t('admin.reports.manage_user_roles'), admin_roles_url %></dd>
+        <dd><%= link_to t('devise.views.new_user'), new_admin_user_url %></dd>
       <dd><%= link_to t('admin.reports.remove_user'), admin_remove_user_url %></dd>
     <% end %>
     <% if current_user.is_admin? || current_user.is_groupmanager? %>

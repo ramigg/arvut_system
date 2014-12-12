@@ -92,6 +92,7 @@ sv:
       sign_up_now: Registrera mig NU!!!
       new_user: Ny användare?
       cannot_sign_in: Kan du inte logga in? Klicka här för hjälp!
+      email_registration: 'Du kan också registrera dig genom att skicka ett e-brev till <a href="mailto:bb.yg.eu@gmail.com">bb.yg.eu@gmail.com</a>'
     mails:
       welcome: Välkommen
       confirm_through_link: Klicka på länken nedan för att bekräfta ditt konto. Om du klickar på länken och den verkar vara bruten, kopiera den då och klistra in den i ett nytt fönster i din webbläsare.

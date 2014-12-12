@@ -360,6 +360,7 @@ pt:
       sign_up: Inscreva-se
       sign_up_more: "Logar&nbsp;&nbsp;&nbsp;&#9658;"
       sign_up_now: "Cadastre-se AGORA!"
+      email_registration: 'Também se pode inscrever através de <a href="mailto:spanish@kabbalah.info">spanish@kabbalah.info</a>'
   errors:
     messages:
       already_confirmed: "já foi confirmado"

@@ -160,6 +160,7 @@ Simulator::Application.routes.draw do
         post 'filtered(.:format)', :to => :index, :as => 'filtered', :on => :collection
       end
       resources :users_groups
+      resources :users
       resources :roles do
         get :autocomplete_user_email, :on => :collection
       end

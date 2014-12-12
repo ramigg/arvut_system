@@ -413,6 +413,7 @@ he:
       sign_up_now: "הרשם עכשיו!!!"
       version: "צפה ב-"
       or: 'או הכנס עם'
+      email_registration: 'באפשרותך להרשם דרך הכתובת <a href="mailto:israelgroups14@gmail.com">israelgroups14@gmail.com</a>'
   errors:
     messages:
       already_confirmed: "כבר עבר אישור"

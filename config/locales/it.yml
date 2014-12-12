@@ -383,6 +383,7 @@ it:
       sign_up: iscriviti
       sign_up_more: scrivi…..
       sign_up_now: "Iscriviti ora"
+      email_registration: 'Puoi anche registrarti scrivendo a <a href="mailto:bb.yg.eu@gmail.com">bb.yg.eu@gmail.com</a>'
   errors: 
     messages: 
       already_confirmed: "già confermato"
