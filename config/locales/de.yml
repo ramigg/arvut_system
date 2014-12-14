@@ -394,6 +394,8 @@ de:
       sign_up: Anmelden
       sign_up_more: Bestätigen
       sign_up_now: "Melde Dich JETZT an!"
+      email_registration: 'Anmeldung auch möglich durch schreiben an <a href="mailto:bb.yg.eu@gmail.com">bb.yg.eu@gmail.com</a>'
+
   errors: 
     messages: 
       already_confirmed: "ist bereits bestätigt"

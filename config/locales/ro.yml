@@ -92,6 +92,7 @@ ro:
       sign_up_now: Deconectati-va ACUM!!!
       new_user: Utilizator nou?
       cannot_sign_in: Nu puteti sa va logati? Apasati aici pentru ajutor!
+      email_registration: 'Puteti sa va inregistrati si aplicand la <a href="mailto:bb.yg.eu@gmail.com">bb.yg.eu@gmail.com</a>'
     mails:
       welcome: Bine ati venit
       confirm_through_link: Va rog apasati pe link-ul de mai jos pentru a va confirma contul. Daca apasati pe link si apare ca incorect, va rog sa il copiati si sa il scrieti intr-o noua fereastra a browser-ului dvs.

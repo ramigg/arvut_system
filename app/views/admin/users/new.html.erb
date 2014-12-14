@@ -1,0 +1,35 @@
+<%= form_tag(admin_users_path) do %>
+      <%- unless flash[:alert].empty? -%>
+        <div id="error_explanation">
+          <ul>
+            <%- unless flash[:alert].empty? -%>
+                <li><%= flash[:alert] %></li>
+            <%- end -%>
+          </ul>
+          </div>
+      <%- end -%>
+      <%- unless flash[:notice].empty? -%>
+          <div id="notice_explanation" class="ui-state-highlight">
+            <ul>
+              <%- unless flash[:notice].empty? -%>
+                  <li><%= flash[:notice] %></li>
+              <%- end -%>
+            </ul>
+          </div>
+      <%- end -%>
+
+      <div>
+
+        <ul>
+          <li>
+            <ul>
+              <li><%= label_tag t('devise.views.email') %></li>
+              <li><%= text_area_tag :emails, @emails, class: [:'text-input', :required], dir: :ltr, rows: 10, cols: 100 -%></li>
+            </ul>
+          </li>
+          <li>
+            <%= submit_tag t('devise.views.sign_up_more').html_safe, :class => :'button-big-second' %><br/>
+          </li>
+        </ul>
+      </div>
+<% end %>

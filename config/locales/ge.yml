@@ -430,6 +430,7 @@ ge:
       sign_up_more: "Согласен &nbsp;&nbsp;&nbsp;&#9658;"
       sign_up_now: "Зарегистрироваться сейчас!!!"
       version: Версия
+      email_registration: 'Вы можете также зарегистрироваться через мейл <a href="mailto:absorption.dep.bb@gmail.com">absorption.dep.bb@gmail.com</a>'
   errors:
     messages:
       already_confirmed: "уже подтвержден"

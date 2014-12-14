@@ -34,7 +34,7 @@
             <ul>
               <li><%= f.label t 'devise.views.email' %></li>
               <li><%=
-                  if @sn_user.email
+                  if @sn_user.try(:email)
                       f.text_field :email, value: @sn_user.email, class: [:'text-input', :required], dir: :ltr, disabled: true
                   else
                       f.text_field :email, class: [:'text-input', :required], dir: :ltr
