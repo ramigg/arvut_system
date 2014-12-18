@@ -31,7 +31,7 @@
                 <span><%= link_to I18n.t('kabtv.kabtv.questions'), '#', :onclick => 'return kabtv.tabs.select_me(this, "questions")' %></span>
             <%- end -%>
             <%- if @stream_preset.show_schedule -%>
-                <span class="active"><%= link_to I18n.t('kabtv.kabtv.schedule'), '#', :onclick => 'return kabtv.tabs.select_me(this, "schedule")' %></span>
+                <span class="schedule"><%= link_to I18n.t('kabtv.kabtv.schedule'), '#', :onclick => 'return kabtv.tabs.select_me(this, "schedule")' %></span>
             <%- end -%>
             <%- if @stream_preset.show_sketches -%>
                 <span><%= link_to I18n.t('kabtv.kabtv.sketches'), '#', :onclick => 'return kabtv.tabs.select_me(this, "sketches")' %></span>
@@ -40,7 +40,7 @@
                 <span><%= link_to I18n.t('kabtv.kabtv.coveritlive'), '#', :onclick => 'return kabtv.tabs.select_me(this, "coveritlive")' %></span>
             <%- end -%>
             <%- if @stream_preset.show_special_schedule -%>
-                <span><%= link_to I18n.t('kabtv.kabtv.special_schedule'), '#', :onclick => 'return kabtv.tabs.select_me(this, "special_schedule")' %></span>
+                <span class="special_schedule"><%= link_to I18n.t('kabtv.kabtv.special_schedule'), '#', :onclick => 'return kabtv.tabs.select_me(this, "special_schedule")' %></span>
             <%- end -%>
           </div>
           <div class="content">
@@ -80,6 +80,8 @@
         }
     }
     $(function() {
+        // Select appropriate tab
+        <%= @stream_preset.show_schedule ? "$('.schedule a').click();".html_safe : (@stream_preset.show_special_schedule ? "$('.special_schedule a').click();".html_safe : "") -%>
         // Set up complaints form
         try {
             $('#user_complain_user_agent').val(navigator.userAgent);
