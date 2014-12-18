@@ -81,7 +81,7 @@
     }
     $(function() {
         // Select appropriate tab
-        <%= @stream_preset.show_schedule ? "$('.schedule').addClass('active');".html_safe : (@stream_preset.show_special_schedule ? "$('.special_schedule').addClass('active');".html_safe : "") -%>
+        <%= @stream_preset.show_schedule ? "$('.schedule a').click();".html_safe : (@stream_preset.show_special_schedule ? "$('.special_schedule a').click();".html_safe : "") -%>
         // Set up complaints form
         try {
             $('#user_complain_user_agent').val(navigator.userAgent);
