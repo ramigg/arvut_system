@@ -40,7 +40,7 @@
                 <span><%= link_to I18n.t('kabtv.kabtv.coveritlive'), '#', :onclick => 'return kabtv.tabs.select_me(this, "coveritlive")' %></span>
             <%- end -%>
             <%- if @stream_preset.show_special_schedule -%>
-                <span><%= link_to I18n.t('kabtv.kabtv.special_schedule'), '#', :onclick => 'return kabtv.tabs.select_me(this, "special_schedule")' %></span>
+                <span class="<%= @stream_preset.show_schedule ? '' : 'active' -%>"><%= link_to I18n.t('kabtv.kabtv.special_schedule'), '#', :onclick => 'return kabtv.tabs.select_me(this, "special_schedule")' %></span>
             <%- end -%>
           </div>
           <div class="content">
