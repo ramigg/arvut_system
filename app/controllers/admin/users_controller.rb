@@ -14,6 +14,7 @@ class Admin::UsersController < ApplicationController
         if User.exists?(email: email)
           true
         elsif user.save
+          user.roles << Role.where(role: 'archived_broadcasts').first
           Mailer.new_user_to_user(user, password).deliver
           true
         else
