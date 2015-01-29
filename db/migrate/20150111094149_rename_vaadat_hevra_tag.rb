@@ -1,7 +1,8 @@
+# encoding: utf-8
 class RenameVaadatHevraTag < ActiveRecord::Migration
   def self.up
-    t = Tag.where(name: 'ועדת חברה')
-    t.update_attribute(:name, 'צוות חברתי')
+    t = Tag.where(name: 'ועדת חברה').first
+    t.update_attribute(:name, 'צוות חברתי') if t
   end
 
   def self.down
