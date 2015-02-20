@@ -367,3 +367,8 @@ CREATE INDEX index_names_on_country ON countries
   Location.find_by_sql sql
   puts '--> Locations done'
 end
+
+puts <<-NEWL
+  In CASE YOU've JUST ADDED a NEW LANGUAGE: !!!!
+  PresetLanguage.where(stream_preset_id: 3 (Special Lesson), language_id: Language.where(locale: 'xxx').first, technology_id: 3(Flash)).first.update_attribute(:quality_id, 1)
+NEWL
