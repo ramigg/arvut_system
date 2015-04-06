@@ -1,6 +1,6 @@
 <%= link_to 'Facebook',
             Koala::Facebook::OAuth.new.url_for_oauth_code(
-                    permissions: 'email,user_friends,user_tagged_places',
+                    permissions: 'email',
                     callback:    oauth_redirect_url),
             class: :'button-middle-main arial' %>
 <%= link_to image_tag('/images/odnoklassniki_logo.png', style: 'height: 20px; width: 100px;'),
