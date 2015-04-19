@@ -11,12 +11,30 @@
         width      : 220px;
         background : transparent url(images/music.jpg) no-repeat 0 0;
     }
+    button.button-middle-second.arial.button-middle-second-green {
+        background: rgb(42, 165, 86);
+        border: 1px solid #15B542;
+        border-top: 1px solid #7EE5A3;
+        border-bottom: 1px solid #156225;
+    }
+
 </style>
 <div align="center" width="100%">
   <% if I18n.locale == :ru %>
       <a href="http://www.kabbalah.info/maaser/rus/" target="_blank">
         <button class="button-middle-second arial" style="width:100%;background-color:#81b253;cursor:pointer;color:#ffffff;font-size:120%">
           Внести Маасер
+        </button>
+      </a>
+      <a href="https://docs.google.com/document/d/1LiAc8R5lXVTXYcAZTkMGoDCfKyYZxKZIUsNIdq6SWl0/edit" target="_blank">
+        <button class="button-middle-second arial button-middle-second-green" style="margin-top:10px;width:100%;cursor:pointer;color:#ffffff;font-size:120" %>
+           Пишите Нам
+        </button>
+      </a>
+  <% elsif I18n.locale == :he %>
+      <a href="http://www.kabbalah.info/maaser/heb/" target="_blank">
+        <button class="button-middle-second arial" style="width:100%;background-color:#81b253;cursor:pointer;color:#ffffff;font-size:120%">
+          לתת מעשר
         </button>
       </a>
   <% elsif I18n.locale == :es %>

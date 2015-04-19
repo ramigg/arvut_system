@@ -93,7 +93,7 @@ uk:
       new_user: New User?
       cannot_sign_in: Cannot sign in? Click here for help!
       or: 'or sign in with'
-      email_registration: 'You can also register applying to <a href="mailto:bb.yg.eu@gmail.com">bb.yg.eu@gmail.com</a>'
+      email_registration: 'You can also register applying to International Education Center: <a href="mailto:bb.yg.eu@gmail.com">ec@kabbalah.info</a>, European Education Center: <a href="mailto:bb.yg.eu@gmail.com">bb.yg.eu@gmail.com</a>'
     mails:
       welcome: Welcome
       confirm_through_link: Please click the link below to confirm your account. If you click the link and it appears to be broken, please copy and paste it into a new browser window.
