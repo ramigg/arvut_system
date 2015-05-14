@@ -214,7 +214,7 @@
 function create_flash_object(streamName, netUrl) {
     $("#object").html('');
     $f('object',
-        { src: 'flowplayer/flowplayer.commercial-3.2.16.swf', wmode: 'transparent', id: 'player' },
+        {src: 'flowplayer/flowplayer.commercial-3.2.16.swf', wmode: 'transparent', id: 'player'},
         {
             key: '#\@432d5aedb59612f8458',
             clip: {
@@ -242,6 +242,41 @@ function create_flash_object(streamName, netUrl) {
                     stop: true,
                     time: false,
                     scrubber: false
+                }
+            }
+        }
+    );
+    $('#object').css('background-color', 'black');
+}
+
+
+function create_flash_object_audio(imageUrl, netUrl) {
+    $("#object").html('');
+    $f('object',
+        {src: 'flowplayer/flowplayer.commercial-3.2.16.swf', wmode: 'transparent', id: 'player'},
+        {
+            key: '#\@432d5aedb59612f8458',
+            clip: {
+                url: netUrl,
+                live: true,
+                bufferLength: 5,
+                scaling: 'fit',
+                onBeforePause: function () {
+                    return false;
+                }
+            },
+            canvas: {
+                backgroundGradient: 'none'
+            },
+            plugins: {
+                controls: {
+                    autoHide: 'fullscreen',
+                    play: false,
+                    stop: true,
+                    time: false,
+                    scrubber: false
+                    //,
+                    //backgroundImage: 'url(http://releases.flowplayer.org/data/national.jpg)'
                 }
             }
         }
@@ -433,8 +468,12 @@ function create_flash_object(streamName, netUrl) {
                                 jsonp: false,
                                 jsonpCallback: 'DynamicGeoStreamLocator'
                             }).success(function (data) {
+                                if (data.netUrl.match(/\.mp3$/)) {
+                                    create_flash_object_audio(data.imageUrl, data.netUrl);
+                                } else {
                                     create_flash_object(data.streamName, data.netUrl);
-                                });
+                                }
+                            });
                         } else {
                             var match = url.match(/clip=(.*);stream=(.*)/);
                             streamName = match[1];
