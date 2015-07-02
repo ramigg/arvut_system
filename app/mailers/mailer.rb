@@ -9,7 +9,7 @@ class Mailer < ActionMailer::Base
   def new_user_to_security(user)
     ActionMailer::Base.default_content_type = 'text/plain'
     headers = {
-        :from => 'Bnei Baruch <internet@kbb1.com>',
+        :from => 'Bnei Baruch <noreply@svivatova.com>',
         :subject => "New user registration: #{user.email}",
         :to => ['kola.ish@gmail.com', 'yoavinba@gmail.com'],
         :date => Time.now.to_formatted_s(:rfc822),
@@ -23,7 +23,7 @@ class Mailer < ActionMailer::Base
   def new_user_to_user(user, password)
     ActionMailer::Base.default_content_type = 'text/plain'
     headers = {
-        :from => 'Bnei Baruch <internet@kbb1.com>',
+        :from => 'Bnei Baruch <noreply@svivatova.com>',
         :subject => "New user registration: #{user.email}",
         :to => user.email,
         :bcc => ['kola.ish@gmail.com', 'yoavinba@gmail.com'],
@@ -43,7 +43,7 @@ class Mailer < ActionMailer::Base
   def send_questionnaire_notification(user, questionnaire)
     @locale = questionnaire.language.locale
     headers = {
-      :from => 'Bnei Baruch <internet@kbb1.com>',
+      :from => 'Bnei Baruch <noreply@svivatova.com>',
       :subject => I18n.t('notification.mailer.new_questionnaire_for_you', :locale => @locale),
       :to => user.email,
       :date => Time.now.to_formatted_s(:rfc822)
@@ -58,7 +58,7 @@ class Mailer < ActionMailer::Base
 
   def send_problem_notification(problem, remote_ip, locale)
     headers = {
-      :from => 'Bnei Baruch <internet@kbb1.com>',
+      :from => 'Bnei Baruch <noreply@svivatova.com>',
       :subject => 'New problem was reported',
       :to => 'support@kab.tv',
       :date => Time.now.to_formatted_s(:rfc822)
