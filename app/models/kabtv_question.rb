@@ -1,6 +1,6 @@
 class KabtvQuestion < Kabtv
   set_table_name 'questions'
-  
+
   def KabtvQuestion.copy_remote_to_local
     transaction {
       remote = KabtvQuestion.all

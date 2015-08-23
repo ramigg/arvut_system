@@ -1,5 +1,8 @@
+require 'net/http'
+require 'uri'
+
 class CopyQuestion < ActiveRecord::Base
-  
+
   def self.approved_questions(last_question_id = 0)
     sql = <<-SQL
       SELECT id, qfrom, qname, qquestion, who, lang, stimulator_id
@@ -21,14 +24,45 @@ class CopyQuestion < ActiveRecord::Base
 
   def self.ask_question(question, current_user)
     return nil if question[:qquestion].empty?
-    question.merge!(
-      :lang => Kabtv.map_locale_2_language(I18n.locale),
-      :isquestion => 1,
-      :is_hidden => 0,
-      :stimulator_id => current_user.id,
-      :timestamp => Time.now.to_s(:db)
-    )
-    KabtvQuestion.new(question).save(:validate => false)
+    lang = Kabtv.map_locale_2_language(I18n.locale)
+    Net::HTTP.post_form(URI.parse("http://kab.tv/ask.php?lang=#{lang}"), {
+      'QName' =>  question[:qname],
+      'QFrom' =>  question[:qfrom],
+      'QQuestion' =>  question[:qquestion],
+      'ask' =>  1,
+      'isquestion' => 1,
+      'is_hidden' => 0,
+    })
   end
 
+  def self.copy_remote
+    remote =
+      begin
+        Timeout::timeout(25) {
+          open('http://www.kab.tv/vod/question/copy_remote') { |f|
+            YAML::load(f)
+          }
+        }
+      rescue Timeout::Error
+        ''
+      end
+
+    transaction {
+      CopyQuestion.delete_all
+      remote.each{ |r|
+        l = CopyQuestion.new(r)
+        l.remote_question_id = r['id']
+        l.save(:validate => false)
+      }
+    }
+
+    # clear cache
+    StreamPreset.all.each {|sp|
+      preset_id = sp.id
+      Language.all.each {|lang|
+        key = "Sviva-Tova:/internet/events/render_event_response?locale=#{lang.locale}&source=questions&type=more_questions&last_question_id=0&stream_preset_id=#{preset_id}"
+        Rails.cache.delete key
+      }
+    }
+  end
 end
