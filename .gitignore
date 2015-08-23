@@ -31,3 +31,4 @@ arvut_system.iml
 public/page_cache/**/*
 config/settings.yml
 .rvmrc
+public/images/**
