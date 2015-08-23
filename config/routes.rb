@@ -46,7 +46,10 @@ Simulator::Application.routes.draw do
 
   namespace :api do
     namespace :v1 do
-      resources :tokens, :only => [:create, :destroy]
+      resources :tokens, :only => [:create, :destroy] do
+        post :has_archived_broadcasts, on: :collection
+      end
+
       resource :streams, :except => %w(new edit show update create destroy) do
         post 'set_stream_items'
         get 'get_lookup_table'

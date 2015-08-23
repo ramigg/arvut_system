@@ -1,5 +1,15 @@
 class Api::V1::TokensController < Api::V1::ApiController
-  skip_before_filter :verify_authenticity_token
+  skip_before_filter :verify_authenticity_token, :authenticate_user!
+
+
+  def has_archived_broadcasts
+    @user = User.where(authentication_token: params[:token]).first
+    if @user
+      render status: 200, json: {allow_archived_broadcasts: @user.roles.include?(Role.archived_broadcasts)}
+    else
+      render status: 200, json: {allow_archived_broadcasts: false}
+    end
+  end
 
   def create
     email = params[:email]
@@ -27,7 +37,7 @@ class Api::V1::TokensController < Api::V1::ApiController
     @user.ensure_authentication_token!
 
     if @user.valid_password?(password)
-      render :status => 200, :json => {:token => @user.authentication_token}
+      render status: 200, json: {token: @user.authentication_token, allow_archived_broadcasts: @user.roles.include?(Role.archived_broadcasts)}
     else
       logger.info("User #{email} failed signin, password \"#{password}\" is invalid")
       render :status => 401, :json => {:error => "Invalid email or password."}
