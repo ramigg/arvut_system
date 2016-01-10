@@ -8,14 +8,18 @@
     <span><%= link_to 'Gallery', '#', :remote => true %></span-->
   </div>
   <div class="bgnd">
-    <%= render_widget 'stream_container' %>
+    <%- if @page.tags(@locale)[0] == 'webrtc' -%>
+        <%= render_widget 'webrtc_container' %>
+    <%- else -%>
+      <%= render_widget 'stream_container' %>
+    <%- end -%>
     <div class="clear"></div>
   </div>
-  <%- if current_user.is_stream_manager? || current_user.is_admin? || current_user.is_stream_operator? -%>
-      <span style="float:right;margin-left:30px;"><%= link_to 'Manage', '#', :onclick => "$('.admin').toggle(); return false;" %></span>
-    <div class="admin">
-      <%= render_widget 'stream_admin' %>
-    </div>
+  <%- unless @page.tags(@locale)[0] == 'webrtc' -%>
+    <%- if current_user.is_stream_manager? || current_user.is_admin? || current_user.is_stream_operator? -%>
+        <span style="float:right;margin-left:30px;"><%= link_to 'Manage', '#', :onclick => "$('.admin').toggle(); return false;" %></span>
+      <div class="admin"><%= render_widget 'stream_admin' %></div>
+    <%- end -%>
   <%- end -%>
   <div class="clear"></div>
 </div>

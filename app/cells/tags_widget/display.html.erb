@@ -1,30 +1,29 @@
 <%
-   red_tags = [
-           'Fives', 'חמישיות', 'Пятерки', 'Quinteto', 'Fünfer', 'Cinco',
-           'Daily Advice', 'עצות של הרב לייטמן', 'Советы каббалиста', 'Resumen de la clase diaria de Cabalá', 'Ravs Ratschläge aus dem Morgenunterricht', 'Conselho Diário',
-           'ASSIGNMENTS', 'משימות', 'ЗАДАНИЯ', 'ASIGNACIONES', 'AUFGABE', 'AGENDAMENTOS',
-           'Daily Workshops', 'סדנאות', 'Семинар дня', 'סדנה'
-   ].map(&:upcase)
-   blue_tags = [].map(&:upcase)
+  red_tags = [
+      'Fives', 'חמישיות', 'Пятерки', 'Quinteto', 'Fünfer', 'Cinco',
+      'Daily Advice', 'עצות של הרב לייטמן', 'Советы каббалиста', 'Resumen de la clase diaria de Cabalá', 'Ravs Ratschläge aus dem Morgenunterricht', 'Conselho Diário',
+      'ASSIGNMENTS', 'משימות', 'ЗАДАНИЯ', 'ASIGNACIONES', 'AUFGABE', 'AGENDAMENTOS',
+      'Daily Workshops', 'סדנאות', 'Семинар дня', 'סדנה'
+  ].map(&:upcase)
+  blue_tags = [].map(&:upcase)
+  reject_tags = ['webrtc']
 %>
 <%- if @tags %>
     <hr/>
     <h4><%= t('stream.tags_menu') %>:</h4>
     <ul class="side_menu side_tags">
-      <%- @tags.each do |tag| %>
+      <%- @tags.reject { |x| reject_tags.include?(x.name) }.each do |tag| %>
           <%
-             up_tag = tag.to_s.upcase
-             special_tag_style = if red_tags.find { |e| e.match(up_tag) }
-                                   'color: red;'
-                                 elsif blue_tags.find { |e| e.match(up_tag) }
-                                   'color: blue;'
-                                 else
-                                   ''
-                                 end %>
+            up_tag = tag.to_s.upcase
+            special_tag_style = if red_tags.find { |e| e.match(up_tag) }
+                                  'color: red;'
+                                elsif blue_tags.find { |e| e.match(up_tag) }
+                                  'color: blue;'
+                                else
+                                  ''
+                                end %>
           <li id="menu-tag<%= tag.id %>" class="read">
-            <h5>
-              <%= link_to tag, stream_path(:stream_filter => 'tag', :modifier => tag.to_s), :class => 'data-remote', :style => special_tag_style %>
-            </h5>
+            <h5><%= link_to tag, stream_path(:stream_filter => 'tag', :modifier => tag.to_s), :class => 'data-remote', :style => special_tag_style %></h5>
           </li>
       <%- end %>
     </ul>

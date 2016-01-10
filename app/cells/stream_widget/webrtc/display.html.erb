@@ -1,0 +1,256 @@
+<%= widget_div do -%>
+    <div class="player">
+      <div class="support">
+        <%- group = I18n.locale == :ru ? 1 : (I18n.locale == :he ? 3 : (I18n.locale == :es ? 4 : 2)) %>
+        <a onclick="if(navigator.userAgent.toLowerCase().indexOf('opera') != -1 && window.event.preventDefault) window.event.preventDefault();this.newWindow = window.open('http://live.kab.tv/client.php?locale=<%= I18n.locale %>&amp;style=silver<%= I18n.locale == :he ? '_he' : ''%>&amp;group=<%= group %>&amp;url='+escape(document.location.href)+'&amp;referrer='+escape(document.referrer), 'mibew', 'toolbar=0,scrollbars=0,location=0,status=1,menubar=0,width=640,height=480,resizable=1');this.newWindow.focus();this.newWindow.opener=window; pageTracker._trackEvent('Links', 'Inbound', 'Help_Button'); return false;" target="_blank" href="http://live.kab.tv/client.php?locale=<%= I18n.locale %>&amp;style=silver<%= I18n.locale == :he ? '_he' : '' %>&amp;group=<%= group %>" rel="nofollow">
+          <%= t('kabtv.kabtv.technical_support') %>
+          <div class="online-status"></div>
+        </a>
+      </div>
+      <select id="bitratelist">
+      </select>
+
+      <select id="langlist">
+      </select>
+
+      <div id="videos">
+        <video id="remoteVideo" autoplay style="width: 354px; height: 226px; position: relative; top: -6px;"></video>
+        <audio id="remoteAudio" autoplay></audio>
+        <div id="video_controls_bar">
+          <button id="playpausebtn">Pause</button>
+          <button id="fullscreenbtn">FullScreen</button>
+          <input id="volumeslider" type="range" min="0" max="100" value="100" step="1"/>
+          <button id="mutebtn">Mute</button>
+        </div>
+      </div>
+    </div>
+    <div class="services" style="overflow:auto;">
+      <div class="tabs">
+        <span><%= link_to I18n.t('kabtv.kabtv.questions'), '#', :onclick => 'return kabtv.tabs.select_me(this, "questions")' %></span>
+        <span class="schedule"><%= link_to I18n.t('kabtv.kabtv.schedule'), '#', :onclick => 'return kabtv.tabs.select_me(this, "schedule")' %></span>
+        <span><%= link_to I18n.t('kabtv.kabtv.sketches'), '#', :onclick => 'return kabtv.tabs.select_me(this, "sketches")' %></span>
+      </div>
+      <div class="content">
+        <%= rendered_children.values.join("\n").html_safe %>
+      </div>
+      <div><%#= link_to I18n.t('kabtv.kabtv.schedule_name'), t('kabtv.kabtv.schedule_link'),
+                       :target => '_blank', :style => "font-weight: bold; font-size: +1;color: red;" -%></div>
+    </div>
+    <%= form_for @user_complain, :as => :user_complain, :url => user_complains_url, :method => :post, :remote => true,
+                 :html => {:style => "clear:both;width: 310px;display: block;margin: 50px auto 0;#{@locale == 'he' ? 'float: right; margin: 50px 40px 0 0; width: 325px;' : 'float: left; margin: 50px 0 0 40px; width: 325px;'}"} do |f| -%>
+        <h3 style="text-align: inherit;"><%= I18n.t "kabtv.kabtv.describe_problem" %>:</h3>
+        <%= f.hidden_field :id %>
+        <%= f.hidden_field :user_id %>
+        <%= f.hidden_field :user_agent %>
+        <%= f.hidden_field :platform %>
+        <%= f.hidden_field :oscpu %>
+        <%= f.hidden_field :buildid %>
+        <%= f.hidden_field :plugins %>
+        <%= f.hidden_field :language_id %>
+        <%= f.hidden_field :technology_id %>
+        <%= f.hidden_field :quality_url %>
+        <%= f.hidden_field :simulator_breadcrumb %>
+        <%= f.text_area :message, :style => 'width: 100%; height: 4em; padding:0;' %>
+        <%= f.submit I18n.t('kabtv.admin.submit'), :style => "display:block; float: #{@locale == 'he' ? 'left' : 'right'}", :class => 'button-small-main',
+                     :disable_with => I18n.t('kabtv.admin.submitting'), :onclick => 'return validate_form();' %>
+    <% end %>
+<%- end -%>
+
+<script type="text/javascript" src="http://v4g.kbb1.com/video/js/janus.js"></script>
+<script type="text/javascript" src="http://v4g.kbb1.com/video/js/adapter.js"></script>
+<script type="text/javascript" src="http://v4g.kbb1.com/video/js/client-api.js"></script>
+<%= javascript_include_tag 'jquery-1.7.2.min' -%>
+
+<script type="text/javascript">
+  var lang = null, bitrate = null;
+  var is_connected = false;
+  var vid, aud, playbtn, mutebtn, volumeslider, fullscreenbtn;
+
+  function callbackHandler() {
+    console.log('callbackHandler');
+    is_connected = true;
+    if (bitrate) {
+      janusAttachVideo(bitrate, '#remoteVideo');
+    }
+    if (lang) {
+      janusAttachAudio(lang, '#remoteAudio');
+    }
+  }
+
+  function errorHander() {
+    window.setTimeout(function () {
+      bootbox.hideAll();
+      window.location.reload();
+    }, 10000);
+  }
+
+  function destroyHandler() {
+    window.location.reload();
+  }
+
+  function loadFromLocalStorage() {
+    if (localStorage.lang) {
+      lang = Number(localStorage.lang);
+      $('#langlist').val(lang);
+    }
+
+    if (localStorage.bitrate) {
+      bitrate = Number(localStorage.bitrate);
+      $('#bitratelist').val(bitrate);
+    }
+  }
+
+  function initializePlayer() {
+    // Set object references
+    vid = document.getElementById("remoteVideo");
+    aud = document.getElementById("remoteAudio");
+    playbtn = document.getElementById("playpausebtn");
+    mutebtn = document.getElementById("mutebtn");
+    volumeslider = document.getElementById("volumeslider");
+    fullscreenbtn = document.getElementById("fullscreenbtn");
+
+    // Add event listeners
+    playbtn.addEventListener("click", playPause, false);
+    mutebtn.addEventListener("click", vidmute, false);
+    volumeslider.addEventListener("change", setvolume, false);
+    fullscreenbtn.addEventListener("click", toggleFullScreen, false);
+
+    // Init dropdowns
+    setBitrates();
+    setLanguages();
+    setEventHandlers();
+  }
+
+  function setEventHandlers() {
+    $(document).on('select', '#bitratelist', function () {
+      bitrate = Number($(this).val());
+      localStorage.bitrate = bitrate;
+      localStorage.videotext = $(this).text();
+      if (is_connected) {
+        janusAttachVideo(bitrate, '#remoteVideo');
+      }
+      if (bitrate === 0) {
+        $('#remoteVideo').addClass('hide');
+      } else {
+        $('#remoteVideo').removeClass('hide');
+      }
+    });
+
+    $(document).on('select', '#langlist', function () {
+      lang = Number($(this).val());
+      localStorage.lang = lang;
+      localStorage.langtext = $(this).text();
+      console.log('langlist', lang, $(this).text());
+      if (is_connected) {
+        janusAttachAudio(lang, '#remoteAudio');
+      }
+    });
+  }
+
+  function setBitrates() {
+    var bitrates = getBitrates();
+    var str = "";
+    $.each(bitrates, function (key, val) {
+      str += "<option value='" + key + "'>" + val + "</option>";
+    });
+    $('#bitratelist').html(str);
+  }
+
+  function setLanguages() {
+    var languages = getLanguages();
+    var str = "";
+    $.each(languages, function (key, hash) {
+      str += '<optgroup class="dropdown-header"><h5><b><u>' + key + '</u></b></h5></optgroup>';
+      $.each(hash, function (id, lang) {
+        str += '<option value="' + id + '">' + lang + '</option>';
+      });
+    });
+    $('#langlist').html(str);
+  }
+
+  function playPause() {
+    if (vid.paused) {
+      vid.play();
+      playbtn.innerHTML = "Pause";
+    } else {
+      vid.pause();
+      playbtn.innerHTML = "Play";
+    }
+  }
+
+  function vidmute() {
+    if (aud.muted) {
+      aud.muted = false;
+      mutebtn.innerHTML = "Mute";
+    } else {
+      aud.muted = true;
+      mutebtn.innerHTML = "Unmute";
+    }
+  }
+
+  function setvolume() {
+    aud.volume = volumeslider.value / 100;
+  }
+
+  function toggleFullScreen() {
+    if (vid.requestFullScreen) {
+      vid.requestFullScreen();
+    } else if (vid.webkitRequestFullScreen) {
+      vid.webkitRequestFullScreen();
+    } else if (vid.mozRequestFullScreen) {
+      vid.mozRequestFullScreen();
+    }
+  }
+
+  $(function () {
+    initializePlayer();
+    loadFromLocalStorage();
+    janusConnect(errorHander, destroyHandler, callbackHandler, true);
+
+    // Select appropriate tab
+    $('.schedule a').click();
+    // Set up complaints form
+    try {
+      $('#user_complain_user_agent').val(navigator.userAgent);
+    } catch (err) {
+    }
+    try {
+      $('#user_complain_platform').val(navigator.platform);
+    } catch (err) {
+    }
+    try {
+      $('#user_complain_oscpu').val(navigator.oscpu);
+    } catch (err) {
+    }
+    try {
+      $('#user_complain_buildid').val(navigator.buildID);
+    } catch (err) {
+    }
+    try {
+      var pluginlist = '';
+      for (var index = 0; index < navigator.plugins.length; index++) {
+        pluginlist += navigator.plugins[index].name + ' / ' + navigator.plugins[index].filename + '<br>\n';
+      }
+      var mime_types = ['application/x-ms-wmp', 'application/x-mplayer2', 'video/x-ms-asf', 'video/x-ms-wmv'];
+      for (var index = 0; index < mime_types.length; index++) {
+        var mime = mime_types[index];
+        var plugin = navigator.mimeTypes[mime].enabledPlugin;
+        if (plugin) {
+          pluginlist += mime + ' handled with ' + plugin['name'] + '<br>\n';
+        }
+      }
+      $('#user_complain_plugins').val(pluginlist);
+    } catch (err) {
+    }
+  });
+
+  function validate_form() {
+    if ($("#user_complain_message").val().length <= 0) {
+      alert("<%= I18n.t('kabtv.kabtv.empty_message') %>");
+      return false;
+    } else {
+      return true;
+    }
+  }
+
+</script>

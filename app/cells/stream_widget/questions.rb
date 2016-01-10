@@ -11,7 +11,7 @@ module StreamWidget
     responds_to_event :submit_question, :with => :process_submit
 
     def display
-      @stream_preset = current_preset(param :stream_preset_id)
+      @stream_preset = (param :stream_preset) || current_preset(param :stream_preset_id)
       return if @stream_preset.nil? || ! @stream_preset.show_questions
 
       current_user = param :current_user
