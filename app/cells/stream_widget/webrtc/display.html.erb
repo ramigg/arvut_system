@@ -62,18 +62,17 @@
 <%= javascript_include_tag 'jquery-1.7.2.min' -%>
 
 <script type="text/javascript">
-  var lang = null, bitrate = null;
-  var is_connected = false;
+  var langWebRtc = null, bitrateWebRTC = null;
+  var is_connectedWebRtc = false;
   var vid, aud, playbtn, mutebtn, volumeslider, fullscreenbtn;
 
   function callbackHandler() {
-    console.log('callbackHandler');
-    is_connected = true;
-    if (bitrate) {
-      janusAttachVideo(bitrate, '#remoteVideo');
+    is_connectedWebRtc = true;
+    if (bitrateWebRTC) {
+      janusAttachVideo(bitrateWebRTC, '#remoteVideo');
     }
-    if (lang) {
-      janusAttachAudio(lang, '#remoteAudio');
+    if (langWebRtc) {
+      janusAttachAudio(langWebRtc, '#remoteAudio');
     }
   }
 
@@ -90,13 +89,13 @@
 
   function loadFromLocalStorage() {
     if (localStorage.lang) {
-      lang = Number(localStorage.lang);
-      $('#langlist').val(lang);
+      langWebRtc = Number(localStorage.lang);
+      $('#langlist').val(langWebRtc);
     }
 
     if (localStorage.bitrate) {
-      bitrate = Number(localStorage.bitrate);
-      $('#bitratelist').val(bitrate);
+      bitrateWebRTC = Number(localStorage.bitrate);
+      $('#bitratelist').val(bitrateWebRTC);
     }
   }
 
@@ -123,13 +122,13 @@
 
   function setEventHandlers() {
     $(document).on('select', '#bitratelist', function () {
-      bitrate = Number($(this).val());
-      localStorage.bitrate = bitrate;
+      bitrateWebRTC = Number($(this).val());
+      localStorage.bitrate = bitrateWebRTC;
       localStorage.videotext = $(this).text();
-      if (is_connected) {
-        janusAttachVideo(bitrate, '#remoteVideo');
+      if (is_connectedWebRtc) {
+        janusAttachVideo(bitrateWebRTC, '#remoteVideo');
       }
-      if (bitrate === 0) {
+      if (bitrateWebRTC === 0) {
         $('#remoteVideo').addClass('hide');
       } else {
         $('#remoteVideo').removeClass('hide');
@@ -137,12 +136,12 @@
     });
 
     $(document).on('select', '#langlist', function () {
-      lang = Number($(this).val());
-      localStorage.lang = lang;
+      langWebRtc = Number($(this).val());
+      localStorage.lang = langWebRtc;
       localStorage.langtext = $(this).text();
-      console.log('langlist', lang, $(this).text());
-      if (is_connected) {
-        janusAttachAudio(lang, '#remoteAudio');
+      console.log('langlist', langWebRtc, $(this).text());
+      if (is_connectedWebRtc) {
+        janusAttachAudio(langWebRtc, '#remoteAudio');
       }
     });
   }
@@ -160,10 +159,11 @@
     var languages = getLanguages();
     var str = "";
     $.each(languages, function (key, hash) {
-      str += '<optgroup class="dropdown-header"><h5><b><u>' + key + '</u></b></h5></optgroup>';
+      str += '<optgroup class="dropdown-header" label="' + key + '">';
       $.each(hash, function (id, lang) {
         str += '<option value="' + id + '">' + lang + '</option>';
       });
+      str += '</optgroup>'
     });
     $('#langlist').html(str);
   }
