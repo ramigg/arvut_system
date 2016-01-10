@@ -59,7 +59,6 @@
 <script type="text/javascript" src="http://v4g.kbb1.com/video/js/janus.js"></script>
 <script type="text/javascript" src="http://v4g.kbb1.com/video/js/adapter.js"></script>
 <script type="text/javascript" src="http://v4g.kbb1.com/video/js/client-api.js"></script>
-<%= javascript_include_tag 'jquery-1.7.2.min' -%>
 
 <script type="text/javascript">
   var langWebRtc = null, bitrateWebRTC = null;
@@ -78,7 +77,6 @@
 
   function errorHander() {
     window.setTimeout(function () {
-      bootbox.hideAll();
       window.location.reload();
     }, 10000);
   }
@@ -115,13 +113,13 @@
     fullscreenbtn.addEventListener("click", toggleFullScreen, false);
 
     // Init dropdowns
+    setEventHandlers();
     setBitrates();
     setLanguages();
-    setEventHandlers();
   }
 
   function setEventHandlers() {
-    $(document).on('select', '#bitratelist', function () {
+    $('#bitratelist').change(function () {
       bitrateWebRTC = Number($(this).val());
       localStorage.bitrate = bitrateWebRTC;
       localStorage.videotext = $(this).text();
@@ -135,11 +133,10 @@
       }
     });
 
-    $(document).on('select', '#langlist', function () {
+    $('#langlist').change(function () {
       langWebRtc = Number($(this).val());
       localStorage.lang = langWebRtc;
       localStorage.langtext = $(this).text();
-      console.log('langlist', langWebRtc, $(this).text());
       if (is_connectedWebRtc) {
         janusAttachAudio(langWebRtc, '#remoteAudio');
       }
@@ -147,25 +144,37 @@
   }
 
   function setBitrates() {
-    var bitrates = getBitrates();
-    var str = "";
-    $.each(bitrates, function (key, val) {
-      str += "<option value='" + key + "'>" + val + "</option>";
-    });
-    $('#bitratelist').html(str);
+    try {
+      var bitrates = getBitrates();
+      var str = "";
+      $.each(bitrates, function (key, val) {
+        str += "<option value='" + key + "'>" + val + "</option>";
+      });
+      $('#bitratelist').html(str);
+    } catch (err) {
+      window.setTimeout(function () {
+        setBitrates();
+      }, 1000);
+    }
   }
 
   function setLanguages() {
-    var languages = getLanguages();
-    var str = "";
-    $.each(languages, function (key, hash) {
-      str += '<optgroup class="dropdown-header" label="' + key + '">';
-      $.each(hash, function (id, lang) {
-        str += '<option value="' + id + '">' + lang + '</option>';
+    try {
+      var languages = getLanguages();
+      var str = "";
+      $.each(languages, function (key, hash) {
+        str += '<optgroup class="dropdown-header" label="' + key + '">';
+        $.each(hash, function (id, lang) {
+          str += '<option value="' + id + '">' + lang + '</option>';
+        });
+        str += '</optgroup>'
       });
-      str += '</optgroup>'
-    });
-    $('#langlist').html(str);
+      $('#langlist').html(str);
+    } catch (err) {
+      window.setTimeout(function () {
+        setLanguages();
+      }, 1000);
+    }
   }
 
   function playPause() {
@@ -202,7 +211,7 @@
     }
   }
 
-  $(function () {
+  $(window).load(function () {
     initializePlayer();
     loadFromLocalStorage();
     janusConnect(errorHander, destroyHandler, callbackHandler, true);
