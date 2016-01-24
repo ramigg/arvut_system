@@ -1212,7 +1212,17 @@
     }
   }
 
-  $(window).load(function () {
+  window.setTimeout(function () {
+    load_initialize();
+  }, 1000);
+
+  function load_initialize() {
+    vid = document.getElementById("remoteVideo");
+    if (vid === null) {
+      window.setTimeout(function () {
+        load_initialize();
+      }, 500);
+    }
     initializePlayer();
     loadFromLocalStorage();
     janusConnect(errorHander, destroyHandler, callbackHandler, true);
@@ -1252,7 +1262,7 @@
       $('#user_complain_plugins').val(pluginlist);
     } catch (err) {
     }
-  });
+  }
 
   function validate_form() {
     if ($("#user_complain_message").val().length <= 0) {
