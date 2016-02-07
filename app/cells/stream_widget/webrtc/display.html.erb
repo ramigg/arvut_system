@@ -1078,6 +1078,10 @@
   var is_connectedWebRtc = false;
   var vid, aud, mutebtn, volumeslider, fullscreenbtn;
 
+  window.setTimeout(function () {
+    load_initialize();
+  }, 1000);
+
   function callbackHandler() {
     is_connectedWebRtc = true;
     if (bitrateWebRTC) {
@@ -1212,16 +1216,13 @@
     }
   }
 
-  window.setTimeout(function () {
-    load_initialize();
-  }, 1000);
-
   function load_initialize() {
     vid = document.getElementById("remoteVideo");
     if (vid === null) {
       window.setTimeout(function () {
         load_initialize();
       }, 500);
+      return;
     }
     initializePlayer();
     loadFromLocalStorage();
