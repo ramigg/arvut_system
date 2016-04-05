@@ -12,6 +12,7 @@ class Admin::UsersController < ApplicationController
         user.confirmed_at = Time.now # confirmed!!!
         password = user.password = user.password_confirmation = SecureRandom.hex(3)
         if User.exists?(email: email)
+          user.roles << Role.where(role: 'archived_broadcasts').first
           true
         elsif user.save
           user.roles << Role.where(role: 'archived_broadcasts').first
