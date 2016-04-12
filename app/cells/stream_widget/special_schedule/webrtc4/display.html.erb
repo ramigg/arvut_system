@@ -267,10 +267,6 @@
     margin: 30px 0 24px;
   }
 
-  .he #bitratelist {
-    float: right;
-  }
-
   #bitratelist {
     height: 28px;
     margin: 1px 0 0 1px;
@@ -279,6 +275,7 @@
   #langlist {
     height: 28px;
     margin: 1px 0 1px 0;
+    float: right;
   }
 
   .he #langlist {
@@ -438,15 +435,8 @@
 
   /* Volume/Mute
   -------------------------------------------------------------------------------- */
-  .he .vjs-default-skin .vjs-mute-control,
   .he .vjs-default-skin .vjs-volume-menu-button {
     float: left;
-    -moz-transform: scaleX(-1);
-    -webkit-transform: scaleX(-1);
-    -o-transform: scaleX(-1);
-    transform: scaleX(-1);
-    -ms-filter: fliph; /*IE*/
-    filter: fliph; /*IE*/
   }
 
   .vjs-default-skin .vjs-mute-control,
@@ -1135,7 +1125,6 @@
     if (localStorage.lang) {
       langWebRtc = Number(localStorage.lang);
       $('#langlist').val(langWebRtc);
-      setLanguage();
     }
 
     if (localStorage.bitrate) {
@@ -1178,16 +1167,14 @@
       }
     });
 
-    $('#langlist').change(setLanguage);
-  }
-
-  function setLanguage() {
-    langWebRtc = Number($('#langlist').val());
-    localStorage.lang = langWebRtc;
-    localStorage.langtext = $('#langlist').text();
-    if (is_connectedWebRtc) {
-      janusAttachAudio(langWebRtc, '#remoteAudio');
-    }
+    $('#langlist').change(function () {
+      langWebRtc = Number($(this).val());
+      localStorage.lang = langWebRtc;
+      localStorage.langtext = $(this).text();
+      if (is_connectedWebRtc) {
+        janusAttachAudio(langWebRtc, '#remoteAudio');
+      }
+    });
   }
 
   function setBitrates() {
