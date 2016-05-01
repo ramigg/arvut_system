@@ -10,7 +10,7 @@
   <div class="bgnd">
     <%- if @page.tags(@locale)[0] == 'webrtc' -%>
         <%= render_widget 'webrtc_container' %>
-    <%- elsif @page.tags(@locale)[0] == 'webrtc-4' -%>
+    <%- elsif @page.tags(@locale)[0] == 'webrtc4' -%>
         <%= render_widget 'webrtc4_container' %>
     <%- else -%>
       <%= render_widget 'stream_container' %>
