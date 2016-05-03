@@ -80,6 +80,7 @@
   #throbber {
     display: none !important;
   }
+
   input[type=range] {
     -webkit-appearance: none;
     width: 100%;
@@ -1143,7 +1144,7 @@
   var bitrateWebRTC = null;
   var is_connectedWebRtc = false;
   var video;
-  var audios;
+  var audios, volumes;
 
   window.setTimeout(function () {
     load_initialize();
@@ -1176,7 +1177,7 @@
     // Add event listeners
     document.getElementById("mutebtn").onclick = mute;
     document.getElementById("fullscreenbtn").onclick = toggleFullScreen;
-    var volumes = arrayOf(document.getElementsByClassName("vjs-volume-level"));
+    volumes = arrayOf(document.getElementsByClassName("vjs-volume-level"));
     volumes.forEach(function (volume) {
       volume.onchange = setvolume;
     });
@@ -1235,13 +1236,22 @@
 
   function setvolume() {
     var lang = $(this).data('lang');
-    console.log("lang", lang);
     a = audios.filter(function (audio) {
-      console.log(audio, $(audio).data('lang'));
       return $(audio).data('lang') === lang;
     });
-    console.log(a.volume);
-    a[0].volume = this.value / 100;
+    a[0].volume = localStorage[lang + 'volume'] = this.value / 100;
+  }
+
+  function setVolumeByLang(lang, volume) {
+    v = volumes.filter(function (v) {
+      return $(v).data('lang') === lang;
+    });
+    $(v[0]).val(volume * 100);
+
+    a = audios.filter(function (audio) {
+      return $(audio).data('lang') === lang;
+    });
+    a[0].volume = volume;
   }
 
   function toggleFullScreen() {
@@ -1262,10 +1272,24 @@
       return;
     }
     initializePlayer();
+    loadFromLocalStorage();
     janusConnect(errorHander, destroyHandler, callbackHandler, true);
     // Select appropriate tab
     $('.schedule a').click();
     setupComplains();
+  }
+
+  function loadFromLocalStorage() {
+    ["Hebrew", "Russian", "English", "Spanish"].forEach(function (lang) {
+      if (localStorage[lang + 'volume']) {
+        setVolumeByLang(lang, Number(localStorage[lang + 'volume']));
+      }
+    });
+
+    if (localStorage.bitrate) {
+      bitrateWebRTC = Number(localStorage.bitrate);
+      $('#bitratelist').val(bitrateWebRTC);
+    }
   }
 
   function setupComplains() {
