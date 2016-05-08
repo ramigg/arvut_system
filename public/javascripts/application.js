@@ -302,7 +302,6 @@ function rotate_banner() {
         $('.' + ads[current_ad]).css('z-index', 0);
     }
     current_ad = (current_ad + 1) % total_ads;
-    console.log("Current ad: ", current_ad, " -- ", ads[current_ad]);
     $('.' + ads[current_ad]).css('z-index', 100);
 }
 
