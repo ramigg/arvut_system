@@ -274,9 +274,15 @@ var total_ads = 0;
 function init_banner() {
     if (total_ads > 0) return;
 
-    if ($('.gt1 iframe').contents().find('img').length > 0) { ads.push('gt1'); }
-    if ($('.gt2 iframe').contents().find('img').length > 0) { ads.push('gt2'); }
-    if ($('.gt3 iframe').contents().find('img').length > 0) { ads.push('gt3'); }
+    if ($('.gt1 iframe[width="960"]').contents().find('img').length > 0) {
+        ads.push('gt1');
+    }
+    if ($('.gt2 iframe[width="960"]').contents().find('img').length > 0) {
+        ads.push('gt2');
+    }
+    if ($('.gt3 iframe[width="960"]').contents().find('img').length > 0) {
+        ads.push('gt3');
+    }
 
     total_ads = ads.length;
     if (total_ads == 0) {
@@ -292,9 +298,12 @@ function init_banner() {
 }
 
 function rotate_banner() {
-    $('.' + ads[current_ad]).hide();
+    if (current_ad != -1) {
+        $('.' + ads[current_ad]).css('z-index', 0);
+    }
     current_ad = (current_ad + 1) % total_ads;
-    $('.' + ads[current_ad]).show();
+    console.log("Current ad: ", current_ad, " -- ", ads[current_ad]);
+    $('.' + ads[current_ad]).css('z-index', 100);
 }
 
 $(function () {
