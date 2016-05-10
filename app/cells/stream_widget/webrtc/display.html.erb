@@ -27,15 +27,12 @@
     </div>
     <div class="services" style="overflow:auto;">
       <div class="tabs">
-        <span><%= link_to I18n.t('kabtv.kabtv.questions'), '#', :onclick => 'return kabtv.tabs.select_me(this, "questions")' %></span>
-        <span class="schedule"><%= link_to I18n.t('kabtv.kabtv.schedule'), '#', :onclick => 'return kabtv.tabs.select_me(this, "schedule")' %></span>
+        <span class="questions"><%= link_to I18n.t('kabtv.kabtv.questions'), '#', :onclick => 'return kabtv.tabs.select_me(this, "questions")' %></span>
         <span><%= link_to I18n.t('kabtv.kabtv.sketches'), '#', :onclick => 'return kabtv.tabs.select_me(this, "sketches")' %></span>
       </div>
       <div class="content">
         <%= rendered_children.values.join("\n").html_safe %>
       </div>
-      <div><%#= link_to I18n.t('kabtv.kabtv.schedule_name'), t('kabtv.kabtv.schedule_link'),
-                       :target => '_blank', :style => "font-weight: bold; font-size: +1;color: red;" -%></div>
     </div>
     <%= form_for @user_complain, :as => :user_complain, :url => user_complains_url, :method => :post, :remote => true,
                  :html               => { :style => "clear:both;width: 310px;display: block;margin: 50px auto 0;#{@locale == 'he' ? 'float: right; margin: 50px 40px 0 0; width: 325px;' : 'float: left; margin: 50px 0 0 40px; width: 325px;'}" } do |f| -%>
@@ -1264,7 +1261,7 @@
     janusConnect(errorHander, destroyHandler, callbackHandler, true);
 
     // Select appropriate tab
-    $('.schedule a').click();
+    $('.questions a').click();
     // Set up complaints form
     try {
       $('#user_complain_user_agent').val(navigator.userAgent);
