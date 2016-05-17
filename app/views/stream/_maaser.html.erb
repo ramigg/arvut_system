@@ -55,16 +55,12 @@
   }
 </style>
 <div align="center" width="100%">
-  <% if I18n.locale == :ru %>
+  <%- if I18n.locale == :ru %>
       <a href="http://www.kabbalah.info/maaser/rus/" target="_blank">
-        <button class="button-middle-second arial" style="width:100%;background-color:#81b253;cursor:pointer;color:#ffffff;font-size:120%">
-          Внести Маасер
-        </button>
+        <button class="button-middle-second arial" style="width:100%;background-color:#81b253;cursor:pointer;color:#ffffff;font-size:120%">Внести Маасер</button>
       </a>
       <a href="http://kabbalahgroup.info/internet/ru/pages/23931" target="_blank">
-        <button class="button-middle-second arial button-middle-second-red" style="margin-top:10px;width:100%;cursor:pointer;color:#ffffff;font-size:120%">
-          Help Haver
-        </button>
+        <button class="button-middle-second arial button-middle-second-red" style="margin-top:10px;width:100%;cursor:pointer;color:#ffffff;font-size:120%">Help Haver</button>
       </a>
       <a href="http://www.kabbalah.info/contributions/ru/" target="_blank">
         <button class="button-middle-second arial button-middle-second-red" style="margin-top:10px;width:100%;cursor:pointer;color:#ffffff;font-size:120%">
@@ -72,20 +68,14 @@
         </button>
       </a>
       <a href="https://docs.google.com/forms/d/1_itqbvhtm9IOu49znAU-IKBXNmp0nUmT-jhpKXMZ7l0/viewform" target="_blank">
-        <button class="button-middle-second arial button-middle-second-green" style="margin-top:10px;width:100%;cursor:pointer;color:#ffffff;font-size:120%" %>
-          Пишите Нам
-        </button>
+        <button class="button-middle-second arial button-middle-second-green" style="margin-top:10px;width:100%;cursor:pointer;color:#ffffff;font-size:120%" %>Пишите Нам</button>
       </a>
-  <% elsif I18n.locale == :es %>
+  <%- elsif I18n.locale == :es %>
       <a href="http://www.kabbalah.info/maaser/spa/" target="_blank">
-        <button class="button-middle-second arial" style="width:100%;background-color:#81b253;cursor:pointer;color:#ffffff;font-size:120%">
-          Pagar Maaser
-        </button>
+        <button class="button-middle-second arial" style="width:100%;background-color:#81b253;cursor:pointer;color:#ffffff;font-size:120%">Pagar Maaser</button>
       </a>
       <a href="http://kabbalahgroup.info/internet/es/pages/23964" target="_blank">
-        <button class="button-middle-second arial button-middle-second-red" style="margin-top:10px;width:100%;cursor:pointer;color:#ffffff;font-size:120%">
-          Help Haver
-        </button>
+        <button class="button-middle-second arial button-middle-second-red" style="margin-top:10px;width:100%;cursor:pointer;color:#ffffff;font-size:120%">Help Haver</button>
       </a>
       <a href="http://www.kabbalah.info/contributions/es/" target="_blank">
         <button class="button-middle-second arial button-middle-second-red" style="margin-top:10px;width:100%;cursor:pointer;color:#ffffff;font-size:120%">
@@ -93,11 +83,9 @@
         </button>
       </a>
       <a href="https://docs.google.com/forms/d/1_itqbvhtm9IOu49znAU-IKBXNmp0nUmT-jhpKXMZ7l0/viewform" target="_blank">
-        <button class="button-middle-second arial button-middle-second-green" style="margin-top:10px;width:100%;cursor:pointer;color:#ffffff;font-size:120%" %>
-          Escribenos
-        </button>
+        <button class="button-middle-second arial button-middle-second-green" style="margin-top:10px;width:100%;cursor:pointer;color:#ffffff;font-size:120%" %>Escribenos</button>
       </a>
-  <% elsif I18n.locale == :he %>
+  <%- elsif I18n.locale == :he %>
       <a href="http://www.kabbalah.info/maaser/heb/" target="_blank">
         <button class="button-middle-second arial" style="width:100%;background-color:#81b253;cursor:pointer;color:#ffffff;font-size:120%">
           לתת מעשר
@@ -109,9 +97,7 @@
         </button>
       </a%>
       <a href="http://kabbalahgroup.info/internet/he/pages/23943" target="_blank">
-        <button class="button-middle-second arial button-middle-second-red" style="margin-top:10px;width:100%;cursor:pointer;color:#ffffff;font-size:120%">
-          Help Haver
-        </button>
+        <button class="button-middle-second arial button-middle-second-red" style="margin-top:10px;width:100%;cursor:pointer;color:#ffffff;font-size:120%">Help Haver</button>
       </a>
       <a href="http://www.kabbalah.info/contributions/he/" target="_blank">
         <button class="button-middle-second arial button-middle-second-red" style="margin-top:10px;width:100%;cursor:pointer;color:#ffffff;font-size:120%">
@@ -127,50 +113,37 @@
       <br/>
       <a href="http://icecast.kab.tv/radiozohar2014.mp3" target="_blank" class="radiozohar-button"></a>
       <a href="https://soundcloud.com/kabbalah-laam-music" target="_blank" class="music-button"></a>
-      <a href="http://www.kab.co.il/kabbalah/%D7%9E%D7%A9%D7%9C%D7%99%D7%9E%D7%99%D7%9D-%D7%90%D7%AA-%D7%94%D7%AA%D7%9E%D7%95%D7%A0%D7%94" target="_blank" class="dissemination-button"></a><br>
+      <a href="http://www.kab.co.il/kabbalah/%D7%9E%D7%A9%D7%9C%D7%99%D7%9E%D7%99%D7%9D-%D7%90%D7%AA-%D7%94%D7%AA%D7%9E%D7%95%D7%A0%D7%94" target="_blank" class="dissemination-button"></a>
       <a href="https://docs.google.com/document/d/11uiVW6gSZAvhftfBW-cEs9pOsPfvzBxkoncWFpory40/edit" target="_blank" class="semester-gimel-button"></a>
-  <% elsif I18n.locale == :pt %>
+      <br/>
+  <%- elsif I18n.locale == :pt %>
       <a href="http://www.kabbalah.info/maaser/pt/" target="_blank">
         <button class="button-middle-second arial" style="width:100%;background-color:#81b253;cursor:pointer;color:#ffffff;font-size:120%">
           Dar Maaser
         </button>
       </a>
       <a href="http://kabbalahgroup.info/internet/en/pages/23948" target="_blank">
-        <button class="button-middle-second arial button-middle-second-red" style="margin-top:10px;width:100%;cursor:pointer;color:#ffffff;font-size:120%">
-          Help Haver
-        </button>
+        <button class="button-middle-second arial button-middle-second-red" style="margin-top:10px;width:100%;cursor:pointer;color:#ffffff;font-size:120%">Help Haver</button>
       </a>
       <a href="http://www.kabbalah.info/contributions/" target="_blank">
-        <button class="button-middle-second arial button-middle-second-red" style="margin-top:10px;width:100%;cursor:pointer;color:#ffffff;font-size:120%">
-          Home Maintenance Donations
-        </button>
+        <button class="button-middle-second arial button-middle-second-red" style="margin-top:10px;width:100%;cursor:pointer;color:#ffffff;font-size:120%">Home Maintenance Donations</button>
       </a>
       <a href="https://docs.google.com/forms/d/1_itqbvhtm9IOu49znAU-IKBXNmp0nUmT-jhpKXMZ7l0/viewform" target="_blank">
-        <button class="button-middle-second arial button-middle-second-green" style="margin-top:10px;width:100%;cursor:pointer;color:#ffffff;font-size:120%" %>
-          Write to us
-        </button>
+        <button class="button-middle-second arial button-middle-second-green" style="margin-top:10px;width:100%;cursor:pointer;color:#ffffff;font-size:120%" %>Write to us</button>
       </a>
-  <% else %>
+  <%- else %>
       <!-- English and other languages -->
       <a href="http://www.kabbalah.info/maaser/eng/" target="_blank">
-        <button class="button-middle-second arial" style="width:100%;background-color:#81b253;cursor:pointer;color:#ffffff;font-size:120%">
-          Give Maaser
-        </button>
+        <button class="button-middle-second arial" style="width:100%;background-color:#81b253;cursor:pointer;color:#ffffff;font-size:120%">Give Maaser</button>
       </a>
       <a href="http://kabbalahgroup.info/internet/en/pages/23948" target="_blank">
-        <button class="button-middle-second arial button-middle-second-red" style="margin-top:10px;width:100%;cursor:pointer;color:#ffffff;font-size:120%">
-          Help Haver
-        </button>
+        <button class="button-middle-second arial button-middle-second-red" style="margin-top:10px;width:100%;cursor:pointer;color:#ffffff;font-size:120%">Help Haver</button>
       </a>
       <a href="http://www.kabbalah.info/contributions/" target="_blank">
-        <button class="button-middle-second arial button-middle-second-red" style="margin-top:10px;width:100%;cursor:pointer;color:#ffffff;font-size:120%">
-          Home Maintenance Donations
-        </button>
+        <button class="button-middle-second arial button-middle-second-red" style="margin-top:10px;width:100%;cursor:pointer;color:#ffffff;font-size:120%">Home Maintenance Donations</button>
       </a>
       <a href="https://docs.google.com/forms/d/1_itqbvhtm9IOu49znAU-IKBXNmp0nUmT-jhpKXMZ7l0/viewform" target="_blank">
-        <button class="button-middle-second arial button-middle-second-green" style="margin-top:10px;width:100%;cursor:pointer;color:#ffffff;font-size:120%" %>
-          Write to us
-        </button>
+        <button class="button-middle-second arial button-middle-second-green" style="margin-top:10px;width:100%;cursor:pointer;color:#ffffff;font-size:120%" %>Write to us</button>
       </a>
-  <% end %>
+  <%- end %>
 </div>
