@@ -89,7 +89,7 @@ class User < ActiveRecord::Base
   has_attached_file :avatar,
                     styles:          { original: ['170x170>', :png], thumb: ['40x40#', :png] },
                     convert_options: { all: "-strip" },
-                    default_url:     '/images/user.png'
+                    default_url:     '/internet/images/user.png'
   validates_attachment :avatar, content_type: { content_type: ['image/jpg', 'image/jpeg', 'image/png', 'image/gif'] }
 
   def delete_avatar=(value)

@@ -25,11 +25,11 @@ Watching:
 Event:
 = @problem.simulator_breadcrumb
 Language:
-= @problem.language
+= @problem.try(:language)
 Technology:
-= @problem.technology
+= @problem.try(:technology)
 Stream:
-= @problem.quality
+= @problem.try(:quality)
 
 Preferred Language:
 - @problem.attributes.each do |key, val|

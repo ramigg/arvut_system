@@ -21,16 +21,16 @@ Event:
 != @problem.simulator_breadcrumb
 %br
 Language:
-= @problem.language.language
+= @problem.try(:language).try(:language)
 (
-= @problem.language.locale
+= @problem.try(:language).try(:locale)
 )
 %br
 Technology:
-= @problem.technology.name
+= @problem.try(:technology).try(:name)
 %br
 Stream:
-= @problem.quality_url
+= @problem.try(:quality_url)
 %br
 %br
 Preferred Language:

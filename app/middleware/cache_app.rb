@@ -84,7 +84,7 @@ class CacheApp
           user = User.find(q.stimulator_id)
           img = "<img src='/images/#{user.avatar_url(:thumb)}' />"
         else
-          img = "<img src='/images/user.png' />"
+          img = "<img src='/internet/images/user.png' />"
         end
 
         content += <<-HTML
