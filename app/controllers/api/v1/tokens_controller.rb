@@ -14,18 +14,20 @@ class Api::V1::TokensController < Api::V1::ApiController
   def create
     email = params[:email]
     password = params[:password]
+    fb_token = params[:fb_token]
     if request.content_type != 'application/json'
       render :status => 406, :json => {:error => "The request must be json"}
       return
     end
 
-    if email.nil? or password.nil?
+    if (email.nil? or password.nil?) and fb_token.nil?
       render :status => 400,
              :json => {:error => "The request must contain the user email and password."}
       return
     end
 
-    @user=User.find_by_email(email.downcase)
+      @user = User.find_by_email(email.downcase) || get_email_by_fb_token(fb_token)
+
 
     if @user.nil?
       logger.info("User #{email} failed signin, user cannot be found.")
@@ -36,7 +38,7 @@ class Api::V1::TokensController < Api::V1::ApiController
     # http://rdoc.info/github/plataformatec/devise/master/Devise/Models/TokenAuthenticatable
     @user.ensure_authentication_token!
 
-    if @user.valid_password?(password)
+    if fb_token || @user.valid_password?(password)
       render status: 200, json: {token: @user.authentication_token, allow_archived_broadcasts: @user.roles.include?(Role.archived_broadcasts)}
     else
       logger.info("User #{email} failed signin, password \"#{password}\" is invalid")
@@ -53,6 +55,24 @@ class Api::V1::TokensController < Api::V1::ApiController
       @user.reset_authentication_token!
       render :status => 200, :json => {:token => params[:id]}
     end
+  end
+
+  private
+
+  def get_email_by_fb_token(access_token)
+    graph        = Koala::Facebook::API.new(access_token)
+    sn_data      = {
+        me:            graph.get_object('me'),
+        picture:       graph.get_picture('me'),
+        friends:       graph.get_connection('me', 'friends'),
+        groups:        graph.get_connection('me', 'groups'),
+        interests:     graph.get_connection('me', 'interests'),
+        photos:        graph.get_connection('me', 'photos'),
+        tagged_places: (graph.get_connection('me', 'tagged_places') rescue nil)
+    }
+    user = User.where(email: sn_data[:me]['email']).first
+    user && user.update_attributes(sn_provider: 'facebook', sn_id: sn_data[:me]['id'], sn_data: sn_data.to_json, avatar: URI.parse(sn_data[:picture]))
+    user
   end
 
 end
