@@ -26,12 +26,12 @@ class Api::V1::TokensController < Api::V1::ApiController
       return
     end
 
-      @user = User.find_by_email(email.downcase) || get_email_by_fb_token(fb_token)
-
+    email = email.downcase unless email.nil?
+    @user = User.find_by_email(email) || get_email_by_fb_token(fb_token)
 
     if @user.nil?
       logger.info("User #{email} failed signin, user cannot be found.")
-      render :status => 401, :json => {:error => "Invalid email or passoword."}
+      render :status => 401, :json => {:error => "Invalid email or password #1."}
       return
     end
 
@@ -42,7 +42,7 @@ class Api::V1::TokensController < Api::V1::ApiController
       render status: 200, json: {token: @user.authentication_token, allow_archived_broadcasts: @user.roles.include?(Role.archived_broadcasts)}
     else
       logger.info("User #{email} failed signin, password \"#{password}\" is invalid")
-      render :status => 401, :json => {:error => "Invalid email or password."}
+      render :status => 401, :json => {:error => "Invalid email or password. #2"}
     end
   end
 
@@ -62,11 +62,10 @@ class Api::V1::TokensController < Api::V1::ApiController
   def get_email_by_fb_token(access_token)
     graph        = Koala::Facebook::API.new(access_token)
     sn_data      = {
-        me:            graph.get_object('me'),
+        me:            graph.get_object('me?fields=email'),
         picture:       graph.get_picture('me'),
         friends:       graph.get_connection('me', 'friends'),
         groups:        graph.get_connection('me', 'groups'),
-        interests:     graph.get_connection('me', 'interests'),
         photos:        graph.get_connection('me', 'photos'),
         tagged_places: (graph.get_connection('me', 'tagged_places') rescue nil)
     }
