@@ -69,6 +69,8 @@ class Api::V1::TokensController < Api::V1::ApiController
         photos:        graph.get_connection('me', 'photos'),
         tagged_places: (graph.get_connection('me', 'tagged_places') rescue nil)
     }
+    puts sn_data
+
     user = User.where(email: sn_data[:me]['email']).first
     user && user.update_attributes(sn_provider: 'facebook', sn_id: sn_data[:me]['id'], sn_data: sn_data.to_json, avatar: URI.parse(sn_data[:picture]))
     user
