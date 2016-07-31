@@ -1262,7 +1262,7 @@
   }
 
   function load_initialize() {
-    if (document.getElementById("video") === null) {
+    if (document.getElementById("video") === null || typeof janusConnect !== "function" || typeof Janus !== "function") {
       window.setTimeout(function () {
         load_initialize();
       }, 500);
@@ -1270,7 +1270,7 @@
     }
     initializePlayer();
     loadFromLocalStorage();
-    janusConnect(errorHander, destroyHandler, callbackHandler, true);
+    janusConnect(errorHander, destroyHandler, callbackHandler, false);
     // Select appropriate tab
     $('.questions a').click();
     setupComplains();
