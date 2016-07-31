@@ -11,3 +11,5 @@ Koala::Facebook::OAuth.class_eval do
 
   alias_method_chain :initialize, :default_settings
 end
+
+Koala.config.api_version = 'v2.7'

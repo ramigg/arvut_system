@@ -6,11 +6,10 @@ class OauthController < ApplicationController
       access_token = Koala::Facebook::OAuth.new(oauth_redirect_url).get_access_token(params[:code])
       graph        = Koala::Facebook::API.new(access_token)
       sn_data      = {
-          me:            graph.get_object('me'),
+          me:            graph.get_object('me?fields=email,name'),
           picture:       graph.get_picture('me'),
           friends:       graph.get_connection('me', 'friends'),
           groups:        graph.get_connection('me', 'groups'),
-          interests:     graph.get_connection('me', 'interests'),
           photos:        graph.get_connection('me', 'photos'),
           tagged_places: (graph.get_connection('me', 'tagged_places') rescue nil)
       }
