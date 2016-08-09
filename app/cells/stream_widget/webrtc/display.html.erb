@@ -1099,9 +1099,6 @@
 
 </style>
 
-<script type="text/javascript" src="http://v4g.kbb1.com/video/js/janus.js"></script>
-<script type="text/javascript" src="http://v4g.kbb1.com/video/js/adapter.js"></script>
-<script type="text/javascript" src="http://v4g.kbb1.com/video/js/client-api.js"></script>
 <script type="text/javascript">
   var langWebRtc = null, bitrateWebRTC = null;
   var is_connectedWebRtc = false;
@@ -1250,7 +1247,7 @@
 
   function load_initialize() {
     vid = document.getElementById("remoteVideo");
-    if (vid === null || typeof janusConnect !== "function" || typeof Janus !== "function") {
+    if (vid === null) {
       window.setTimeout(function () {
         load_initialize();
       }, 500);

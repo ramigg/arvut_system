@@ -44,7 +44,7 @@ end
 gem 'ckeditor', :git => 'git@github.com:Bnei-Baruch/rails-ckeditor.git', :branch => 'rails3'
 gem 'paperclip', '4.2.0'
 
-gem 'google_visualization', '0.5.2', path: '.'
+gem 'btucker-google_visualization', git: 'git://github.com/btucker/google_visualization.git'
 gem 'feedzirra','0.1.2'
 gem 'will_paginate', '~> 3.0.pre'
 gem 'acts-as-taggable-on', :git => 'https://github.com/mbleigh/acts-as-taggable-on.git', ref: '9563d799110ee8d798f2b5cfe21d8fdb3ca534fb'
