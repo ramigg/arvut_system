@@ -5,6 +5,7 @@
   <meta content="text/html;charset=utf-8" http-equiv="content-type"/>
   <%= render 'shared/head' -%>
   <%= yield(:head) -%>
+  <script>language = '<%= I18n.locale %>';</script>
 </head>
 <body class="<%= I18n.locale -%> layout-stream">
 <div id="<%= current_user.is_archived_broadcasts? ? 'internet' : 'video' -%>"></div>

@@ -5,7 +5,7 @@
     %meta(content="text/html;charset=utf-8" http-equiv="content-type")
     = stylesheet_link_tag 'reset', 'styles', 'skin'
     /[if IE]
-      = stylesheet_link_tag 'correct-ie'
+  = stylesheet_link_tag 'correct-ie'
     - if I18n.locale == :he
       :css
         css3-container { direction: ltr !important; }
@@ -13,8 +13,7 @@
     - list = ['jquery-1.6.1.min', 'rails', '/flowplayer/flowplayer-3.2.12.min.js']
 
     = javascript_include_tag list
-
-    = csrf_meta_tag unless @page_caching
+  = csrf_meta_tag unless @page_caching
 
   %body(class="#{I18n.locale} layout-stream")
   .skin_bg

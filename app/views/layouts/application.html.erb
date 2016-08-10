@@ -5,6 +5,7 @@
   <meta content="text/html;charset=utf-8" http-equiv="content-type"/>
   <link rel="icon" type="image/x-icon" href="/favicon.ico" />
   <%= render 'shared/head' %>
+  <script>language = '<%= I18n.locale %>';</script>
 </head>
 <% layout = controller.instance_of?(Profiles::RegistrationsController) ? 'layout-signup' : 'layout-login' %>
 <body class="<%= I18n.locale %> <%= layout %>">

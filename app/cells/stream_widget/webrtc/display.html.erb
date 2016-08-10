@@ -2,7 +2,8 @@
     <div class="player">
       <div class="support">
         <%- group = I18n.locale == :ru ? 1 : (I18n.locale == :he ? 3 : (I18n.locale == :es ? 4 : 2)) %>
-        <a onclick="if(navigator.userAgent.toLowerCase().indexOf('opera') != -1 && window.event.preventDefault) window.event.preventDefault();this.newWindow = window.open('http://live.kab.tv/client.php?locale=<%= I18n.locale %>&amp;style=silver<%= I18n.locale == :he ? '_he' : ''%>&amp;group=<%= group %>&amp;url='+escape(document.location.href)+'&amp;referrer='+escape(document.referrer), 'mibew', 'toolbar=0,scrollbars=0,location=0,status=1,menubar=0,width=640,height=480,resizable=1');this.newWindow.focus();this.newWindow.opener=window; pageTracker._trackEvent('Links', 'Inbound', 'Help_Button'); return false;" target="_blank" href="http://live.kab.tv/client.php?locale=<%= I18n.locale %>&amp;style=silver<%= I18n.locale == :he ? '_he' : '' %>&amp;group=<%= group %>" rel="nofollow">
+        <a onclick="if(navigator.userAgent.toLowerCase().indexOf('opera') != -1 && window.event.preventDefault) {window.event.preventDefault();
+            }this.newWindow = window.open('http://live.kab.tv/client.php?locale=<%= I18n.locale %>&amp;style=silver<%= I18n.locale == :he ? '_he' : ''%>&amp;group=<%= group %>&amp;url='+escape(document.location.href)+'&amp;referrer='+escape(document.referrer), 'mibew', 'toolbar=0,scrollbars=0,location=0,status=1,menubar=0,width=640,height=480,resizable=1');this.newWindow.focus();this.newWindow.opener=window; pageTracker._trackEvent('Links', 'Inbound', 'Help_Button'); return false;" target="_blank" href="http://live.kab.tv/client.php?locale=<%= I18n.locale %>&amp;style=silver<%= I18n.locale == :he ? '_he' : '' %>&amp;group=<%= group %>" rel="nofollow">
           <%= t('kabtv.kabtv.technical_support') %>
           <div class="online-status"></div>
         </a>
@@ -57,6 +58,7 @@
   #throbber {
     display: none !important;
   }
+
   input[type=range] {
     -webkit-appearance: none;
     width: 100%;
@@ -1100,7 +1102,7 @@
 </style>
 
 <script type="text/javascript">
-  var langWebRtc = null, bitrateWebRTC = null;
+  var langWebRtc         = null, bitrateWebRTC = null;
   var is_connectedWebRtc = false;
   var vid, aud, mutebtn, volumeslider, fullscreenbtn;
 
@@ -1128,25 +1130,67 @@
     window.location.reload();
   }
 
+  function val2key(val, array) {
+    for (var key in array) {
+      if (array[ key ] == val) {
+        return key;
+      }
+    }
+  }
+
   function loadFromLocalStorage() {
     if (localStorage.lang) {
       langWebRtc = Number(localStorage.lang);
-      $('#langlist').val(langWebRtc);
-      setLanguage();
+    } else {
+      var locale2lang = {
+        'he': "Hebrew",
+        'ru': "Russian",
+        'en': "English",
+        'fr': "French",
+        'es': "Spanish",
+        'de': "German",
+        'it': "Italian",
+        'tr': "Turkish",
+        'pt': "Portuguese",
+        'bu': "Bulgarian",
+        'ge': "Georgian",
+        'ro': "Romanian",
+        'hu': "Hungarian",
+        'sv': "Swedish",
+        'lt': "Lithuanian",
+        'hr': "Croatian",
+        'jp': "Japanese",
+        'si': "Slovenian",
+        'pl': "Polish",
+        'no': "Norvegian",
+        'la': "Latvian",
+        'uk': "Ukrainian",
+        'nl': "Niderland"
+      };
+      langWebRtc      = val2key(locale2lang[ language ], getLanguages().Source) ||
+          val2key(locale2lang[ 'he' ], getLanguages().Source);
     }
+    $('#langlist').val(langWebRtc);
+    setLanguage();
 
     if (localStorage.bitrate) {
       bitrateWebRTC = Number(localStorage.bitrate);
-      $('#bitratelist').val(bitrateWebRTC);
+    } else {
+      bitrateWebRTC = 1;
+    }
+    $('#bitratelist').val(bitrateWebRTC);
+    console.log(bitrateWebRTC, is_connectedWebRtc);
+    if (is_connectedWebRtc) {
+      janusAttachVideo(bitrateWebRTC, '#remoteVideo');
     }
   }
 
   function initializePlayer() {
     // Set object references
-    vid = document.getElementById("remoteVideo");
-    aud = document.getElementById("remoteAudio");
-    mutebtn = document.getElementById("mutebtn");
-    volumeslider = document.getElementById("volumeslider");
+    vid           = document.getElementById("remoteVideo");
+    aud           = document.getElementById("remoteAudio");
+    mutebtn       = document.getElementById("mutebtn");
+    volumeslider  = document.getElementById("volumeslider");
     fullscreenbtn = document.getElementById("fullscreenbtn");
 
     // Add event listeners
@@ -1162,8 +1206,8 @@
 
   function setEventHandlers() {
     $('#bitratelist').change(function () {
-      bitrateWebRTC = Number($(this).val());
-      localStorage.bitrate = bitrateWebRTC;
+      bitrateWebRTC          = Number($(this).val());
+      localStorage.bitrate   = bitrateWebRTC;
       localStorage.videotext = $(this).text();
       if (is_connectedWebRtc) {
         janusAttachVideo(bitrateWebRTC, '#remoteVideo');
@@ -1179,8 +1223,8 @@
   }
 
   function setLanguage() {
-    langWebRtc = Number($('#langlist').val());
-    localStorage.lang = langWebRtc;
+    langWebRtc            = Number($('#langlist').val());
+    localStorage.lang     = langWebRtc;
     localStorage.langtext = $('#langlist').text();
     if (is_connectedWebRtc) {
       janusAttachAudio(langWebRtc, '#remoteAudio');
@@ -1190,7 +1234,7 @@
   function setBitrates() {
     try {
       var bitrates = getBitrates();
-      var str = "";
+      var str      = "";
       $.each(bitrates, function (key, val) {
         str += "<option value='" + key + "'>" + val + "</option>";
       });
@@ -1205,7 +1249,7 @@
   function setLanguages() {
     try {
       var languages = getLanguages();
-      var str = "";
+      var str       = "";
       $.each(languages, function (key, hash) {
         str += '<optgroup class="dropdown-header" label="' + key + '">';
         $.each(hash, function (id, lang) {
@@ -1280,14 +1324,14 @@
     try {
       var pluginlist = '';
       for (var index = 0; index < navigator.plugins.length; index++) {
-        pluginlist += navigator.plugins[index].name + ' / ' + navigator.plugins[index].filename + '<br>\n';
+        pluginlist += navigator.plugins[ index ].name + ' / ' + navigator.plugins[ index ].filename + '<br>\n';
       }
-      var mime_types = ['application/x-ms-wmp', 'application/x-mplayer2', 'video/x-ms-asf', 'video/x-ms-wmv'];
+      var mime_types = [ 'application/x-ms-wmp', 'application/x-mplayer2', 'video/x-ms-asf', 'video/x-ms-wmv' ];
       for (var index = 0; index < mime_types.length; index++) {
-        var mime = mime_types[index];
-        var plugin = navigator.mimeTypes[mime].enabledPlugin;
+        var mime   = mime_types[ index ];
+        var plugin = navigator.mimeTypes[ mime ].enabledPlugin;
         if (plugin) {
-          pluginlist += mime + ' handled with ' + plugin['name'] + '<br>\n';
+          pluginlist += mime + ' handled with ' + plugin[ 'name' ] + '<br>\n';
         }
       }
       $('#user_complain_plugins').val(pluginlist);
