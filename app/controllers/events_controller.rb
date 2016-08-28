@@ -6,8 +6,8 @@ class EventsController < ApplicationController
   has_widgets do |event|
     event << widget('stream_widget/admin_container', 'stream_admin', :display, :current_user => current_user, :stream_preset_id => @page.try(:stream_preset_id))
     event << widget('stream_widget/container', 'stream_container', :display, :current_user => current_user, :stream_preset_id => @page.try(:stream_preset_id))
-    event << widget('stream_widget/webrtc', 'webrtc_container', :display, :current_user => current_user)
-    event << widget('stream_widget/webrtc4', 'webrtc4_container', :display, :current_user => current_user)
+    event << widget('stream_widget/webrtc', 'webrtc_container', :display, :current_user => current_user, :stream_preset_id => @page.try(:stream_preset_id))
+    event << widget('stream_widget/webrtc4', 'webrtc4_container', :display, :current_user => current_user, :stream_preset_id => @page.try(:stream_preset_id))
   end
 
   def show

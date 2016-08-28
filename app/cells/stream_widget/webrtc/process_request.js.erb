@@ -1,0 +1,5 @@
+var timestamp = '<%= @stream_preset.updated_at.to_s %>';
+var preset_data = <%= @stream_preset.to_json.html_safe %>;
+var presets = <%= @presets.to_json.html_safe %>;
+var languages = <%= @languages.to_json.html_safe %>;
+kabtv.tabs.flash_technology = <%= Technology.find_by_name('Flash').try(:id) %>;

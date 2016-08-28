@@ -8,6 +8,6 @@ class UserComplainsController < ApplicationController
       #render :text => "alert('#{I18n.t "kabtv.kabtv.submit_problem"}');", :content_type => Mime::JS
       #return
     #end
-    render :text => "alert('#{I18n.t "kabtv.kabtv.thank_you"}');$('#user_complain_message').val('')", :content_type => Mime::JS
+    render :text => "alert('#{I18n.t 'kabtv.kabtv.thank_you'}');$('#user_complain_message').val('')", :content_type => Mime::JS
   end
 end

@@ -1,13 +1,27 @@
 <%= widget_div do -%>
-    <div class="player">
-      <div class="support">
-        <%- group = I18n.locale == :ru ? 1 : (I18n.locale == :he ? 3 : (I18n.locale == :es ? 4 : 2)) %>
-        <a onclick="if(navigator.userAgent.toLowerCase().indexOf('opera') != -1 && window.event.preventDefault) {window.event.preventDefault();
-            }this.newWindow = window.open('http://live.kab.tv/client.php?locale=<%= I18n.locale %>&amp;style=silver<%= I18n.locale == :he ? '_he' : ''%>&amp;group=<%= group %>&amp;url='+escape(document.location.href)+'&amp;referrer='+escape(document.referrer), 'mibew', 'toolbar=0,scrollbars=0,location=0,status=1,menubar=0,width=640,height=480,resizable=1');this.newWindow.focus();this.newWindow.opener=window; pageTracker._trackEvent('Links', 'Inbound', 'Help_Button'); return false;" target="_blank" href="http://live.kab.tv/client.php?locale=<%= I18n.locale %>&amp;style=silver<%= I18n.locale == :he ? '_he' : '' %>&amp;group=<%= group %>" rel="nofollow">
-          <%= t('kabtv.kabtv.technical_support') %>
-          <div class="online-status"></div>
-        </a>
-      </div>
+    <div class="player"
+         <%- unless @show_tabs -%>style="float: none; margin: 0 auto;"
+         <%- end -%> >
+      <%- if @show_support -%>
+          <div class="support">
+            <!-- webim button -->
+            <%- group = case I18n.locale
+                          when :ru
+                            1
+                          when :he
+                            3
+                          when :es
+                            4
+                          else
+                            2
+                        end -%>
+            <a onclick="if(navigator.userAgent.toLowerCase().indexOf('opera') != -1 && window.event.preventDefault) {window.event.preventDefault();
+                }this.newWindow = window.open('http://live.kab.tv/client.php?locale=<%= I18n.locale %>&amp;style=silver<%= I18n.locale == :he ? '_he' : ''%>&amp;group=<%= group %>&amp;url='+escape(document.location.href)+'&amp;referrer='+escape(document.referrer), 'mibew', 'toolbar=0,scrollbars=0,location=0,status=1,menubar=0,width=640,height=480,resizable=1');this.newWindow.focus();this.newWindow.opener=window; pageTracker._trackEvent('Links', 'Inbound', 'Help_Button'); return false;" target="_blank" href="http://live.kab.tv/client.php?locale=<%= I18n.locale %>&amp;style=silver<%= I18n.locale == :he ? '_he' : '' %>&amp;group=<%= group %>" rel="nofollow">
+              <%= t('kabtv.kabtv.technical_support') %>
+              <div class="online-status"></div>
+            </a>
+          </div>
+      <%- end -%>
       <div class="video-js vjs-default-skin">
         <div class="vjs-control-bar vjs-control-bar-top">
           <select id="bitratelist"></select>
@@ -26,15 +40,32 @@
         </div>
       </div>
     </div>
-    <div class="services" style="overflow:auto;">
-      <div class="tabs">
-        <span class="questions"><%= link_to I18n.t('kabtv.kabtv.questions'), '#', :onclick => 'return kabtv.tabs.select_me(this, "questions")' %></span>
-        <span><%= link_to I18n.t('kabtv.kabtv.sketches'), '#', :onclick => 'return kabtv.tabs.select_me(this, "sketches")' %></span>
-      </div>
-      <div class="content">
-        <%= rendered_children.values.join("\n").html_safe %>
-      </div>
-    </div>
+    <%- if @show_tabs -%>
+        <div class="services" <%= "style='height: 355px;'" if @stream_preset.show_coveritlive || @stream_preset.show_special_schedule %>>
+          <div class="tabs">
+            <%- if @stream_preset.show_questions -%>
+                <span><%= link_to I18n.t('kabtv.kabtv.questions'), '#', :onclick => 'return kabtv.tabs.select_me(this, "questions")' %></span>
+            <%- end -%>
+            <%- if @stream_preset.show_schedule -%>
+                <span class="schedule"><%= link_to I18n.t('kabtv.kabtv.schedule'), '#', :onclick => 'return kabtv.tabs.select_me(this, "schedule")' %></span>
+            <%- end -%>
+            <%- if @stream_preset.show_sketches -%>
+                <span><%= link_to I18n.t('kabtv.kabtv.sketches'), '#', :onclick => 'return kabtv.tabs.select_me(this, "sketches")' %></span>
+            <%- end -%>
+            <%- if @stream_preset.show_coveritlive -%>
+                <span><%= link_to I18n.t('kabtv.kabtv.coveritlive'), '#', :onclick => 'return kabtv.tabs.select_me(this, "coveritlive")' %></span>
+            <%- end -%>
+            <%- if @stream_preset.show_special_schedule -%>
+                <span class="special_schedule"><%= link_to I18n.t('kabtv.kabtv.special_schedule'), '#', :onclick => 'return kabtv.tabs.select_me(this, "special_schedule")' %></span>
+            <%- end -%>
+          </div>
+          <div class="content">
+            <%= rendered_children.values.join("\n").html_safe %>
+          </div>
+          <div><%#= link_to I18n.t('kabtv.kabtv.schedule_name'), t('kabtv.kabtv.schedule_link'),
+                           :target => '_blank', :style => "font-weight: bold; font-size: +1;color: red;" -%></div>
+        </div>
+    <%- end -%>
     <%= form_for @user_complain, :as => :user_complain, :url => user_complains_url, :method => :post, :remote => true,
                  :html               => { :style => "clear:both;width: 310px;display: block;margin: 50px auto 0;#{@locale == 'he' ? 'float: right; margin: 50px 40px 0 0; width: 325px;' : 'float: left; margin: 50px 0 0 40px; width: 325px;'}" } do |f| -%>
         <h3 style="text-align: inherit;"><%= I18n.t "kabtv.kabtv.describe_problem" %>:</h3>
@@ -1179,7 +1210,6 @@
       bitrateWebRTC = 1;
     }
     $('#bitratelist').val(bitrateWebRTC);
-    console.log(bitrateWebRTC, is_connectedWebRtc);
     if (is_connectedWebRtc) {
       janusAttachVideo(bitrateWebRTC, '#remoteVideo');
     }
@@ -1208,7 +1238,7 @@
     $('#bitratelist').change(function () {
       bitrateWebRTC          = Number($(this).val());
       localStorage.bitrate   = bitrateWebRTC;
-      localStorage.videotext = $(this).text();
+      localStorage.videotext = $('#bitratelist option:selected').text();
       if (is_connectedWebRtc) {
         janusAttachVideo(bitrateWebRTC, '#remoteVideo');
       }
@@ -1225,7 +1255,7 @@
   function setLanguage() {
     langWebRtc            = Number($('#langlist').val());
     localStorage.lang     = langWebRtc;
-    localStorage.langtext = $('#langlist').text();
+    localStorage.langtext = $('#langlist option:selected').text();
     if (is_connectedWebRtc) {
       janusAttachAudio(langWebRtc, '#remoteAudio');
     }
@@ -1303,7 +1333,7 @@
     setLanguage();
 
     // Select appropriate tab
-    $('.questions a').click();
+    <%= @stream_preset.show_schedule ? "$('.schedule a').click();".html_safe : (@stream_preset.show_special_schedule ? "$('.special_schedule a').click();".html_safe : "") -%>
     // Set up complaints form
     try {
       $('#user_complain_user_agent').val(navigator.userAgent);
@@ -1337,6 +1367,10 @@
       $('#user_complain_plugins').val(pluginlist);
     } catch (err) {
     }
+    $('#user_complain_language_id').val(localStorage.lang);
+    $('#user_complain_technology_id').val('webrtc');
+    $('#user_complain_quality_url').val(localStorage.videotext);
+    $('#user_complain_simulator_breadcrumb').val('webrtc');
   }
 
   function validate_form() {
