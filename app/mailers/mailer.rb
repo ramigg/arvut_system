@@ -3,7 +3,7 @@ class Mailer < ActionMailer::Base
 
   sendgrid_enable :gravatar
 
-  default :from => "internet@kabbalahgroup.info"
+  default :from => 'internet@kabbalahgroup.info'
   default_url_options[:host] = "kabbalahgroup.info#{Rails.configuration.site_prefix}" if Rails.env == 'production'
 
   def new_user_to_security(user)
@@ -11,7 +11,7 @@ class Mailer < ActionMailer::Base
     headers = {
         :from => 'Bnei Baruch <noreply@svivatova.com>',
         :subject => "New user registration: #{user.email}",
-        :to => ['kola.ish@gmail.com', 'dzarzhes@gmail.com'],
+        :to => %w(kola.ish@gmail.com dzarzhes@gmail.com),
         :date => Time.now.to_formatted_s(:rfc822),
         :content_type => 'text/plain'
     }
@@ -26,7 +26,7 @@ class Mailer < ActionMailer::Base
         :from => 'Bnei Baruch <noreply@svivatova.com>',
         :subject => "New user registration: #{user.email}",
         :to => user.email,
-        :bcc => ['kola.ish@gmail.com', 'dzarzhes@gmail.com'],
+        :bcc => %w(kola.ish@gmail.com dzarzhes@gmail.com elena.kaminsky@gmail.com),
         :date => Time.now.to_formatted_s(:rfc822),
         :content_type => 'text/plain'
     }
