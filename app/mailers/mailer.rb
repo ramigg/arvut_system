@@ -26,7 +26,7 @@ class Mailer < ActionMailer::Base
         :from => 'Bnei Baruch <noreply@svivatova.com>',
         :subject => "New user registration: #{user.email}",
         :to => user.email,
-        :bcc => %w(kola.ish@gmail.com dzarzhes@gmail.com elena.kaminsky@gmail.com),
+        :bcc => %w(kola.ish@gmail.com dzarzhes@gmail.com elena.kaminsky@gmail.com absorption.dep.bb@gmail.com),
         :date => Time.now.to_formatted_s(:rfc822),
         :content_type => 'text/plain'
     }
