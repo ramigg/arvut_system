@@ -26,10 +26,159 @@
 
   <div class="footer">
     <%= t('home.views.new_internet_project_we_build_it_together') -%>
-    &nbsp;
-    <a href="//www.iubenda.com/privacy-policy/399091" class="iubenda-white iubenda-embed" title="Privacy Policy">Privacy Policy</a><script type="text/javascript">(function (w,d) {var loader = function () {var s = d.createElement("script"), tag = d.getElementsByTagName("script")[0]; s.src = "//cdn.iubenda.com/iubenda.js"; tag.parentNode.insertBefore(s,tag);}; if(w.addEventListener){w.addEventListener("load", loader, false);}else if(w.attachEvent){w.attachEvent("onload", loader);}else{w.onload = loader;}})(window, document);</script>
+
+    <a href="//www.iubenda.com/privacy-policy/399091" class="iubenda-white iubenda-embed" title="Privacy Policy">Privacy Policy</a>
+    <script type="text/javascript">(function (w, d) {
+      var loader = function () {
+        var s = d.createElement("script"), tag = d.getElementsByTagName("script")[ 0 ];
+        s.src = "//cdn.iubenda.com/iubenda.js";
+        tag.parentNode.insertBefore(s, tag);
+      };
+      if (w.addEventListener) {
+        w.addEventListener("load", loader, false);
+      } else if (w.attachEvent) {
+        w.attachEvent("onload", loader);
+      } else {
+        w.onload = loader;
+      }
+    })(window, document);</script>
   </div>
 </div>
 <%= render 'shared/ga' -%>
+<%- unless current_user.ad_was_shown -%>
+    <%= javascript_include_tag 'vex.combined.min.js' %>
+    <%= stylesheet_link_tag 'vex.css' %>
+    <%= stylesheet_link_tag 'vex-theme-default.css' %>
+    <style>
+      .vex.vex-theme-default .vex-content {
+        background: #80d6f9;
+        width: 60%;
+        padding: 30px 100px;
+      }
+      .he .vex.vex-theme-default .vex-content {
+        direction: rtl;
+      }
+
+      .vex.vex-theme-default .vex-content .blue {
+        background: #8ddaf8;
+      }
+
+      .vex.vex-theme-default .vex-content p {
+        font-weight: bold;
+        color: #484a45 !important;
+        padding: 10px;
+        margin: 0;
+      }
+
+      .vex.vex-theme-default .vex-content p.center {
+        text-align: center;
+      }
+
+      .vex.vex-theme-default .vex-content p.center a {
+        text-decoration: underline;
+      }
+
+      .vex.vex-theme-default .vex-content h5 {
+        text-align: left;
+        margin-bottom: 10px;
+        color: #484a45 !important;
+        padding: 0 10px;
+      }
+
+      .he .vex.vex-theme-default .vex-content h5 {
+        text-align: right;
+      }
+
+      .vex.vex-theme-default .vex-close:before {
+        color: #2971a7;
+      }
+
+      .vex.vex-theme-default .vex-close:hover:before, .vex.vex-theme-default .vex-close:active:before {
+        color: #003e74;
+        background: #80d6f9;
+      }
+
+    </style>
+    <div class="hidden" id="donate-he">
+      <h5>חברים יקרים,</h5>
+      <p>כבר עשרים שנה שאנחנו בונים יחד את רשת הקשר הלבבית בינינו, רשת שנבנתה הודות למערכת הטכנולוגית שקושרת בינינו יום
+        יום.</p>
+      <div class="blue">
+        <p>מערכת המאפשרת לכל אחד מאיתנו, ולכולנו יחד, להיות מחוברים אונליין לשיעורים עם הרב לייטמן, לכנסים העוצמתיים
+          ולישיבות החברים המרגשות.</p>
+        <p>מערכת המאפשרת לשאול שאלות בשידור חי, להאזין למוזיקה המעוררת, ולהעמיק במקורות כמעט בכל שפה שנרצה.</p>
+        <p>מערכת המאפשרת להוריד אינספור תכנים בכל זמן, בכל פורמט ולכל מכשיר.</p>
+      </div>
+      <p>מערכת כזו דורשת המון השקעה, הן בזמן והן בכסף, וכדי להמשיך לתחזק ולשדרג אותה, אנו זקוקים לכם.</p>
+      <p>ניתנה לכל אחד מאיתנו ההזדמנות להשתתף במאמץ שייתן פירות לכולם.</p>
+      <p>אנא סייעו בכל סכום שתבחרו. העיקר שנישאר מחוברים.</p>
+      <p class="center"><a target="_blank" href='http://ourhome.webflow.io/he'>לתרום</a></p>
+    </div>
+    <div class="hidden" id="donate-ru">
+      <h5>Дорогие друзья!</h5>
+      <p>Вот уже двадцать лет мы вместе создаем сеть, связующую наши сердца. Сеть, выстроенную благодаря системе
+        интернет-коммуникаций, которые ежедневно соединяют нас друг с другом.</p>
+      <div class="blue">
+        <p>Эта система позволяет каждому и всем вместе подключаться онлайн к урокам Рава, к мощнейшим конгрессам и к
+          впечатляющим собраниям товарищей.</p>
+        <p>Эта система позволяет задавать вопросы в прямом эфире, слушать зажигательную музыку и погружаться в
+          первоисточники, на каком бы языке мы ни говорили.</p>
+        <p>Эта система позволяет в любое время скачивать неограниченный контент любого формата на любое устройство.</p>
+      </div>
+      <p>Такая система требует большого количества времени и денег. Чтобы содержать и модернизировать ее, мы нуждаемся в
+        вас.</p>
+      <p>У каждого есть возможность присоединиться к усилиям, плоды которых служат всем.</p>
+      <p>Пожалуйста, поддержите нас любой суммой, которую сочтете нужной. Главное – оставаться на связи.</p>
+      <p class="center"><a target="_blank" href='http://ourhome.webflow.io/ru'>Сделать взнос</a></p>
+    </div>
+    <div class="hidden" id="donate-es">
+      <h5>Queridos amigos,</h5>
+      <p>Ya hace veinte años que estamos construyendo juntos una red fraternal entre nosotros, una red que se pudo armar
+        gracias al sistema tecnológico que nos une diariamente.</p>
+      <div class="blue">
+        <p>El sistema permite a cada uno de nosotros y a todos juntos, estar conectados en línea a las clases del Rav
+          Laitman, poderosos congresos y emocionantes asambleas de amigos.</p>
+        <p>El sistema permite hacer preguntas en vivo, escuchar música vigorizante y profundizar en las fuentes
+          originales, practicamente en cualquier idioma que deseemos.</p>
+        <p>Un sistema tal exige muchísima inversión de tiempo y finanzas, y para poder continuar manteniendolo y
+          actualizandolo, necesitamos de ustedes</p>
+      </div>
+      <p>Un sistema tal exige muchísima inversión de tiempo y finanzas, y para poder continuar manteniendolo y
+        actualizandolo, necesitamos de ustedes</p>
+      <p>Se nos presenta la oportunidad de participar en el esfuerzo que dará frutos a todos.</p>
+      <p>Por favor pedimos su aporte de cualquier suma que pueda facilitarseles. Lo importante es que nos mantengamos
+        conectados.</p>
+      <p class="center"><a target="_blank" href="http://ourhome.webflow.io/es">Contribuir</a></p>
+    </div>
+    <div class="hidden" id="donate-en">
+      <h5>Dear friends,</h5>
+      <p>For twenty years we are building this heartfelt connection between us, a network that was built thanks to the
+        technological system that brings us together every day.</p>
+      <div class="blue">
+        <p>This is a system that allows each of us, and all of us together, to be connected to the online lessons with
+          Rav Michael Laitman, our powerful conferences and moving Gathering of Friends meetings.</p>
+        <p>It is a system that enables asking questions in real time, listening to music that awakens us, and going
+          deeper into the sources in almost any language we want.</p>
+        <p>A system that allows us to download a wide variety of content at any time, in any format and on any
+          device.</p>
+      </div>
+      <p>Such a system requires much investment, both in time and money, and to continue to maintain and upgrade it, we
+        need you.</p>
+      <p>Each of us has been given the opportunity to participate in this effort that will be fruitful for all.</p>
+      <p>Please help by contributing any amount you choose. The most important thing is that we stay connected.</p>
+      <p class="center"><a target="_blank" href="http://ourhome.webflow.io/">Donate</a></p>
+    </div>
+    <script type="text/javascript">
+      var content = $('#donate-<%= [:es, :he, :ru].include?(I18n.locale) ? I18n.locale : 'en' -%>').html();
+      vex.open({
+        className:           'vex-theme-default',
+        showCloseButton:     true,
+        escapeButtonCloses:  true,
+        ovelayClosesOnClick: false,
+        unsafeContent:       content
+      });
+    </script>
+    <%- current_user.update_attribute(:ad_was_shown, true) -%>
+<%- end -%>
 </body>
 </html>
