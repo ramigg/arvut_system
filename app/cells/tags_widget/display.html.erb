@@ -5,8 +5,11 @@
       'ASSIGNMENTS', 'משימות', 'ЗАДАНИЯ', 'ASIGNACIONES', 'AUFGABE', 'AGENDAMENTOS',
       'Daily Workshops', 'סדנאות', 'Семинар дня', 'סדנה'
   ].map(&:upcase)
-  blue_tags = [].map(&:upcase)
-  reject_tags = ['webrtc']
+  green_tags = [
+      'הקלטות של קטעי מקור', 'Записи отрывков источников', 'Recordings of Excerpts from the Writings of the Kabbalists', 'Grabaciones de extractos de las fuentes',
+      'Gravações de Excertos dos Escritos dos Cabalistas'
+  ].map(&:upcase)
+  reject_tags = ['webrtc', 'webrtc4']
 %>
 <%- if @tags %>
     <hr/>
@@ -17,8 +20,8 @@
             up_tag = tag.to_s.upcase
             special_tag_style = if red_tags.find { |e| e.match(up_tag) }
                                   'color: red;'
-                                elsif blue_tags.find { |e| e.match(up_tag) }
-                                  'color: blue;'
+                                elsif green_tags.find { |e| e.match(up_tag) }
+                                  'color: green;'
                                 else
                                   ''
                                 end %>

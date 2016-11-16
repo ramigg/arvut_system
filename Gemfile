@@ -1,7 +1,7 @@
 source 'http://rubygems.org'
 ruby '1.9.3'
 
-gem 'rails', '3.0.18'
+gem 'rails', '3.0.20'
 gem 'sendgrid', '1.1.0'
 
 # extension for  arel where
@@ -38,6 +38,7 @@ group :development do
   gem 'binding_of_caller', '0.7.2'
   gem 'mongrel', '>= 1.2.0.pre2' #for ruby v1.9.2
   gem 'thin', '1.6.1'
+
 end
 
 # CKEditor + Paperclip
