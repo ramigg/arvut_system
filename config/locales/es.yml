@@ -46,7 +46,83 @@ es:
     models:
       user: correo-e
   kabtv:
+    admin:
+      show: Show
+      show_questions: questions
+      show_schedule: schedule
+      show_sketches: sketches
+      show_coveritlive: Cover it Live
+      coveritlive_code: Code (max size 300x385)
+      show_special_schedule: Special Schedule
+      special_schedule_code: Code (max size 300x385)
+      show_support: support
+      show_separate_window: Enable separate window
+      successfully_saved: Succesfully saved!
+      stream_management: Stream Management
+      preset_name: Preset name
+      is_active: Is active
+      default: Default
+      inactive_image: Inactive image
+      stream_URL: "Stream URL (Flash: clip=...;stream=...)"
+      quality: Quality
+      technology: Technology
+      language: Language
+      description: Description
+      add_stream_item: Add stream item
+      submit: Submit
+      submitting: Submitting...
+      select_preset_or_add: Please select preset to edit or add new preset
+      stream_selection: Stream selection
+      stream_images: Stream images
+      stream_presets: Stream presets
+      stream_state: Stream state
+      problem_saving: There was a problem saving the record
+      name: Name
+      qualities: Stream qualities
+      add_quality: Add quality
+      stream_switcher: Stream switcher
+      stream_states:
+        is_active: On air
+        not_active: Offline
+        preparing_to_broadcast: Preparing to broadcast
+        technical_problem: Technical problem
+
     kabtv:
+      no_broadcast: No broadcast
+      no_broadcast_on: No broadcast on
+      no_questions_yet: No questions yet.
+      guest: Guest
+      somewhere: Somewhere
+      awaiting_for_approval: Your question is awaiting for approval
+      no_question: Please fill "Question" field in
+      first: First
+      prev: Prev
+      last: Last
+      next: Next
+      new_sketches: There are new sketches
+      ask_question: Ask Question
+      question: Question
+      who: Who
+      from: From
+      loading: Loading...
+      coveritlive: Chat
+      special_schedule: Program Schedule
+      questions: Questions
+      schedule: Schedule
+      schedule_name: Event Schedule
+      schedule_link: https://docs.google.com/spreadsheet/ccc?key=0AvAzVeqlLTMEdEx0MFNzdFdmWWJNc1JaUUhmci0tMFE&hl=en_US
+      sketches: Sketches
+      technical_support: Technical Support
+      cancel: Cancel
+      open_in_default_viewer: Open in Default Viewer
+      full_screen: Full Screen
+      thank_you: Thank you!
+      submit_problem: Unable to send message :(\nPlease try again later.
+      describe_problem: Report your problem
+      empty_message: Please fill а message in
+      flash: Flash
+      wmv: WMV
+
   admin:
     pages:
       actions: Acciones
