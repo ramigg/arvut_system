@@ -1,54 +1,55 @@
 <%- if params[:locale] == 'he' -%>
     <div class="widget-blog">
       <ul>
-        <li><%= link_to 'לוח אירועים שנתי בכלי העולמי', "https://docs.google.com/spreadsheets/d/1ltiX7CRfO7c7fypcCwFluxahBq1rzYG_oZaXak2QPss/edit", :target => '_blank' %></li>
-        <li><%= link_to 'לוח אירועים שבועי בכלי ישראלי‎', "https://docs.google.com/spreadsheets/d/1E0_Rg8rA7E8qcwL_BYIw46Ac3LU_6mfA2-ioVRuD50s/edit?usp=sharing", :target => '_blank' %></li>
-        <li><%= link_to 'מאמר הצהריים להשמעה חוזרת', "https://drive.google.com/folderview?id=0B3S5k1M0sUkEWHFITHd4Z1BQalk&usp=drive_web", :target => '_blank' %></li>
+        <li><%= link_to 'לוח אירועים שנתי בכלי העולמי', 'https://docs.google.com/spreadsheets/d/1pr3yDZD7QmedeKXxXeadl6YZOWGbOCiU-7QX4Mmc5_w/edit#gid=0', :target => '_blank' %></li>
+        <li><%= link_to 'לו"ז אירועים שבועי', 'https://docs.google.com/spreadsheets/d/1rX3VsNrSL1IWuwxT08SO0tG7UMXR_p1MDbUk7xbjzEY/edit#gid=0', :target => '_blank' %></li>
+        <li><%= link_to 'מאמר הצהריים להשמעה חוזרת', 'https://drive.google.com/folderview?id=0B3S5k1M0sUkEWHFITHd4Z1BQalk&usp=drive_web', :target => '_blank' %></li>
       </ul>
     </div>
 <%- elsif params[:locale] == 'ru' -%>
     <div class="widget-blog">
       <ul>
-        <li><%= link_to 'Расписание событий и конгрессов', "https://docs.google.com/spreadsheets/d/1ltiX7CRfO7c7fypcCwFluxahBq1rzYG_oZaXak2QPss/edit", :target => '_blank' %></li>
-        <li><%= link_to 'HelpHaver', "https://checkout.kabbalah.info/ru/payments/new?project_id=help_friend", :target => '_blank' %></li>
-        <li><%= link_to 'Календарь мероприятий', "https://www.google.com/calendar/b/0/embed?height=600&wkst=1&hl=ru&bgcolor=%239999ff&src=5m474sujthkbiu2jps175gjvf4@group.calendar.google.com&color=%23B1440E&ctz=Asia/Jerusalem", :target => '_blank' %></li>
-        <li><%= link_to 'Уроки иврита для занимающихся каббалой', "http://www.kabhebrew.info/", :target => '_blank' %></li>
+        <li><%= link_to 'Расписание событий и конгрессов', 'https://docs.google.com/spreadsheets/d/1pr3yDZD7QmedeKXxXeadl6YZOWGbOCiU-7QX4Mmc5_w/edit#gid=0', :target => '_blank' %></li>
+        <li><%= link_to 'Расписание на неделю', 'https://docs.google.com/spreadsheets/d/1rX3VsNrSL1IWuwxT08SO0tG7UMXR_p1MDbUk7xbjzEY/edit#gid=0', :target => '_blank' %></li>
+        <li><%= link_to 'HelpHaver', 'https://checkout.kabbalah.info/ru/payments/new?project_id=help_friend', :target => '_blank' %></li>
+        <li><%= link_to 'Уроки иврита для занимающихся каббалой', 'http://www.kabhebrew.info/', :target => '_blank' %></li>
         <li><%= link_to 'Карта Мирового Кли ББ', 'http://bit.ly/groupmap', :target => '_blank' %></li>
       </ul>
     </div>
 <%- elsif params[:locale] == 'es' -%>
     <div class="widget-blog">
       <ul>
-        <li><%= link_to 'Horario de Eventos y Congresos', "https://docs.google.com/spreadsheets/d/1ltiX7CRfO7c7fypcCwFluxahBq1rzYG_oZaXak2QPss/edit", :target => '_blank' %></li>
-        <li><%= link_to 'HelpHaver', "https://checkout.kabbalah.info/es/payments/new?project_id=help_friend", :target => '_blank' %></li>
-        <li><%= link_to 'Seguimos navegando', "http://www.kabbalahgroup.info/spa/new/", :target => '_blank' %></li>
-        <li><%= link_to 'Clases de hebreo para los estudiantes de la Cabalá', "http://www.kabhebrew.info/spanish_1.htm", :target => '_blank' %></li>
+        <li><%= link_to 'Horario de Eventos y Congresos', 'https://docs.google.com/spreadsheets/d/1pr3yDZD7QmedeKXxXeadl6YZOWGbOCiU-7QX4Mmc5_w/edit#gid=0', :target => '_blank' %></li>
+        <li><%= link_to 'Lista de Eventos Semanal', 'https://docs.google.com/spreadsheets/d/1rX3VsNrSL1IWuwxT08SO0tG7UMXR_p1MDbUk7xbjzEY/edit#gid=0', :target => '_blank' %></li>
+        <li><%= link_to 'HelpHaver', 'https://checkout.kabbalah.info/es/payments/new?project_id=help_friend', :target => '_blank' %></li>
+        <li><%= link_to 'Seguimos navegando', 'http://www.kabbalahgroup.info/spa/new/', :target => '_blank' %></li>
+        <li><%= link_to 'Clases de hebreo para los estudiantes de la Cabalá', 'http://www.kabhebrew.info/spanish_1.htm', :target => '_blank' %></li>
       </ul>
     </div>
 <%- elsif params[:locale] == 'de' -%>
     <div class="widget-blog">
       <ul>
-        <li><%= link_to 'HelpHaver', "https://checkout.kabbalah.info/de/payments/new?project_id=help_friend", :target => '_blank' %></li>
-        <li><%= link_to 'Hebräisch-Unterricht für Kabbala-Studierende', "http://www.kabhebrew.info/english_1.htm", :target => '_blank' %></li>
+        <li><%= link_to 'HelpHaver', 'https://checkout.kabbalah.info/de/payments/new?project_id=help_friend', :target => '_blank' %></li>
+        <li><%= link_to 'Hebräisch-Unterricht für Kabbala-Studierende', 'http://www.kabhebrew.info/english_1.htm', :target => '_blank' %></li>
       </ul>
     </div>
 <%- elsif params[:locale] == 'pt'  -%>
     <div class="widget-blog">
       <ul>
-        <li><%= link_to 'Programação de Convenções e Eventos', "https://docs.google.com/spreadsheets/d/1ltiX7CRfO7c7fypcCwFluxahBq1rzYG_oZaXak2QPss/edit", :target => '_blank' %></li>
-        <li><%= link_to 'Ajuda Amigo', "https://checkout.kabbalah.info/en/payments/new?project_id=help_friend", :target => '_blank' %></li>
-        <li><%= link_to 'Calendário de Eventos Principais ', "https://www.google.com/calendar/b/0/embed?height=600&wkst=1&hl=en&bgcolor=%23ffcc33&src=1fpj3egag84ttkn9nobnbiu4qo@group.calendar.google.com&color=%232F6309&ctz=Asia/Jerusalem", :target => '_blank' %></li>
-        <li><%= link_to 'Lições de Hebraico para Aqueles que Estudam Cabala', "http://www.kabhebrew.info/english_1.htm", :target => '_blank' %></li>
+        <li><%= link_to 'Programação de Convenções e Eventos', 'https://docs.google.com/spreadsheets/d/1ltiX7CRfO7c7fypcCwFluxahBq1rzYG_oZaXak2QPss/edit', :target => '_blank' %></li>
+        <li><%= link_to 'Ajuda Amigo', 'https://checkout.kabbalah.info/en/payments/new?project_id=help_friend', :target => '_blank' %></li>
+        <li><%= link_to 'Calendário de Eventos Principais ', 'https://www.google.com/calendar/b/0/embed?height=600&wkst=1&hl=en&bgcolor=%23ffcc33&src=1fpj3egag84ttkn9nobnbiu4qo@group.calendar.google.com&color=%232F6309&ctz=Asia/Jerusalem', :target => '_blank' %></li>
+        <li><%= link_to 'Lições de Hebraico para Aqueles que Estudam Cabala', 'http://www.kabhebrew.info/english_1.htm', :target => '_blank' %></li>
         <li><%= link_to 'Mapa Mundial do Kli BB', 'http://bit.ly/groupmap', :target => '_blank' %></li>
       </ul>
     </div>
 <%- else #params[:locale] == 'en'  -%>
     <div class="widget-blog">
       <ul>
-        <li><%= link_to 'Conventions and Events Schedule', "https://docs.google.com/spreadsheets/d/1ltiX7CRfO7c7fypcCwFluxahBq1rzYG_oZaXak2QPss/edit", :target => '_blank' %></li>
-        <li><%= link_to 'HelpHaver', "https://checkout.kabbalah.info/en/payments/new?project_id=help_friend", :target => '_blank' %></li>
-        <li><%= link_to 'Calendar of Major Events', "https://www.google.com/calendar/b/0/embed?height=600&wkst=1&hl=en&bgcolor=%23ffcc33&src=1fpj3egag84ttkn9nobnbiu4qo@group.calendar.google.com&color=%232F6309&ctz=Asia/Jerusalem", :target => '_blank' %></li>
-        <li><%= link_to 'Hebrew Lessons for Those Who Study Kabbalah', "http://www.kabhebrew.info/english_1.htm", :target => '_blank' %></li>
+        <li><%= link_to 'Conventions and Events Schedule', 'https://docs.google.com/spreadsheets/d/1pr3yDZD7QmedeKXxXeadl6YZOWGbOCiU-7QX4Mmc5_w/edit#gid=0', :target => '_blank' %></li>
+        <li><%= link_to 'Weekly Events Board', 'https://docs.google.com/spreadsheets/d/1rX3VsNrSL1IWuwxT08SO0tG7UMXR_p1MDbUk7xbjzEY/edit#gid=0', :target => '_blank' %></li>
+        <li><%= link_to 'HelpHaver', 'https://checkout.kabbalah.info/en/payments/new?project_id=help_friend', :target => '_blank' %></li>
+        <li><%= link_to 'Hebrew Lessons for Those Who Study Kabbalah', 'http://www.kabhebrew.info/english_1.htm', :target => '_blank' %></li>
         <li><%= link_to 'BB World Kli Map', 'http://bit.ly/groupmap', :target => '_blank' %></li>
       </ul>
     </div>
