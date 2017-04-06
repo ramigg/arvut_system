@@ -38,6 +38,7 @@
           </div>
           <div id="mutebtn" class="vjs-mute-control vjs-control vjs-vol-3"></div>
         </div>
+        <p id="group_message">&nbsp;</p>
       </div>
     </div>
     <%- if @show_tabs -%>
@@ -1258,6 +1259,13 @@
     localStorage.langtext = $('#langlist option:selected').text();
     if (is_connectedWebRtc) {
       janusAttachAudio(langWebRtc, '#remoteAudio');
+    }
+    if (localStorage.langtext == 'Hebrew') {
+      $("group_message").html = "<p>השידור בדף זה מיועד בעיקר לקבוצות שמתאספות במקום פיזי יחד וצריכות שידור ללא השהייה.</p><p>לכל צופה אשר חווה בעיות עם השידור הנ''ל או לא נצרך לשידור ללא השהייה, אנו ממליצים לצפות בשידור הרגיל שלנו בלינק הבא - <a href='http://kabbalahgroup.info/internet/he#events/299' alt='שידור חי'>שידור חי</a></p>";
+    } else if (localStorage.langtext == 'Russian') {
+      $("group_message").html = '<p>Трансляция на этой странице предназначена в первую очередь для групп, которые собираются физически и требуют вещания без задержки.</p><p>Any viewer who experiences problems with this broadcast or is not required broadcast without delay, we recommend watching our normal broadcast following this link - <a href="http://kabbalahgroup.info/internet/en#events/300" alt="Live Broadcast">Live Broadcast</a>';
+    } else {
+      $("group_message").html = '<p>The broadcast on this page is intended primarily for groups that gather physically together and require watching broadcast without delay.</p><p> Любому зрителю, который испытывает проблемы с этой трансляцией или которому не требуется трансляция без задержки, мы рекомендуем посмотреть нашу обычную трансляцию по этой ссылке - <a href="http://kabbalahgroup.info/internet/ru#events/301" alt="Прямая трансляция">Прямая трансляция</a>';
     }
   }
 
