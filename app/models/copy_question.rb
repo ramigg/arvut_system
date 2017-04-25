@@ -22,7 +22,7 @@ class CopyQuestion < ActiveRecord::Base
     [new_questions, total_questions[0].total.to_i]
   end
 
-  def self.ask_question(question, current_user)
+  def self.ask_question(question, remote_ip)
     return nil if question[:qquestion].empty?
     lang = Kabtv.map_locale_2_language(I18n.locale)
     Net::HTTP.post_form(URI.parse("http://kab.tv/ask.php?lang=#{lang}"), {
@@ -32,6 +32,7 @@ class CopyQuestion < ActiveRecord::Base
       'ask' =>  1,
       'isquestion' => 1,
       'is_hidden' => 0,
+      'remote_ip' => remote_ip
     })
   end
 

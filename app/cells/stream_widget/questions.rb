@@ -74,7 +74,7 @@ module StreamWidget
     end
 
     def process_submit
-      if CopyQuestion.ask_question(param(:kabtv_question), param(:current_user))
+      if CopyQuestion.ask_question(param(:kabtv_question), request.remote_ip)
         message = I18n.t 'kabtv.kabtv.awaiting_for_approval'
         render :text => "alert('#{message}');", :content_type => Mime::JS
       else
