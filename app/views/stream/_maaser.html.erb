@@ -11,7 +11,18 @@
     height: 60px;
     width: 220px;
     margin-bottom: 7px;
+  }
+  .donations-button-he {
     background: transparent url(images/donations-he.jpg) no-repeat 0 0;
+  }
+  .donations-button-ru {
+    background: transparent url(images/donations-ru.jpg) no-repeat 0 0;
+  }
+  .donations-button-en {
+    background: transparent url(images/donations-en.jpg) no-repeat 0 0;
+  }
+  .donations-button-es {
+    background: transparent url(images/donations-es.jpg) no-repeat 0 0;
   }
 
   .semester-gimel-button {
@@ -72,14 +83,12 @@
       <a href="http://kabbalahgroup.info/internet/ru/pages/23931" target="_blank">
         <button class="button-middle-second arial button-middle-second-red" style="margin-top:10px;width:100%;cursor:pointer;color:#ffffff;font-size:120%">Help Haver</button>
       </a>
-      <a href="http://ourhome.webflow.io/ru" target="_blank">
-        <button class="button-middle-second arial button-middle-second-red" style="margin-top:10px;width:100%;cursor:pointer;color:#ffffff;font-size:120%">
-          Пожертвования на содержание здания
-        </button>
-      </a>
       <a href="https://docs.google.com/forms/d/e/1FAIpQLSe-48q7PHhr6qmmaRN5jlQGeSXUeEs6f_5O1LQVgYnTCQzUjw/viewform?c=0&w=1" target="_blank">
         <button class="button-middle-second arial button-middle-second-green" style="margin-top:10px;width:100%;cursor:pointer;color:#ffffff;font-size:120%" %>Пишите Нам</button>
       </a>
+      <br/>
+      <br/>
+      <a href="http://ourhome.webflow.io/ru" target="_blank" class="donations-button donations-button-ru"></a>
   <%- elsif I18n.locale == :es %>
       <a href="http://www.kabbalah.info/maaser/spa/" target="_blank">
         <button class="button-middle-second arial" style="width:100%;background-color:#81b253;cursor:pointer;color:#ffffff;font-size:120%">Pagar Maaser</button>
@@ -87,15 +96,13 @@
       <a href="http://kabbalahgroup.info/internet/es/pages/23964" target="_blank">
         <button class="button-middle-second arial button-middle-second-red" style="margin-top:10px;width:100%;cursor:pointer;color:#ffffff;font-size:120%">Help Haver</button>
       </a>
-      <a href="http://ourhome.webflow.io/es" target="_blank">
-        <button class="button-middle-second arial button-middle-second-red" style="margin-top:10px;width:100%;cursor:pointer;color:#ffffff;font-size:120%">
-          Donaciones para el mantenimiento del edificio
-        </button>
-      </a>
       <a href="https://docs.google.com/forms/d/e/1FAIpQLSe-48q7PHhr6qmmaRN5jlQGeSXUeEs6f_5O1LQVgYnTCQzUjw/viewform?c=0&w=1" target="_blank">
         <button class="button-middle-second arial button-middle-second-green" style="margin-top:10px;width:100%;cursor:pointer;color:#ffffff;font-size:120%" %>Escribenos</button>
       </a>
-  <%- elsif I18n.locale == :he %>
+      <br/>
+      <br/>
+      <a href="http://ourhome.webflow.io/es" target="_blank" class="donations-button donations-button-es"></a>
+<%- elsif I18n.locale == :he %>
       <a href="http://www.kabbalah.info/maaser/heb/" target="_blank">
         <button class="button-middle-second arial" style="width:100%;background-color:#81b253;cursor:pointer;color:#ffffff;font-size:120%">
           לתת מעשר
@@ -116,7 +123,7 @@
       </a>
       <br/>
       <br/>
-      <a href="http://ourhome.webflow.io/he" target="_blank" class="donations-button"></a>
+      <a href="http://ourhome.webflow.io/he" target="_blank" class="donations-button donations-button-he"></a>
       <a href="http://icecast.kab.tv/radiozohar2014.mp3" target="_blank" class="radiozohar-button"></a>
       <a href="https://soundcloud.com/kabbalah-laam-music" target="_blank" class="music-button"></a>
       <a href="http://www.kab.co.il/kabbalah/%D7%9E%D7%A9%D7%9C%D7%99%D7%9E%D7%99%D7%9D-%D7%90%D7%AA-%D7%94%D7%AA%D7%9E%D7%95%D7%A0%D7%94" target="_blank" class="dissemination-button"></a>
@@ -131,13 +138,13 @@
       <a href="http://kabbalahgroup.info/internet/en/pages/23948" target="_blank">
         <button class="button-middle-second arial button-middle-second-red" style="margin-top:10px;width:100%;cursor:pointer;color:#ffffff;font-size:120%">Ajuda Amigo</button>
       </a>
-      <a href="http://ourhome.webflow.io/" target="_blank">
-        <button class="button-middle-second arial button-middle-second-red" style="margin-top:10px;width:100%;cursor:pointer;color:#ffffff;font-size:120%">Donativos para Manutenção da Casa</button>
-      </a>
       <a href="https://docs.google.com/forms/d/e/1FAIpQLSe-48q7PHhr6qmmaRN5jlQGeSXUeEs6f_5O1LQVgYnTCQzUjw/viewform?c=0&w=1" target="_blank">
         <button class="button-middle-second arial button-middle-second-green" style="margin-top:10px;width:100%;cursor:pointer;color:#ffffff;font-size:120%" %>Escreva-nos</button>
       </a>
-  <%- else %>
+      <br/>
+      <br/>
+      <a href="http://ourhome.webflow.io/" target="_blank" class="donations-button donations-button-es"></a>
+<%- else %>
       <!-- English and other languages -->
       <a href="http://www.kabbalah.info/maaser/eng/" target="_blank">
         <button class="button-middle-second arial" style="width:100%;background-color:#81b253;cursor:pointer;color:#ffffff;font-size:120%">Give Maaser</button>
@@ -145,11 +152,11 @@
       <a href="http://kabbalahgroup.info/internet/en/pages/23948" target="_blank">
         <button class="button-middle-second arial button-middle-second-red" style="margin-top:10px;width:100%;cursor:pointer;color:#ffffff;font-size:120%">Help Haver</button>
       </a>
-      <a href="http://ourhome.webflow.io/" target="_blank">
-        <button class="button-middle-second arial button-middle-second-red" style="margin-top:10px;width:100%;cursor:pointer;color:#ffffff;font-size:120%">Home Maintenance Donations</button>
-      </a>
       <a href="https://docs.google.com/forms/d/e/1FAIpQLSe-48q7PHhr6qmmaRN5jlQGeSXUeEs6f_5O1LQVgYnTCQzUjw/viewform?c=0&w=1" target="_blank">
         <button class="button-middle-second arial button-middle-second-green" style="margin-top:10px;width:100%;cursor:pointer;color:#ffffff;font-size:120%" %>Write to us</button>
       </a>
+      <br/>
+      <br/>
+      <a href="http://ourhome.webflow.io/" target="_blank" class="donations-button donations-button-en"></a>
   <%- end %>
 </div>
