@@ -211,7 +211,7 @@
 
 })(jQuery);
 
-function create_flash_object(streamName, netUrl) {
+function create_flash_object_flowplayer(streamName, netUrl) {
     $("#object").html('');
     $f('object',
         {src: 'flowplayer/flowplayer.commercial-3.2.16.swf', wmode: 'transparent', id: 'player'},
@@ -246,6 +246,22 @@ function create_flash_object(streamName, netUrl) {
             }
         }
     );
+    $('#object').css('background-color', 'black');
+}
+
+function create_flash_object(hlsUrl, streamName, netUrl) {
+    $("#object").html('');
+
+        jwplayer("object").setup({
+            playlist: [{
+                sources: [{
+                    file: hlsUrl
+                }, {
+                    file: streamName + '/flv:' + netUrl
+                }]
+            }]
+        });
+
     $('#object').css('background-color', 'black');
 }
 
@@ -471,14 +487,14 @@ function create_flash_object_audio(imageUrl, netUrl) {
                                 if (data.netUrl.match(/\.mp3$/)) {
                                     create_flash_object_audio(data.imageUrl, data.netUrl);
                                 } else {
-                                    create_flash_object(data.streamName, data.netUrl);
+                                    create_flash_object(data.hlsUrl, data.streamName, data.netUrl);
                                 }
                             });
                         } else {
                             var match = url.match(/clip=(.*);stream=(.*)/);
                             streamName = match[1];
                             netUrl = match[2];
-                            create_flash_object(streamName, netUrl);
+                            create_flash_object('', streamName, netUrl);
                         }
                     } catch (err) {
                         ;
