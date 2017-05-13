@@ -257,7 +257,7 @@ function create_flash_object(hlsUrl, streamName, netUrl) {
                 sources: [{
                     file: hlsUrl
                 }, {
-                    file: streamName + '/flv:' + netUrl
+                    file: netUrl + '/' + streamName
                 }]
             }]
         });
