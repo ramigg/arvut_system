@@ -10,6 +10,7 @@
 </head>
 <% layout = controller.instance_of?(Profiles::RegistrationsController) ? 'layout-signup' : 'layout-login' %>
 <body class="<%= I18n.locale %> <%= layout %>">
+<%= render 'shared/ga1' %>
 <%= render 'layouts/google_ads' %>
 <div class="wrapper">
   <%= render 'stream/header' %>
