@@ -7,6 +7,7 @@
   <%= yield(:head) -%>
   <script>language = '<%= I18n.locale %>';</script>
   <script src="http://content.jwplatform.com/libraries/rXTkmI8O.js"></script>
+  <%= render 'shared/ga' -%>
 </head>
 <body class="<%= I18n.locale -%> layout-stream">
 <div id="<%= current_user.is_archived_broadcasts? ? 'internet' : 'video' -%>"></div>
@@ -45,7 +46,6 @@
     })(window, document);</script>
   </div>
 </div>
-<%= render 'shared/ga' -%>
 <%- unless current_user.ad_was_shown -%>
     <%= javascript_include_tag 'vex.combined.min.js' %>
     <%= stylesheet_link_tag 'vex.css' %>
