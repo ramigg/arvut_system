@@ -3,6 +3,8 @@
 <head>
   <title><%= t('home.views.site_name') -%></title>
   <meta content="text/html;charset=utf-8" http-equiv="content-type"/>
+  <%= stylesheet_link_tag 'vex.css' %>
+  <%= stylesheet_link_tag 'vex-theme-default.css' %>
   <%= render 'shared/head' -%>
   <%= yield(:head) -%>
   <script>language = '<%= I18n.locale %>';</script>
@@ -13,6 +15,7 @@
 <%= render 'shared/ga1' -%>
 <div id="<%= current_user.is_archived_broadcasts? ? 'internet' : 'video' -%>"></div>
 <%= render 'layouts/google_ads' -%>
+<%= javascript_include_tag 'vex.combined.min.js' %>
 <div class="clear"></div>
 <div class="wrapper">
   <%= render 'stream/header' -%>
@@ -30,7 +33,8 @@
   <div class="footer">
     <%= t('home.views.new_internet_project_we_build_it_together') -%>
 
-    <a href="//www.iubenda.com/privacy-policy/399091" class="iubenda-white iubenda-embed" title="Privacy Policy">Privacy Policy</a>
+    <a href="//www.iubenda.com/privacy-policy/399091" class="iubenda-white iubenda-embed" title="Privacy Policy">Privacy
+      Policy</a>
     <script type="text/javascript">(function (w, d) {
       var loader = function () {
         var s = d.createElement("script"), tag = d.getElementsByTagName("script")[ 0 ];
@@ -48,15 +52,13 @@
   </div>
 </div>
 <%- unless current_user.ad_was_shown -%>
-    <%= javascript_include_tag 'vex.combined.min.js' %>
-    <%= stylesheet_link_tag 'vex.css' %>
-    <%= stylesheet_link_tag 'vex-theme-default.css' %>
     <style>
       .vex.vex-theme-default .vex-content {
         background: #80d6f9;
         width: 60%;
         padding: 30px 100px;
       }
+
       .he .vex.vex-theme-default .vex-content {
         direction: rtl;
       }
@@ -169,6 +171,119 @@
       <p>Each of us has been given the opportunity to participate in this effort that will be fruitful for all.</p>
       <p>Please help by contributing any amount you choose. The most important thing is that we stay connected.</p>
       <p class="center"><a target="_blank" href="http://ourhome.webflow.io/">Donate</a></p>
+    </div>
+    <script type="text/javascript">
+      var content = $('#donate-<%= [:es, :he, :ru].include?(I18n.locale) ? I18n.locale : 'en' -%>').html();
+      vex.open({
+        className:           'vex-theme-default',
+        showCloseButton:     true,
+        escapeButtonCloses:  true,
+        ovelayClosesOnClick: false,
+        unsafeContent:       content
+      });
+    </script>
+    <%- current_user.update_attribute(:ad_was_shown, true) -%>
+<%- end -%>
+<%-
+  week = Date.today.strftime('%U').to_i
+  if week % 2 == 0 # even weeks
+    to_show = current_user.ad_2w_was_shown.to_i != week
+    current_user.update_attributes(ad_2w_was_shown: week)
+  end
+-%>
+<%- if to_show -%>
+    <style>
+      .vex.vex-theme-default .vex-content {
+        background: #80d6f9;
+        width: 60%;
+        padding: 30px 100px;
+      }
+
+      .he .vex.vex-theme-default .vex-content {
+        direction: rtl;
+      }
+
+      .vex.vex-theme-default .vex-content .blue {
+        background: #8ddaf8;
+      }
+
+      .vex.vex-theme-default .vex-content p {
+        font-weight: bold;
+        color: #484a45 !important;
+        padding: 10px;
+        margin: 0;
+      }
+
+      .vex.vex-theme-default .vex-content p.center {
+        text-align: center;
+      }
+
+      .vex.vex-theme-default .vex-content p.center a {
+        text-decoration: underline;
+      }
+
+      .vex.vex-theme-default .vex-content h5 {
+        text-align: left;
+        margin-bottom: 10px;
+        color: #484a45 !important;
+        padding: 0 10px;
+      }
+
+      .he .vex.vex-theme-default .vex-content h5 {
+        text-align: right;
+      }
+
+      .vex.vex-theme-default .vex-close:before {
+        color: #2971a7;
+      }
+
+      .vex.vex-theme-default .vex-close:hover:before, .vex.vex-theme-default .vex-close:active:before {
+        color: #003e74;
+        background: #80d6f9;
+      }
+
+    </style>
+    <div class="hidden" id="donate-he">
+      <h5>חברים יקרים,</h5>
+      <p>אנחנו, חברי בני ברוך ברחבי ישראל והעולם, נהנים ממערכות טכנולוגיות מורכבות שמשרתות אותנו כדילשמור על סביבה
+        טובה בכל רגע בחיינו.</p>
+      <p>ארכיון השיעורים, אתר "סביבה טובה", אפליקציית ערוץ 66 בפלאפון ועוד מערכות רבות… הכול בשבילנו!</p>
+      <p>מכיוון שמערכות אלו מצריכות טיפול ושדרוג מתמיד, אנו מבקשים מכל חבר במשפחת בני ברוך העולמית, לתרום את חלקו
+        הצנוע בכדי לתמוך ב
+        <a target="_blank" href='http://ourhome.webflow.io/he'>מערכת הקשר בינינו</a>.
+      </p>
+    </div>
+    <div class="hidden" id="donate-ru">
+      <h5>Дорогие друзья!</h5>
+      <p>Мы, члены ассоциации Бней Барух, в Израиле и во всём мире, с удовольствием пользуемся сложными
+        технологическими системами, которые, обслуживая нас, позволяют нам в каждое мгновенье находиться в хорошем
+        окружении.</p>
+      <p>Архив уроков, сайт "свива това", аппликация "66 канал" для мобильных телефонов и много других систем, - всё
+        для нас!</p>
+      <p>Поскольку эти системы нуждаются в постоянном обслуживании и модернизации, мы просим каждого товарища
+        всемирной семьи Бней Барух внести посильный вклад для поддержки системы
+        <a target="_blank" href='http://ourhome.webflow.io/ru'>связи между нами</a>.</p>
+    </div>
+    <div class="hidden" id="donate-es">
+      <h5>Queridos amigos,</h5>
+      <p>Nosotros, los miembros de Bnei Baruj en Israel y alrededor del mundo, disfrutamos de las sistemas
+        tecnológicos complejos que nos sirven para mantener un buen entorno en cada momento en nuestra vida.</p>
+      <p>El archivo de las lecciones, la página de “sviva tova”, la aplicación del canal 66 en el celular y muchos
+        sistemas más…. Todo para nosotros!</p>
+      <p>Como estos sistemas necesitan cuidado y actualizaciones constantes, pedimos a cada amigo en la familia
+        mundial de Bnei Baruj, contribuir su parte modesta para apoyar en
+        <a target="_blank" href="http://ourhome.webflow.io/es">el sistema de conexion entre nosotros</a>.</p>
+    </div>
+    <div class="hidden" id="donate-en">
+      <h5>Dear friends,</h5>
+      <p>We, Bnei Baruch friends in Israel and all around the world enjoy complex technological systems, which serve
+        us in order to maintain a good environment every moment of our lives.</p>
+      <p>The lesson archives, “Sviva Tova” site, Channel 66 cellphone application and many additional systems are
+        all for us!
+      </p>
+      <p>Since these systems require constant maintenance and upgrading, we ask every member of the world Bnei
+        Baruch family to contribute each one’s modest part in order to support
+        <a target="_blank" href="http://ourhome.webflow.io/">the system of connection among us</a>.</p>
     </div>
     <script type="text/javascript">
       var content = $('#donate-<%= [:es, :he, :ru].include?(I18n.locale) ? I18n.locale : 'en' -%>').html();
