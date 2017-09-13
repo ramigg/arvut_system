@@ -185,12 +185,9 @@
 <%- end -%>
 <%-
   week = Date.today.strftime('%U').to_i
-  if week % 2 == 0 # even weeks
-    to_show = current_user.ad_2w_was_shown.to_i != week
-    current_user.update_attributes(ad_2w_was_shown: week)
-  end
+  dow = Date.today.strftime('%w').to_i
 -%>
-<%- if to_show -%>
+<%- if week % 2 == 0 && dow == 0 # even weeks on Sunday -%>
     <style>
       .vex.vex-theme-default .vex-content {
         background: #80d6f9;
