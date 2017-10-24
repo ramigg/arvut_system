@@ -187,7 +187,7 @@
   week = Date.today.strftime('%U').to_i
   dow = Date.today.strftime('%w').to_i
 -%>
-<%- if week % 2 == 1 #&& dow == 0 # even weeks on Sunday  -%>
+<%- if week % 2 == 1 && dow == 0 # odd weeks on Sunday  -%>
   <style>
     .vex.vex-theme-default .vex-content {
       background: #6dccde url(/internet/images/donations_popup_bg.png) no-repeat;
