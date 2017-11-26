@@ -23,3 +23,6 @@
 7:
   :title: Türkçe
   :stream: http://icecast.kab.tv/live1-trk-574bcfd5.mp3
+8:
+  :title: 中文
+  :stream: http://icecast.kab.tv/live-chn.mp3
