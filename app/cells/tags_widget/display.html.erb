@@ -21,11 +21,11 @@
     <%- @tags.reject {|x| reject_tags.include?(x.name)}.each do |tag| %>
       <%
         up_tag = tag.to_s.upcase
-        special_tag_style = if red_tags.find {|e| e.match(up_tag)}
+        special_tag_style = if red_tags.include?(up_tag)
                               'color: red;'
-                            elsif green_tags.find {|e| e.match(up_tag)}
+                            elsif green_tags.include?(up_tag)
                               'color: green;'
-                            elsif blue_tags.find {|e| e.match(up_tag)}
+                            elsif blue_tags.include?(up_tag)
                               'color: blue;'
                             else
                               ''
