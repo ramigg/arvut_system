@@ -9,25 +9,30 @@
       'הקלטות של קטעי מקור', 'Записи отрывков источников', 'Recordings of Excerpts from the Writings of the Kabbalists', 'Grabaciones de extractos de las fuentes',
       'Gravações de Excertos dos Escritos dos Cabalistas'
   ].map(&:upcase)
+  blue_tags = [
+      'Study materials', 'Учебные материалы', 'חומר לימוד לשיעור הבא'
+  ].map(&:upcase)
   reject_tags = ['webrtc', 'webrtc4']
 %>
 <%- if @tags %>
-    <hr/>
-    <h4><%= t('stream.tags_menu') %>:</h4>
-    <ul class="side_menu side_tags">
-      <%- @tags.reject { |x| reject_tags.include?(x.name) }.each do |tag| %>
-          <%
-            up_tag = tag.to_s.upcase
-            special_tag_style = if red_tags.find { |e| e.match(up_tag) }
-                                  'color: red;'
-                                elsif green_tags.find { |e| e.match(up_tag) }
-                                  'color: green;'
-                                else
-                                  ''
-                                end %>
-          <li id="menu-tag<%= tag.id %>" class="read">
-            <h5><%= link_to tag, stream_path(:stream_filter => 'tag', :modifier => tag.to_s), :class => 'data-remote', :style => special_tag_style %></h5>
-          </li>
-      <%- end %>
-    </ul>
+  <hr/>
+  <h4><%= t('stream.tags_menu') %>:</h4>
+  <ul class="side_menu side_tags">
+    <%- @tags.reject {|x| reject_tags.include?(x.name)}.each do |tag| %>
+      <%
+        up_tag = tag.to_s.upcase
+        special_tag_style = if red_tags.find {|e| e.match(up_tag)}
+                              'color: red;'
+                            elsif green_tags.find {|e| e.match(up_tag)}
+                              'color: green;'
+                            elsif blue_tags.find {|e| e.match(up_tag)}
+                              'color: blue;'
+                            else
+                              ''
+                            end %>
+      <li id="menu-tag<%= tag.id %>" class="read">
+        <h5><%= link_to tag, stream_path(:stream_filter => 'tag', :modifier => tag.to_s), :class => 'data-remote', :style => special_tag_style %></h5>
+      </li>
+    <%- end %>
+  </ul>
 <%- end %>
