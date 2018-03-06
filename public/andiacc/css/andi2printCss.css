@@ -1,0 +1,164 @@
+:focus {
+    outline: 3px solid #f00;
+}
+ html  {
+ }
+ body  {
+     background:  #ffffff !important;
+     font-family:  arial !important;
+	 margin-left:200px
+ }
+ body *:not(body > div) {
+     color:  #000 !important;
+     font-family:  arial !important;
+     line-height: 110% !important;
+	 position:static !important;
+	 background-image:none !important;
+ }
+ [andiarea] {
+    display: block !important;
+}
+ div  {
+    font-size:  45px !important;
+  }
+ span  {
+    font-size:  45px;
+ }
+ h1  {
+     font-size:  80px !important;
+     margin:  24px 0 16px;
+     font-weight:  bolder;
+ }
+ h2  {
+     font-size:  66px !important;
+     margin:  24px 0 16px;
+     font-weight:  bolder;
+ }
+ h3  {
+     font-size:  52px !important;
+     margin:  24px 0 16px;
+     font-weight:  bolder;
+ }
+ h4  {
+     font-size:  45px !important;
+     margin:  16px 0;
+     font-weight:  bolder;
+ }
+ h5  {
+     font-size:  45px !important;
+     margin:  16px 0;
+     font-weight:  bolder;
+ }
+ h6  {
+     font-size:  45px !important;
+     margin:  16px 0;
+     font-weight:  bolder;
+ }
+ p, pre  {
+     font-size:  45px !important;
+     margin:  16px 5px;
+ }
+ blockquote  {
+     display:  block;
+     font-size:  45px !important;
+     text-align:  center;
+     font-weight:  bold;
+ }
+ q  {
+     display:  inline;
+     font-size:  45px !important;
+     font-weight:  bold;
+ }
+ q::befoer {
+     content:  " " ;
+ }
+ q::after {
+     content:  " ";
+ }
+ a  {
+     font-size:  45px !important;
+     color:  blue;
+     text-decoration:  underline;
+ }
+ a::after {
+	 font-size:  25px !important;
+ }
+ table  {
+     border-collapse:  collapse;
+     width:  100%;
+ }
+ th,  td  {
+     padding:  5px;
+     font-size:  30px !important;
+ }
+ tr:nth-child(even) {
+    background-color:  #f2f2f2;
+}
+ th  {
+     background-color:  #333;
+     color:  white;
+ }
+ img  {
+     display: block;
+ }
+img::after  {
+     display: block;
+}
+  dl  {
+     list-style-position:  inside;
+ }
+ dt ,  dd ,  ol  {
+     list-style-position:  inside;
+ }
+ ul  {
+     list-style-type:  disc;
+     list-style-position:  inside;
+ }
+ li  {
+     font-size: 45px  !important;\
+}
+ abbr ,  acronym ,  address ,  big ,  cite ,  code ,  del ,  dfn ,  em ,   ins ,  kbd ,  s ,  samp ,  small ,  strike ,  strong ,  sub ,  sup ,  tt ,  var ,  b ,  u ,  i ,  center , fieldset ,  form ,  label ,  legend , table ,  caption ,  article ,  aside ,  canvas ,  details ,  embed ,  figure, figcaption , footer , header, hgroup, menu ,  nav,  output , ruby ,  section ,  summary ,  time ,  mark  {
+    font-size:  45px !important;
+ }
+ audio ,  video  {
+     margin:  0;
+     padding:  0;
+     border:  0;
+     font-size:  100%;
+     font:  inherit;
+     vertical-align:  baseline;
+ }
+ #UAndNxT  {
+    display:  none !important;
+}
+ #UAndNxT * {
+    display:  none !important;
+}
+
+#UAXqSmGaZs button{
+    width: 97px;
+    height: 95px;
+    display: inline-block;
+    font-weight: 400;
+    font-size: 14px;
+    box-shadow: 0px 0px 10px rgba(180,180,180,0.5);
+    margin-top: 7px;
+    margin-left: 7px;
+    position: relative !important;
+}
+
+
+.textPart{
+	font-size: 18px !important;
+    padding: 5px !important;
+}
+
+
+
+
+
+
+
+
+
+
