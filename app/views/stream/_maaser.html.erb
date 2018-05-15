@@ -80,151 +80,182 @@
   }
 </style>
 <div align="center" width="100%">
-  <%- if I18n.locale == :ru %>
-      <a href="http://www.kabbalah.info/maaser/rus/" target="_blank">
-        <button class="button-middle-second arial" style="width:100%;background-color:#81b253;cursor:pointer;color:#ffffff;font-size:120%">Внести
-          Маасер
-        </button>
-      </a>
-      <a href="http://kabbalahgroup.info/internet/ru/pages/23931" target="_blank">
-        <button class="button-middle-second arial button-middle-second-red" style="margin-top:10px;width:100%;cursor:pointer;color:#ffffff;font-size:120%">Help
-          Haver
-        </button>
-      </a>
-      <a href="https://docs.google.com/forms/d/e/1FAIpQLSe-48q7PHhr6qmmaRN5jlQGeSXUeEs6f_5O1LQVgYnTCQzUjw/viewform?c=0&w=1" target="_blank">
-        <button class="button-middle-second arial button-middle-second-green" style="margin-top:10px;width:100%;cursor:pointer;color:#ffffff;font-size:120%" %>Пишите
-          Нам
-        </button>
-      </a>
-      <a href="https://docs.google.com/document/d/1cFqzZOY3kRA9nfXrcQJ-KAknQa9eReAsiR1TvG1k3QQ/edit?usp=drivesdk" target="_blank">
-        <button class="button-middle-second arial button-middle-second-orange" style="margin-top:10px;width:100%;cursor:pointer;color:#ffffff;font-size:120%" %>Стажировка</button>
-      </a>
-    <a href="https://docs.google.com/document/d/1aPNE7-EO9kNVzoqGafZjGIfWN--ZhZOz3OJ_RsjlyRo/edit" target="_blank">
-      <button class="button-middle-second arial" style="margin-top:10px;width:100%;cursor:pointer;color:#ffffff;font-size:120%">Список открытых вакансий</button>
+  <%- if I18n.locale == :ru -%>
+    <a href="http://www.kabbalah.info/maaser/rus/" target="_blank">
+      <button class="button-middle-second arial" style="width:100%;background-color:#81b253;cursor:pointer;color:#ffffff;font-size:120%">Внести
+        Маасер
+      </button>
     </a>
-      <br/>
-      <br/>
-      <a href="http://ourhome.webflow.io/ru" target="_blank" class="donations-button donations-button-ru"></a>
-  <%- elsif I18n.locale == :es %>
-      <a href="http://www.kabbalah.info/maaser/spa/" target="_blank">
-        <button class="button-middle-second arial" style="width:100%;background-color:#81b253;cursor:pointer;color:#ffffff;font-size:120%">Pagar
-          Maaser
-        </button>
-      </a>
-      <a href="http://kabbalahgroup.info/internet/es/pages/23964" target="_blank">
-        <button class="button-middle-second arial button-middle-second-red" style="margin-top:10px;width:100%;cursor:pointer;color:#ffffff;font-size:120%">Help
-          Haver
-        </button>
-      </a>
-      <a href="https://docs.google.com/forms/d/e/1FAIpQLSe-48q7PHhr6qmmaRN5jlQGeSXUeEs6f_5O1LQVgYnTCQzUjw/viewform?c=0&w=1" target="_blank">
-        <button class="button-middle-second arial button-middle-second-green" style="margin-top:10px;width:100%;cursor:pointer;color:#ffffff;font-size:120%" %>Escribenos</button>
-      </a>
-      <a href="https://docs.google.com/document/d/1ZLFoX9bza3MlzSxBdxcj9lvjs4lZPf9K4jrjUwIEkOw/edit?usp=drivesdk" target="_blank">
-        <button class="button-middle-second arial button-middle-second-orange" style="margin-top:10px;width:100%;cursor:pointer;color:#ffffff;font-size:120%" %>Prácticas
-          (Internado)
-        </button>
-      </a>
-      <br/>
-      <br/>
-      <a href="http://ourhome.webflow.io/es" target="_blank" class="donations-button donations-button-es"></a>
-  <%- elsif I18n.locale == :he %>
-      <a href="http://www.kabbalah.info/maaser/heb/" target="_blank">
-        <button class="button-middle-second arial" style="width:100%;background-color:#81b253;cursor:pointer;color:#ffffff;font-size:120%">
-          לתת מעשר
-        </button>
-      </a><br>
-      <%#a href="http://www.kabbalahgroup.info/internet/he#pages/18351">
+    <a href="http://kabbalahgroup.info/internet/ru/pages/23931" target="_blank">
+      <button class="button-middle-second arial button-middle-second-red" style="margin-top:10px;width:100%;cursor:pointer;color:#ffffff;font-size:120%">Help
+        Haver
+      </button>
+    </a>
+    <a href="https://docs.google.com/forms/d/e/1FAIpQLSe-48q7PHhr6qmmaRN5jlQGeSXUeEs6f_5O1LQVgYnTCQzUjw/viewform?c=0&w=1" target="_blank">
+      <button class="button-middle-second arial button-middle-second-green" style="margin-top:10px;width:100%;cursor:pointer;color:#ffffff;font-size:120%" >Пишите
+        Нам
+      </button>
+    </a>
+    <a href="https://docs.google.com/document/d/1cFqzZOY3kRA9nfXrcQJ-KAknQa9eReAsiR1TvG1k3QQ/edit?usp=drivesdk" target="_blank">
+      <button class="button-middle-second arial button-middle-second-orange" style="margin-top:10px;width:100%;cursor:pointer;color:#ffffff;font-size:120%" >Стажировка</button>
+    </a>
+    <a href="https://docs.google.com/document/d/1aPNE7-EO9kNVzoqGafZjGIfWN--ZhZOz3OJ_RsjlyRo/edit" target="_blank">
+      <button class="button-middle-second arial" style="margin-top:10px;width:100%;cursor:pointer;color:#ffffff;font-size:120%">Список
+        открытых вакансий
+      </button>
+    </a>
+    <br/>
+    <br/>
+    <a href="http://ourhome.webflow.io/ru" target="_blank" class="donations-button donations-button-ru"></a>
+  <%- elsif I18n.locale == :es -%>
+    <a href="http://www.kabbalah.info/maaser/spa/" target="_blank">
+      <button class="button-middle-second arial" style="width:100%;background-color:#81b253;cursor:pointer;color:#ffffff;font-size:120%">Pagar
+        Maaser
+      </button>
+    </a>
+    <a href="http://kabbalahgroup.info/internet/es/pages/23964" target="_blank">
+      <button class="button-middle-second arial button-middle-second-red" style="margin-top:10px;width:100%;cursor:pointer;color:#ffffff;font-size:120%">Help
+        Haver
+      </button>
+    </a>
+    <a href="https://docs.google.com/forms/d/e/1FAIpQLSe-48q7PHhr6qmmaRN5jlQGeSXUeEs6f_5O1LQVgYnTCQzUjw/viewform?c=0&w=1" target="_blank">
+      <button class="button-middle-second arial button-middle-second-green" style="margin-top:10px;width:100%;cursor:pointer;color:#ffffff;font-size:120%" >Escribenos</button>
+    </a>
+    <a href="https://docs.google.com/document/d/1ZLFoX9bza3MlzSxBdxcj9lvjs4lZPf9K4jrjUwIEkOw/edit?usp=drivesdk" target="_blank">
+      <button class="button-middle-second arial button-middle-second-orange" style="margin-top:10px;width:100%;cursor:pointer;color:#ffffff;font-size:120%" >Prácticas
+        (Internado)
+      </button>
+    </a>
+    <br/>
+    <br/>
+    <a href="http://ourhome.webflow.io/es" target="_blank" class="donations-button donations-button-es"></a>
+  <%- elsif I18n.locale == :he -%>
+    <a href="http://www.kabbalah.info/maaser/heb/" target="_blank">
+      <button class="button-middle-second arial" style="width:100%;background-color:#81b253;cursor:pointer;color:#ffffff;font-size:120%">
+        לתת מעשר
+      </button>
+    </a><br>
+    <%#a href="http://www.kabbalahgroup.info/internet/he#pages/18351">
         <button class="button-middle-third arial" style="width:100%;background-color:#e28626;cursor:pointer;color:#ffffff;font-size:120%">
           נגן חברתי
         </button>
       </a%>
-      <a href="http://kabbalahgroup.info/internet/he/pages/23943" target="_blank">
-        <button class="button-middle-second arial button-middle-second-red" style="margin-top:10px;width:100%;cursor:pointer;color:#ffffff;font-size:120%">Help
-          Haver
-        </button>
-      </a>
-      <a href="https://docs.google.com/forms/d/e/1FAIpQLSe-48q7PHhr6qmmaRN5jlQGeSXUeEs6f_5O1LQVgYnTCQzUjw/viewform?c=0&w=1" target="_blank">
-        <button class="button-middle-second arial button-middle-second-green" style="margin-top:10px;width:100%;cursor:pointer;color:#ffffff;font-size:120%" %>
-          כתבו לנו
-        </button>
-      </a>
-      <a href="https://docs.google.com/document/d/1ah9TNGpRbxDqI6MtBJ9iSQkhrTlhCUe_EscXoS5VC74/edit?usp=drivesdk" target="_blank">
-        <button class="button-middle-second arial button-middle-second-orange" style="margin-top:10px;width:100%;cursor:pointer;color:#ffffff;font-size:120%" %>התמחות</button>
-      </a>
-      <a href="https://docs.google.com/document/d/1GSwbGE9BAXIckf34YITs8notzdrrcrGSnVlcEnNqhEM/edit#" target="_blank">
-        <button class="button-middle-second arial" style="margin-top:10px;width:100%;cursor:pointer;color:#ffffff;font-size:120%">דרושים - תפקידים בהפצה</button>
-      </a>
-      <br/>
-      <br/>
-      <a href="http://ourhome.webflow.io/he" target="_blank" class="donations-button donations-button-he"></a>
-      <a href="http://icecast.kab.tv/radiozohar2014.mp3" target="_blank" class="radiozohar-button"></a>
-      <a href="https://soundcloud.com/kabbalah-laam-music" target="_blank" class="music-button"></a>
-      <!--<a href="https://docs.google.com/document/d/11uiVW6gSZAvhftfBW-cEs9pOsPfvzBxkoncWFpory40/edit" target="_blank" class="semester-gimel-button"></a>-->
-      <br/>
-  <%- elsif I18n.locale == :pt %>
-      <a href="http://www.kabbalah.info/maaser/pt/" target="_blank">
-        <button class="button-middle-second arial" style="width:100%;background-color:#81b253;cursor:pointer;color:#ffffff;font-size:120%">
-          Dar Maaser
-        </button>
-      </a>
-      <a href="http://kabbalahgroup.info/internet/en/pages/23948" target="_blank">
-        <button class="button-middle-second arial button-middle-second-red" style="margin-top:10px;width:100%;cursor:pointer;color:#ffffff;font-size:120%">Ajuda
-          Amigo
-        </button>
-      </a>
-      <a href="https://docs.google.com/forms/d/e/1FAIpQLSe-48q7PHhr6qmmaRN5jlQGeSXUeEs6f_5O1LQVgYnTCQzUjw/viewform?c=0&w=1" target="_blank">
-        <button class="button-middle-second arial button-middle-second-green" style="margin-top:10px;width:100%;cursor:pointer;color:#ffffff;font-size:120%" %>Escreva-nos</button>
-      </a>
-      <a href="https://docs.google.com/document/d/1ZLFoX9bza3MlzSxBdxcj9lvjs4lZPf9K4jrjUwIEkOw/edit?usp=drivesdk" target="_blank">
-        <button class="button-middle-second arial button-middle-second-orange" style="margin-top:10px;width:100%;cursor:pointer;color:#ffffff;font-size:120%" %>Prácticas
-          (Internado)
-        </button>
-      </a>
-      <br/>
-      <br/>
-      <a href="http://ourhome.webflow.io/" target="_blank" class="donations-button donations-button-es"></a>
-  <%- elsif I18n.locale == :tr %>
-      <a href="http://www.kabbalah.info/maaser/eng/" target="_blank">
-        <button class="button-middle-second arial" style="width:100%;background-color:#81b253;cursor:pointer;color:#ffffff;font-size:120%">Give
-          Maaser
-        </button>
-      </a>
-      <a href="http://kabbalahgroup.info/internet/en/pages/23948" target="_blank">
-        <button class="button-middle-second arial button-middle-second-red" style="margin-top:10px;width:100%;cursor:pointer;color:#ffffff;font-size:120%">Help
-          Haver
-        </button>
-      </a>
-      <a href="https://docs.google.com/forms/d/e/1FAIpQLSe-48q7PHhr6qmmaRN5jlQGeSXUeEs6f_5O1LQVgYnTCQzUjw/viewform?c=0&w=1" target="_blank">
-        <button class="button-middle-second arial button-middle-second-green" style="margin-top:10px;width:100%;cursor:pointer;color:#ffffff;font-size:120%" %>Writeto us</button>
-      </a>
-      <a href="http://kabbalahgroup.info/internet/tr#pages/35204" target="_blank">
-        <button class="button-middle-second arial button-middle-second-orange" style="margin-top:10px;width:100%;cursor:pointer;color:#ffffff;font-size:120%" %>Stajyerlik</button>
-      </a>
-      <br/>
-      <br/>
-      <a href="http://ourhome.webflow.io/" target="_blank" class="donations-button donations-button-en"></a>
-  <%- else %>
-      <!-- English and other languages -->
-      <a href="http://www.kabbalah.info/maaser/eng/" target="_blank">
-        <button class="button-middle-second arial" style="width:100%;background-color:#81b253;cursor:pointer;color:#ffffff;font-size:120%">Give
-          Maaser
-        </button>
-      </a>
-      <a href="http://kabbalahgroup.info/internet/en/pages/23948" target="_blank">
-        <button class="button-middle-second arial button-middle-second-red" style="margin-top:10px;width:100%;cursor:pointer;color:#ffffff;font-size:120%">Help
-          Haver
-        </button>
-      </a>
-      <a href="https://docs.google.com/forms/d/e/1FAIpQLSe-48q7PHhr6qmmaRN5jlQGeSXUeEs6f_5O1LQVgYnTCQzUjw/viewform?c=0&w=1" target="_blank">
-        <button class="button-middle-second arial button-middle-second-green" style="margin-top:10px;width:100%;cursor:pointer;color:#ffffff;font-size:120%" %>Write
-          to us
-        </button>
-      </a>
-      <a href="https://docs.google.com/document/d/1eTssEXxvHWVSVb7YEClZPGNzv9-U9doOiYUwQoQTDQs/edit?usp=drivesdk" target="_blank">
-        <button class="button-middle-second arial button-middle-second-orange" style="margin-top:10px;width:100%;cursor:pointer;color:#ffffff;font-size:120%" %>Internship</button>
-      </a>
-      <br/>
-      <br/>
-      <a href="http://ourhome.webflow.io/" target="_blank" class="donations-button donations-button-en"></a>
-  <%- end %>
+    <a href="http://kabbalahgroup.info/internet/he/pages/23943" target="_blank">
+      <button class="button-middle-second arial button-middle-second-red" style="margin-top:10px;width:100%;cursor:pointer;color:#ffffff;font-size:120%">Help
+        Haver
+      </button>
+    </a>
+    <a href="https://docs.google.com/forms/d/e/1FAIpQLSe-48q7PHhr6qmmaRN5jlQGeSXUeEs6f_5O1LQVgYnTCQzUjw/viewform?c=0&w=1" target="_blank">
+      <button class="button-middle-second arial button-middle-second-green" style="margin-top:10px;width:100%;cursor:pointer;color:#ffffff;font-size:120%" >
+        כתבו לנו
+      </button>
+    </a>
+    <a href="https://docs.google.com/document/d/1ah9TNGpRbxDqI6MtBJ9iSQkhrTlhCUe_EscXoS5VC74/edit?usp=drivesdk" target="_blank">
+      <button class="button-middle-second arial button-middle-second-orange" style="margin-top:10px;width:100%;cursor:pointer;color:#ffffff;font-size:120%" >התמחות</button>
+    </a>
+    <a href="https://docs.google.com/document/d/1GSwbGE9BAXIckf34YITs8notzdrrcrGSnVlcEnNqhEM/edit#" target="_blank">
+      <button class="button-middle-second arial" style="margin-top:10px;width:100%;cursor:pointer;color:#ffffff;font-size:120%">דרושים
+        - תפקידים בהפצה
+      </button>
+    </a>
+    <br/>
+    <br/>
+    <a href="http://ourhome.webflow.io/he" target="_blank" class="donations-button donations-button-he"></a>
+    <a href="http://icecast.kab.tv/radiozohar2014.mp3" target="_blank" class="radiozohar-button"></a>
+    <a href="https://soundcloud.com/kabbalah-laam-music" target="_blank" class="music-button"></a>
+    <!--<a href="https://docs.google.com/document/d/11uiVW6gSZAvhftfBW-cEs9pOsPfvzBxkoncWFpory40/edit" target="_blank" class="semester-gimel-button"></a>-->
+    <br/>
+  <%- elsif I18n.locale == :pt -%>
+    <a href="http://www.kabbalah.info/maaser/pt/" target="_blank">
+      <button class="button-middle-second arial" style="width:100%;background-color:#81b253;cursor:pointer;color:#ffffff;font-size:120%">
+        Dar Maaser
+      </button>
+    </a>
+    <a href="http://kabbalahgroup.info/internet/en/pages/23948" target="_blank">
+      <button class="button-middle-second arial button-middle-second-red" style="margin-top:10px;width:100%;cursor:pointer;color:#ffffff;font-size:120%">Ajuda
+        Amigo
+      </button>
+    </a>
+    <a href="https://docs.google.com/forms/d/e/1FAIpQLSe-48q7PHhr6qmmaRN5jlQGeSXUeEs6f_5O1LQVgYnTCQzUjw/viewform?c=0&w=1" target="_blank">
+      <button class="button-middle-second arial button-middle-second-green" style="margin-top:10px;width:100%;cursor:pointer;color:#ffffff;font-size:120%" >Escreva-nos</button>
+    </a>
+    <a href="https://docs.google.com/document/d/1ZLFoX9bza3MlzSxBdxcj9lvjs4lZPf9K4jrjUwIEkOw/edit?usp=drivesdk" target="_blank">
+      <button class="button-middle-second arial button-middle-second-orange" style="margin-top:10px;width:100%;cursor:pointer;color:#ffffff;font-size:120%" >Prácticas
+        (Internado)
+      </button>
+    </a>
+    <br/>
+    <br/>
+    <a href="http://ourhome.webflow.io/" target="_blank" class="donations-button donations-button-es"></a>
+  <%- elsif I18n.locale == :tr -%>
+    <a href="http://www.kabbalah.info/maaser/eng/" target="_blank">
+      <button class="button-middle-second arial" style="width:100%;background-color:#81b253;cursor:pointer;color:#ffffff;font-size:120%">Give
+        Maaser
+      </button>
+    </a>
+    <a href="http://kabbalahgroup.info/internet/en/pages/23948" target="_blank">
+      <button class="button-middle-second arial button-middle-second-red" style="margin-top:10px;width:100%;cursor:pointer;color:#ffffff;font-size:120%">Help
+        Haver
+      </button>
+    </a>
+    <a href="https://docs.google.com/forms/d/e/1FAIpQLSe-48q7PHhr6qmmaRN5jlQGeSXUeEs6f_5O1LQVgYnTCQzUjw/viewform?c=0&w=1" target="_blank">
+      <button class="button-middle-second arial button-middle-second-green" style="margin-top:10px;width:100%;cursor:pointer;color:#ffffff;font-size:120%" >Writeto
+        us
+      </button>
+    </a>
+    <a href="http://kabbalahgroup.info/internet/tr#pages/35204" target="_blank">
+      <button class="button-middle-second arial button-middle-second-orange" style="margin-top:10px;width:100%;cursor:pointer;color:#ffffff;font-size:120%" >Stajyerlik</button>
+    </a>
+    <br/>
+    <br/>
+    <a href="http://ourhome.webflow.io/" target="_blank" class="donations-button donations-button-en"></a>
+  <%- elsif I18n.locale == :uk -%>
+    <a href="http://www.kabbalah.info/maaser/ua/" target="_blank">
+      <button class="button-middle-second arial" style="width:100%;background-color:#81b253;cursor:pointer;color:#ffffff;font-size:120%">Внести
+        Маасер
+      </button>
+    </a>
+    <a href="http://kabbalahgroup.info/internet/uk#pages/37404" target="_blank">
+      <button class="button-middle-second arial button-middle-second-red" style="margin-top:10px;width:100%;cursor:pointer;color:#ffffff;font-size:120%">Help
+        Haver
+      </button>
+    </a>
+    <a href="https://docs.google.com/forms/d/e/1FAIpQLSe-48q7PHhr6qmmaRN5jlQGeSXUeEs6f_5O1LQVgYnTCQzUjw/viewform?c=0&w=1" target="_blank">
+      <button class="button-middle-second arial button-middle-second-green" style="margin-top:10px;width:100%;cursor:pointer;color:#ffffff;font-size:120%">Написати нам
+      </button>
+    </a>
+    <a href="https://docs.google.com/document/d/1cFqzZOY3kRA9nfXrcQJ-KAknQa9eReAsiR1TvG1k3QQ/edit" target="_blank">
+      <button class="button-middle-second arial button-middle-second-orange" style="margin-top:10px;width:100%;cursor:pointer;color:#ffffff;font-size:120%">Стажування </button>
+    </a>
+    <a href="https://docs.google.com/document/d/1DRhJiUdLFIOwZUCuyRgqDsz_56DBzKQ0P0n95do4E0U/edit?ts=5ad755f8" target="_blank">
+      <button class="button-middle-second arial" style="margin-top:10px;width:100%;cursor:pointer;color:#ffffff;font-size:120%">Список відкритих вакансій
+      </button>
+    </a>
+    <br/>
+    <br/>
+    <a href="http://ourhome.webflow.io/ru" target="_blank" class="donations-button donations-button-ru"></a>
+  <%- else -%>
+    <!-- English and other languages -->
+    <a href="http://www.kabbalah.info/maaser/eng/" target="_blank">
+      <button class="button-middle-second arial" style="width:100%;background-color:#81b253;cursor:pointer;color:#ffffff;font-size:120%">Give
+        Maaser
+      </button>
+    </a>
+    <a href="http://kabbalahgroup.info/internet/en/pages/23948" target="_blank">
+      <button class="button-middle-second arial button-middle-second-red" style="margin-top:10px;width:100%;cursor:pointer;color:#ffffff;font-size:120%">Help
+        Haver
+      </button>
+    </a>
+    <a href="https://docs.google.com/forms/d/e/1FAIpQLSe-48q7PHhr6qmmaRN5jlQGeSXUeEs6f_5O1LQVgYnTCQzUjw/viewform?c=0&w=1" target="_blank">
+      <button class="button-middle-second arial button-middle-second-green" style="margin-top:10px;width:100%;cursor:pointer;color:#ffffff;font-size:120%" >Write
+        to us
+      </button>
+    </a>
+    <a href="https://docs.google.com/document/d/1eTssEXxvHWVSVb7YEClZPGNzv9-U9doOiYUwQoQTDQs/edit?usp=drivesdk" target="_blank">
+      <button class="button-middle-second arial button-middle-second-orange" style="margin-top:10px;width:100%;cursor:pointer;color:#ffffff;font-size:120%" >Internship</button>
+    </a>
+    <br/>
+    <br/>
+    <a href="http://ourhome.webflow.io/" target="_blank" class="donations-button donations-button-en"></a>
+  <%- end -%>
 </div>
