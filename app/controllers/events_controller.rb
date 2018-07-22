@@ -13,10 +13,6 @@ class EventsController < ApplicationController
   def show
     @page ||= Page.find(params[:id])
 
-    unless current_user.is_archived_broadcasts?
-      redirect_to home_url and return if @page.page_type == 'event' #SecretBroadcast::PAGES.include?(@page.id)
-    end
-
     PageUserflag.add_flag(@page, current_user, :is_read)
     respond_with @page
   end

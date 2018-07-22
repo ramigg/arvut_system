@@ -17,10 +17,6 @@ class PagesController < ApplicationController
   def show
     @page = Page.find(params[:id])
 
-    unless current_user.is_archived_broadcasts?
-      redirect_to home_url and return if SecretBroadcast::PAGES.include?(@page.id)
-    end
-
     @qa = QuestionnaireAnswer.new
     @qa.author = current_user
     @qa.answers = QuestionnaireAnswer.prepare_answers(@page)

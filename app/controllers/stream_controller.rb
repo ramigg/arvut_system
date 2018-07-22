@@ -56,8 +56,6 @@ class StreamController < ApplicationController
     @has_more_items = count > @skip_pages
     @tags           = Page.all_tags(I18n.locale)
 
-    @pages.reject! { |p| SecretBroadcast::PAGES.include?(p.id) } unless current_user.is_archived_broadcasts?
-
     @profile = current_user
 
     respond_with @pages

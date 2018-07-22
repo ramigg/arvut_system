@@ -13,7 +13,7 @@
 </head>
 <body class="<%= I18n.locale -%> layout-stream">
 <%= render 'shared/ga1' -%>
-<div id="<%= current_user.is_archived_broadcasts? ? 'internet' : 'video' -%>"></div>
+<div id="internet"></div>
 <%= render 'layouts/google_ads' -%>
 <%= javascript_include_tag 'vex.combined.min.js' %>
 <div class="clear"></div>
