@@ -489,13 +489,13 @@ es:
       active: Activo
       admin: Admin
       answered: respondido
-      blog: "http://laitman.es/"
+      blog: "https://laitman.es/"
       blog_title: "Blog del Dr. Laitman"
       check_for_new_questionnaire: "Revisar si hay un nuevo cuestionario"
       dashboard: "Mi página"
       date: Fecha
       edit_profile: "Editar perfil"
-      feed: "http://laitman.es/feed"
+      feed: "https://laitman.es/feed"
       last_10_questionnaires: "Los últimos 10 cuestionarios"
       loading: Cargando...
       not_answered: "no respondido"

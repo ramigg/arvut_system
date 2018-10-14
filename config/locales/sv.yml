@@ -171,8 +171,8 @@ sv:
       dashboard: Min sida
       admin: Admin
       blog_title: Dr Laitmans blogg
-      blog: http://www.laitman.se/
-      feed: http://www.laitman.se/feed/
+      blog: https://www.laitman.se/
+      feed: https://www.laitman.se/feed/
       active: Aktiv
       button: Vi!
       registered: Registrerade

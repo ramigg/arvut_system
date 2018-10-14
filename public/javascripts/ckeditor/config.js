@@ -1,10 +1,10 @@
 /*
  Copyright (c) 2003-2010, CKSource - Frederico Knabben. All rights reserved.
- For licensing, see LICENSE.html or http://ckeditor.com/license
+ For licensing, see LICENSE.html or https://ckeditor.com/license
  */
 
 
-//http://docs.cksource.com/CKEditor_3.x/Developers_Guide/Styles
+//https://docs.cksource.com/CKEditor_3.x/Developers_Guide/Styles
 CKEDITOR.addStylesSet('my_styles',
         [
             // Block Styles
@@ -21,7 +21,7 @@ CKEDITOR.addStylesSet('my_styles',
             { name : 'PPT item', element : 'a', attributes : { 'class' : 'icon_ppt' } }
         ]);
 
-//http://docs.cksource.com/CKEditor_3.x/Developers_Guide/Setting_Configurations
+//https://docs.cksource.com/CKEditor_3.x/Developers_Guide/Setting_Configurations
 CKEDITOR.editorConfig = function(config) {
     config.format_tags = 'p;h2;h3;h4;h5;h6';
     
@@ -105,7 +105,7 @@ CKEDITOR.editorConfig = function(config) {
     config.stylesCombo_stylesSet = 'my_styles';
     config.PreserveSessionOnFileBrowser = true;
 //TODO: Change this param so ckeditor stylesheet will work
-    config.contentsCss = ['http://kabbalahgroup.info/internet/stylesheets/styles.css', '/stylesheets/styles.css'];
+    config.contentsCss = ['https://kabbalahgroup.info/internet/stylesheets/styles.css', '/stylesheets/styles.css'];
     config.resize_enabled = false;
     config.toolbarCanCollapse = false;
     config.forcePasteAsPlainText = true;

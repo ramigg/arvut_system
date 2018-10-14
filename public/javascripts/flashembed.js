@@ -41,7 +41,7 @@ function flashembed(root, userParams, flashvars) {
 		quality: 'high',
 		bgcolor: '#ffffff',
 		type: 'application/x-shockwave-flash',
-		pluginspage: 'http://www.adobe.com/go/getflashplayer'
+		pluginspage: 'https://www.adobe.com/go/getflashplayer'
 	};
 	
 	extend(params, userParams);	

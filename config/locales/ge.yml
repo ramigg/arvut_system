@@ -447,13 +447,13 @@ ge:
       active: "Активные "
       admin: Администрация
       answered: отвечен
-      blog: "http://www.laitman.ru/"
+      blog: "https://www.laitman.ru/"
       blog_title: "Блог М. Лайтмана"
       check_for_new_questionnaire: "Проверить наличие новых вопросников"
       dashboard: "Моя страница"
       date: Дата
       edit_profile: "Изменить профиль"
-      feed: "http://www.laitman.ru/feed"
+      feed: "https://www.laitman.ru/feed"
       last_10_questionnaires: "Последние 10 вопросников"
       loading: Загрузка...
       not_answered: "не отвечен"

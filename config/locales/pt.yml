@@ -377,13 +377,13 @@ pt:
       active: Ativo
       admin: Administrador
       answered: respondido
-      blog: "http://laitman.com.br/"
+      blog: "https://laitman.com.br/"
       blog_title: "Blog do Dr. Laitman"
       check_for_new_questionnaire: "Verifique um novo questionário"
       dashboard: "Minha Página"
       date: Data
       edit_profile: "Editar perfil"
-      feed: "http://laitman.com.br/feed/"
+      feed: "https://laitman.com.br/feed/"
       last_10_questionnaires: "Os últimos 10 questionários"
       loading: "Carregando ..."
       not_answered: "não respondido"

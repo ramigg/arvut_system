@@ -1,6 +1,4 @@
 .player(style="float: none; margin: 0 auto; position: relative; width: 320px; padding: 35px 0;")
-  -#tightvideo_img(style="position: absolute; top: 0; font-size: 10px; #{@locale == 'he' ? 'left' : 'right'} : 0;")
-    = link_to image_tag('tightvideo.gif', :alt => 'Transcoded by TightVideo'), 'http://www.tightvideo.com/', :title => 'Transcoded by TightVideo', :target => '_blank'
   #object(style="width: 320px; height: 305px;")= I18n.t('kabtv.kabtv.loading')
   <a id='full_screen' alt='Full screen' title='Full screen' class="player-btn" onclick="fs(); return false;" style="background: url(images/video-icons.gif) no-repeat 0 -37px; width: 23px; height: 23px; display: block; float: right;"><span class="full_screen"> </span></a>
   .clear
@@ -9,7 +7,7 @@
     $("#object").html('');
     $("#full_screen").hide();
     $f('object',
-        { src: 'http://kabbalahgroup.info/internet/flowplayer/flowplayer.commercial-3.2.16.swf', wmode: 'transparent', id: 'player' },
+        { src: 'https://kabbalahgroup.info/internet/flowplayer/flowplayer.commercial-3.2.16.swf', wmode: 'transparent', id: 'player' },
         {
             key: '#\@432d5aedb59612f8458',
             clip: {

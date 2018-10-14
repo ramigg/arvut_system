@@ -171,8 +171,8 @@ ro:
       dashboard: Pagina mea
       admin: Admin
       blog_title: Blogul lui Dr. Laitman
-      blog: http://www.laitman.ro/
-      feed: http://www.laitman.ro/feed/
+      blog: https://www.laitman.ro/
+      feed: https://www.laitman.ro/feed/
       active: Activ
       button: Noi!
       registered: Inregistrat

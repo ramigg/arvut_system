@@ -412,13 +412,13 @@ de:
       active: Aktive
       admin: Admin
       answered: beantwortet
-      blog: "http://www.laitman.de/"
+      blog: "https://www.laitman.de/"
       blog_title: "Blog von Dr. Laitman"
       check_for_new_questionnaire: "Checke neue Fragebögen"
       dashboard: "Meine Seite"
       date: Datum
       edit_profile: "Profil bearbeiten"
-      feed: "http://www.laitman.de/feed/"
+      feed: "https://www.laitman.de/feed/"
       last_10_questionnaires: "Die letzten 10 Fragebögen"
       loading: "Wird geladen..."
       not_answered: "nicht beantwortet"

@@ -172,8 +172,8 @@ pl:
       dashboard: My page
       admin: Admin
       blog_title: Blog of Dr. Laitman
-      blog: http://www.laitman.com/
-      feed: http://www.laitman.com/feed/
+      blog: https://www.laitman.com/
+      feed: https://www.laitman.com/feed/
       active: Active
       button: We!
       registered: Registered

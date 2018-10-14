@@ -57,12 +57,12 @@ $baseUrl : the base path used to build the final URL for the resources handled
 in CKFinder. If empty, the default value (/userfiles/) is used.
 
 Examples:
-	$baseUrl = 'http://example.com/ckfinder/files/';
+	$baseUrl = 'https://example.com/ckfinder/files/';
 	$baseUrl = '/userfiles/';
 
 ATTENTION: The trailing slash is required.
 */
-$baseUrl = 'http://kabbalahgroup.info/internet/ckfinder/userfiles/';
+$baseUrl = 'https://kabbalahgroup.info/internet/ckfinder/userfiles/';
 
 /*
 $baseDir : the path to the local directory (in the server) which points to the
@@ -76,7 +76,7 @@ Examples:
 
 	// Or you may let CKFinder discover the path, based on $baseUrl.
 	// WARNING: resolveUrl() *will not work* if $baseUrl does not start with a slash ("/"),
-	// for example if $baseDir is set to  http://example.com/ckfinder/files/
+	// for example if $baseDir is set to  https://example.com/ckfinder/files/
 	$baseDir = resolveUrl($baseUrl);
 
 ATTENTION: The trailing slash is required.
@@ -253,10 +253,10 @@ denied, because "php" is on the denied extensions list.
 $config['CheckDoubleExtension'] = true;
 
 /*
-If you have iconv enabled (visit http://php.net/iconv for more information),
+If you have iconv enabled (visit https://php.net/iconv for more information),
 you can use this directive to specify the encoding of file names in your
 system. Acceptable values can be found at:
-	http://www.gnu.org/software/libiconv/
+	https://www.gnu.org/software/libiconv/
 
 Examples:
 	$config['FilesystemEncoding'] = 'CP1250';

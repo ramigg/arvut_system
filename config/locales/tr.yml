@@ -432,14 +432,14 @@ tr:
       active: Active
       admin: Yönetici
       answered: answered
-      blog: "http://laitman.info.tr"
+      blog: "https://laitman.info.tr"
       blog_title: "Blog of Dr. Laitman"
       button: We!
       check_for_new_questionnaire: "Check for new questionnaire"
       dashboard: "My page"
       date: Date
       edit_profile: "Profilinizi düzenleyin"
-      feed: "http://laitman.info.tr/feed/"
+      feed: "https://laitman.info.tr/feed/"
       last_10_questionnaires: "The last 10 questionnaires"
       loading: Loading...
       not_answered: "not answered"

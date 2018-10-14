@@ -354,21 +354,6 @@ function create_flash_object_audio(imageUrl, netUrl) {
         },
         success: kabtv.tabs.init
       });
-      /***
-       kabtv.tabs.poll_support && $.ajax({
-                url: 'http://live.kab.tv/button.php',
-                cache: false,
-                data: {
-                    image: 'tech',
-                    lang: 'ru',
-                    no_image: 1
-                },
-                dataType: 'jsonp',
-                success: function(msg) {
-                    $('.online-status').html(msg.res);
-                }
-            });
-       ***/
     },
 
     // init
@@ -504,7 +489,7 @@ function create_flash_object_audio(imageUrl, netUrl) {
 
           try {
             var netUrl, streamName;
-            if (url.match(/^http:/)) {
+            if (url.match(/^http:/) || url.match(/^https:/)) {
               $.ajax({
                 url:           url,
                 dataType:      'jsonp',

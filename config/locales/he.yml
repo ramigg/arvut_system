@@ -430,13 +430,13 @@ he:
       active: "פעילים "
       admin: ניהול
       answered: עניתי
-      blog: "http://laitman.co.il/"
+      blog: "https://laitman.co.il/"
       blog_title: "הבלוג של הרב ליטמן"
       check_for_new_questionnaire: "בדוק האם קיים שאלון חדש"
       dashboard: "הדף שלי"
       date: תאריך
       edit_profile: "ערוך פרופיל"
-      feed: "http://laitman.co.il/feed/"
+      feed: "https://laitman.co.il/feed/"
       last_10_questionnaires: "עשרת השאלונים האחרונים במערכת"
       loading: טוען...
       not_answered: "לא עניתי"

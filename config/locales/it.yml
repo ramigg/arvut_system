@@ -400,13 +400,13 @@ it:
       active: Attivo
       admin: Admin
       answered: risposto
-      blog: "http://laitman.it/"
+      blog: "https://laitman.it/"
       blog_title: "Il Blog del Dr. Laitman"
       check_for_new_questionnaire: "Controlla per il nuovo questionario"
       dashboard: "la mia pagina"
       date: Data
       edit_profile: "profilo dell 'editore"
-      feed: "http://laitman.it/feed"
+      feed: "https://laitman.it/feed"
       last_10_questionnaires: "Gli ultimi dieci questionari"
       loading: "Caricamento in corso..."
       not_answered: "non risposto"

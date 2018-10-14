@@ -42,7 +42,7 @@ Simulator::Application.configure do
   # Enable serving of images, stylesheets, and javascripts from an asset server
   # config.action_controller.asset_host = "http://assets.example.com"
   config.action_controller.asset_host = Proc.new { |source, request|
-    "#{request.protocol}#{request.host_with_port}#{config.site_prefix}"
+    "https://#{request.host_with_port}#{config.site_prefix}"
   }
 
   #ZZZ config.action_mailer.delivery_method = :sendmail

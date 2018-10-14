@@ -28,12 +28,12 @@ class ApplicationController < ActionController::Base
 
   # For any url_for (except devise)
   def default_url_options(options={})
-    { :locale => (params[:locale] || I18n.locale) }
+    { :locale => (params[:locale] || I18n.locale), :protocol => 'https' }
   end
 
   # Devise plugin only
   def self.default_url_options(options={})
-    { :locale => I18n.locale }
+    { :locale => I18n.locale, :secure => true, :protocol => 'https' }
   end
 
   def check_if_admin
@@ -79,8 +79,8 @@ end
 module Devise::Controllers::Helpers
   def after_sign_in_path_for(resource_or_scope)
     scope = Devise::Mapping.find_scope!(resource_or_scope)
-    home_path = :"#{scope}_root_path"
-    respond_to?(home_path, true) ? send(home_path) : root_path
+    home_url = :"//#{scope}_root_url"
+    respond_to?(home_url, true) ? send(home_url, :protocol => 'https') : root_url(:protocol => 'https')
   end
 
   def stored_location_for(resource_or_scope)

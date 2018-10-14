@@ -1,5 +1,5 @@
 !!!
-%html(xmlns="http://www.w3.org/1999/xhtml")
+%html(xmlns="https://www.w3.org/1999/xhtml")
   %head
     %title= t('home.views.site_name')
     %meta(content="text/html;charset=utf-8" http-equiv="content-type")
@@ -20,7 +20,7 @@
     .wrapper(style="margin: 20px auto;")
       .header
         .logo
-          = link_to image_tag("/images/logo-#{I18n.locale}.png"), "http://kabbalahgroup.info/internet/#{I18n.locale}", :title => t('home.views.site_name') , :alt => nil
+          = link_to image_tag("/images/logo-#{I18n.locale}.png"), "https://kabbalahgroup.info/internet/#{I18n.locale}", :title => t('home.views.site_name') , :alt => nil
           %h1= t('home.views.site_name')
         %form(action="#" method="get" accept-charset="utf-8")
           %p
@@ -28,7 +28,7 @@
               - locale = I18n.locale.to_s
               - Language.all.each do |l|
 
-                - opt_params = {:value => "http://kabbalahgroup.info/internet/#{l.locale}"}
+                - opt_params = {:value => "https://kabbalahgroup.info/internet/#{l.locale}"}
                 - opt_params[:selected] = "selected" if l.locale == locale
                 %option{opt_params}
                   =l.language

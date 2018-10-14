@@ -154,9 +154,9 @@ module QuestionnaireGenerator
         :description => '',
         :language_id => Language.get_id_by_locale('he'),
         :related_links => <<-links,
-          <a target="_blank" href="http://www.kabbalah.info/eng/content/view/full/31711" class="icon_text">Article Text</a>
-          <a target="blank" href="http://files.kab.co.il/video/eng_t_rav_kitvey-rb-1985-14-ani-rishon_2010-07-18_lesson_bb.wmv" class="icon_video">Lesson Video</a>
-          <a target="_blank" href="http://files.kab.co.il/audio/eng_t_rav_kitvey-rb-1985-14-ani-rishon_2010-07-18_lesson_bb.mp3" class="icon_audio">Lesson Audio</a>
+          <a target="_blank" href="https://www.kabbalah.info/eng/content/view/full/31711" class="icon_text">Article Text</a>
+          <a target="blank" href="https://files.kab.co.il/video/eng_t_rav_kitvey-rb-1985-14-ani-rishon_2010-07-18_lesson_bb.wmv" class="icon_video">Lesson Video</a>
+          <a target="_blank" href="https://files.kab.co.il/audio/eng_t_rav_kitvey-rb-1985-14-ani-rishon_2010-07-18_lesson_bb.mp3" class="icon_audio">Lesson Audio</a>
           links
         :questions => questions
       )

@@ -1,12 +1,5 @@
 <%= widget_div do -%>
     <div class="player">
-      <div class="support">
-        <%- group = I18n.locale == :ru ? 1 : (I18n.locale == :he ? 3 : (I18n.locale == :es ? 4 : 2)) %>
-        <a onclick="if(navigator.userAgent.toLowerCase().indexOf('opera') != -1 && window.event.preventDefault) window.event.preventDefault();this.newWindow = window.open('http://live.kab.tv/client.php?locale=<%= I18n.locale %>&amp;style=silver<%= I18n.locale == :he ? '_he' : ''%>&amp;group=<%= group %>&amp;url='+escape(document.location.href)+'&amp;referrer='+escape(document.referrer), 'mibew', 'toolbar=0,scrollbars=0,location=0,status=1,menubar=0,width=640,height=480,resizable=1');this.newWindow.focus();this.newWindow.opener=window; return false;" target="_blank" href="http://live.kab.tv/client.php?locale=<%= I18n.locale %>&amp;style=silver<%= I18n.locale == :he ? '_he' : '' %>&amp;group=<%= group %>" rel="nofollow">
-          <%= t('kabtv.kabtv.technical_support') %>
-          <div class="online-status"></div>
-        </a>
-      </div>
       <div class="video-js vjs-default-skin">
         <div class="vjs-control-bar vjs-control-bar-top">
           <select id="bitratelist"></select>
@@ -300,10 +293,10 @@
   /* Make the CDN fonts accessible from the CSS */
   @font-face {
     font-family: 'VideoJS';
-    src: url('http://vjs.zencdn.net/f/1/vjs.eot');
-    src: url('http://vjs.zencdn.net/f/1/vjs.eot?#iefix') format('embedded-opentype'),
-    url('http://vjs.zencdn.net/f/1/vjs.woff') format('woff'),
-    url('http://vjs.zencdn.net/f/1/vjs.ttf') format('truetype');
+    src: url('https://vjs.zencdn.net/f/1/vjs.eot');
+    src: url('https://vjs.zencdn.net/f/1/vjs.eot?#iefix') format('embedded-opentype'),
+    url('https://vjs.zencdn.net/f/1/vjs.woff') format('woff'),
+    url('https://vjs.zencdn.net/f/1/vjs.ttf') format('truetype');
   }
 
   .vjs-default-skin {
@@ -1134,9 +1127,9 @@
 
 </style>
 
-<script type="text/javascript" src="http://v4g.kbb1.com/video/js/janus.js"></script>
-<script type="text/javascript" src="http://v4g.kbb1.com/video/js/adapter.js"></script>
-<script type="text/javascript" src="http://v4g.kbb1.com/video/js/client-api.js"></script>
+<script type="text/javascript" src="https://v4g.kbb1.com/video/js/janus.js"></script>
+<script type="text/javascript" src="https://v4g.kbb1.com/video/js/adapter.js"></script>
+<script type="text/javascript" src="https://v4g.kbb1.com/video/js/client-api.js"></script>
 <script type="text/javascript">
   var bitrateWebRTC = null;
   var is_connectedWebRtc = false;
