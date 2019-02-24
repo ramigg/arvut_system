@@ -21,7 +21,7 @@ class Admin::AdminTasksController < ApplicationController
         # Wrong email -- user doesn't exist
         session[:alert] = 'Wrong email'
       else
-        if user.destroy
+        if user.delete
           session[:notice] = 'Done'
         else
           session[:alert] = 'Unable to remove user'
