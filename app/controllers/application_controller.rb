@@ -28,12 +28,12 @@ class ApplicationController < ActionController::Base
 
   # For any url_for (except devise)
   def default_url_options(options={})
-    { :locale => (params[:locale] || I18n.locale), :protocol => 'https' }
+    { :locale => (params[:locale] || I18n.locale), :protocol => 'http' }
   end
 
   # Devise plugin only
   def self.default_url_options(options={})
-    { :locale => I18n.locale, :secure => true, :protocol => 'https' }
+    { :locale => I18n.locale, :secure => true, :protocol => 'http' }
   end
 
   def check_if_admin

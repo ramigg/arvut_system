@@ -412,6 +412,7 @@ uk:
       desktop: обычная
       email: Е-мейл
       forgot_password: "Забыли пароль?"
+      forgot_password_help: 'По вопросам техподдержки, пожалуйста, пишите: <a href="mailto:internet@kabbalahgroup.info">internet@kabbalahgroup.info</a>'
       mobile: мобильная
       new_password: "Новый пароль (не менее 6 символов)"
       new_user: "Новый пользователь?"
@@ -431,7 +432,7 @@ uk:
       sign_up_now: "Зарегистрироваться сейчас!!!"
       version: Версия
       or: 'или войдите через'
-      email_registration: 'Вы можете также зарегистрироваться через мейл <a href="mailto:absorption.dep.bb@gmail.com">absorption.dep.bb@gmail.com</a>'
+      email_registration: 'Вы можете также зарегистрироваться через мейл <a href="mailto:internet@kabbalahgroup.info">internet@kabbalahgroup.info</a>'
   errors:
     messages:
       already_confirmed: "уже подтвержден"

@@ -80,6 +80,7 @@ ro:
       sign_up: Inregistrare
       sign_up_more: Inregistrare&nbsp;&nbsp;&nbsp;&#9658;
       forgot_password: 'Ati uitat parola?'
+      forgot_password_help: 'For technical support please email us at <a href="mailto:internet@kabbalahgroup.info">internet@kabbalahgroup.info</a>'
       no_confirmation_instructions: 'Nu ati primit instructiunile de confirmare?'
       no_unlock_instructions: 'Nu ati primit instructiunile pentru deblocare?'
       new_password: Parola noua (cel putin 6 caractere)
@@ -92,7 +93,7 @@ ro:
       sign_up_now: Deconectati-va ACUM!!!
       new_user: Utilizator nou?
       cannot_sign_in: Nu puteti sa va logati? Apasati aici pentru ajutor!
-      email_registration: 'Puteti sa va inregistrati si aplicand la <a href="mailto:bb.yg.eu@gmail.com">bb.yg.eu@gmail.com</a>'
+      email_registration: 'Puteti sa va inregistrati si aplicand la <a href="mailto:internet@kabbalahgroup.info">internet@kabbalahgroup.info</a>'
     mails:
       welcome: Bine ati venit
       confirm_through_link: Va rog apasati pe link-ul de mai jos pentru a va confirma contul. Daca apasati pe link si apare ca incorect, va rog sa il copiati si sa il scrieti intr-o noua fereastra a browser-ului dvs.

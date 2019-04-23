@@ -394,6 +394,7 @@ he:
       desktop: קלאסי
       email: אימייל
       forgot_password: "שכחת את הסיסמא, לחץ כאן"
+      forgot_password_help: 'לקבלת תמיכה טכנית אנא שלח לנו דוא"ל ל-<a href="mailto:internet@kabbalahgroup.info">internet@kabbalahgroup.info</a>'
       mobile: נייד
       new_password: "הסיסמא החדשה (לפחות 6 תווים)"
       new_user: "משתמש חדש?"
@@ -413,7 +414,7 @@ he:
       sign_up_now: "הרשם עכשיו!!!"
       version: "צפה ב-"
       or: 'או הכנס עם'
-      email_registration: 'באפשרותך להרשם דרך הכתובת <a href="mailto:israelgroups14@gmail.com">israelgroups14@gmail.com</a>'
+      email_registration: 'באפשרותך להרשם דרך הכתובת <a href="mailto:internet@kabbalahgroup.info">internet@kabbalahgroup.info</a>'
   errors:
     messages:
       already_confirmed: "כבר עבר אישור"

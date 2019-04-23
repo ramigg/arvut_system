@@ -379,6 +379,7 @@ de:
       current_password: "Derzeitiges Passwort (Wir brauchen es, um Deine Änderungen vorzunehmen)"
       email: Email
       forgot_password: "Passwort vergessen?"
+      forgot_password_help: 'For technical support please email us at <a href="mailto:internet@kabbalahgroup.info">internet@kabbalahgroup.info</a>'
       new_password: "Neues Passwort (mindestens 6 Zeichen)"
       new_user: "Neuer User?"
       no_confirmation_instructions: "Anleitung zum Bestätigung nicht erhalten?"
@@ -394,7 +395,7 @@ de:
       sign_up: Anmelden
       sign_up_more: Bestätigen
       sign_up_now: "Melde Dich JETZT an!"
-      email_registration: 'Anmeldung auch möglich durch schreiben an <a href="mailto:bb.yg.eu@gmail.com">bb.yg.eu@gmail.com</a>'
+      email_registration: 'Anmeldung auch möglich durch schreiben an <a href="mailto:internet@kabbalahgroup.info">internet@kabbalahgroup.info</a>'
 
   errors: 
     messages: 

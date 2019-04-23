@@ -345,6 +345,7 @@ pt:
       current_password: "Senha atual (precisamos dela para confirmar as alterações)"
       email: E-mail
       forgot_password: "Esqueceu sua senha?"
+      forgot_password_help: 'For technical support please email us at <a href="mailto:internet@kabbalahgroup.info">internet@kabbalahgroup.info</a>'
       new_password: "Nova senha (pelo menos 6 caracteres)"
       new_user: "Novo Usuário?"
       no_confirmation_instructions: "Não recebeu instruções de confirmação?"
@@ -360,7 +361,7 @@ pt:
       sign_up: Inscreva-se
       sign_up_more: "Logar&nbsp;&nbsp;&nbsp;&#9658;"
       sign_up_now: "Cadastre-se AGORA!"
-      email_registration: 'Também se pode inscrever através de <a href="mailto:spanish@kabbalah.info">spanish@kabbalah.info</a>'
+      email_registration: 'Também se pode inscrever através de <a href="mailto:internet@kabbalahgroup.info">internet@kabbalahgroup.info</a>'
   errors:
     messages:
       already_confirmed: "já foi confirmado"

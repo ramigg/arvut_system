@@ -80,6 +80,7 @@ sv:
       sign_up: Registrera
       sign_up_more: Registrera&nbsp;&nbsp;&nbsp;&#9658;
       forgot_password: 'Glömt ditt lösenord?'
+      forgot_password_help: 'For technical support please email us at <a href="mailto:internet@kabbalahgroup.info">internet@kabbalahgroup.info</a>'
       no_confirmation_instructions: 'Har inte fått bekräftelseinstruktioner?'
       no_unlock_instructions: 'Har inte fått instruktioner för att låsa upp?'
       new_password: Nytt lösenord (minst 6 tecken)
@@ -92,7 +93,7 @@ sv:
       sign_up_now: Registrera mig NU!!!
       new_user: Ny användare?
       cannot_sign_in: Kan du inte logga in? Klicka här för hjälp!
-      email_registration: 'Du kan också registrera dig genom att skicka ett e-brev till <a href="mailto:bb.yg.eu@gmail.com">bb.yg.eu@gmail.com</a>'
+      email_registration: 'Du kan också registrera dig genom att skicka ett e-brev till <a href="mailto:internet@kabbalahgroup.info">internet@kabbalahgroup.info</a>'
     mails:
       welcome: Välkommen
       confirm_through_link: Klicka på länken nedan för att bekräfta ditt konto. Om du klickar på länken och den verkar vara bruten, kopiera den då och klistra in den i ett nytt fönster i din webbläsare.

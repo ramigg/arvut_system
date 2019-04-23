@@ -369,6 +369,7 @@ tr:
       desktop: classic
       email: E-posta
       forgot_password: "Şifreni mi unuttun?"
+      forgot_password_help: 'For technical support please email us at <a href="mailto:internet@kabbalahgroup.info">internet@kabbalahgroup.info</a>'
       mobile: mobile
       new_password: "New password (at least 6 characters)"
       new_user: "Yeni Kullanıcı"
@@ -386,6 +387,7 @@ tr:
       sign_up: "Sign up"
       sign_up_more: "Sign up&nbsp;&nbsp;&nbsp;&#9658;"
       sign_up_now: "Hemen üye olun!"
+      email_registration: 'You can also register applying to <a href="mailto:internet@kabbalahgroup.info">internet@kabbalahgroup.info</a>'
       version: View
   errors:
     messages:

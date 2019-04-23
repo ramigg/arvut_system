@@ -82,6 +82,7 @@
       sign_up: Отписване
       sign_up_more: Отписване&nbsp;&nbsp;&nbsp;&#9658;
       forgot_password: 'Забравена парола?'
+      forgot_password_help: 'For technical support please email us at <a href="mailto:internet@kabbalahgroup.info">internet@kabbalahgroup.info</a>'
       no_confirmation_instructions: 'Не сте получили инструкции по потвърждение? '
       no_unlock_instructions: 'Не сте получили отключени инструкции?'
       new_password: Нова парола (най-малко 6 знака)
@@ -94,7 +95,7 @@
       sign_up_now: Впиши се СЕГА!!!
       new_user: Нов потребител?
       cannot_sign_in: Не можете да се подпишете? Кликнете тук за помощ!
-      email_registration: 'Можете да се регистрирате, като изпратите молба на <a href="mailto:bb.yg.eu@gmail.com">bb.yg.eu@gmail.com</a>'
+      email_registration: 'Можете да се регистрирате, като изпратите молба на <a href="mailto:internet@kabbalahgroup.info">internet@kabbalahgroup.info</a>'
 
     mails:
       welcome: Добре дошли
