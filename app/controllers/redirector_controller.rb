@@ -30,6 +30,6 @@ class RedirectorController < ActionController::Metal
     # Copy flash to session
     env['rack.session']['alert'] = env['rack.session']['flash'][:alert] rescue nil
     env['rack.session']['notice'] = env['rack.session']['flash'][:notice] rescue nil
-    redirect_to("https://#{host}#{PREFIX}#{lang}#{path}#{query}")
+    redirect_to("http://#{host}#{PREFIX}#{lang}#{path}#{query}")
   end
 end

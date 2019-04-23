@@ -80,6 +80,7 @@ pl:
       sign_up: Sign up
       sign_up_more: Sign up&nbsp;&nbsp;&nbsp;&#9658;
       forgot_password: 'Forgot your password?'
+      forgot_password_help: 'For technical support please email us at <a href="mailto:internet@kabbalahgroup.info">internet@kabbalahgroup.info</a>'
       no_confirmation_instructions: 'Did not receive confirmation instructions?'
       no_unlock_instructions: 'Did not receive unlock instructions?'
       new_password: New password (at least 6 characters)
@@ -93,7 +94,7 @@ pl:
       new_user: New User?
       cannot_sign_in: Cannot sign in? Click here for help!
       or: 'or sign in with'
-      email_registration: 'You can also register applying to <a href="mailto:bb.yg.eu@gmail.com">bb.yg.eu@gmail.com</a>'
+      email_registration: 'You can also register applying to <a href="mailto:internet@kabbalahgroup.info">internet@kabbalahgroup.info</a>'
     mails:
       welcome: Welcome
       confirm_through_link: Please click the link below to confirm your account. If you click the link and it appears to be broken, please copy and paste it into a new browser window.
