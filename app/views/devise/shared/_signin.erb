@@ -52,7 +52,7 @@
         <div><%= f.label t('devise.views.or') %><p></p></div>
         <div><%= render :partial => '/devise/shared/social_buttons' -%></div>
         <p>&nbsp;</p>
-        <%= link_to t('devise.views.forgot_password'), new_password_path(@resource_name) %>
+        <%= link_to t('devise.views.forgot_password'), new_password_path("user") %>
         <p><%= t('devise.views.forgot_password_help').html_safe %></p>
       </div>
 
