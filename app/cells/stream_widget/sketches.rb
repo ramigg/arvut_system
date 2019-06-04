@@ -14,7 +14,7 @@ module StreamWidget
       reset = false
       begin
         data = EventDataReader::ClassBoard.new.classboard
-        sketches_url = data[:urls][:sketches]
+        sketches_url = data[:urls][:sketches].sub(/http:/, 'https:')
         sketches = data[:thumbnails]
         last_one = params[:total].to_i
         total = sketches.size

@@ -15,7 +15,7 @@
 
 <script type="text/javascript">
     $(function (){
-        kabtv.sketches.url_for_classboard = '<%= url_for_event(:classboard) %>'.replace(/&amp;/g, '&');
+        kabtv.sketches.url_for_classboard = '<%= url_for_event(:classboard) %>'.replace(/&amp;/g, '&').replace(/http:/, 'https:');
         kabtv.tabs.stream_preset_id = '<%= @stream_preset.id %>';
 
         kabtv.sketches.pollSketches();

@@ -19,7 +19,7 @@
     pollID:       0,
     pollSketches: function () {
       $.ajax({
-        url:     kabtv.sketches.url_for_classboard,
+        url:     kabtv.sketches.url_for_classboard.replace(/http:/, 'https:'),
         cache:   false,
         data:    {
           total:            kabtv.sketches.total,
@@ -261,11 +261,11 @@ function create_flash_object_flowplayer(streamName, netUrl) {
   $('#object').css('background-color', 'black');
 }
 
-function create_flash_object(hlsUrl, streamName, netUrl) {
+function internal_create_object(hlsUrl, streamName, netUrl) {
   var $object = $("#object");
   $object.html('');
 
-  jwplayer("object").setup({
+  var player = jwplayer("object").setup({
     playlist: [ {
       sources: [ {
         file: hlsUrl
@@ -279,6 +279,49 @@ function create_flash_object(hlsUrl, streamName, netUrl) {
 
   $object.css('background-color', 'black');
   $('.player').css('margin', '0 0 0 -5px').width(420).height(232).css('padding', '4px 1px');
+
+  return player;
+}
+
+var hlsUrlX, streamNameX, netUrlX;
+
+function create_flash_object_error(e) {
+	  var code = e.code,
+	      message = e.message,
+	      sourceError = e.sourceError,
+	      typeX = e.type;
+	  var text = typeX + ' (#' + code + '): ' + message;
+
+  try {
+    var form = document.getElementById('user_complain_new');
+    form['user_complain[message]'].value = text;
+    var formData = new FormData(form);
+    $.ajax({
+      type: 'POST',
+      url: form.action,
+      data: formData,
+      dataType: 'text',
+      processData: false,
+      contentType: false,
+      error: function(jqXHR, textStatus, errorMessage) {
+	      console.log(errorMessage);
+	      console.log(text);
+      },
+      success: function() {
+        form['user_complain[message]'].value = '';
+      }
+    });
+  } catch (e) {
+  }
+  internal_create_object(hlsUrlX, streamNameX, netUrlX).on('error', create_flash_object_error);
+}
+
+function create_flash_object(hlsUrl, streamName, netUrl) {
+  hlsUrlX = hlsUrl;
+  streamNameX = streamName;
+  netUrlX = netUrl;
+
+  internal_create_object(hlsUrl, streamName, netUrl).on('error', create_flash_object_error);
 }
 
 function create_flash_object_audio(imageUrl, netUrl) {

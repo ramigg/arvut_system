@@ -3,7 +3,7 @@
          <%- unless @show_tabs -%>style="float: none; margin: 0 auto;"
          <%- end -%> >
       <div id="tightvideo_img" style="display: none; position: absolute; top: -38px; font-size: 10px; <%= @locale == 'he' ? 'left' : 'right' %> : 0;">
-        <%= link_to image_tag('tightvideo.gif', :alt => 'Transcoded by TightVideo'), 'http://www.tightvideo.com/', :title => 'Transcoded by TightVideo', :target => '_blank' %>
+        <%= link_to image_tag('tightvideo.gif', :alt => 'Transcoded by TightVideo'), 'https://www.tightvideo.com/', :title => 'Transcoded by TightVideo', :target => '_blank' %>
       </div>
       <div id="object"><%= I18n.t('kabtv.kabtv.loading') %></div>
       <form action="#" method="get" accept-charset="utf-8"><p><select name="language_id" id="language_id"></select></p>
@@ -43,7 +43,7 @@
                            :target => '_blank', :style => "font-weight: bold; font-size: +1;color: red;" -%></div>
         </div>
     <%- end -%>
-    <%= form_for @user_complain, :as => :user_complain, :url => user_complains_url, :method => :post, :remote => true,
+    <%= form_for @user_complain, :as => :user_complain, :url => user_complains_url(:protocol => 'https'), :method => :post, :remote => true,
                  :html               => { :style => "clear:both;width: 310px;display: block;margin: 50px auto 0;#{!@show_tabs ? 'float: none;' : (@locale == 'he' ? 'float: right; margin: 50px 40px 0 0; width: 325px;' : 'float: left; margin: 50px 0 0 40px; width: 325px;')}" } do |f| -%>
         <h3 style="text-align: inherit;"><%= I18n.t "kabtv.kabtv.describe_problem" %>:</h3>
         <%= f.hidden_field :id %>

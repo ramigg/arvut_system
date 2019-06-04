@@ -16,7 +16,7 @@ module EventDataReader
       begin
         content =
           Timeout::timeout(25){
-          open('http://www.kab.tv/classboard/thumbnails.yml') { |f|
+          open('https://www.kab.tv/classboard/thumbnails.yml') { |f|
             f.read
           }
         }

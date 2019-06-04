@@ -25,7 +25,7 @@ class CopyQuestion < ActiveRecord::Base
   def self.ask_question(question, remote_ip)
     return nil if question[:qquestion].empty?
     lang = Kabtv.map_locale_2_language(I18n.locale)
-    Net::HTTP.post_form(URI.parse("http://kab.tv/ask.php?lang=#{lang}"), {
+    Net::HTTP.post_form(URI.parse("https://kab.tv/ask.php?lang=#{lang}"), {
       'QName' =>  question[:qname],
       'QFrom' =>  question[:qfrom],
       'QQuestion' =>  question[:qquestion],
@@ -40,7 +40,7 @@ class CopyQuestion < ActiveRecord::Base
     remote =
       begin
         Timeout::timeout(25) {
-          open('http://www.kab.tv/vod/question/copy_remote') { |f|
+          open('https://www.kab.tv/vod/question/copy_remote') { |f|
             YAML::load(f)
           }
         }
