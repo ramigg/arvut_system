@@ -29,7 +29,7 @@ class Profiles::RegistrationsController < Devise::RegistrationsController
       end
     else
       user = User.where(email: resource.email).first
-      if user.valid_password?(resource.password)
+      if user && user.valid_password?(resource.password)
         update_user resource, @sn_user, data
 
         if user.save
