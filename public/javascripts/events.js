@@ -293,8 +293,10 @@ function create_flash_object_error(e) {
 	  var text = typeX + ' (#' + code + '): ' + message;
 
   try {
+      $('#user_complain_simulator_breadcrumb').val(simulator_breadcrumb);
     var form = document.getElementById('user_complain_new');
-    form['user_complain[message]'].value = text;
+    $('#user_complain_message').val(text);
+    $('#user_complain_robot').val(1);
     var formData = new FormData(form);
     $.ajax({
       type: 'POST',
@@ -308,7 +310,8 @@ function create_flash_object_error(e) {
 	      console.log(text);
       },
       success: function() {
-        form['user_complain[message]'].value = '';
+        $('#user_complain_message').val('');
+        $('#user_complain_robot').val(0);
       }
     });
   } catch (e) {

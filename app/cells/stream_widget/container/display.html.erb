@@ -57,6 +57,7 @@
         <%= f.hidden_field :technology_id %>
         <%= f.hidden_field :quality_url %>
         <%= f.hidden_field :simulator_breadcrumb %>
+        <%= f.hidden_field :robot %>
         <%= f.text_area :message, :style => 'width: 100%; height: 4em; padding:0;' %>
         <%= f.submit I18n.t('kabtv.admin.submit'), :style => "display:block; float: #{@locale == 'he' ? 'left' : 'right'}", :class => 'button-small-main',
                      :disable_with                        => I18n.t('kabtv.admin.submitting'), :onclick => 'return validate_form();' %>

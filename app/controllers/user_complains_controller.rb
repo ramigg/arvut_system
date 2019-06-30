@@ -1,9 +1,11 @@
 class UserComplainsController < ApplicationController
   def create
     @complain = UserComplain.new(params[:user_complain])
-    #if @complain.save
+    @complain.save rescue nil
+    unless @complain.robot.to_i == 1
       email = Mailer.send_problem_notification @complain, request.remote_ip, @locale
       email.deliver rescue ''
+    end
     #else
       #render :text => "alert('#{I18n.t "kabtv.kabtv.submit_problem"}');", :content_type => Mime::JS
       #return

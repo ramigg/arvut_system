@@ -49,6 +49,7 @@
         <h3 style="text-align: inherit;"><%= I18n.t "kabtv.kabtv.describe_problem" %>:</h3>
         <%= f.hidden_field :id %>
         <%= f.hidden_field :user_id %>
+        <%= f.hidden_field :user_id %>
         <%= f.hidden_field :user_agent %>
         <%= f.hidden_field :platform %>
         <%= f.hidden_field :oscpu %>
@@ -58,6 +59,7 @@
         <%= f.hidden_field :technology_id %>
         <%= f.hidden_field :quality_url %>
         <%= f.hidden_field :simulator_breadcrumb %>
+        <%= f.hidden_field :robot %>
         <%= f.text_area :message, :style => 'width: 100%; height: 4em; padding:0;' %>
         <%= f.submit I18n.t('kabtv.admin.submit'),
                      style:        "display:block; float: #{@locale == 'he' ? 'left' : 'right'}",

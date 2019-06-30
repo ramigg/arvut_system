@@ -5,5 +5,5 @@ class UserComplain < ActiveRecord::Base
   belongs_to :technology
   belongs_to :quality
 
-  attr_accessor :simulator_breadcrumb
+  attr_accessor :simulator_breadcrumb, :robot
 end
