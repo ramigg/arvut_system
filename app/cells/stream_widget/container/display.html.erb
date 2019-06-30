@@ -2,9 +2,6 @@
     <div class="player"
          <%- unless @show_tabs -%>style="float: none; margin: 0 auto;"
          <%- end -%> >
-      <div id="tightvideo_img" style="display: none; position: absolute; top: -38px; font-size: 10px; <%= @locale == 'he' ? 'left' : 'right' %> : 0;">
-        <%= link_to image_tag('tightvideo.gif', :alt => 'Transcoded by TightVideo'), 'https://www.tightvideo.com/', :title => 'Transcoded by TightVideo', :target => '_blank' %>
-      </div>
       <div id="object"><%= I18n.t('kabtv.kabtv.loading') %></div>
       <form action="#" method="get" accept-charset="utf-8"><p><select name="language_id" id="language_id"></select></p>
       </form>
