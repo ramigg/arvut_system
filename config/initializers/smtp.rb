@@ -9,5 +9,10 @@ settings = {
     :domain => sendgrid['domain'],
     :enable_starttls_auto => true
 }
+# settings = {
+    # :address => "smtp.local",
+    # :port => 25,
+    # :enable_starttls_auto => false
+# }
 
 ActionMailer::Base.smtp_settings = settings
